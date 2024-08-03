@@ -252,6 +252,7 @@ defmodule AWS.RolesAnywhere do
   ## Example:
       
       create_profile_request() :: %{
+        optional("acceptRoleSessionName") => [boolean()],
         optional("durationSeconds") => [integer()],
         optional("enabled") => [boolean()],
         optional("managedPolicyArns") => list([String.t()]()),
@@ -310,6 +311,7 @@ defmodule AWS.RolesAnywhere do
   ## Example:
       
       update_profile_request() :: %{
+        optional("acceptRoleSessionName") => [boolean()],
         optional("durationSeconds") => [integer()],
         optional("managedPolicyArns") => list([String.t()]()),
         optional("name") => String.t(),
@@ -360,6 +362,7 @@ defmodule AWS.RolesAnywhere do
   ## Example:
       
       profile_detail() :: %{
+        "acceptRoleSessionName" => [boolean()],
         "attributeMappings" => list(attribute_mapping()()),
         "createdAt" => [non_neg_integer()],
         "createdBy" => [String.t()],

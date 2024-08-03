@@ -1044,7 +1044,7 @@ defmodule AWS.LexRuntimeV2 do
   * `:request_content_type` (`t:string`) Indicates the format for audio input or
   that the content is text. The header must start with one of the following
   prefixes:
-  * `:input` (`t:map | nil`):
+  * `:input` (`t:map`):
     * `:input_stream` (`t:blob`) User input in PCM or Opus audio format or text
   format as described in the requestContentType parameter.
 
@@ -1067,7 +1067,7 @@ defmodule AWS.LexRuntimeV2 do
           String.t(),
           String.t(),
           String.t(),
-          input :: map() | nil,
+          input :: map(),
           Keyword.t()
         ) ::
           {:ok, recognize_utterance_response(), any()}
@@ -1084,7 +1084,7 @@ defmodule AWS.LexRuntimeV2 do
         input,
         options \\ []
       )
-      when (is_map(input) or is_nil(input)) and is_binary(request_content_type) do
+      when is_map(input) and is_binary(request_content_type) do
     url_path =
       "/bots/#{AWS.Util.encode_uri(bot_id)}/botAliases/#{AWS.Util.encode_uri(bot_alias_id)}/botLocales/#{AWS.Util.encode_uri(locale_id)}/sessions/#{AWS.Util.encode_uri(session_id)}/utterance"
 

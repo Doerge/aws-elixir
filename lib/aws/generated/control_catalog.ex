@@ -83,6 +83,19 @@ defmodule AWS.ControlCatalog do
 
   ## Example:
       
+      control_summary() :: %{
+        "Arn" => String.t(),
+        "Description" => [String.t()],
+        "Name" => [String.t()]
+      }
+      
+  """
+  @type control_summary() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       domain_resource_filter() :: %{
         "Arn" => String.t()
       }
@@ -104,6 +117,32 @@ defmodule AWS.ControlCatalog do
       
   """
   @type domain_summary() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_control_request() :: %{
+        required("ControlArn") => String.t()
+      }
+      
+  """
+  @type get_control_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_control_response() :: %{
+        "Arn" => String.t(),
+        "Behavior" => list(any()),
+        "Description" => [String.t()],
+        "Name" => [String.t()],
+        "RegionConfiguration" => region_configuration()
+      }
+      
+  """
+  @type get_control_response() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -140,6 +179,30 @@ defmodule AWS.ControlCatalog do
       
   """
   @type list_common_controls_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_controls_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t()
+      }
+      
+  """
+  @type list_controls_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_controls_response() :: %{
+        "Controls" => list(control_summary()()),
+        "NextToken" => String.t()
+      }
+      
+  """
+  @type list_controls_response() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -232,6 +295,29 @@ defmodule AWS.ControlCatalog do
 
   ## Example:
       
+      region_configuration() :: %{
+        "DeployableRegions" => list(String.t()()),
+        "Scope" => list(any())
+      }
+      
+  """
+  @type region_configuration() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      resource_not_found_exception() :: %{
+        "Message" => [String.t()]
+      }
+      
+  """
+  @type resource_not_found_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       throttling_exception() :: %{
         "Message" => [String.t()]
       }
@@ -250,7 +336,20 @@ defmodule AWS.ControlCatalog do
   """
   @type validation_exception() :: %{String.t() => any()}
 
+  @type get_control_errors() ::
+          validation_exception()
+          | throttling_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
+
   @type list_common_controls_errors() ::
+          validation_exception()
+          | throttling_exception()
+          | internal_server_exception()
+          | access_denied_exception()
+
+  @type list_controls_errors() ::
           validation_exception()
           | throttling_exception()
           | internal_server_exception()
@@ -285,6 +384,54 @@ defmodule AWS.ControlCatalog do
   end
 
   @doc """
+  Returns details about a specific control, most notably a list of Amazon Web
+  Services Regions where this control is supported. Input a value for the
+  *ControlArn* parameter, in ARN form. `GetControl` accepts *controltower* or
+  *controlcatalog* control ARNs as input. Returns a *controlcatalog* ARN format.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=controlcatalog%20GetControl&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
+  """
+
+  @spec get_control(AWS.Client.t(), Keyword.t()) ::
+          {:ok, get_control_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, get_control_errors()}
+
+  def get_control(%Client{} = client, options \\ []) do
+    url_path = "/get-control"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
+    headers = []
+
+    # Optional headers
+
+    # Required query params
+    query_params = []
+
+    # Optional query params
+
+    meta =
+      metadata()
+
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
+  end
+
+  @doc """
   Returns a paginated list of common controls from the Amazon Web Services Control
   Catalog.
 
@@ -306,6 +453,76 @@ defmodule AWS.ControlCatalog do
 
   def list_common_controls(%Client{} = client, options \\ []) do
     url_path = "/common-controls"
+
+    # Validate optional parameters
+    optional_params = [max_results: nil, next_token: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
+    headers = []
+
+    # Optional headers
+
+    # Required query params
+    query_params = []
+
+    # Optional query params
+    query_params =
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"nextToken", opt_val} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"maxResults", opt_val} | query_params]
+      else
+        query_params
+      end
+
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:max_results, :next_token])
+
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
+  end
+
+  @doc """
+  Returns a paginated list of all available controls in the Amazon Web Services
+  Control Catalog library. Allows you to discover available controls. The list
+  of controls is given as structures of type *controlSummary*. The ARN is
+  returned in the global *controlcatalog* format, as shown in the examples.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=controlcatalog%20ListControls&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
+  * `:max_results` (`t:integer`) The maximum number of results on a page or for an
+  API request call.
+  * `:next_token` (`t:string`) The pagination token that's used to fetch the next
+  set of results.
+  """
+
+  @spec list_controls(AWS.Client.t(), Keyword.t()) ::
+          {:ok, list_controls_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, list_controls_errors()}
+
+  def list_controls(%Client{} = client, options \\ []) do
+    url_path = "/list-controls"
 
     # Validate optional parameters
     optional_params = [max_results: nil, next_token: nil]

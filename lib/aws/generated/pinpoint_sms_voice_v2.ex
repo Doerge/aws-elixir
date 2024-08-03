@@ -3,15 +3,15 @@
 
 defmodule AWS.PinpointSMSVoiceV2 do
   @moduledoc """
-  Welcome to the *Amazon Pinpoint SMS and Voice, version 2 API Reference*. This
-  guide provides information about Amazon Pinpoint SMS and Voice, version 2 API
-  resources, including supported HTTP methods, parameters, and schemas. Amazon
-  Pinpoint is an Amazon Web Services service that you can use to engage with
-  your recipients across multiple messaging channels. The Amazon Pinpoint SMS
-  and Voice, version 2 API provides programmatic access to options that are
-  unique to the SMS and voice channels. Amazon Pinpoint SMS and Voice, version 2
-  resources such as phone numbers, sender IDs, and opt-out lists can be used by
-  the Amazon Pinpoint API.
+  Welcome to the *AWS End User Messaging SMS and Voice, version 2 API Reference*.
+  This guide provides information about AWS End User Messaging SMS and Voice,
+  version 2 API resources, including supported HTTP methods, parameters, and
+  schemas. Amazon Pinpoint is an Amazon Web Services service that you can use to
+  engage with your recipients across multiple messaging channels. The AWS End
+  User Messaging SMS and Voice, version 2 API provides programmatic access to
+  options that are unique to the SMS and voice channels. AWS End User Messaging
+  SMS and Voice, version 2 resources such as phone numbers, sender IDs, and
+  opt-out lists can be used by the Amazon Pinpoint API.
   """
 
   alias AWS.Client
@@ -3815,10 +3815,10 @@ defmodule AWS.PinpointSMSVoiceV2 do
   @doc """
   Creates a new event destination in a configuration set. An event destination is
   a location where you send message events. The event options are Amazon
-  CloudWatch, Amazon Kinesis Data Firehose, or Amazon SNS. For example, when a
-  message is delivered successfully, you can send information about that event
-  to an event destination, or send notifications to endpoints that are
-  subscribed to an Amazon SNS topic.
+  CloudWatch, Amazon Data Firehose, or Amazon SNS. For example, when a message
+  is delivered successfully, you can send information about that event to an
+  event destination, or send notifications to endpoints that are subscribed to
+  an Amazon SNS topic.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=pinpointsmsvoicev2%20CreateEventDestination&this_doc_guide=API%2520Reference)
 
@@ -4203,8 +4203,8 @@ defmodule AWS.PinpointSMSVoiceV2 do
   is a word that you can search for on a particular phone number or pool. It is
   also a specific word or phrase that an end user can send to your number to
   elicit a response, such as an informational message or a special offer. When
-  your number receives a message that begins with a keyword, Amazon Pinpoint
-  responds with a customizable message.
+  your number receives a message that begins with a keyword, AWS End User
+  Messaging SMS and Voice responds with a customizable message.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=pinpointsmsvoicev2%20DeleteKeyword&this_doc_guide=API%2520Reference)
 
@@ -4441,9 +4441,9 @@ defmodule AWS.PinpointSMSVoiceV2 do
   Deletes an account-level monthly spending limit override for sending text
   messages. Deleting a spend limit override will set the `EnforcedLimit` to
   equal the `MaxLimit`, which is controlled by Amazon Web Services. For more
-  information on spend limits (quotas) see [Amazon Pinpoint quotas
-  ](https://docs.aws.amazon.com/pinpoint/latest/developerguide/quotas.html) in
-  the *Amazon Pinpoint Developer Guide*.
+  information on spend limits (quotas) see [Quotas
+  ](https://docs.aws.amazon.com/sms-voice/latest/userguide/quotas.html) in the
+  *AWS End User Messaging SMS User Guide*.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=pinpointsmsvoicev2%20DeleteTextMessageSpendLimitOverride&this_doc_guide=API%2520Reference)
 
@@ -4496,9 +4496,9 @@ defmodule AWS.PinpointSMSVoiceV2 do
   Deletes an account level monthly spend limit override for sending voice
   messages. Deleting a spend limit override sets the `EnforcedLimit` equal to
   the `MaxLimit`, which is controlled by Amazon Web Services. For more
-  information on spending limits (quotas) see [Amazon Pinpoint
-  quotas](https://docs.aws.amazon.com/pinpoint/latest/developerguide/quotas.html)
-  in the *Amazon Pinpoint Developer Guide*.
+  information on spending limits (quotas) see [Quotas
+  ](https://docs.aws.amazon.com/sms-voice/latest/userguide/quotas.html) in the
+  *AWS End User Messaging SMS User Guide*.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=pinpointsmsvoicev2%20DeleteVoiceMessageSpendLimitOverride&this_doc_guide=API%2520Reference)
 
@@ -4552,9 +4552,9 @@ defmodule AWS.PinpointSMSVoiceV2 do
   end
 
   @doc """
-  Describes the current Amazon Pinpoint SMS Voice V2 resource quotas for your
-  account. The description for a quota includes the quota name, current usage
-  toward that quota, and the quota's maximum value.
+  Describes the current AWS End User Messaging SMS and Voice SMS Voice V2 resource
+  quotas for your account. The description for a quota includes the quota name,
+  current usage toward that quota, and the quota's maximum value.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=pinpointsmsvoicev2%20DescribeAccountLimits&this_doc_guide=API%2520Reference)
 
@@ -4616,7 +4616,8 @@ defmodule AWS.PinpointSMSVoiceV2 do
   phone number or pool. It is also a specific word or phrase that an end user
   can send to your number to elicit a response, such as an informational message
   or a special offer. When your number receives a message that begins with a
-  keyword, Amazon Pinpoint responds with a customizable message.
+  keyword, AWS End User Messaging SMS and Voice responds with a customizable
+  message.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=pinpointsmsvoicev2%20DescribeKeywords&this_doc_guide=API%2520Reference)
 
@@ -5038,8 +5039,7 @@ defmodule AWS.PinpointSMSVoiceV2 do
   end
 
   @doc """
-  Describes the current Amazon Pinpoint monthly spend limits for sending voice and
-  text messages.
+  Describes the current monthly spend limits for sending voice and text messages.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=pinpointsmsvoicev2%20DescribeSpendLimits&this_doc_guide=API%2520Reference)
 
@@ -5284,7 +5284,7 @@ defmodule AWS.PinpointSMSVoiceV2 do
   or pool. It is also a specific word or phrase that an end user can send to
   your number to elicit a response, such as an informational message or a
   special offer. When your number receives a message that begins with a keyword,
-  Amazon Pinpoint responds with a customizable message.
+  AWS End User Messaging SMS and Voice responds with a customizable message.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=pinpointsmsvoicev2%20PutKeyword&this_doc_guide=API%2520Reference)
 
@@ -5415,9 +5415,9 @@ defmodule AWS.PinpointSMSVoiceV2 do
 
   @doc """
   Request an origination phone number for use in your account. For more
-  information on phone number request see [ Requesting a number
-  ](https://docs.aws.amazon.com/pinpoint/latest/userguide/settings-sms-request-number.html)
-  in the *Amazon Pinpoint User Guide*.
+  information on phone number request see [Request a phone
+  number](https://docs.aws.amazon.com/sms-voice/latest/userguide/phone-numbers-request.html)
+  in the *AWS End User Messaging SMS User Guide*.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=pinpointsmsvoicev2%20RequestPhoneNumber&this_doc_guide=API%2520Reference)
 
@@ -5549,6 +5549,8 @@ defmodule AWS.PinpointSMSVoiceV2 do
 
   @doc """
   Creates a new text message and sends it to a recipient's phone number.
+  SendTextMessage only sends an SMS message to one recipient each time it is
+  invoked.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=pinpointsmsvoicev2%20SendTextMessage&this_doc_guide=API%2520Reference)
 
@@ -5583,9 +5585,9 @@ defmodule AWS.PinpointSMSVoiceV2 do
   end
 
   @doc """
-  Allows you to send a request that sends a voice message through Amazon Pinpoint.
-  This operation uses [Amazon Polly](http://aws.amazon.com/polly/) to convert a
-  text script into a voice message.
+  Allows you to send a request that sends a voice message. This operation uses
+  [Amazon Polly](http://aws.amazon.com/polly/) to convert a text script into a
+  voice message.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=pinpointsmsvoicev2%20SendVoiceMessage&this_doc_guide=API%2520Reference)
 
@@ -5801,13 +5803,13 @@ defmodule AWS.PinpointSMSVoiceV2 do
   end
 
   @doc """
-  Adds or overwrites only the specified tags for the specified Amazon Pinpoint SMS
-  Voice, version 2 resource. When you specify an existing tag key, the value is
-  overwritten with the new value. Each resource can have a maximum of 50 tags.
-  Each tag consists of a key and an optional value. Tag keys must be unique per
-  resource. For more information about tags, see [ Tagging Amazon Pinpoint
-  resources](https://docs.aws.amazon.com/pinpoint/latest/developerguide/tagging-resources.html)
-  in the *Amazon Pinpoint Developer Guide*.
+  Adds or overwrites only the specified tags for the specified resource. When you
+  specify an existing tag key, the value is overwritten with the new value. Each
+  resource can have a maximum of 50 tags. Each tag consists of a key and an
+  optional value. Tag keys must be unique per resource. For more information
+  about tags, see [Tags
+  ](https://docs.aws.amazon.com/sms-voice/latest/userguide/phone-numbers-tags.html)
+  in the *AWS End User Messaging SMS User Guide*.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=pinpointsmsvoicev2%20TagResource&this_doc_guide=API%2520Reference)
 
@@ -5832,10 +5834,10 @@ defmodule AWS.PinpointSMSVoiceV2 do
   end
 
   @doc """
-  Removes the association of the specified tags from an Amazon Pinpoint SMS Voice
-  V2 resource. For more information on tags see [ Tagging Amazon Pinpoint
-  resources](https://docs.aws.amazon.com/pinpoint/latest/developerguide/tagging-resources.html)
-  in the *Amazon Pinpoint Developer Guide*.
+  Removes the association of the specified tags from a resource. For more
+  information on tags see [Tags
+  ](https://docs.aws.amazon.com/sms-voice/latest/userguide/phone-numbers-tags.html)
+  in the *AWS End User Messaging SMS User Guide*.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=pinpointsmsvoicev2%20UntagResource&this_doc_guide=API%2520Reference)
 
@@ -5861,8 +5863,8 @@ defmodule AWS.PinpointSMSVoiceV2 do
 
   @doc """
   Updates an existing event destination in a configuration set. You can update the
-  IAM role ARN for CloudWatch Logs and Kinesis Data Firehose. You can also
-  enable or disable the event destination.
+  IAM role ARN for CloudWatch Logs and Firehose. You can also enable or disable
+  the event destination.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=pinpointsmsvoicev2%20UpdateEventDestination&this_doc_guide=API%2520Reference)
 

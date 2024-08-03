@@ -12925,7 +12925,7 @@ defmodule AWS.S3 do
   ## Parameters:
   * `:bucket` (`t:string`) The bucket name to which the PUT action was initiated.
   * `:key` (`t:string`) Object key for which the PUT action was initiated.
-  * `:input` (`t:binary | nil`)
+  * `:input` (`t:binary`)
 
 
   ## Optional parameters:
@@ -13058,12 +13058,11 @@ defmodule AWS.S3 do
   User Guide.
   """
 
-  @spec put_object(AWS.Client.t(), String.t(), String.t(), input :: binary() | nil, Keyword.t()) ::
+  @spec put_object(AWS.Client.t(), String.t(), String.t(), input :: binary(), Keyword.t()) ::
           {:ok, put_object_output(), any()}
           | {:error, {:unexpected_response, any()}}
 
-  def put_object(%Client{} = client, bucket, key, input, options \\ [])
-      when is_binary(input) or is_nil(input) do
+  def put_object(%Client{} = client, bucket, key, input, options \\ []) when is_binary(input) do
     url_path =
       "/#{AWS.Util.encode_uri(bucket)}/#{AWS.Util.encode_multi_segment_uri(key)}?x-id=PutObject"
 
@@ -14571,7 +14570,7 @@ defmodule AWS.S3 do
   positive integer between 1 and 10,000.
   * `:upload_id` (`t:string`) Upload ID identifying the multipart upload whose
   part is being uploaded.
-  * `:input` (`t:binary | nil`)
+  * `:input` (`t:binary`)
 
 
   ## Optional parameters:
@@ -14632,15 +14631,14 @@ defmodule AWS.S3 do
           String.t(),
           String.t(),
           String.t(),
-          input :: binary() | nil,
+          input :: binary(),
           Keyword.t()
         ) ::
           {:ok, upload_part_output(), any()}
           | {:error, {:unexpected_response, any()}}
 
   def upload_part(%Client{} = client, bucket, key, part_number, upload_id, input, options \\ [])
-      when (is_binary(input) or is_nil(input)) and is_integer(part_number) and
-             is_binary(upload_id) do
+      when is_binary(input) and is_integer(part_number) and is_binary(upload_id) do
     url_path =
       "/#{AWS.Util.encode_uri(bucket)}/#{AWS.Util.encode_multi_segment_uri(key)}?x-id=UploadPart"
 
@@ -15138,7 +15136,7 @@ defmodule AWS.S3 do
   * `:request_token` (`t:string`) A single use encrypted token that maps
   WriteGetObjectResponse to the end user GetObject request.
   * `:request_route` (`t:string`) Route prefix to the HTTP URL generated.
-  * `:input` (`t:binary | nil`)
+  * `:input` (`t:binary`)
 
 
   ## Optional parameters:
@@ -15261,7 +15259,7 @@ defmodule AWS.S3 do
           AWS.Client.t(),
           String.t(),
           String.t(),
-          input :: binary() | nil,
+          input :: binary(),
           Keyword.t()
         ) ::
           {:ok, nil, any()}
@@ -15274,8 +15272,7 @@ defmodule AWS.S3 do
         input,
         options \\ []
       )
-      when (is_binary(input) or is_nil(input)) and is_binary(request_token) and
-             is_binary(request_route) do
+      when is_binary(input) and is_binary(request_token) and is_binary(request_route) do
     url_path = "/WriteGetObjectResponse"
 
     # Validate optional parameters

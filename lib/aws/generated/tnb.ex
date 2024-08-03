@@ -120,7 +120,8 @@ defmodule AWS.Tnb do
       
       list_sol_network_operations_input() :: %{
         optional("maxResults") => [integer()],
-        optional("nextToken") => String.t()
+        optional("nextToken") => String.t(),
+        optional("nsInstanceId") => String.t()
       }
       
   """
@@ -312,7 +313,7 @@ defmodule AWS.Tnb do
       
       validate_sol_network_package_content_input() :: %{
         optional("contentType") => list(any()),
-        required("file") => [binary()]
+        required("file") => binary()
       }
       
   """
@@ -324,7 +325,7 @@ defmodule AWS.Tnb do
       
       put_sol_network_package_content_input() :: %{
         optional("contentType") => list(any()),
-        required("file") => [binary()]
+        required("file") => binary()
       }
       
   """
@@ -341,7 +342,8 @@ defmodule AWS.Tnb do
         "lcmOperationType" => list(any()),
         "metadata" => list_sol_network_operations_metadata(),
         "nsInstanceId" => String.t(),
-        "operationState" => list(any())
+        "operationState" => list(any()),
+        "updateType" => list(any())
       }
       
   """
@@ -407,6 +409,18 @@ defmodule AWS.Tnb do
 
   ## Example:
       
+      update_ns_metadata() :: %{
+        "additionalParamsForNs" => [any()],
+        "nsdInfoId" => String.t()
+      }
+      
+  """
+  @type update_ns_metadata() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       put_sol_network_package_content_output() :: %{
         "arn" => String.t(),
         "id" => String.t(),
@@ -460,7 +474,9 @@ defmodule AWS.Tnb do
       
       list_sol_network_operations_metadata() :: %{
         "createdAt" => [non_neg_integer()],
-        "lastModified" => [non_neg_integer()]
+        "lastModified" => [non_neg_integer()],
+        "nsdInfoId" => String.t(),
+        "vnfInstanceId" => String.t()
       }
       
   """
@@ -535,7 +551,7 @@ defmodule AWS.Tnb do
       
       put_sol_function_package_content_input() :: %{
         optional("contentType") => list(any()),
-        required("file") => [binary()]
+        required("file") => binary()
       }
       
   """
@@ -618,6 +634,18 @@ defmodule AWS.Tnb do
 
   ## Example:
       
+      update_sol_network_service_data() :: %{
+        "additionalParamsForNs" => [any()],
+        "nsdInfoId" => String.t()
+      }
+      
+  """
+  @type update_sol_network_service_data() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       list_sol_network_instance_metadata() :: %{
         "createdAt" => [non_neg_integer()],
         "lastModified" => [non_neg_integer()]
@@ -654,6 +682,18 @@ defmodule AWS.Tnb do
       
   """
   @type tag_resource_output() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      modify_vnf_info_metadata() :: %{
+        "vnfConfigurableProperties" => [any()],
+        "vnfInstanceId" => String.t()
+      }
+      
+  """
+  @type modify_vnf_info_metadata() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -889,6 +929,7 @@ defmodule AWS.Tnb do
       update_sol_network_instance_input() :: %{
         optional("modifyVnfInfoData") => update_sol_network_modify(),
         optional("tags") => map(),
+        optional("updateNs") => update_sol_network_service_data(),
         required("updateType") => list(any())
       }
       
@@ -936,7 +977,10 @@ defmodule AWS.Tnb do
       
       get_sol_network_operation_metadata() :: %{
         "createdAt" => [non_neg_integer()],
-        "lastModified" => [non_neg_integer()]
+        "instantiateMetadata" => instantiate_metadata(),
+        "lastModified" => [non_neg_integer()],
+        "modifyVnfInfoMetadata" => modify_vnf_info_metadata(),
+        "updateNsMetadata" => update_ns_metadata()
       }
       
   """
@@ -996,6 +1040,18 @@ defmodule AWS.Tnb do
       
   """
   @type get_sol_network_instance_input() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      instantiate_metadata() :: %{
+        "additionalParamsForNs" => [any()],
+        "nsdInfoId" => String.t()
+      }
+      
+  """
+  @type instantiate_metadata() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -1078,7 +1134,7 @@ defmodule AWS.Tnb do
       
       validate_sol_function_package_content_input() :: %{
         optional("contentType") => list(any()),
-        required("file") => [binary()]
+        required("file") => binary()
       }
       
   """
@@ -1148,7 +1204,8 @@ defmodule AWS.Tnb do
         "nsInstanceId" => String.t(),
         "operationState" => list(any()),
         "tags" => map(),
-        "tasks" => list(get_sol_network_operation_task_details()())
+        "tasks" => list(get_sol_network_operation_task_details()()),
+        "updateType" => list(any())
       }
       
   """
@@ -1866,7 +1923,7 @@ defmodule AWS.Tnb do
   end
 
   @doc """
-  Gets the details of a network function instance, including the instantation
+  Gets the details of a network function instance, including the instantiation
   state and metadata from the function package descriptor in the network
   function package.
 
@@ -2571,6 +2628,8 @@ defmodule AWS.Tnb do
   * `:max_results` (`t:string`) The maximum number of results to include in the
   response.
   * `:next_token` (`t:string`) The token for the next page of results.
+  * `:ns_instance_id` (`t:string`) Network instance id filter, to retrieve network
+  operations associated to a network instance.
   """
 
   @spec list_sol_network_operations(AWS.Client.t(), Keyword.t()) ::
@@ -2582,7 +2641,7 @@ defmodule AWS.Tnb do
     url_path = "/sol/nslcm/v1/ns_lcm_op_occs"
 
     # Validate optional parameters
-    optional_params = [max_results: nil, next_token: nil]
+    optional_params = [max_results: nil, next_token: nil, ns_instance_id: nil]
 
     options =
       Keyword.validate!(
@@ -2599,6 +2658,13 @@ defmodule AWS.Tnb do
     query_params = []
 
     # Optional query params
+    query_params =
+      if opt_val = Keyword.get(options, :ns_instance_id) do
+        [{"nsInstanceId", opt_val} | query_params]
+      else
+        query_params
+      end
+
     query_params =
       if opt_val = Keyword.get(options, :next_token) do
         [{"nextpage_opaque_marker", opt_val} | query_params]
@@ -2619,7 +2685,7 @@ defmodule AWS.Tnb do
     # Drop optionals that have been moved to query/header-params
     options =
       options
-      |> Keyword.drop([:max_results, :next_token])
+      |> Keyword.drop([:max_results, :next_token, :ns_instance_id])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
@@ -2740,7 +2806,7 @@ defmodule AWS.Tnb do
   ## Parameters:
   * `:vnf_pkg_id` (`t:string`) Function package ID.
   * `:input` (`t:map`):
-    * `:file` (`t:string`) Function package file.
+    * `:file` (`t:blob`) Function package file.
 
   ## Optional parameters:
   * `:content_type` (`t:enum["APPLICATION_ZIP"]`) Function package content type.
@@ -2801,7 +2867,7 @@ defmodule AWS.Tnb do
   ## Parameters:
   * `:nsd_info_id` (`t:string`) Network service descriptor info ID.
   * `:input` (`t:map`):
-    * `:file` (`t:string`) Network package file.
+    * `:file` (`t:blob`) Network package file.
 
   ## Optional parameters:
   * `:content_type` (`t:enum["APPLICATION_ZIP"]`) Network package content type.
@@ -3063,7 +3129,9 @@ defmodule AWS.Tnb do
   end
 
   @doc """
-  Update a network instance.
+  Update a network instance. A network instance is a single network created in
+  Amazon Web Services TNB that can be deployed and on which life-cycle
+  operations (like terminate, update, and delete) can be performed.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=tnb%20UpdateSolNetworkInstance&this_doc_guide=API%2520Reference)
 
@@ -3178,7 +3246,7 @@ defmodule AWS.Tnb do
   ## Parameters:
   * `:vnf_pkg_id` (`t:string`) Function package ID.
   * `:input` (`t:map`):
-    * `:file` (`t:string`) Function package file.
+    * `:file` (`t:blob`) Function package file.
 
   ## Optional parameters:
   * `:content_type` (`t:enum["APPLICATION_ZIP"]`) Function package content type.
@@ -3247,7 +3315,7 @@ defmodule AWS.Tnb do
   ## Parameters:
   * `:nsd_info_id` (`t:string`) Network service descriptor file.
   * `:input` (`t:map`):
-    * `:file` (`t:string`) Network package file.
+    * `:file` (`t:blob`) Network package file.
 
   ## Optional parameters:
   * `:content_type` (`t:enum["APPLICATION_ZIP"]`) Network package content type.

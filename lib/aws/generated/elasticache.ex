@@ -4533,7 +4533,7 @@ defmodule AWS.ElastiCache do
 
   @doc """
   Creates a copy of an existing serverless cache’s snapshot. Available for Redis
-  only.
+  OSS and Serverless Memcached only.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=elasticache%20CopyServerlessCacheSnapshot&this_doc_guide=API%2520Reference)
 
@@ -4561,7 +4561,8 @@ defmodule AWS.ElastiCache do
   end
 
   @doc """
-  Makes a copy of an existing snapshot. This operation is valid for Redis only.
+  Makes a copy of an existing snapshot. This operation is valid for Redis OSS
+  only.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=elasticache%20CopySnapshot&this_doc_guide=API%2520Reference)
 
@@ -4590,7 +4591,7 @@ defmodule AWS.ElastiCache do
 
   @doc """
   Creates a cluster. All nodes in the cluster run the same protocol-compliant
-  cache engine software, either Memcached or Redis.
+  cache engine software, either Memcached or Redis OSS.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=elasticache%20CreateCacheCluster&this_doc_guide=API%2520Reference)
 
@@ -4730,9 +4731,9 @@ defmodule AWS.ElastiCache do
   end
 
   @doc """
-  Global Datastore for Redis offers fully managed, fast, reliable and secure
-  cross-region replication. Using Global Datastore for Redis, you can create
-  cross-region read replica clusters for ElastiCache for Redis to enable
+  Global Datastore for Redis OSS offers fully managed, fast, reliable and secure
+  cross-region replication. Using Global Datastore for Redis OSS, you can create
+  cross-region read replica clusters for ElastiCache (Redis OSS) to enable
   low-latency reads and disaster recovery across regions. For more information,
   see [Replication Across Regions Using Global
   Datastore](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Redis-Global-Datastore.html).
@@ -4762,10 +4763,10 @@ defmodule AWS.ElastiCache do
   end
 
   @doc """
-  Creates a Redis (cluster mode disabled) or a Redis (cluster mode enabled)
-  replication group. This API can be used to create a standalone regional
-  replication group or a secondary replication group associated with a Global
-  datastore.
+  Creates a Redis OSS (cluster mode disabled) or a Redis OSS (cluster mode
+  enabled) replication group. This API can be used to create a standalone
+  regional replication group or a secondary replication group associated with a
+  Global datastore.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=elasticache%20CreateReplicationGroup&this_doc_guide=API%2520Reference)
 
@@ -4864,7 +4865,7 @@ defmodule AWS.ElastiCache do
 
   @doc """
   This API creates a copy of an entire ServerlessCache at a specific moment in
-  time. Available for Redis only.
+  time. Available for Redis OSS and Serverless Memcached only.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=elasticache%20CreateServerlessCacheSnapshot&this_doc_guide=API%2520Reference)
 
@@ -4921,7 +4922,7 @@ defmodule AWS.ElastiCache do
   end
 
   @doc """
-  For Redis engine version 6.0 onwards: Creates a Redis user. For more
+  For Redis OSS engine version 6.0 onwards: Creates a Redis OSS user. For more
   information, see [Using Role Based Access Control
   (RBAC)](http://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Clusters.RBAC.html).
 
@@ -4954,8 +4955,8 @@ defmodule AWS.ElastiCache do
   end
 
   @doc """
-  For Redis engine version 6.0 onwards: Creates a Redis user group. For more
-  information, see [Using Role Based Access Control
+  For Redis OSS engine version 6.0 onwards: Creates a Redis OSS user group. For
+  more information, see [Using Role Based Access Control
   (RBAC)](http://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Clusters.RBAC.html)
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=elasticache%20CreateUserGroup&this_doc_guide=API%2520Reference)
@@ -5022,10 +5023,10 @@ defmodule AWS.ElastiCache do
   end
 
   @doc """
-  Dynamically decreases the number of replicas in a Redis (cluster mode disabled)
-  replication group or the number of replica nodes in one or more node groups
-  (shards) of a Redis (cluster mode enabled) replication group. This operation
-  is performed with no cluster down time.
+  Dynamically decreases the number of replicas in a Redis OSS (cluster mode
+  disabled) replication group or the number of replica nodes in one or more node
+  groups (shards) of a Redis OSS (cluster mode enabled) replication group. This
+  operation is performed with no cluster down time.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=elasticache%20DecreaseReplicaCount&this_doc_guide=API%2520Reference)
 
@@ -5239,7 +5240,8 @@ defmodule AWS.ElastiCache do
   end
 
   @doc """
-  Deletes an existing serverless cache snapshot. Available for Redis only.
+  Deletes an existing serverless cache snapshot. Available for Redis OSS and
+  Serverless Memcached only.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=elasticache%20DeleteServerlessCacheSnapshot&this_doc_guide=API%2520Reference)
 
@@ -5290,9 +5292,9 @@ defmodule AWS.ElastiCache do
   end
 
   @doc """
-  For Redis engine version 6.0 onwards: Deletes a user. The user will be removed
-  from all user groups and in turn removed from all replication groups. For more
-  information, see [Using Role Based Access Control
+  For Redis OSS engine version 6.0 onwards: Deletes a user. The user will be
+  removed from all user groups and in turn removed from all replication groups.
+  For more information, see [Using Role Based Access Control
   (RBAC)](http://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Clusters.RBAC.html).
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=elasticache%20DeleteUser&this_doc_guide=API%2520Reference)
@@ -5317,9 +5319,9 @@ defmodule AWS.ElastiCache do
   end
 
   @doc """
-  For Redis engine version 6.0 onwards: Deletes a user group. The user group must
-  first be disassociated from the replication group before it can be deleted.
-  For more information, see [Using Role Based Access Control
+  For Redis OSS engine version 6.0 onwards: Deletes a user group. The user group
+  must first be disassociated from the replication group before it can be
+  deleted. For more information, see [Using Role Based Access Control
   (RBAC)](http://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Clusters.RBAC.html).
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=elasticache%20DeleteUserGroup&this_doc_guide=API%2520Reference)
@@ -5703,7 +5705,8 @@ defmodule AWS.ElastiCache do
   Returns information about serverless cache snapshots. By default, this API lists
   all of the customer’s serverless cache snapshots. It can also describe a
   single serverless cache snapshot, or the snapshots associated with a
-  particular serverless cache. Available for Redis only.
+  particular serverless cache. Available for Redis OSS and Serverless Memcached
+  only.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=elasticache%20DescribeServerlessCacheSnapshots&this_doc_guide=API%2520Reference)
 
@@ -5937,7 +5940,7 @@ defmodule AWS.ElastiCache do
 
   @doc """
   Provides the functionality to export the serverless cache snapshot data to
-  Amazon S3. Available for Redis only.
+  Amazon S3. Available for Redis OSS only.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=elasticache%20ExportServerlessCacheSnapshot&this_doc_guide=API%2520Reference)
 
@@ -6029,10 +6032,10 @@ defmodule AWS.ElastiCache do
   end
 
   @doc """
-  Dynamically increases the number of replicas in a Redis (cluster mode disabled)
-  replication group or the number of replica nodes in one or more node groups
-  (shards) of a Redis (cluster mode enabled) replication group. This operation
-  is performed with no cluster down time.
+  Dynamically increases the number of replicas in a Redis OSS (cluster mode
+  disabled) replication group or the number of replica nodes in one or more node
+  groups (shards) of a Redis OSS (cluster mode enabled) replication group. This
+  operation is performed with no cluster down time.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=elasticache%20IncreaseReplicaCount&this_doc_guide=API%2520Reference)
 
@@ -6059,7 +6062,7 @@ defmodule AWS.ElastiCache do
   end
 
   @doc """
-  Lists all available node types that you can scale your Redis cluster's or
+  Lists all available node types that you can scale your Redis OSS cluster's or
   replication group's current node type.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=elasticache%20ListAllowedNodeTypeModifications&this_doc_guide=API%2520Reference)
@@ -6246,8 +6249,8 @@ defmodule AWS.ElastiCache do
   end
 
   @doc """
-  Modifies the settings for a replication group. This is limited to Redis 7 and
-  newer.
+  Modifies the settings for a replication group. This is limited to Redis OSS 7
+  and newer.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=elasticache%20ModifyReplicationGroup&this_doc_guide=API%2520Reference)
 
@@ -6420,7 +6423,7 @@ defmodule AWS.ElastiCache do
   eligible for cancellation and are non-refundable. For more information, see
   [Managing Costs with Reserved
   Nodes](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/reserved-nodes.html)
-  for Redis or [Managing Costs with Reserved
+  for Redis OSS or [Managing Costs with Reserved
   Nodes](https://docs.aws.amazon.com/AmazonElastiCache/latest/mem-ug/reserved-nodes.html)
   for Memcached.
 

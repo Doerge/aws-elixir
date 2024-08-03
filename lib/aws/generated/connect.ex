@@ -2002,6 +2002,19 @@ defmodule AWS.Connect do
 
   ## Example:
       
+      real_time_contact_analysis_segment_post_contact_summary() :: %{
+        "Content" => String.t(),
+        "FailureCode" => list(any()),
+        "Status" => list(any())
+      }
+      
+  """
+  @type real_time_contact_analysis_segment_post_contact_summary() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       list_instance_attributes_request() :: %{
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t()

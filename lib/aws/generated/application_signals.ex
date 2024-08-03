@@ -3,15 +3,13 @@
 
 defmodule AWS.ApplicationSignals do
   @moduledoc """
-  This is a Preview release of the Application Signals API Reference. Operations
-  and parameters are subject to change before the general availability release.
   Use CloudWatch Application Signals for comprehensive observability of your
   cloud-based applications. It enables real-time service health dashboards and
   helps you track long-term performance trends against your business goals. The
   application-centric view provides you with unified visibility across your
   applications, services, and dependencies, so you can proactively monitor and
   efficiently triage any issues that may arise, ensuring optimal customer
-  experience.
+  experience. Application Signals provides the following benefits:
   """
 
   alias AWS.Client
@@ -236,6 +234,7 @@ defmodule AWS.ApplicationSignals do
       service() :: %{
         "AttributeMaps" => list(map()()),
         "KeyAttributes" => map(),
+        "LogGroupReferences" => list(map()()),
         "MetricReferences" => list(metric_reference()())
       }
       
@@ -377,6 +376,7 @@ defmodule AWS.ApplicationSignals do
       
       get_service_output() :: %{
         "EndTime" => [non_neg_integer()],
+        "LogGroupReferences" => list(map()()),
         "Service" => service(),
         "StartTime" => [non_neg_integer()]
       }

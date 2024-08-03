@@ -3,11 +3,8 @@
 
 defmodule AWS.ConnectContactLens do
   @moduledoc """
-  Contact Lens for Amazon Connect enables you to analyze conversations between
-  customer and agents, by using speech transcription, natural language
-  processing, and intelligent search capabilities. It performs sentiment
-  analysis, detects issues, and enables you to automatically categorize
-  contacts.
+  * [Contact Lens
+  actions](https://docs.aws.amazon.com/connect/latest/APIReference/API_Operations_Amazon_Connect_Contact_Lens.html)
   """
 
   alias AWS.Client
@@ -134,8 +131,22 @@ defmodule AWS.ConnectContactLens do
 
   ## Example:
       
+      post_contact_summary() :: %{
+        "Content" => String.t(),
+        "FailureCode" => list(any()),
+        "Status" => list(any())
+      }
+      
+  """
+  @type post_contact_summary() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       realtime_contact_analysis_segment() :: %{
         "Categories" => categories(),
+        "PostContactSummary" => post_contact_summary(),
         "Transcript" => transcript()
       }
       

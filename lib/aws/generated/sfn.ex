@@ -3,9 +3,8 @@
 
 defmodule AWS.SFN do
   @moduledoc """
-  Step Functions Step Functions is a service that lets you coordinate the
-  components of distributed applications and microservices using visual
-  workflows.
+  Step Functions Step Functions coordinates the components of distributed
+  applications and microservices using visual workflows.
   """
 
   alias AWS.Client
@@ -28,11 +27,25 @@ defmodule AWS.SFN do
   ## Example:
       
       describe_state_machine_for_execution_input() :: %{
+        optional("includedData") => list(any()),
         required("executionArn") => String.t()
       }
       
   """
   @type describe_state_machine_for_execution_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      encryption_configuration() :: %{
+        "kmsDataKeyReusePeriodSeconds" => integer(),
+        "kmsKeyId" => String.t(),
+        "type" => list(any())
+      }
+      
+  """
+  @type encryption_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -144,6 +157,7 @@ defmodule AWS.SFN do
   ## Example:
       
       describe_execution_input() :: %{
+        optional("includedData") => list(any()),
         required("executionArn") => String.t()
       }
       
@@ -233,6 +247,17 @@ defmodule AWS.SFN do
 
   ## Example:
       
+      kms_throttling_exception() :: %{
+        "message" => String.t()
+      }
+      
+  """
+  @type kms_throttling_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       list_state_machine_aliases_output() :: %{
         "nextToken" => String.t(),
         "stateMachineAliases" => list(state_machine_alias_list_item()())
@@ -260,6 +285,7 @@ defmodule AWS.SFN do
   ## Example:
       
       describe_state_machine_input() :: %{
+        optional("includedData") => list(any()),
         required("stateMachineArn") => String.t()
       }
       
@@ -607,6 +633,7 @@ defmodule AWS.SFN do
       describe_activity_output() :: %{
         "activityArn" => String.t(),
         "creationDate" => non_neg_integer(),
+        "encryptionConfiguration" => encryption_configuration(),
         "name" => String.t()
       }
       
@@ -701,6 +728,7 @@ defmodule AWS.SFN do
       
       describe_state_machine_for_execution_output() :: %{
         "definition" => String.t(),
+        "encryptionConfiguration" => encryption_configuration(),
         "label" => String.t(),
         "loggingConfiguration" => logging_configuration(),
         "mapRunArn" => String.t(),
@@ -962,6 +990,7 @@ defmodule AWS.SFN do
   ## Example:
       
       create_state_machine_input() :: %{
+        optional("encryptionConfiguration") => encryption_configuration(),
         optional("loggingConfiguration") => logging_configuration(),
         optional("publish") => boolean(),
         optional("tags") => list(tag()()),
@@ -975,6 +1004,17 @@ defmodule AWS.SFN do
       
   """
   @type create_state_machine_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      invalid_encryption_configuration() :: %{
+        "message" => String.t()
+      }
+      
+  """
+  @type invalid_encryption_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -1013,6 +1053,7 @@ defmodule AWS.SFN do
   ## Example:
       
       create_activity_input() :: %{
+        optional("encryptionConfiguration") => encryption_configuration(),
         optional("tags") => list(tag()()),
         required("name") => String.t()
       }
@@ -1279,6 +1320,17 @@ defmodule AWS.SFN do
 
   ## Example:
       
+      kms_access_denied_exception() :: %{
+        "message" => String.t()
+      }
+      
+  """
+  @type kms_access_denied_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       update_state_machine_alias_input() :: %{
         optional("description") => String.t(),
         optional("routingConfiguration") => list(routing_configuration_list_item()()),
@@ -1338,8 +1390,20 @@ defmodule AWS.SFN do
 
   ## Example:
       
+      activity_already_exists() :: %{
+        "message" => String.t()
+      }
+      
+  """
+  @type activity_already_exists() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       update_state_machine_input() :: %{
         optional("definition") => String.t(),
+        optional("encryptionConfiguration") => encryption_configuration(),
         optional("loggingConfiguration") => logging_configuration(),
         optional("publish") => boolean(),
         optional("roleArn") => String.t(),
@@ -1597,6 +1661,7 @@ defmodule AWS.SFN do
   ## Example:
       
       start_sync_execution_input() :: %{
+        optional("includedData") => list(any()),
         optional("input") => String.t(),
         optional("name") => String.t(),
         optional("traceHeader") => String.t(),
@@ -1845,6 +1910,18 @@ defmodule AWS.SFN do
 
   ## Example:
       
+      kms_invalid_state_exception() :: %{
+        "kmsKeyState" => list(any()),
+        "message" => String.t()
+      }
+      
+  """
+  @type kms_invalid_state_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       validate_state_machine_definition_diagnostic() :: %{
         "code" => String.t(),
         "location" => String.t(),
@@ -2030,6 +2107,7 @@ defmodule AWS.SFN do
         "creationDate" => non_neg_integer(),
         "definition" => String.t(),
         "description" => String.t(),
+        "encryptionConfiguration" => encryption_configuration(),
         "label" => String.t(),
         "loggingConfiguration" => logging_configuration(),
         "name" => String.t(),
@@ -2044,7 +2122,14 @@ defmodule AWS.SFN do
   """
   @type describe_state_machine_output() :: %{String.t() => any()}
 
-  @type create_activity_errors() :: too_many_tags() | invalid_name() | activity_limit_exceeded()
+  @type create_activity_errors() ::
+          too_many_tags()
+          | invalid_name()
+          | activity_limit_exceeded()
+          | activity_already_exists()
+          | kms_access_denied_exception()
+          | invalid_encryption_configuration()
+          | kms_throttling_exception()
 
   @type create_state_machine_errors() ::
           invalid_arn()
@@ -2054,10 +2139,13 @@ defmodule AWS.SFN do
           | validation_exception()
           | invalid_name()
           | invalid_definition()
+          | kms_access_denied_exception()
           | state_machine_limit_exceeded()
+          | invalid_encryption_configuration()
           | conflict_exception()
           | state_machine_already_exists()
           | invalid_tracing_configuration()
+          | kms_throttling_exception()
           | state_machine_type_not_supported()
 
   @type create_state_machine_alias_errors() ::
@@ -2081,23 +2169,47 @@ defmodule AWS.SFN do
 
   @type describe_activity_errors() :: invalid_arn() | activity_does_not_exist()
 
-  @type describe_execution_errors() :: invalid_arn() | execution_does_not_exist()
+  @type describe_execution_errors() ::
+          invalid_arn()
+          | kms_invalid_state_exception()
+          | kms_access_denied_exception()
+          | kms_throttling_exception()
+          | execution_does_not_exist()
 
   @type describe_map_run_errors() :: invalid_arn() | resource_not_found()
 
-  @type describe_state_machine_errors() :: invalid_arn() | state_machine_does_not_exist()
+  @type describe_state_machine_errors() ::
+          invalid_arn()
+          | kms_invalid_state_exception()
+          | state_machine_does_not_exist()
+          | kms_access_denied_exception()
+          | kms_throttling_exception()
 
   @type describe_state_machine_alias_errors() ::
           invalid_arn() | validation_exception() | resource_not_found()
 
   @type describe_state_machine_for_execution_errors() ::
-          invalid_arn() | execution_does_not_exist()
+          invalid_arn()
+          | kms_invalid_state_exception()
+          | kms_access_denied_exception()
+          | kms_throttling_exception()
+          | execution_does_not_exist()
 
   @type get_activity_task_errors() ::
-          invalid_arn() | activity_does_not_exist() | activity_worker_limit_exceeded()
+          invalid_arn()
+          | kms_invalid_state_exception()
+          | activity_does_not_exist()
+          | kms_access_denied_exception()
+          | activity_worker_limit_exceeded()
+          | kms_throttling_exception()
 
   @type get_execution_history_errors() ::
-          invalid_arn() | invalid_token() | execution_does_not_exist()
+          invalid_arn()
+          | kms_invalid_state_exception()
+          | kms_access_denied_exception()
+          | invalid_token()
+          | kms_throttling_exception()
+          | execution_does_not_exist()
 
   @type list_activities_errors() :: invalid_token()
 
@@ -2140,33 +2252,56 @@ defmodule AWS.SFN do
           | execution_not_redrivable()
           | execution_does_not_exist()
 
-  @type send_task_failure_errors() :: task_does_not_exist() | task_timed_out() | invalid_token()
+  @type send_task_failure_errors() ::
+          kms_invalid_state_exception()
+          | task_does_not_exist()
+          | kms_access_denied_exception()
+          | task_timed_out()
+          | invalid_token()
+          | kms_throttling_exception()
 
   @type send_task_heartbeat_errors() :: task_does_not_exist() | task_timed_out() | invalid_token()
 
   @type send_task_success_errors() ::
-          task_does_not_exist() | task_timed_out() | invalid_token() | invalid_output()
+          kms_invalid_state_exception()
+          | task_does_not_exist()
+          | kms_access_denied_exception()
+          | task_timed_out()
+          | invalid_token()
+          | invalid_output()
+          | kms_throttling_exception()
 
   @type start_execution_errors() ::
           invalid_arn()
           | invalid_execution_input()
+          | kms_invalid_state_exception()
           | state_machine_deleting()
           | validation_exception()
           | invalid_name()
           | execution_already_exists()
           | state_machine_does_not_exist()
+          | kms_access_denied_exception()
           | execution_limit_exceeded()
+          | kms_throttling_exception()
 
   @type start_sync_execution_errors() ::
           invalid_arn()
           | invalid_execution_input()
+          | kms_invalid_state_exception()
           | state_machine_deleting()
           | invalid_name()
           | state_machine_does_not_exist()
+          | kms_access_denied_exception()
+          | kms_throttling_exception()
           | state_machine_type_not_supported()
 
   @type stop_execution_errors() ::
-          invalid_arn() | validation_exception() | execution_does_not_exist()
+          invalid_arn()
+          | kms_invalid_state_exception()
+          | validation_exception()
+          | kms_access_denied_exception()
+          | kms_throttling_exception()
+          | execution_does_not_exist()
 
   @type tag_resource_errors() :: invalid_arn() | too_many_tags() | resource_not_found()
 
@@ -2187,9 +2322,12 @@ defmodule AWS.SFN do
           | validation_exception()
           | invalid_definition()
           | state_machine_does_not_exist()
+          | kms_access_denied_exception()
+          | invalid_encryption_configuration()
           | service_quota_exceeded_exception()
           | conflict_exception()
           | invalid_tracing_configuration()
+          | kms_throttling_exception()
           | missing_required_parameter()
 
   @type update_state_machine_alias_errors() ::
@@ -2232,6 +2370,7 @@ defmodule AWS.SFN do
   ## Parameters:
   * `:input` (`t:create_activity_input`)
     %{
+      optional("encryptionConfiguration") => encryption_configuration(),
       optional("tags") => list(tag()()),
       required("name") => String.t()
     }
@@ -2265,6 +2404,7 @@ defmodule AWS.SFN do
   ## Parameters:
   * `:input` (`t:create_state_machine_input`)
     %{
+      optional("encryptionConfiguration") => encryption_configuration(),
       optional("loggingConfiguration") => logging_configuration(),
       optional("publish") => boolean(),
       optional("tags") => list(tag()()),
@@ -2477,6 +2617,7 @@ defmodule AWS.SFN do
   ## Parameters:
   * `:input` (`t:describe_execution_input`)
     %{
+      optional("includedData") => list(any()),
       required("executionArn") => String.t()
     }
   """
@@ -2534,6 +2675,7 @@ defmodule AWS.SFN do
   ## Parameters:
   * `:input` (`t:describe_state_machine_input`)
     %{
+      optional("includedData") => list(any()),
       required("stateMachineArn") => String.t()
     }
   """
@@ -2589,6 +2731,7 @@ defmodule AWS.SFN do
   ## Parameters:
   * `:input` (`t:describe_state_machine_for_execution_input`)
     %{
+      optional("includedData") => list(any()),
       required("executionArn") => String.t()
     }
   """
@@ -2980,7 +3123,9 @@ defmodule AWS.SFN do
   [callback](https://docs.aws.amazon.com/step-functions/latest/dg/connect-to-resource.html#connect-wait-token)
   pattern, and optionally Task states using the [job
   run](https://docs.aws.amazon.com/step-functions/latest/dg/connect-to-resource.html#connect-sync)
-  pattern to report that the task identified by the `taskToken` failed.
+  pattern to report that the task identified by the `taskToken` failed. For an
+  execution with encryption enabled, Step Functions will encrypt the error and
+  cause fields using the KMS key for the execution role.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sfn%20SendTaskFailure&this_doc_guide=API%2520Reference)
 
@@ -3115,6 +3260,7 @@ defmodule AWS.SFN do
   ## Parameters:
   * `:input` (`t:start_sync_execution_input`)
     %{
+      optional("includedData") => list(any()),
       optional("input") => String.t(),
       optional("name") => String.t(),
       optional("traceHeader") => String.t(),
@@ -3135,7 +3281,8 @@ defmodule AWS.SFN do
   end
 
   @doc """
-  Stops an execution.
+  Stops an execution. This API action is not supported by `EXPRESS` state
+  machines.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sfn%20StopExecution&this_doc_guide=API%2520Reference)
 
@@ -3274,12 +3421,13 @@ defmodule AWS.SFN do
   end
 
   @doc """
-  Updates an existing state machine by modifying its `definition`, `roleArn`, or
-  `loggingConfiguration`. Running executions will continue to use the previous
-  `definition` and `roleArn`. You must include at least one of `definition` or
-  `roleArn` or you will receive a `MissingRequiredParameter` error. A qualified
-  state machine ARN refers to a *Distributed Map state* defined within a state
-  machine. For example, the qualified state machine ARN
+  Updates an existing state machine by modifying its `definition`, `roleArn`,
+  `loggingConfiguration`, or `EncryptionConfiguration`. Running executions will
+  continue to use the previous `definition` and `roleArn`. You must include at
+  least one of `definition` or `roleArn` or you will receive a
+  `MissingRequiredParameter` error. A qualified state machine ARN refers to a
+  *Distributed Map state* defined within a state machine. For example, the
+  qualified state machine ARN
   `arn:partition:states:region:account-id:stateMachine:stateMachineName/mapStateLabel`
   refers to a *Distributed Map state* with a label `mapStateLabel` in the state
   machine named `stateMachineName`.
@@ -3290,6 +3438,7 @@ defmodule AWS.SFN do
   * `:input` (`t:update_state_machine_input`)
     %{
       optional("definition") => String.t(),
+      optional("encryptionConfiguration") => encryption_configuration(),
       optional("loggingConfiguration") => logging_configuration(),
       optional("publish") => boolean(),
       optional("roleArn") => String.t(),

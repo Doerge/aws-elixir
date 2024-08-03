@@ -132,6 +132,18 @@ defmodule AWS.LexModelsV2 do
 
   ## Example:
       
+      bedrock_guardrail_configuration() :: %{
+        "identifier" => String.t(),
+        "version" => String.t()
+      }
+      
+  """
+  @type bedrock_guardrail_configuration() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       test_execution_target() :: %{
         "botAliasTarget" => bot_alias_test_execution_target()
       }
@@ -3554,7 +3566,10 @@ defmodule AWS.LexModelsV2 do
   ## Example:
       
       bedrock_model_specification() :: %{
-        "modelArn" => String.t()
+        "customPrompt" => String.t(),
+        "guardrail" => bedrock_guardrail_configuration(),
+        "modelArn" => String.t(),
+        "traceStatus" => list(any())
       }
       
   """
@@ -3570,6 +3585,17 @@ defmodule AWS.LexModelsV2 do
       
   """
   @type condition() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      bedrock_knowledge_store_exact_response_fields() :: %{
+        "answerField" => String.t()
+      }
+      
+  """
+  @type bedrock_knowledge_store_exact_response_fields() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -3712,7 +3738,9 @@ defmodule AWS.LexModelsV2 do
   ## Example:
       
       bedrock_knowledge_store_configuration() :: %{
-        "bedrockKnowledgeBaseArn" => String.t()
+        "bedrockKnowledgeBaseArn" => String.t(),
+        "exactResponse" => boolean(),
+        "exactResponseFields" => bedrock_knowledge_store_exact_response_fields()
       }
       
   """
@@ -7593,7 +7621,8 @@ defmodule AWS.LexModelsV2 do
   @doc """
   Adds a new resource policy statement to a bot or bot alias. If a resource policy
   exists, the statement is added to the current resource policy. If a policy
-  doesn't exist, a new policy is created.
+  doesn't exist, a new policy is created. You can't create a resource policy
+  statement that allows cross-account access.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lexmodelsv2%20CreateResourcePolicyStatement&this_doc_guide=API%2520Reference)
 

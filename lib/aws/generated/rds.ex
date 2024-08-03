@@ -3020,6 +3020,7 @@ defmodule AWS.RDS do
       
       create_db_shard_group_message() :: %{
         optional("ComputeRedundancy") => integer(),
+        optional("MinACU") => float(),
         optional("PubliclyAccessible") => boolean(),
         required("DBClusterIdentifier") => String.t(),
         required("DBShardGroupIdentifier") => String.t(),
@@ -4076,6 +4077,7 @@ defmodule AWS.RDS do
         optional("DBShardGroupResourceId") => String.t(),
         optional("Endpoint") => String.t(),
         optional("MaxACU") => float(),
+        optional("MinACU") => float(),
         optional("PubliclyAccessible") => boolean(),
         optional("Status") => String.t()
       }
@@ -5398,6 +5400,7 @@ defmodule AWS.RDS do
       
       modify_db_shard_group_message() :: %{
         optional("MaxACU") => float(),
+        optional("MinACU") => float(),
         required("DBShardGroupIdentifier") => String.t()
       }
       
@@ -9785,6 +9788,7 @@ defmodule AWS.RDS do
   * `:input` (`t:create_db_shard_group_message`)
     %{
       optional("ComputeRedundancy") => integer(),
+      optional("MinACU") => float(),
       optional("PubliclyAccessible") => boolean(),
       required("DBClusterIdentifier") => String.t(),
       required("DBShardGroupIdentifier") => String.t(),
@@ -12662,6 +12666,7 @@ defmodule AWS.RDS do
   * `:input` (`t:modify_db_shard_group_message`)
     %{
       optional("MaxACU") => float(),
+      optional("MinACU") => float(),
       required("DBShardGroupIdentifier") => String.t()
     }
   """

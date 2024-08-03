@@ -32,6 +32,17 @@ defmodule AWS.IoTSiteWise do
 
   ## Example:
       
+      siemens_i_e() :: %{
+        "iotCoreThingName" => String.t()
+      }
+      
+  """
+  @type siemens_i_e() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       update_gateway_request() :: %{
         required("gatewayName") => String.t()
       }
@@ -2321,7 +2332,8 @@ defmodule AWS.IoTSiteWise do
       
       gateway_platform() :: %{
         "greengrass" => greengrass(),
-        "greengrassV2" => greengrass_v2()
+        "greengrassV2" => greengrass_v2(),
+        "siemensIE" => siemens_i_e()
       }
       
   """
@@ -3940,6 +3952,7 @@ defmodule AWS.IoTSiteWise do
           throttling_exception()
           | invalid_request_exception()
           | resource_not_found_exception()
+          | conflicting_operation_exception()
           | internal_failure_exception()
 
   @type delete_portal_errors() ::
@@ -9261,15 +9274,7 @@ defmodule AWS.IoTSiteWise do
   Each asset created from the model inherits the updated asset model's property
   and hierarchy definitions. For more information, see [Updating assets and
   models](https://docs.aws.amazon.com/iot-sitewise/latest/userguide/update-assets-and-models.html)
-  in the *IoT SiteWise User Guide*. This operation overwrites the existing model
-  with the provided model. To avoid deleting your asset model's properties or
-  hierarchies, you must include their IDs and definitions in the updated asset
-  model payload. For more information, see
-  [DescribeAssetModel](https://docs.aws.amazon.com/iot-sitewise/latest/APIReference/API_DescribeAssetModel.html).
-  If you remove a property from an asset model, IoT SiteWise deletes all
-  previous data for that property. If you remove a hierarchy definition from an
-  asset model, IoT SiteWise disassociates every asset associated with that
-  hierarchy. You can't change the type or data type of an existing property.
+  in the *IoT SiteWise User Guide*.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotsitewise%20UpdateAssetModel&this_doc_guide=API%2520Reference)
 

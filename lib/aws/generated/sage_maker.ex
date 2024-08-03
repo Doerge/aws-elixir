@@ -14460,6 +14460,18 @@ defmodule AWS.SageMaker do
 
   ## Example:
       
+      emr_settings() :: %{
+        "AssumableRoleArns" => list(String.t()()),
+        "ExecutionRoleArns" => list(String.t()())
+      }
+      
+  """
+  @type emr_settings() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       list_cluster_nodes_response() :: %{
         "ClusterNodeSummaries" => list(cluster_node_summary()()),
         "NextToken" => String.t()
@@ -15828,6 +15840,7 @@ defmodule AWS.SageMaker do
         "CodeRepositories" => list(code_repository()()),
         "CustomImages" => list(custom_image()()),
         "DefaultResourceSpec" => resource_spec(),
+        "EmrSettings" => emr_settings(),
         "LifecycleConfigArns" => list(String.t()())
       }
       

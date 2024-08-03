@@ -120,6 +120,17 @@ defmodule AWS.ECR do
 
   ## Example:
       
+      template_already_exists_exception() :: %{
+        "message" => String.t()
+      }
+      
+  """
+  @type template_already_exists_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       image_digest_does_not_match_exception() :: %{
         "message" => String.t()
       }
@@ -224,6 +235,18 @@ defmodule AWS.ECR do
 
   ## Example:
       
+      update_repository_creation_template_response() :: %{
+        "registryId" => String.t(),
+        "repositoryCreationTemplate" => repository_creation_template()
+      }
+      
+  """
+  @type update_repository_creation_template_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       layer_failure() :: %{
         "failureCode" => list(any()),
         "failureReason" => String.t(),
@@ -252,6 +275,25 @@ defmodule AWS.ECR do
       
   """
   @type image_not_found_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_repository_creation_template_request() :: %{
+        optional("customRoleArn") => String.t(),
+        optional("description") => String.t(),
+        optional("encryptionConfiguration") => encryption_configuration_for_repository_creation_template(),
+        optional("imageTagMutability") => list(any()),
+        optional("lifecyclePolicy") => String.t(),
+        optional("repositoryPolicy") => String.t(),
+        optional("resourceTags") => list(tag()()),
+        required("appliedFor") => list(list(any())()),
+        required("prefix") => String.t()
+      }
+      
+  """
+  @type create_repository_creation_template_request() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -368,6 +410,18 @@ defmodule AWS.ECR do
 
   ## Example:
       
+      encryption_configuration_for_repository_creation_template() :: %{
+        "encryptionType" => list(any()),
+        "kmsKey" => String.t()
+      }
+      
+  """
+  @type encryption_configuration_for_repository_creation_template() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       delete_repository_policy_request() :: %{
         optional("registryId") => String.t(),
         required("repositoryName") => String.t()
@@ -414,6 +468,17 @@ defmodule AWS.ECR do
       
   """
   @type repository_not_empty_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_repository_creation_template_request() :: %{
+        required("prefix") => String.t()
+      }
+      
+  """
+  @type delete_repository_creation_template_request() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -723,6 +788,17 @@ defmodule AWS.ECR do
 
   ## Example:
       
+      template_not_found_exception() :: %{
+        "message" => String.t()
+      }
+      
+  """
+  @type template_not_found_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       lifecycle_policy_rule_action() :: %{
         "type" => list(any())
       }
@@ -783,6 +859,27 @@ defmodule AWS.ECR do
       
   """
   @type complete_layer_upload_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      repository_creation_template() :: %{
+        "appliedFor" => list(list(any())()),
+        "createdAt" => non_neg_integer(),
+        "customRoleArn" => String.t(),
+        "description" => String.t(),
+        "encryptionConfiguration" => encryption_configuration_for_repository_creation_template(),
+        "imageTagMutability" => list(any()),
+        "lifecyclePolicy" => String.t(),
+        "prefix" => String.t(),
+        "repositoryPolicy" => String.t(),
+        "resourceTags" => list(tag()()),
+        "updatedAt" => non_neg_integer()
+      }
+      
+  """
+  @type repository_creation_template() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -1376,6 +1473,18 @@ defmodule AWS.ECR do
 
   ## Example:
       
+      create_repository_creation_template_response() :: %{
+        "registryId" => String.t(),
+        "repositoryCreationTemplate" => repository_creation_template()
+      }
+      
+  """
+  @type create_repository_creation_template_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       describe_image_scan_findings_request() :: %{
         optional("maxResults") => integer(),
         optional("nextToken") => String.t(),
@@ -1432,6 +1541,19 @@ defmodule AWS.ECR do
 
   ## Example:
       
+      describe_repository_creation_templates_response() :: %{
+        "nextToken" => String.t(),
+        "registryId" => String.t(),
+        "repositoryCreationTemplates" => list(repository_creation_template()())
+      }
+      
+  """
+  @type describe_repository_creation_templates_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       describe_pull_through_cache_rules_request() :: %{
         optional("ecrRepositoryPrefixes") => list(String.t()()),
         optional("maxResults") => integer(),
@@ -1441,6 +1563,18 @@ defmodule AWS.ECR do
       
   """
   @type describe_pull_through_cache_rules_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_repository_creation_template_response() :: %{
+        "registryId" => String.t(),
+        "repositoryCreationTemplate" => repository_creation_template()
+      }
+      
+  """
+  @type delete_repository_creation_template_response() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -1942,6 +2076,19 @@ defmodule AWS.ECR do
 
   ## Example:
       
+      describe_repository_creation_templates_request() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t(),
+        optional("prefixes") => list(String.t()())
+      }
+      
+  """
+  @type describe_repository_creation_templates_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       image_detail() :: %{
         "artifactMediaType" => String.t(),
         "imageDigest" => String.t(),
@@ -2004,6 +2151,25 @@ defmodule AWS.ECR do
       
   """
   @type batch_get_image_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_repository_creation_template_request() :: %{
+        optional("appliedFor") => list(list(any())()),
+        optional("customRoleArn") => String.t(),
+        optional("description") => String.t(),
+        optional("encryptionConfiguration") => encryption_configuration_for_repository_creation_template(),
+        optional("imageTagMutability") => list(any()),
+        optional("lifecyclePolicy") => String.t(),
+        optional("repositoryPolicy") => String.t(),
+        optional("resourceTags") => list(tag()()),
+        required("prefix") => String.t()
+      }
+      
+  """
+  @type update_repository_creation_template_request() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -2195,6 +2361,13 @@ defmodule AWS.ECR do
           | repository_already_exists_exception()
           | invalid_tag_parameter_exception()
 
+  @type create_repository_creation_template_errors() ::
+          limit_exceeded_exception()
+          | server_exception()
+          | validation_exception()
+          | invalid_parameter_exception()
+          | template_already_exists_exception()
+
   @type delete_lifecycle_policy_errors() ::
           repository_not_found_exception()
           | server_exception()
@@ -2220,6 +2393,12 @@ defmodule AWS.ECR do
           | kms_exception()
           | invalid_parameter_exception()
           | repository_not_empty_exception()
+
+  @type delete_repository_creation_template_errors() ::
+          server_exception()
+          | validation_exception()
+          | invalid_parameter_exception()
+          | template_not_found_exception()
 
   @type delete_repository_policy_errors() ::
           repository_not_found_exception()
@@ -2259,6 +2438,9 @@ defmodule AWS.ECR do
 
   @type describe_repositories_errors() ::
           repository_not_found_exception() | server_exception() | invalid_parameter_exception()
+
+  @type describe_repository_creation_templates_errors() ::
+          server_exception() | validation_exception() | invalid_parameter_exception()
 
   @type get_authorization_token_errors() :: server_exception() | invalid_parameter_exception()
 
@@ -2389,6 +2571,12 @@ defmodule AWS.ECR do
           | secret_not_found_exception()
           | pull_through_cache_rule_not_found_exception()
           | unable_to_decrypt_secret_value_exception()
+
+  @type update_repository_creation_template_errors() ::
+          server_exception()
+          | validation_exception()
+          | invalid_parameter_exception()
+          | template_not_found_exception()
 
   @type upload_layer_part_errors() ::
           limit_exceeded_exception()
@@ -2629,6 +2817,44 @@ defmodule AWS.ECR do
   end
 
   @doc """
+  Creates a repository creation template. This template is used to define the
+  settings for repositories created by Amazon ECR on your behalf. For example,
+  repositories created through pull through cache actions. For more information,
+  see [Private repository creation
+  templates](https://docs.aws.amazon.com/AmazonECR/latest/userguide/repository-creation-templates.html)
+  in the *Amazon Elastic Container Registry User Guide*.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ecr%20CreateRepositoryCreationTemplate&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:create_repository_creation_template_request`)
+    %{
+      optional("customRoleArn") => String.t(),
+      optional("description") => String.t(),
+      optional("encryptionConfiguration") => encryption_configuration_for_repository_creation_template(),
+      optional("imageTagMutability") => list(any()),
+      optional("lifecyclePolicy") => String.t(),
+      optional("repositoryPolicy") => String.t(),
+      optional("resourceTags") => list(tag()()),
+      required("appliedFor") => list(list(any())()),
+      required("prefix") => String.t()
+    }
+  """
+
+  @spec create_repository_creation_template(AWS.Client.t(), input :: map(), Keyword.t()) ::
+          {:ok, create_repository_creation_template_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, create_repository_creation_template_errors()}
+
+  def create_repository_creation_template(%Client{} = client, input, options \\ [])
+      when is_map(input) do
+    meta =
+      metadata()
+
+    Request.request_post(client, meta, "CreateRepositoryCreationTemplate", input, options)
+  end
+
+  @doc """
   Deletes the lifecycle policy associated with the specified repository.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ecr%20DeleteLifecyclePolicy&this_doc_guide=API%2520Reference)
@@ -2729,6 +2955,31 @@ defmodule AWS.ECR do
       metadata()
 
     Request.request_post(client, meta, "DeleteRepository", input, options)
+  end
+
+  @doc """
+  Deletes a repository creation template.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ecr%20DeleteRepositoryCreationTemplate&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:delete_repository_creation_template_request`)
+    %{
+      required("prefix") => String.t()
+    }
+  """
+
+  @spec delete_repository_creation_template(AWS.Client.t(), input :: map(), Keyword.t()) ::
+          {:ok, delete_repository_creation_template_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, delete_repository_creation_template_errors()}
+
+  def delete_repository_creation_template(%Client{} = client, input, options \\ [])
+      when is_map(input) do
+    meta =
+      metadata()
+
+    Request.request_post(client, meta, "DeleteRepositoryCreationTemplate", input, options)
   end
 
   @doc """
@@ -2919,6 +3170,35 @@ defmodule AWS.ECR do
       metadata()
 
     Request.request_post(client, meta, "DescribeRepositories", input, options)
+  end
+
+  @doc """
+  Returns details about the repository creation templates in a registry. The
+  `prefixes` request parameter can be used to return the details for a specific
+  repository creation template.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ecr%20DescribeRepositoryCreationTemplates&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:describe_repository_creation_templates_request`)
+    %{
+      optional("maxResults") => integer(),
+      optional("nextToken") => String.t(),
+      optional("prefixes") => list(String.t()())
+    }
+  """
+
+  @spec describe_repository_creation_templates(AWS.Client.t(), input :: map(), Keyword.t()) ::
+          {:ok, describe_repository_creation_templates_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, describe_repository_creation_templates_errors()}
+
+  def describe_repository_creation_templates(%Client{} = client, input, options \\ [])
+      when is_map(input) do
+    meta =
+      metadata()
+
+    Request.request_post(client, meta, "DescribeRepositoryCreationTemplates", input, options)
   end
 
   @doc """
@@ -3362,7 +3642,9 @@ defmodule AWS.ECR do
   replication process. For more information, see [Using service-linked roles for
   Amazon
   ECR](https://docs.aws.amazon.com/AmazonECR/latest/userguide/using-service-linked-roles.html)
-  in the *Amazon Elastic Container Registry User Guide*.
+  in the *Amazon Elastic Container Registry User Guide*. For more information on
+  the custom role for replication, see [Creating an IAM role for
+  replication](https://docs.aws.amazon.com/AmazonECR/latest/userguide/replication-creation-templates.html#roles-creatingrole-user-console).
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ecr%20PutReplicationConfiguration&this_doc_guide=API%2520Reference)
 
@@ -3551,6 +3833,39 @@ defmodule AWS.ECR do
       metadata()
 
     Request.request_post(client, meta, "UpdatePullThroughCacheRule", input, options)
+  end
+
+  @doc """
+  Updates an existing repository creation template.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ecr%20UpdateRepositoryCreationTemplate&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+  * `:input` (`t:update_repository_creation_template_request`)
+    %{
+      optional("appliedFor") => list(list(any())()),
+      optional("customRoleArn") => String.t(),
+      optional("description") => String.t(),
+      optional("encryptionConfiguration") => encryption_configuration_for_repository_creation_template(),
+      optional("imageTagMutability") => list(any()),
+      optional("lifecyclePolicy") => String.t(),
+      optional("repositoryPolicy") => String.t(),
+      optional("resourceTags") => list(tag()()),
+      required("prefix") => String.t()
+    }
+  """
+
+  @spec update_repository_creation_template(AWS.Client.t(), input :: map(), Keyword.t()) ::
+          {:ok, update_repository_creation_template_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, update_repository_creation_template_errors()}
+
+  def update_repository_creation_template(%Client{} = client, input, options \\ [])
+      when is_map(input) do
+    meta =
+      metadata()
+
+    Request.request_post(client, meta, "UpdateRepositoryCreationTemplate", input, options)
   end
 
   @doc """

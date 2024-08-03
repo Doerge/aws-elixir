@@ -96,6 +96,19 @@ defmodule AWS.Resiliencehub do
 
   ## Example:
       
+      describe_resource_grouping_recommendation_task_response() :: %{
+        "errorMessage" => String.t(),
+        "groupingId" => String.t(),
+        "status" => String.t()
+      }
+      
+  """
+  @type describe_resource_grouping_recommendation_task_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       tag_resource_request() :: %{
         required("tags") => map()
       }
@@ -385,6 +398,18 @@ defmodule AWS.Resiliencehub do
 
   ## Example:
       
+      describe_resource_grouping_recommendation_task_request() :: %{
+        optional("groupingId") => String.t(),
+        required("appArn") => String.t()
+      }
+      
+  """
+  @type describe_resource_grouping_recommendation_task_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       config_recommendation() :: %{
         "appComponentName" => String.t(),
         "compliance" => map(),
@@ -425,6 +450,20 @@ defmodule AWS.Resiliencehub do
       
   """
   @type describe_app_version_template_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      start_resource_grouping_recommendation_task_response() :: %{
+        "appArn" => String.t(),
+        "errorMessage" => String.t(),
+        "groupingId" => String.t(),
+        "status" => String.t()
+      }
+      
+  """
+  @type start_resource_grouping_recommendation_task_response() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -685,6 +724,19 @@ defmodule AWS.Resiliencehub do
 
   ## Example:
       
+      assessment_risk_recommendation() :: %{
+        "appComponents" => list(String.t()()),
+        "recommendation" => String.t(),
+        "risk" => String.t()
+      }
+      
+  """
+  @type assessment_risk_recommendation() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       create_app_version_resource_response() :: %{
         optional("physicalResource") => physical_resource(),
         required("appArn") => String.t(),
@@ -926,6 +978,18 @@ defmodule AWS.Resiliencehub do
 
   ## Example:
       
+      accept_resource_grouping_recommendations_response() :: %{
+        "appArn" => String.t(),
+        "failedEntries" => list(failed_grouping_recommendation_entry()())
+      }
+      
+  """
+  @type accept_resource_grouping_recommendations_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       create_resiliency_policy_request() :: %{
         optional("clientToken") => String.t(),
         optional("dataLocationConstraint") => String.t(),
@@ -974,6 +1038,18 @@ defmodule AWS.Resiliencehub do
       
   """
   @type list_sop_recommendations_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      accept_resource_grouping_recommendations_request() :: %{
+        required("appArn") => String.t(),
+        required("entries") => list(accept_grouping_recommendation_entry()())
+      }
+      
+  """
+  @type accept_resource_grouping_recommendations_request() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -1090,6 +1166,18 @@ defmodule AWS.Resiliencehub do
       
   """
   @type update_app_version_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      reject_grouping_recommendation_entry() :: %{
+        "groupingRecommendationId" => String.t(),
+        "rejectionReason" => String.t()
+      }
+      
+  """
+  @type reject_grouping_recommendation_entry() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -1219,6 +1307,17 @@ defmodule AWS.Resiliencehub do
 
   ## Example:
       
+      accept_grouping_recommendation_entry() :: %{
+        "groupingRecommendationId" => String.t()
+      }
+      
+  """
+  @type accept_grouping_recommendation_entry() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       s3_location() :: %{
         "bucket" => String.t(),
         "prefix" => String.t()
@@ -1309,6 +1408,18 @@ defmodule AWS.Resiliencehub do
       
   """
   @type app_summary() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      reject_resource_grouping_recommendations_request() :: %{
+        required("appArn") => String.t(),
+        required("entries") => list(reject_grouping_recommendation_entry()())
+      }
+      
+  """
+  @type reject_resource_grouping_recommendations_request() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -1462,6 +1573,18 @@ defmodule AWS.Resiliencehub do
       
   """
   @type describe_app_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_resource_grouping_recommendations_response() :: %{
+        "groupingRecommendations" => list(grouping_recommendation()()),
+        "nextToken" => String.t()
+      }
+      
+  """
+  @type list_resource_grouping_recommendations_response() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -1695,6 +1818,7 @@ defmodule AWS.Resiliencehub do
         "resiliencyScore" => resiliency_score(),
         "resourceErrorsDetails" => resource_errors_details(),
         "startTime" => non_neg_integer(),
+        "summary" => assessment_summary(),
         "tags" => map(),
         "versionName" => String.t()
       }
@@ -1789,6 +1913,17 @@ defmodule AWS.Resiliencehub do
       
   """
   @type list_alarm_recommendations_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      start_resource_grouping_recommendation_task_request() :: %{
+        required("appArn") => String.t()
+      }
+      
+  """
+  @type start_resource_grouping_recommendation_task_request() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -2036,6 +2171,19 @@ defmodule AWS.Resiliencehub do
 
   ## Example:
       
+      grouping_app_component() :: %{
+        "appComponentId" => String.t(),
+        "appComponentName" => String.t(),
+        "appComponentType" => String.t()
+      }
+      
+  """
+  @type grouping_app_component() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       delete_recommendation_template_request() :: %{
         optional("clientToken") => String.t(),
         required("recommendationTemplateArn") => String.t()
@@ -2056,6 +2204,19 @@ defmodule AWS.Resiliencehub do
       
   """
   @type list_app_assessment_resource_drifts_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_resource_grouping_recommendations_request() :: %{
+        optional("appArn") => String.t(),
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t()
+      }
+      
+  """
+  @type list_resource_grouping_recommendations_request() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -2101,6 +2262,30 @@ defmodule AWS.Resiliencehub do
 
   ## Example:
       
+      assessment_summary() :: %{
+        "riskRecommendations" => list(assessment_risk_recommendation()()),
+        "summary" => String.t()
+      }
+      
+  """
+  @type assessment_summary() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      reject_resource_grouping_recommendations_response() :: %{
+        "appArn" => String.t(),
+        "failedEntries" => list(failed_grouping_recommendation_entry()())
+      }
+      
+  """
+  @type reject_resource_grouping_recommendations_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       remove_draft_app_version_resource_mappings_request() :: %{
         optional("appRegistryAppNames") => list(String.t()()),
         optional("eksSourceNames") => list(String.t()()),
@@ -2113,6 +2298,33 @@ defmodule AWS.Resiliencehub do
       
   """
   @type remove_draft_app_version_resource_mappings_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      grouping_resource() :: %{
+        "logicalResourceId" => logical_resource_id(),
+        "physicalResourceId" => physical_resource_id(),
+        "resourceName" => String.t(),
+        "resourceType" => String.t(),
+        "sourceAppComponentIds" => list(String.t()())
+      }
+      
+  """
+  @type grouping_resource() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      failed_grouping_recommendation_entry() :: %{
+        "errorMessage" => String.t(),
+        "groupingRecommendationId" => String.t()
+      }
+      
+  """
+  @type failed_grouping_recommendation_entry() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -2195,6 +2407,25 @@ defmodule AWS.Resiliencehub do
 
   ## Example:
       
+      grouping_recommendation() :: %{
+        "confidenceLevel" => String.t(),
+        "creationTime" => non_neg_integer(),
+        "groupingAppComponent" => grouping_app_component(),
+        "groupingRecommendationId" => String.t(),
+        "recommendationReasons" => list(String.t()()),
+        "rejectionReason" => String.t(),
+        "resources" => list(grouping_resource()()),
+        "score" => float(),
+        "status" => String.t()
+      }
+      
+  """
+  @type grouping_recommendation() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       describe_draft_app_version_resources_import_status_response() :: %{
         optional("errorMessage") => String.t(),
         required("appArn") => String.t(),
@@ -2219,11 +2450,19 @@ defmodule AWS.Resiliencehub do
   """
   @type describe_app_version_response() :: %{String.t() => any()}
 
+  @type accept_resource_grouping_recommendations_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+
   @type add_draft_app_version_resource_mappings_errors() ::
           throttling_exception()
           | validation_exception()
           | access_denied_exception()
           | internal_server_exception()
+          | service_quota_exceeded_exception()
           | resource_not_found_exception()
           | conflict_exception()
 
@@ -2397,6 +2636,13 @@ defmodule AWS.Resiliencehub do
           | internal_server_exception()
           | resource_not_found_exception()
 
+  @type describe_resource_grouping_recommendation_task_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+
   @type import_resources_to_draft_app_version_errors() ::
           throttling_exception()
           | validation_exception()
@@ -2501,6 +2747,13 @@ defmodule AWS.Resiliencehub do
           | internal_server_exception()
           | resource_not_found_exception()
 
+  @type list_resource_grouping_recommendations_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+
   @type list_sop_recommendations_errors() ::
           throttling_exception()
           | validation_exception()
@@ -2555,6 +2808,13 @@ defmodule AWS.Resiliencehub do
           | resource_not_found_exception()
           | conflict_exception()
 
+  @type reject_resource_grouping_recommendations_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+
   @type remove_draft_app_version_resource_mappings_errors() ::
           throttling_exception()
           | validation_exception()
@@ -2577,6 +2837,14 @@ defmodule AWS.Resiliencehub do
           | access_denied_exception()
           | internal_server_exception()
           | service_quota_exceeded_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+
+  @type start_resource_grouping_recommendation_task_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
           | resource_not_found_exception()
           | conflict_exception()
 
@@ -2652,10 +2920,56 @@ defmodule AWS.Resiliencehub do
   end
 
   @doc """
+  Accepts the resource grouping recommendations suggested by Resilience Hub for
+  your application.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=resiliencehub%20AcceptResourceGroupingRecommendations&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
+  """
+
+  @spec accept_resource_grouping_recommendations(AWS.Client.t(), Keyword.t()) ::
+          {:ok, accept_resource_grouping_recommendations_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, accept_resource_grouping_recommendations_errors()}
+
+  def accept_resource_grouping_recommendations(%Client{} = client, options \\ []) do
+    url_path = "/accept-resource-grouping-recommendations"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
+    headers = []
+
+    # Optional headers
+
+    # Required query params
+    query_params = []
+
+    # Optional query params
+
+    meta =
+      metadata()
+
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
+  end
+
+  @doc """
   Adds the source of resource-maps to the draft version of an application. During
   assessment, Resilience Hub will use these resource-maps to resolve the latest
   physical ID for each resource in the application template. For more
-  information about different types of resources suported by Resilience Hub and
+  information about different types of resources supported by Resilience Hub and
   how to add them in your application, see [Step 2: How is your application
   managed?](https://docs.aws.amazon.com/resilience-hub/latest/userguide/how-app-manage.html)
   in the Resilience Hub User Guide.
@@ -3712,6 +4026,52 @@ defmodule AWS.Resiliencehub do
   end
 
   @doc """
+  Describes the resource grouping recommendation tasks run by Resilience Hub for
+  your application.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=resiliencehub%20DescribeResourceGroupingRecommendationTask&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
+  """
+
+  @spec describe_resource_grouping_recommendation_task(AWS.Client.t(), Keyword.t()) ::
+          {:ok, describe_resource_grouping_recommendation_task_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, describe_resource_grouping_recommendation_task_errors()}
+
+  def describe_resource_grouping_recommendation_task(%Client{} = client, options \\ []) do
+    url_path = "/describe-resource-grouping-recommendation-task"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
+    headers = []
+
+    # Optional headers
+
+    # Required query params
+    query_params = []
+
+    # Optional query params
+
+    meta =
+      metadata()
+
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
+  end
+
+  @doc """
   Imports resources to Resilience Hub application draft version from different
   input sources. For more information about the input sources supported by
   Resilience Hub, see [Discover the structure and describe your Resilience Hub
@@ -4380,8 +4740,8 @@ defmodule AWS.Resiliencehub do
   next set of results.
   * `:reverse_order` (`t:boolean`) The application list is sorted based on the
   values of lastAppComplianceEvaluationTime field. By default, application
-  list is sorted in ascending order. To sort the appliation list in descending
-  order, set this field to True.
+  list is sorted in ascending order. To sort the application list in
+  descending order, set this field to True.
   * `:to_last_assessment_time` (`t:timestamp`) Indicates the upper limit of the
   range that is used to filter the applications based on their last assessment
   times.
@@ -4688,6 +5048,84 @@ defmodule AWS.Resiliencehub do
     options =
       options
       |> Keyword.drop([:max_results, :next_token, :policy_name])
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
+  Lists the resource grouping recommendations suggested by Resilience Hub for your
+  application.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=resiliencehub%20ListResourceGroupingRecommendations&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
+  * `:app_arn` (`t:string`) Amazon Resource Name (ARN) of the Resilience Hub
+  application. The format for this ARN is:
+  arn:partition:resiliencehub:region:account:app/app-id. For more information
+  about ARNs, see Amazon Resource Names (ARNs) in the Amazon Web Services
+  General Reference guide.
+  * `:max_results` (`t:integer`) Maximum number of grouping recommendations to be
+  displayed per Resilience Hub application.
+  * `:next_token` (`t:string`) Null, or the token from a previous call to get the
+  next set of results.
+  """
+
+  @spec list_resource_grouping_recommendations(AWS.Client.t(), Keyword.t()) ::
+          {:ok, list_resource_grouping_recommendations_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, list_resource_grouping_recommendations_errors()}
+
+  def list_resource_grouping_recommendations(%Client{} = client, options \\ []) do
+    url_path = "/list-resource-grouping-recommendations"
+
+    # Validate optional parameters
+    optional_params = [app_arn: nil, max_results: nil, next_token: nil]
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
+    headers = []
+
+    # Optional headers
+
+    # Required query params
+    query_params = []
+
+    # Optional query params
+    query_params =
+      if opt_val = Keyword.get(options, :next_token) do
+        [{"nextToken", opt_val} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if opt_val = Keyword.get(options, :max_results) do
+        [{"maxResults", opt_val} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if opt_val = Keyword.get(options, :app_arn) do
+        [{"appArn", opt_val} | query_params]
+      else
+        query_params
+      end
+
+    meta =
+      metadata()
+
+    # Drop optionals that have been moved to query/header-params
+    options =
+      options
+      |> Keyword.drop([:app_arn, :max_results, :next_token])
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
@@ -5033,6 +5471,51 @@ defmodule AWS.Resiliencehub do
   end
 
   @doc """
+  Rejects resource grouping recommendations.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=resiliencehub%20RejectResourceGroupingRecommendations&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
+  """
+
+  @spec reject_resource_grouping_recommendations(AWS.Client.t(), Keyword.t()) ::
+          {:ok, reject_resource_grouping_recommendations_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, reject_resource_grouping_recommendations_errors()}
+
+  def reject_resource_grouping_recommendations(%Client{} = client, options \\ []) do
+    url_path = "/reject-resource-grouping-recommendations"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
+    headers = []
+
+    # Optional headers
+
+    # Required query params
+    query_params = []
+
+    # Optional query params
+
+    meta =
+      metadata()
+
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
+  end
+
+  @doc """
   Removes resource mappings from a draft application version.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=resiliencehub%20RemoveDraftAppVersionResourceMappings&this_doc_guide=API%2520Reference)
@@ -5139,6 +5622,51 @@ defmodule AWS.Resiliencehub do
 
   def start_app_assessment(%Client{} = client, options \\ []) do
     url_path = "/start-app-assessment"
+
+    # Validate optional parameters
+    optional_params = []
+
+    options =
+      Keyword.validate!(
+        options,
+        [enable_retries?: false, retry_num: 0, retry_opts: []] ++ optional_params
+      )
+
+    # Required headers
+    headers = []
+
+    # Optional headers
+
+    # Required query params
+    query_params = []
+
+    # Optional query params
+
+    meta =
+      metadata()
+
+    body = nil
+
+    Request.request_rest(client, meta, :post, url_path, query_params, headers, body, options, 200)
+  end
+
+  @doc """
+  Starts grouping recommendation task.
+
+  [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=resiliencehub%20StartResourceGroupingRecommendationTask&this_doc_guide=API%2520Reference)
+
+  ## Parameters:
+
+  ## Optional parameters:
+  """
+
+  @spec start_resource_grouping_recommendation_task(AWS.Client.t(), Keyword.t()) ::
+          {:ok, start_resource_grouping_recommendation_task_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, start_resource_grouping_recommendation_task_errors()}
+
+  def start_resource_grouping_recommendation_task(%Client{} = client, options \\ []) do
+    url_path = "/start-resource-grouping-recommendation-task"
 
     # Validate optional parameters
     optional_params = []

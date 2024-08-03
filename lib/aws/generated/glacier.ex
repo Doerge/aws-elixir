@@ -3416,7 +3416,7 @@ defmodule AWS.Glacier do
   AWS account ID associated with the credentials used to sign the request. If
   you use an account ID, do not include any hyphens ('-') in the ID.
   * `:vault_name` (`t:string`) The name of the vault.
-  * `:input` (`t:map | nil`):
+  * `:input` (`t:map`):
     * `:body` (`t:blob`) The data to upload.
 
   ## Optional parameters:
@@ -3425,13 +3425,13 @@ defmodule AWS.Glacier do
   * `:checksum` (`t:string`) The SHA256 tree hash of the data being uploaded.
   """
 
-  @spec upload_archive(AWS.Client.t(), String.t(), String.t(), input :: map() | nil, Keyword.t()) ::
+  @spec upload_archive(AWS.Client.t(), String.t(), String.t(), input :: map(), Keyword.t()) ::
           {:ok, archive_creation_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, upload_archive_errors()}
 
   def upload_archive(%Client{} = client, account_id, vault_name, input, options \\ [])
-      when is_map(input) or is_nil(input) do
+      when is_map(input) do
     url_path =
       "/#{AWS.Util.encode_uri(account_id)}/vaults/#{AWS.Util.encode_uri(vault_name)}/archives"
 
@@ -3517,7 +3517,7 @@ defmodule AWS.Glacier do
   you use an account ID, do not include any hyphens ('-') in the ID.
   * `:upload_id` (`t:string`) The upload ID of the multipart upload.
   * `:vault_name` (`t:string`) The name of the vault.
-  * `:input` (`t:map | nil`):
+  * `:input` (`t:map`):
     * `:body` (`t:blob`) The data to upload.
 
   ## Optional parameters:
@@ -3533,7 +3533,7 @@ defmodule AWS.Glacier do
           String.t(),
           String.t(),
           String.t(),
-          input :: map() | nil,
+          input :: map(),
           Keyword.t()
         ) ::
           {:ok, upload_multipart_part_output(), any()}
@@ -3548,7 +3548,7 @@ defmodule AWS.Glacier do
         input,
         options \\ []
       )
-      when is_map(input) or is_nil(input) do
+      when is_map(input) do
     url_path =
       "/#{AWS.Util.encode_uri(account_id)}/vaults/#{AWS.Util.encode_uri(vault_name)}/multipart-uploads/#{AWS.Util.encode_uri(upload_id)}"
 

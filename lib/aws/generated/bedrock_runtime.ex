@@ -452,6 +452,17 @@ defmodule AWS.BedrockRuntime do
 
   ## Example:
       
+      service_unavailable_exception() :: %{
+        "message" => String.t()
+      }
+      
+  """
+  @type service_unavailable_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       guardrail_contextual_grounding_policy_assessment() :: %{
         "filters" => list(guardrail_contextual_grounding_filter()())
       }
@@ -829,6 +840,7 @@ defmodule AWS.BedrockRuntime do
           | access_denied_exception()
           | model_error_exception()
           | internal_server_exception()
+          | service_unavailable_exception()
           | resource_not_found_exception()
           | model_not_ready_exception()
 
@@ -839,6 +851,7 @@ defmodule AWS.BedrockRuntime do
           | access_denied_exception()
           | model_error_exception()
           | internal_server_exception()
+          | service_unavailable_exception()
           | resource_not_found_exception()
           | model_not_ready_exception()
 
@@ -849,6 +862,7 @@ defmodule AWS.BedrockRuntime do
           | access_denied_exception()
           | model_error_exception()
           | internal_server_exception()
+          | service_unavailable_exception()
           | service_quota_exceeded_exception()
           | resource_not_found_exception()
           | model_not_ready_exception()
@@ -861,6 +875,7 @@ defmodule AWS.BedrockRuntime do
           | access_denied_exception()
           | model_error_exception()
           | internal_server_exception()
+          | service_unavailable_exception()
           | service_quota_exceeded_exception()
           | resource_not_found_exception()
           | model_not_ready_exception()
@@ -934,12 +949,10 @@ defmodule AWS.BedrockRuntime do
   @doc """
   Sends messages to the specified Amazon Bedrock model. `Converse` provides a
   consistent interface that works with all models that support messages. This
-  allows you to write code once and use it with different models. Should a model
-  have unique inference parameters, you can also pass those unique parameters to
-  the model. For information about the Converse API, see *Use the Converse API*
-  in the *Amazon Bedrock User Guide*. To use a guardrail, see *Use a guardrail
-  with the Converse API* in the *Amazon Bedrock User Guide*. To use a tool with
-  a model, see *Tool use (Function calling)* in the *Amazon Bedrock User Guide*
+  allows you to write code once and use it with different models. If a model has
+  unique inference parameters, you can also pass those unique parameters to the
+  model. Amazon Bedrock doesn't store any text, images, or documents that you
+  provide as content. The data is only used to generate the response.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=bedrockruntime%20Converse&this_doc_guide=API%2520Reference)
 

@@ -3645,9 +3645,11 @@ defmodule AWS.DynamoDB do
   This operation allows you to perform batch reads or writes on data stored in
   DynamoDB, using PartiQL. Each read statement in a `BatchExecuteStatement` must
   specify an equality condition on all key attributes. This enforces that each
-  `SELECT` statement in a batch returns at most a single item. The entire batch
-  must consist of either read statements or write statements, you cannot mix
-  both in one batch.
+  `SELECT` statement in a batch returns at most a single item. For more
+  information, see [Running batch operations with PartiQL for DynamoDB
+  ](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/ql-reference.multiplestatements.batching.html).
+  The entire batch must consist of either read statements or write statements,
+  you cannot mix both in one batch.
 
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=dynamodb%20BatchExecuteStatement&this_doc_guide=API%2520Reference)
 

@@ -878,7 +878,7 @@ defmodule AWS.Ivs do
       
       thumbnail_configuration() :: %{
         "recordingMode" => String.t(),
-        "resolution" => String.t(),
+        "resolution" => list(any()),
         "storage" => list(String.t()()),
         "targetIntervalSeconds" => float()
       }
@@ -925,7 +925,7 @@ defmodule AWS.Ivs do
       
       rendition_configuration() :: %{
         "renditionSelection" => String.t(),
-        "renditions" => list(String.t()())
+        "renditions" => list(list(any())())
       }
       
   """
