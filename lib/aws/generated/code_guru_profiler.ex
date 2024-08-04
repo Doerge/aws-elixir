@@ -1014,8 +1014,7 @@ defmodule AWS.CodeGuruProfiler do
 
   ## Parameters:
   * `:profiling_group_name` (`t:string` required) The name of the profiling group
-  that we are setting up notifications for.
-  ## Keyword parameters:
+    that we are setting up notifications for.
   """
   @spec add_notification_channels(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, add_notification_channels_response(), any()}
@@ -1060,24 +1059,25 @@ defmodule AWS.CodeGuruProfiler do
 
   ## Parameters:
   * `:profiling_group_name` (`t:string` required) The name of the profiling group
-  associated with the the frame metrics used to return the time series values.
+    associated with the the frame metrics used to return the time series values.
+
   ## Keyword parameters:
   * `:end_time` (`t:timestamp[date-time]`) The end time of the time period for the
-  returned time series values. This is specified using the ISO 8601 format.
-  For example, 2020-06-01T13:15:02.001Z represents 1 millisecond past June 1,
-  2020 1:15:02 PM UTC.
+    returned time series values. This is specified using the ISO 8601 format.
+    For example, 2020-06-01T13:15:02.001Z represents 1 millisecond past June 1,
+    2020 1:15:02 PM UTC.
   * `:period` (`t:string`) The duration of the frame metrics used to return the
-  time series values. Specify using the ISO 8601 format. The maximum period
-  duration is one day (PT24H or P1D).
+    time series values. Specify using the ISO 8601 format. The maximum period
+    duration is one day (PT24H or P1D).
   * `:start_time` (`t:timestamp[date-time]`) The start time of the time period for
-  the frame metrics used to return the time series values. This is specified
-  using the ISO 8601 format. For example, 2020-06-01T13:15:02.001Z represents
-  1 millisecond past June 1, 2020 1:15:02 PM UTC.
+    the frame metrics used to return the time series values. This is specified
+    using the ISO 8601 format. For example, 2020-06-01T13:15:02.001Z represents
+    1 millisecond past June 1, 2020 1:15:02 PM UTC.
   * `:target_resolution` (`t:string`) The requested resolution of time steps for
-  the returned time series of values. If the requested target resolution is
-  not available due to data not being retained we provide a best effort result
-  by falling back to the most granular available resolution after the target
-  resolution. There are 3 valid values.
+    the returned time series of values. If the requested target resolution is
+    not available due to data not being retained we provide a best effort result
+    by falling back to the most granular available resolution after the target
+    resolution. There are 3 valid values.
   """
   @spec batch_get_frame_metric_data(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, batch_get_frame_metric_data_response(), any()}
@@ -1154,8 +1154,7 @@ defmodule AWS.CodeGuruProfiler do
 
   ## Parameters:
   * `:profiling_group_name` (`t:string` required) The name of the profiling group
-  for which the configured agent is collecting profiling data.
-  ## Keyword parameters:
+    for which the configured agent is collecting profiling data.
   """
   @spec configure_agent(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, configure_agent_response(), any()}
@@ -1198,9 +1197,8 @@ defmodule AWS.CodeGuruProfiler do
 
   ## Parameters:
   * `:client_token` (`t:string` required) Amazon CodeGuru Profiler uses this
-  universally unique identifier (UUID) to prevent the accidental creation of
-  duplicate profiling groups if there are failures and retries.
-  ## Keyword parameters:
+    universally unique identifier (UUID) to prevent the accidental creation of
+    duplicate profiling groups if there are failures and retries.
   """
   @spec create_profiling_group(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, create_profiling_group_response(), any()}
@@ -1244,8 +1242,7 @@ defmodule AWS.CodeGuruProfiler do
 
   ## Parameters:
   * `:profiling_group_name` (`t:string` required) The name of the profiling group
-  to delete.
-  ## Keyword parameters:
+    to delete.
   """
   @spec delete_profiling_group(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, delete_profiling_group_response(), any()}
@@ -1300,8 +1297,7 @@ defmodule AWS.CodeGuruProfiler do
 
   ## Parameters:
   * `:profiling_group_name` (`t:string` required) The name of the profiling group
-  to get information about.
-  ## Keyword parameters:
+    to get information about.
   """
   @spec describe_profiling_group(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, describe_profiling_group_response(), any()}
@@ -1344,21 +1340,22 @@ defmodule AWS.CodeGuruProfiler do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=codeguruprofiler%20GetFindingsReportAccountSummary&this_doc_guide=API%2520Reference)
 
   ## Parameters:
+
   ## Keyword parameters:
   * `:daily_reports_only` (`t:string`) A Boolean value indicating whether to only
-  return reports from daily profiles. If set to True, only analysis data from
-  daily profiles is returned. If set to False, analysis data is returned from
-  smaller time windows (for example, one hour).
+    return reports from daily profiles. If set to True, only analysis data from
+    daily profiles is returned. If set to False, analysis data is returned from
+    smaller time windows (for example, one hour).
   * `:max_results` (`t:integer`) The maximum number of results returned by
-  GetFindingsReportAccountSummary in paginated output. When this parameter is
-  used, GetFindingsReportAccountSummary only returns maxResults results in a
-  single page along with a nextToken response element. The remaining results
-  of the initial request can be seen by sending another
-  GetFindingsReportAccountSummary request with the returned nextToken value.
+    GetFindingsReportAccountSummary in paginated output. When this parameter is
+    used, GetFindingsReportAccountSummary only returns maxResults results in a
+    single page along with a nextToken response element. The remaining results
+    of the initial request can be seen by sending another
+    GetFindingsReportAccountSummary request with the returned nextToken value.
   * `:next_token` (`t:string`) The nextToken value returned from a previous
-  paginated GetFindingsReportAccountSummary request where maxResults was used
-  and the results exceeded the value of that parameter. Pagination continues
-  from the end of the previous results that returned the nextToken value.
+    paginated GetFindingsReportAccountSummary request where maxResults was used
+    and the results exceeded the value of that parameter. Pagination continues
+    from the end of the previous results that returned the nextToken value.
   """
   @spec get_findings_report_account_summary(AWS.Client.t(), Keyword.t()) ::
           {:ok, get_findings_report_account_summary_response(), any()}
@@ -1424,8 +1421,7 @@ defmodule AWS.CodeGuruProfiler do
 
   ## Parameters:
   * `:profiling_group_name` (`t:string` required) The name of the profiling group
-  we want to get the notification configuration for.
-  ## Keyword parameters:
+    we want to get the notification configuration for.
   """
   @spec get_notification_configuration(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_notification_configuration_response(), any()}
@@ -1467,7 +1463,6 @@ defmodule AWS.CodeGuruProfiler do
 
   ## Parameters:
   * `:profiling_group_name` (`t:string` required) The name of the profiling group.
-  ## Keyword parameters:
   """
   @spec get_policy(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_policy_response(), any()}
@@ -1510,25 +1505,26 @@ defmodule AWS.CodeGuruProfiler do
 
   ## Parameters:
   * `:profiling_group_name` (`t:string` required) The name of the profiling group
-  to get.
+    to get.
+
   ## Keyword parameters:
   * `:end_time` (`t:timestamp[date-time]`) The end time of the requested profile.
-  Specify using the ISO 8601 format. For example, 2020-06-01T13:15:02.001Z
-  represents 1 millisecond past June 1, 2020 1:15:02 PM UTC.
+    Specify using the ISO 8601 format. For example, 2020-06-01T13:15:02.001Z
+    represents 1 millisecond past June 1, 2020 1:15:02 PM UTC.
   * `:max_depth` (`t:integer`) The maximum depth of the stacks in the code that is
-  represented in the aggregated profile. For example, if CodeGuru Profiler
-  finds a method A, which calls method B, which calls method C, which calls
-  method D, then the depth is 4. If the maxDepth is set to 2, then the
-  aggregated profile contains representations of methods A and B.
+    represented in the aggregated profile. For example, if CodeGuru Profiler
+    finds a method A, which calls method B, which calls method C, which calls
+    method D, then the depth is 4. If the maxDepth is set to 2, then the
+    aggregated profile contains representations of methods A and B.
   * `:period` (`t:string`) Used with startTime or endTime to specify the time
-  range for the returned aggregated profile. Specify using the ISO 8601
-  format. For example, P1DT1H1M1S.
+    range for the returned aggregated profile. Specify using the ISO 8601
+    format. For example, P1DT1H1M1S.
   * `:start_time` (`t:timestamp[date-time]`) The start time of the profile to get.
-  Specify using the ISO 8601 format. For example, 2020-06-01T13:15:02.001Z
-  represents 1 millisecond past June 1, 2020 1:15:02 PM UTC.
+    Specify using the ISO 8601 format. For example, 2020-06-01T13:15:02.001Z
+    represents 1 millisecond past June 1, 2020 1:15:02 PM UTC.
   * `:accept` (`t:string`) The format of the returned profiling data. The format
-  maps to the Accept and Content-Type headers of the HTTP request. You can
-  specify one of the following: or the default .
+    maps to the Accept and Content-Type headers of the HTTP request. You can
+    specify one of the following: or the default .
   """
   @spec get_profile(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_profile_response(), any()}
@@ -1620,18 +1616,19 @@ defmodule AWS.CodeGuruProfiler do
 
   ## Parameters:
   * `:profiling_group_name` (`t:string` required) The name of the profiling group
-  to get analysis data about.
+    to get analysis data about.
   * `:end_time` (`t:timestamp[date-time]` required) The start time of the profile
-  to get analysis data about. You must specify startTime and endTime. This is
-  specified using the ISO 8601 format. For example, 2020-06-01T13:15:02.001Z
-  represents 1 millisecond past June 1, 2020 1:15:02 PM UTC.
+    to get analysis data about. You must specify startTime and endTime. This is
+    specified using the ISO 8601 format. For example, 2020-06-01T13:15:02.001Z
+    represents 1 millisecond past June 1, 2020 1:15:02 PM UTC.
   * `:start_time` (`t:timestamp[date-time]` required) The end time of the profile
-  to get analysis data about. You must specify startTime and endTime. This is
-  specified using the ISO 8601 format. For example, 2020-06-01T13:15:02.001Z
-  represents 1 millisecond past June 1, 2020 1:15:02 PM UTC.
+    to get analysis data about. You must specify startTime and endTime. This is
+    specified using the ISO 8601 format. For example, 2020-06-01T13:15:02.001Z
+    represents 1 millisecond past June 1, 2020 1:15:02 PM UTC.
+
   ## Keyword parameters:
   * `:locale` (`t:string`) The language used to provide analysis. Specify using a
-  string that is one of the following BCP 47 language codes.
+    string that is one of the following BCP 47 language codes.
   """
   @spec get_recommendations(AWS.Client.t(), String.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_recommendations_response(), any()}
@@ -1691,31 +1688,32 @@ defmodule AWS.CodeGuruProfiler do
 
   ## Parameters:
   * `:profiling_group_name` (`t:string` required) The name of the profiling group
-  from which to search for analysis data.
+    from which to search for analysis data.
   * `:end_time` (`t:timestamp[date-time]` required) The end time of the profile to
-  get analysis data about. You must specify startTime and endTime. This is
-  specified using the ISO 8601 format. For example, 2020-06-01T13:15:02.001Z
-  represents 1 millisecond past June 1, 2020 1:15:02 PM UTC.
+    get analysis data about. You must specify startTime and endTime. This is
+    specified using the ISO 8601 format. For example, 2020-06-01T13:15:02.001Z
+    represents 1 millisecond past June 1, 2020 1:15:02 PM UTC.
   * `:start_time` (`t:timestamp[date-time]` required) The start time of the
-  profile to get analysis data about. You must specify startTime and endTime.
-  This is specified using the ISO 8601 format. For example,
-  2020-06-01T13:15:02.001Z represents 1 millisecond past June 1, 2020 1:15:02
-  PM UTC.
+    profile to get analysis data about. You must specify startTime and endTime.
+    This is specified using the ISO 8601 format. For example,
+    2020-06-01T13:15:02.001Z represents 1 millisecond past June 1, 2020 1:15:02
+    PM UTC.
+
   ## Keyword parameters:
   * `:daily_reports_only` (`t:string`) A Boolean value indicating whether to only
-  return reports from daily profiles. If set to True, only analysis data from
-  daily profiles is returned. If set to False, analysis data is returned from
-  smaller time windows (for example, one hour).
+    return reports from daily profiles. If set to True, only analysis data from
+    daily profiles is returned. If set to False, analysis data is returned from
+    smaller time windows (for example, one hour).
   * `:max_results` (`t:integer`) The maximum number of report results returned by
-  ListFindingsReports in paginated output. When this parameter is used,
-  ListFindingsReports only returns maxResults results in a single page along
-  with a nextToken response element. The remaining results of the initial
-  request can be seen by sending another ListFindingsReports request with the
-  returned nextToken value.
+    ListFindingsReports in paginated output. When this parameter is used,
+    ListFindingsReports only returns maxResults results in a single page along
+    with a nextToken response element. The remaining results of the initial
+    request can be seen by sending another ListFindingsReports request with the
+    returned nextToken value.
   * `:next_token` (`t:string`) The nextToken value returned from a previous
-  paginated ListFindingsReportsRequest request where maxResults was used and
-  the results exceeded the value of that parameter. Pagination continues from
-  the end of the previous results that returned the nextToken value.
+    paginated ListFindingsReportsRequest request where maxResults was used and
+    the results exceeded the value of that parameter. Pagination continues from
+    the end of the previous results that returned the nextToken value.
   """
   @spec list_findings_reports(AWS.Client.t(), String.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, list_findings_reports_response(), any()}
@@ -1791,25 +1789,26 @@ defmodule AWS.CodeGuruProfiler do
   ## Parameters:
   * `:profiling_group_name` (`t:string` required) The name of the profiling group.
   * `:end_time` (`t:timestamp[date-time]` required) The end time of the time range
-  from which to list the profiles.
+    from which to list the profiles.
   * `:period` (`t:string` required) The aggregation period. This specifies the
-  period during which an aggregation profile collects posted agent profiles
-  for a profiling group. There are 3 valid values.
+    period during which an aggregation profile collects posted agent profiles
+    for a profiling group. There are 3 valid values.
   * `:start_time` (`t:timestamp[date-time]` required) The start time of the time
-  range from which to list the profiles.
+    range from which to list the profiles.
+
   ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of profile time results
-  returned by ListProfileTimes in paginated output. When this parameter is
-  used, ListProfileTimes only returns maxResults results in a single page with
-  a nextToken response element. The remaining results of the initial request
-  can be seen by sending another ListProfileTimes request with the returned
-  nextToken value.
+    returned by ListProfileTimes in paginated output. When this parameter is
+    used, ListProfileTimes only returns maxResults results in a single page with
+    a nextToken response element. The remaining results of the initial request
+    can be seen by sending another ListProfileTimes request with the returned
+    nextToken value.
   * `:next_token` (`t:string`) The nextToken value returned from a previous
-  paginated ListProfileTimes request where maxResults was used and the results
-  exceeded the value of that parameter. Pagination continues from the end of
-  the previous results that returned the nextToken value.
+    paginated ListProfileTimes request where maxResults was used and the results
+    exceeded the value of that parameter. Pagination continues from the end of
+    the previous results that returned the nextToken value.
   * `:order_by` (`t:string`) The order (ascending or descending by start time of
-  the profile) to use when listing profiles. Defaults to TIMESTAMP_DESCENDING.
+    the profile) to use when listing profiles. Defaults to TIMESTAMP_DESCENDING.
   """
   @spec list_profile_times(
           AWS.Client.t(),
@@ -1892,21 +1891,22 @@ defmodule AWS.CodeGuruProfiler do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=codeguruprofiler%20ListProfilingGroups&this_doc_guide=API%2520Reference)
 
   ## Parameters:
+
   ## Keyword parameters:
   * `:include_description` (`t:string`) A Boolean value indicating whether to
-  include a description. If true, then a list of ProfilingGroupDescription
-  objects that contain detailed information about profiling groups is
-  returned. If false, then a list of profiling group names is returned.
+    include a description. If true, then a list of ProfilingGroupDescription
+    objects that contain detailed information about profiling groups is
+    returned. If false, then a list of profiling group names is returned.
   * `:max_results` (`t:integer`) The maximum number of profiling groups results
-  returned by ListProfilingGroups in paginated output. When this parameter is
-  used, ListProfilingGroups only returns maxResults results in a single page
-  along with a nextToken response element. The remaining results of the
-  initial request can be seen by sending another ListProfilingGroups request
-  with the returned nextToken value.
+    returned by ListProfilingGroups in paginated output. When this parameter is
+    used, ListProfilingGroups only returns maxResults results in a single page
+    along with a nextToken response element. The remaining results of the
+    initial request can be seen by sending another ListProfilingGroups request
+    with the returned nextToken value.
   * `:next_token` (`t:string`) The nextToken value returned from a previous
-  paginated ListProfilingGroups request where maxResults was used and the
-  results exceeded the value of that parameter. Pagination continues from the
-  end of the previous results that returned the nextToken value.
+    paginated ListProfilingGroups request where maxResults was used and the
+    results exceeded the value of that parameter. Pagination continues from the
+    end of the previous results that returned the nextToken value.
   """
   @spec list_profiling_groups(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_profiling_groups_response(), any()}
@@ -1972,8 +1972,7 @@ defmodule AWS.CodeGuruProfiler do
 
   ## Parameters:
   * `:resource_arn` (`t:string` required) The Amazon Resource Name (ARN) of the
-  resource that contains the tags to return.
-  ## Keyword parameters:
+    resource that contains the tags to return.
   """
   @spec list_tags_for_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_tags_for_resource_response(), any()}
@@ -2017,16 +2016,17 @@ defmodule AWS.CodeGuruProfiler do
 
   ## Parameters:
   * `:profiling_group_name` (`t:string` required) The name of the profiling group
-  with the aggregated profile that receives the submitted profiling data.
+    with the aggregated profile that receives the submitted profiling data.
   * `:content_type` (`t:string` required) The format of the submitted profiling
-  data. The format maps to the Accept and Content-Type headers of the HTTP
-  request. You can specify one of the following: or the default .
+    data. The format maps to the Accept and Content-Type headers of the HTTP
+    request. You can specify one of the following: or the default .
   * `:input` (`t:map`):
-    * `:agent_profile` (`t:blob` required) The submitted profiling data.
+    * `"agentProfile" => t:blob` (required) The submitted profiling data.
+
   ## Keyword parameters:
   * `:profile_token` (`t:string`) Amazon CodeGuru Profiler uses this universally
-  unique identifier (UUID) to prevent the accidental submission of duplicate
-  profiling data if there are failures and retries.
+    unique identifier (UUID) to prevent the accidental submission of duplicate
+    profiling data if there are failures and retries.
   """
   @spec post_agent_profile(AWS.Client.t(), String.t(), String.t(), input :: map(), Keyword.t()) ::
           {:ok, post_agent_profile_response(), any()}
@@ -2090,13 +2090,12 @@ defmodule AWS.CodeGuruProfiler do
 
   ## Parameters:
   * `:action_group` (`t:string` required) Specifies an action group that contains
-  permissions to add to a profiling group resource. One action group is
-  supported, agentPermissions, which grants permission to perform actions
-  required by the profiling agent, ConfigureAgent and PostAgentProfile
-  permissions.
+    permissions to add to a profiling group resource. One action group is
+    supported, agentPermissions, which grants permission to perform actions
+    required by the profiling agent, ConfigureAgent and PostAgentProfile
+    permissions.
   * `:profiling_group_name` (`t:string` required) The name of the profiling group
-  to grant access to.
-  ## Keyword parameters:
+    to grant access to.
   """
   @spec put_permission(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, put_permission_response(), any()}
@@ -2140,10 +2139,9 @@ defmodule AWS.CodeGuruProfiler do
 
   ## Parameters:
   * `:channel_id` (`t:string` required) The id of the channel that we want to stop
-  receiving notifications.
+    receiving notifications.
   * `:profiling_group_name` (`t:string` required) The name of the profiling group
-  we want to change notification configuration for.
-  ## Keyword parameters:
+    we want to change notification configuration for.
   """
   @spec remove_notification_channel(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, remove_notification_channel_response(), any()}
@@ -2210,14 +2208,13 @@ defmodule AWS.CodeGuruProfiler do
 
   ## Parameters:
   * `:action_group` (`t:string` required) Specifies an action group that contains
-  the permissions to remove from a profiling group's resource-based policy.
-  One action group is supported, agentPermissions, which grants ConfigureAgent
-  and PostAgentProfile permissions.
+    the permissions to remove from a profiling group's resource-based policy.
+    One action group is supported, agentPermissions, which grants ConfigureAgent
+    and PostAgentProfile permissions.
   * `:profiling_group_name` (`t:string` required) The name of the profiling group.
   * `:revision_id` (`t:string` required) A universally unique identifier (UUID)
-  for the revision of the resource-based policy from which you want to remove
-  permissions.
-  ## Keyword parameters:
+    for the revision of the resource-based policy from which you want to remove
+    permissions.
   """
   @spec remove_permission(AWS.Client.t(), String.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, remove_permission_response(), any()}
@@ -2279,10 +2276,9 @@ defmodule AWS.CodeGuruProfiler do
 
   ## Parameters:
   * `:anomaly_instance_id` (`t:string` required) The universally unique identifier
-  (UUID) of the AnomalyInstance object that is included in the analysis data.
+    (UUID) of the AnomalyInstance object that is included in the analysis data.
   * `:profiling_group_name` (`t:string` required) The name of the profiling group
-  that is associated with the analysis data.
-  ## Keyword parameters:
+    that is associated with the analysis data.
   """
   @spec submit_feedback(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, submit_feedback_response(), any()}
@@ -2331,8 +2327,7 @@ defmodule AWS.CodeGuruProfiler do
 
   ## Parameters:
   * `:resource_arn` (`t:string` required) The Amazon Resource Name (ARN) of the
-  resource that the tags are added to.
-  ## Keyword parameters:
+    resource that the tags are added to.
   """
   @spec tag_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, tag_resource_response(), any()}
@@ -2375,11 +2370,10 @@ defmodule AWS.CodeGuruProfiler do
 
   ## Parameters:
   * `:resource_arn` (`t:string` required) The Amazon Resource Name (ARN) of the
-  resource that contains the tags to remove.
+    resource that contains the tags to remove.
   * `:tag_keys` (`t:list[smithy.api#String]` required) A list of tag keys.
-  Existing tags of resources with keys in this list are removed from the
-  specified resource.
-  ## Keyword parameters:
+    Existing tags of resources with keys in this list are removed from the
+    specified resource.
   """
   @spec untag_resource(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, untag_resource_response(), any()}
@@ -2433,8 +2427,7 @@ defmodule AWS.CodeGuruProfiler do
 
   ## Parameters:
   * `:profiling_group_name` (`t:string` required) The name of the profiling group
-  to update.
-  ## Keyword parameters:
+    to update.
   """
   @spec update_profiling_group(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, update_profiling_group_response(), any()}

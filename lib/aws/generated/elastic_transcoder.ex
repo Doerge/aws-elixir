@@ -1133,7 +1133,6 @@ defmodule AWS.ElasticTranscoder do
 
   ## Parameters:
   * `:id` (`t:string` required) The identifier of the job that you want to cancel.
-  ## Keyword parameters:
   """
   @spec cancel_job(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, cancel_job_response(), any()}
@@ -1186,7 +1185,6 @@ defmodule AWS.ElasticTranscoder do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=elastictranscoder%20CreateJob&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec create_job(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_job_response(), any()}
@@ -1228,7 +1226,6 @@ defmodule AWS.ElasticTranscoder do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=elastictranscoder%20CreatePipeline&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec create_pipeline(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_pipeline_response(), any()}
@@ -1280,7 +1277,6 @@ defmodule AWS.ElasticTranscoder do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=elastictranscoder%20CreatePreset&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec create_preset(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_preset_response(), any()}
@@ -1323,8 +1319,7 @@ defmodule AWS.ElasticTranscoder do
 
   ## Parameters:
   * `:id` (`t:string` required) The identifier of the pipeline that you want to
-  delete.
-  ## Keyword parameters:
+    delete.
   """
   @spec delete_pipeline(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, delete_pipeline_response(), any()}
@@ -1377,8 +1372,7 @@ defmodule AWS.ElasticTranscoder do
 
   ## Parameters:
   * `:id` (`t:string` required) The identifier of the preset for which you want to
-  get detailed information.
-  ## Keyword parameters:
+    get detailed information.
   """
   @spec delete_preset(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, delete_preset_response(), any()}
@@ -1432,14 +1426,15 @@ defmodule AWS.ElasticTranscoder do
 
   ## Parameters:
   * `:pipeline_id` (`t:string` required) The ID of the pipeline for which you want
-  to get job information.
+    to get job information.
+
   ## Keyword parameters:
   * `:ascending` (`t:string`) To list jobs in chronological order by the date and
-  time that they were submitted, enter true. To list jobs in reverse
-  chronological order, enter false.
+    time that they were submitted, enter true. To list jobs in reverse
+    chronological order, enter false.
   * `:page_token` (`t:string`) When Elastic Transcoder returns more than one page
-  of results, use pageToken in subsequent GET requests to get each successive
-  page of results.
+    of results, use pageToken in subsequent GET requests to get each successive
+    page of results.
   """
   @spec list_jobs_by_pipeline(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_jobs_by_pipeline_response(), any()}
@@ -1500,15 +1495,16 @@ defmodule AWS.ElasticTranscoder do
 
   ## Parameters:
   * `:status` (`t:string` required) To get information about all of the jobs
-  associated with the current AWS account that have a given status, specify
-  the following status: Submitted, Progressing, Complete, Canceled, or Error.
+    associated with the current AWS account that have a given status, specify
+    the following status: Submitted, Progressing, Complete, Canceled, or Error.
+
   ## Keyword parameters:
   * `:ascending` (`t:string`) To list jobs in chronological order by the date and
-  time that they were submitted, enter true. To list jobs in reverse
-  chronological order, enter false.
+    time that they were submitted, enter true. To list jobs in reverse
+    chronological order, enter false.
   * `:page_token` (`t:string`) When Elastic Transcoder returns more than one page
-  of results, use pageToken in subsequent GET requests to get each successive
-  page of results.
+    of results, use pageToken in subsequent GET requests to get each successive
+    page of results.
   """
   @spec list_jobs_by_status(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_jobs_by_status_response(), any()}
@@ -1567,13 +1563,14 @@ defmodule AWS.ElasticTranscoder do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=elastictranscoder%20ListPipelines&this_doc_guide=API%2520Reference)
 
   ## Parameters:
+
   ## Keyword parameters:
   * `:ascending` (`t:string`) To list pipelines in chronological order by the date
-  and time that they were created, enter true. To list pipelines in reverse
-  chronological order, enter false.
+    and time that they were created, enter true. To list pipelines in reverse
+    chronological order, enter false.
   * `:page_token` (`t:string`) When Elastic Transcoder returns more than one page
-  of results, use pageToken in subsequent GET requests to get each successive
-  page of results.
+    of results, use pageToken in subsequent GET requests to get each successive
+    page of results.
   """
   @spec list_pipelines(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_pipelines_response(), any()}
@@ -1632,13 +1629,14 @@ defmodule AWS.ElasticTranscoder do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=elastictranscoder%20ListPresets&this_doc_guide=API%2520Reference)
 
   ## Parameters:
+
   ## Keyword parameters:
   * `:ascending` (`t:string`) To list presets in chronological order by the date
-  and time that they were created, enter true. To list presets in reverse
-  chronological order, enter false.
+    and time that they were created, enter true. To list presets in reverse
+    chronological order, enter false.
   * `:page_token` (`t:string`) When Elastic Transcoder returns more than one page
-  of results, use pageToken in subsequent GET requests to get each successive
-  page of results.
+    of results, use pageToken in subsequent GET requests to get each successive
+    page of results.
   """
   @spec list_presets(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_presets_response(), any()}
@@ -1697,8 +1695,7 @@ defmodule AWS.ElasticTranscoder do
 
   ## Parameters:
   * `:id` (`t:string` required) The identifier of the job for which you want to
-  get detailed information.
-  ## Keyword parameters:
+    get detailed information.
   """
   @spec read_job(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, read_job_response(), any()}
@@ -1739,7 +1736,6 @@ defmodule AWS.ElasticTranscoder do
 
   ## Parameters:
   * `:id` (`t:string` required) The identifier of the pipeline to read.
-  ## Keyword parameters:
   """
   @spec read_pipeline(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, read_pipeline_response(), any()}
@@ -1780,8 +1776,7 @@ defmodule AWS.ElasticTranscoder do
 
   ## Parameters:
   * `:id` (`t:string` required) The identifier of the preset for which you want to
-  get detailed information.
-  ## Keyword parameters:
+    get detailed information.
   """
   @spec read_preset(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, read_preset_response(), any()}
@@ -1821,7 +1816,6 @@ defmodule AWS.ElasticTranscoder do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=elastictranscoder%20TestRole&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec test_role(AWS.Client.t(), Keyword.t()) ::
           {:ok, test_role_response(), any()}
@@ -1864,7 +1858,6 @@ defmodule AWS.ElasticTranscoder do
 
   ## Parameters:
   * `:id` (`t:string` required) The ID of the pipeline that you want to update.
-  ## Keyword parameters:
   """
   @spec update_pipeline(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, update_pipeline_response(), any()}
@@ -1908,8 +1901,7 @@ defmodule AWS.ElasticTranscoder do
 
   ## Parameters:
   * `:id` (`t:string` required) The identifier of the pipeline for which you want
-  to change notification settings.
-  ## Keyword parameters:
+    to change notification settings.
   """
   @spec update_pipeline_notifications(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, update_pipeline_notifications_response(), any()}
@@ -1953,7 +1945,6 @@ defmodule AWS.ElasticTranscoder do
 
   ## Parameters:
   * `:id` (`t:string` required) The identifier of the pipeline to update.
-  ## Keyword parameters:
   """
   @spec update_pipeline_status(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, update_pipeline_status_response(), any()}

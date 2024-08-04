@@ -757,7 +757,6 @@ defmodule AWS.SimSpaceWeaver do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=simspaceweaver%20CreateSnapshot&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec create_snapshot(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_snapshot_output(), any()}
@@ -802,7 +801,6 @@ defmodule AWS.SimSpaceWeaver do
   * `:app` (`t:string` required) The name of the app.
   * `:domain` (`t:string` required) The name of the domain of the app.
   * `:simulation` (`t:string` required) The name of the simulation of the app.
-  ## Keyword parameters:
   """
   @spec delete_app(AWS.Client.t(), String.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, delete_app_output(), any()}
@@ -856,7 +854,6 @@ defmodule AWS.SimSpaceWeaver do
 
   ## Parameters:
   * `:simulation` (`t:string` required) The name of the simulation.
-  ## Keyword parameters:
   """
   @spec delete_simulation(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, delete_simulation_output(), any()}
@@ -912,7 +909,6 @@ defmodule AWS.SimSpaceWeaver do
   * `:app` (`t:string` required) The name of the app.
   * `:domain` (`t:string` required) The name of the domain of the app.
   * `:simulation` (`t:string` required) The name of the simulation of the app.
-  ## Keyword parameters:
   """
   @spec describe_app(AWS.Client.t(), String.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, describe_app_output(), any()}
@@ -954,7 +950,6 @@ defmodule AWS.SimSpaceWeaver do
 
   ## Parameters:
   * `:simulation` (`t:string` required) The name of the simulation.
-  ## Keyword parameters:
   """
   @spec describe_simulation(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, describe_simulation_output(), any()}
@@ -996,17 +991,18 @@ defmodule AWS.SimSpaceWeaver do
 
   ## Parameters:
   * `:simulation` (`t:string` required) The name of the simulation that you want
-  to list apps for.
+    to list apps for.
+
   ## Keyword parameters:
   * `:domain` (`t:string`) The name of the domain that you want to list apps for.
   * `:max_results` (`t:integer`) The maximum number of apps to list.
   * `:next_token` (`t:string`) If SimSpace Weaver returns nextToken, then there
-  are more results available. The value of nextToken is a unique pagination
-  token for each page. To retrieve the next page, call the operation again
-  using the returned token. Keep all other arguments unchanged. If no results
-  remain, then nextToken is set to null. Each pagination token expires after
-  24 hours. If you provide a token that isn't valid, then you receive an HTTP
-  400 ValidationException error.
+    are more results available. The value of nextToken is a unique pagination
+    token for each page. To retrieve the next page, call the operation again
+    using the returned token. Keep all other arguments unchanged. If no results
+    remain, then nextToken is set to null. Each pagination token expires after
+    24 hours. If you provide a token that isn't valid, then you receive an HTTP
+    400 ValidationException error.
   """
   @spec list_apps(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_apps_output(), any()}
@@ -1072,15 +1068,16 @@ defmodule AWS.SimSpaceWeaver do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=simspaceweaver%20ListSimulations&this_doc_guide=API%2520Reference)
 
   ## Parameters:
+
   ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of simulations to list.
   * `:next_token` (`t:string`) If SimSpace Weaver returns nextToken, then there
-  are more results available. The value of nextToken is a unique pagination
-  token for each page. To retrieve the next page, call the operation again
-  using the returned token. Keep all other arguments unchanged. If no results
-  remain, then nextToken is set to null. Each pagination token expires after
-  24 hours. If you provide a token that isn't valid, then you receive an HTTP
-  400 ValidationException error.
+    are more results available. The value of nextToken is a unique pagination
+    token for each page. To retrieve the next page, call the operation again
+    using the returned token. Keep all other arguments unchanged. If no results
+    remain, then nextToken is set to null. Each pagination token expires after
+    24 hours. If you provide a token that isn't valid, then you receive an HTTP
+    400 ValidationException error.
   """
   @spec list_simulations(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_simulations_output(), any()}
@@ -1139,9 +1136,8 @@ defmodule AWS.SimSpaceWeaver do
 
   ## Parameters:
   * `:resource_arn` (`t:string` required) The Amazon Resource Name (ARN) of the
-  resource. For more information about ARNs, see Amazon Resource Names (ARNs)
-  in the Amazon Web Services General Reference.
-  ## Keyword parameters:
+    resource. For more information about ARNs, see Amazon Resource Names (ARNs)
+    in the Amazon Web Services General Reference.
   """
   @spec list_tags_for_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_tags_for_resource_output(), any()}
@@ -1181,7 +1177,6 @@ defmodule AWS.SimSpaceWeaver do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=simspaceweaver%20StartApp&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec start_app(AWS.Client.t(), Keyword.t()) ::
           {:ok, start_app_output(), any()}
@@ -1223,7 +1218,6 @@ defmodule AWS.SimSpaceWeaver do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=simspaceweaver%20StartClock&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec start_clock(AWS.Client.t(), Keyword.t()) ::
           {:ok, start_clock_output(), any()}
@@ -1271,7 +1265,6 @@ defmodule AWS.SimSpaceWeaver do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=simspaceweaver%20StartSimulation&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec start_simulation(AWS.Client.t(), Keyword.t()) ::
           {:ok, start_simulation_output(), any()}
@@ -1314,7 +1307,6 @@ defmodule AWS.SimSpaceWeaver do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=simspaceweaver%20StopApp&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec stop_app(AWS.Client.t(), Keyword.t()) ::
           {:ok, stop_app_output(), any()}
@@ -1356,7 +1348,6 @@ defmodule AWS.SimSpaceWeaver do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=simspaceweaver%20StopClock&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec stop_clock(AWS.Client.t(), Keyword.t()) ::
           {:ok, stop_clock_output(), any()}
@@ -1398,7 +1389,6 @@ defmodule AWS.SimSpaceWeaver do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=simspaceweaver%20StopSimulation&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec stop_simulation(AWS.Client.t(), Keyword.t()) ::
           {:ok, stop_simulation_output(), any()}
@@ -1444,9 +1434,8 @@ defmodule AWS.SimSpaceWeaver do
 
   ## Parameters:
   * `:resource_arn` (`t:string` required) The Amazon Resource Name (ARN) of the
-  resource that you want to add tags to. For more information about ARNs, see
-  Amazon Resource Names (ARNs) in the Amazon Web Services General Reference.
-  ## Keyword parameters:
+    resource that you want to add tags to. For more information about ARNs, see
+    Amazon Resource Names (ARNs) in the Amazon Web Services General Reference.
   """
   @spec tag_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, tag_resource_output(), any()}
@@ -1492,12 +1481,11 @@ defmodule AWS.SimSpaceWeaver do
 
   ## Parameters:
   * `:resource_arn` (`t:string` required) The Amazon Resource Name (ARN) of the
-  resource that you want to remove tags from. For more information about ARNs,
-  see Amazon Resource Names (ARNs) in the Amazon Web Services General
-  Reference.
+    resource that you want to remove tags from. For more information about ARNs,
+    see Amazon Resource Names (ARNs) in the Amazon Web Services General
+    Reference.
   * `:tag_keys` (`t:list[com.amazonaws.simspaceweaver#TagKey]` required) A list of
-  tag keys to remove from the resource.
-  ## Keyword parameters:
+    tag keys to remove from the resource.
   """
   @spec untag_resource(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, untag_resource_output(), any()}

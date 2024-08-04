@@ -562,7 +562,6 @@ defmodule AWS.RDSData do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=rdsdata%20BatchExecuteStatement&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec batch_execute_statement(AWS.Client.t(), Keyword.t()) ::
           {:ok, batch_execute_statement_response(), any()}
@@ -604,7 +603,6 @@ defmodule AWS.RDSData do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=rdsdata%20BeginTransaction&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec begin_transaction(AWS.Client.t(), Keyword.t()) ::
           {:ok, begin_transaction_response(), any()}
@@ -647,7 +645,6 @@ defmodule AWS.RDSData do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=rdsdata%20CommitTransaction&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec commit_transaction(AWS.Client.t(), Keyword.t()) ::
           {:ok, commit_transaction_response(), any()}
@@ -689,7 +686,6 @@ defmodule AWS.RDSData do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=rdsdata%20ExecuteSql&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec execute_sql(AWS.Client.t(), Keyword.t()) ::
           {:ok, execute_sql_response(), any()}
@@ -731,7 +727,6 @@ defmodule AWS.RDSData do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=rdsdata%20ExecuteStatement&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec execute_statement(AWS.Client.t(), Keyword.t()) ::
           {:ok, execute_statement_response(), any()}
@@ -774,7 +769,6 @@ defmodule AWS.RDSData do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=rdsdata%20RollbackTransaction&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec rollback_transaction(AWS.Client.t(), Keyword.t()) ::
           {:ok, rollback_transaction_response(), any()}

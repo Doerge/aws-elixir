@@ -588,12 +588,11 @@ defmodule AWS.IoT1ClickProjects do
 
   ## Parameters:
   * `:device_template_name` (`t:string` required) The device template name to
-  associate with the device ID.
+    associate with the device ID.
   * `:placement_name` (`t:string` required) The name of the placement in which to
-  associate the device.
+    associate the device.
   * `:project_name` (`t:string` required) The name of the project containing the
-  placement in which to associate the device.
-  ## Keyword parameters:
+    placement in which to associate the device.
   """
   @spec associate_device_with_placement(
           AWS.Client.t(),
@@ -649,8 +648,7 @@ defmodule AWS.IoT1ClickProjects do
 
   ## Parameters:
   * `:project_name` (`t:string` required) The name of the project in which to
-  create the placement.
-  ## Keyword parameters:
+    create the placement.
   """
   @spec create_placement(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, create_placement_response(), any()}
@@ -693,7 +691,6 @@ defmodule AWS.IoT1ClickProjects do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iot1clickprojects%20CreateProject&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec create_project(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_project_response(), any()}
@@ -737,10 +734,9 @@ defmodule AWS.IoT1ClickProjects do
 
   ## Parameters:
   * `:placement_name` (`t:string` required) The name of the empty placement to
-  delete.
+    delete.
   * `:project_name` (`t:string` required) The project containing the empty
-  placement to delete.
-  ## Keyword parameters:
+    placement to delete.
   """
   @spec delete_placement(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, delete_placement_response(), any()}
@@ -795,7 +791,6 @@ defmodule AWS.IoT1ClickProjects do
 
   ## Parameters:
   * `:project_name` (`t:string` required) The name of the empty project to delete.
-  ## Keyword parameters:
   """
   @spec delete_project(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, delete_project_response(), any()}
@@ -848,10 +843,9 @@ defmodule AWS.IoT1ClickProjects do
 
   ## Parameters:
   * `:placement_name` (`t:string` required) The name of the placement within a
-  project.
+    project.
   * `:project_name` (`t:string` required) The project containing the placement to
-  be described.
-  ## Keyword parameters:
+    be described.
   """
   @spec describe_placement(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, describe_placement_response(), any()}
@@ -893,7 +887,6 @@ defmodule AWS.IoT1ClickProjects do
 
   ## Parameters:
   * `:project_name` (`t:string` required) The name of the project to be described.
-  ## Keyword parameters:
   """
   @spec describe_project(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, describe_project_response(), any()}
@@ -934,12 +927,11 @@ defmodule AWS.IoT1ClickProjects do
 
   ## Parameters:
   * `:device_template_name` (`t:string` required) The device ID that should be
-  removed from the placement.
+    removed from the placement.
   * `:placement_name` (`t:string` required) The name of the placement that the
-  device should be removed from.
+    device should be removed from.
   * `:project_name` (`t:string` required) The name of the project that contains
-  the placement.
-  ## Keyword parameters:
+    the placement.
   """
   @spec disassociate_device_from_placement(
           AWS.Client.t(),
@@ -1005,10 +997,9 @@ defmodule AWS.IoT1ClickProjects do
 
   ## Parameters:
   * `:placement_name` (`t:string` required) The name of the placement to get the
-  devices from.
+    devices from.
   * `:project_name` (`t:string` required) The name of the project containing the
-  placement.
-  ## Keyword parameters:
+    placement.
   """
   @spec get_devices_in_placement(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_devices_in_placement_response(), any()}
@@ -1050,10 +1041,11 @@ defmodule AWS.IoT1ClickProjects do
 
   ## Parameters:
   * `:project_name` (`t:string` required) The project containing the placements to
-  be listed.
+    be listed.
+
   ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of results to return per
-  request. If not set, a default value of 100 is used.
+    request. If not set, a default value of 100 is used.
   * `:next_token` (`t:string`) The token to retrieve the next set of results.
   """
   @spec list_placements(AWS.Client.t(), String.t(), Keyword.t()) ::
@@ -1113,9 +1105,10 @@ defmodule AWS.IoT1ClickProjects do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iot1clickprojects%20ListProjects&this_doc_guide=API%2520Reference)
 
   ## Parameters:
+
   ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of results to return per
-  request. If not set, a default value of 100 is used.
+    request. If not set, a default value of 100 is used.
   * `:next_token` (`t:string`) The token to retrieve the next set of results.
   """
   @spec list_projects(AWS.Client.t(), Keyword.t()) ::
@@ -1176,8 +1169,7 @@ defmodule AWS.IoT1ClickProjects do
 
   ## Parameters:
   * `:resource_arn` (`t:string` required) The ARN of the resource whose tags you
-  want to list.
-  ## Keyword parameters:
+    want to list.
   """
   @spec list_tags_for_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_tags_for_resource_response(), any()}
@@ -1220,8 +1212,7 @@ defmodule AWS.IoT1ClickProjects do
 
   ## Parameters:
   * `:resource_arn` (`t:string` required) The ARN of the resouce for which tag(s)
-  should be added or modified.
-  ## Keyword parameters:
+    should be added or modified.
   """
   @spec tag_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, tag_resource_response(), any()}
@@ -1264,10 +1255,9 @@ defmodule AWS.IoT1ClickProjects do
 
   ## Parameters:
   * `:resource_arn` (`t:string` required) The ARN of the resource whose tag you
-  want to remove.
+    want to remove.
   * `:tag_keys` (`t:list[com.amazonaws.iot1clickprojects#TagKey]` required) The
-  keys of those tags which you want to remove.
-  ## Keyword parameters:
+    keys of those tags which you want to remove.
   """
   @spec untag_resource(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, untag_resource_response(), any()}
@@ -1323,8 +1313,7 @@ defmodule AWS.IoT1ClickProjects do
   ## Parameters:
   * `:placement_name` (`t:string` required) The name of the placement to update.
   * `:project_name` (`t:string` required) The name of the project containing the
-  placement to be updated.
-  ## Keyword parameters:
+    placement to be updated.
   """
   @spec update_placement(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, update_placement_response(), any()}
@@ -1371,7 +1360,6 @@ defmodule AWS.IoT1ClickProjects do
 
   ## Parameters:
   * `:project_name` (`t:string` required) The name of the project to be updated.
-  ## Keyword parameters:
   """
   @spec update_project(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, update_project_response(), any()}

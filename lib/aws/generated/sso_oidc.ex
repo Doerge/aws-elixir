@@ -384,7 +384,6 @@ defmodule AWS.SSOOIDC do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ssooidc%20CreateToken&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec create_token(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_token_response(), any()}
@@ -429,7 +428,6 @@ defmodule AWS.SSOOIDC do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ssooidc%20CreateTokenWithIAM&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec create_token_with_iam(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_token_with_iam_response(), any()}
@@ -473,7 +471,6 @@ defmodule AWS.SSOOIDC do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ssooidc%20RegisterClient&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec register_client(AWS.Client.t(), Keyword.t()) ::
           {:ok, register_client_response(), any()}
@@ -516,7 +513,6 @@ defmodule AWS.SSOOIDC do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ssooidc%20StartDeviceAuthorization&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec start_device_authorization(AWS.Client.t(), Keyword.t()) ::
           {:ok, start_device_authorization_response(), any()}

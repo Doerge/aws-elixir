@@ -2045,8 +2045,7 @@ defmodule AWS.DataBrew do
 
   ## Parameters:
   * `:name` (`t:string` required) The name of the recipe whose versions are to be
-  deleted.
-  ## Keyword parameters:
+    deleted.
   """
   @spec batch_delete_recipe_version(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, batch_delete_recipe_version_response(), any()}
@@ -2088,7 +2087,6 @@ defmodule AWS.DataBrew do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=databrew%20CreateDataset&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec create_dataset(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_dataset_response(), any()}
@@ -2130,7 +2128,6 @@ defmodule AWS.DataBrew do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=databrew%20CreateProfileJob&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec create_profile_job(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_profile_job_response(), any()}
@@ -2172,7 +2169,6 @@ defmodule AWS.DataBrew do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=databrew%20CreateProject&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec create_project(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_project_response(), any()}
@@ -2214,7 +2210,6 @@ defmodule AWS.DataBrew do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=databrew%20CreateRecipe&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec create_recipe(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_recipe_response(), any()}
@@ -2257,7 +2252,6 @@ defmodule AWS.DataBrew do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=databrew%20CreateRecipeJob&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec create_recipe_job(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_recipe_job_response(), any()}
@@ -2300,7 +2294,6 @@ defmodule AWS.DataBrew do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=databrew%20CreateRuleset&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec create_ruleset(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_ruleset_response(), any()}
@@ -2343,7 +2336,6 @@ defmodule AWS.DataBrew do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=databrew%20CreateSchedule&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec create_schedule(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_schedule_response(), any()}
@@ -2386,7 +2378,6 @@ defmodule AWS.DataBrew do
 
   ## Parameters:
   * `:name` (`t:string` required) The name of the dataset to be deleted.
-  ## Keyword parameters:
   """
   @spec delete_dataset(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, delete_dataset_response(), any()}
@@ -2439,7 +2430,6 @@ defmodule AWS.DataBrew do
 
   ## Parameters:
   * `:name` (`t:string` required) The name of the job to be deleted.
-  ## Keyword parameters:
   """
   @spec delete_job(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, delete_job_response(), any()}
@@ -2492,7 +2482,6 @@ defmodule AWS.DataBrew do
 
   ## Parameters:
   * `:name` (`t:string` required) The name of the project to be deleted.
-  ## Keyword parameters:
   """
   @spec delete_project(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, delete_project_response(), any()}
@@ -2546,9 +2535,8 @@ defmodule AWS.DataBrew do
   ## Parameters:
   * `:name` (`t:string` required) The name of the recipe.
   * `:recipe_version` (`t:string` required) The version of the recipe to be
-  deleted. You can specify a numeric versions (X.Y) or LATEST_WORKING.
-  LATEST_PUBLISHED is not supported.
-  ## Keyword parameters:
+    deleted. You can specify a numeric versions (X.Y) or LATEST_WORKING.
+    LATEST_PUBLISHED is not supported.
   """
   @spec delete_recipe_version(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, delete_recipe_version_response(), any()}
@@ -2602,7 +2590,6 @@ defmodule AWS.DataBrew do
 
   ## Parameters:
   * `:name` (`t:string` required) The name of the ruleset to be deleted.
-  ## Keyword parameters:
   """
   @spec delete_ruleset(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, delete_ruleset_response(), any()}
@@ -2655,7 +2642,6 @@ defmodule AWS.DataBrew do
 
   ## Parameters:
   * `:name` (`t:string` required) The name of the schedule to be deleted.
-  ## Keyword parameters:
   """
   @spec delete_schedule(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, delete_schedule_response(), any()}
@@ -2708,7 +2694,6 @@ defmodule AWS.DataBrew do
 
   ## Parameters:
   * `:name` (`t:string` required) The name of the dataset to be described.
-  ## Keyword parameters:
   """
   @spec describe_dataset(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, describe_dataset_response(), any()}
@@ -2749,7 +2734,6 @@ defmodule AWS.DataBrew do
 
   ## Parameters:
   * `:name` (`t:string` required) The name of the job to be described.
-  ## Keyword parameters:
   """
   @spec describe_job(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, describe_job_response(), any()}
@@ -2790,9 +2774,8 @@ defmodule AWS.DataBrew do
 
   ## Parameters:
   * `:name` (`t:string` required) The name of the job being processed during this
-  run.
+    run.
   * `:run_id` (`t:string` required) The unique identifier of the job run.
-  ## Keyword parameters:
   """
   @spec describe_job_run(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, describe_job_run_response(), any()}
@@ -2833,7 +2816,6 @@ defmodule AWS.DataBrew do
 
   ## Parameters:
   * `:name` (`t:string` required) The name of the project to be described.
-  ## Keyword parameters:
   """
   @spec describe_project(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, describe_project_response(), any()}
@@ -2875,9 +2857,10 @@ defmodule AWS.DataBrew do
 
   ## Parameters:
   * `:name` (`t:string` required) The name of the recipe to be described.
+
   ## Keyword parameters:
   * `:recipe_version` (`t:string`) The recipe version identifier. If this
-  parameter isn't specified, then the latest published version is returned.
+    parameter isn't specified, then the latest published version is returned.
   """
   @spec describe_recipe(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, describe_recipe_response(), any()}
@@ -2929,7 +2912,6 @@ defmodule AWS.DataBrew do
 
   ## Parameters:
   * `:name` (`t:string` required) The name of the ruleset to be described.
-  ## Keyword parameters:
   """
   @spec describe_ruleset(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, describe_ruleset_response(), any()}
@@ -2970,7 +2952,6 @@ defmodule AWS.DataBrew do
 
   ## Parameters:
   * `:name` (`t:string` required) The name of the schedule to be described.
-  ## Keyword parameters:
   """
   @spec describe_schedule(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, describe_schedule_response(), any()}
@@ -3010,11 +2991,12 @@ defmodule AWS.DataBrew do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=databrew%20ListDatasets&this_doc_guide=API%2520Reference)
 
   ## Parameters:
+
   ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of results to return in this
-  request.
+    request.
   * `:next_token` (`t:string`) The token returned by a previous call to retrieve
-  the next set of results.
+    the next set of results.
   """
   @spec list_datasets(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_datasets_response(), any()}
@@ -3073,11 +3055,12 @@ defmodule AWS.DataBrew do
 
   ## Parameters:
   * `:name` (`t:string` required) The name of the job.
+
   ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of results to return in this
-  request.
+    request.
   * `:next_token` (`t:string`) The token returned by a previous call to retrieve
-  the next set of results.
+    the next set of results.
   """
   @spec list_job_runs(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_job_runs_response(), any()}
@@ -3135,18 +3118,19 @@ defmodule AWS.DataBrew do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=databrew%20ListJobs&this_doc_guide=API%2520Reference)
 
   ## Parameters:
+
   ## Keyword parameters:
   * `:dataset_name` (`t:string`) The name of a dataset. Using this parameter
-  indicates to return only those jobs that act on the specified dataset.
+    indicates to return only those jobs that act on the specified dataset.
   * `:max_results` (`t:integer`) The maximum number of results to return in this
-  request.
+    request.
   * `:next_token` (`t:string`) A token generated by DataBrew that specifies where
-  to continue pagination if a previous request was truncated. To get the next
-  set of pages, pass in the NextToken value from the response object of the
-  previous page call.
+    to continue pagination if a previous request was truncated. To get the next
+    set of pages, pass in the NextToken value from the response object of the
+    previous page call.
   * `:project_name` (`t:string`) The name of a project. Using this parameter
-  indicates to return only those jobs that are associated with the specified
-  project.
+    indicates to return only those jobs that are associated with the specified
+    project.
   """
   @spec list_jobs(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_jobs_response(), any()}
@@ -3218,11 +3202,12 @@ defmodule AWS.DataBrew do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=databrew%20ListProjects&this_doc_guide=API%2520Reference)
 
   ## Parameters:
+
   ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of results to return in this
-  request.
+    request.
   * `:next_token` (`t:string`) The token returned by a previous call to retrieve
-  the next set of results.
+    the next set of results.
   """
   @spec list_projects(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_projects_response(), any()}
@@ -3281,12 +3266,13 @@ defmodule AWS.DataBrew do
 
   ## Parameters:
   * `:name` (`t:string` required) The name of the recipe for which to return
-  version information.
+    version information.
+
   ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of results to return in this
-  request.
+    request.
   * `:next_token` (`t:string`) The token returned by a previous call to retrieve
-  the next set of results.
+    the next set of results.
   """
   @spec list_recipe_versions(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_recipe_versions_response(), any()}
@@ -3344,14 +3330,15 @@ defmodule AWS.DataBrew do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=databrew%20ListRecipes&this_doc_guide=API%2520Reference)
 
   ## Parameters:
+
   ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of results to return in this
-  request.
+    request.
   * `:next_token` (`t:string`) The token returned by a previous call to retrieve
-  the next set of results.
+    the next set of results.
   * `:recipe_version` (`t:string`) Return only those recipes with a version
-  identifier of LATEST_WORKING or LATEST_PUBLISHED. If RecipeVersion is
-  omitted, ListRecipes returns all of the LATEST_PUBLISHED recipe versions.
+    identifier of LATEST_WORKING or LATEST_PUBLISHED. If RecipeVersion is
+    omitted, ListRecipes returns all of the LATEST_PUBLISHED recipe versions.
   """
   @spec list_recipes(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_recipes_response(), any()}
@@ -3417,16 +3404,17 @@ defmodule AWS.DataBrew do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=databrew%20ListRulesets&this_doc_guide=API%2520Reference)
 
   ## Parameters:
+
   ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of results to return in this
-  request.
+    request.
   * `:next_token` (`t:string`) A token generated by DataBrew that specifies where
-  to continue pagination if a previous request was truncated. To get the next
-  set of pages, pass in the NextToken value from the response object of the
-  previous page call.
+    to continue pagination if a previous request was truncated. To get the next
+    set of pages, pass in the NextToken value from the response object of the
+    previous page call.
   * `:target_arn` (`t:string`) The Amazon Resource Name (ARN) of a resource
-  (dataset). Using this parameter indicates to return only those rulesets that
-  are associated with the specified resource.
+    (dataset). Using this parameter indicates to return only those rulesets that
+    are associated with the specified resource.
   """
   @spec list_rulesets(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_rulesets_response(), any()}
@@ -3491,12 +3479,13 @@ defmodule AWS.DataBrew do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=databrew%20ListSchedules&this_doc_guide=API%2520Reference)
 
   ## Parameters:
+
   ## Keyword parameters:
   * `:job_name` (`t:string`) The name of the job that these schedules apply to.
   * `:max_results` (`t:integer`) The maximum number of results to return in this
-  request.
+    request.
   * `:next_token` (`t:string`) The token returned by a previous call to retrieve
-  the next set of results.
+    the next set of results.
   """
   @spec list_schedules(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_schedules_response(), any()}
@@ -3562,8 +3551,7 @@ defmodule AWS.DataBrew do
 
   ## Parameters:
   * `:resource_arn` (`t:string` required) The Amazon Resource Name (ARN) string
-  that uniquely identifies the DataBrew resource.
-  ## Keyword parameters:
+    that uniquely identifies the DataBrew resource.
   """
   @spec list_tags_for_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_tags_for_resource_response(), any()}
@@ -3604,7 +3592,6 @@ defmodule AWS.DataBrew do
 
   ## Parameters:
   * `:name` (`t:string` required) The name of the recipe to be published.
-  ## Keyword parameters:
   """
   @spec publish_recipe(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, publish_recipe_response(), any()}
@@ -3648,7 +3635,6 @@ defmodule AWS.DataBrew do
 
   ## Parameters:
   * `:name` (`t:string` required) The name of the project to apply the action to.
-  ## Keyword parameters:
   """
   @spec send_project_session_action(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, send_project_session_action_response(), any()}
@@ -3691,7 +3677,6 @@ defmodule AWS.DataBrew do
 
   ## Parameters:
   * `:name` (`t:string` required) The name of the job to be run.
-  ## Keyword parameters:
   """
   @spec start_job_run(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, start_job_run_response(), any()}
@@ -3735,7 +3720,6 @@ defmodule AWS.DataBrew do
 
   ## Parameters:
   * `:name` (`t:string` required) The name of the project to act upon.
-  ## Keyword parameters:
   """
   @spec start_project_session(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, start_project_session_response(), any()}
@@ -3779,7 +3763,6 @@ defmodule AWS.DataBrew do
   ## Parameters:
   * `:name` (`t:string` required) The name of the job to be stopped.
   * `:run_id` (`t:string` required) The ID of the job run to be stopped.
-  ## Keyword parameters:
   """
   @spec stop_job_run(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, stop_job_run_response(), any()}
@@ -3824,9 +3807,8 @@ defmodule AWS.DataBrew do
 
   ## Parameters:
   * `:resource_arn` (`t:string` required) The DataBrew resource to which tags
-  should be added. The value for this parameter is an Amazon Resource Name
-  (ARN). For DataBrew, you can tag a dataset, a job, a project, or a recipe.
-  ## Keyword parameters:
+    should be added. The value for this parameter is an Amazon Resource Name
+    (ARN). For DataBrew, you can tag a dataset, a job, a project, or a recipe.
   """
   @spec tag_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, tag_resource_response(), any()}
@@ -3869,11 +3851,10 @@ defmodule AWS.DataBrew do
 
   ## Parameters:
   * `:resource_arn` (`t:string` required) A DataBrew resource from which you want
-  to remove a tag or tags. The value for this parameter is an Amazon Resource
-  Name (ARN).
+    to remove a tag or tags. The value for this parameter is an Amazon Resource
+    Name (ARN).
   * `:tag_keys` (`t:list[com.amazonaws.databrew#TagKey]` required) The tag keys
-  (names) of one or more tags to be removed.
-  ## Keyword parameters:
+    (names) of one or more tags to be removed.
   """
   @spec untag_resource(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, untag_resource_response(), any()}
@@ -3927,7 +3908,6 @@ defmodule AWS.DataBrew do
 
   ## Parameters:
   * `:name` (`t:string` required) The name of the dataset to be updated.
-  ## Keyword parameters:
   """
   @spec update_dataset(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, update_dataset_response(), any()}
@@ -3970,7 +3950,6 @@ defmodule AWS.DataBrew do
 
   ## Parameters:
   * `:name` (`t:string` required) The name of the job to be updated.
-  ## Keyword parameters:
   """
   @spec update_profile_job(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, update_profile_job_response(), any()}
@@ -4013,7 +3992,6 @@ defmodule AWS.DataBrew do
 
   ## Parameters:
   * `:name` (`t:string` required) The name of the project to be updated.
-  ## Keyword parameters:
   """
   @spec update_project(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, update_project_response(), any()}
@@ -4056,7 +4034,6 @@ defmodule AWS.DataBrew do
 
   ## Parameters:
   * `:name` (`t:string` required) The name of the recipe to be updated.
-  ## Keyword parameters:
   """
   @spec update_recipe(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, update_recipe_response(), any()}
@@ -4099,7 +4076,6 @@ defmodule AWS.DataBrew do
 
   ## Parameters:
   * `:name` (`t:string` required) The name of the job to update.
-  ## Keyword parameters:
   """
   @spec update_recipe_job(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, update_recipe_job_response(), any()}
@@ -4142,7 +4118,6 @@ defmodule AWS.DataBrew do
 
   ## Parameters:
   * `:name` (`t:string` required) The name of the ruleset to be updated.
-  ## Keyword parameters:
   """
   @spec update_ruleset(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, update_ruleset_response(), any()}
@@ -4185,7 +4160,6 @@ defmodule AWS.DataBrew do
 
   ## Parameters:
   * `:name` (`t:string` required) The name of the schedule to update.
-  ## Keyword parameters:
   """
   @spec update_schedule(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, update_schedule_response(), any()}

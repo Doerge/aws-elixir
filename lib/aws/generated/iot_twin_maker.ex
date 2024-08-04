@@ -2369,8 +2369,7 @@ defmodule AWS.IoTTwinMaker do
 
   ## Parameters:
   * `:workspace_id` (`t:string` required) The ID of the workspace that contains
-  the properties to set.
-  ## Keyword parameters:
+    the properties to set.
   """
   @spec batch_put_property_values(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, batch_put_property_values_response(), any()}
@@ -2413,8 +2412,7 @@ defmodule AWS.IoTTwinMaker do
 
   ## Parameters:
   * `:metadata_transfer_job_id` (`t:string` required) The metadata transfer job
-  Id.
-  ## Keyword parameters:
+    Id.
   """
   @spec cancel_metadata_transfer_job(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, cancel_metadata_transfer_job_response(), any()}
@@ -2458,8 +2456,7 @@ defmodule AWS.IoTTwinMaker do
   ## Parameters:
   * `:component_type_id` (`t:string` required) The ID of the component type.
   * `:workspace_id` (`t:string` required) The ID of the workspace that contains
-  the component type.
-  ## Keyword parameters:
+    the component type.
   """
   @spec create_component_type(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, create_component_type_response(), any()}
@@ -2503,8 +2500,7 @@ defmodule AWS.IoTTwinMaker do
 
   ## Parameters:
   * `:workspace_id` (`t:string` required) The ID of the workspace that contains
-  the entity.
-  ## Keyword parameters:
+    the entity.
   """
   @spec create_entity(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, create_entity_response(), any()}
@@ -2546,7 +2542,6 @@ defmodule AWS.IoTTwinMaker do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iottwinmaker%20CreateMetadataTransferJob&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec create_metadata_transfer_job(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_metadata_transfer_job_response(), any()}
@@ -2589,8 +2584,7 @@ defmodule AWS.IoTTwinMaker do
 
   ## Parameters:
   * `:workspace_id` (`t:string` required) The ID of the workspace that contains
-  the scene.
-  ## Keyword parameters:
+    the scene.
   """
   @spec create_scene(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, create_scene_response(), any()}
@@ -2634,7 +2628,6 @@ defmodule AWS.IoTTwinMaker do
   ## Parameters:
   * `:sync_source` (`t:string` required) The sync source.
   * `:workspace_id` (`t:string` required) The workspace ID.
-  ## Keyword parameters:
   """
   @spec create_sync_job(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, create_sync_job_response(), any()}
@@ -2678,7 +2671,6 @@ defmodule AWS.IoTTwinMaker do
 
   ## Parameters:
   * `:workspace_id` (`t:string` required) The ID of the workspace.
-  ## Keyword parameters:
   """
   @spec create_workspace(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, create_workspace_response(), any()}
@@ -2721,10 +2713,9 @@ defmodule AWS.IoTTwinMaker do
 
   ## Parameters:
   * `:component_type_id` (`t:string` required) The ID of the component type to
-  delete.
+    delete.
   * `:workspace_id` (`t:string` required) The ID of the workspace that contains
-  the component type.
-  ## Keyword parameters:
+    the component type.
   """
   @spec delete_component_type(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, delete_component_type_response(), any()}
@@ -2779,10 +2770,11 @@ defmodule AWS.IoTTwinMaker do
   ## Parameters:
   * `:entity_id` (`t:string` required) The ID of the entity to delete.
   * `:workspace_id` (`t:string` required) The ID of the workspace that contains
-  the entity to delete.
+    the entity to delete.
+
   ## Keyword parameters:
   * `:is_recursive` (`t:boolean`) A Boolean value that specifies whether the
-  operation deletes child entities.
+    operation deletes child entities.
   """
   @spec delete_entity(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, delete_entity_response(), any()}
@@ -2848,7 +2840,6 @@ defmodule AWS.IoTTwinMaker do
   ## Parameters:
   * `:scene_id` (`t:string` required) The ID of the scene to delete.
   * `:workspace_id` (`t:string` required) The ID of the workspace.
-  ## Keyword parameters:
   """
   @spec delete_scene(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, delete_scene_response(), any()}
@@ -2903,7 +2894,6 @@ defmodule AWS.IoTTwinMaker do
   ## Parameters:
   * `:sync_source` (`t:string` required) The sync source.
   * `:workspace_id` (`t:string` required) The workspace ID.
-  ## Keyword parameters:
   """
   @spec delete_sync_job(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, delete_sync_job_response(), any()}
@@ -2957,7 +2947,6 @@ defmodule AWS.IoTTwinMaker do
 
   ## Parameters:
   * `:workspace_id` (`t:string` required) The ID of the workspace to delete.
-  ## Keyword parameters:
   """
   @spec delete_workspace(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, delete_workspace_response(), any()}
@@ -3010,7 +2999,6 @@ defmodule AWS.IoTTwinMaker do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iottwinmaker%20ExecuteQuery&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec execute_query(AWS.Client.t(), Keyword.t()) ::
           {:ok, execute_query_response(), any()}
@@ -3054,8 +3042,7 @@ defmodule AWS.IoTTwinMaker do
   ## Parameters:
   * `:component_type_id` (`t:string` required) The ID of the component type.
   * `:workspace_id` (`t:string` required) The ID of the workspace that contains
-  the component type.
-  ## Keyword parameters:
+    the component type.
   """
   @spec get_component_type(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_component_type_response(), any()}
@@ -3098,7 +3085,6 @@ defmodule AWS.IoTTwinMaker do
   ## Parameters:
   * `:entity_id` (`t:string` required) The ID of the entity.
   * `:workspace_id` (`t:string` required) The ID of the workspace.
-  ## Keyword parameters:
   """
   @spec get_entity(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_entity_response(), any()}
@@ -3140,8 +3126,7 @@ defmodule AWS.IoTTwinMaker do
 
   ## Parameters:
   * `:metadata_transfer_job_id` (`t:string` required) The metadata transfer job
-  Id.
-  ## Keyword parameters:
+    Id.
   """
   @spec get_metadata_transfer_job(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_metadata_transfer_job_response(), any()}
@@ -3181,7 +3166,6 @@ defmodule AWS.IoTTwinMaker do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iottwinmaker%20GetPricingPlan&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec get_pricing_plan(AWS.Client.t(), Keyword.t()) ::
           {:ok, get_pricing_plan_response(), any()}
@@ -3222,8 +3206,7 @@ defmodule AWS.IoTTwinMaker do
 
   ## Parameters:
   * `:workspace_id` (`t:string` required) The ID of the workspace whose values the
-  operation returns.
-  ## Keyword parameters:
+    operation returns.
   """
   @spec get_property_value(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_property_value_response(), any()}
@@ -3267,7 +3250,6 @@ defmodule AWS.IoTTwinMaker do
 
   ## Parameters:
   * `:workspace_id` (`t:string` required) The ID of the workspace.
-  ## Keyword parameters:
   """
   @spec get_property_value_history(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_property_value_history_response(), any()}
@@ -3311,8 +3293,7 @@ defmodule AWS.IoTTwinMaker do
   ## Parameters:
   * `:scene_id` (`t:string` required) The ID of the scene.
   * `:workspace_id` (`t:string` required) The ID of the workspace that contains
-  the scene.
-  ## Keyword parameters:
+    the scene.
   """
   @spec get_scene(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_scene_response(), any()}
@@ -3354,6 +3335,7 @@ defmodule AWS.IoTTwinMaker do
 
   ## Parameters:
   * `:sync_source` (`t:string` required) The sync source.
+
   ## Keyword parameters:
   * `:workspace_id` (`t:string`) The workspace ID.
   """
@@ -3407,7 +3389,6 @@ defmodule AWS.IoTTwinMaker do
 
   ## Parameters:
   * `:workspace_id` (`t:string` required) The ID of the workspace.
-  ## Keyword parameters:
   """
   @spec get_workspace(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_workspace_response(), any()}
@@ -3448,7 +3429,6 @@ defmodule AWS.IoTTwinMaker do
 
   ## Parameters:
   * `:workspace_id` (`t:string` required) The ID of the workspace.
-  ## Keyword parameters:
   """
   @spec list_component_types(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_component_types_response(), any()}
@@ -3491,9 +3471,8 @@ defmodule AWS.IoTTwinMaker do
 
   ## Parameters:
   * `:entity_id` (`t:string` required) The ID for the entity whose metadata
-  (component/properties) is returned by the operation.
+    (component/properties) is returned by the operation.
   * `:workspace_id` (`t:string` required) The workspace ID.
-  ## Keyword parameters:
   """
   @spec list_components(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, list_components_response(), any()}
@@ -3537,7 +3516,6 @@ defmodule AWS.IoTTwinMaker do
 
   ## Parameters:
   * `:workspace_id` (`t:string` required) The ID of the workspace.
-  ## Keyword parameters:
   """
   @spec list_entities(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_entities_response(), any()}
@@ -3579,7 +3557,6 @@ defmodule AWS.IoTTwinMaker do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iottwinmaker%20ListMetadataTransferJobs&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec list_metadata_transfer_jobs(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_metadata_transfer_jobs_response(), any()}
@@ -3622,7 +3599,6 @@ defmodule AWS.IoTTwinMaker do
 
   ## Parameters:
   * `:workspace_id` (`t:string` required) The workspace ID.
-  ## Keyword parameters:
   """
   @spec list_properties(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_properties_response(), any()}
@@ -3665,8 +3641,7 @@ defmodule AWS.IoTTwinMaker do
 
   ## Parameters:
   * `:workspace_id` (`t:string` required) The ID of the workspace that contains
-  the scenes.
-  ## Keyword parameters:
+    the scenes.
   """
   @spec list_scenes(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_scenes_response(), any()}
@@ -3709,8 +3684,7 @@ defmodule AWS.IoTTwinMaker do
 
   ## Parameters:
   * `:workspace_id` (`t:string` required) The ID of the workspace that contains
-  the sync job.
-  ## Keyword parameters:
+    the sync job.
   """
   @spec list_sync_jobs(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_sync_jobs_response(), any()}
@@ -3754,8 +3728,7 @@ defmodule AWS.IoTTwinMaker do
   ## Parameters:
   * `:sync_source` (`t:string` required) The sync source.
   * `:workspace_id` (`t:string` required) The ID of the workspace that contains
-  the sync job.
-  ## Keyword parameters:
+    the sync job.
   """
   @spec list_sync_resources(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, list_sync_resources_response(), any()}
@@ -3798,7 +3771,6 @@ defmodule AWS.IoTTwinMaker do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iottwinmaker%20ListTagsForResource&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec list_tags_for_resource(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_tags_for_resource_response(), any()}
@@ -3840,7 +3812,6 @@ defmodule AWS.IoTTwinMaker do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iottwinmaker%20ListWorkspaces&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec list_workspaces(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_workspaces_response(), any()}
@@ -3882,7 +3853,6 @@ defmodule AWS.IoTTwinMaker do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iottwinmaker%20TagResource&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec tag_resource(AWS.Client.t(), Keyword.t()) ::
           {:ok, tag_resource_response(), any()}
@@ -3926,9 +3896,8 @@ defmodule AWS.IoTTwinMaker do
   ## Parameters:
   * `:resource_arn` (`t:string` required) The ARN of the resource.
   * `:tag_keys` (`t:list[com.amazonaws.iottwinmaker#TagKey]` required) A list of
-  tag key names to remove from the resource. You don't specify the value. Both
-  the key and its associated value are removed.
-  ## Keyword parameters:
+    tag key names to remove from the resource. You don't specify the value. Both
+    the key and its associated value are removed.
   """
   @spec untag_resource(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, untag_resource_response(), any()}
@@ -3983,7 +3952,6 @@ defmodule AWS.IoTTwinMaker do
   ## Parameters:
   * `:component_type_id` (`t:string` required) The ID of the component type.
   * `:workspace_id` (`t:string` required) The ID of the workspace.
-  ## Keyword parameters:
   """
   @spec update_component_type(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, update_component_type_response(), any()}
@@ -4028,8 +3996,7 @@ defmodule AWS.IoTTwinMaker do
   ## Parameters:
   * `:entity_id` (`t:string` required) The ID of the entity.
   * `:workspace_id` (`t:string` required) The ID of the workspace that contains
-  the entity.
-  ## Keyword parameters:
+    the entity.
   """
   @spec update_entity(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, update_entity_response(), any()}
@@ -4072,7 +4039,6 @@ defmodule AWS.IoTTwinMaker do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iottwinmaker%20UpdatePricingPlan&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec update_pricing_plan(AWS.Client.t(), Keyword.t()) ::
           {:ok, update_pricing_plan_response(), any()}
@@ -4116,8 +4082,7 @@ defmodule AWS.IoTTwinMaker do
   ## Parameters:
   * `:scene_id` (`t:string` required) The ID of the scene.
   * `:workspace_id` (`t:string` required) The ID of the workspace that contains
-  the scene.
-  ## Keyword parameters:
+    the scene.
   """
   @spec update_scene(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, update_scene_response(), any()}
@@ -4161,7 +4126,6 @@ defmodule AWS.IoTTwinMaker do
 
   ## Parameters:
   * `:workspace_id` (`t:string` required) The ID of the workspace.
-  ## Keyword parameters:
   """
   @spec update_workspace(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, update_workspace_response(), any()}

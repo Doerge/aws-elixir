@@ -220,7 +220,6 @@ defmodule AWS.EKSAuth do
 
   ## Parameters:
   * `:cluster_name` (`t:string` required) The name of the cluster for the request.
-  ## Keyword parameters:
   """
   @spec assume_role_for_pod_identity(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, assume_role_for_pod_identity_response(), any()}

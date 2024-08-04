@@ -257,42 +257,43 @@ defmodule AWS.SageMakerRuntime do
 
   ## Parameters:
   * `:endpoint_name` (`t:string` required) The name of the endpoint that you
-  specified when you created the endpoint using the CreateEndpoint API.
+    specified when you created the endpoint using the CreateEndpoint API.
   * `:input` (`t:binary` required)
+
 
   ## Keyword parameters:
   * `:accept` (`t:string`) The desired MIME type of the inference response from
-  the model container.
+    the model container.
   * `:content_type` (`t:string`) The MIME type of the input data in the request
-  body.
+    body.
   * `:custom_attributes` (`t:string`) Provides additional information about a
-  request for an inference submitted to a model hosted at an Amazon SageMaker
-  endpoint. The information is an opaque value that is forwarded verbatim. You
-  could use this value, for example, to provide an ID that you can use to
-  track a request or to provide other metadata that a service endpoint was
-  programmed to process. The value must consist of no more than 1024 visible
-  US-ASCII characters as specified in Section 3.3.6. Field Value Components of
-  the Hypertext Transfer Protocol (HTTP/1.1).
+    request for an inference submitted to a model hosted at an Amazon SageMaker
+    endpoint. The information is an opaque value that is forwarded verbatim. You
+    could use this value, for example, to provide an ID that you can use to
+    track a request or to provide other metadata that a service endpoint was
+    programmed to process. The value must consist of no more than 1024 visible
+    US-ASCII characters as specified in Section 3.3.6. Field Value Components of
+    the Hypertext Transfer Protocol (HTTP/1.1).
   * `:enable_explanations` (`t:string`) An optional JMESPath expression used to
-  override the EnableExplanations parameter of the ClarifyExplainerConfig API.
-  See the EnableExplanations section in the developer guide for more
-  information.
+    override the EnableExplanations parameter of the ClarifyExplainerConfig API.
+    See the EnableExplanations section in the developer guide for more
+    information.
   * `:inference_component_name` (`t:string`) If the endpoint hosts one or more
-  inference components, this parameter specifies the name of inference
-  component to invoke.
+    inference components, this parameter specifies the name of inference
+    component to invoke.
   * `:inference_id` (`t:string`) If you provide a value, it is added to the
-  captured data when you enable data capture on the endpoint. For information
-  about data capture, see Capture Data.
+    captured data when you enable data capture on the endpoint. For information
+    about data capture, see Capture Data.
   * `:target_container_hostname` (`t:string`) If the endpoint hosts multiple
-  containers and is configured to use direct invocation, this parameter
-  specifies the host name of the container to invoke.
+    containers and is configured to use direct invocation, this parameter
+    specifies the host name of the container to invoke.
   * `:target_model` (`t:string`) The model to request for inference when invoking
-  a multi-model endpoint.
+    a multi-model endpoint.
   * `:target_variant` (`t:string`) Specify the production variant to send the
-  inference request to when invoking an endpoint that is running two or more
-  variants. Note that this parameter overrides the default behavior for the
-  endpoint, which is to distribute the invocation traffic based on the variant
-  weights.
+    inference request to when invoking an endpoint that is running two or more
+    variants. Note that this parameter overrides the default behavior for the
+    endpoint, which is to distribute the invocation traffic based on the variant
+    weights.
   """
   @spec invoke_endpoint(AWS.Client.t(), String.t(), input :: binary(), Keyword.t()) ::
           {:ok, invoke_endpoint_output(), any()}
@@ -406,17 +407,6 @@ defmodule AWS.SageMakerRuntime do
     options =
       Keyword.put(
         options,
-        :response_header_parameters,
-        [
-          {"Content-Type", "ContentType"},
-          {"X-Amzn-SageMaker-Custom-Attributes", "CustomAttributes"},
-          {"x-Amzn-Invoked-Production-Variant", "InvokedProductionVariant"}
-        ]
-      )
-
-    options =
-      Keyword.put(
-        options,
         :send_body_as_binary?,
         true
       )
@@ -465,30 +455,31 @@ defmodule AWS.SageMakerRuntime do
 
   ## Parameters:
   * `:endpoint_name` (`t:string` required) The name of the endpoint that you
-  specified when you created the endpoint using the CreateEndpoint API.
+    specified when you created the endpoint using the CreateEndpoint API.
   * `:input_location` (`t:string` required) The Amazon S3 URI where the inference
-  request payload is stored.
+    request payload is stored.
+
   ## Keyword parameters:
   * `:accept` (`t:string`) The desired MIME type of the inference response from
-  the model container.
+    the model container.
   * `:content_type` (`t:string`) The MIME type of the input data in the request
-  body.
+    body.
   * `:custom_attributes` (`t:string`) Provides additional information about a
-  request for an inference submitted to a model hosted at an Amazon SageMaker
-  endpoint. The information is an opaque value that is forwarded verbatim. You
-  could use this value, for example, to provide an ID that you can use to
-  track a request or to provide other metadata that a service endpoint was
-  programmed to process. The value must consist of no more than 1024 visible
-  US-ASCII characters as specified in Section 3.3.6. Field Value Components of
-  the Hypertext Transfer Protocol (HTTP/1.1).
+    request for an inference submitted to a model hosted at an Amazon SageMaker
+    endpoint. The information is an opaque value that is forwarded verbatim. You
+    could use this value, for example, to provide an ID that you can use to
+    track a request or to provide other metadata that a service endpoint was
+    programmed to process. The value must consist of no more than 1024 visible
+    US-ASCII characters as specified in Section 3.3.6. Field Value Components of
+    the Hypertext Transfer Protocol (HTTP/1.1).
   * `:inference_id` (`t:string`) The identifier for the inference request. Amazon
-  SageMaker will generate an identifier for you if none is specified.
+    SageMaker will generate an identifier for you if none is specified.
   * `:invocation_timeout_seconds` (`t:integer`) Maximum amount of time in seconds
-  a request can be processed before it is marked as expired. The default is 15
-  minutes, or 900 seconds.
+    a request can be processed before it is marked as expired. The default is 15
+    minutes, or 900 seconds.
   * `:request_t_t_l_seconds` (`t:integer`) Maximum age in seconds a request can be
-  in the queue before it is marked as expired. The default is 6 hours, or
-  21,600 seconds.
+    in the queue before it is marked as expired. The default is 6 hours, or
+    21,600 seconds.
   """
   @spec invoke_endpoint_async(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, invoke_endpoint_async_output(), any()}
@@ -574,16 +565,6 @@ defmodule AWS.SageMakerRuntime do
         ]
       )
 
-    options =
-      Keyword.put(
-        options,
-        :response_header_parameters,
-        [
-          {"X-Amzn-SageMaker-FailureLocation", "FailureLocation"},
-          {"X-Amzn-SageMaker-OutputLocation", "OutputLocation"}
-        ]
-      )
-
     meta =
       metadata()
 
@@ -617,34 +598,35 @@ defmodule AWS.SageMakerRuntime do
 
   ## Parameters:
   * `:endpoint_name` (`t:string` required) The name of the endpoint that you
-  specified when you created the endpoint using the CreateEndpoint API.
+    specified when you created the endpoint using the CreateEndpoint API.
   * `:input` (`t:binary` required)
+
 
   ## Keyword parameters:
   * `:accept` (`t:string`) The desired MIME type of the inference response from
-  the model container.
+    the model container.
   * `:content_type` (`t:string`) The MIME type of the input data in the request
-  body.
+    body.
   * `:custom_attributes` (`t:string`) Provides additional information about a
-  request for an inference submitted to a model hosted at an Amazon SageMaker
-  endpoint. The information is an opaque value that is forwarded verbatim. You
-  could use this value, for example, to provide an ID that you can use to
-  track a request or to provide other metadata that a service endpoint was
-  programmed to process. The value must consist of no more than 1024 visible
-  US-ASCII characters as specified in Section 3.3.6. Field Value Components of
-  the Hypertext Transfer Protocol (HTTP/1.1).
+    request for an inference submitted to a model hosted at an Amazon SageMaker
+    endpoint. The information is an opaque value that is forwarded verbatim. You
+    could use this value, for example, to provide an ID that you can use to
+    track a request or to provide other metadata that a service endpoint was
+    programmed to process. The value must consist of no more than 1024 visible
+    US-ASCII characters as specified in Section 3.3.6. Field Value Components of
+    the Hypertext Transfer Protocol (HTTP/1.1).
   * `:inference_component_name` (`t:string`) If the endpoint hosts one or more
-  inference components, this parameter specifies the name of inference
-  component to invoke for a streaming response.
+    inference components, this parameter specifies the name of inference
+    component to invoke for a streaming response.
   * `:inference_id` (`t:string`) An identifier that you assign to your request.
   * `:target_container_hostname` (`t:string`) If the endpoint hosts multiple
-  containers and is configured to use direct invocation, this parameter
-  specifies the host name of the container to invoke.
+    containers and is configured to use direct invocation, this parameter
+    specifies the host name of the container to invoke.
   * `:target_variant` (`t:string`) Specify the production variant to send the
-  inference request to when invoking an endpoint that is running two or more
-  variants. Note that this parameter overrides the default behavior for the
-  endpoint, which is to distribute the invocation traffic based on the variant
-  weights.
+    inference request to when invoking an endpoint that is running two or more
+    variants. Note that this parameter overrides the default behavior for the
+    endpoint, which is to distribute the invocation traffic based on the variant
+    weights.
   """
   @spec invoke_endpoint_with_response_stream(
           AWS.Client.t(),
@@ -738,17 +720,6 @@ defmodule AWS.SageMakerRuntime do
     query_params = []
 
     # Optional query params
-    options =
-      Keyword.put(
-        options,
-        :response_header_parameters,
-        [
-          {"X-Amzn-SageMaker-Content-Type", "ContentType"},
-          {"X-Amzn-SageMaker-Custom-Attributes", "CustomAttributes"},
-          {"x-Amzn-Invoked-Production-Variant", "InvokedProductionVariant"}
-        ]
-      )
-
     options =
       Keyword.put(
         options,

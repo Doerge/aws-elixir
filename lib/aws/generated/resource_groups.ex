@@ -886,7 +886,6 @@ defmodule AWS.ResourceGroups do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=resourcegroups%20CreateGroup&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec create_group(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_group_output(), any()}
@@ -930,7 +929,6 @@ defmodule AWS.ResourceGroups do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=resourcegroups%20DeleteGroup&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec delete_group(AWS.Client.t(), Keyword.t()) ::
           {:ok, delete_group_output(), any()}
@@ -972,7 +970,6 @@ defmodule AWS.ResourceGroups do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=resourcegroups%20GetAccountSettings&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec get_account_settings(AWS.Client.t(), Keyword.t()) ::
           {:ok, get_account_settings_output(), any()}
@@ -1014,7 +1011,6 @@ defmodule AWS.ResourceGroups do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=resourcegroups%20GetGroup&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec get_group(AWS.Client.t(), Keyword.t()) ::
           {:ok, get_group_output(), any()}
@@ -1060,7 +1056,6 @@ defmodule AWS.ResourceGroups do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=resourcegroups%20GetGroupConfiguration&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec get_group_configuration(AWS.Client.t(), Keyword.t()) ::
           {:ok, get_group_configuration_output(), any()}
@@ -1106,7 +1101,6 @@ defmodule AWS.ResourceGroups do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=resourcegroups%20GetGroupQuery&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec get_group_query(AWS.Client.t(), Keyword.t()) ::
           {:ok, get_group_query_output(), any()}
@@ -1150,8 +1144,7 @@ defmodule AWS.ResourceGroups do
 
   ## Parameters:
   * `:arn` (`t:string` required) The ARN of the resource group whose tags you want
-  to retrieve.
-  ## Keyword parameters:
+    to retrieve.
   """
   @spec get_tags(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_tags_output(), any()}
@@ -1194,7 +1187,6 @@ defmodule AWS.ResourceGroups do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=resourcegroups%20GroupResources&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec group_resources(AWS.Client.t(), Keyword.t()) ::
           {:ok, group_resources_output(), any()}
@@ -1237,7 +1229,6 @@ defmodule AWS.ResourceGroups do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=resourcegroups%20ListGroupResources&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec list_group_resources(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_group_resources_output(), any()}
@@ -1280,22 +1271,23 @@ defmodule AWS.ResourceGroups do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=resourcegroups%20ListGroups&this_doc_guide=API%2520Reference)
 
   ## Parameters:
+
   ## Keyword parameters:
   * `:max_results` (`t:integer`) The total number of results that you want
-  included on each page of the response. If you do not include this parameter,
-  it defaults to a value that is specific to the operation. If additional
-  items exist beyond the maximum you specify, the NextToken response element
-  is present and has a value (is not null). Include that value as the
-  NextToken request parameter in the next call to the operation to get the
-  next part of the results. Note that the service might return fewer results
-  than the maximum even when there are more results available. You should
-  check NextToken after every operation to ensure that you receive all of the
-  results.
+    included on each page of the response. If you do not include this parameter,
+    it defaults to a value that is specific to the operation. If additional
+    items exist beyond the maximum you specify, the NextToken response element
+    is present and has a value (is not null). Include that value as the
+    NextToken request parameter in the next call to the operation to get the
+    next part of the results. Note that the service might return fewer results
+    than the maximum even when there are more results available. You should
+    check NextToken after every operation to ensure that you receive all of the
+    results.
   * `:next_token` (`t:string`) The parameter for receiving additional results if
-  you receive a NextToken response in a previous request. A NextToken response
-  indicates that more output is available. Set this parameter to the value
-  provided by a previous call's NextToken response to indicate where the
-  output should continue from.
+    you receive a NextToken response in a previous request. A NextToken response
+    indicates that more output is available. Set this parameter to the value
+    provided by a previous call's NextToken response to indicate where the
+    output should continue from.
   """
   @spec list_groups(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_groups_output(), any()}
@@ -1358,7 +1350,6 @@ defmodule AWS.ResourceGroups do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=resourcegroups%20PutGroupConfiguration&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec put_group_configuration(AWS.Client.t(), Keyword.t()) ::
           {:ok, put_group_configuration_output(), any()}
@@ -1402,7 +1393,6 @@ defmodule AWS.ResourceGroups do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=resourcegroups%20SearchResources&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec search_resources(AWS.Client.t(), Keyword.t()) ::
           {:ok, search_resources_output(), any()}
@@ -1450,8 +1440,7 @@ defmodule AWS.ResourceGroups do
 
   ## Parameters:
   * `:arn` (`t:string` required) The ARN of the resource group to which to add
-  tags.
-  ## Keyword parameters:
+    tags.
   """
   @spec tag(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, tag_output(), any()}
@@ -1497,7 +1486,6 @@ defmodule AWS.ResourceGroups do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=resourcegroups%20UngroupResources&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec ungroup_resources(AWS.Client.t(), Keyword.t()) ::
           {:ok, ungroup_resources_output(), any()}
@@ -1540,9 +1528,8 @@ defmodule AWS.ResourceGroups do
 
   ## Parameters:
   * `:arn` (`t:string` required) The ARN of the resource group from which to
-  remove tags. The command removed both the specified keys and any values
-  associated with those keys.
-  ## Keyword parameters:
+    remove tags. The command removed both the specified keys and any values
+    associated with those keys.
   """
   @spec untag(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, untag_output(), any()}
@@ -1594,7 +1581,6 @@ defmodule AWS.ResourceGroups do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=resourcegroups%20UpdateAccountSettings&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec update_account_settings(AWS.Client.t(), Keyword.t()) ::
           {:ok, update_account_settings_output(), any()}
@@ -1637,7 +1623,6 @@ defmodule AWS.ResourceGroups do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=resourcegroups%20UpdateGroup&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec update_group(AWS.Client.t(), Keyword.t()) ::
           {:ok, update_group_output(), any()}
@@ -1682,7 +1667,6 @@ defmodule AWS.ResourceGroups do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=resourcegroups%20UpdateGroupQuery&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec update_group_query(AWS.Client.t(), Keyword.t()) ::
           {:ok, update_group_query_output(), any()}

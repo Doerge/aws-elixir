@@ -171,12 +171,11 @@ defmodule AWS.AppConfigData do
 
   ## Parameters:
   * `:configuration_token` (`t:string` required) Token describing the current
-  state of the configuration session. To obtain a token, first call the
-  StartConfigurationSession API. Note that every call to
-  GetLatestConfiguration will return a new ConfigurationToken
-  (NextPollConfigurationToken in the response) and must be provided to
-  subsequent GetLatestConfiguration API calls.
-  ## Keyword parameters:
+    state of the configuration session. To obtain a token, first call the
+    StartConfigurationSession API. Note that every call to
+    GetLatestConfiguration will return a new ConfigurationToken
+    (NextPollConfigurationToken in the response) and must be provided to
+    subsequent GetLatestConfiguration API calls.
   """
   @spec get_latest_configuration(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_latest_configuration_response(), any()}
@@ -233,7 +232,6 @@ defmodule AWS.AppConfigData do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=appconfigdata%20StartConfigurationSession&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec start_configuration_session(AWS.Client.t(), Keyword.t()) ::
           {:ok, start_configuration_session_response(), any()}

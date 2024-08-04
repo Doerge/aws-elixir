@@ -415,7 +415,6 @@ defmodule AWS.SupportApp do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=supportapp%20CreateSlackChannelConfiguration&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec create_slack_channel_configuration(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_slack_channel_configuration_result(), any()}
@@ -460,7 +459,6 @@ defmodule AWS.SupportApp do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=supportapp%20DeleteAccountAlias&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec delete_account_alias(AWS.Client.t(), Keyword.t()) ::
           {:ok, delete_account_alias_result(), any()}
@@ -503,7 +501,6 @@ defmodule AWS.SupportApp do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=supportapp%20DeleteSlackChannelConfiguration&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec delete_slack_channel_configuration(AWS.Client.t(), Keyword.t()) ::
           {:ok, delete_slack_channel_configuration_result(), any()}
@@ -546,7 +543,6 @@ defmodule AWS.SupportApp do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=supportapp%20DeleteSlackWorkspaceConfiguration&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec delete_slack_workspace_configuration(AWS.Client.t(), Keyword.t()) ::
           {:ok, delete_slack_workspace_configuration_result(), any()}
@@ -591,7 +587,6 @@ defmodule AWS.SupportApp do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=supportapp%20GetAccountAlias&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec get_account_alias(AWS.Client.t(), Keyword.t()) ::
           {:ok, get_account_alias_result(), any()}
@@ -633,7 +628,6 @@ defmodule AWS.SupportApp do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=supportapp%20ListSlackChannelConfigurations&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec list_slack_channel_configurations(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_slack_channel_configurations_result(), any()}
@@ -675,7 +669,6 @@ defmodule AWS.SupportApp do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=supportapp%20ListSlackWorkspaceConfigurations&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec list_slack_workspace_configurations(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_slack_workspace_configurations_result(), any()}
@@ -720,7 +713,6 @@ defmodule AWS.SupportApp do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=supportapp%20PutAccountAlias&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec put_account_alias(AWS.Client.t(), Keyword.t()) ::
           {:ok, put_account_alias_result(), any()}
@@ -765,7 +757,6 @@ defmodule AWS.SupportApp do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=supportapp%20RegisterSlackWorkspaceForOrganization&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec register_slack_workspace_for_organization(AWS.Client.t(), Keyword.t()) ::
           {:ok, register_slack_workspace_for_organization_result(), any()}
@@ -808,7 +799,6 @@ defmodule AWS.SupportApp do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=supportapp%20UpdateSlackChannelConfiguration&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec update_slack_channel_configuration(AWS.Client.t(), Keyword.t()) ::
           {:ok, update_slack_channel_configuration_result(), any()}

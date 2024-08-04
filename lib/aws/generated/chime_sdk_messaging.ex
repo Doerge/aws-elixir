@@ -2201,8 +2201,7 @@ defmodule AWS.ChimeSDKMessaging do
   ## Parameters:
   * `:channel_arn` (`t:string` required) The ARN of the channel.
   * `:chime_bearer` (`t:string` required) The AppInstanceUserArn of the user
-  making the API call.
-  ## Keyword parameters:
+    making the API call.
   """
   @spec associate_channel_flow(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
@@ -2246,10 +2245,9 @@ defmodule AWS.ChimeSDKMessaging do
 
   ## Parameters:
   * `:channel_arn` (`t:string` required) The ARN of the channel to which you're
-  adding users or bots.
+    adding users or bots.
   * `:chime_bearer` (`t:string` required) The ARN of the AppInstanceUser or
-  AppInstanceBot that makes the API call.
-  ## Keyword parameters:
+    AppInstanceBot that makes the API call.
   """
   @spec batch_create_channel_membership(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, batch_create_channel_membership_response(), any()}
@@ -2300,7 +2298,6 @@ defmodule AWS.ChimeSDKMessaging do
 
   ## Parameters:
   * `:channel_arn` (`t:string` required) The ARN of the channel.
-  ## Keyword parameters:
   """
   @spec channel_flow_callback(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, channel_flow_callback_response(), any()}
@@ -2344,8 +2341,7 @@ defmodule AWS.ChimeSDKMessaging do
 
   ## Parameters:
   * `:chime_bearer` (`t:string` required) The ARN of the AppInstanceUser or
-  AppInstanceBot that makes the API call.
-  ## Keyword parameters:
+    AppInstanceBot that makes the API call.
   """
   @spec create_channel(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, create_channel_response(), any()}
@@ -2394,8 +2390,7 @@ defmodule AWS.ChimeSDKMessaging do
   ## Parameters:
   * `:channel_arn` (`t:string` required) The ARN of the ban request.
   * `:chime_bearer` (`t:string` required) The ARN of the AppInstanceUser or
-  AppInstanceBot that makes the API call.
-  ## Keyword parameters:
+    AppInstanceBot that makes the API call.
   """
   @spec create_channel_ban(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, create_channel_ban_response(), any()}
@@ -2442,7 +2437,6 @@ defmodule AWS.ChimeSDKMessaging do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chimesdkmessaging%20CreateChannelFlow&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec create_channel_flow(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_channel_flow_response(), any()}
@@ -2486,10 +2480,9 @@ defmodule AWS.ChimeSDKMessaging do
 
   ## Parameters:
   * `:channel_arn` (`t:string` required) The ARN of the channel to which you're
-  adding users.
+    adding users.
   * `:chime_bearer` (`t:string` required) The ARN of the AppInstanceUser or
-  AppInstanceBot that makes the API call.
-  ## Keyword parameters:
+    AppInstanceBot that makes the API call.
   """
   @spec create_channel_membership(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, create_channel_membership_response(), any()}
@@ -2534,8 +2527,7 @@ defmodule AWS.ChimeSDKMessaging do
   ## Parameters:
   * `:channel_arn` (`t:string` required) The ARN of the channel.
   * `:chime_bearer` (`t:string` required) The ARN of the AppInstanceUser or
-  AppInstanceBot that makes the API call.
-  ## Keyword parameters:
+    AppInstanceBot that makes the API call.
   """
   @spec create_channel_moderator(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, create_channel_moderator_response(), any()}
@@ -2581,8 +2573,7 @@ defmodule AWS.ChimeSDKMessaging do
   ## Parameters:
   * `:channel_arn` (`t:string` required) The ARN of the channel being deleted.
   * `:chime_bearer` (`t:string` required) The ARN of the AppInstanceUser or
-  AppInstanceBot that makes the API call.
-  ## Keyword parameters:
+    AppInstanceBot that makes the API call.
   """
   @spec delete_channel(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
@@ -2636,12 +2627,11 @@ defmodule AWS.ChimeSDKMessaging do
 
   ## Parameters:
   * `:channel_arn` (`t:string` required) The ARN of the channel from which the
-  AppInstanceUser was banned.
+    AppInstanceUser was banned.
   * `:member_arn` (`t:string` required) The ARN of the AppInstanceUser that you
-  want to reinstate.
+    want to reinstate.
   * `:chime_bearer` (`t:string` required) The ARN of the AppInstanceUser or
-  AppInstanceBot that makes the API call.
-  ## Keyword parameters:
+    AppInstanceBot that makes the API call.
   """
   @spec delete_channel_ban(AWS.Client.t(), String.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
@@ -2696,7 +2686,6 @@ defmodule AWS.ChimeSDKMessaging do
 
   ## Parameters:
   * `:channel_flow_arn` (`t:string` required) The ARN of the channel flow.
-  ## Keyword parameters:
   """
   @spec delete_channel_flow(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
@@ -2749,11 +2738,12 @@ defmodule AWS.ChimeSDKMessaging do
 
   ## Parameters:
   * `:channel_arn` (`t:string` required) The ARN of the channel from which you
-  want to remove the user.
+    want to remove the user.
   * `:member_arn` (`t:string` required) The AppInstanceUserArn of the member that
-  you're removing from the channel.
+    you're removing from the channel.
   * `:chime_bearer` (`t:string` required) The ARN of the AppInstanceUser or
-  AppInstanceBot that makes the API call.
+    AppInstanceBot that makes the API call.
+
   ## Keyword parameters:
   * `:sub_channel_id` (`t:string`) The ID of the SubChannel in the request.
   """
@@ -2831,7 +2821,8 @@ defmodule AWS.ChimeSDKMessaging do
   * `:channel_arn` (`t:string` required) The ARN of the channel.
   * `:message_id` (`t:string` required) The ID of the message being deleted.
   * `:chime_bearer` (`t:string` required) The ARN of the AppInstanceUser or
-  AppInstanceBot that makes the API call.
+    AppInstanceBot that makes the API call.
+
   ## Keyword parameters:
   * `:sub_channel_id` (`t:string`) The ID of the SubChannel in the request.
   """
@@ -2906,10 +2897,9 @@ defmodule AWS.ChimeSDKMessaging do
   ## Parameters:
   * `:channel_arn` (`t:string` required) The ARN of the channel.
   * `:channel_moderator_arn` (`t:string` required) The AppInstanceUserArn of the
-  moderator being deleted.
+    moderator being deleted.
   * `:chime_bearer` (`t:string` required) The ARN of the AppInstanceUser or
-  AppInstanceBot that makes the API call.
-  ## Keyword parameters:
+    AppInstanceBot that makes the API call.
   """
   @spec delete_channel_moderator(AWS.Client.t(), String.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
@@ -2973,8 +2963,7 @@ defmodule AWS.ChimeSDKMessaging do
 
   ## Parameters:
   * `:app_instance_arn` (`t:string` required) The ARN of the streaming
-  configurations being deleted.
-  ## Keyword parameters:
+    configurations being deleted.
   """
   @spec delete_messaging_streaming_configurations(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
@@ -3032,8 +3021,7 @@ defmodule AWS.ChimeSDKMessaging do
   ## Parameters:
   * `:channel_arn` (`t:string` required) The ARN of the channel.
   * `:chime_bearer` (`t:string` required) The ARN of the AppInstanceUser or
-  AppInstanceBot that makes the API call.
-  ## Keyword parameters:
+    AppInstanceBot that makes the API call.
   """
   @spec describe_channel(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, describe_channel_response(), any()}
@@ -3075,12 +3063,11 @@ defmodule AWS.ChimeSDKMessaging do
 
   ## Parameters:
   * `:channel_arn` (`t:string` required) The ARN of the channel from which the
-  user is banned.
+    user is banned.
   * `:member_arn` (`t:string` required) The AppInstanceUserArn of the member being
-  banned.
+    banned.
   * `:chime_bearer` (`t:string` required) The ARN of the AppInstanceUser or
-  AppInstanceBot that makes the API call.
-  ## Keyword parameters:
+    AppInstanceBot that makes the API call.
   """
   @spec describe_channel_ban(AWS.Client.t(), String.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, describe_channel_ban_response(), any()}
@@ -3130,7 +3117,6 @@ defmodule AWS.ChimeSDKMessaging do
 
   ## Parameters:
   * `:channel_flow_arn` (`t:string` required) The ARN of the channel flow.
-  ## Keyword parameters:
   """
   @spec describe_channel_flow(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, describe_channel_flow_response(), any()}
@@ -3173,10 +3159,11 @@ defmodule AWS.ChimeSDKMessaging do
   * `:channel_arn` (`t:string` required) The ARN of the channel.
   * `:member_arn` (`t:string` required) The AppInstanceUserArn of the member.
   * `:chime_bearer` (`t:string` required) The ARN of the AppInstanceUser or
-  AppInstanceBot that makes the API call.
+    AppInstanceBot that makes the API call.
+
   ## Keyword parameters:
   * `:sub_channel_id` (`t:string`) The ID of the SubChannel in the request. The
-  response contains an ElasticChannelConfiguration object.
+    response contains an ElasticChannelConfiguration object.
   """
   @spec describe_channel_membership(
           AWS.Client.t(),
@@ -3243,12 +3230,11 @@ defmodule AWS.ChimeSDKMessaging do
 
   ## Parameters:
   * `:channel_arn` (`t:string` required) The ARN of the channel to which the user
-  belongs.
+    belongs.
   * `:app_instance_user_arn` (`t:string` required) The ARN of the user or bot in a
-  channel.
+    channel.
   * `:chime_bearer` (`t:string` required) The ARN of the AppInstanceUser or
-  AppInstanceBot that makes the API call.
-  ## Keyword parameters:
+    AppInstanceBot that makes the API call.
   """
   @spec describe_channel_membership_for_app_instance_user(
           AWS.Client.t(),
@@ -3304,10 +3290,9 @@ defmodule AWS.ChimeSDKMessaging do
   ## Parameters:
   * `:channel_arn` (`t:string` required) The ARN of the moderated channel.
   * `:app_instance_user_arn` (`t:string` required) The ARN of the user or bot in
-  the moderated channel.
+    the moderated channel.
   * `:chime_bearer` (`t:string` required) The ARN of the AppInstanceUser or
-  AppInstanceBot that makes the API call.
-  ## Keyword parameters:
+    AppInstanceBot that makes the API call.
   """
   @spec describe_channel_moderated_by_app_instance_user(
           AWS.Client.t(),
@@ -3363,10 +3348,9 @@ defmodule AWS.ChimeSDKMessaging do
   ## Parameters:
   * `:channel_arn` (`t:string` required) The ARN of the channel.
   * `:channel_moderator_arn` (`t:string` required) The AppInstanceUserArn of the
-  channel moderator.
+    channel moderator.
   * `:chime_bearer` (`t:string` required) The ARN of the AppInstanceUser or
-  AppInstanceBot that makes the API call.
-  ## Keyword parameters:
+    AppInstanceBot that makes the API call.
   """
   @spec describe_channel_moderator(
           AWS.Client.t(),
@@ -3424,8 +3408,7 @@ defmodule AWS.ChimeSDKMessaging do
   * `:channel_arn` (`t:string` required) The ARN of the channel.
   * `:channel_flow_arn` (`t:string` required) The ARN of the channel flow.
   * `:chime_bearer` (`t:string` required) The AppInstanceUserArn of the user
-  making the API call.
-  ## Keyword parameters:
+    making the API call.
   """
   @spec disassociate_channel_flow(AWS.Client.t(), String.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
@@ -3492,10 +3475,9 @@ defmodule AWS.ChimeSDKMessaging do
   ## Parameters:
   * `:channel_arn` (`t:string` required) The ARN of the channel.
   * `:member_arn` (`t:string` required) The AppInstanceUserArn of the member
-  retrieving the preferences.
+    retrieving the preferences.
   * `:chime_bearer` (`t:string` required) The ARN of the AppInstanceUser or
-  AppInstanceBot that makes the API call.
-  ## Keyword parameters:
+    AppInstanceBot that makes the API call.
   """
   @spec get_channel_membership_preferences(
           AWS.Client.t(),
@@ -3552,7 +3534,8 @@ defmodule AWS.ChimeSDKMessaging do
   * `:channel_arn` (`t:string` required) The ARN of the channel.
   * `:message_id` (`t:string` required) The ID of the message.
   * `:chime_bearer` (`t:string` required) The ARN of the AppInstanceUser or
-  AppInstanceBot that makes the API call.
+    AppInstanceBot that makes the API call.
+
   ## Keyword parameters:
   * `:sub_channel_id` (`t:string`) The ID of the SubChannel in the request.
   """
@@ -3620,7 +3603,8 @@ defmodule AWS.ChimeSDKMessaging do
   * `:channel_arn` (`t:string` required) The ARN of the channel
   * `:message_id` (`t:string` required) The ID of the message.
   * `:chime_bearer` (`t:string` required) The AppInstanceUserArn of the user
-  making the API call.
+    making the API call.
+
   ## Keyword parameters:
   * `:sub_channel_id` (`t:string`) The ID of the SubChannel in the request.
   """
@@ -3687,7 +3671,6 @@ defmodule AWS.ChimeSDKMessaging do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chimesdkmessaging%20GetMessagingSessionEndpoint&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec get_messaging_session_endpoint(AWS.Client.t(), Keyword.t()) ::
           {:ok, get_messaging_session_endpoint_response(), any()}
@@ -3731,8 +3714,7 @@ defmodule AWS.ChimeSDKMessaging do
 
   ## Parameters:
   * `:app_instance_arn` (`t:string` required) The ARN of the streaming
-  configurations.
-  ## Keyword parameters:
+    configurations.
   """
   @spec get_messaging_streaming_configurations(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_messaging_streaming_configurations_response(), any()}
@@ -3774,12 +3756,13 @@ defmodule AWS.ChimeSDKMessaging do
   ## Parameters:
   * `:channel_arn` (`t:string` required) The ARN of the channel.
   * `:chime_bearer` (`t:string` required) The ARN of the AppInstanceUser or
-  AppInstanceBot that makes the API call.
+    AppInstanceBot that makes the API call.
+
   ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of bans that you want
-  returned.
+    returned.
   * `:next_token` (`t:string`) The token passed by previous API calls until all
-  requested bans are returned.
+    requested bans are returned.
   """
   @spec list_channel_bans(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, list_channel_bans_response(), any()}
@@ -3840,11 +3823,12 @@ defmodule AWS.ChimeSDKMessaging do
 
   ## Parameters:
   * `:app_instance_arn` (`t:string` required) The ARN of the app instance.
+
   ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of channel flows that you want
-  to return.
+    to return.
   * `:next_token` (`t:string`) The token passed by previous API calls until all
-  requested channel flows are returned.
+    requested channel flows are returned.
   """
   @spec list_channel_flows(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_channel_flows_response(), any()}
@@ -3906,19 +3890,20 @@ defmodule AWS.ChimeSDKMessaging do
 
   ## Parameters:
   * `:channel_arn` (`t:string` required) The maximum number of channel memberships
-  that you want returned.
+    that you want returned.
   * `:chime_bearer` (`t:string` required) The ARN of the AppInstanceUser or
-  AppInstanceBot that makes the API call.
+    AppInstanceBot that makes the API call.
+
   ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of channel memberships that
-  you want returned.
+    you want returned.
   * `:next_token` (`t:string`) The token passed by previous API calls until all
-  requested channel memberships are returned.
+    requested channel memberships are returned.
   * `:sub_channel_id` (`t:string`) The ID of the SubChannel in the request.
   * `:type` (`t:enum["DEFAULT|HIDDEN"]`) The membership type of a user, DEFAULT or
-  HIDDEN. Default members are returned as part of ListChannelMemberships if no
-  type is specified. Hidden members are only returned if the type filter in
-  ListChannelMemberships equals HIDDEN.
+    HIDDEN. Default members are returned as part of ListChannelMemberships if no
+    type is specified. Hidden members are only returned if the type filter in
+    ListChannelMemberships equals HIDDEN.
   """
   @spec list_channel_memberships(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, list_channel_memberships_response(), any()}
@@ -3994,13 +3979,14 @@ defmodule AWS.ChimeSDKMessaging do
 
   ## Parameters:
   * `:chime_bearer` (`t:string` required) The ARN of the AppInstanceUser or
-  AppInstanceBot that makes the API call.
+    AppInstanceBot that makes the API call.
+
   ## Keyword parameters:
   * `:app_instance_user_arn` (`t:string`) The ARN of the user or bot.
   * `:max_results` (`t:integer`) The maximum number of users that you want
-  returned.
+    returned.
   * `:next_token` (`t:string`) The token returned from previous API requests until
-  the number of channel memberships is reached.
+    the number of channel memberships is reached.
   """
   @spec list_channel_memberships_for_app_instance_user(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_channel_memberships_for_app_instance_user_response(), any()}
@@ -4074,18 +4060,19 @@ defmodule AWS.ChimeSDKMessaging do
   ## Parameters:
   * `:channel_arn` (`t:string` required) The ARN of the channel.
   * `:chime_bearer` (`t:string` required) The ARN of the AppInstanceUser or
-  AppInstanceBot that makes the API call.
+    AppInstanceBot that makes the API call.
+
   ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of messages that you want
-  returned.
+    returned.
   * `:next_token` (`t:string`) The token passed by previous API calls until all
-  requested messages are returned.
+    requested messages are returned.
   * `:not_after` (`t:timestamp`) The final or ending time stamp for your requested
-  messages.
+    messages.
   * `:not_before` (`t:timestamp`) The initial or starting time stamp for your
-  requested messages.
+    requested messages.
   * `:sort_order` (`t:enum["ASCENDING|DESCENDING"]`) The order in which you want
-  messages sorted. Default is Descending, based on time created.
+    messages sorted. Default is Descending, based on time created.
   * `:sub_channel_id` (`t:string`) The ID of the SubChannel in the request.
   """
   @spec list_channel_messages(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
@@ -4189,12 +4176,13 @@ defmodule AWS.ChimeSDKMessaging do
   ## Parameters:
   * `:channel_arn` (`t:string` required) The ARN of the channel.
   * `:chime_bearer` (`t:string` required) The ARN of the AppInstanceUser or
-  AppInstanceBot that makes the API call.
+    AppInstanceBot that makes the API call.
+
   ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of moderators that you want
-  returned.
+    returned.
   * `:next_token` (`t:string`) The token passed by previous API calls until all
-  requested moderators are returned.
+    requested moderators are returned.
   """
   @spec list_channel_moderators(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, list_channel_moderators_response(), any()}
@@ -4256,15 +4244,16 @@ defmodule AWS.ChimeSDKMessaging do
   ## Parameters:
   * `:app_instance_arn` (`t:string` required) The ARN of the AppInstance.
   * `:chime_bearer` (`t:string` required) The ARN of the AppInstanceUser or
-  AppInstanceBot that makes the API call.
+    AppInstanceBot that makes the API call.
+
   ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of channels that you want to
-  return.
+    return.
   * `:next_token` (`t:string`) The token passed by previous API calls until all
-  requested channels are returned.
+    requested channels are returned.
   * `:privacy` (`t:enum["PRIVATE|PUBLIC"]`) The privacy setting. PUBLIC retrieves
-  all the public channels. PRIVATE retrieves private channels. Only an
-  AppInstanceAdmin can retrieve private channels.
+    all the public channels. PRIVATE retrieves private channels. Only an
+    AppInstanceAdmin can retrieve private channels.
   """
   @spec list_channels(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, list_channels_response(), any()}
@@ -4333,11 +4322,12 @@ defmodule AWS.ChimeSDKMessaging do
 
   ## Parameters:
   * `:channel_flow_arn` (`t:string` required) The ARN of the channel flow.
+
   ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of channels that you want to
-  return.
+    return.
   * `:next_token` (`t:string`) The token passed by previous API calls until all
-  requested channels are returned.
+    requested channels are returned.
   """
   @spec list_channels_associated_with_channel_flow(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_channels_associated_with_channel_flow_response(), any()}
@@ -4401,13 +4391,14 @@ defmodule AWS.ChimeSDKMessaging do
 
   ## Parameters:
   * `:chime_bearer` (`t:string` required) The ARN of the AppInstanceUser or
-  AppInstanceBot that makes the API call.
+    AppInstanceBot that makes the API call.
+
   ## Keyword parameters:
   * `:app_instance_user_arn` (`t:string`) The ARN of the user or bot in the
-  moderated channel.
+    moderated channel.
   * `:max_results` (`t:integer`) The maximum number of channels in the request.
   * `:next_token` (`t:string`) The token returned from previous API requests until
-  the number of channels moderated by the user is reached.
+    the number of channels moderated by the user is reached.
   """
   @spec list_channels_moderated_by_app_instance_user(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_channels_moderated_by_app_instance_user_response(), any()}
@@ -4481,12 +4472,13 @@ defmodule AWS.ChimeSDKMessaging do
   ## Parameters:
   * `:channel_arn` (`t:string` required) The ARN of elastic channel.
   * `:chime_bearer` (`t:string` required) The AppInstanceUserArn of the user
-  making the API call.
+    making the API call.
+
   ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of sub-channels that you want
-  to return.
+    to return.
   * `:next_token` (`t:string`) The token passed by previous API calls until all
-  requested sub-channels are returned.
+    requested sub-channels are returned.
   """
   @spec list_sub_channels(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, list_sub_channels_response(), any()}
@@ -4546,7 +4538,6 @@ defmodule AWS.ChimeSDKMessaging do
 
   ## Parameters:
   * `:resource_arn` (`t:string` required) The ARN of the resource.
-  ## Keyword parameters:
   """
   @spec list_tags_for_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_tags_for_resource_response(), any()}
@@ -4588,9 +4579,10 @@ defmodule AWS.ChimeSDKMessaging do
 
   ## Parameters:
   * `:channel_arn` (`t:string` required) The ARN of the channel.
+
   ## Keyword parameters:
   * `:chime_bearer` (`t:string`) The ARN of the AppInstanceUser or AppInstanceBot
-  that makes the API call.
+    that makes the API call.
   """
   @spec put_channel_expiration_settings(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, put_channel_expiration_settings_response(), any()}
@@ -4650,10 +4642,9 @@ defmodule AWS.ChimeSDKMessaging do
   ## Parameters:
   * `:channel_arn` (`t:string` required) The ARN of the channel.
   * `:member_arn` (`t:string` required) The ARN of the member setting the
-  preferences.
+    preferences.
   * `:chime_bearer` (`t:string` required) The ARN of the AppInstanceUser or
-  AppInstanceBot that makes the API call.
-  ## Keyword parameters:
+    AppInstanceBot that makes the API call.
   """
   @spec put_channel_membership_preferences(
           AWS.Client.t(),
@@ -4713,8 +4704,7 @@ defmodule AWS.ChimeSDKMessaging do
 
   ## Parameters:
   * `:app_instance_arn` (`t:string` required) The ARN of the streaming
-  configuration.
-  ## Keyword parameters:
+    configuration.
   """
   @spec put_messaging_streaming_configurations(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, put_messaging_streaming_configurations_response(), any()}
@@ -4758,11 +4748,10 @@ defmodule AWS.ChimeSDKMessaging do
 
   ## Parameters:
   * `:channel_arn` (`t:string` required) The ARN of the channel containing the
-  messages that you want to redact.
+    messages that you want to redact.
   * `:message_id` (`t:string` required) The ID of the message being redacted.
   * `:chime_bearer` (`t:string` required) The ARN of the AppInstanceUser or
-  AppInstanceBot that makes the API call.
-  ## Keyword parameters:
+    AppInstanceBot that makes the API call.
   """
   @spec redact_channel_message(AWS.Client.t(), String.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, redact_channel_message_response(), any()}
@@ -4814,13 +4803,14 @@ defmodule AWS.ChimeSDKMessaging do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chimesdkmessaging%20SearchChannels&this_doc_guide=API%2520Reference)
 
   ## Parameters:
+
   ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of channels that you want
-  returned.
+    returned.
   * `:next_token` (`t:string`) The token returned from previous API requests until
-  the number of channels is reached.
+    the number of channels is reached.
   * `:chime_bearer` (`t:string`) The AppInstanceUserArn of the user making the API
-  call.
+    call.
   """
   @spec search_channels(AWS.Client.t(), Keyword.t()) ::
           {:ok, search_channels_response(), any()}
@@ -4888,8 +4878,7 @@ defmodule AWS.ChimeSDKMessaging do
   ## Parameters:
   * `:channel_arn` (`t:string` required) The ARN of the channel.
   * `:chime_bearer` (`t:string` required) The ARN of the AppInstanceUser or
-  AppInstanceBot that makes the API call.
-  ## Keyword parameters:
+    AppInstanceBot that makes the API call.
   """
   @spec send_channel_message(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, send_channel_message_response(), any()}
@@ -4932,7 +4921,6 @@ defmodule AWS.ChimeSDKMessaging do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chimesdkmessaging%20TagResource&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec tag_resource(AWS.Client.t(), Keyword.t()) ::
           {:ok, nil, any()}
@@ -4975,7 +4963,6 @@ defmodule AWS.ChimeSDKMessaging do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chimesdkmessaging%20UntagResource&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec untag_resource(AWS.Client.t(), Keyword.t()) ::
           {:ok, nil, any()}
@@ -5020,8 +5007,7 @@ defmodule AWS.ChimeSDKMessaging do
   ## Parameters:
   * `:channel_arn` (`t:string` required) The ARN of the channel.
   * `:chime_bearer` (`t:string` required) The ARN of the AppInstanceUser or
-  AppInstanceBot that makes the API call.
-  ## Keyword parameters:
+    AppInstanceBot that makes the API call.
   """
   @spec update_channel(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, update_channel_response(), any()}
@@ -5065,7 +5051,6 @@ defmodule AWS.ChimeSDKMessaging do
 
   ## Parameters:
   * `:channel_flow_arn` (`t:string` required) The ARN of the channel flow.
-  ## Keyword parameters:
   """
   @spec update_channel_flow(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, update_channel_flow_response(), any()}
@@ -5109,10 +5094,9 @@ defmodule AWS.ChimeSDKMessaging do
   ## Parameters:
   * `:channel_arn` (`t:string` required) The ARN of the channel.
   * `:message_id` (`t:string` required) The ID string of the message being
-  updated.
+    updated.
   * `:chime_bearer` (`t:string` required) The ARN of the AppInstanceUser or
-  AppInstanceBot that makes the API call.
-  ## Keyword parameters:
+    AppInstanceBot that makes the API call.
   """
   @spec update_channel_message(AWS.Client.t(), String.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, update_channel_message_response(), any()}
@@ -5164,8 +5148,7 @@ defmodule AWS.ChimeSDKMessaging do
   ## Parameters:
   * `:channel_arn` (`t:string` required) The ARN of the channel.
   * `:chime_bearer` (`t:string` required) The ARN of the AppInstanceUser or
-  AppInstanceBot that makes the API call.
-  ## Keyword parameters:
+    AppInstanceBot that makes the API call.
   """
   @spec update_channel_read_marker(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, update_channel_read_marker_response(), any()}

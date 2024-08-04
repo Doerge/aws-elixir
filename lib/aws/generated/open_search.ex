@@ -3585,8 +3585,7 @@ defmodule AWS.OpenSearch do
 
   ## Parameters:
   * `:connection_id` (`t:string` required) The ID of the inbound connection to
-  accept.
-  ## Keyword parameters:
+    accept.
   """
   @spec accept_inbound_connection(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, accept_inbound_connection_response(), any()}
@@ -3633,8 +3632,7 @@ defmodule AWS.OpenSearch do
 
   ## Parameters:
   * `:domain_name` (`t:string` required) The name of the domain to add the data
-  source to.
-  ## Keyword parameters:
+    source to.
   """
   @spec add_data_source(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, add_data_source_response(), any()}
@@ -3679,7 +3677,6 @@ defmodule AWS.OpenSearch do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=opensearch%20AddTags&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec add_tags(AWS.Client.t(), Keyword.t()) ::
           {:ok, nil, any()}
@@ -3724,10 +3721,9 @@ defmodule AWS.OpenSearch do
 
   ## Parameters:
   * `:domain_name` (`t:string` required) Name of the domain to associate the
-  package with.
+    package with.
   * `:package_id` (`t:string` required) Internal ID of the package to associate
-  with a domain. Use DescribePackages to find this value.
-  ## Keyword parameters:
+    with a domain. Use DescribePackages to find this value.
   """
   @spec associate_package(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, associate_package_response(), any()}
@@ -3772,8 +3768,7 @@ defmodule AWS.OpenSearch do
 
   ## Parameters:
   * `:domain_name` (`t:string` required) The name of the OpenSearch Service domain
-  to provide access to.
-  ## Keyword parameters:
+    to provide access to.
   """
   @spec authorize_vpc_endpoint_access(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, authorize_vpc_endpoint_access_response(), any()}
@@ -3817,7 +3812,6 @@ defmodule AWS.OpenSearch do
 
   ## Parameters:
   * `:domain_name` (`t:string` required)
-  ## Keyword parameters:
   """
   @spec cancel_domain_config_change(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, cancel_domain_config_change_response(), any()}
@@ -3863,7 +3857,6 @@ defmodule AWS.OpenSearch do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=opensearch%20CancelServiceSoftwareUpdate&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec cancel_service_software_update(AWS.Client.t(), Keyword.t()) ::
           {:ok, cancel_service_software_update_response(), any()}
@@ -3907,7 +3900,6 @@ defmodule AWS.OpenSearch do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=opensearch%20CreateDomain&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec create_domain(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_domain_response(), any()}
@@ -3952,7 +3944,6 @@ defmodule AWS.OpenSearch do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=opensearch%20CreateOutboundConnection&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec create_outbound_connection(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_outbound_connection_response(), any()}
@@ -3996,7 +3987,6 @@ defmodule AWS.OpenSearch do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=opensearch%20CreatePackage&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec create_package(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_package_response(), any()}
@@ -4038,7 +4028,6 @@ defmodule AWS.OpenSearch do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=opensearch%20CreateVpcEndpoint&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec create_vpc_endpoint(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_vpc_endpoint_response(), any()}
@@ -4084,7 +4073,6 @@ defmodule AWS.OpenSearch do
   ## Parameters:
   * `:domain_name` (`t:string` required) The name of the domain.
   * `:name` (`t:string` required) The name of the data source to delete.
-  ## Keyword parameters:
   """
   @spec delete_data_source(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, delete_data_source_response(), any()}
@@ -4139,8 +4127,7 @@ defmodule AWS.OpenSearch do
 
   ## Parameters:
   * `:domain_name` (`t:string` required) The name of the domain you want to
-  permanently delete.
-  ## Keyword parameters:
+    permanently delete.
   """
   @spec delete_domain(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, delete_domain_response(), any()}
@@ -4196,8 +4183,7 @@ defmodule AWS.OpenSearch do
 
   ## Parameters:
   * `:connection_id` (`t:string` required) The ID of the inbound connection to
-  permanently delete.
-  ## Keyword parameters:
+    permanently delete.
   """
   @spec delete_inbound_connection(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, delete_inbound_connection_response(), any()}
@@ -4253,8 +4239,7 @@ defmodule AWS.OpenSearch do
 
   ## Parameters:
   * `:connection_id` (`t:string` required) The ID of the outbound connection you
-  want to permanently delete.
-  ## Keyword parameters:
+    want to permanently delete.
   """
   @spec delete_outbound_connection(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, delete_outbound_connection_response(), any()}
@@ -4310,8 +4295,7 @@ defmodule AWS.OpenSearch do
 
   ## Parameters:
   * `:package_id` (`t:string` required) The internal ID of the package you want to
-  delete. Use DescribePackages to find this value.
-  ## Keyword parameters:
+    delete. Use DescribePackages to find this value.
   """
   @spec delete_package(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, delete_package_response(), any()}
@@ -4364,8 +4348,7 @@ defmodule AWS.OpenSearch do
 
   ## Parameters:
   * `:vpc_endpoint_id` (`t:string` required) The unique identifier of the
-  endpoint.
-  ## Keyword parameters:
+    endpoint.
   """
   @spec delete_vpc_endpoint(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, delete_vpc_endpoint_response(), any()}
@@ -4419,8 +4402,7 @@ defmodule AWS.OpenSearch do
 
   ## Parameters:
   * `:domain_name` (`t:string` required) The name of the domain that you want
-  information about.
-  ## Keyword parameters:
+    information about.
   """
   @spec describe_domain(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, describe_domain_response(), any()}
@@ -4464,8 +4446,7 @@ defmodule AWS.OpenSearch do
 
   ## Parameters:
   * `:domain_name` (`t:string` required) Name of the domain that you want
-  Auto-Tune details about.
-  ## Keyword parameters:
+    Auto-Tune details about.
   """
   @spec describe_domain_auto_tunes(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, describe_domain_auto_tunes_response(), any()}
@@ -4509,11 +4490,12 @@ defmodule AWS.OpenSearch do
 
   ## Parameters:
   * `:domain_name` (`t:string` required) The name of the domain to get progress
-  information for.
+    information for.
+
   ## Keyword parameters:
   * `:change_id` (`t:string`) The specific change ID for which you want to get
-  progress information. If omitted, the request returns information about the
-  most recent configuration change.
+    progress information. If omitted, the request returns information about the
+    most recent configuration change.
   """
   @spec describe_domain_change_progress(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, describe_domain_change_progress_response(), any()}
@@ -4565,8 +4547,7 @@ defmodule AWS.OpenSearch do
 
   ## Parameters:
   * `:domain_name` (`t:string` required) Name of the OpenSearch Service domain
-  configuration that you want to describe.
-  ## Keyword parameters:
+    configuration that you want to describe.
   """
   @spec describe_domain_config(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, describe_domain_config_response(), any()}
@@ -4608,7 +4589,6 @@ defmodule AWS.OpenSearch do
 
   ## Parameters:
   * `:domain_name` (`t:string` required) The name of the domain.
-  ## Keyword parameters:
   """
   @spec describe_domain_health(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, describe_domain_health_response(), any()}
@@ -4651,7 +4631,6 @@ defmodule AWS.OpenSearch do
 
   ## Parameters:
   * `:domain_name` (`t:string` required) The name of the domain.
-  ## Keyword parameters:
   """
   @spec describe_domain_nodes(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, describe_domain_nodes_response(), any()}
@@ -4692,7 +4671,6 @@ defmodule AWS.OpenSearch do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=opensearch%20DescribeDomains&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec describe_domains(AWS.Client.t(), Keyword.t()) ::
           {:ok, describe_domains_response(), any()}
@@ -4738,11 +4716,12 @@ defmodule AWS.OpenSearch do
 
   ## Parameters:
   * `:domain_name` (`t:string` required) The name of the domain.
+
   ## Keyword parameters:
   * `:dry_run_id` (`t:string`) The unique identifier of the dry run.
   * `:load_dry_run_config` (`t:boolean`) Whether to include the configuration of
-  the dry run in the response. The configuration specifies the updates that
-  you're planning to make on the domain.
+    the dry run in the response. The configuration specifies the updates that
+    you're planning to make on the domain.
   """
   @spec describe_dry_run_progress(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, describe_dry_run_progress_response(), any()}
@@ -4803,7 +4782,6 @@ defmodule AWS.OpenSearch do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=opensearch%20DescribeInboundConnections&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec describe_inbound_connections(AWS.Client.t(), Keyword.t()) ::
           {:ok, describe_inbound_connections_response(), any()}
@@ -4847,15 +4825,16 @@ defmodule AWS.OpenSearch do
 
   ## Parameters:
   * `:engine_version` (`t:string` required) Version of OpenSearch or
-  Elasticsearch, in the format Elasticsearch_X.Y or OpenSearch_X.Y. Defaults
-  to the latest version of OpenSearch.
+    Elasticsearch, in the format Elasticsearch_X.Y or OpenSearch_X.Y. Defaults
+    to the latest version of OpenSearch.
   * `:instance_type`
-  (`t:enum["ultrawarm1_xlarge_search|c6g_2xlarge_search|d2_2xlarge_search|m5_24xlarge_search|c4_2xlarge_search|r4_large_search|r4_xlarge_search|c5_9xlarge_search|r5_large_search|m3_medium_search|r4_4xlarge_search|r6g_2xlarge_search|c5_4xlarge_search|m6g_4xlarge_search|m4_4xlarge_search|t2_small_search|r4_8xlarge_search|c4_large_search|m6g_8xlarge_search|or1_8xlarge_search|r3_8xlarge_search|or1_xlarge_search|or1_16xlarge_search|r6gd_8xlarge_search|r6g_xlarge_search|m6g_2xlarge_search|m5_xlarge_search|d2_xlarge_search|or1_2xlarge_search|m3_large_search|m5_2xlarge_search|i2_xlarge_search|r6gd_4xlarge_search|c6g_large_search|or1_12xlarge_search|or1_large_search|t3_large_search|or1_medium_search|i3_large_search|c6g_12xlarge_search|i3_16xlarge_search|r3_4xlarge_search|i3_2xlarge_search|r6gd_xlarge_search|t3_2xlarge_search|m5_4xlarge_search|m4_2xlarge_search|r6g_4xlarge_search|c4_xlarge_search|r5_xlarge_search|c4_4xlarge_search|r3_2xlarge_search|r6g_8xlarge_search|t3_small_search|r4_2xlarge_search|m6g_xlarge_search|t4g_small_search|m4_xlarge_search|c4_8xlarge_search|i2_2xlarge_search|r3_xlarge_search|c6g_4xlarge_search|r5_24xlarge_search|c5_large_search|ultrawarm1_medium_search|r4_16xlarge_search|m5_large_search|r5_12xlarge_search|t2_micro_search|i3_8xlarge_search|m3_2xlarge_search|d2_8xlarge_search|m4_large_search|or1_4xlarge_search|r5_4xlarge_search|r6g_large_search|c5_18xlarge_search|c5_xlarge_search|i3_4xlarge_search|c5_2xlarge_search|r3_large_search|t3_xlarge_search|c6g_8xlarge_search|m6g_12xlarge_search|t3_nano_search|m5_12xlarge_search|r5_2xlarge_search|t3_micro_search|m6g_large_search|r6g_12xlarge_search|t3_medium_search|r6gd_16xlarge_search|ultrawarm1_large_search|c6g_xlarge_search|r6gd_2xlarge_search|r6gd_12xlarge_search|t2_medium_search|m3_xlarge_search|m4_10xlarge_search|i3_xlarge_search|r6gd_large_search|d2_4xlarge_search|t4g_medium_search"]`
-  required) The OpenSearch Service instance type for which you need limit
-  information.
+    (`t:enum["ultrawarm1_xlarge_search|c6g_2xlarge_search|d2_2xlarge_search|m5_24xlarge_search|c4_2xlarge_search|r4_large_search|r4_xlarge_search|c5_9xlarge_search|r5_large_search|m3_medium_search|r4_4xlarge_search|r6g_2xlarge_search|c5_4xlarge_search|m6g_4xlarge_search|m4_4xlarge_search|t2_small_search|r4_8xlarge_search|c4_large_search|m6g_8xlarge_search|or1_8xlarge_search|r3_8xlarge_search|or1_xlarge_search|or1_16xlarge_search|r6gd_8xlarge_search|r6g_xlarge_search|m6g_2xlarge_search|m5_xlarge_search|d2_xlarge_search|or1_2xlarge_search|m3_large_search|m5_2xlarge_search|i2_xlarge_search|r6gd_4xlarge_search|c6g_large_search|or1_12xlarge_search|or1_large_search|t3_large_search|or1_medium_search|i3_large_search|c6g_12xlarge_search|i3_16xlarge_search|r3_4xlarge_search|i3_2xlarge_search|r6gd_xlarge_search|t3_2xlarge_search|m5_4xlarge_search|m4_2xlarge_search|r6g_4xlarge_search|c4_xlarge_search|r5_xlarge_search|c4_4xlarge_search|r3_2xlarge_search|r6g_8xlarge_search|t3_small_search|r4_2xlarge_search|m6g_xlarge_search|t4g_small_search|m4_xlarge_search|c4_8xlarge_search|i2_2xlarge_search|r3_xlarge_search|c6g_4xlarge_search|r5_24xlarge_search|c5_large_search|ultrawarm1_medium_search|r4_16xlarge_search|m5_large_search|r5_12xlarge_search|t2_micro_search|i3_8xlarge_search|m3_2xlarge_search|d2_8xlarge_search|m4_large_search|or1_4xlarge_search|r5_4xlarge_search|r6g_large_search|c5_18xlarge_search|c5_xlarge_search|i3_4xlarge_search|c5_2xlarge_search|r3_large_search|t3_xlarge_search|c6g_8xlarge_search|m6g_12xlarge_search|t3_nano_search|m5_12xlarge_search|r5_2xlarge_search|t3_micro_search|m6g_large_search|r6g_12xlarge_search|t3_medium_search|r6gd_16xlarge_search|ultrawarm1_large_search|c6g_xlarge_search|r6gd_2xlarge_search|r6gd_12xlarge_search|t2_medium_search|m3_xlarge_search|m4_10xlarge_search|i3_xlarge_search|r6gd_large_search|d2_4xlarge_search|t4g_medium_search"]`
+    required) The OpenSearch Service instance type for which you need limit
+    information.
+
   ## Keyword parameters:
   * `:domain_name` (`t:string`) The name of the domain. Only specify if you need
-  the limits for an existing domain.
+    the limits for an existing domain.
   """
   @spec describe_instance_type_limits(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, describe_instance_type_limits_response(), any()}
@@ -4915,7 +4894,6 @@ defmodule AWS.OpenSearch do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=opensearch%20DescribeOutboundConnections&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec describe_outbound_connections(AWS.Client.t(), Keyword.t()) ::
           {:ok, describe_outbound_connections_response(), any()}
@@ -4959,7 +4937,6 @@ defmodule AWS.OpenSearch do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=opensearch%20DescribePackages&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec describe_packages(AWS.Client.t(), Keyword.t()) ::
           {:ok, describe_packages_response(), any()}
@@ -5004,17 +4981,18 @@ defmodule AWS.OpenSearch do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=opensearch%20DescribeReservedInstanceOfferings&this_doc_guide=API%2520Reference)
 
   ## Parameters:
+
   ## Keyword parameters:
   * `:max_results` (`t:integer`) An optional parameter that specifies the maximum
-  number of results to return. You can use nextToken to get the next page of
-  results.
+    number of results to return. You can use nextToken to get the next page of
+    results.
   * `:next_token` (`t:string`) If your initial DescribeReservedInstanceOfferings
-  operation returns a nextToken, you can include the returned nextToken in
-  subsequent DescribeReservedInstanceOfferings operations, which returns
-  results in the next page.
+    operation returns a nextToken, you can include the returned nextToken in
+    subsequent DescribeReservedInstanceOfferings operations, which returns
+    results in the next page.
   * `:reserved_instance_offering_id` (`t:string`) The Reserved Instance identifier
-  filter value. Use this parameter to show only the available instance types
-  that match the specified reservation identifier.
+    filter value. Use this parameter to show only the available instance types
+    that match the specified reservation identifier.
   """
   @spec describe_reserved_instance_offerings(AWS.Client.t(), Keyword.t()) ::
           {:ok, describe_reserved_instance_offerings_response(), any()}
@@ -5082,17 +5060,18 @@ defmodule AWS.OpenSearch do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=opensearch%20DescribeReservedInstances&this_doc_guide=API%2520Reference)
 
   ## Parameters:
+
   ## Keyword parameters:
   * `:max_results` (`t:integer`) An optional parameter that specifies the maximum
-  number of results to return. You can use nextToken to get the next page of
-  results.
+    number of results to return. You can use nextToken to get the next page of
+    results.
   * `:next_token` (`t:string`) If your initial DescribeReservedInstances operation
-  returns a nextToken, you can include the returned nextToken in subsequent
-  DescribeReservedInstances operations, which returns results in the next
-  page.
+    returns a nextToken, you can include the returned nextToken in subsequent
+    DescribeReservedInstances operations, which returns results in the next
+    page.
   * `:reserved_instance_id` (`t:string`) The reserved instance identifier filter
-  value. Use this parameter to show only the reservation that matches the
-  specified reserved OpenSearch instance ID.
+    value. Use this parameter to show only the reservation that matches the
+    specified reserved OpenSearch instance ID.
   """
   @spec describe_reserved_instances(AWS.Client.t(), Keyword.t()) ::
           {:ok, describe_reserved_instances_response(), any()}
@@ -5157,7 +5136,6 @@ defmodule AWS.OpenSearch do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=opensearch%20DescribeVpcEndpoints&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec describe_vpc_endpoints(AWS.Client.t(), Keyword.t()) ::
           {:ok, describe_vpc_endpoints_response(), any()}
@@ -5204,10 +5182,9 @@ defmodule AWS.OpenSearch do
 
   ## Parameters:
   * `:domain_name` (`t:string` required) Name of the domain to dissociate the
-  package from.
+    package from.
   * `:package_id` (`t:string` required) Internal ID of the package to dissociate
-  from the domain. Use ListPackagesForDomain to find this value.
-  ## Keyword parameters:
+    from the domain. Use ListPackagesForDomain to find this value.
   """
   @spec dissociate_package(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, dissociate_package_response(), any()}
@@ -5251,9 +5228,10 @@ defmodule AWS.OpenSearch do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=opensearch%20GetCompatibleVersions&this_doc_guide=API%2520Reference)
 
   ## Parameters:
+
   ## Keyword parameters:
   * `:domain_name` (`t:string`) The name of an existing domain. Provide this
-  parameter to limit the results to a single domain.
+    parameter to limit the results to a single domain.
   """
   @spec get_compatible_versions(AWS.Client.t(), Keyword.t()) ::
           {:ok, get_compatible_versions_response(), any()}
@@ -5306,8 +5284,7 @@ defmodule AWS.OpenSearch do
   ## Parameters:
   * `:domain_name` (`t:string` required) The name of the domain.
   * `:name` (`t:string` required) The name of the data source to get information
-  about.
-  ## Keyword parameters:
+    about.
   """
   @spec get_data_source(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_data_source_response(), any()}
@@ -5350,8 +5327,7 @@ defmodule AWS.OpenSearch do
   ## Parameters:
   * `:domain_name` (`t:string` required) The name of the domain.
   * `:maintenance_id` (`t:string` required) The request ID of the maintenance
-  action.
-  ## Keyword parameters:
+    action.
   """
   @spec get_domain_maintenance_status(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_domain_maintenance_status_response(), any()}
@@ -5403,13 +5379,14 @@ defmodule AWS.OpenSearch do
 
   ## Parameters:
   * `:package_id` (`t:string` required) The unique identifier of the package.
+
   ## Keyword parameters:
   * `:max_results` (`t:integer`) An optional parameter that specifies the maximum
-  number of results to return. You can use nextToken to get the next page of
-  results.
+    number of results to return. You can use nextToken to get the next page of
+    results.
   * `:next_token` (`t:string`) If your initial GetPackageVersionHistory operation
-  returns a nextToken, you can include the returned nextToken in subsequent
-  GetPackageVersionHistory operations, which returns results in the next page.
+    returns a nextToken, you can include the returned nextToken in subsequent
+    GetPackageVersionHistory operations, which returns results in the next page.
   """
   @spec get_package_version_history(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_package_version_history_response(), any()}
@@ -5469,13 +5446,14 @@ defmodule AWS.OpenSearch do
 
   ## Parameters:
   * `:domain_name` (`t:string` required) The name of an existing domain.
+
   ## Keyword parameters:
   * `:max_results` (`t:integer`) An optional parameter that specifies the maximum
-  number of results to return. You can use nextToken to get the next page of
-  results.
+    number of results to return. You can use nextToken to get the next page of
+    results.
   * `:next_token` (`t:string`) If your initial GetUpgradeHistory operation returns
-  a nextToken, you can include the returned nextToken in subsequent
-  GetUpgradeHistory operations, which returns results in the next page.
+    a nextToken, you can include the returned nextToken in subsequent
+    GetUpgradeHistory operations, which returns results in the next page.
   """
   @spec get_upgrade_history(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_upgrade_history_response(), any()}
@@ -5535,8 +5513,7 @@ defmodule AWS.OpenSearch do
 
   ## Parameters:
   * `:domain_name` (`t:string` required) The domain of the domain to get upgrade
-  status information for.
-  ## Keyword parameters:
+    status information for.
   """
   @spec get_upgrade_status(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_upgrade_status_response(), any()}
@@ -5580,7 +5557,6 @@ defmodule AWS.OpenSearch do
 
   ## Parameters:
   * `:domain_name` (`t:string` required) The name of the domain.
-  ## Keyword parameters:
   """
   @spec list_data_sources(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_data_sources_response(), any()}
@@ -5621,17 +5597,18 @@ defmodule AWS.OpenSearch do
 
   ## Parameters:
   * `:domain_name` (`t:string` required) The name of the domain.
+
   ## Keyword parameters:
   * `:action` (`t:enum["REBOOT_NODE|RESTART_DASHBOARD|RESTART_SEARCH_PROCESS"]`)
-  The name of the action.
+    The name of the action.
   * `:max_results` (`t:integer`) An optional parameter that specifies the maximum
-  number of results to return. You can use nextToken to get the next page of
-  results.
+    number of results to return. You can use nextToken to get the next page of
+    results.
   * `:next_token` (`t:string`) If your initial ListDomainMaintenances operation
-  returns a nextToken, include the returned nextToken in subsequent
-  ListDomainMaintenances operations, which returns results in the next page.
+    returns a nextToken, include the returned nextToken in subsequent
+    ListDomainMaintenances operations, which returns results in the next page.
   * `:status` (`t:enum["COMPLETED|FAILED|IN_PROGRESS|PENDING|TIMED_OUT"]`) The
-  status of the action.
+    status of the action.
   """
   @spec list_domain_maintenances(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_domain_maintenances_response(), any()}
@@ -5705,9 +5682,10 @@ defmodule AWS.OpenSearch do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=opensearch%20ListDomainNames&this_doc_guide=API%2520Reference)
 
   ## Parameters:
+
   ## Keyword parameters:
   * `:engine_type` (`t:enum["Elasticsearch|OpenSearch"]`) Filters the output by
-  domain engine type.
+    domain engine type.
   """
   @spec list_domain_names(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_domain_names_response(), any()}
@@ -5761,14 +5739,15 @@ defmodule AWS.OpenSearch do
 
   ## Parameters:
   * `:package_id` (`t:string` required) The unique identifier of the package for
-  which to list associated domains.
+    which to list associated domains.
+
   ## Keyword parameters:
   * `:max_results` (`t:integer`) An optional parameter that specifies the maximum
-  number of results to return. You can use nextToken to get the next page of
-  results.
+    number of results to return. You can use nextToken to get the next page of
+    results.
   * `:next_token` (`t:string`) If your initial ListDomainsForPackage operation
-  returns a nextToken, you can include the returned nextToken in subsequent
-  ListDomainsForPackage operations, which returns results in the next page.
+    returns a nextToken, you can include the returned nextToken in subsequent
+    ListDomainsForPackage operations, which returns results in the next page.
   """
   @spec list_domains_for_package(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_domains_for_package_response(), any()}
@@ -5828,20 +5807,21 @@ defmodule AWS.OpenSearch do
 
   ## Parameters:
   * `:engine_version` (`t:string` required) The version of OpenSearch or
-  Elasticsearch, in the format Elasticsearch_X.Y or OpenSearch_X.Y. Defaults
-  to the latest version of OpenSearch.
+    Elasticsearch, in the format Elasticsearch_X.Y or OpenSearch_X.Y. Defaults
+    to the latest version of OpenSearch.
+
   ## Keyword parameters:
   * `:domain_name` (`t:string`) The name of the domain.
   * `:instance_type` (`t:string`) An optional parameter that lists information for
-  a given instance type.
+    a given instance type.
   * `:max_results` (`t:integer`) An optional parameter that specifies the maximum
-  number of results to return. You can use nextToken to get the next page of
-  results.
+    number of results to return. You can use nextToken to get the next page of
+    results.
   * `:next_token` (`t:string`) If your initial ListInstanceTypeDetails operation
-  returns a nextToken, you can include the returned nextToken in subsequent
-  ListInstanceTypeDetails operations, which returns results in the next page.
+    returns a nextToken, you can include the returned nextToken in subsequent
+    ListInstanceTypeDetails operations, which returns results in the next page.
   * `:retrieve_a_zs` (`t:boolean`) An optional parameter that specifies the
-  Availability Zones for the domain.
+    Availability Zones for the domain.
   """
   @spec list_instance_type_details(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_instance_type_details_response(), any()}
@@ -5929,14 +5909,15 @@ defmodule AWS.OpenSearch do
 
   ## Parameters:
   * `:domain_name` (`t:string` required) The name of the domain for which you want
-  to list associated packages.
+    to list associated packages.
+
   ## Keyword parameters:
   * `:max_results` (`t:integer`) An optional parameter that specifies the maximum
-  number of results to return. You can use nextToken to get the next page of
-  results.
+    number of results to return. You can use nextToken to get the next page of
+    results.
   * `:next_token` (`t:string`) If your initial ListPackagesForDomain operation
-  returns a nextToken, you can include the returned nextToken in subsequent
-  ListPackagesForDomain operations, which returns results in the next page.
+    returns a nextToken, you can include the returned nextToken in subsequent
+    ListPackagesForDomain operations, which returns results in the next page.
   """
   @spec list_packages_for_domain(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_packages_for_domain_response(), any()}
@@ -5999,13 +5980,14 @@ defmodule AWS.OpenSearch do
 
   ## Parameters:
   * `:domain_name` (`t:string` required) The name of the domain.
+
   ## Keyword parameters:
   * `:max_results` (`t:integer`) An optional parameter that specifies the maximum
-  number of results to return. You can use nextToken to get the next page of
-  results.
+    number of results to return. You can use nextToken to get the next page of
+    results.
   * `:next_token` (`t:string`) If your initial ListScheduledActions operation
-  returns a nextToken, you can include the returned nextToken in subsequent
-  ListScheduledActions operations, which returns results in the next page.
+    returns a nextToken, you can include the returned nextToken in subsequent
+    ListScheduledActions operations, which returns results in the next page.
   """
   @spec list_scheduled_actions(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_scheduled_actions_response(), any()}
@@ -6067,8 +6049,7 @@ defmodule AWS.OpenSearch do
 
   ## Parameters:
   * `:arn` (`t:string` required) Amazon Resource Name (ARN) for the domain to view
-  tags for.
-  ## Keyword parameters:
+    tags for.
   """
   @spec list_tags(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_tags_response(), any()}
@@ -6109,13 +6090,14 @@ defmodule AWS.OpenSearch do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=opensearch%20ListVersions&this_doc_guide=API%2520Reference)
 
   ## Parameters:
+
   ## Keyword parameters:
   * `:max_results` (`t:integer`) An optional parameter that specifies the maximum
-  number of results to return. You can use nextToken to get the next page of
-  results.
+    number of results to return. You can use nextToken to get the next page of
+    results.
   * `:next_token` (`t:string`) If your initial ListVersions operation returns a
-  nextToken, you can include the returned nextToken in subsequent ListVersions
-  operations, which returns results in the next page.
+    nextToken, you can include the returned nextToken in subsequent ListVersions
+    operations, which returns results in the next page.
   """
   @spec list_versions(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_versions_response(), any()}
@@ -6176,11 +6158,12 @@ defmodule AWS.OpenSearch do
 
   ## Parameters:
   * `:domain_name` (`t:string` required) The name of the OpenSearch Service domain
-  to retrieve access information for.
+    to retrieve access information for.
+
   ## Keyword parameters:
   * `:next_token` (`t:string`) If your initial ListVpcEndpointAccess operation
-  returns a nextToken, you can include the returned nextToken in subsequent
-  ListVpcEndpointAccess operations, which returns results in the next page.
+    returns a nextToken, you can include the returned nextToken in subsequent
+    ListVpcEndpointAccess operations, which returns results in the next page.
   """
   @spec list_vpc_endpoint_access(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_vpc_endpoint_access_response(), any()}
@@ -6233,10 +6216,11 @@ defmodule AWS.OpenSearch do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=opensearch%20ListVpcEndpoints&this_doc_guide=API%2520Reference)
 
   ## Parameters:
+
   ## Keyword parameters:
   * `:next_token` (`t:string`) If your initial ListVpcEndpoints operation returns
-  a nextToken, you can include the returned nextToken in subsequent
-  ListVpcEndpoints operations, which returns results in the next page.
+    a nextToken, you can include the returned nextToken in subsequent
+    ListVpcEndpoints operations, which returns results in the next page.
   """
   @spec list_vpc_endpoints(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_vpc_endpoints_response(), any()}
@@ -6289,11 +6273,12 @@ defmodule AWS.OpenSearch do
 
   ## Parameters:
   * `:domain_name` (`t:string` required) The name of the domain to list associated
-  VPC endpoints for.
+    VPC endpoints for.
+
   ## Keyword parameters:
   * `:next_token` (`t:string`) If your initial ListEndpointsForDomain operation
-  returns a nextToken, you can include the returned nextToken in subsequent
-  ListEndpointsForDomain operations, which returns results in the next page.
+    returns a nextToken, you can include the returned nextToken in subsequent
+    ListEndpointsForDomain operations, which returns results in the next page.
   """
   @spec list_vpc_endpoints_for_domain(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_vpc_endpoints_for_domain_response(), any()}
@@ -6344,7 +6329,6 @@ defmodule AWS.OpenSearch do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=opensearch%20PurchaseReservedInstanceOffering&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec purchase_reserved_instance_offering(AWS.Client.t(), Keyword.t()) ::
           {:ok, purchase_reserved_instance_offering_response(), any()}
@@ -6388,8 +6372,7 @@ defmodule AWS.OpenSearch do
 
   ## Parameters:
   * `:connection_id` (`t:string` required) The unique identifier of the inbound
-  connection to reject.
-  ## Keyword parameters:
+    connection to reject.
   """
   @spec reject_inbound_connection(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, reject_inbound_connection_response(), any()}
@@ -6434,7 +6417,6 @@ defmodule AWS.OpenSearch do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=opensearch%20RemoveTags&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec remove_tags(AWS.Client.t(), Keyword.t()) ::
           {:ok, nil, any()}
@@ -6478,8 +6460,7 @@ defmodule AWS.OpenSearch do
 
   ## Parameters:
   * `:domain_name` (`t:string` required) The name of the OpenSearch Service
-  domain.
-  ## Keyword parameters:
+    domain.
   """
   @spec revoke_vpc_endpoint_access(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, revoke_vpc_endpoint_access_response(), any()}
@@ -6525,7 +6506,6 @@ defmodule AWS.OpenSearch do
 
   ## Parameters:
   * `:domain_name` (`t:string` required) The name of the domain.
-  ## Keyword parameters:
   """
   @spec start_domain_maintenance(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, start_domain_maintenance_response(), any()}
@@ -6570,7 +6550,6 @@ defmodule AWS.OpenSearch do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=opensearch%20StartServiceSoftwareUpdate&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec start_service_software_update(AWS.Client.t(), Keyword.t()) ::
           {:ok, start_service_software_update_response(), any()}
@@ -6616,7 +6595,6 @@ defmodule AWS.OpenSearch do
   ## Parameters:
   * `:domain_name` (`t:string` required) The name of the domain.
   * `:name` (`t:string` required) The name of the data source to modify.
-  ## Keyword parameters:
   """
   @spec update_data_source(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, update_data_source_response(), any()}
@@ -6661,8 +6639,7 @@ defmodule AWS.OpenSearch do
 
   ## Parameters:
   * `:domain_name` (`t:string` required) The name of the domain that you're
-  updating.
-  ## Keyword parameters:
+    updating.
   """
   @spec update_domain_config(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, update_domain_config_response(), any()}
@@ -6706,7 +6683,6 @@ defmodule AWS.OpenSearch do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=opensearch%20UpdatePackage&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec update_package(AWS.Client.t(), Keyword.t()) ::
           {:ok, update_package_response(), any()}
@@ -6753,8 +6729,7 @@ defmodule AWS.OpenSearch do
 
   ## Parameters:
   * `:domain_name` (`t:string` required) The name of the domain to reschedule an
-  action for.
-  ## Keyword parameters:
+    action for.
   """
   @spec update_scheduled_action(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, update_scheduled_action_response(), any()}
@@ -6797,7 +6772,6 @@ defmodule AWS.OpenSearch do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=opensearch%20UpdateVpcEndpoint&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec update_vpc_endpoint(AWS.Client.t(), Keyword.t()) ::
           {:ok, update_vpc_endpoint_response(), any()}
@@ -6841,7 +6815,6 @@ defmodule AWS.OpenSearch do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=opensearch%20UpgradeDomain&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec upgrade_domain(AWS.Client.t(), Keyword.t()) ::
           {:ok, upgrade_domain_response(), any()}

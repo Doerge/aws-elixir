@@ -2874,7 +2874,6 @@ defmodule AWS.Mgn do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mgn%20ArchiveApplication&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec archive_application(AWS.Client.t(), Keyword.t()) ::
           {:ok, application(), any()}
@@ -2916,7 +2915,6 @@ defmodule AWS.Mgn do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mgn%20ArchiveWave&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec archive_wave(AWS.Client.t(), Keyword.t()) ::
           {:ok, wave(), any()}
@@ -2958,7 +2956,6 @@ defmodule AWS.Mgn do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mgn%20AssociateApplications&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec associate_applications(AWS.Client.t(), Keyword.t()) ::
           {:ok, associate_applications_response(), any()}
@@ -3000,7 +2997,6 @@ defmodule AWS.Mgn do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mgn%20AssociateSourceServers&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec associate_source_servers(AWS.Client.t(), Keyword.t()) ::
           {:ok, associate_source_servers_response(), any()}
@@ -3045,7 +3041,6 @@ defmodule AWS.Mgn do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mgn%20ChangeServerLifeCycleState&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec change_server_life_cycle_state(AWS.Client.t(), Keyword.t()) ::
           {:ok, source_server(), any()}
@@ -3087,7 +3082,6 @@ defmodule AWS.Mgn do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mgn%20CreateApplication&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec create_application(AWS.Client.t(), Keyword.t()) ::
           {:ok, application(), any()}
@@ -3129,7 +3123,6 @@ defmodule AWS.Mgn do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mgn%20CreateConnector&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec create_connector(AWS.Client.t(), Keyword.t()) ::
           {:ok, connector(), any()}
@@ -3171,7 +3164,6 @@ defmodule AWS.Mgn do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mgn%20CreateLaunchConfigurationTemplate&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec create_launch_configuration_template(AWS.Client.t(), Keyword.t()) ::
           {:ok, launch_configuration_template(), any()}
@@ -3213,7 +3205,6 @@ defmodule AWS.Mgn do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mgn%20CreateReplicationConfigurationTemplate&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec create_replication_configuration_template(AWS.Client.t(), Keyword.t()) ::
           {:ok, replication_configuration_template(), any()}
@@ -3255,7 +3246,6 @@ defmodule AWS.Mgn do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mgn%20CreateWave&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec create_wave(AWS.Client.t(), Keyword.t()) ::
           {:ok, wave(), any()}
@@ -3297,7 +3287,6 @@ defmodule AWS.Mgn do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mgn%20DeleteApplication&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec delete_application(AWS.Client.t(), Keyword.t()) ::
           {:ok, delete_application_response(), any()}
@@ -3339,7 +3328,6 @@ defmodule AWS.Mgn do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mgn%20DeleteConnector&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec delete_connector(AWS.Client.t(), Keyword.t()) ::
           {:ok, nil, any()}
@@ -3381,7 +3369,6 @@ defmodule AWS.Mgn do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mgn%20DeleteJob&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec delete_job(AWS.Client.t(), Keyword.t()) ::
           {:ok, delete_job_response(), any()}
@@ -3423,7 +3410,6 @@ defmodule AWS.Mgn do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mgn%20DeleteLaunchConfigurationTemplate&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec delete_launch_configuration_template(AWS.Client.t(), Keyword.t()) ::
           {:ok, delete_launch_configuration_template_response(), any()}
@@ -3465,7 +3451,6 @@ defmodule AWS.Mgn do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mgn%20DeleteReplicationConfigurationTemplate&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec delete_replication_configuration_template(AWS.Client.t(), Keyword.t()) ::
           {:ok, delete_replication_configuration_template_response(), any()}
@@ -3507,7 +3492,6 @@ defmodule AWS.Mgn do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mgn%20DeleteSourceServer&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec delete_source_server(AWS.Client.t(), Keyword.t()) ::
           {:ok, delete_source_server_response(), any()}
@@ -3549,7 +3533,6 @@ defmodule AWS.Mgn do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mgn%20DeleteVcenterClient&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec delete_vcenter_client(AWS.Client.t(), Keyword.t()) ::
           {:ok, nil, any()}
@@ -3591,7 +3574,6 @@ defmodule AWS.Mgn do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mgn%20DeleteWave&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec delete_wave(AWS.Client.t(), Keyword.t()) ::
           {:ok, delete_wave_response(), any()}
@@ -3633,7 +3615,6 @@ defmodule AWS.Mgn do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mgn%20DescribeJobLogItems&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec describe_job_log_items(AWS.Client.t(), Keyword.t()) ::
           {:ok, describe_job_log_items_response(), any()}
@@ -3680,7 +3661,6 @@ defmodule AWS.Mgn do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mgn%20DescribeJobs&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec describe_jobs(AWS.Client.t(), Keyword.t()) ::
           {:ok, describe_jobs_response(), any()}
@@ -3723,7 +3703,6 @@ defmodule AWS.Mgn do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mgn%20DescribeLaunchConfigurationTemplates&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec describe_launch_configuration_templates(AWS.Client.t(), Keyword.t()) ::
           {:ok, describe_launch_configuration_templates_response(), any()}
@@ -3765,7 +3744,6 @@ defmodule AWS.Mgn do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mgn%20DescribeReplicationConfigurationTemplates&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec describe_replication_configuration_templates(AWS.Client.t(), Keyword.t()) ::
           {:ok, describe_replication_configuration_templates_response(), any()}
@@ -3807,7 +3785,6 @@ defmodule AWS.Mgn do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mgn%20DescribeSourceServers&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec describe_source_servers(AWS.Client.t(), Keyword.t()) ::
           {:ok, describe_source_servers_response(), any()}
@@ -3849,11 +3826,12 @@ defmodule AWS.Mgn do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mgn%20DescribeVcenterClients&this_doc_guide=API%2520Reference)
 
   ## Parameters:
+
   ## Keyword parameters:
   * `:max_results` (`t:integer`) Maximum results to be returned in
-  DescribeVcenterClients.
+    DescribeVcenterClients.
   * `:next_token` (`t:string`) Next pagination token to be provided for
-  DescribeVcenterClients.
+    DescribeVcenterClients.
   """
   @spec describe_vcenter_clients(AWS.Client.t(), Keyword.t()) ::
           {:ok, describe_vcenter_clients_response(), any()}
@@ -3911,7 +3889,6 @@ defmodule AWS.Mgn do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mgn%20DisassociateApplications&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec disassociate_applications(AWS.Client.t(), Keyword.t()) ::
           {:ok, disassociate_applications_response(), any()}
@@ -3953,7 +3930,6 @@ defmodule AWS.Mgn do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mgn%20DisassociateSourceServers&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec disassociate_source_servers(AWS.Client.t(), Keyword.t()) ::
           {:ok, disassociate_source_servers_response(), any()}
@@ -4007,7 +3983,6 @@ defmodule AWS.Mgn do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mgn%20DisconnectFromService&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec disconnect_from_service(AWS.Client.t(), Keyword.t()) ::
           {:ok, source_server(), any()}
@@ -4059,7 +4034,6 @@ defmodule AWS.Mgn do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mgn%20FinalizeCutover&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec finalize_cutover(AWS.Client.t(), Keyword.t()) ::
           {:ok, source_server(), any()}
@@ -4101,7 +4075,6 @@ defmodule AWS.Mgn do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mgn%20GetLaunchConfiguration&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec get_launch_configuration(AWS.Client.t(), Keyword.t()) ::
           {:ok, launch_configuration(), any()}
@@ -4143,7 +4116,6 @@ defmodule AWS.Mgn do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mgn%20GetReplicationConfiguration&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec get_replication_configuration(AWS.Client.t(), Keyword.t()) ::
           {:ok, replication_configuration(), any()}
@@ -4185,7 +4157,6 @@ defmodule AWS.Mgn do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mgn%20InitializeService&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec initialize_service(AWS.Client.t(), Keyword.t()) ::
           {:ok, initialize_service_response(), any()}
@@ -4227,7 +4198,6 @@ defmodule AWS.Mgn do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mgn%20ListApplications&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec list_applications(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_applications_response(), any()}
@@ -4269,7 +4239,6 @@ defmodule AWS.Mgn do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mgn%20ListConnectors&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec list_connectors(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_connectors_response(), any()}
@@ -4311,7 +4280,6 @@ defmodule AWS.Mgn do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mgn%20ListExportErrors&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec list_export_errors(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_export_errors_response(), any()}
@@ -4353,7 +4321,6 @@ defmodule AWS.Mgn do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mgn%20ListExports&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec list_exports(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_exports_response(), any()}
@@ -4395,7 +4362,6 @@ defmodule AWS.Mgn do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mgn%20ListImportErrors&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec list_import_errors(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_import_errors_response(), any()}
@@ -4437,7 +4403,6 @@ defmodule AWS.Mgn do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mgn%20ListImports&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec list_imports(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_imports_response(), any()}
@@ -4479,7 +4444,6 @@ defmodule AWS.Mgn do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mgn%20ListManagedAccounts&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec list_managed_accounts(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_managed_accounts_response(), any()}
@@ -4521,7 +4485,6 @@ defmodule AWS.Mgn do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mgn%20ListSourceServerActions&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec list_source_server_actions(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_source_server_actions_response(), any()}
@@ -4564,7 +4527,6 @@ defmodule AWS.Mgn do
 
   ## Parameters:
   * `:resource_arn` (`t:string` required) List tags for resource request by ARN.
-  ## Keyword parameters:
   """
   @spec list_tags_for_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_tags_for_resource_response(), any()}
@@ -4604,7 +4566,6 @@ defmodule AWS.Mgn do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mgn%20ListTemplateActions&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec list_template_actions(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_template_actions_response(), any()}
@@ -4646,7 +4607,6 @@ defmodule AWS.Mgn do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mgn%20ListWaves&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec list_waves(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_waves_response(), any()}
@@ -4690,7 +4650,6 @@ defmodule AWS.Mgn do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mgn%20MarkAsArchived&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec mark_as_archived(AWS.Client.t(), Keyword.t()) ::
           {:ok, source_server(), any()}
@@ -4732,7 +4691,6 @@ defmodule AWS.Mgn do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mgn%20PauseReplication&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec pause_replication(AWS.Client.t(), Keyword.t()) ::
           {:ok, source_server(), any()}
@@ -4774,7 +4732,6 @@ defmodule AWS.Mgn do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mgn%20PutSourceServerAction&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec put_source_server_action(AWS.Client.t(), Keyword.t()) ::
           {:ok, source_server_action_document(), any()}
@@ -4816,7 +4773,6 @@ defmodule AWS.Mgn do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mgn%20PutTemplateAction&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec put_template_action(AWS.Client.t(), Keyword.t()) ::
           {:ok, template_action_document(), any()}
@@ -4858,7 +4814,6 @@ defmodule AWS.Mgn do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mgn%20RemoveSourceServerAction&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec remove_source_server_action(AWS.Client.t(), Keyword.t()) ::
           {:ok, remove_source_server_action_response(), any()}
@@ -4900,7 +4855,6 @@ defmodule AWS.Mgn do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mgn%20RemoveTemplateAction&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec remove_template_action(AWS.Client.t(), Keyword.t()) ::
           {:ok, remove_template_action_response(), any()}
@@ -4942,7 +4896,6 @@ defmodule AWS.Mgn do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mgn%20ResumeReplication&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec resume_replication(AWS.Client.t(), Keyword.t()) ::
           {:ok, source_server(), any()}
@@ -4987,7 +4940,6 @@ defmodule AWS.Mgn do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mgn%20RetryDataReplication&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec retry_data_replication(AWS.Client.t(), Keyword.t()) ::
           {:ok, source_server(), any()}
@@ -5031,7 +4983,6 @@ defmodule AWS.Mgn do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mgn%20StartCutover&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec start_cutover(AWS.Client.t(), Keyword.t()) ::
           {:ok, start_cutover_response(), any()}
@@ -5073,7 +5024,6 @@ defmodule AWS.Mgn do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mgn%20StartExport&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec start_export(AWS.Client.t(), Keyword.t()) ::
           {:ok, start_export_response(), any()}
@@ -5115,7 +5065,6 @@ defmodule AWS.Mgn do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mgn%20StartImport&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec start_import(AWS.Client.t(), Keyword.t()) ::
           {:ok, start_import_response(), any()}
@@ -5157,7 +5106,6 @@ defmodule AWS.Mgn do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mgn%20StartReplication&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec start_replication(AWS.Client.t(), Keyword.t()) ::
           {:ok, source_server(), any()}
@@ -5201,7 +5149,6 @@ defmodule AWS.Mgn do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mgn%20StartTest&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec start_test(AWS.Client.t(), Keyword.t()) ::
           {:ok, start_test_response(), any()}
@@ -5243,7 +5190,6 @@ defmodule AWS.Mgn do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mgn%20StopReplication&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec stop_replication(AWS.Client.t(), Keyword.t()) ::
           {:ok, source_server(), any()}
@@ -5289,7 +5235,6 @@ defmodule AWS.Mgn do
 
   ## Parameters:
   * `:resource_arn` (`t:string` required) Tag resource by ARN.
-  ## Keyword parameters:
   """
   @spec tag_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
@@ -5333,7 +5278,6 @@ defmodule AWS.Mgn do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mgn%20TerminateTargetInstances&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec terminate_target_instances(AWS.Client.t(), Keyword.t()) ::
           {:ok, terminate_target_instances_response(), any()}
@@ -5375,7 +5319,6 @@ defmodule AWS.Mgn do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mgn%20UnarchiveApplication&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec unarchive_application(AWS.Client.t(), Keyword.t()) ::
           {:ok, application(), any()}
@@ -5417,7 +5360,6 @@ defmodule AWS.Mgn do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mgn%20UnarchiveWave&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec unarchive_wave(AWS.Client.t(), Keyword.t()) ::
           {:ok, wave(), any()}
@@ -5462,8 +5404,7 @@ defmodule AWS.Mgn do
   ## Parameters:
   * `:resource_arn` (`t:string` required) Untag resource by ARN.
   * `:tag_keys` (`t:list[com.amazonaws.mgn#TagKey]` required) Untag resource by
-  Keys.
-  ## Keyword parameters:
+    Keys.
   """
   @spec untag_resource(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
@@ -5516,7 +5457,6 @@ defmodule AWS.Mgn do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mgn%20UpdateApplication&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec update_application(AWS.Client.t(), Keyword.t()) ::
           {:ok, application(), any()}
@@ -5558,7 +5498,6 @@ defmodule AWS.Mgn do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mgn%20UpdateConnector&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec update_connector(AWS.Client.t(), Keyword.t()) ::
           {:ok, connector(), any()}
@@ -5600,7 +5539,6 @@ defmodule AWS.Mgn do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mgn%20UpdateLaunchConfiguration&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec update_launch_configuration(AWS.Client.t(), Keyword.t()) ::
           {:ok, launch_configuration(), any()}
@@ -5642,7 +5580,6 @@ defmodule AWS.Mgn do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mgn%20UpdateLaunchConfigurationTemplate&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec update_launch_configuration_template(AWS.Client.t(), Keyword.t()) ::
           {:ok, launch_configuration_template(), any()}
@@ -5684,7 +5621,6 @@ defmodule AWS.Mgn do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mgn%20UpdateReplicationConfiguration&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec update_replication_configuration(AWS.Client.t(), Keyword.t()) ::
           {:ok, replication_configuration(), any()}
@@ -5726,7 +5662,6 @@ defmodule AWS.Mgn do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mgn%20UpdateReplicationConfigurationTemplate&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec update_replication_configuration_template(AWS.Client.t(), Keyword.t()) ::
           {:ok, replication_configuration_template(), any()}
@@ -5768,7 +5703,6 @@ defmodule AWS.Mgn do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mgn%20UpdateSourceServer&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec update_source_server(AWS.Client.t(), Keyword.t()) ::
           {:ok, source_server(), any()}
@@ -5811,7 +5745,6 @@ defmodule AWS.Mgn do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mgn%20UpdateSourceServerReplicationType&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec update_source_server_replication_type(AWS.Client.t(), Keyword.t()) ::
           {:ok, source_server(), any()}
@@ -5853,7 +5786,6 @@ defmodule AWS.Mgn do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mgn%20UpdateWave&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec update_wave(AWS.Client.t(), Keyword.t()) ::
           {:ok, wave(), any()}

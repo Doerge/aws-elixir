@@ -550,7 +550,6 @@ defmodule AWS.PcaConnectorScep do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=pcaconnectorscep%20CreateChallenge&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec create_challenge(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_challenge_response(), any()}
@@ -597,7 +596,6 @@ defmodule AWS.PcaConnectorScep do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=pcaconnectorscep%20CreateConnector&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec create_connector(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_connector_response(), any()}
@@ -641,8 +639,7 @@ defmodule AWS.PcaConnectorScep do
 
   ## Parameters:
   * `:challenge_arn` (`t:string` required) The Amazon Resource Name (ARN) of the
-  challenge password to delete.
-  ## Keyword parameters:
+    challenge password to delete.
   """
   @spec delete_challenge(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
@@ -697,8 +694,7 @@ defmodule AWS.PcaConnectorScep do
 
   ## Parameters:
   * `:connector_arn` (`t:string` required) The Amazon Resource Name (ARN) of the
-  connector to delete.
-  ## Keyword parameters:
+    connector to delete.
   """
   @spec delete_connector(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
@@ -752,8 +748,7 @@ defmodule AWS.PcaConnectorScep do
 
   ## Parameters:
   * `:challenge_arn` (`t:string` required) The Amazon Resource Name (ARN) of the
-  challenge.
-  ## Keyword parameters:
+    challenge.
   """
   @spec get_challenge_metadata(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_challenge_metadata_response(), any()}
@@ -795,8 +790,7 @@ defmodule AWS.PcaConnectorScep do
 
   ## Parameters:
   * `:challenge_arn` (`t:string` required) The Amazon Resource Name (ARN) of the
-  challenge.
-  ## Keyword parameters:
+    challenge.
   """
   @spec get_challenge_password(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_challenge_password_response(), any()}
@@ -840,8 +834,7 @@ defmodule AWS.PcaConnectorScep do
 
   ## Parameters:
   * `:connector_arn` (`t:string` required) The Amazon Resource Name (ARN) of the
-  connector.
-  ## Keyword parameters:
+    connector.
   """
   @spec get_connector(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_connector_response(), any()}
@@ -882,17 +875,18 @@ defmodule AWS.PcaConnectorScep do
 
   ## Parameters:
   * `:connector_arn` (`t:string` required) The Amazon Resource Name (ARN) of the
-  connector.
+    connector.
+
   ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of objects that you want
-  Connector for SCEP to return for this request. If more objects are
-  available, in the response, Connector for SCEP provides a NextToken value
-  that you can use in a subsequent call to get the next batch of objects.
+    Connector for SCEP to return for this request. If more objects are
+    available, in the response, Connector for SCEP provides a NextToken value
+    that you can use in a subsequent call to get the next batch of objects.
   * `:next_token` (`t:string`) When you request a list of objects with a
-  MaxResults setting, if the number of objects that are still available for
-  retrieval exceeds the maximum you requested, Connector for SCEP returns a
-  NextToken value in the response. To retrieve the next batch of objects, use
-  the token returned from the prior request in your next request.
+    MaxResults setting, if the number of objects that are still available for
+    retrieval exceeds the maximum you requested, Connector for SCEP returns a
+    NextToken value in the response. To retrieve the next batch of objects, use
+    the token returned from the prior request in your next request.
   """
   @spec list_challenge_metadata(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_challenge_metadata_response(), any()}
@@ -951,16 +945,17 @@ defmodule AWS.PcaConnectorScep do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=pcaconnectorscep%20ListConnectors&this_doc_guide=API%2520Reference)
 
   ## Parameters:
+
   ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of objects that you want
-  Connector for SCEP to return for this request. If more objects are
-  available, in the response, Connector for SCEP provides a NextToken value
-  that you can use in a subsequent call to get the next batch of objects.
+    Connector for SCEP to return for this request. If more objects are
+    available, in the response, Connector for SCEP provides a NextToken value
+    that you can use in a subsequent call to get the next batch of objects.
   * `:next_token` (`t:string`) When you request a list of objects with a
-  MaxResults setting, if the number of objects that are still available for
-  retrieval exceeds the maximum you requested, Connector for SCEP returns a
-  NextToken value in the response. To retrieve the next batch of objects, use
-  the token returned from the prior request in your next request.
+    MaxResults setting, if the number of objects that are still available for
+    retrieval exceeds the maximum you requested, Connector for SCEP returns a
+    NextToken value in the response. To retrieve the next batch of objects, use
+    the token returned from the prior request in your next request.
   """
   @spec list_connectors(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_connectors_response(), any()}
@@ -1023,8 +1018,7 @@ defmodule AWS.PcaConnectorScep do
 
   ## Parameters:
   * `:resource_arn` (`t:string` required) The Amazon Resource Name (ARN) of the
-  resource.
-  ## Keyword parameters:
+    resource.
   """
   @spec list_tags_for_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_tags_for_resource_response(), any()}
@@ -1065,8 +1059,7 @@ defmodule AWS.PcaConnectorScep do
 
   ## Parameters:
   * `:resource_arn` (`t:string` required) The Amazon Resource Name (ARN) of the
-  resource.
-  ## Keyword parameters:
+    resource.
   """
   @spec tag_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
@@ -1109,10 +1102,9 @@ defmodule AWS.PcaConnectorScep do
 
   ## Parameters:
   * `:resource_arn` (`t:string` required) The Amazon Resource Name (ARN) of the
-  resource.
+    resource.
   * `:tag_keys` (`t:list[smithy.api#String]` required) Specifies a list of tag
-  keys that you want to remove from the specified resources.
-  ## Keyword parameters:
+    keys that you want to remove from the specified resources.
   """
   @spec untag_resource(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}

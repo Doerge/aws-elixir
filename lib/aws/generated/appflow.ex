@@ -2903,7 +2903,6 @@ defmodule AWS.Appflow do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=appflow%20CancelFlowExecutions&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec cancel_flow_executions(AWS.Client.t(), Keyword.t()) ::
           {:ok, cancel_flow_executions_response(), any()}
@@ -2950,7 +2949,6 @@ defmodule AWS.Appflow do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=appflow%20CreateConnectorProfile&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec create_connector_profile(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_connector_profile_response(), any()}
@@ -2996,7 +2994,6 @@ defmodule AWS.Appflow do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=appflow%20CreateFlow&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec create_flow(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_flow_response(), any()}
@@ -3038,7 +3035,6 @@ defmodule AWS.Appflow do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=appflow%20DeleteConnectorProfile&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec delete_connector_profile(AWS.Client.t(), Keyword.t()) ::
           {:ok, delete_connector_profile_response(), any()}
@@ -3082,7 +3078,6 @@ defmodule AWS.Appflow do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=appflow%20DeleteFlow&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec delete_flow(AWS.Client.t(), Keyword.t()) ::
           {:ok, delete_flow_response(), any()}
@@ -3126,7 +3121,6 @@ defmodule AWS.Appflow do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=appflow%20DescribeConnector&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec describe_connector(AWS.Client.t(), Keyword.t()) ::
           {:ok, describe_connector_response(), any()}
@@ -3169,7 +3163,6 @@ defmodule AWS.Appflow do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=appflow%20DescribeConnectorEntity&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec describe_connector_entity(AWS.Client.t(), Keyword.t()) ::
           {:ok, describe_connector_entity_response(), any()}
@@ -3213,7 +3206,6 @@ defmodule AWS.Appflow do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=appflow%20DescribeConnectorProfiles&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec describe_connector_profiles(AWS.Client.t(), Keyword.t()) ::
           {:ok, describe_connector_profiles_response(), any()}
@@ -3260,7 +3252,6 @@ defmodule AWS.Appflow do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=appflow%20DescribeConnectors&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec describe_connectors(AWS.Client.t(), Keyword.t()) ::
           {:ok, describe_connectors_response(), any()}
@@ -3302,7 +3293,6 @@ defmodule AWS.Appflow do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=appflow%20DescribeFlow&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec describe_flow(AWS.Client.t(), Keyword.t()) ::
           {:ok, describe_flow_response(), any()}
@@ -3344,7 +3334,6 @@ defmodule AWS.Appflow do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=appflow%20DescribeFlowExecutionRecords&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec describe_flow_execution_records(AWS.Client.t(), Keyword.t()) ::
           {:ok, describe_flow_execution_records_response(), any()}
@@ -3388,7 +3377,6 @@ defmodule AWS.Appflow do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=appflow%20ListConnectorEntities&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec list_connector_entities(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_connector_entities_response(), any()}
@@ -3432,7 +3420,6 @@ defmodule AWS.Appflow do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=appflow%20ListConnectors&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec list_connectors(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_connectors_response(), any()}
@@ -3474,7 +3461,6 @@ defmodule AWS.Appflow do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=appflow%20ListFlows&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec list_flows(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_flows_response(), any()}
@@ -3517,8 +3503,7 @@ defmodule AWS.Appflow do
 
   ## Parameters:
   * `:resource_arn` (`t:string` required) The Amazon Resource Name (ARN) of the
-  specified flow.
-  ## Keyword parameters:
+    specified flow.
   """
   @spec list_tags_for_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_tags_for_resource_response(), any()}
@@ -3560,7 +3545,6 @@ defmodule AWS.Appflow do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=appflow%20RegisterConnector&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec register_connector(AWS.Client.t(), Keyword.t()) ::
           {:ok, register_connector_response(), any()}
@@ -3604,7 +3588,6 @@ defmodule AWS.Appflow do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=appflow%20ResetConnectorMetadataCache&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec reset_connector_metadata_cache(AWS.Client.t(), Keyword.t()) ::
           {:ok, reset_connector_metadata_cache_response(), any()}
@@ -3648,7 +3631,6 @@ defmodule AWS.Appflow do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=appflow%20StartFlow&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec start_flow(AWS.Client.t(), Keyword.t()) ::
           {:ok, start_flow_response(), any()}
@@ -3692,7 +3674,6 @@ defmodule AWS.Appflow do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=appflow%20StopFlow&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec stop_flow(AWS.Client.t(), Keyword.t()) ::
           {:ok, stop_flow_response(), any()}
@@ -3735,8 +3716,7 @@ defmodule AWS.Appflow do
 
   ## Parameters:
   * `:resource_arn` (`t:string` required) The Amazon Resource Name (ARN) of the
-  flow that you want to tag.
-  ## Keyword parameters:
+    flow that you want to tag.
   """
   @spec tag_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, tag_resource_response(), any()}
@@ -3779,7 +3759,6 @@ defmodule AWS.Appflow do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=appflow%20UnregisterConnector&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec unregister_connector(AWS.Client.t(), Keyword.t()) ::
           {:ok, unregister_connector_response(), any()}
@@ -3822,10 +3801,9 @@ defmodule AWS.Appflow do
 
   ## Parameters:
   * `:resource_arn` (`t:string` required) The Amazon Resource Name (ARN) of the
-  flow that you want to untag.
+    flow that you want to untag.
   * `:tag_keys` (`t:list[com.amazonaws.appflow#TagKey]` required) The tag keys
-  associated with the tag that you want to remove from your flow.
-  ## Keyword parameters:
+    associated with the tag that you want to remove from your flow.
   """
   @spec untag_resource(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, untag_resource_response(), any()}
@@ -3878,7 +3856,6 @@ defmodule AWS.Appflow do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=appflow%20UpdateConnectorProfile&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec update_connector_profile(AWS.Client.t(), Keyword.t()) ::
           {:ok, update_connector_profile_response(), any()}
@@ -3921,7 +3898,6 @@ defmodule AWS.Appflow do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=appflow%20UpdateConnectorRegistration&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec update_connector_registration(AWS.Client.t(), Keyword.t()) ::
           {:ok, update_connector_registration_response(), any()}
@@ -3963,7 +3939,6 @@ defmodule AWS.Appflow do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=appflow%20UpdateFlow&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec update_flow(AWS.Client.t(), Keyword.t()) ::
           {:ok, update_flow_response(), any()}

@@ -660,7 +660,6 @@ defmodule AWS.OAM do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=oam%20CreateLink&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec create_link(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_link_output(), any()}
@@ -708,7 +707,6 @@ defmodule AWS.OAM do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=oam%20CreateSink&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec create_sink(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_sink_output(), any()}
@@ -751,7 +749,6 @@ defmodule AWS.OAM do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=oam%20DeleteLink&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec delete_link(AWS.Client.t(), Keyword.t()) ::
           {:ok, delete_link_output(), any()}
@@ -794,7 +791,6 @@ defmodule AWS.OAM do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=oam%20DeleteSink&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec delete_sink(AWS.Client.t(), Keyword.t()) ::
           {:ok, delete_sink_output(), any()}
@@ -836,7 +832,6 @@ defmodule AWS.OAM do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=oam%20GetLink&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec get_link(AWS.Client.t(), Keyword.t()) ::
           {:ok, get_link_output(), any()}
@@ -878,7 +873,6 @@ defmodule AWS.OAM do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=oam%20GetSink&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec get_sink(AWS.Client.t(), Keyword.t()) ::
           {:ok, get_sink_output(), any()}
@@ -922,7 +916,6 @@ defmodule AWS.OAM do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=oam%20GetSinkPolicy&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec get_sink_policy(AWS.Client.t(), Keyword.t()) ::
           {:ok, get_sink_policy_output(), any()}
@@ -965,7 +958,6 @@ defmodule AWS.OAM do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=oam%20ListAttachedLinks&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec list_attached_links(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_attached_links_output(), any()}
@@ -1008,7 +1000,6 @@ defmodule AWS.OAM do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=oam%20ListLinks&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec list_links(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_links_output(), any()}
@@ -1051,7 +1042,6 @@ defmodule AWS.OAM do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=oam%20ListSinks&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec list_sinks(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_sinks_output(), any()}
@@ -1095,8 +1085,7 @@ defmodule AWS.OAM do
 
   ## Parameters:
   * `:resource_arn` (`t:string` required) The ARN of the resource that you want to
-  view tags for.
-  ## Keyword parameters:
+    view tags for.
   """
   @spec list_tags_for_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_tags_for_resource_output(), any()}
@@ -1140,7 +1129,6 @@ defmodule AWS.OAM do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=oam%20PutSinkPolicy&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec put_sink_policy(AWS.Client.t(), Keyword.t()) ::
           {:ok, put_sink_policy_output(), any()}
@@ -1186,8 +1174,7 @@ defmodule AWS.OAM do
 
   ## Parameters:
   * `:resource_arn` (`t:string` required) The ARN of the resource that you're
-  adding tags to.
-  ## Keyword parameters:
+    adding tags to.
   """
   @spec tag_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, tag_resource_output(), any()}
@@ -1230,10 +1217,9 @@ defmodule AWS.OAM do
 
   ## Parameters:
   * `:resource_arn` (`t:string` required) The ARN of the resource that you're
-  removing tags from.
+    removing tags from.
   * `:tag_keys` (`t:list[com.amazonaws.oam#TagKey]` required) The list of tag keys
-  to remove from the resource.
-  ## Keyword parameters:
+    to remove from the resource.
   """
   @spec untag_resource(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, untag_resource_output(), any()}
@@ -1290,7 +1276,6 @@ defmodule AWS.OAM do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=oam%20UpdateLink&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec update_link(AWS.Client.t(), Keyword.t()) ::
           {:ok, update_link_output(), any()}

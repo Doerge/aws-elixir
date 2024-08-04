@@ -1529,7 +1529,6 @@ defmodule AWS.MarketplaceCatalog do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=marketplacecatalog%20BatchDescribeEntities&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec batch_describe_entities(AWS.Client.t(), Keyword.t()) ::
           {:ok, batch_describe_entities_response(), any()}
@@ -1575,10 +1574,9 @@ defmodule AWS.MarketplaceCatalog do
 
   ## Parameters:
   * `:catalog` (`t:string` required) Required. The catalog related to the request.
-  Fixed value: AWSMarketplace.
+    Fixed value: AWSMarketplace.
   * `:change_set_id` (`t:string` required) Required. The unique identifier of the
-  StartChangeSet request that you want to cancel.
-  ## Keyword parameters:
+    StartChangeSet request that you want to cancel.
   """
   @spec cancel_change_set(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, cancel_change_set_response(), any()}
@@ -1633,8 +1631,7 @@ defmodule AWS.MarketplaceCatalog do
 
   ## Parameters:
   * `:resource_arn` (`t:string` required) The Amazon Resource Name (ARN) of the
-  entity resource that is associated with the resource policy.
-  ## Keyword parameters:
+    entity resource that is associated with the resource policy.
   """
   @spec delete_resource_policy(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, delete_resource_policy_response(), any()}
@@ -1688,10 +1685,9 @@ defmodule AWS.MarketplaceCatalog do
 
   ## Parameters:
   * `:catalog` (`t:string` required) Required. The catalog related to the request.
-  Fixed value: AWSMarketplace
+    Fixed value: AWSMarketplace
   * `:change_set_id` (`t:string` required) Required. The unique identifier for the
-  StartChangeSet request that you want to describe the details for.
-  ## Keyword parameters:
+    StartChangeSet request that you want to describe the details for.
   """
   @spec describe_change_set(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, describe_change_set_response(), any()}
@@ -1733,10 +1729,9 @@ defmodule AWS.MarketplaceCatalog do
 
   ## Parameters:
   * `:catalog` (`t:string` required) Required. The catalog related to the request.
-  Fixed value: AWSMarketplace
+    Fixed value: AWSMarketplace
   * `:entity_id` (`t:string` required) Required. The unique ID of the entity to
-  describe.
-  ## Keyword parameters:
+    describe.
   """
   @spec describe_entity(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, describe_entity_response(), any()}
@@ -1779,8 +1774,7 @@ defmodule AWS.MarketplaceCatalog do
 
   ## Parameters:
   * `:resource_arn` (`t:string` required) The Amazon Resource Name (ARN) of the
-  entity resource that is associated with the resource policy.
-  ## Keyword parameters:
+    entity resource that is associated with the resource policy.
   """
   @spec get_resource_policy(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_resource_policy_response(), any()}
@@ -1824,7 +1818,6 @@ defmodule AWS.MarketplaceCatalog do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=marketplacecatalog%20ListChangeSets&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec list_change_sets(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_change_sets_response(), any()}
@@ -1866,7 +1859,6 @@ defmodule AWS.MarketplaceCatalog do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=marketplacecatalog%20ListEntities&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec list_entities(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_entities_response(), any()}
@@ -1911,7 +1903,6 @@ defmodule AWS.MarketplaceCatalog do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=marketplacecatalog%20ListTagsForResource&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec list_tags_for_resource(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_tags_for_resource_response(), any()}
@@ -1954,7 +1945,6 @@ defmodule AWS.MarketplaceCatalog do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=marketplacecatalog%20PutResourcePolicy&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec put_resource_policy(AWS.Client.t(), Keyword.t()) ::
           {:ok, put_resource_policy_response(), any()}
@@ -2002,7 +1992,6 @@ defmodule AWS.MarketplaceCatalog do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=marketplacecatalog%20StartChangeSet&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec start_change_set(AWS.Client.t(), Keyword.t()) ::
           {:ok, start_change_set_response(), any()}
@@ -2047,7 +2036,6 @@ defmodule AWS.MarketplaceCatalog do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=marketplacecatalog%20TagResource&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec tag_resource(AWS.Client.t(), Keyword.t()) ::
           {:ok, tag_resource_response(), any()}
@@ -2092,7 +2080,6 @@ defmodule AWS.MarketplaceCatalog do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=marketplacecatalog%20UntagResource&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec untag_resource(AWS.Client.t(), Keyword.t()) ::
           {:ok, untag_resource_response(), any()}

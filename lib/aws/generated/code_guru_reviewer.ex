@@ -907,7 +907,6 @@ defmodule AWS.CodeGuruReviewer do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=codegurureviewer%20AssociateRepository&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec associate_repository(AWS.Client.t(), Keyword.t()) ::
           {:ok, associate_repository_response(), any()}
@@ -953,7 +952,6 @@ defmodule AWS.CodeGuruReviewer do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=codegurureviewer%20CreateCodeReview&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec create_code_review(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_code_review_response(), any()}
@@ -996,8 +994,7 @@ defmodule AWS.CodeGuruReviewer do
 
   ## Parameters:
   * `:code_review_arn` (`t:string` required) The Amazon Resource Name (ARN) of the
-  CodeReview object.
-  ## Keyword parameters:
+    CodeReview object.
   """
   @spec describe_code_review(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, describe_code_review_response(), any()}
@@ -1038,13 +1035,14 @@ defmodule AWS.CodeGuruReviewer do
 
   ## Parameters:
   * `:code_review_arn` (`t:string` required) The Amazon Resource Name (ARN) of the
-  CodeReview object.
+    CodeReview object.
   * `:recommendation_id` (`t:string` required) The recommendation ID that can be
-  used to track the provided recommendations and then to collect the feedback.
+    used to track the provided recommendations and then to collect the feedback.
+
   ## Keyword parameters:
   * `:user_id` (`t:string`) Optional parameter to describe the feedback for a
-  given user. If this is not supplied, it defaults to the user making the
-  request.
+    given user. If this is not supplied, it defaults to the user making the
+    request.
   """
   @spec describe_recommendation_feedback(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, describe_recommendation_feedback_response(), any()}
@@ -1104,9 +1102,8 @@ defmodule AWS.CodeGuruReviewer do
 
   ## Parameters:
   * `:association_arn` (`t:string` required) The Amazon Resource Name (ARN) of the
-  RepositoryAssociation object. You can retrieve this ARN by calling
-  ListRepositoryAssociations.
-  ## Keyword parameters:
+    RepositoryAssociation object. You can retrieve this ARN by calling
+    ListRepositoryAssociations.
   """
   @spec describe_repository_association(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, describe_repository_association_response(), any()}
@@ -1147,9 +1144,8 @@ defmodule AWS.CodeGuruReviewer do
 
   ## Parameters:
   * `:association_arn` (`t:string` required) The Amazon Resource Name (ARN) of the
-  RepositoryAssociation object. You can retrieve this ARN by calling
-  ListRepositoryAssociations.
-  ## Keyword parameters:
+    RepositoryAssociation object. You can retrieve this ARN by calling
+    ListRepositoryAssociations.
   """
   @spec disassociate_repository(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, disassociate_repository_response(), any()}
@@ -1202,24 +1198,25 @@ defmodule AWS.CodeGuruReviewer do
 
   ## Parameters:
   * `:type` (`t:enum["PULL_REQUEST|REPOSITORY_ANALYSIS"]` required) The type of
-  code reviews to list in the response.
+    code reviews to list in the response.
+
   ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of results that are returned
-  per call. The default is 100.
+    per call. The default is 100.
   * `:next_token` (`t:string`) If nextToken is returned, there are more results
-  available. The value of nextToken is a unique pagination token for each
-  page. Make the call again using the returned token to retrieve the next
-  page. Keep all other arguments unchanged.
+    available. The value of nextToken is a unique pagination token for each
+    page. Make the call again using the returned token to retrieve the next
+    page. Keep all other arguments unchanged.
   * `:provider_types` (`t:list[com.amazonaws.codegurureviewer#ProviderType]`) List
-  of provider types for filtering that needs to be applied before displaying
-  the result. For example, providerTypes=[GitHub] lists code reviews from
-  GitHub.
+    of provider types for filtering that needs to be applied before displaying
+    the result. For example, providerTypes=[GitHub] lists code reviews from
+    GitHub.
   * `:repository_names` (`t:list[com.amazonaws.codegurureviewer#Name]`) List of
-  repository names for filtering that needs to be applied before displaying
-  the result.
+    repository names for filtering that needs to be applied before displaying
+    the result.
   * `:states` (`t:list[com.amazonaws.codegurureviewer#JobState]`) List of states
-  for filtering that needs to be applied before displaying the result. For
-  example, states=[Pending] lists code reviews in the Pending state.
+    for filtering that needs to be applied before displaying the result. For
+    example, states=[Pending] lists code reviews in the Pending state.
   """
   @spec list_code_reviews(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_code_reviews_response(), any()}
@@ -1308,20 +1305,21 @@ defmodule AWS.CodeGuruReviewer do
 
   ## Parameters:
   * `:code_review_arn` (`t:string` required) The Amazon Resource Name (ARN) of the
-  CodeReview object.
+    CodeReview object.
+
   ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of results that are returned
-  per call. The default is 100.
+    per call. The default is 100.
   * `:next_token` (`t:string`) If nextToken is returned, there are more results
-  available. The value of nextToken is a unique pagination token for each
-  page. Make the call again using the returned token to retrieve the next
-  page. Keep all other arguments unchanged.
+    available. The value of nextToken is a unique pagination token for each
+    page. Make the call again using the returned token to retrieve the next
+    page. Keep all other arguments unchanged.
   * `:recommendation_ids`
-  (`t:list[com.amazonaws.codegurureviewer#RecommendationId]`) Used to query
-  the recommendation feedback for a given recommendation.
+    (`t:list[com.amazonaws.codegurureviewer#RecommendationId]`) Used to query
+    the recommendation feedback for a given recommendation.
   * `:user_ids` (`t:list[com.amazonaws.codegurureviewer#UserId]`) An Amazon Web
-  Services user's account ID or Amazon Resource Name (ARN). Use this ID to
-  query the recommendation feedback for a code review from that user.
+    Services user's account ID or Amazon Resource Name (ARN). Use this ID to
+    query the recommendation feedback for a code review from that user.
   """
   @spec list_recommendation_feedback(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_recommendation_feedback_response(), any()}
@@ -1394,10 +1392,11 @@ defmodule AWS.CodeGuruReviewer do
 
   ## Parameters:
   * `:code_review_arn` (`t:string` required) The Amazon Resource Name (ARN) of the
-  CodeReview object.
+    CodeReview object.
+
   ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of results that are returned
-  per call. The default is 100.
+    per call. The default is 100.
   * `:next_token` (`t:string`) Pagination token.
   """
   @spec list_recommendations(AWS.Client.t(), String.t(), Keyword.t()) ::
@@ -1464,32 +1463,33 @@ defmodule AWS.CodeGuruReviewer do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=codegurureviewer%20ListRepositoryAssociations&this_doc_guide=API%2520Reference)
 
   ## Parameters:
+
   ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of repository association
-  results returned by ListRepositoryAssociations in paginated output. When
-  this parameter is used, ListRepositoryAssociations only returns maxResults
-  results in a single page with a nextToken response element. The remaining
-  results of the initial request can be seen by sending another
-  ListRepositoryAssociations request with the returned nextToken value. This
-  value can be between 1 and 100. If this parameter is not used,
-  ListRepositoryAssociations returns up to 100 results and a nextToken value
-  if applicable.
+    results returned by ListRepositoryAssociations in paginated output. When
+    this parameter is used, ListRepositoryAssociations only returns maxResults
+    results in a single page with a nextToken response element. The remaining
+    results of the initial request can be seen by sending another
+    ListRepositoryAssociations request with the returned nextToken value. This
+    value can be between 1 and 100. If this parameter is not used,
+    ListRepositoryAssociations returns up to 100 results and a nextToken value
+    if applicable.
   * `:names` (`t:list[com.amazonaws.codegurureviewer#Name]`) List of repository
-  names to use as a filter.
+    names to use as a filter.
   * `:next_token` (`t:string`) The nextToken value returned from a previous
-  paginated ListRepositoryAssociations request where maxResults was used and
-  the results exceeded the value of that parameter. Pagination continues from
-  the end of the previous results that returned the nextToken value.
+    paginated ListRepositoryAssociations request where maxResults was used and
+    the results exceeded the value of that parameter. Pagination continues from
+    the end of the previous results that returned the nextToken value.
   * `:owners` (`t:list[com.amazonaws.codegurureviewer#Owner]`) List of owners to
-  use as a filter. For Amazon Web Services CodeCommit, it is the name of the
-  CodeCommit account that was used to associate the repository. For other
-  repository source providers, such as Bitbucket and GitHub Enterprise Server,
-  this is name of the account that was used to associate the repository.
+    use as a filter. For Amazon Web Services CodeCommit, it is the name of the
+    CodeCommit account that was used to associate the repository. For other
+    repository source providers, such as Bitbucket and GitHub Enterprise Server,
+    this is name of the account that was used to associate the repository.
   * `:provider_types` (`t:list[com.amazonaws.codegurureviewer#ProviderType]`) List
-  of provider types to use as a filter.
+    of provider types to use as a filter.
   * `:states`
-  (`t:list[com.amazonaws.codegurureviewer#RepositoryAssociationState]`) List
-  of repository association states to use as a filter.
+    (`t:list[com.amazonaws.codegurureviewer#RepositoryAssociationState]`) List
+    of repository association states to use as a filter.
   """
   @spec list_repository_associations(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_repository_associations_response(), any()}
@@ -1583,9 +1583,8 @@ defmodule AWS.CodeGuruReviewer do
 
   ## Parameters:
   * `:resource_arn` (`t:string` required) The Amazon Resource Name (ARN) of the
-  RepositoryAssociation object. You can retrieve this ARN by calling
-  ListRepositoryAssociations.
-  ## Keyword parameters:
+    RepositoryAssociation object. You can retrieve this ARN by calling
+    ListRepositoryAssociations.
   """
   @spec list_tags_for_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_tags_for_resource_response(), any()}
@@ -1626,7 +1625,6 @@ defmodule AWS.CodeGuruReviewer do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=codegurureviewer%20PutRecommendationFeedback&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec put_recommendation_feedback(AWS.Client.t(), Keyword.t()) ::
           {:ok, put_recommendation_feedback_response(), any()}
@@ -1669,9 +1667,8 @@ defmodule AWS.CodeGuruReviewer do
 
   ## Parameters:
   * `:resource_arn` (`t:string` required) The Amazon Resource Name (ARN) of the
-  RepositoryAssociation object. You can retrieve this ARN by calling
-  ListRepositoryAssociations.
-  ## Keyword parameters:
+    RepositoryAssociation object. You can retrieve this ARN by calling
+    ListRepositoryAssociations.
   """
   @spec tag_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, tag_resource_response(), any()}
@@ -1714,11 +1711,10 @@ defmodule AWS.CodeGuruReviewer do
 
   ## Parameters:
   * `:resource_arn` (`t:string` required) The Amazon Resource Name (ARN) of the
-  RepositoryAssociation object. You can retrieve this ARN by calling
-  ListRepositoryAssociations.
+    RepositoryAssociation object. You can retrieve this ARN by calling
+    ListRepositoryAssociations.
   * `:tag_keys` (`t:list[com.amazonaws.codegurureviewer#TagKey]` required) A list
-  of the keys for each tag you want to remove from an associated repository.
-  ## Keyword parameters:
+    of the keys for each tag you want to remove from an associated repository.
   """
   @spec untag_resource(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, untag_resource_response(), any()}

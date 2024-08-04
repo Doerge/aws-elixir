@@ -298,7 +298,6 @@ defmodule AWS.ElasticInference do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=elasticinference%20DescribeAcceleratorOfferings&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec describe_accelerator_offerings(AWS.Client.t(), Keyword.t()) ::
           {:ok, describe_accelerator_offerings_response(), any()}
@@ -341,7 +340,6 @@ defmodule AWS.ElasticInference do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=elasticinference%20DescribeAcceleratorTypes&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec describe_accelerator_types(AWS.Client.t(), Keyword.t()) ::
           {:ok, describe_accelerator_types_response(), any()}
@@ -382,7 +380,6 @@ defmodule AWS.ElasticInference do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=elasticinference%20DescribeAccelerators&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec describe_accelerators(AWS.Client.t(), Keyword.t()) ::
           {:ok, describe_accelerators_response(), any()}
@@ -425,8 +422,7 @@ defmodule AWS.ElasticInference do
 
   ## Parameters:
   * `:resource_arn` (`t:string` required) The ARN of the Elastic Inference
-  Accelerator to list the tags for.
-  ## Keyword parameters:
+    Accelerator to list the tags for.
   """
   @spec list_tags_for_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_tags_for_resource_result(), any()}
@@ -467,8 +463,7 @@ defmodule AWS.ElasticInference do
 
   ## Parameters:
   * `:resource_arn` (`t:string` required) The ARN of the Elastic Inference
-  Accelerator to tag.
-  ## Keyword parameters:
+    Accelerator to tag.
   """
   @spec tag_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, tag_resource_result(), any()}
@@ -511,10 +506,9 @@ defmodule AWS.ElasticInference do
 
   ## Parameters:
   * `:resource_arn` (`t:string` required) The ARN of the Elastic Inference
-  Accelerator to untag.
+    Accelerator to untag.
   * `:tag_keys` (`t:list[com.amazonaws.elasticinference#TagKey]` required) The
-  list of tags to remove from the Elastic Inference Accelerator.
-  ## Keyword parameters:
+    list of tags to remove from the Elastic Inference Accelerator.
   """
   @spec untag_resource(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, untag_resource_result(), any()}

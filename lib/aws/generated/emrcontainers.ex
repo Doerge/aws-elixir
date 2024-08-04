@@ -1160,8 +1160,7 @@ defmodule AWS.EMRcontainers do
   ## Parameters:
   * `:id` (`t:string` required) The ID of the job run to cancel.
   * `:virtual_cluster_id` (`t:string` required) The ID of the virtual cluster for
-  which the job run will be canceled.
-  ## Keyword parameters:
+    which the job run will be canceled.
   """
   @spec cancel_job_run(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, cancel_job_run_response(), any()}
@@ -1217,7 +1216,6 @@ defmodule AWS.EMRcontainers do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=emrcontainers%20CreateJobTemplate&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec create_job_template(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_job_template_response(), any()}
@@ -1262,8 +1260,7 @@ defmodule AWS.EMRcontainers do
 
   ## Parameters:
   * `:virtual_cluster_id` (`t:string` required) The ID of the virtual cluster for
-  which a managed endpoint is created.
-  ## Keyword parameters:
+    which a managed endpoint is created.
   """
   @spec create_managed_endpoint(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, create_managed_endpoint_response(), any()}
@@ -1309,7 +1306,6 @@ defmodule AWS.EMRcontainers do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=emrcontainers%20CreateSecurityConfiguration&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec create_security_configuration(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_security_configuration_response(), any()}
@@ -1356,7 +1352,6 @@ defmodule AWS.EMRcontainers do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=emrcontainers%20CreateVirtualCluster&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec create_virtual_cluster(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_virtual_cluster_response(), any()}
@@ -1402,7 +1397,6 @@ defmodule AWS.EMRcontainers do
 
   ## Parameters:
   * `:id` (`t:string` required) The ID of the job template that will be deleted.
-  ## Keyword parameters:
   """
   @spec delete_job_template(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, delete_job_template_response(), any()}
@@ -1458,8 +1452,7 @@ defmodule AWS.EMRcontainers do
   ## Parameters:
   * `:id` (`t:string` required) The ID of the managed endpoint.
   * `:virtual_cluster_id` (`t:string` required) The ID of the endpoint's virtual
-  cluster.
-  ## Keyword parameters:
+    cluster.
   """
   @spec delete_managed_endpoint(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, delete_managed_endpoint_response(), any()}
@@ -1518,8 +1511,7 @@ defmodule AWS.EMRcontainers do
 
   ## Parameters:
   * `:id` (`t:string` required) The ID of the virtual cluster that will be
-  deleted.
-  ## Keyword parameters:
+    deleted.
   """
   @spec delete_virtual_cluster(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, delete_virtual_cluster_response(), any()}
@@ -1575,8 +1567,7 @@ defmodule AWS.EMRcontainers do
   ## Parameters:
   * `:id` (`t:string` required) The ID of the job run request.
   * `:virtual_cluster_id` (`t:string` required) The ID of the virtual cluster for
-  which the job run is submitted.
-  ## Keyword parameters:
+    which the job run is submitted.
   """
   @spec describe_job_run(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, describe_job_run_response(), any()}
@@ -1622,7 +1613,6 @@ defmodule AWS.EMRcontainers do
 
   ## Parameters:
   * `:id` (`t:string` required) The ID of the job template that will be described.
-  ## Keyword parameters:
   """
   @spec describe_job_template(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, describe_job_template_response(), any()}
@@ -1666,8 +1656,7 @@ defmodule AWS.EMRcontainers do
   ## Parameters:
   * `:id` (`t:string` required) This output displays ID of the managed endpoint.
   * `:virtual_cluster_id` (`t:string` required) The ID of the endpoint's virtual
-  cluster.
-  ## Keyword parameters:
+    cluster.
   """
   @spec describe_managed_endpoint(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, describe_managed_endpoint_response(), any()}
@@ -1713,7 +1702,6 @@ defmodule AWS.EMRcontainers do
 
   ## Parameters:
   * `:id` (`t:string` required) The ID of the security configuration.
-  ## Keyword parameters:
   """
   @spec describe_security_configuration(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, describe_security_configuration_response(), any()}
@@ -1759,8 +1747,7 @@ defmodule AWS.EMRcontainers do
 
   ## Parameters:
   * `:id` (`t:string` required) The ID of the virtual cluster that will be
-  described.
-  ## Keyword parameters:
+    described.
   """
   @spec describe_virtual_cluster(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, describe_virtual_cluster_response(), any()}
@@ -1801,10 +1788,9 @@ defmodule AWS.EMRcontainers do
 
   ## Parameters:
   * `:endpoint_identifier` (`t:string` required) The ARN of the managed endpoint
-  for which the request is submitted.
+    for which the request is submitted.
   * `:virtual_cluster_identifier` (`t:string` required) The ARN of the Virtual
-  Cluster which the Managed Endpoint belongs to.
-  ## Keyword parameters:
+    Cluster which the Managed Endpoint belongs to.
   """
   @spec get_managed_endpoint_session_credentials(
           AWS.Client.t(),
@@ -1860,18 +1846,19 @@ defmodule AWS.EMRcontainers do
 
   ## Parameters:
   * `:virtual_cluster_id` (`t:string` required) The ID of the virtual cluster for
-  which to list the job run.
+    which to list the job run.
+
   ## Keyword parameters:
   * `:created_after` (`t:timestamp[date-time]`) The date and time after which the
-  job runs were submitted.
+    job runs were submitted.
   * `:created_before` (`t:timestamp[date-time]`) The date and time before which
-  the job runs were submitted.
+    the job runs were submitted.
   * `:max_results` (`t:integer`) The maximum number of job runs that can be
-  listed.
+    listed.
   * `:name` (`t:string`) The name of the job run.
   * `:next_token` (`t:string`) The token for the next set of job runs to return.
   * `:states` (`t:list[com.amazonaws.emrcontainers#JobRunState]`) The states of
-  the job run.
+    the job run.
   """
   @spec list_job_runs(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_job_runs_response(), any()}
@@ -1967,15 +1954,16 @@ defmodule AWS.EMRcontainers do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=emrcontainers%20ListJobTemplates&this_doc_guide=API%2520Reference)
 
   ## Parameters:
+
   ## Keyword parameters:
   * `:created_after` (`t:timestamp[date-time]`) The date and time after which the
-  job templates were created.
+    job templates were created.
   * `:created_before` (`t:timestamp[date-time]`) The date and time before which
-  the job templates were created.
+    the job templates were created.
   * `:max_results` (`t:integer`) The maximum number of job templates that can be
-  listed.
+    listed.
   * `:next_token` (`t:string`) The token for the next set of job templates to
-  return.
+    return.
   """
   @spec list_job_templates(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_job_templates_response(), any()}
@@ -2050,19 +2038,20 @@ defmodule AWS.EMRcontainers do
 
   ## Parameters:
   * `:virtual_cluster_id` (`t:string` required) The ID of the virtual cluster.
+
   ## Keyword parameters:
   * `:created_after` (`t:timestamp[date-time]`) The date and time after which the
-  endpoints are created.
+    endpoints are created.
   * `:created_before` (`t:timestamp[date-time]`) The date and time before which
-  the endpoints are created.
+    the endpoints are created.
   * `:max_results` (`t:integer`) The maximum number of managed endpoints that can
-  be listed.
+    be listed.
   * `:next_token` (`t:string`) The token for the next set of managed endpoints to
-  return.
+    return.
   * `:states` (`t:list[com.amazonaws.emrcontainers#EndpointState]`) The states of
-  the managed endpoints.
+    the managed endpoints.
   * `:types` (`t:list[com.amazonaws.emrcontainers#EndpointType]`) The types of the
-  managed endpoints.
+    managed endpoints.
   """
   @spec list_managed_endpoints(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_managed_endpoints_response(), any()}
@@ -2166,15 +2155,16 @@ defmodule AWS.EMRcontainers do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=emrcontainers%20ListSecurityConfigurations&this_doc_guide=API%2520Reference)
 
   ## Parameters:
+
   ## Keyword parameters:
   * `:created_after` (`t:timestamp[date-time]`) The date and time after which the
-  security configuration was created.
+    security configuration was created.
   * `:created_before` (`t:timestamp[date-time]`) The date and time before which
-  the security configuration was created.
+    the security configuration was created.
   * `:max_results` (`t:integer`) The maximum number of security configurations the
-  operation can list.
+    operation can list.
   * `:next_token` (`t:string`) The token for the next set of security
-  configurations to return.
+    configurations to return.
   """
   @spec list_security_configurations(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_security_configurations_response(), any()}
@@ -2247,7 +2237,6 @@ defmodule AWS.EMRcontainers do
 
   ## Parameters:
   * `:resource_arn` (`t:string` required) The ARN of tagged resources.
-  ## Keyword parameters:
   """
   @spec list_tags_for_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_tags_for_resource_response(), any()}
@@ -2292,25 +2281,26 @@ defmodule AWS.EMRcontainers do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=emrcontainers%20ListVirtualClusters&this_doc_guide=API%2520Reference)
 
   ## Parameters:
+
   ## Keyword parameters:
   * `:container_provider_id` (`t:string`) The container provider ID of the virtual
-  cluster.
+    cluster.
   * `:container_provider_type` (`t:enum["EKS"]`) The container provider type of
-  the virtual cluster. Amazon EKS is the only supported type as of now.
+    the virtual cluster. Amazon EKS is the only supported type as of now.
   * `:created_after` (`t:timestamp[date-time]`) The date and time after which the
-  virtual clusters are created.
+    virtual clusters are created.
   * `:created_before` (`t:timestamp[date-time]`) The date and time before which
-  the virtual clusters are created.
+    the virtual clusters are created.
   * `:eks_access_entry_integrated` (`t:boolean`) Optional Boolean that specifies
-  whether the operation should return the virtual clusters that have the
-  access entry integration enabled or disabled. If not specified, the
-  operation returns all applicable virtual clusters.
+    whether the operation should return the virtual clusters that have the
+    access entry integration enabled or disabled. If not specified, the
+    operation returns all applicable virtual clusters.
   * `:max_results` (`t:integer`) The maximum number of virtual clusters that can
-  be listed.
+    be listed.
   * `:next_token` (`t:string`) The token for the next set of virtual clusters to
-  return.
+    return.
   * `:states` (`t:list[com.amazonaws.emrcontainers#VirtualClusterState]`) The
-  states of the requested virtual clusters.
+    states of the requested virtual clusters.
   """
   @spec list_virtual_clusters(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_virtual_clusters_response(), any()}
@@ -2430,8 +2420,7 @@ defmodule AWS.EMRcontainers do
 
   ## Parameters:
   * `:virtual_cluster_id` (`t:string` required) The virtual cluster ID for which
-  the job run request is submitted.
-  ## Keyword parameters:
+    the job run request is submitted.
   """
   @spec start_job_run(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, start_job_run_response(), any()}
@@ -2483,7 +2472,6 @@ defmodule AWS.EMRcontainers do
 
   ## Parameters:
   * `:resource_arn` (`t:string` required) The ARN of resources.
-  ## Keyword parameters:
   """
   @spec tag_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, tag_resource_response(), any()}
@@ -2527,8 +2515,7 @@ defmodule AWS.EMRcontainers do
   ## Parameters:
   * `:resource_arn` (`t:string` required) The ARN of resources.
   * `:tag_keys` (`t:list[com.amazonaws.emrcontainers#String128]` required) The tag
-  keys of the resources.
-  ## Keyword parameters:
+    keys of the resources.
   """
   @spec untag_resource(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, untag_resource_response(), any()}

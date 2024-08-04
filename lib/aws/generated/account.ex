@@ -472,7 +472,6 @@ defmodule AWS.Account do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=account%20AcceptPrimaryEmailUpdate&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec accept_primary_email_update(AWS.Client.t(), Keyword.t()) ::
           {:ok, accept_primary_email_update_response(), any()}
@@ -514,7 +513,6 @@ defmodule AWS.Account do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=account%20DeleteAlternateContact&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec delete_alternate_contact(AWS.Client.t(), Keyword.t()) ::
           {:ok, nil, any()}
@@ -556,7 +554,6 @@ defmodule AWS.Account do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=account%20DisableRegion&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec disable_region(AWS.Client.t(), Keyword.t()) ::
           {:ok, nil, any()}
@@ -598,7 +595,6 @@ defmodule AWS.Account do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=account%20EnableRegion&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec enable_region(AWS.Client.t(), Keyword.t()) ::
           {:ok, nil, any()}
@@ -641,7 +637,6 @@ defmodule AWS.Account do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=account%20GetAlternateContact&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec get_alternate_contact(AWS.Client.t(), Keyword.t()) ::
           {:ok, get_alternate_contact_response(), any()}
@@ -683,7 +678,6 @@ defmodule AWS.Account do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=account%20GetContactInformation&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec get_contact_information(AWS.Client.t(), Keyword.t()) ::
           {:ok, get_contact_information_response(), any()}
@@ -725,7 +719,6 @@ defmodule AWS.Account do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=account%20GetPrimaryEmail&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec get_primary_email(AWS.Client.t(), Keyword.t()) ::
           {:ok, get_primary_email_response(), any()}
@@ -767,7 +760,6 @@ defmodule AWS.Account do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=account%20GetRegionOptStatus&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec get_region_opt_status(AWS.Client.t(), Keyword.t()) ::
           {:ok, get_region_opt_status_response(), any()}
@@ -811,7 +803,6 @@ defmodule AWS.Account do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=account%20ListRegions&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec list_regions(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_regions_response(), any()}
@@ -854,7 +845,6 @@ defmodule AWS.Account do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=account%20PutAlternateContact&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec put_alternate_contact(AWS.Client.t(), Keyword.t()) ::
           {:ok, nil, any()}
@@ -896,7 +886,6 @@ defmodule AWS.Account do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=account%20PutContactInformation&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec put_contact_information(AWS.Client.t(), Keyword.t()) ::
           {:ok, nil, any()}
@@ -939,7 +928,6 @@ defmodule AWS.Account do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=account%20StartPrimaryEmailUpdate&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec start_primary_email_update(AWS.Client.t(), Keyword.t()) ::
           {:ok, start_primary_email_update_response(), any()}

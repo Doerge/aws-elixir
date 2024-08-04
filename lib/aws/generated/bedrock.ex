@@ -1919,7 +1919,6 @@ defmodule AWS.Bedrock do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=bedrock%20CreateEvaluationJob&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec create_evaluation_job(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_evaluation_job_response(), any()}
@@ -1964,7 +1963,6 @@ defmodule AWS.Bedrock do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=bedrock%20CreateGuardrail&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec create_guardrail(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_guardrail_response(), any()}
@@ -2009,8 +2007,7 @@ defmodule AWS.Bedrock do
 
   ## Parameters:
   * `:guardrail_identifier` (`t:string` required) The unique identifier of the
-  guardrail. This can be an ID or the ARN.
-  ## Keyword parameters:
+    guardrail. This can be an ID or the ARN.
   """
   @spec create_guardrail_version(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, create_guardrail_version_response(), any()}
@@ -2056,7 +2053,6 @@ defmodule AWS.Bedrock do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=bedrock%20CreateModelCopyJob&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec create_model_copy_job(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_model_copy_job_response(), any()}
@@ -2102,7 +2098,6 @@ defmodule AWS.Bedrock do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=bedrock%20CreateModelCustomizationJob&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec create_model_customization_job(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_model_customization_job_response(), any()}
@@ -2150,7 +2145,6 @@ defmodule AWS.Bedrock do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=bedrock%20CreateProvisionedModelThroughput&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec create_provisioned_model_throughput(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_provisioned_model_throughput_response(), any()}
@@ -2197,7 +2191,6 @@ defmodule AWS.Bedrock do
 
   ## Parameters:
   * `:model_identifier` (`t:string` required) Name of the model to delete.
-  ## Keyword parameters:
   """
   @spec delete_custom_model(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, delete_custom_model_response(), any()}
@@ -2250,7 +2243,8 @@ defmodule AWS.Bedrock do
 
   ## Parameters:
   * `:guardrail_identifier` (`t:string` required) The unique identifier of the
-  guardrail. This can be an ID or the ARN.
+    guardrail. This can be an ID or the ARN.
+
   ## Keyword parameters:
   * `:guardrail_version` (`t:string`) The version of the guardrail.
   """
@@ -2315,7 +2309,6 @@ defmodule AWS.Bedrock do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=bedrock%20DeleteModelInvocationLoggingConfiguration&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec delete_model_invocation_logging_configuration(AWS.Client.t(), Keyword.t()) ::
           {:ok, delete_model_invocation_logging_configuration_response(), any()}
@@ -2372,8 +2365,7 @@ defmodule AWS.Bedrock do
 
   ## Parameters:
   * `:provisioned_model_id` (`t:string` required) The Amazon Resource Name (ARN)
-  or name of the Provisioned Throughput.
-  ## Keyword parameters:
+    or name of the Provisioned Throughput.
   """
   @spec delete_provisioned_model_throughput(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, delete_provisioned_model_throughput_response(), any()}
@@ -2430,8 +2422,7 @@ defmodule AWS.Bedrock do
 
   ## Parameters:
   * `:model_identifier` (`t:string` required) Name or Amazon Resource Name (ARN)
-  of the custom model.
-  ## Keyword parameters:
+    of the custom model.
   """
   @spec get_custom_model(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_custom_model_response(), any()}
@@ -2474,8 +2465,7 @@ defmodule AWS.Bedrock do
 
   ## Parameters:
   * `:job_identifier` (`t:string` required) The Amazon Resource Name (ARN) of the
-  model evaluation job.
-  ## Keyword parameters:
+    model evaluation job.
   """
   @spec get_evaluation_job(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_evaluation_job_response(), any()}
@@ -2516,7 +2506,6 @@ defmodule AWS.Bedrock do
 
   ## Parameters:
   * `:model_identifier` (`t:string` required) The model identifier.
-  ## Keyword parameters:
   """
   @spec get_foundation_model(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_foundation_model_response(), any()}
@@ -2558,11 +2547,12 @@ defmodule AWS.Bedrock do
 
   ## Parameters:
   * `:guardrail_identifier` (`t:string` required) The unique identifier of the
-  guardrail for which to get details. This can be an ID or the ARN.
+    guardrail for which to get details. This can be an ID or the ARN.
+
   ## Keyword parameters:
   * `:guardrail_version` (`t:string`) The version of the guardrail for which to
-  get details. If you don't specify a version, the response returns details
-  for the DRAFT version.
+    get details. If you don't specify a version, the response returns details
+    for the DRAFT version.
   """
   @spec get_guardrail(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_guardrail_response(), any()}
@@ -2618,8 +2608,7 @@ defmodule AWS.Bedrock do
 
   ## Parameters:
   * `:job_arn` (`t:string` required) The Amazon Resource Name (ARN) of the model
-  copy job.
-  ## Keyword parameters:
+    copy job.
   """
   @spec get_model_copy_job(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_model_copy_job_response(), any()}
@@ -2664,7 +2653,6 @@ defmodule AWS.Bedrock do
 
   ## Parameters:
   * `:job_identifier` (`t:string` required) Identifier for the customization job.
-  ## Keyword parameters:
   """
   @spec get_model_customization_job(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_model_customization_job_response(), any()}
@@ -2704,7 +2692,6 @@ defmodule AWS.Bedrock do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=bedrock%20GetModelInvocationLoggingConfiguration&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec get_model_invocation_logging_configuration(AWS.Client.t(), Keyword.t()) ::
           {:ok, get_model_invocation_logging_configuration_response(), any()}
@@ -2749,8 +2736,7 @@ defmodule AWS.Bedrock do
 
   ## Parameters:
   * `:provisioned_model_id` (`t:string` required) The Amazon Resource Name (ARN)
-  or name of the Provisioned Throughput.
-  ## Keyword parameters:
+    or name of the Provisioned Throughput.
   """
   @spec get_provisioned_model_throughput(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_provisioned_model_throughput_response(), any()}
@@ -2791,32 +2777,33 @@ defmodule AWS.Bedrock do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=bedrock%20ListCustomModels&this_doc_guide=API%2520Reference)
 
   ## Parameters:
+
   ## Keyword parameters:
   * `:base_model_arn_equals` (`t:string`) Return custom models only if the base
-  model Amazon Resource Name (ARN) matches this parameter.
+    model Amazon Resource Name (ARN) matches this parameter.
   * `:creation_time_after` (`t:timestamp[date-time]`) Return custom models created
-  after the specified time.
+    after the specified time.
   * `:creation_time_before` (`t:timestamp[date-time]`) Return custom models
-  created before the specified time.
+    created before the specified time.
   * `:foundation_model_arn_equals` (`t:string`) Return custom models only if the
-  foundation model Amazon Resource Name (ARN) matches this parameter.
+    foundation model Amazon Resource Name (ARN) matches this parameter.
   * `:is_owned` (`t:string`) Return custom models depending on if the current
-  account owns them (true) or if they were shared with the current account
-  (false).
+    account owns them (true) or if they were shared with the current account
+    (false).
   * `:max_results` (`t:integer`) The maximum number of results to return in the
-  response. If the total number of results is greater than this value, use the
-  token returned in the response in the nextToken field when making another
-  request to return the next batch of results.
+    response. If the total number of results is greater than this value, use the
+    token returned in the response in the nextToken field when making another
+    request to return the next batch of results.
   * `:name_contains` (`t:string`) Return custom models only if the job name
-  contains these characters.
+    contains these characters.
   * `:next_token` (`t:string`) If the total number of results is greater than the
-  maxResults value provided in the request, enter the token returned in the
-  nextToken field in the response in this field to return the next batch of
-  results.
+    maxResults value provided in the request, enter the token returned in the
+    nextToken field in the response in this field to return the next batch of
+    results.
   * `:sort_by` (`t:enum["CREATION_TIME"]`) The field to sort by in the returned
-  list of models.
+    list of models.
   * `:sort_order` (`t:enum["ASCENDING|DESCENDING"]`) The sort order of the
-  results.
+    results.
   """
   @spec list_custom_models(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_custom_models_response(), any()}
@@ -2952,22 +2939,23 @@ defmodule AWS.Bedrock do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=bedrock%20ListEvaluationJobs&this_doc_guide=API%2520Reference)
 
   ## Parameters:
+
   ## Keyword parameters:
   * `:creation_time_after` (`t:timestamp[date-time]`) A filter that includes model
-  evaluation jobs created after the time specified.
+    evaluation jobs created after the time specified.
   * `:creation_time_before` (`t:timestamp[date-time]`) A filter that includes
-  model evaluation jobs created prior to the time specified.
+    model evaluation jobs created prior to the time specified.
   * `:max_results` (`t:integer`) The maximum number of results to return.
   * `:name_contains` (`t:string`) Query parameter string for model evaluation job
-  names.
+    names.
   * `:next_token` (`t:string`) Continuation token from the previous response, for
-  Amazon Bedrock to list the next set of results.
+    Amazon Bedrock to list the next set of results.
   * `:sort_by` (`t:enum["CREATION_TIME"]`) Allows you to sort model evaluation
-  jobs by when they were created.
+    jobs by when they were created.
   * `:sort_order` (`t:enum["ASCENDING|DESCENDING"]`) How you want the order of
-  jobs sorted.
+    jobs sorted.
   * `:status_equals` (`t:enum["COMPLETED|FAILED|IN_PROGRESS|STOPPED|STOPPING"]`)
-  Only return jobs where the status condition is met.
+    Only return jobs where the status condition is met.
   """
   @spec list_evaluation_jobs(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_evaluation_jobs_response(), any()}
@@ -3089,17 +3077,18 @@ defmodule AWS.Bedrock do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=bedrock%20ListFoundationModels&this_doc_guide=API%2520Reference)
 
   ## Parameters:
+
   ## Keyword parameters:
   * `:by_customization_type` (`t:enum["CONTINUED_PRE_TRAINING|FINE_TUNING"]`)
-  Return models that support the customization type that you specify. For more
-  information, see Custom models in the Amazon Bedrock User Guide.
+    Return models that support the customization type that you specify. For more
+    information, see Custom models in the Amazon Bedrock User Guide.
   * `:by_inference_type` (`t:enum["ON_DEMAND|PROVISIONED"]`) Return models that
-  support the inference type that you specify. For more information, see
-  Provisioned Throughput in the Amazon Bedrock User Guide.
+    support the inference type that you specify. For more information, see
+    Provisioned Throughput in the Amazon Bedrock User Guide.
   * `:by_output_modality` (`t:enum["EMBEDDING|IMAGE|TEXT"]`) Return models that
-  support the output modality that you specify.
+    support the output modality that you specify.
   * `:by_provider` (`t:string`) Return models belonging to the model provider that
-  you specify.
+    you specify.
   """
   @spec list_foundation_models(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_foundation_models_response(), any()}
@@ -3184,14 +3173,15 @@ defmodule AWS.Bedrock do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=bedrock%20ListGuardrails&this_doc_guide=API%2520Reference)
 
   ## Parameters:
+
   ## Keyword parameters:
   * `:guardrail_identifier` (`t:string`) The unique identifier of the guardrail.
-  This can be an ID or the ARN.
+    This can be an ID or the ARN.
   * `:max_results` (`t:integer`) The maximum number of results to return in the
-  response.
+    response.
   * `:next_token` (`t:string`) If there are more results than were returned in the
-  response, the response returns a nextToken that you can send in another
-  ListGuardrails request to see the next batch of results.
+    response, the response returns a nextToken that you can send in another
+    ListGuardrails request to see the next batch of results.
   """
   @spec list_guardrails(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_guardrails_response(), any()}
@@ -3261,33 +3251,34 @@ defmodule AWS.Bedrock do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=bedrock%20ListModelCopyJobs&this_doc_guide=API%2520Reference)
 
   ## Parameters:
+
   ## Keyword parameters:
   * `:creation_time_after` (`t:timestamp[date-time]`) Filters for model copy jobs
-  created after the specified time.
+    created after the specified time.
   * `:creation_time_before` (`t:timestamp[date-time]`) Filters for model copy jobs
-  created before the specified time.
+    created before the specified time.
   * `:max_results` (`t:integer`) The maximum number of results to return in the
-  response. If the total number of results is greater than this value, use the
-  token returned in the response in the nextToken field when making another
-  request to return the next batch of results.
+    response. If the total number of results is greater than this value, use the
+    token returned in the response in the nextToken field when making another
+    request to return the next batch of results.
   * `:next_token` (`t:string`) If the total number of results is greater than the
-  maxResults value provided in the request, enter the token returned in the
-  nextToken field in the response in this field to return the next batch of
-  results.
+    maxResults value provided in the request, enter the token returned in the
+    nextToken field in the response in this field to return the next batch of
+    results.
   * `:sort_by` (`t:enum["CREATION_TIME"]`) The field to sort by in the returned
-  list of model copy jobs.
+    list of model copy jobs.
   * `:sort_order` (`t:enum["ASCENDING|DESCENDING"]`) Specifies whether to sort the
-  results in ascending or descending order.
+    results in ascending or descending order.
   * `:source_account_equals` (`t:string`) Filters for model copy jobs in which the
-  account that the source model belongs to is equal to the value that you
-  specify.
+    account that the source model belongs to is equal to the value that you
+    specify.
   * `:source_model_arn_equals` (`t:string`) Filters for model copy jobs in which
-  the Amazon Resource Name (ARN) of the source model to is equal to the value
-  that you specify.
+    the Amazon Resource Name (ARN) of the source model to is equal to the value
+    that you specify.
   * `:status_equals` (`t:enum["COMPLETED|FAILED|IN_PROGRESS"]`) Filters for model
-  copy jobs whose status matches the value that you specify.
+    copy jobs whose status matches the value that you specify.
   * `:target_model_name_contains` (`t:string`) Filters for model copy jobs in
-  which the name of the copied model contains the string that you specify.
+    which the name of the copied model contains the string that you specify.
   """
   @spec list_model_copy_jobs(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_model_copy_jobs_response(), any()}
@@ -3424,27 +3415,28 @@ defmodule AWS.Bedrock do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=bedrock%20ListModelCustomizationJobs&this_doc_guide=API%2520Reference)
 
   ## Parameters:
+
   ## Keyword parameters:
   * `:creation_time_after` (`t:timestamp[date-time]`) Return customization jobs
-  created after the specified time.
+    created after the specified time.
   * `:creation_time_before` (`t:timestamp[date-time]`) Return customization jobs
-  created before the specified time.
+    created before the specified time.
   * `:max_results` (`t:integer`) The maximum number of results to return in the
-  response. If the total number of results is greater than this value, use the
-  token returned in the response in the nextToken field when making another
-  request to return the next batch of results.
+    response. If the total number of results is greater than this value, use the
+    token returned in the response in the nextToken field when making another
+    request to return the next batch of results.
   * `:name_contains` (`t:string`) Return customization jobs only if the job name
-  contains these characters.
+    contains these characters.
   * `:next_token` (`t:string`) If the total number of results is greater than the
-  maxResults value provided in the request, enter the token returned in the
-  nextToken field in the response in this field to return the next batch of
-  results.
+    maxResults value provided in the request, enter the token returned in the
+    nextToken field in the response in this field to return the next batch of
+    results.
   * `:sort_by` (`t:enum["CREATION_TIME"]`) The field to sort by in the returned
-  list of jobs.
+    list of jobs.
   * `:sort_order` (`t:enum["ASCENDING|DESCENDING"]`) The sort order of the
-  results.
+    results.
   * `:status_equals` (`t:enum["COMPLETED|FAILED|IN_PROGRESS|STOPPED|STOPPING"]`)
-  Return customization jobs with the specified status.
+    Return customization jobs with the specified status.
   """
   @spec list_model_customization_jobs(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_model_customization_jobs_response(), any()}
@@ -3566,30 +3558,31 @@ defmodule AWS.Bedrock do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=bedrock%20ListProvisionedModelThroughputs&this_doc_guide=API%2520Reference)
 
   ## Parameters:
+
   ## Keyword parameters:
   * `:creation_time_after` (`t:timestamp[date-time]`) A filter that returns
-  Provisioned Throughputs created after the specified time.
+    Provisioned Throughputs created after the specified time.
   * `:creation_time_before` (`t:timestamp[date-time]`) A filter that returns
-  Provisioned Throughputs created before the specified time.
+    Provisioned Throughputs created before the specified time.
   * `:max_results` (`t:integer`) THe maximum number of results to return in the
-  response. If there are more results than the number you specified, the
-  response returns a nextToken value. To see the next batch of results, send
-  the nextToken value in another list request.
+    response. If there are more results than the number you specified, the
+    response returns a nextToken value. To see the next batch of results, send
+    the nextToken value in another list request.
   * `:model_arn_equals` (`t:string`) A filter that returns Provisioned Throughputs
-  whose model Amazon Resource Name (ARN) is equal to the value that you
-  specify.
+    whose model Amazon Resource Name (ARN) is equal to the value that you
+    specify.
   * `:name_contains` (`t:string`) A filter that returns Provisioned Throughputs if
-  their name contains the expression that you specify.
+    their name contains the expression that you specify.
   * `:next_token` (`t:string`) If there are more results than the number you
-  specified in the maxResults field, the response returns a nextToken value.
-  To see the next batch of results, specify the nextToken value in this field.
+    specified in the maxResults field, the response returns a nextToken value.
+    To see the next batch of results, specify the nextToken value in this field.
   * `:sort_by` (`t:enum["CREATION_TIME"]`) The field by which to sort the returned
-  list of Provisioned Throughputs.
+    list of Provisioned Throughputs.
   * `:sort_order` (`t:enum["ASCENDING|DESCENDING"]`) The sort order of the
-  results.
+    results.
   * `:status_equals` (`t:enum["CREATING|FAILED|IN_SERVICE|UPDATING"]`) A filter
-  that returns Provisioned Throughputs if their statuses matches the value
-  that you specify.
+    that returns Provisioned Throughputs if their statuses matches the value
+    that you specify.
   """
   @spec list_provisioned_model_throughputs(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_provisioned_model_throughputs_response(), any()}
@@ -3716,7 +3709,6 @@ defmodule AWS.Bedrock do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=bedrock%20ListTagsForResource&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec list_tags_for_resource(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_tags_for_resource_response(), any()}
@@ -3758,7 +3750,6 @@ defmodule AWS.Bedrock do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=bedrock%20PutModelInvocationLoggingConfiguration&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec put_model_invocation_logging_configuration(AWS.Client.t(), Keyword.t()) ::
           {:ok, put_model_invocation_logging_configuration_response(), any()}
@@ -3801,8 +3792,7 @@ defmodule AWS.Bedrock do
 
   ## Parameters:
   * `:job_identifier` (`t:string` required) The ARN of the model evaluation job
-  you want to stop.
-  ## Keyword parameters:
+    you want to stop.
   """
   @spec stop_evaluation_job(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, stop_evaluation_job_response(), any()}
@@ -3848,7 +3838,6 @@ defmodule AWS.Bedrock do
 
   ## Parameters:
   * `:job_identifier` (`t:string` required) Job identifier of the job to stop.
-  ## Keyword parameters:
   """
   @spec stop_model_customization_job(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, stop_model_customization_job_response(), any()}
@@ -3893,7 +3882,6 @@ defmodule AWS.Bedrock do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=bedrock%20TagResource&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec tag_resource(AWS.Client.t(), Keyword.t()) ::
           {:ok, tag_resource_response(), any()}
@@ -3938,7 +3926,6 @@ defmodule AWS.Bedrock do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=bedrock%20UntagResource&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec untag_resource(AWS.Client.t(), Keyword.t()) ::
           {:ok, untag_resource_response(), any()}
@@ -3981,8 +3968,7 @@ defmodule AWS.Bedrock do
 
   ## Parameters:
   * `:guardrail_identifier` (`t:string` required) The unique identifier of the
-  guardrail. This can be an ID or the ARN.
-  ## Keyword parameters:
+    guardrail. This can be an ID or the ARN.
   """
   @spec update_guardrail(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, update_guardrail_response(), any()}
@@ -4029,8 +4015,7 @@ defmodule AWS.Bedrock do
 
   ## Parameters:
   * `:provisioned_model_id` (`t:string` required) The Amazon Resource Name (ARN)
-  or name of the Provisioned Throughput to update.
-  ## Keyword parameters:
+    or name of the Provisioned Throughput to update.
   """
   @spec update_provisioned_model_throughput(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, update_provisioned_model_throughput_response(), any()}

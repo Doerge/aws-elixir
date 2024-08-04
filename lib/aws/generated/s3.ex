@@ -4290,8 +4290,8 @@ defmodule AWS.S3 do
     initiated.
   * `:upload_id` (`t:string` required) ID for the initiated multipart upload.
   * `:input` (`t:map | nil`):
-    * `:multipart_upload` (`t:structure`) The container for the multipart upload
-    request information.
+    * `"CompleteMultipartUpload" => t:structure` The container for the multipart
+    upload request information.
 
   ## Keyword parameters:
   * `:checksum_c_r_c32` (`t:string`) This header can be used as a data integrity
@@ -5028,8 +5028,8 @@ defmodule AWS.S3 do
   ## Parameters:
   * `:bucket` (`t:string` required) The name of the bucket to create.
   * `:input` (`t:map | nil`):
-    * `:create_bucket_configuration` (`t:structure`) The configuration information
-    for the bucket.
+    * `"CreateBucketConfiguration" => t:structure` The configuration information for
+    the bucket.
 
   ## Keyword parameters:
   * `:acl` (`t:enum["authenticated_read|private|public_read|public_read_write"]`)
@@ -6862,7 +6862,7 @@ defmodule AWS.S3 do
   * `:bucket` (`t:string` required) The bucket name containing the objects to
     delete.
   * `:input` (`t:map`):
-    * `:delete` (`t:structure` required) Container for the request.
+    * `"Delete" => t:structure` (required) Container for the request.
 
   ## Keyword parameters:
   * `:bypass_governance_retention` (`t:boolean`) Specifies whether you want to
@@ -10948,8 +10948,8 @@ defmodule AWS.S3 do
   * `:bucket` (`t:string` required) The name of the bucket for which the
     accelerate configuration is set.
   * `:input` (`t:map`):
-    * `:accelerate_configuration` (`t:structure` required) Container for setting the
-    transfer acceleration state.
+    * `"AccelerateConfiguration" => t:structure` (required) Container for setting
+    the transfer acceleration state.
 
   ## Keyword parameters:
   * `:checksum_algorithm` (`t:enum["CRC32|CRC32C|SHA1|SHA256"]`) Indicates the
@@ -11034,8 +11034,8 @@ defmodule AWS.S3 do
   ## Parameters:
   * `:bucket` (`t:string` required) The bucket to which to apply the ACL.
   * `:input` (`t:map | nil`):
-    * `:access_control_policy` (`t:structure`) Contains the elements that set the
-    ACL permissions for an object per grantee.
+    * `"AccessControlPolicy" => t:structure` Contains the elements that set the ACL
+    permissions for an object per grantee.
 
   ## Keyword parameters:
   * `:acl` (`t:enum["authenticated_read|private|public_read|public_read_write"]`)
@@ -11198,7 +11198,7 @@ defmodule AWS.S3 do
   * `:id` (`t:string` required) The ID that identifies the analytics
     configuration.
   * `:input` (`t:map`):
-    * `:analytics_configuration` (`t:structure` required) The configuration and any
+    * `"AnalyticsConfiguration" => t:structure` (required) The configuration and any
     analyses for the analytics filter.
 
   ## Keyword parameters:
@@ -11269,7 +11269,7 @@ defmodule AWS.S3 do
   * `:bucket` (`t:string` required) Specifies the bucket impacted by the
     corsconfiguration.
   * `:input` (`t:map`):
-    * `:c_o_r_s_configuration` (`t:structure` required) Describes the cross-origin
+    * `"CORSConfiguration" => t:structure` (required) Describes the cross-origin
     access configuration for objects in an Amazon S3 bucket. For more
     information, see Enabling Cross-Origin Resource Sharing in the Amazon S3
     User Guide.
@@ -11373,7 +11373,7 @@ defmodule AWS.S3 do
     (SSE-C). For information about the bucket default encryption feature, see
     Amazon S3 Bucket Default Encryption in the Amazon S3 User Guide.
   * `:input` (`t:map`):
-    * `:server_side_encryption_configuration` (`t:structure` required)
+    * `"ServerSideEncryptionConfiguration" => t:structure` (required)
 
   ## Keyword parameters:
   * `:checksum_algorithm` (`t:enum["CRC32|CRC32C|SHA1|SHA256"]`) Indicates the
@@ -11462,7 +11462,7 @@ defmodule AWS.S3 do
   * `:id` (`t:string` required) The ID used to identify the S3 Intelligent-Tiering
     configuration.
   * `:input` (`t:map`):
-    * `:intelligent_tiering_configuration` (`t:structure` required) Container for S3
+    * `"IntelligentTieringConfiguration" => t:structure` (required) Container for S3
     Intelligent-Tiering configuration.
   """
   @spec put_bucket_intelligent_tiering_configuration(
@@ -11524,7 +11524,7 @@ defmodule AWS.S3 do
   * `:id` (`t:string` required) The ID used to identify the inventory
     configuration.
   * `:input` (`t:map`):
-    * `:inventory_configuration` (`t:structure` required) Specifies the inventory
+    * `"InventoryConfiguration" => t:structure` (required) Specifies the inventory
     configuration.
 
   ## Keyword parameters:
@@ -11606,7 +11606,7 @@ defmodule AWS.S3 do
   * `:bucket` (`t:string` required) The name of the bucket for which to set the
     configuration.
   * `:input` (`t:map | nil`):
-    * `:lifecycle_configuration` (`t:structure`) Container for lifecycle rules. You
+    * `"LifecycleConfiguration" => t:structure` Container for lifecycle rules. You
     can add as many as 1,000 rules.
 
   ## Keyword parameters:
@@ -11692,7 +11692,7 @@ defmodule AWS.S3 do
   * `:bucket` (`t:string` required) The name of the bucket for which to set the
     logging parameters.
   * `:input` (`t:map`):
-    * `:bucket_logging_status` (`t:structure` required) Container for logging status
+    * `"BucketLoggingStatus" => t:structure` (required) Container for logging status
     information.
 
   ## Keyword parameters:
@@ -11784,7 +11784,7 @@ defmodule AWS.S3 do
     The ID has a 64 character limit and can only contain letters, numbers,
     periods, dashes, and underscores.
   * `:input` (`t:map`):
-    * `:metrics_configuration` (`t:structure` required) Specifies the metrics
+    * `"MetricsConfiguration" => t:structure` (required) Specifies the metrics
     configuration.
 
   ## Keyword parameters:
@@ -11859,7 +11859,7 @@ defmodule AWS.S3 do
   ## Parameters:
   * `:bucket` (`t:string` required) The name of the bucket.
   * `:input` (`t:map`):
-    * `:notification_configuration` (`t:structure` required)
+    * `"NotificationConfiguration" => t:structure` (required)
 
   ## Keyword parameters:
   * `:expected_bucket_owner` (`t:string`) The account ID of the expected bucket
@@ -11941,7 +11941,7 @@ defmodule AWS.S3 do
   * `:bucket` (`t:string` required) The name of the Amazon S3 bucket whose
     OwnershipControls you want to set.
   * `:input` (`t:map`):
-    * `:ownership_controls` (`t:structure` required) The OwnershipControls
+    * `"OwnershipControls" => t:structure` (required) The OwnershipControls
     (BucketOwnerEnforced, BucketOwnerPreferred, or ObjectWriter) that you want
     to apply to this Amazon S3 bucket.
 
@@ -12020,7 +12020,7 @@ defmodule AWS.S3 do
   ## Parameters:
   * `:bucket` (`t:string` required) The name of the bucket.
   * `:input` (`t:map`):
-    * `:policy` (`t:string` required) The bucket policy as a JSON document.
+    * `"Policy" => t:string` (required) The bucket policy as a JSON document.
 
   ## Keyword parameters:
   * `:checksum_algorithm` (`t:enum["CRC32|CRC32C|SHA1|SHA256"]`) Indicates the
@@ -12131,7 +12131,7 @@ defmodule AWS.S3 do
   ## Parameters:
   * `:bucket` (`t:string` required) The name of the bucket
   * `:input` (`t:map`):
-    * `:replication_configuration` (`t:structure` required)
+    * `"ReplicationConfiguration" => t:structure` (required)
 
   ## Keyword parameters:
   * `:checksum_algorithm` (`t:enum["CRC32|CRC32C|SHA1|SHA256"]`) Indicates the
@@ -12237,7 +12237,7 @@ defmodule AWS.S3 do
   ## Parameters:
   * `:bucket` (`t:string` required) The bucket name.
   * `:input` (`t:map`):
-    * `:request_payment_configuration` (`t:structure` required) Container for Payer.
+    * `"RequestPaymentConfiguration" => t:structure` (required) Container for Payer.
 
   ## Keyword parameters:
   * `:checksum_algorithm` (`t:enum["CRC32|CRC32C|SHA1|SHA256"]`) Indicates the
@@ -12324,7 +12324,8 @@ defmodule AWS.S3 do
   ## Parameters:
   * `:bucket` (`t:string` required) The bucket name.
   * `:input` (`t:map`):
-    * `:tagging` (`t:structure` required) Container for the TagSet and Tag elements.
+    * `"Tagging" => t:structure` (required) Container for the TagSet and Tag
+    elements.
 
   ## Keyword parameters:
   * `:checksum_algorithm` (`t:enum["CRC32|CRC32C|SHA1|SHA256"]`) Indicates the
@@ -12417,8 +12418,8 @@ defmodule AWS.S3 do
   ## Parameters:
   * `:bucket` (`t:string` required) The bucket name.
   * `:input` (`t:map`):
-    * `:versioning_configuration` (`t:structure` required) Container for setting the
-    versioning state.
+    * `"VersioningConfiguration" => t:structure` (required) Container for setting
+    the versioning state.
 
   ## Keyword parameters:
   * `:checksum_algorithm` (`t:enum["CRC32|CRC32C|SHA1|SHA256"]`) Indicates the
@@ -12528,7 +12529,7 @@ defmodule AWS.S3 do
   ## Parameters:
   * `:bucket` (`t:string` required) The bucket name.
   * `:input` (`t:map`):
-    * `:website_configuration` (`t:structure` required) Container for the request.
+    * `"WebsiteConfiguration" => t:structure` (required) Container for the request.
 
   ## Keyword parameters:
   * `:checksum_algorithm` (`t:enum["CRC32|CRC32C|SHA1|SHA256"]`) Indicates the
@@ -13145,8 +13146,8 @@ defmodule AWS.S3 do
     which you want to attach the ACL.
   * `:key` (`t:string` required) Key for which the PUT action was initiated.
   * `:input` (`t:map | nil`):
-    * `:access_control_policy` (`t:structure`) Contains the elements that set the
-    ACL permissions for an object per grantee.
+    * `"AccessControlPolicy" => t:structure` Contains the elements that set the ACL
+    permissions for an object per grantee.
 
   ## Keyword parameters:
   * `:version_id` (`t:string`) Version ID used to reference a specific version of
@@ -13338,7 +13339,7 @@ defmodule AWS.S3 do
   * `:key` (`t:string` required) The key name for the object that you want to
     place a legal hold on.
   * `:input` (`t:map | nil`):
-    * `:legal_hold` (`t:structure`) Container element for the legal hold
+    * `"LegalHold" => t:structure` Container element for the legal hold
     configuration you want to apply to the specified object.
 
   ## Keyword parameters:
@@ -13465,8 +13466,8 @@ defmodule AWS.S3 do
   * `:bucket` (`t:string` required) The bucket whose Object Lock configuration you
     want to create or replace.
   * `:input` (`t:map | nil`):
-    * `:object_lock_configuration` (`t:structure`) The Object Lock configuration
-    that you want to apply to the specified bucket.
+    * `"ObjectLockConfiguration" => t:structure` The Object Lock configuration that
+    you want to apply to the specified bucket.
 
   ## Keyword parameters:
   * `:checksum_algorithm` (`t:enum["CRC32|CRC32C|SHA1|SHA256"]`) Indicates the
@@ -13598,7 +13599,7 @@ defmodule AWS.S3 do
   * `:key` (`t:string` required) The key name for the object that you want to
     apply this Object Retention configuration to.
   * `:input` (`t:map | nil`):
-    * `:retention` (`t:structure`) The container element for the Object Retention
+    * `"Retention" => t:structure` The container element for the Object Retention
     configuration.
 
   ## Keyword parameters:
@@ -13743,7 +13744,8 @@ defmodule AWS.S3 do
   * `:bucket` (`t:string` required) The bucket name containing the object.
   * `:key` (`t:string` required) Name of the object key.
   * `:input` (`t:map`):
-    * `:tagging` (`t:structure` required) Container for the TagSet and Tag elements
+    * `"Tagging" => t:structure` (required) Container for the TagSet and Tag
+    elements
 
   ## Keyword parameters:
   * `:version_id` (`t:string`) The versionId of the object that the tag-set will
@@ -13872,7 +13874,7 @@ defmodule AWS.S3 do
   * `:bucket` (`t:string` required) The name of the Amazon S3 bucket whose
     PublicAccessBlock configuration you want to set.
   * `:input` (`t:map`):
-    * `:public_access_block_configuration` (`t:structure` required) The
+    * `"PublicAccessBlockConfiguration" => t:structure` (required) The
     PublicAccessBlock configuration that you want to apply to this Amazon S3
     bucket. You can enable the configuration options in any combination. For
     more information about when Amazon S3 considers a bucket or object public,
@@ -13963,7 +13965,7 @@ defmodule AWS.S3 do
     restore.
   * `:key` (`t:string` required) Object key for which the action was initiated.
   * `:input` (`t:map | nil`):
-    * `:restore_request` (`t:structure`)
+    * `"RestoreRequest" => t:structure`
 
   ## Keyword parameters:
   * `:version_id` (`t:string`) VersionId used to reference a specific version of

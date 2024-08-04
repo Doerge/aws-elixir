@@ -12488,7 +12488,6 @@ defmodule AWS.SecurityHub do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=securityhub%20AcceptAdministratorInvitation&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec accept_administrator_invitation(AWS.Client.t(), Keyword.t()) ::
           {:ok, accept_administrator_invitation_response(), any()}
@@ -12536,7 +12535,6 @@ defmodule AWS.SecurityHub do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=securityhub%20AcceptInvitation&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec accept_invitation(AWS.Client.t(), Keyword.t()) ::
           {:ok, accept_invitation_response(), any()}
@@ -12578,7 +12576,6 @@ defmodule AWS.SecurityHub do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=securityhub%20BatchDeleteAutomationRules&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec batch_delete_automation_rules(AWS.Client.t(), Keyword.t()) ::
           {:ok, batch_delete_automation_rules_response(), any()}
@@ -12620,7 +12617,6 @@ defmodule AWS.SecurityHub do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=securityhub%20BatchDisableStandards&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec batch_disable_standards(AWS.Client.t(), Keyword.t()) ::
           {:ok, batch_disable_standards_response(), any()}
@@ -12663,7 +12659,6 @@ defmodule AWS.SecurityHub do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=securityhub%20BatchEnableStandards&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec batch_enable_standards(AWS.Client.t(), Keyword.t()) ::
           {:ok, batch_enable_standards_response(), any()}
@@ -12706,7 +12701,6 @@ defmodule AWS.SecurityHub do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=securityhub%20BatchGetAutomationRules&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec batch_get_automation_rules(AWS.Client.t(), Keyword.t()) ::
           {:ok, batch_get_automation_rules_response(), any()}
@@ -12751,7 +12745,6 @@ defmodule AWS.SecurityHub do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=securityhub%20BatchGetConfigurationPolicyAssociations&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec batch_get_configuration_policy_associations(AWS.Client.t(), Keyword.t()) ::
           {:ok, batch_get_configuration_policy_associations_response(), any()}
@@ -12794,7 +12787,6 @@ defmodule AWS.SecurityHub do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=securityhub%20BatchGetSecurityControls&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec batch_get_security_controls(AWS.Client.t(), Keyword.t()) ::
           {:ok, batch_get_security_controls_response(), any()}
@@ -12837,7 +12829,6 @@ defmodule AWS.SecurityHub do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=securityhub%20BatchGetStandardsControlAssociations&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec batch_get_standards_control_associations(AWS.Client.t(), Keyword.t()) ::
           {:ok, batch_get_standards_control_associations_response(), any()}
@@ -12881,7 +12872,6 @@ defmodule AWS.SecurityHub do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=securityhub%20BatchImportFindings&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec batch_import_findings(AWS.Client.t(), Keyword.t()) ::
           {:ok, batch_import_findings_response(), any()}
@@ -12924,7 +12914,6 @@ defmodule AWS.SecurityHub do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=securityhub%20BatchUpdateAutomationRules&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec batch_update_automation_rules(AWS.Client.t(), Keyword.t()) ::
           {:ok, batch_update_automation_rules_response(), any()}
@@ -12980,7 +12969,6 @@ defmodule AWS.SecurityHub do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=securityhub%20BatchUpdateFindings&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec batch_update_findings(AWS.Client.t(), Keyword.t()) ::
           {:ok, batch_update_findings_response(), any()}
@@ -13033,7 +13021,6 @@ defmodule AWS.SecurityHub do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=securityhub%20BatchUpdateStandardsControlAssociations&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec batch_update_standards_control_associations(AWS.Client.t(), Keyword.t()) ::
           {:ok, batch_update_standards_control_associations_response(), any()}
@@ -13085,7 +13072,6 @@ defmodule AWS.SecurityHub do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=securityhub%20CreateActionTarget&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec create_action_target(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_action_target_response(), any()}
@@ -13127,7 +13113,6 @@ defmodule AWS.SecurityHub do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=securityhub%20CreateAutomationRule&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec create_automation_rule(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_automation_rule_response(), any()}
@@ -13170,7 +13155,6 @@ defmodule AWS.SecurityHub do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=securityhub%20CreateConfigurationPolicy&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec create_configuration_policy(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_configuration_policy_response(), any()}
@@ -13212,7 +13196,6 @@ defmodule AWS.SecurityHub do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=securityhub%20CreateFindingAggregator&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec create_finding_aggregator(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_finding_aggregator_response(), any()}
@@ -13256,7 +13239,6 @@ defmodule AWS.SecurityHub do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=securityhub%20CreateInsight&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec create_insight(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_insight_response(), any()}
@@ -13302,7 +13284,6 @@ defmodule AWS.SecurityHub do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=securityhub%20CreateMembers&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec create_members(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_members_response(), any()}
@@ -13345,7 +13326,6 @@ defmodule AWS.SecurityHub do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=securityhub%20DeclineInvitations&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec decline_invitations(AWS.Client.t(), Keyword.t()) ::
           {:ok, decline_invitations_response(), any()}
@@ -13388,8 +13368,7 @@ defmodule AWS.SecurityHub do
 
   ## Parameters:
   * `:action_target_arn` (`t:string` required) The Amazon Resource Name (ARN) of
-  the custom action target to delete.
-  ## Keyword parameters:
+    the custom action target to delete.
   """
   @spec delete_action_target(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, delete_action_target_response(), any()}
@@ -13446,8 +13425,7 @@ defmodule AWS.SecurityHub do
 
   ## Parameters:
   * `:identifier` (`t:string` required) The Amazon Resource Name (ARN) or
-  universally unique identifier (UUID) of the configuration policy.
-  ## Keyword parameters:
+    universally unique identifier (UUID) of the configuration policy.
   """
   @spec delete_configuration_policy(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, delete_configuration_policy_response(), any()}
@@ -13501,8 +13479,7 @@ defmodule AWS.SecurityHub do
 
   ## Parameters:
   * `:finding_aggregator_arn` (`t:string` required) The ARN of the finding
-  aggregator to delete. To obtain the ARN, use ListFindingAggregators.
-  ## Keyword parameters:
+    aggregator to delete. To obtain the ARN, use ListFindingAggregators.
   """
   @spec delete_finding_aggregator(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, delete_finding_aggregator_response(), any()}
@@ -13556,7 +13533,6 @@ defmodule AWS.SecurityHub do
 
   ## Parameters:
   * `:insight_arn` (`t:string` required) The ARN of the insight to delete.
-  ## Keyword parameters:
   """
   @spec delete_insight(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, delete_insight_response(), any()}
@@ -13610,7 +13586,6 @@ defmodule AWS.SecurityHub do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=securityhub%20DeleteInvitations&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec delete_invitations(AWS.Client.t(), Keyword.t()) ::
           {:ok, delete_invitations_response(), any()}
@@ -13652,7 +13627,6 @@ defmodule AWS.SecurityHub do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=securityhub%20DeleteMembers&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec delete_members(AWS.Client.t(), Keyword.t()) ::
           {:ok, delete_members_response(), any()}
@@ -13694,7 +13668,6 @@ defmodule AWS.SecurityHub do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=securityhub%20DescribeActionTargets&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec describe_action_targets(AWS.Client.t(), Keyword.t()) ::
           {:ok, describe_action_targets_response(), any()}
@@ -13737,6 +13710,7 @@ defmodule AWS.SecurityHub do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=securityhub%20DescribeHub&this_doc_guide=API%2520Reference)
 
   ## Parameters:
+
   ## Keyword parameters:
   * `:hub_arn` (`t:string`) The ARN of the Hub resource to retrieve.
   """
@@ -13790,7 +13764,6 @@ defmodule AWS.SecurityHub do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=securityhub%20DescribeOrganizationConfiguration&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec describe_organization_configuration(AWS.Client.t(), Keyword.t()) ::
           {:ok, describe_organization_configuration_response(), any()}
@@ -13832,11 +13805,12 @@ defmodule AWS.SecurityHub do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=securityhub%20DescribeProducts&this_doc_guide=API%2520Reference)
 
   ## Parameters:
+
   ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of results to return.
   * `:next_token` (`t:string`) The token that is required for pagination. On your
-  first call to the DescribeProducts operation, set the value of this
-  parameter to NULL.
+    first call to the DescribeProducts operation, set the value of this
+    parameter to NULL.
   * `:product_arn` (`t:string`) The ARN of the integration to return.
   """
   @spec describe_products(AWS.Client.t(), Keyword.t()) ::
@@ -13902,11 +13876,12 @@ defmodule AWS.SecurityHub do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=securityhub%20DescribeStandards&this_doc_guide=API%2520Reference)
 
   ## Parameters:
+
   ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of standards to return.
   * `:next_token` (`t:string`) The token that is required for pagination. On your
-  first call to the DescribeStandards operation, set the value of this
-  parameter to NULL.
+    first call to the DescribeStandards operation, set the value of this
+    parameter to NULL.
   """
   @spec describe_standards(AWS.Client.t(), Keyword.t()) ::
           {:ok, describe_standards_response(), any()}
@@ -13965,15 +13940,16 @@ defmodule AWS.SecurityHub do
 
   ## Parameters:
   * `:standards_subscription_arn` (`t:string` required) The ARN of a resource that
-  represents your subscription to a supported standard. To get the
-  subscription ARNs of the standards you have enabled, use the
-  GetEnabledStandards operation.
+    represents your subscription to a supported standard. To get the
+    subscription ARNs of the standards you have enabled, use the
+    GetEnabledStandards operation.
+
   ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of security standard controls
-  to return.
+    to return.
   * `:next_token` (`t:string`) The token that is required for pagination. On your
-  first call to the DescribeStandardsControls operation, set the value of this
-  parameter to NULL.
+    first call to the DescribeStandardsControls operation, set the value of this
+    parameter to NULL.
   """
   @spec describe_standards_controls(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, describe_standards_controls_response(), any()}
@@ -14035,8 +14011,7 @@ defmodule AWS.SecurityHub do
 
   ## Parameters:
   * `:product_subscription_arn` (`t:string` required) The ARN of the integrated
-  product to disable the integration for.
-  ## Keyword parameters:
+    product to disable the integration for.
   """
   @spec disable_import_findings_for_product(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, disable_import_findings_for_product_response(), any()}
@@ -14094,7 +14069,6 @@ defmodule AWS.SecurityHub do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=securityhub%20DisableOrganizationAdminAccount&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec disable_organization_admin_account(AWS.Client.t(), Keyword.t()) ::
           {:ok, disable_organization_admin_account_response(), any()}
@@ -14139,7 +14113,6 @@ defmodule AWS.SecurityHub do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=securityhub%20DisableSecurityHub&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec disable_security_hub(AWS.Client.t(), Keyword.t()) ::
           {:ok, disable_security_hub_response(), any()}
@@ -14192,7 +14165,6 @@ defmodule AWS.SecurityHub do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=securityhub%20DisassociateFromAdministratorAccount&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec disassociate_from_administrator_account(AWS.Client.t(), Keyword.t()) ::
           {:ok, disassociate_from_administrator_account_response(), any()}
@@ -14241,7 +14213,6 @@ defmodule AWS.SecurityHub do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=securityhub%20DisassociateFromMasterAccount&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec disassociate_from_master_account(AWS.Client.t(), Keyword.t()) ::
           {:ok, disassociate_from_master_account_response(), any()}
@@ -14284,7 +14255,6 @@ defmodule AWS.SecurityHub do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=securityhub%20DisassociateMembers&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec disassociate_members(AWS.Client.t(), Keyword.t()) ::
           {:ok, disassociate_members_response(), any()}
@@ -14327,7 +14297,6 @@ defmodule AWS.SecurityHub do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=securityhub%20EnableImportFindingsForProduct&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec enable_import_findings_for_product(AWS.Client.t(), Keyword.t()) ::
           {:ok, enable_import_findings_for_product_response(), any()}
@@ -14370,7 +14339,6 @@ defmodule AWS.SecurityHub do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=securityhub%20EnableOrganizationAdminAccount&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec enable_organization_admin_account(AWS.Client.t(), Keyword.t()) ::
           {:ok, enable_organization_admin_account_response(), any()}
@@ -14415,7 +14383,6 @@ defmodule AWS.SecurityHub do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=securityhub%20EnableSecurityHub&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec enable_security_hub(AWS.Client.t(), Keyword.t()) ::
           {:ok, enable_security_hub_response(), any()}
@@ -14458,7 +14425,6 @@ defmodule AWS.SecurityHub do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=securityhub%20GetAdministratorAccount&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec get_administrator_account(AWS.Client.t(), Keyword.t()) ::
           {:ok, get_administrator_account_response(), any()}
@@ -14500,8 +14466,7 @@ defmodule AWS.SecurityHub do
 
   ## Parameters:
   * `:identifier` (`t:string` required) The Amazon Resource Name (ARN) or
-  universally unique identifier (UUID) of the configuration policy.
-  ## Keyword parameters:
+    universally unique identifier (UUID) of the configuration policy.
   """
   @spec get_configuration_policy(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_configuration_policy_response(), any()}
@@ -14544,7 +14509,6 @@ defmodule AWS.SecurityHub do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=securityhub%20GetConfigurationPolicyAssociation&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec get_configuration_policy_association(AWS.Client.t(), Keyword.t()) ::
           {:ok, get_configuration_policy_association_response(), any()}
@@ -14586,7 +14550,6 @@ defmodule AWS.SecurityHub do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=securityhub%20GetEnabledStandards&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec get_enabled_standards(AWS.Client.t(), Keyword.t()) ::
           {:ok, get_enabled_standards_response(), any()}
@@ -14629,9 +14592,8 @@ defmodule AWS.SecurityHub do
 
   ## Parameters:
   * `:finding_aggregator_arn` (`t:string` required) The ARN of the finding
-  aggregator to return details for. To obtain the ARN, use
-  ListFindingAggregators.
-  ## Keyword parameters:
+    aggregator to return details for. To obtain the ARN, use
+    ListFindingAggregators.
   """
   @spec get_finding_aggregator(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_finding_aggregator_response(), any()}
@@ -14674,7 +14636,6 @@ defmodule AWS.SecurityHub do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=securityhub%20GetFindingHistory&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec get_finding_history(AWS.Client.t(), Keyword.t()) ::
           {:ok, get_finding_history_response(), any()}
@@ -14716,7 +14677,6 @@ defmodule AWS.SecurityHub do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=securityhub%20GetFindings&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec get_findings(AWS.Client.t(), Keyword.t()) ::
           {:ok, get_findings_response(), any()}
@@ -14759,8 +14719,7 @@ defmodule AWS.SecurityHub do
 
   ## Parameters:
   * `:insight_arn` (`t:string` required) The ARN of the insight for which to
-  return results.
-  ## Keyword parameters:
+    return results.
   """
   @spec get_insight_results(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_insight_results_response(), any()}
@@ -14800,7 +14759,6 @@ defmodule AWS.SecurityHub do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=securityhub%20GetInsights&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec get_insights(AWS.Client.t(), Keyword.t()) ::
           {:ok, get_insights_response(), any()}
@@ -14843,7 +14801,6 @@ defmodule AWS.SecurityHub do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=securityhub%20GetInvitationsCount&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec get_invitations_count(AWS.Client.t(), Keyword.t()) ::
           {:ok, get_invitations_count_response(), any()}
@@ -14889,7 +14846,6 @@ defmodule AWS.SecurityHub do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=securityhub%20GetMasterAccount&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec get_master_account(AWS.Client.t(), Keyword.t()) ::
           {:ok, get_master_account_response(), any()}
@@ -14932,7 +14888,6 @@ defmodule AWS.SecurityHub do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=securityhub%20GetMembers&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec get_members(AWS.Client.t(), Keyword.t()) ::
           {:ok, get_members_response(), any()}
@@ -14977,9 +14932,8 @@ defmodule AWS.SecurityHub do
 
   ## Parameters:
   * `:security_control_id` (`t:string` required) The ID of the security control to
-  retrieve the definition for. This field doesn’t accept an Amazon Resource
-  Name (ARN).
-  ## Keyword parameters:
+    retrieve the definition for. This field doesn’t accept an Amazon Resource
+    Name (ARN).
   """
   @spec get_security_control_definition(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_security_control_definition_response(), any()}
@@ -15023,7 +14977,6 @@ defmodule AWS.SecurityHub do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=securityhub%20InviteMembers&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec invite_members(AWS.Client.t(), Keyword.t()) ::
           {:ok, invite_members_response(), any()}
@@ -15065,13 +15018,14 @@ defmodule AWS.SecurityHub do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=securityhub%20ListAutomationRules&this_doc_guide=API%2520Reference)
 
   ## Parameters:
+
   ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of rules to return in the
-  response. This currently ranges from 1 to 100.
+    response. This currently ranges from 1 to 100.
   * `:next_token` (`t:string`) A token to specify where to start paginating the
-  response. This is the NextToken from a previously truncated response. On
-  your first call to the ListAutomationRules API, set the value of this
-  parameter to NULL.
+    response. This is the NextToken from a previously truncated response. On
+    your first call to the ListAutomationRules API, set the value of this
+    parameter to NULL.
   """
   @spec list_automation_rules(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_automation_rules_response(), any()}
@@ -15131,21 +15085,22 @@ defmodule AWS.SecurityHub do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=securityhub%20ListConfigurationPolicies&this_doc_guide=API%2520Reference)
 
   ## Parameters:
+
   ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of results that's returned by
-  ListConfigurationPolicies in each page of the response. When this parameter
-  is used, ListConfigurationPolicies returns the specified number of results
-  in a single page and a NextToken response element. You can see the remaining
-  results of the initial request by sending another ListConfigurationPolicies
-  request with the returned NextToken value. A valid range for MaxResults is
-  between 1 and 100.
+    ListConfigurationPolicies in each page of the response. When this parameter
+    is used, ListConfigurationPolicies returns the specified number of results
+    in a single page and a NextToken response element. You can see the remaining
+    results of the initial request by sending another ListConfigurationPolicies
+    request with the returned NextToken value. A valid range for MaxResults is
+    between 1 and 100.
   * `:next_token` (`t:string`) The NextToken value that's returned from a previous
-  paginated ListConfigurationPolicies request where MaxResults was used but
-  the results exceeded the value of that parameter. Pagination continues from
-  the MaxResults was used but the results exceeded the value of that
-  parameter. Pagination continues from the end of the previous response that
-  returned the NextToken value. This value is null when there are no more
-  results to return.
+    paginated ListConfigurationPolicies request where MaxResults was used but
+    the results exceeded the value of that parameter. Pagination continues from
+    the MaxResults was used but the results exceeded the value of that
+    parameter. Pagination continues from the end of the previous response that
+    returned the NextToken value. This value is null when there are no more
+    results to return.
   """
   @spec list_configuration_policies(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_configuration_policies_response(), any()}
@@ -15205,7 +15160,6 @@ defmodule AWS.SecurityHub do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=securityhub%20ListConfigurationPolicyAssociations&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec list_configuration_policy_associations(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_configuration_policy_associations_response(), any()}
@@ -15248,12 +15202,13 @@ defmodule AWS.SecurityHub do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=securityhub%20ListEnabledProductsForImport&this_doc_guide=API%2520Reference)
 
   ## Parameters:
+
   ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of items to return in the
-  response.
+    response.
   * `:next_token` (`t:string`) The token that is required for pagination. On your
-  first call to the ListEnabledProductsForImport operation, set the value of
-  this parameter to NULL.
+    first call to the ListEnabledProductsForImport operation, set the value of
+    this parameter to NULL.
   """
   @spec list_enabled_products_for_import(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_enabled_products_for_import_response(), any()}
@@ -15312,11 +15267,12 @@ defmodule AWS.SecurityHub do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=securityhub%20ListFindingAggregators&this_doc_guide=API%2520Reference)
 
   ## Parameters:
+
   ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of results to return. This
-  operation currently only returns a single result.
+    operation currently only returns a single result.
   * `:next_token` (`t:string`) The token returned with the previous set of
-  results. Identifies the next set of results to return.
+    results. Identifies the next set of results to return.
   """
   @spec list_finding_aggregators(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_finding_aggregators_response(), any()}
@@ -15375,12 +15331,13 @@ defmodule AWS.SecurityHub do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=securityhub%20ListInvitations&this_doc_guide=API%2520Reference)
 
   ## Parameters:
+
   ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of items to return in the
-  response.
+    response.
   * `:next_token` (`t:string`) The token that is required for pagination. On your
-  first call to the ListInvitations operation, set the value of this parameter
-  to NULL.
+    first call to the ListInvitations operation, set the value of this parameter
+    to NULL.
   """
   @spec list_invitations(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_invitations_response(), any()}
@@ -15439,15 +15396,16 @@ defmodule AWS.SecurityHub do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=securityhub%20ListMembers&this_doc_guide=API%2520Reference)
 
   ## Parameters:
+
   ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of items to return in the
-  response.
+    response.
   * `:next_token` (`t:string`) The token that is required for pagination. On your
-  first call to the ListMembers operation, set the value of this parameter to
-  NULL.
+    first call to the ListMembers operation, set the value of this parameter to
+    NULL.
   * `:only_associated` (`t:boolean`) Specifies which member accounts to include in
-  the response based on their relationship status with the administrator
-  account. The default value is TRUE.
+    the response based on their relationship status with the administrator
+    account. The default value is TRUE.
   """
   @spec list_members(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_members_response(), any()}
@@ -15513,14 +15471,15 @@ defmodule AWS.SecurityHub do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=securityhub%20ListOrganizationAdminAccounts&this_doc_guide=API%2520Reference)
 
   ## Parameters:
+
   ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of items to return in the
-  response.
+    response.
   * `:next_token` (`t:string`) The token that is required for pagination. On your
-  first call to the ListOrganizationAdminAccounts operation, set the value of
-  this parameter to NULL. For subsequent calls to the operation, to continue
-  listing data, set the value of this parameter to the value returned from the
-  previous response.
+    first call to the ListOrganizationAdminAccounts operation, set the value of
+    this parameter to NULL. For subsequent calls to the operation, to continue
+    listing data, set the value of this parameter to the value returned from the
+    previous response.
   """
   @spec list_organization_admin_accounts(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_organization_admin_accounts_response(), any()}
@@ -15578,16 +15537,17 @@ defmodule AWS.SecurityHub do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=securityhub%20ListSecurityControlDefinitions&this_doc_guide=API%2520Reference)
 
   ## Parameters:
+
   ## Keyword parameters:
   * `:max_results` (`t:integer`) An optional parameter that limits the total
-  results of the API response to the specified number. If this parameter isn't
-  provided in the request, the results include the first 25 security controls
-  that apply to the specified standard. The results also include a NextToken
-  parameter that you can use in a subsequent API call to get the next 25
-  controls. This repeats until all controls for the standard are returned.
+    results of the API response to the specified number. If this parameter isn't
+    provided in the request, the results include the first 25 security controls
+    that apply to the specified standard. The results also include a NextToken
+    parameter that you can use in a subsequent API call to get the next 25
+    controls. This repeats until all controls for the standard are returned.
   * `:next_token` (`t:string`) Optional pagination parameter.
   * `:standards_arn` (`t:string`) The Amazon Resource Name (ARN) of the standard
-  that you want to view controls for.
+    that you want to view controls for.
   """
   @spec list_security_control_definitions(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_security_control_definitions_response(), any()}
@@ -15654,18 +15614,19 @@ defmodule AWS.SecurityHub do
 
   ## Parameters:
   * `:security_control_id` (`t:string` required) The identifier of the control
-  (identified with SecurityControlId, SecurityControlArn, or a mix of both
-  parameters) that you want to determine the enablement status of in each
-  enabled standard.
+    (identified with SecurityControlId, SecurityControlArn, or a mix of both
+    parameters) that you want to determine the enablement status of in each
+    enabled standard.
+
   ## Keyword parameters:
   * `:max_results` (`t:integer`) An optional parameter that limits the total
-  results of the API response to the specified number. If this parameter isn't
-  provided in the request, the results include the first 25 standard and
-  control associations. The results also include a NextToken parameter that
-  you can use in a subsequent API call to get the next 25 associations. This
-  repeats until all associations for the specified control are returned. The
-  number of results is limited by the number of supported Security Hub
-  standards that you've enabled in the calling account.
+    results of the API response to the specified number. If this parameter isn't
+    provided in the request, the results include the first 25 standard and
+    control associations. The results also include a NextToken parameter that
+    you can use in a subsequent API call to get the next 25 associations. This
+    repeats until all associations for the specified control are returned. The
+    number of results is limited by the number of supported Security Hub
+    standards that you've enabled in the calling account.
   * `:next_token` (`t:string`) Optional pagination parameter.
   """
   @spec list_standards_control_associations(AWS.Client.t(), String.t(), Keyword.t()) ::
@@ -15726,8 +15687,7 @@ defmodule AWS.SecurityHub do
 
   ## Parameters:
   * `:resource_arn` (`t:string` required) The ARN of the resource to retrieve tags
-  for.
-  ## Keyword parameters:
+    for.
   """
   @spec list_tags_for_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_tags_for_resource_response(), any()}
@@ -15770,7 +15730,6 @@ defmodule AWS.SecurityHub do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=securityhub%20StartConfigurationPolicyAssociation&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec start_configuration_policy_association(AWS.Client.t(), Keyword.t()) ::
           {:ok, start_configuration_policy_association_response(), any()}
@@ -15818,7 +15777,6 @@ defmodule AWS.SecurityHub do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=securityhub%20StartConfigurationPolicyDisassociation&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec start_configuration_policy_disassociation(AWS.Client.t(), Keyword.t()) ::
           {:ok, start_configuration_policy_disassociation_response(), any()}
@@ -15861,8 +15819,7 @@ defmodule AWS.SecurityHub do
 
   ## Parameters:
   * `:resource_arn` (`t:string` required) The ARN of the resource to apply the
-  tags to.
-  ## Keyword parameters:
+    tags to.
   """
   @spec tag_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, tag_resource_response(), any()}
@@ -15905,11 +15862,10 @@ defmodule AWS.SecurityHub do
 
   ## Parameters:
   * `:resource_arn` (`t:string` required) The ARN of the resource to remove the
-  tags from.
+    tags from.
   * `:tag_keys` (`t:list[com.amazonaws.securityhub#TagKey]` required) The tag keys
-  associated with the tags to remove from the resource. You can remove up to
-  50 tags at a time.
-  ## Keyword parameters:
+    associated with the tags to remove from the resource. You can remove up to
+    50 tags at a time.
   """
   @spec untag_resource(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, untag_resource_response(), any()}
@@ -15963,8 +15919,7 @@ defmodule AWS.SecurityHub do
 
   ## Parameters:
   * `:action_target_arn` (`t:string` required) The ARN of the custom action target
-  to update.
-  ## Keyword parameters:
+    to update.
   """
   @spec update_action_target(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, update_action_target_response(), any()}
@@ -16018,8 +15973,7 @@ defmodule AWS.SecurityHub do
 
   ## Parameters:
   * `:identifier` (`t:string` required) The Amazon Resource Name (ARN) or
-  universally unique identifier (UUID) of the configuration policy.
-  ## Keyword parameters:
+    universally unique identifier (UUID) of the configuration policy.
   """
   @spec update_configuration_policy(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, update_configuration_policy_response(), any()}
@@ -16073,7 +16027,6 @@ defmodule AWS.SecurityHub do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=securityhub%20UpdateFindingAggregator&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec update_finding_aggregator(AWS.Client.t(), Keyword.t()) ::
           {:ok, update_finding_aggregator_response(), any()}
@@ -16128,7 +16081,6 @@ defmodule AWS.SecurityHub do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=securityhub%20UpdateFindings&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec update_findings(AWS.Client.t(), Keyword.t()) ::
           {:ok, update_findings_response(), any()}
@@ -16181,8 +16133,7 @@ defmodule AWS.SecurityHub do
 
   ## Parameters:
   * `:insight_arn` (`t:string` required) The ARN of the insight that you want to
-  update.
-  ## Keyword parameters:
+    update.
   """
   @spec update_insight(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, update_insight_response(), any()}
@@ -16235,7 +16186,6 @@ defmodule AWS.SecurityHub do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=securityhub%20UpdateOrganizationConfiguration&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec update_organization_configuration(AWS.Client.t(), Keyword.t()) ::
           {:ok, update_organization_configuration_response(), any()}
@@ -16277,7 +16227,6 @@ defmodule AWS.SecurityHub do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=securityhub%20UpdateSecurityControl&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec update_security_control(AWS.Client.t(), Keyword.t()) ::
           {:ok, update_security_control_response(), any()}
@@ -16329,7 +16278,6 @@ defmodule AWS.SecurityHub do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=securityhub%20UpdateSecurityHubConfiguration&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec update_security_hub_configuration(AWS.Client.t(), Keyword.t()) ::
           {:ok, update_security_hub_configuration_response(), any()}
@@ -16383,8 +16331,7 @@ defmodule AWS.SecurityHub do
 
   ## Parameters:
   * `:standards_control_arn` (`t:string` required) The ARN of the security
-  standard control to enable or disable.
-  ## Keyword parameters:
+    standard control to enable or disable.
   """
   @spec update_standards_control(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, update_standards_control_response(), any()}

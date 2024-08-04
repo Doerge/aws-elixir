@@ -711,7 +711,6 @@ defmodule AWS.Route53Profiles do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=route53profiles%20AssociateProfile&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec associate_profile(AWS.Client.t(), Keyword.t()) ::
           {:ok, associate_profile_response(), any()}
@@ -753,7 +752,6 @@ defmodule AWS.Route53Profiles do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=route53profiles%20AssociateResourceToProfile&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec associate_resource_to_profile(AWS.Client.t(), Keyword.t()) ::
           {:ok, associate_resource_to_profile_response(), any()}
@@ -795,7 +793,6 @@ defmodule AWS.Route53Profiles do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=route53profiles%20CreateProfile&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec create_profile(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_profile_response(), any()}
@@ -839,8 +836,7 @@ defmodule AWS.Route53Profiles do
 
   ## Parameters:
   * `:profile_id` (`t:string` required) The ID of the Profile that you want to
-  delete.
-  ## Keyword parameters:
+    delete.
   """
   @spec delete_profile(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, delete_profile_response(), any()}
@@ -894,7 +890,6 @@ defmodule AWS.Route53Profiles do
   ## Parameters:
   * `:profile_id` (`t:string` required) ID of the Profile.
   * `:resource_id` (`t:string` required) The ID of the VPC.
-  ## Keyword parameters:
   """
   @spec disassociate_profile(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, disassociate_profile_response(), any()}
@@ -949,8 +944,7 @@ defmodule AWS.Route53Profiles do
   ## Parameters:
   * `:profile_id` (`t:string` required) The ID of the Profile.
   * `:resource_arn` (`t:string` required) The Amazon Resource Name (ARN) of the
-  resource.
-  ## Keyword parameters:
+    resource.
   """
   @spec disassociate_resource_from_profile(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, disassociate_resource_from_profile_response(), any()}
@@ -1010,7 +1004,6 @@ defmodule AWS.Route53Profiles do
 
   ## Parameters:
   * `:profile_id` (`t:string` required) ID of the Profile.
-  ## Keyword parameters:
   """
   @spec get_profile(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_profile_response(), any()}
@@ -1052,8 +1045,7 @@ defmodule AWS.Route53Profiles do
 
   ## Parameters:
   * `:profile_association_id` (`t:string` required) The identifier of the
-  association you want to get information about.
-  ## Keyword parameters:
+    association you want to get information about.
   """
   @spec get_profile_association(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_profile_association_response(), any()}
@@ -1094,8 +1086,7 @@ defmodule AWS.Route53Profiles do
 
   ## Parameters:
   * `:profile_resource_association_id` (`t:string` required) The ID of the profile
-  resource association that you want to get information about.
-  ## Keyword parameters:
+    resource association that you want to get information about.
   """
   @spec get_profile_resource_association(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_profile_resource_association_response(), any()}
@@ -1140,13 +1131,14 @@ defmodule AWS.Route53Profiles do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=route53profiles%20ListProfileAssociations&this_doc_guide=API%2520Reference)
 
   ## Parameters:
+
   ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of objects that you want to
-  return for this request. If more objects are available, in the response, a
-  NextToken value, which you can use in a subsequent call to get the next
-  batch of objects, is provided.
+    return for this request. If more objects are available, in the response, a
+    NextToken value, which you can use in a subsequent call to get the next
+    batch of objects, is provided.
   * `:next_token` (`t:string`) For the first call to this list request, omit this
-  value.
+    value.
   * `:profile_id` (`t:string`) ID of the Profile.
   * `:resource_id` (`t:string`) ID of the VPC.
   """
@@ -1221,15 +1213,16 @@ defmodule AWS.Route53Profiles do
 
   ## Parameters:
   * `:profile_id` (`t:string` required) The ID of the Profile.
+
   ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of objects that you want to
-  return for this request. If more objects are available, in the response, a
-  NextToken value, which you can use in a subsequent call to get the next
-  batch of objects, is provided.
+    return for this request. If more objects are available, in the response, a
+    NextToken value, which you can use in a subsequent call to get the next
+    batch of objects, is provided.
   * `:next_token` (`t:string`) For the first call to this list request, omit this
-  value.
+    value.
   * `:resource_type` (`t:string`) ID of a resource if you want information on only
-  one type.
+    one type.
   """
   @spec list_profile_resource_associations(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_profile_resource_associations_response(), any()}
@@ -1295,13 +1288,14 @@ defmodule AWS.Route53Profiles do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=route53profiles%20ListProfiles&this_doc_guide=API%2520Reference)
 
   ## Parameters:
+
   ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of objects that you want to
-  return for this request. If more objects are available, in the response, a
-  NextToken value, which you can use in a subsequent call to get the next
-  batch of objects, is provided.
+    return for this request. If more objects are available, in the response, a
+    NextToken value, which you can use in a subsequent call to get the next
+    batch of objects, is provided.
   * `:next_token` (`t:string`) For the first call to this list request, omit this
-  value.
+    value.
   """
   @spec list_profiles(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_profiles_response(), any()}
@@ -1360,8 +1354,7 @@ defmodule AWS.Route53Profiles do
 
   ## Parameters:
   * `:resource_arn` (`t:string` required) The Amazon Resource Name (ARN) for the
-  resource that you want to list the tags for.
-  ## Keyword parameters:
+    resource that you want to list the tags for.
   """
   @spec list_tags_for_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_tags_for_resource_response(), any()}
@@ -1402,8 +1395,7 @@ defmodule AWS.Route53Profiles do
 
   ## Parameters:
   * `:resource_arn` (`t:string` required) The Amazon Resource Name (ARN) for the
-  resource that you want to add tags to.
-  ## Keyword parameters:
+    resource that you want to add tags to.
   """
   @spec tag_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, tag_resource_response(), any()}
@@ -1446,10 +1438,9 @@ defmodule AWS.Route53Profiles do
 
   ## Parameters:
   * `:resource_arn` (`t:string` required) The Amazon Resource Name (ARN) for the
-  resource that you want to remove tags from.
+    resource that you want to remove tags from.
   * `:tag_keys` (`t:list[com.amazonaws.route53profiles#TagKey]` required) The tags
-  that you want to remove to the specified resource.
-  ## Keyword parameters:
+    that you want to remove to the specified resource.
   """
   @spec untag_resource(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, untag_resource_response(), any()}
@@ -1503,8 +1494,7 @@ defmodule AWS.Route53Profiles do
 
   ## Parameters:
   * `:profile_resource_association_id` (`t:string` required) ID of the resource
-  association.
-  ## Keyword parameters:
+    association.
   """
   @spec update_profile_resource_association(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, update_profile_resource_association_response(), any()}

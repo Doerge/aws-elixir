@@ -151,7 +151,6 @@ defmodule AWS.KinesisVideoMedia do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=kinesisvideomedia%20GetMedia&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec get_media(AWS.Client.t(), Keyword.t()) ::
           {:ok, get_media_output(), any()}
@@ -178,13 +177,6 @@ defmodule AWS.KinesisVideoMedia do
     query_params = []
 
     # Optional query params
-    options =
-      Keyword.put(
-        options,
-        :response_header_parameters,
-        [{"Content-Type", "ContentType"}]
-      )
-
     options =
       Keyword.put(
         options,

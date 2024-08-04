@@ -513,12 +513,11 @@ defmodule AWS.LexRuntime do
 
   ## Parameters:
   * `:bot_alias` (`t:string` required) The alias in use for the bot that contains
-  the session data.
+    the session data.
   * `:bot_name` (`t:string` required) The name of the bot that contains the
-  session data.
+    session data.
   * `:user_id` (`t:string` required) The identifier of the user associated with
-  the session data.
-  ## Keyword parameters:
+    the session data.
   """
   @spec delete_session(AWS.Client.t(), String.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, delete_session_response(), any()}
@@ -572,14 +571,15 @@ defmodule AWS.LexRuntime do
 
   ## Parameters:
   * `:bot_alias` (`t:string` required) The alias in use for the bot that contains
-  the session data.
+    the session data.
   * `:bot_name` (`t:string` required) The name of the bot that contains the
-  session data.
+    session data.
   * `:user_id` (`t:string` required) The ID of the client application user. Amazon
-  Lex uses this to identify a user's conversation with your bot.
+    Lex uses this to identify a user's conversation with your bot.
+
   ## Keyword parameters:
   * `:checkpoint_label_filter` (`t:string`) A string used to filter the intents
-  returned in the recentIntentSummaryView structure.
+    returned in the recentIntentSummaryView structure.
   """
   @spec get_session(AWS.Client.t(), String.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_session_response(), any()}
@@ -639,22 +639,23 @@ defmodule AWS.LexRuntime do
   * `:bot_alias` (`t:string` required) Alias of the Amazon Lex bot.
   * `:bot_name` (`t:string` required) Name of the Amazon Lex bot.
   * `:user_id` (`t:string` required) The ID of the client application user. Amazon
-  Lex uses this to identify a user's conversation with your bot. At runtime,
-  each request must contain the userID field.
+    Lex uses this to identify a user's conversation with your bot. At runtime,
+    each request must contain the userID field.
   * `:content_type` (`t:string` required) You pass this value as the Content-Type
-  HTTP header.
+    HTTP header.
   * `:input` (`t:map`):
-    * `:input_stream` (`t:blob` required) User input in PCM or Opus audio format or
-  text format as described in the Content-Type HTTP header.
+    * `"inputStream" => t:blob` (required) User input in PCM or Opus audio format or
+    text format as described in the Content-Type HTTP header.
+
   ## Keyword parameters:
   * `:accept` (`t:string`) You pass this value as the Accept HTTP header.
   * `:active_contexts` (`t:string`) A list of contexts active for the request. A
-  context can be activated when a previous intent is fulfilled, or by
-  including the context in the request,
+    context can be activated when a previous intent is fulfilled, or by
+    including the context in the request,
   * `:request_attributes` (`t:string`) You pass this value as the
-  x-amz-lex-request-attributes HTTP header.
+    x-amz-lex-request-attributes HTTP header.
   * `:session_attributes` (`t:string`) You pass this value as the
-  x-amz-lex-session-attributes HTTP header.
+    x-amz-lex-session-attributes HTTP header.
   """
   @spec post_content(
           AWS.Client.t(),
@@ -756,31 +757,6 @@ defmodule AWS.LexRuntime do
         ]
       )
 
-    options =
-      Keyword.put(
-        options,
-        :response_header_parameters,
-        [
-          {"x-amz-lex-active-contexts", "activeContexts"},
-          {"x-amz-lex-alternative-intents", "alternativeIntents"},
-          {"x-amz-lex-bot-version", "botVersion"},
-          {"Content-Type", "contentType"},
-          {"x-amz-lex-dialog-state", "dialogState"},
-          {"x-amz-lex-encoded-input-transcript", "encodedInputTranscript"},
-          {"x-amz-lex-encoded-message", "encodedMessage"},
-          {"x-amz-lex-input-transcript", "inputTranscript"},
-          {"x-amz-lex-intent-name", "intentName"},
-          {"x-amz-lex-message", "message"},
-          {"x-amz-lex-message-format", "messageFormat"},
-          {"x-amz-lex-nlu-intent-confidence", "nluIntentConfidence"},
-          {"x-amz-lex-sentiment", "sentimentResponse"},
-          {"x-amz-lex-session-attributes", "sessionAttributes"},
-          {"x-amz-lex-session-id", "sessionId"},
-          {"x-amz-lex-slot-to-elicit", "slotToElicit"},
-          {"x-amz-lex-slots", "slots"}
-        ]
-      )
-
     meta =
       metadata()
 
@@ -807,9 +783,8 @@ defmodule AWS.LexRuntime do
   * `:bot_alias` (`t:string` required) The alias of the Amazon Lex bot.
   * `:bot_name` (`t:string` required) The name of the Amazon Lex bot.
   * `:user_id` (`t:string` required) The ID of the client application user. Amazon
-  Lex uses this to identify a user's conversation with your bot. At runtime,
-  each request must contain the userID field.
-  ## Keyword parameters:
+    Lex uses this to identify a user's conversation with your bot. At runtime,
+    each request must contain the userID field.
   """
   @spec post_text(AWS.Client.t(), String.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, post_text_response(), any()}
@@ -854,14 +829,15 @@ defmodule AWS.LexRuntime do
 
   ## Parameters:
   * `:bot_alias` (`t:string` required) The alias in use for the bot that contains
-  the session data.
+    the session data.
   * `:bot_name` (`t:string` required) The name of the bot that contains the
-  session data.
+    session data.
   * `:user_id` (`t:string` required) The ID of the client application user. Amazon
-  Lex uses this to identify a user's conversation with your bot.
+    Lex uses this to identify a user's conversation with your bot.
+
   ## Keyword parameters:
   * `:accept` (`t:string`) The message that Amazon Lex returns in the response can
-  be either text or speech based depending on the value of this field.
+    be either text or speech based depending on the value of this field.
   """
   @spec put_session(AWS.Client.t(), String.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, put_session_response(), any()}
@@ -895,25 +871,6 @@ defmodule AWS.LexRuntime do
     query_params = []
 
     # Optional query params
-    options =
-      Keyword.put(
-        options,
-        :response_header_parameters,
-        [
-          {"x-amz-lex-active-contexts", "activeContexts"},
-          {"Content-Type", "contentType"},
-          {"x-amz-lex-dialog-state", "dialogState"},
-          {"x-amz-lex-encoded-message", "encodedMessage"},
-          {"x-amz-lex-intent-name", "intentName"},
-          {"x-amz-lex-message", "message"},
-          {"x-amz-lex-message-format", "messageFormat"},
-          {"x-amz-lex-session-attributes", "sessionAttributes"},
-          {"x-amz-lex-session-id", "sessionId"},
-          {"x-amz-lex-slot-to-elicit", "slotToElicit"},
-          {"x-amz-lex-slots", "slots"}
-        ]
-      )
-
     options =
       Keyword.put(
         options,

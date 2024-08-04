@@ -577,8 +577,7 @@ defmodule AWS.MWAA do
 
   ## Parameters:
   * `:name` (`t:string` required) The name of the Amazon MWAA environment. For
-  example, MyMWAAEnvironment.
-  ## Keyword parameters:
+    example, MyMWAAEnvironment.
   """
   @spec create_cli_token(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, create_cli_token_response(), any()}
@@ -621,8 +620,7 @@ defmodule AWS.MWAA do
 
   ## Parameters:
   * `:name` (`t:string` required) The name of the Amazon MWAA environment. For
-  example, MyMWAAEnvironment.
-  ## Keyword parameters:
+    example, MyMWAAEnvironment.
   """
   @spec create_environment(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, create_environment_output(), any()}
@@ -667,8 +665,7 @@ defmodule AWS.MWAA do
 
   ## Parameters:
   * `:name` (`t:string` required) The name of the Amazon MWAA environment. For
-  example, MyMWAAEnvironment.
-  ## Keyword parameters:
+    example, MyMWAAEnvironment.
   """
   @spec create_web_login_token(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, create_web_login_token_response(), any()}
@@ -711,8 +708,7 @@ defmodule AWS.MWAA do
 
   ## Parameters:
   * `:name` (`t:string` required) The name of the Amazon MWAA environment. For
-  example, MyMWAAEnvironment.
-  ## Keyword parameters:
+    example, MyMWAAEnvironment.
   """
   @spec delete_environment(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, delete_environment_output(), any()}
@@ -765,8 +761,7 @@ defmodule AWS.MWAA do
 
   ## Parameters:
   * `:name` (`t:string` required) The name of the Amazon MWAA environment. For
-  example, MyMWAAEnvironment.
-  ## Keyword parameters:
+    example, MyMWAAEnvironment.
   """
   @spec get_environment(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_environment_output(), any()}
@@ -806,9 +801,10 @@ defmodule AWS.MWAA do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mwaa%20ListEnvironments&this_doc_guide=API%2520Reference)
 
   ## Parameters:
+
   ## Keyword parameters:
   * `:max_results` (`t:string`) The maximum number of results to retrieve per
-  page. For example, 5 environments per page.
+    page. For example, 5 environments per page.
   * `:next_token` (`t:string`) Retrieves the next page of the results.
   """
   @spec list_environments(AWS.Client.t(), Keyword.t()) ::
@@ -869,9 +865,8 @@ defmodule AWS.MWAA do
 
   ## Parameters:
   * `:resource_arn` (`t:string` required) The Amazon Resource Name (ARN) of the
-  Amazon MWAA environment. For example,
-  arn:aws:airflow:us-east-1:123456789012:environment/MyMWAAEnvironment.
-  ## Keyword parameters:
+    Amazon MWAA environment. For example,
+    arn:aws:airflow:us-east-1:123456789012:environment/MyMWAAEnvironment.
   """
   @spec list_tags_for_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_tags_for_resource_output(), any()}
@@ -912,8 +907,7 @@ defmodule AWS.MWAA do
 
   ## Parameters:
   * `:environment_name` (`t:string` required) Internal only. The name of the
-  environment.
-  ## Keyword parameters:
+    environment.
   """
   @spec publish_metrics(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, publish_metrics_output(), any()}
@@ -957,9 +951,8 @@ defmodule AWS.MWAA do
 
   ## Parameters:
   * `:resource_arn` (`t:string` required) The Amazon Resource Name (ARN) of the
-  Amazon MWAA environment. For example,
-  arn:aws:airflow:us-east-1:123456789012:environment/MyMWAAEnvironment.
-  ## Keyword parameters:
+    Amazon MWAA environment. For example,
+    arn:aws:airflow:us-east-1:123456789012:environment/MyMWAAEnvironment.
   """
   @spec tag_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, tag_resource_output(), any()}
@@ -1003,11 +996,10 @@ defmodule AWS.MWAA do
 
   ## Parameters:
   * `:resource_arn` (`t:string` required) The Amazon Resource Name (ARN) of the
-  Amazon MWAA environment. For example,
-  arn:aws:airflow:us-east-1:123456789012:environment/MyMWAAEnvironment.
+    Amazon MWAA environment. For example,
+    arn:aws:airflow:us-east-1:123456789012:environment/MyMWAAEnvironment.
   * `:tag_keys` (`t:list[com.amazonaws.mwaa#TagKey]` required) The key-value tag
-  pair you want to remove. For example, "Environment": "Staging".
-  ## Keyword parameters:
+    pair you want to remove. For example, "Environment": "Staging".
   """
   @spec untag_resource(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, untag_resource_output(), any()}
@@ -1061,8 +1053,7 @@ defmodule AWS.MWAA do
 
   ## Parameters:
   * `:name` (`t:string` required) The name of your Amazon MWAA environment. For
-  example, MyMWAAEnvironment.
-  ## Keyword parameters:
+    example, MyMWAAEnvironment.
   """
   @spec update_environment(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, update_environment_output(), any()}

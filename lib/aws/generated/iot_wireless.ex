@@ -5174,7 +5174,6 @@ defmodule AWS.IoTWireless do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotwireless%20AssociateAwsAccountWithPartnerAccount&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec associate_aws_account_with_partner_account(AWS.Client.t(), Keyword.t()) ::
           {:ok, associate_aws_account_with_partner_account_response(), any()}
@@ -5217,7 +5216,6 @@ defmodule AWS.IoTWireless do
 
   ## Parameters:
   * `:id` (`t:string` required)
-  ## Keyword parameters:
   """
   @spec associate_multicast_group_with_fuota_task(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, associate_multicast_group_with_fuota_task_response(), any()}
@@ -5260,7 +5258,6 @@ defmodule AWS.IoTWireless do
 
   ## Parameters:
   * `:id` (`t:string` required)
-  ## Keyword parameters:
   """
   @spec associate_wireless_device_with_fuota_task(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, associate_wireless_device_with_fuota_task_response(), any()}
@@ -5303,7 +5300,6 @@ defmodule AWS.IoTWireless do
 
   ## Parameters:
   * `:id` (`t:string` required)
-  ## Keyword parameters:
   """
   @spec associate_wireless_device_with_multicast_group(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, associate_wireless_device_with_multicast_group_response(), any()}
@@ -5346,7 +5342,6 @@ defmodule AWS.IoTWireless do
 
   ## Parameters:
   * `:id` (`t:string` required) The ID of the resource to update.
-  ## Keyword parameters:
   """
   @spec associate_wireless_device_with_thing(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, associate_wireless_device_with_thing_response(), any()}
@@ -5389,7 +5384,6 @@ defmodule AWS.IoTWireless do
 
   ## Parameters:
   * `:id` (`t:string` required) The ID of the resource to update.
-  ## Keyword parameters:
   """
   @spec associate_wireless_gateway_with_certificate(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, associate_wireless_gateway_with_certificate_response(), any()}
@@ -5432,7 +5426,6 @@ defmodule AWS.IoTWireless do
 
   ## Parameters:
   * `:id` (`t:string` required) The ID of the resource to update.
-  ## Keyword parameters:
   """
   @spec associate_wireless_gateway_with_thing(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, associate_wireless_gateway_with_thing_response(), any()}
@@ -5475,7 +5468,6 @@ defmodule AWS.IoTWireless do
 
   ## Parameters:
   * `:id` (`t:string` required)
-  ## Keyword parameters:
   """
   @spec cancel_multicast_group_session(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, cancel_multicast_group_session_response(), any()}
@@ -5527,7 +5519,6 @@ defmodule AWS.IoTWireless do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotwireless%20CreateDestination&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec create_destination(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_destination_response(), any()}
@@ -5569,7 +5560,6 @@ defmodule AWS.IoTWireless do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotwireless%20CreateDeviceProfile&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec create_device_profile(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_device_profile_response(), any()}
@@ -5611,7 +5601,6 @@ defmodule AWS.IoTWireless do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotwireless%20CreateFuotaTask&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec create_fuota_task(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_fuota_task_response(), any()}
@@ -5653,7 +5642,6 @@ defmodule AWS.IoTWireless do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotwireless%20CreateMulticastGroup&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec create_multicast_group(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_multicast_group_response(), any()}
@@ -5695,7 +5683,6 @@ defmodule AWS.IoTWireless do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotwireless%20CreateNetworkAnalyzerConfiguration&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec create_network_analyzer_configuration(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_network_analyzer_configuration_response(), any()}
@@ -5737,7 +5724,6 @@ defmodule AWS.IoTWireless do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotwireless%20CreateServiceProfile&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec create_service_profile(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_service_profile_response(), any()}
@@ -5779,7 +5765,6 @@ defmodule AWS.IoTWireless do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotwireless%20CreateWirelessDevice&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec create_wireless_device(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_wireless_device_response(), any()}
@@ -5821,7 +5806,6 @@ defmodule AWS.IoTWireless do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotwireless%20CreateWirelessGateway&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec create_wireless_gateway(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_wireless_gateway_response(), any()}
@@ -5864,7 +5848,6 @@ defmodule AWS.IoTWireless do
 
   ## Parameters:
   * `:id` (`t:string` required) The ID of the resource to update.
-  ## Keyword parameters:
   """
   @spec create_wireless_gateway_task(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, create_wireless_gateway_task_response(), any()}
@@ -5906,7 +5889,6 @@ defmodule AWS.IoTWireless do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotwireless%20CreateWirelessGatewayTaskDefinition&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec create_wireless_gateway_task_definition(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_wireless_gateway_task_definition_response(), any()}
@@ -5949,7 +5931,6 @@ defmodule AWS.IoTWireless do
 
   ## Parameters:
   * `:name` (`t:string` required) The name of the resource to delete.
-  ## Keyword parameters:
   """
   @spec delete_destination(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, delete_destination_response(), any()}
@@ -6002,7 +5983,6 @@ defmodule AWS.IoTWireless do
 
   ## Parameters:
   * `:id` (`t:string` required) The ID of the resource to delete.
-  ## Keyword parameters:
   """
   @spec delete_device_profile(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, delete_device_profile_response(), any()}
@@ -6055,7 +6035,6 @@ defmodule AWS.IoTWireless do
 
   ## Parameters:
   * `:id` (`t:string` required)
-  ## Keyword parameters:
   """
   @spec delete_fuota_task(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, delete_fuota_task_response(), any()}
@@ -6108,7 +6087,6 @@ defmodule AWS.IoTWireless do
 
   ## Parameters:
   * `:id` (`t:string` required)
-  ## Keyword parameters:
   """
   @spec delete_multicast_group(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, delete_multicast_group_response(), any()}
@@ -6161,7 +6139,6 @@ defmodule AWS.IoTWireless do
 
   ## Parameters:
   * `:configuration_name` (`t:string` required)
-  ## Keyword parameters:
   """
   @spec delete_network_analyzer_configuration(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, delete_network_analyzer_configuration_response(), any()}
@@ -6214,14 +6191,15 @@ defmodule AWS.IoTWireless do
 
   ## Parameters:
   * `:id` (`t:string` required) The ID of a given wireless device for which
-  downlink messages will be deleted.
+    downlink messages will be deleted.
   * `:message_id` (`t:string` required) If message ID is "*", it cleares the
-  entire downlink queue for a given device, specified by the wireless device
-  ID. Otherwise, the downlink message with the specified message ID will be
-  deleted.
+    entire downlink queue for a given device, specified by the wireless device
+    ID. Otherwise, the downlink message with the specified message ID will be
+    deleted.
+
   ## Keyword parameters:
   * `:wireless_device_type` (`t:enum["LoRaWAN|Sidewalk"]`) The wireless device
-  type, which can be either Sidewalk or LoRaWAN.
+    type, which can be either Sidewalk or LoRaWAN.
   """
   @spec delete_queued_messages(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, delete_queued_messages_response(), any()}
@@ -6286,7 +6264,6 @@ defmodule AWS.IoTWireless do
 
   ## Parameters:
   * `:id` (`t:string` required) The ID of the resource to delete.
-  ## Keyword parameters:
   """
   @spec delete_service_profile(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, delete_service_profile_response(), any()}
@@ -6339,7 +6316,6 @@ defmodule AWS.IoTWireless do
 
   ## Parameters:
   * `:id` (`t:string` required) The ID of the resource to delete.
-  ## Keyword parameters:
   """
   @spec delete_wireless_device(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, delete_wireless_device_response(), any()}
@@ -6392,8 +6368,7 @@ defmodule AWS.IoTWireless do
 
   ## Parameters:
   * `:id` (`t:string` required) The unique identifier of the import task to be
-  deleted.
-  ## Keyword parameters:
+    deleted.
   """
   @spec delete_wireless_device_import_task(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, delete_wireless_device_import_task_response(), any()}
@@ -6446,7 +6421,6 @@ defmodule AWS.IoTWireless do
 
   ## Parameters:
   * `:id` (`t:string` required) The ID of the resource to delete.
-  ## Keyword parameters:
   """
   @spec delete_wireless_gateway(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, delete_wireless_gateway_response(), any()}
@@ -6499,7 +6473,6 @@ defmodule AWS.IoTWireless do
 
   ## Parameters:
   * `:id` (`t:string` required) The ID of the resource to delete.
-  ## Keyword parameters:
   """
   @spec delete_wireless_gateway_task(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, delete_wireless_gateway_task_response(), any()}
@@ -6553,7 +6526,6 @@ defmodule AWS.IoTWireless do
 
   ## Parameters:
   * `:id` (`t:string` required) The ID of the resource to delete.
-  ## Keyword parameters:
   """
   @spec delete_wireless_gateway_task_definition(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, delete_wireless_gateway_task_definition_response(), any()}
@@ -6606,11 +6578,12 @@ defmodule AWS.IoTWireless do
 
   ## Parameters:
   * `:identifier` (`t:string` required) The identifier of the wireless device to
-  deregister from AWS IoT Wireless.
+    deregister from AWS IoT Wireless.
+
   ## Keyword parameters:
   * `:wireless_device_type` (`t:enum["LoRaWAN|Sidewalk"]`) The type of wireless
-  device to deregister from AWS IoT Wireless, which can be LoRaWAN or
-  Sidewalk.
+    device to deregister from AWS IoT Wireless, which can be LoRaWAN or
+    Sidewalk.
   """
   @spec deregister_wireless_device(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, deregister_wireless_device_response(), any()}
@@ -6676,9 +6649,8 @@ defmodule AWS.IoTWireless do
 
   ## Parameters:
   * `:partner_account_id` (`t:string` required) The partner account ID to
-  disassociate from the AWS account.
+    disassociate from the AWS account.
   * `:partner_type` (`t:enum["Sidewalk"]` required) The partner type.
-  ## Keyword parameters:
   """
   @spec disassociate_aws_account_from_partner_account(
           AWS.Client.t(),
@@ -6743,7 +6715,6 @@ defmodule AWS.IoTWireless do
   ## Parameters:
   * `:id` (`t:string` required)
   * `:multicast_group_id` (`t:string` required)
-  ## Keyword parameters:
   """
   @spec disassociate_multicast_group_from_fuota_task(
           AWS.Client.t(),
@@ -6808,7 +6779,6 @@ defmodule AWS.IoTWireless do
   ## Parameters:
   * `:id` (`t:string` required)
   * `:wireless_device_id` (`t:string` required)
-  ## Keyword parameters:
   """
   @spec disassociate_wireless_device_from_fuota_task(
           AWS.Client.t(),
@@ -6873,7 +6843,6 @@ defmodule AWS.IoTWireless do
   ## Parameters:
   * `:id` (`t:string` required)
   * `:wireless_device_id` (`t:string` required)
-  ## Keyword parameters:
   """
   @spec disassociate_wireless_device_from_multicast_group(
           AWS.Client.t(),
@@ -6937,7 +6906,6 @@ defmodule AWS.IoTWireless do
 
   ## Parameters:
   * `:id` (`t:string` required) The ID of the resource to update.
-  ## Keyword parameters:
   """
   @spec disassociate_wireless_device_from_thing(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, disassociate_wireless_device_from_thing_response(), any()}
@@ -6990,7 +6958,6 @@ defmodule AWS.IoTWireless do
 
   ## Parameters:
   * `:id` (`t:string` required) The ID of the resource to update.
-  ## Keyword parameters:
   """
   @spec disassociate_wireless_gateway_from_certificate(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, disassociate_wireless_gateway_from_certificate_response(), any()}
@@ -7043,7 +7010,6 @@ defmodule AWS.IoTWireless do
 
   ## Parameters:
   * `:id` (`t:string` required) The ID of the resource to update.
-  ## Keyword parameters:
   """
   @spec disassociate_wireless_gateway_from_thing(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, disassociate_wireless_gateway_from_thing_response(), any()}
@@ -7096,7 +7062,6 @@ defmodule AWS.IoTWireless do
 
   ## Parameters:
   * `:name` (`t:string` required) The name of the resource to get.
-  ## Keyword parameters:
   """
   @spec get_destination(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_destination_response(), any()}
@@ -7137,7 +7102,6 @@ defmodule AWS.IoTWireless do
 
   ## Parameters:
   * `:id` (`t:string` required) The ID of the resource to get.
-  ## Keyword parameters:
   """
   @spec get_device_profile(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_device_profile_response(), any()}
@@ -7177,7 +7141,6 @@ defmodule AWS.IoTWireless do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotwireless%20GetEventConfigurationByResourceTypes&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec get_event_configuration_by_resource_types(AWS.Client.t(), Keyword.t()) ::
           {:ok, get_event_configuration_by_resource_types_response(), any()}
@@ -7218,7 +7181,6 @@ defmodule AWS.IoTWireless do
 
   ## Parameters:
   * `:id` (`t:string` required)
-  ## Keyword parameters:
   """
   @spec get_fuota_task(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_fuota_task_response(), any()}
@@ -7260,7 +7222,6 @@ defmodule AWS.IoTWireless do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotwireless%20GetLogLevelsByResourceTypes&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec get_log_levels_by_resource_types(AWS.Client.t(), Keyword.t()) ::
           {:ok, get_log_levels_by_resource_types_response(), any()}
@@ -7300,7 +7261,6 @@ defmodule AWS.IoTWireless do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotwireless%20GetMetricConfiguration&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec get_metric_configuration(AWS.Client.t(), Keyword.t()) ::
           {:ok, get_metric_configuration_response(), any()}
@@ -7340,7 +7300,6 @@ defmodule AWS.IoTWireless do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotwireless%20GetMetrics&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec get_metrics(AWS.Client.t(), Keyword.t()) ::
           {:ok, get_metrics_response(), any()}
@@ -7383,7 +7342,6 @@ defmodule AWS.IoTWireless do
 
   ## Parameters:
   * `:id` (`t:string` required)
-  ## Keyword parameters:
   """
   @spec get_multicast_group(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_multicast_group_response(), any()}
@@ -7424,7 +7382,6 @@ defmodule AWS.IoTWireless do
 
   ## Parameters:
   * `:id` (`t:string` required)
-  ## Keyword parameters:
   """
   @spec get_multicast_group_session(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_multicast_group_session_response(), any()}
@@ -7465,7 +7422,6 @@ defmodule AWS.IoTWireless do
 
   ## Parameters:
   * `:configuration_name` (`t:string` required)
-  ## Keyword parameters:
   """
   @spec get_network_analyzer_configuration(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_network_analyzer_configuration_response(), any()}
@@ -7507,9 +7463,8 @@ defmodule AWS.IoTWireless do
 
   ## Parameters:
   * `:partner_account_id` (`t:string` required) The partner account ID to
-  disassociate from the AWS account.
+    disassociate from the AWS account.
   * `:partner_type` (`t:enum["Sidewalk"]` required) The partner type.
-  ## Keyword parameters:
   """
   @spec get_partner_account(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_partner_account_response(), any()}
@@ -7551,10 +7506,9 @@ defmodule AWS.IoTWireless do
 
   ## Parameters:
   * `:resource_identifier` (`t:string` required) Resource identifier used to
-  retrieve the position information.
+    retrieve the position information.
   * `:resource_type` (`t:enum["WirelessDevice|WirelessGateway"]` required)
-  Resource type of the resource for which position information is retrieved.
-  ## Keyword parameters:
+    Resource type of the resource for which position information is retrieved.
   """
   @spec get_position(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_position_response(), any()}
@@ -7596,10 +7550,9 @@ defmodule AWS.IoTWireless do
 
   ## Parameters:
   * `:resource_identifier` (`t:string` required) Resource identifier used in a
-  position configuration.
+    position configuration.
   * `:resource_type` (`t:enum["WirelessDevice|WirelessGateway"]` required)
-  Resource type of the resource for which position configuration is retrieved.
-  ## Keyword parameters:
+    Resource type of the resource for which position configuration is retrieved.
   """
   @spec get_position_configuration(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_position_configuration_response(), any()}
@@ -7647,7 +7600,6 @@ defmodule AWS.IoTWireless do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotwireless%20GetPositionEstimate&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec get_position_estimate(AWS.Client.t(), Keyword.t()) ::
           {:ok, get_position_estimate_response(), any()}
@@ -7690,14 +7642,15 @@ defmodule AWS.IoTWireless do
 
   ## Parameters:
   * `:identifier` (`t:string` required) Resource identifier to opt in for event
-  messaging.
+    messaging.
   * `:identifier_type`
-  (`t:enum["DevEui|GatewayEui|PartnerAccountId|WirelessDeviceId|WirelessGatewayId"]`
-  required) Identifier type of the particular resource identifier for event
-  configuration.
+    (`t:enum["DevEui|GatewayEui|PartnerAccountId|WirelessDeviceId|WirelessGatewayId"]`
+    required) Identifier type of the particular resource identifier for event
+    configuration.
+
   ## Keyword parameters:
   * `:partner_type` (`t:enum["Sidewalk"]`) Partner type of the resource if the
-  identifier type is PartnerAccountId.
+    identifier type is PartnerAccountId.
   """
   @spec get_resource_event_configuration(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_resource_event_configuration_response(), any()}
@@ -7757,8 +7710,7 @@ defmodule AWS.IoTWireless do
   ## Parameters:
   * `:resource_identifier` (`t:string` required)
   * `:resource_type` (`t:string` required) The type of the resource, which can be
-  WirelessDevice or WirelessGateway.
-  ## Keyword parameters:
+    WirelessDevice or WirelessGateway.
   """
   @spec get_resource_log_level(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_resource_log_level_response(), any()}
@@ -7807,12 +7759,11 @@ defmodule AWS.IoTWireless do
 
   ## Parameters:
   * `:resource_identifier` (`t:string` required) The identifier of the resource
-  for which position information is retrieved. It can be the wireless device
-  ID or the wireless gateway ID, depending on the resource type.
+    for which position information is retrieved. It can be the wireless device
+    ID or the wireless gateway ID, depending on the resource type.
   * `:resource_type` (`t:enum["WirelessDevice|WirelessGateway"]` required) The
-  type of resource for which position information is retrieved, which can be a
-  wireless device or a wireless gateway.
-  ## Keyword parameters:
+    type of resource for which position information is retrieved, which can be a
+    wireless device or a wireless gateway.
   """
   @spec get_resource_position(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_resource_position_response(), any()}
@@ -7854,11 +7805,12 @@ defmodule AWS.IoTWireless do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotwireless%20GetServiceEndpoint&this_doc_guide=API%2520Reference)
 
   ## Parameters:
+
   ## Keyword parameters:
   * `:service_type` (`t:enum["CUPS|LNS"]`) The service type for which to get
-  endpoint information about. Can be CUPS for the Configuration and Update
-  Server endpoint, or LNS for the LoRaWAN Network Server endpoint or CLAIM for
-  the global endpoint.
+    endpoint information about. Can be CUPS for the Configuration and Update
+    Server endpoint, or LNS for the LoRaWAN Network Server endpoint or CLAIM for
+    the global endpoint.
   """
   @spec get_service_endpoint(AWS.Client.t(), Keyword.t()) ::
           {:ok, get_service_endpoint_response(), any()}
@@ -7910,7 +7862,6 @@ defmodule AWS.IoTWireless do
 
   ## Parameters:
   * `:id` (`t:string` required) The ID of the resource to get.
-  ## Keyword parameters:
   """
   @spec get_service_profile(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_service_profile_response(), any()}
@@ -7951,11 +7902,10 @@ defmodule AWS.IoTWireless do
 
   ## Parameters:
   * `:identifier` (`t:string` required) The identifier of the wireless device to
-  get.
+    get.
   * `:identifier_type`
-  (`t:enum["DevEui|SidewalkManufacturingSn|ThingName|WirelessDeviceId"]`
-  required) The type of identifier used in identifier.
-  ## Keyword parameters:
+    (`t:enum["DevEui|SidewalkManufacturingSn|ThingName|WirelessDeviceId"]`
+    required) The type of identifier used in identifier.
   """
   @spec get_wireless_device(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_wireless_device_response(), any()}
@@ -7998,8 +7948,7 @@ defmodule AWS.IoTWireless do
 
   ## Parameters:
   * `:id` (`t:string` required) The identifier of the import task for which
-  information is requested.
-  ## Keyword parameters:
+    information is requested.
   """
   @spec get_wireless_device_import_task(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_wireless_device_import_task_response(), any()}
@@ -8040,8 +7989,7 @@ defmodule AWS.IoTWireless do
 
   ## Parameters:
   * `:wireless_device_id` (`t:string` required) The ID of the wireless device for
-  which to get the data.
-  ## Keyword parameters:
+    which to get the data.
   """
   @spec get_wireless_device_statistics(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_wireless_device_statistics_response(), any()}
@@ -8082,10 +8030,9 @@ defmodule AWS.IoTWireless do
 
   ## Parameters:
   * `:identifier` (`t:string` required) The identifier of the wireless gateway to
-  get.
+    get.
   * `:identifier_type` (`t:enum["GatewayEui|ThingName|WirelessGatewayId"]`
-  required) The type of identifier used in identifier.
-  ## Keyword parameters:
+    required) The type of identifier used in identifier.
   """
   @spec get_wireless_gateway(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_wireless_gateway_response(), any()}
@@ -8128,7 +8075,6 @@ defmodule AWS.IoTWireless do
 
   ## Parameters:
   * `:id` (`t:string` required) The ID of the resource to get.
-  ## Keyword parameters:
   """
   @spec get_wireless_gateway_certificate(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_wireless_gateway_certificate_response(), any()}
@@ -8169,7 +8115,6 @@ defmodule AWS.IoTWireless do
 
   ## Parameters:
   * `:id` (`t:string` required) The ID of the resource to get.
-  ## Keyword parameters:
   """
   @spec get_wireless_gateway_firmware_information(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_wireless_gateway_firmware_information_response(), any()}
@@ -8210,8 +8155,7 @@ defmodule AWS.IoTWireless do
 
   ## Parameters:
   * `:wireless_gateway_id` (`t:string` required) The ID of the wireless gateway
-  for which to get the data.
-  ## Keyword parameters:
+    for which to get the data.
   """
   @spec get_wireless_gateway_statistics(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_wireless_gateway_statistics_response(), any()}
@@ -8252,7 +8196,6 @@ defmodule AWS.IoTWireless do
 
   ## Parameters:
   * `:id` (`t:string` required) The ID of the resource to get.
-  ## Keyword parameters:
   """
   @spec get_wireless_gateway_task(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_wireless_gateway_task_response(), any()}
@@ -8293,7 +8236,6 @@ defmodule AWS.IoTWireless do
 
   ## Parameters:
   * `:id` (`t:string` required) The ID of the resource to get.
-  ## Keyword parameters:
   """
   @spec get_wireless_gateway_task_definition(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_wireless_gateway_task_definition_response(), any()}
@@ -8333,12 +8275,13 @@ defmodule AWS.IoTWireless do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotwireless%20ListDestinations&this_doc_guide=API%2520Reference)
 
   ## Parameters:
+
   ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of results to return in this
-  operation.
+    operation.
   * `:next_token` (`t:string`) To retrieve the next set of results, the nextToken
-  value from a previous response; otherwise null to receive the first set of
-  results.
+    value from a previous response; otherwise null to receive the first set of
+    results.
   """
   @spec list_destinations(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_destinations_response(), any()}
@@ -8396,14 +8339,15 @@ defmodule AWS.IoTWireless do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotwireless%20ListDeviceProfiles&this_doc_guide=API%2520Reference)
 
   ## Parameters:
+
   ## Keyword parameters:
   * `:device_profile_type` (`t:enum["LoRaWAN|Sidewalk"]`) A filter to list only
-  device profiles that use this type, which can be LoRaWAN or Sidewalk.
+    device profiles that use this type, which can be LoRaWAN or Sidewalk.
   * `:max_results` (`t:integer`) The maximum number of results to return in this
-  operation.
+    operation.
   * `:next_token` (`t:string`) To retrieve the next set of results, the nextToken
-  value from a previous response; otherwise null to receive the first set of
-  results.
+    value from a previous response; otherwise null to receive the first set of
+    results.
   """
   @spec list_device_profiles(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_device_profiles_response(), any()}
@@ -8469,14 +8413,15 @@ defmodule AWS.IoTWireless do
 
   ## Parameters:
   * `:id` (`t:string` required) The identifier of the import task for which
-  wireless devices are listed.
+    wireless devices are listed.
+
   ## Keyword parameters:
   * `:max_results` (`t:integer`)
   * `:next_token` (`t:string`) To retrieve the next set of results, the nextToken
-  value from a previous response; otherwise null to receive the first set of
-  results.
+    value from a previous response; otherwise null to receive the first set of
+    results.
   * `:status` (`t:enum["FAILED|INITIALIZED|ONBOARDED|PENDING"]`) The status of the
-  devices in the import task.
+    devices in the import task.
   """
   @spec list_devices_for_wireless_device_import_task(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_devices_for_wireless_device_import_task_response(), any()}
@@ -8543,12 +8488,13 @@ defmodule AWS.IoTWireless do
 
   ## Parameters:
   * `:resource_type` (`t:enum["SidewalkAccount|WirelessDevice|WirelessGateway"]`
-  required) Resource type to filter event configurations.
+    required) Resource type to filter event configurations.
+
   ## Keyword parameters:
   * `:max_results` (`t:integer`)
   * `:next_token` (`t:string`) To retrieve the next set of results, the nextToken
-  value from a previous response; otherwise null to receive the first set of
-  results.
+    value from a previous response; otherwise null to receive the first set of
+    results.
   """
   @spec list_event_configurations(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_event_configurations_response(), any()}
@@ -8607,11 +8553,12 @@ defmodule AWS.IoTWireless do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotwireless%20ListFuotaTasks&this_doc_guide=API%2520Reference)
 
   ## Parameters:
+
   ## Keyword parameters:
   * `:max_results` (`t:integer`)
   * `:next_token` (`t:string`) To retrieve the next set of results, the nextToken
-  value from a previous response; otherwise null to receive the first set of
-  results.
+    value from a previous response; otherwise null to receive the first set of
+    results.
   """
   @spec list_fuota_tasks(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_fuota_tasks_response(), any()}
@@ -8669,11 +8616,12 @@ defmodule AWS.IoTWireless do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotwireless%20ListMulticastGroups&this_doc_guide=API%2520Reference)
 
   ## Parameters:
+
   ## Keyword parameters:
   * `:max_results` (`t:integer`)
   * `:next_token` (`t:string`) To retrieve the next set of results, the nextToken
-  value from a previous response; otherwise null to receive the first set of
-  results.
+    value from a previous response; otherwise null to receive the first set of
+    results.
   """
   @spec list_multicast_groups(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_multicast_groups_response(), any()}
@@ -8732,11 +8680,12 @@ defmodule AWS.IoTWireless do
 
   ## Parameters:
   * `:id` (`t:string` required)
+
   ## Keyword parameters:
   * `:max_results` (`t:integer`)
   * `:next_token` (`t:string`) To retrieve the next set of results, the nextToken
-  value from a previous response; otherwise null to receive the first set of
-  results.
+    value from a previous response; otherwise null to receive the first set of
+    results.
   """
   @spec list_multicast_groups_by_fuota_task(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_multicast_groups_by_fuota_task_response(), any()}
@@ -8794,11 +8743,12 @@ defmodule AWS.IoTWireless do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotwireless%20ListNetworkAnalyzerConfigurations&this_doc_guide=API%2520Reference)
 
   ## Parameters:
+
   ## Keyword parameters:
   * `:max_results` (`t:integer`)
   * `:next_token` (`t:string`) To retrieve the next set of results, the nextToken
-  value from a previous response; otherwise null to receive the first set of
-  results.
+    value from a previous response; otherwise null to receive the first set of
+    results.
   """
   @spec list_network_analyzer_configurations(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_network_analyzer_configurations_response(), any()}
@@ -8856,12 +8806,13 @@ defmodule AWS.IoTWireless do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotwireless%20ListPartnerAccounts&this_doc_guide=API%2520Reference)
 
   ## Parameters:
+
   ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of results to return in this
-  operation.
+    operation.
   * `:next_token` (`t:string`) To retrieve the next set of results, the nextToken
-  value from a previous response; otherwise null to receive the first set of
-  results.
+    value from a previous response; otherwise null to receive the first set of
+    results.
   """
   @spec list_partner_accounts(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_partner_accounts_response(), any()}
@@ -8919,13 +8870,14 @@ defmodule AWS.IoTWireless do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotwireless%20ListPositionConfigurations&this_doc_guide=API%2520Reference)
 
   ## Parameters:
+
   ## Keyword parameters:
   * `:max_results` (`t:integer`)
   * `:next_token` (`t:string`) To retrieve the next set of results, the nextToken
-  value from a previous response; otherwise null to receive the first set of
-  results.
+    value from a previous response; otherwise null to receive the first set of
+    results.
   * `:resource_type` (`t:enum["WirelessDevice|WirelessGateway"]`) Resource type
-  for which position configurations are listed.
+    for which position configurations are listed.
   """
   @spec list_position_configurations(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_position_configurations_response(), any()}
@@ -8991,15 +8943,16 @@ defmodule AWS.IoTWireless do
 
   ## Parameters:
   * `:id` (`t:string` required) The ID of a given wireless device which the
-  downlink message packets are being sent.
+    downlink message packets are being sent.
+
   ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of results to return in this
-  operation.
+    operation.
   * `:next_token` (`t:string`) To retrieve the next set of results, the nextToken
-  value from a previous response; otherwise null to receive the first set of
-  results.
+    value from a previous response; otherwise null to receive the first set of
+    results.
   * `:wireless_device_type` (`t:enum["LoRaWAN|Sidewalk"]`) The wireless device
-  type, whic can be either Sidewalk or LoRaWAN.
+    type, whic can be either Sidewalk or LoRaWAN.
   """
   @spec list_queued_messages(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_queued_messages_response(), any()}
@@ -9064,12 +9017,13 @@ defmodule AWS.IoTWireless do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotwireless%20ListServiceProfiles&this_doc_guide=API%2520Reference)
 
   ## Parameters:
+
   ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of results to return in this
-  operation.
+    operation.
   * `:next_token` (`t:string`) To retrieve the next set of results, the nextToken
-  value from a previous response; otherwise null to receive the first set of
-  results.
+    value from a previous response; otherwise null to receive the first set of
+    results.
   """
   @spec list_service_profiles(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_service_profiles_response(), any()}
@@ -9128,8 +9082,7 @@ defmodule AWS.IoTWireless do
 
   ## Parameters:
   * `:resource_arn` (`t:string` required) The ARN of the resource for which you
-  want to list tags.
-  ## Keyword parameters:
+    want to list tags.
   """
   @spec list_tags_for_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_tags_for_resource_response(), any()}
@@ -9170,11 +9123,12 @@ defmodule AWS.IoTWireless do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotwireless%20ListWirelessDeviceImportTasks&this_doc_guide=API%2520Reference)
 
   ## Parameters:
+
   ## Keyword parameters:
   * `:max_results` (`t:integer`)
   * `:next_token` (`t:string`) To retrieve the next set of results, the nextToken
-  value from a previous response; otherwise null to receive the first set of
-  results.
+    value from a previous response; otherwise null to receive the first set of
+    results.
   """
   @spec list_wireless_device_import_tasks(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_wireless_device_import_tasks_response(), any()}
@@ -9232,22 +9186,23 @@ defmodule AWS.IoTWireless do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotwireless%20ListWirelessDevices&this_doc_guide=API%2520Reference)
 
   ## Parameters:
+
   ## Keyword parameters:
   * `:destination_name` (`t:string`) A filter to list only the wireless devices
-  that use this destination.
+    that use this destination.
   * `:device_profile_id` (`t:string`) A filter to list only the wireless devices
-  that use this device profile.
+    that use this device profile.
   * `:fuota_task_id` (`t:string`)
   * `:max_results` (`t:integer`) The maximum number of results to return in this
-  operation.
+    operation.
   * `:multicast_group_id` (`t:string`)
   * `:next_token` (`t:string`) To retrieve the next set of results, the nextToken
-  value from a previous response; otherwise null to receive the first set of
-  results.
+    value from a previous response; otherwise null to receive the first set of
+    results.
   * `:service_profile_id` (`t:string`) A filter to list only the wireless devices
-  that use this service profile.
+    that use this service profile.
   * `:wireless_device_type` (`t:enum["LoRaWAN|Sidewalk"]`) A filter to list only
-  the wireless devices that use this wireless device type.
+    the wireless devices that use this wireless device type.
   """
   @spec list_wireless_devices(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_wireless_devices_response(), any()}
@@ -9365,14 +9320,15 @@ defmodule AWS.IoTWireless do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotwireless%20ListWirelessGatewayTaskDefinitions&this_doc_guide=API%2520Reference)
 
   ## Parameters:
+
   ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of results to return in this
-  operation.
+    operation.
   * `:next_token` (`t:string`) To retrieve the next set of results, the nextToken
-  value from a previous response; otherwise null to receive the first set of
-  results.
+    value from a previous response; otherwise null to receive the first set of
+    results.
   * `:task_definition_type` (`t:enum["UPDATE"]`) A filter to list only the
-  wireless gateway task definitions that use this task definition type.
+    wireless gateway task definitions that use this task definition type.
   """
   @spec list_wireless_gateway_task_definitions(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_wireless_gateway_task_definitions_response(), any()}
@@ -9437,12 +9393,13 @@ defmodule AWS.IoTWireless do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotwireless%20ListWirelessGateways&this_doc_guide=API%2520Reference)
 
   ## Parameters:
+
   ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of results to return in this
-  operation.
+    operation.
   * `:next_token` (`t:string`) To retrieve the next set of results, the nextToken
-  value from a previous response; otherwise null to receive the first set of
-  results.
+    value from a previous response; otherwise null to receive the first set of
+    results.
   """
   @spec list_wireless_gateways(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_wireless_gateways_response(), any()}
@@ -9501,11 +9458,10 @@ defmodule AWS.IoTWireless do
 
   ## Parameters:
   * `:resource_identifier` (`t:string` required) Resource identifier used to
-  update the position configuration.
+    update the position configuration.
   * `:resource_type` (`t:enum["WirelessDevice|WirelessGateway"]` required)
-  Resource type of the resource for which you want to update the position
-  configuration.
-  ## Keyword parameters:
+    Resource type of the resource for which you want to update the position
+    configuration.
   """
   @spec put_position_configuration(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, put_position_configuration_response(), any()}
@@ -9557,8 +9513,7 @@ defmodule AWS.IoTWireless do
   ## Parameters:
   * `:resource_identifier` (`t:string` required)
   * `:resource_type` (`t:string` required) The type of the resource, which can be
-  WirelessDevice or WirelessGateway.
-  ## Keyword parameters:
+    WirelessDevice or WirelessGateway.
   """
   @spec put_resource_log_level(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, put_resource_log_level_response(), any()}
@@ -9607,7 +9562,6 @@ defmodule AWS.IoTWireless do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotwireless%20ResetAllResourceLogLevels&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec reset_all_resource_log_levels(AWS.Client.t(), Keyword.t()) ::
           {:ok, reset_all_resource_log_levels_response(), any()}
@@ -9662,8 +9616,7 @@ defmodule AWS.IoTWireless do
   ## Parameters:
   * `:resource_identifier` (`t:string` required)
   * `:resource_type` (`t:string` required) The type of the resource, which can be
-  WirelessDevice or WirelessGateway.
-  ## Keyword parameters:
+    WirelessDevice or WirelessGateway.
   """
   @spec reset_resource_log_level(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, reset_resource_log_level_response(), any()}
@@ -9722,7 +9675,6 @@ defmodule AWS.IoTWireless do
 
   ## Parameters:
   * `:id` (`t:string` required)
-  ## Keyword parameters:
   """
   @spec send_data_to_multicast_group(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, send_data_to_multicast_group_response(), any()}
@@ -9765,7 +9717,6 @@ defmodule AWS.IoTWireless do
 
   ## Parameters:
   * `:id` (`t:string` required) The ID of the wireless device to receive the data.
-  ## Keyword parameters:
   """
   @spec send_data_to_wireless_device(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, send_data_to_wireless_device_response(), any()}
@@ -9809,7 +9760,6 @@ defmodule AWS.IoTWireless do
 
   ## Parameters:
   * `:id` (`t:string` required)
-  ## Keyword parameters:
   """
   @spec start_bulk_associate_wireless_device_with_multicast_group(
           AWS.Client.t(),
@@ -9871,7 +9821,6 @@ defmodule AWS.IoTWireless do
 
   ## Parameters:
   * `:id` (`t:string` required)
-  ## Keyword parameters:
   """
   @spec start_bulk_disassociate_wireless_device_from_multicast_group(
           AWS.Client.t(),
@@ -9922,7 +9871,6 @@ defmodule AWS.IoTWireless do
 
   ## Parameters:
   * `:id` (`t:string` required)
-  ## Keyword parameters:
   """
   @spec start_fuota_task(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, start_fuota_task_response(), any()}
@@ -9965,7 +9913,6 @@ defmodule AWS.IoTWireless do
 
   ## Parameters:
   * `:id` (`t:string` required)
-  ## Keyword parameters:
   """
   @spec start_multicast_group_session(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, start_multicast_group_session_response(), any()}
@@ -10007,7 +9954,6 @@ defmodule AWS.IoTWireless do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotwireless%20StartSingleWirelessDeviceImportTask&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec start_single_wireless_device_import_task(AWS.Client.t(), Keyword.t()) ::
           {:ok, start_single_wireless_device_import_task_response(), any()}
@@ -10050,7 +9996,6 @@ defmodule AWS.IoTWireless do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotwireless%20StartWirelessDeviceImportTask&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec start_wireless_device_import_task(AWS.Client.t(), Keyword.t()) ::
           {:ok, start_wireless_device_import_task_response(), any()}
@@ -10093,7 +10038,6 @@ defmodule AWS.IoTWireless do
 
   ## Parameters:
   * `:resource_arn` (`t:string` required) The ARN of the resource to add tags to.
-  ## Keyword parameters:
   """
   @spec tag_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, tag_resource_response(), any()}
@@ -10137,7 +10081,6 @@ defmodule AWS.IoTWireless do
 
   ## Parameters:
   * `:id` (`t:string` required) The ID of the wireless device to test.
-  ## Keyword parameters:
   """
   @spec test_wireless_device(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, test_wireless_device_response(), any()}
@@ -10180,10 +10123,9 @@ defmodule AWS.IoTWireless do
 
   ## Parameters:
   * `:resource_arn` (`t:string` required) The ARN of the resource to remove tags
-  from.
+    from.
   * `:tag_keys` (`t:list[com.amazonaws.iotwireless#TagKey]` required) A list of
-  the keys of the tags to remove from the resource.
-  ## Keyword parameters:
+    the keys of the tags to remove from the resource.
   """
   @spec untag_resource(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, untag_resource_response(), any()}
@@ -10237,7 +10179,6 @@ defmodule AWS.IoTWireless do
 
   ## Parameters:
   * `:name` (`t:string` required) The new name of the resource.
-  ## Keyword parameters:
   """
   @spec update_destination(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, update_destination_response(), any()}
@@ -10289,7 +10230,6 @@ defmodule AWS.IoTWireless do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotwireless%20UpdateEventConfigurationByResourceTypes&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec update_event_configuration_by_resource_types(AWS.Client.t(), Keyword.t()) ::
           {:ok, update_event_configuration_by_resource_types_response(), any()}
@@ -10342,7 +10282,6 @@ defmodule AWS.IoTWireless do
 
   ## Parameters:
   * `:id` (`t:string` required)
-  ## Keyword parameters:
   """
   @spec update_fuota_task(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, update_fuota_task_response(), any()}
@@ -10396,7 +10335,6 @@ defmodule AWS.IoTWireless do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotwireless%20UpdateLogLevelsByResourceTypes&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec update_log_levels_by_resource_types(AWS.Client.t(), Keyword.t()) ::
           {:ok, update_log_levels_by_resource_types_response(), any()}
@@ -10438,7 +10376,6 @@ defmodule AWS.IoTWireless do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotwireless%20UpdateMetricConfiguration&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec update_metric_configuration(AWS.Client.t(), Keyword.t()) ::
           {:ok, update_metric_configuration_response(), any()}
@@ -10481,7 +10418,6 @@ defmodule AWS.IoTWireless do
 
   ## Parameters:
   * `:id` (`t:string` required)
-  ## Keyword parameters:
   """
   @spec update_multicast_group(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, update_multicast_group_response(), any()}
@@ -10534,7 +10470,6 @@ defmodule AWS.IoTWireless do
 
   ## Parameters:
   * `:configuration_name` (`t:string` required)
-  ## Keyword parameters:
   """
   @spec update_network_analyzer_configuration(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, update_network_analyzer_configuration_response(), any()}
@@ -10587,9 +10522,8 @@ defmodule AWS.IoTWireless do
 
   ## Parameters:
   * `:partner_account_id` (`t:string` required) The ID of the partner account to
-  update.
+    update.
   * `:partner_type` (`t:enum["Sidewalk"]` required) The partner type.
-  ## Keyword parameters:
   """
   @spec update_partner_account(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, update_partner_account_response(), any()}
@@ -10643,10 +10577,9 @@ defmodule AWS.IoTWireless do
 
   ## Parameters:
   * `:resource_identifier` (`t:string` required) Resource identifier of the
-  resource for which position is updated.
+    resource for which position is updated.
   * `:resource_type` (`t:enum["WirelessDevice|WirelessGateway"]` required)
-  Resource type of the resource for which position is updated.
-  ## Keyword parameters:
+    Resource type of the resource for which position is updated.
   """
   @spec update_position(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, update_position_response(), any()}
@@ -10700,14 +10633,15 @@ defmodule AWS.IoTWireless do
 
   ## Parameters:
   * `:identifier` (`t:string` required) Resource identifier to opt in for event
-  messaging.
+    messaging.
   * `:identifier_type`
-  (`t:enum["DevEui|GatewayEui|PartnerAccountId|WirelessDeviceId|WirelessGatewayId"]`
-  required) Identifier type of the particular resource identifier for event
-  configuration.
+    (`t:enum["DevEui|GatewayEui|PartnerAccountId|WirelessDeviceId|WirelessGatewayId"]`
+    required) Identifier type of the particular resource identifier for event
+    configuration.
+
   ## Keyword parameters:
   * `:partner_type` (`t:enum["Sidewalk"]`) Partner type of the resource if the
-  identifier type is PartnerAccountId
+    identifier type is PartnerAccountId
   """
   @spec update_resource_event_configuration(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, update_resource_event_configuration_response(), any()}
@@ -10779,17 +10713,16 @@ defmodule AWS.IoTWireless do
 
   ## Parameters:
   * `:resource_identifier` (`t:string` required) The identifier of the resource
-  for which position information is updated. It can be the wireless device ID
-  or the wireless gateway ID, depending on the resource type.
+    for which position information is updated. It can be the wireless device ID
+    or the wireless gateway ID, depending on the resource type.
   * `:resource_type` (`t:enum["WirelessDevice|WirelessGateway"]` required) The
-  type of resource for which position information is updated, which can be a
-  wireless device or a wireless gateway.
+    type of resource for which position information is updated, which can be a
+    wireless device or a wireless gateway.
   * `:input` (`t:map | nil`):
-    * `:geo_json_payload` (`t:blob`) The position information of the resource,
-  displayed as a JSON payload. The payload uses the GeoJSON format, which a
-  format that's used to encode geographic data structures. For more
-  information, see GeoJSON.
-  ## Keyword parameters:
+    * `"GeoJsonPayload" => t:blob` The position information of the resource,
+    displayed as a JSON payload. The payload uses the GeoJSON format, which a
+    format that's used to encode geographic data structures. For more
+    information, see GeoJSON.
   """
   @spec update_resource_position(
           AWS.Client.t(),
@@ -10855,7 +10788,6 @@ defmodule AWS.IoTWireless do
 
   ## Parameters:
   * `:id` (`t:string` required) The ID of the resource to update.
-  ## Keyword parameters:
   """
   @spec update_wireless_device(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, update_wireless_device_response(), any()}
@@ -10908,7 +10840,6 @@ defmodule AWS.IoTWireless do
 
   ## Parameters:
   * `:id` (`t:string` required) The identifier of the import task to be updated.
-  ## Keyword parameters:
   """
   @spec update_wireless_device_import_task(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, update_wireless_device_import_task_response(), any()}
@@ -10961,7 +10892,6 @@ defmodule AWS.IoTWireless do
 
   ## Parameters:
   * `:id` (`t:string` required) The ID of the resource to update.
-  ## Keyword parameters:
   """
   @spec update_wireless_gateway(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, update_wireless_gateway_response(), any()}

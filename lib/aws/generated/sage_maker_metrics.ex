@@ -83,7 +83,6 @@ defmodule AWS.SageMakerMetrics do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sagemakermetrics%20BatchPutMetrics&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec batch_put_metrics(AWS.Client.t(), Keyword.t()) ::
           {:ok, batch_put_metrics_response(), any()}

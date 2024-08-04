@@ -2200,10 +2200,9 @@ defmodule AWS.VPCLattice do
 
   ## Parameters:
   * `:listener_identifier` (`t:string` required) The ID or Amazon Resource Name
-  (ARN) of the listener.
+    (ARN) of the listener.
   * `:service_identifier` (`t:string` required) The ID or Amazon Resource Name
-  (ARN) of the service.
-  ## Keyword parameters:
+    (ARN) of the service.
   """
   @spec batch_update_rule(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, batch_update_rule_response(), any()}
@@ -2268,7 +2267,6 @@ defmodule AWS.VPCLattice do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=vpclattice%20CreateAccessLogSubscription&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec create_access_log_subscription(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_access_log_subscription_response(), any()}
@@ -2315,8 +2313,7 @@ defmodule AWS.VPCLattice do
 
   ## Parameters:
   * `:service_identifier` (`t:string` required) The ID or Amazon Resource Name
-  (ARN) of the service.
-  ## Keyword parameters:
+    (ARN) of the service.
   """
   @spec create_listener(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, create_listener_response(), any()}
@@ -2364,10 +2361,9 @@ defmodule AWS.VPCLattice do
 
   ## Parameters:
   * `:listener_identifier` (`t:string` required) The ID or Amazon Resource Name
-  (ARN) of the listener.
+    (ARN) of the listener.
   * `:service_identifier` (`t:string` required) The ID or Amazon Resource Name
-  (ARN) of the service.
-  ## Keyword parameters:
+    (ARN) of the service.
   """
   @spec create_rule(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, create_rule_response(), any()}
@@ -2412,7 +2408,6 @@ defmodule AWS.VPCLattice do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=vpclattice%20CreateService&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec create_service(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_service_response(), any()}
@@ -2456,7 +2451,6 @@ defmodule AWS.VPCLattice do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=vpclattice%20CreateServiceNetwork&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec create_service_network(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_service_network_response(), any()}
@@ -2504,7 +2498,6 @@ defmodule AWS.VPCLattice do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=vpclattice%20CreateServiceNetworkServiceAssociation&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec create_service_network_service_association(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_service_network_service_association_response(), any()}
@@ -2553,7 +2546,6 @@ defmodule AWS.VPCLattice do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=vpclattice%20CreateServiceNetworkVpcAssociation&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec create_service_network_vpc_association(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_service_network_vpc_association_response(), any()}
@@ -2597,7 +2589,6 @@ defmodule AWS.VPCLattice do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=vpclattice%20CreateTargetGroup&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec create_target_group(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_target_group_response(), any()}
@@ -2640,8 +2631,7 @@ defmodule AWS.VPCLattice do
 
   ## Parameters:
   * `:access_log_subscription_identifier` (`t:string` required) The ID or Amazon
-  Resource Name (ARN) of the access log subscription.
-  ## Keyword parameters:
+    Resource Name (ARN) of the access log subscription.
   """
   @spec delete_access_log_subscription(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, delete_access_log_subscription_response(), any()}
@@ -2702,8 +2692,7 @@ defmodule AWS.VPCLattice do
 
   ## Parameters:
   * `:resource_identifier` (`t:string` required) The ID or Amazon Resource Name
-  (ARN) of the resource.
-  ## Keyword parameters:
+    (ARN) of the resource.
   """
   @spec delete_auth_policy(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, delete_auth_policy_response(), any()}
@@ -2756,10 +2745,9 @@ defmodule AWS.VPCLattice do
 
   ## Parameters:
   * `:listener_identifier` (`t:string` required) The ID or Amazon Resource Name
-  (ARN) of the listener.
+    (ARN) of the listener.
   * `:service_identifier` (`t:string` required) The ID or Amazon Resource Name
-  (ARN) of the service.
-  ## Keyword parameters:
+    (ARN) of the service.
   """
   @spec delete_listener(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, delete_listener_response(), any()}
@@ -2813,8 +2801,7 @@ defmodule AWS.VPCLattice do
 
   ## Parameters:
   * `:resource_arn` (`t:string` required) The Amazon Resource Name (ARN) of the
-  resource.
-  ## Keyword parameters:
+    resource.
   """
   @spec delete_resource_policy(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, delete_resource_policy_response(), any()}
@@ -2870,12 +2857,11 @@ defmodule AWS.VPCLattice do
 
   ## Parameters:
   * `:listener_identifier` (`t:string` required) The ID or Amazon Resource Name
-  (ARN) of the listener.
+    (ARN) of the listener.
   * `:rule_identifier` (`t:string` required) The ID or Amazon Resource Name (ARN)
-  of the rule.
+    of the rule.
   * `:service_identifier` (`t:string` required) The ID or Amazon Resource Name
-  (ARN) of the service.
-  ## Keyword parameters:
+    (ARN) of the service.
   """
   @spec delete_rule(AWS.Client.t(), String.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, delete_rule_response(), any()}
@@ -2940,8 +2926,7 @@ defmodule AWS.VPCLattice do
 
   ## Parameters:
   * `:service_identifier` (`t:string` required) The ID or Amazon Resource Name
-  (ARN) of the service.
-  ## Keyword parameters:
+    (ARN) of the service.
   """
   @spec delete_service(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, delete_service_response(), any()}
@@ -3000,8 +2985,7 @@ defmodule AWS.VPCLattice do
 
   ## Parameters:
   * `:service_network_identifier` (`t:string` required) The Amazon Resource Name
-  (ARN) or ID of the service network.
-  ## Keyword parameters:
+    (ARN) or ID of the service network.
   """
   @spec delete_service_network(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, delete_service_network_response(), any()}
@@ -3055,8 +3039,7 @@ defmodule AWS.VPCLattice do
 
   ## Parameters:
   * `:service_network_service_association_identifier` (`t:string` required) The ID
-  or Amazon Resource Name (ARN) of the association.
-  ## Keyword parameters:
+    or Amazon Resource Name (ARN) of the association.
   """
   @spec delete_service_network_service_association(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, delete_service_network_service_association_response(), any()}
@@ -3115,8 +3098,7 @@ defmodule AWS.VPCLattice do
 
   ## Parameters:
   * `:service_network_vpc_association_identifier` (`t:string` required) The ID or
-  Amazon Resource Name (ARN) of the association.
-  ## Keyword parameters:
+    Amazon Resource Name (ARN) of the association.
   """
   @spec delete_service_network_vpc_association(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, delete_service_network_vpc_association_response(), any()}
@@ -3175,8 +3157,7 @@ defmodule AWS.VPCLattice do
 
   ## Parameters:
   * `:target_group_identifier` (`t:string` required) The ID or Amazon Resource
-  Name (ARN) of the target group.
-  ## Keyword parameters:
+    Name (ARN) of the target group.
   """
   @spec delete_target_group(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, delete_target_group_response(), any()}
@@ -3229,8 +3210,7 @@ defmodule AWS.VPCLattice do
 
   ## Parameters:
   * `:target_group_identifier` (`t:string` required) The ID or Amazon Resource
-  Name (ARN) of the target group.
-  ## Keyword parameters:
+    Name (ARN) of the target group.
   """
   @spec deregister_targets(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, deregister_targets_response(), any()}
@@ -3273,8 +3253,7 @@ defmodule AWS.VPCLattice do
 
   ## Parameters:
   * `:access_log_subscription_identifier` (`t:string` required) The ID or Amazon
-  Resource Name (ARN) of the access log subscription.
-  ## Keyword parameters:
+    Resource Name (ARN) of the access log subscription.
   """
   @spec get_access_log_subscription(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_access_log_subscription_response(), any()}
@@ -3321,8 +3300,7 @@ defmodule AWS.VPCLattice do
 
   ## Parameters:
   * `:resource_identifier` (`t:string` required) The ID or Amazon Resource Name
-  (ARN) of the service network or service.
-  ## Keyword parameters:
+    (ARN) of the service network or service.
   """
   @spec get_auth_policy(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_auth_policy_response(), any()}
@@ -3363,10 +3341,9 @@ defmodule AWS.VPCLattice do
 
   ## Parameters:
   * `:listener_identifier` (`t:string` required) The ID or Amazon Resource Name
-  (ARN) of the listener.
+    (ARN) of the listener.
   * `:service_identifier` (`t:string` required) The ID or Amazon Resource Name
-  (ARN) of the service.
-  ## Keyword parameters:
+    (ARN) of the service.
   """
   @spec get_listener(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_listener_response(), any()}
@@ -3409,8 +3386,7 @@ defmodule AWS.VPCLattice do
 
   ## Parameters:
   * `:resource_arn` (`t:string` required) The Amazon Resource Name (ARN) of the
-  service network or service.
-  ## Keyword parameters:
+    service network or service.
   """
   @spec get_resource_policy(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_resource_policy_response(), any()}
@@ -3454,12 +3430,11 @@ defmodule AWS.VPCLattice do
 
   ## Parameters:
   * `:listener_identifier` (`t:string` required) The ID or Amazon Resource Name
-  (ARN) of the listener.
+    (ARN) of the listener.
   * `:rule_identifier` (`t:string` required) The ID or Amazon Resource Name (ARN)
-  of the listener rule.
+    of the listener rule.
   * `:service_identifier` (`t:string` required) The ID or Amazon Resource Name
-  (ARN) of the service.
-  ## Keyword parameters:
+    (ARN) of the service.
   """
   @spec get_rule(AWS.Client.t(), String.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_rule_response(), any()}
@@ -3507,8 +3482,7 @@ defmodule AWS.VPCLattice do
 
   ## Parameters:
   * `:service_identifier` (`t:string` required) The ID or Amazon Resource Name
-  (ARN) of the service.
-  ## Keyword parameters:
+    (ARN) of the service.
   """
   @spec get_service(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_service_response(), any()}
@@ -3549,8 +3523,7 @@ defmodule AWS.VPCLattice do
 
   ## Parameters:
   * `:service_network_identifier` (`t:string` required) The ID or Amazon Resource
-  Name (ARN) of the service network.
-  ## Keyword parameters:
+    Name (ARN) of the service network.
   """
   @spec get_service_network(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_service_network_response(), any()}
@@ -3592,8 +3565,7 @@ defmodule AWS.VPCLattice do
 
   ## Parameters:
   * `:service_network_service_association_identifier` (`t:string` required) The ID
-  or Amazon Resource Name (ARN) of the association.
-  ## Keyword parameters:
+    or Amazon Resource Name (ARN) of the association.
   """
   @spec get_service_network_service_association(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_service_network_service_association_response(), any()}
@@ -3639,8 +3611,7 @@ defmodule AWS.VPCLattice do
 
   ## Parameters:
   * `:service_network_vpc_association_identifier` (`t:string` required) The ID or
-  Amazon Resource Name (ARN) of the association.
-  ## Keyword parameters:
+    Amazon Resource Name (ARN) of the association.
   """
   @spec get_service_network_vpc_association(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_service_network_vpc_association_response(), any()}
@@ -3686,8 +3657,7 @@ defmodule AWS.VPCLattice do
 
   ## Parameters:
   * `:target_group_identifier` (`t:string` required) The ID or Amazon Resource
-  Name (ARN) of the target group.
-  ## Keyword parameters:
+    Name (ARN) of the target group.
   """
   @spec get_target_group(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_target_group_response(), any()}
@@ -3728,7 +3698,8 @@ defmodule AWS.VPCLattice do
 
   ## Parameters:
   * `:resource_identifier` (`t:string` required) The ID or Amazon Resource Name
-  (ARN) of the service network or service.
+    (ARN) of the service network or service.
+
   ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of results to return.
   * `:next_token` (`t:string`) A pagination token for the next page of results.
@@ -3791,7 +3762,8 @@ defmodule AWS.VPCLattice do
 
   ## Parameters:
   * `:service_identifier` (`t:string` required) The ID or Amazon Resource Name
-  (ARN) of the service.
+    (ARN) of the service.
+
   ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of results to return.
   * `:next_token` (`t:string`) A pagination token for the next page of results.
@@ -3853,9 +3825,10 @@ defmodule AWS.VPCLattice do
 
   ## Parameters:
   * `:listener_identifier` (`t:string` required) The ID or Amazon Resource Name
-  (ARN) of the listener.
+    (ARN) of the listener.
   * `:service_identifier` (`t:string` required) The ID or Amazon Resource Name
-  (ARN) of the service.
+    (ARN) of the service.
+
   ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of results to return.
   * `:next_token` (`t:string`) A pagination token for the next page of results.
@@ -3919,13 +3892,14 @@ defmodule AWS.VPCLattice do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=vpclattice%20ListServiceNetworkServiceAssociations&this_doc_guide=API%2520Reference)
 
   ## Parameters:
+
   ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of results to return.
   * `:next_token` (`t:string`) A pagination token for the next page of results.
   * `:service_identifier` (`t:string`) The ID or Amazon Resource Name (ARN) of the
-  service.
+    service.
   * `:service_network_identifier` (`t:string`) The ID or Amazon Resource Name
-  (ARN) of the service network.
+    (ARN) of the service network.
   """
   @spec list_service_network_service_associations(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_service_network_service_associations_response(), any()}
@@ -4009,13 +3983,14 @@ defmodule AWS.VPCLattice do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=vpclattice%20ListServiceNetworkVpcAssociations&this_doc_guide=API%2520Reference)
 
   ## Parameters:
+
   ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of results to return.
   * `:next_token` (`t:string`) A pagination token for the next page of results.
   * `:service_network_identifier` (`t:string`) The ID or Amazon Resource Name
-  (ARN) of the service network.
+    (ARN) of the service network.
   * `:vpc_identifier` (`t:string`) The ID or Amazon Resource Name (ARN) of the
-  VPC.
+    VPC.
   """
   @spec list_service_network_vpc_associations(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_service_network_vpc_associations_response(), any()}
@@ -4094,6 +4069,7 @@ defmodule AWS.VPCLattice do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=vpclattice%20ListServiceNetworks&this_doc_guide=API%2520Reference)
 
   ## Parameters:
+
   ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of results to return.
   * `:next_token` (`t:string`) A pagination token for the next page of results.
@@ -4155,6 +4131,7 @@ defmodule AWS.VPCLattice do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=vpclattice%20ListServices&this_doc_guide=API%2520Reference)
 
   ## Parameters:
+
   ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of results to return.
   * `:next_token` (`t:string`) A pagination token for the next page of results.
@@ -4216,8 +4193,7 @@ defmodule AWS.VPCLattice do
 
   ## Parameters:
   * `:resource_arn` (`t:string` required) The Amazon Resource Name (ARN) of the
-  resource.
-  ## Keyword parameters:
+    resource.
   """
   @spec list_tags_for_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_tags_for_resource_response(), any()}
@@ -4258,12 +4234,13 @@ defmodule AWS.VPCLattice do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=vpclattice%20ListTargetGroups&this_doc_guide=API%2520Reference)
 
   ## Parameters:
+
   ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of results to return.
   * `:next_token` (`t:string`) A pagination token for the next page of results.
   * `:target_group_type` (`t:string`) The target group type.
   * `:vpc_identifier` (`t:string`) The ID or Amazon Resource Name (ARN) of the
-  VPC.
+    VPC.
   """
   @spec list_target_groups(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_target_groups_response(), any()}
@@ -4343,7 +4320,8 @@ defmodule AWS.VPCLattice do
 
   ## Parameters:
   * `:target_group_identifier` (`t:string` required) The ID or Amazon Resource
-  Name (ARN) of the target group.
+    Name (ARN) of the target group.
+
   ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of results to return.
   * `:next_token` (`t:string`) A pagination token for the next page of results.
@@ -4408,8 +4386,7 @@ defmodule AWS.VPCLattice do
 
   ## Parameters:
   * `:resource_identifier` (`t:string` required) The ID or Amazon Resource Name
-  (ARN) of the service network or service for which the policy is created.
-  ## Keyword parameters:
+    (ARN) of the service network or service for which the policy is created.
   """
   @spec put_auth_policy(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, put_auth_policy_response(), any()}
@@ -4455,8 +4432,7 @@ defmodule AWS.VPCLattice do
 
   ## Parameters:
   * `:resource_arn` (`t:string` required) The ID or Amazon Resource Name (ARN) of
-  the service network or service for which the policy is created.
-  ## Keyword parameters:
+    the service network or service for which the policy is created.
   """
   @spec put_resource_policy(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, put_resource_policy_response(), any()}
@@ -4500,8 +4476,7 @@ defmodule AWS.VPCLattice do
 
   ## Parameters:
   * `:target_group_identifier` (`t:string` required) The ID or Amazon Resource
-  Name (ARN) of the target group.
-  ## Keyword parameters:
+    Name (ARN) of the target group.
   """
   @spec register_targets(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, register_targets_response(), any()}
@@ -4544,8 +4519,7 @@ defmodule AWS.VPCLattice do
 
   ## Parameters:
   * `:resource_arn` (`t:string` required) The Amazon Resource Name (ARN) of the
-  resource.
-  ## Keyword parameters:
+    resource.
   """
   @spec tag_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, tag_resource_response(), any()}
@@ -4588,10 +4562,9 @@ defmodule AWS.VPCLattice do
 
   ## Parameters:
   * `:resource_arn` (`t:string` required) The Amazon Resource Name (ARN) of the
-  resource.
+    resource.
   * `:tag_keys` (`t:list[com.amazonaws.vpclattice#TagKey]` required) The tag keys
-  of the tags to remove.
-  ## Keyword parameters:
+    of the tags to remove.
   """
   @spec untag_resource(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, untag_resource_response(), any()}
@@ -4645,8 +4618,7 @@ defmodule AWS.VPCLattice do
 
   ## Parameters:
   * `:access_log_subscription_identifier` (`t:string` required) The ID or Amazon
-  Resource Name (ARN) of the access log subscription.
-  ## Keyword parameters:
+    Resource Name (ARN) of the access log subscription.
   """
   @spec update_access_log_subscription(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, update_access_log_subscription_response(), any()}
@@ -4704,10 +4676,9 @@ defmodule AWS.VPCLattice do
 
   ## Parameters:
   * `:listener_identifier` (`t:string` required) The ID or Amazon Resource Name
-  (ARN) of the listener.
+    (ARN) of the listener.
   * `:service_identifier` (`t:string` required) The ID or Amazon Resource Name
-  (ARN) of the service.
-  ## Keyword parameters:
+    (ARN) of the service.
   """
   @spec update_listener(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, update_listener_response(), any()}
@@ -4762,12 +4733,11 @@ defmodule AWS.VPCLattice do
 
   ## Parameters:
   * `:listener_identifier` (`t:string` required) The ID or Amazon Resource Name
-  (ARN) of the listener.
+    (ARN) of the listener.
   * `:rule_identifier` (`t:string` required) The ID or Amazon Resource Name (ARN)
-  of the rule.
+    of the rule.
   * `:service_identifier` (`t:string` required) The ID or Amazon Resource Name
-  (ARN) of the service.
-  ## Keyword parameters:
+    (ARN) of the service.
   """
   @spec update_rule(AWS.Client.t(), String.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, update_rule_response(), any()}
@@ -4827,8 +4797,7 @@ defmodule AWS.VPCLattice do
 
   ## Parameters:
   * `:service_identifier` (`t:string` required) The ID or Amazon Resource Name
-  (ARN) of the service.
-  ## Keyword parameters:
+    (ARN) of the service.
   """
   @spec update_service(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, update_service_response(), any()}
@@ -4881,8 +4850,7 @@ defmodule AWS.VPCLattice do
 
   ## Parameters:
   * `:service_network_identifier` (`t:string` required) The ID or Amazon Resource
-  Name (ARN) of the service network.
-  ## Keyword parameters:
+    Name (ARN) of the service network.
   """
   @spec update_service_network(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, update_service_network_response(), any()}
@@ -4939,8 +4907,7 @@ defmodule AWS.VPCLattice do
 
   ## Parameters:
   * `:service_network_vpc_association_identifier` (`t:string` required) The ID or
-  Amazon Resource Name (ARN) of the association.
-  ## Keyword parameters:
+    Amazon Resource Name (ARN) of the association.
   """
   @spec update_service_network_vpc_association(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, update_service_network_vpc_association_response(), any()}
@@ -4998,8 +4965,7 @@ defmodule AWS.VPCLattice do
 
   ## Parameters:
   * `:target_group_identifier` (`t:string` required) The ID or Amazon Resource
-  Name (ARN) of the target group.
-  ## Keyword parameters:
+    Name (ARN) of the target group.
   """
   @spec update_target_group(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, update_target_group_response(), any()}

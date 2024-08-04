@@ -2909,11 +2909,10 @@ defmodule AWS.Kafka do
 
   ## Parameters:
   * `:cluster_arn` (`t:string` required) The Amazon Resource Name (ARN) of the
-  cluster to be updated.
+    cluster to be updated.
   * `:input` (`t:map`):
-    * `:secret_arn_list` (`t:list[com.amazonaws.kafka#__string]` required) List of
-  AWS Secrets Manager secret ARNs.
-  ## Keyword parameters:
+    * `"secretArnList" => t:list[com.amazonaws.kafka#__string]` (required) List of
+    AWS Secrets Manager secret ARNs.
   """
   @spec batch_associate_scram_secret(AWS.Client.t(), String.t(), input :: map(), Keyword.t()) ::
           {:ok, batch_associate_scram_secret_response(), any()}
@@ -2957,11 +2956,10 @@ defmodule AWS.Kafka do
 
   ## Parameters:
   * `:cluster_arn` (`t:string` required) The Amazon Resource Name (ARN) of the
-  cluster to be updated.
+    cluster to be updated.
   * `:input` (`t:map`):
-    * `:secret_arn_list` (`t:list[com.amazonaws.kafka#__string]` required) List of
-  AWS Secrets Manager secret ARNs.
-  ## Keyword parameters:
+    * `"secretArnList" => t:list[com.amazonaws.kafka#__string]` (required) List of
+    AWS Secrets Manager secret ARNs.
   """
   @spec batch_disassociate_scram_secret(AWS.Client.t(), String.t(), input :: map(), Keyword.t()) ::
           {:ok, batch_disassociate_scram_secret_response(), any()}
@@ -3015,28 +3013,26 @@ defmodule AWS.Kafka do
 
   ## Parameters:
   * `:input` (`t:map`):
-    * `:broker_node_group_info` (`t:structure` required) Information about the
-  broker nodes in the cluster.
-    * `:cluster_name` (`t:string` required) The name of the cluster.
-    * `:kafka_version` (`t:string` required) The version of Apache Kafka.
-    * `:number_of_broker_nodes` (`t:integer` required) The number of broker nodes in
-  the cluster.
-    * `:client_authentication` (`t:structure`) Includes all client authentication
-  related information.
-    * `:configuration_info` (`t:structure`) Represents the configuration that you
-  want MSK to use for the brokers in a cluster.
-    * `:encryption_info` (`t:structure`) Includes all encryption-related
-  information.
-    * `:enhanced_monitoring`
-  (`t:enum["DEFAULT|PER_BROKER|PER_TOPIC_PER_BROKER|PER_TOPIC_PER_PARTITION"]`)
-  Specifies the level of monitoring for the MSK cluster. The possible values
-  are DEFAULT, PER_BROKER, PER_TOPIC_PER_BROKER, and PER_TOPIC_PER_PARTITION.
-    * `:logging_info` (`t:structure`)
-    * `:open_monitoring` (`t:structure`) The settings for open monitoring.
-    * `:storage_mode` (`t:enum["LOCAL|TIERED"]`) This controls storage mode for
-  supported storage tiers.
-    * `:tags` (`t:map`) Create tags when creating the cluster.
-  ## Keyword parameters:
+    * `"brokerNodeGroupInfo" => t:structure` (required) Information about the broker
+    nodes in the cluster.
+    * `"clusterName" => t:string` (required) The name of the cluster.
+    * `"kafkaVersion" => t:string` (required) The version of Apache Kafka.
+    * `"numberOfBrokerNodes" => t:integer` (required) The number of broker nodes in
+    the cluster.
+    * `"clientAuthentication" => t:structure` Includes all client authentication
+    related information.
+    * `"configurationInfo" => t:structure` Represents the configuration that you
+    want MSK to use for the brokers in a cluster.
+    * `"encryptionInfo" => t:structure` Includes all encryption-related information.
+    * `"enhancedMonitoring" =>
+    t:enum["DEFAULT|PER_BROKER|PER_TOPIC_PER_BROKER|PER_TOPIC_PER_PARTITION"]`
+    Specifies the level of monitoring for the MSK cluster. The possible values
+    are DEFAULT, PER_BROKER, PER_TOPIC_PER_BROKER, and PER_TOPIC_PER_PARTITION.
+    * `"loggingInfo" => t:structure`
+    * `"openMonitoring" => t:structure` The settings for open monitoring.
+    * `"storageMode" => t:enum["LOCAL|TIERED"]` This controls storage mode for
+    supported storage tiers.
+    * `"tags" => t:map` Create tags when creating the cluster.
   """
   @spec create_cluster(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_cluster_response(), any()}
@@ -3079,11 +3075,10 @@ defmodule AWS.Kafka do
 
   ## Parameters:
   * `:input` (`t:map`):
-    * `:cluster_name` (`t:string` required) The name of the cluster.
-    * `:provisioned` (`t:structure`) Information about the provisioned cluster.
-    * `:serverless` (`t:structure`) Information about the serverless cluster.
-    * `:tags` (`t:map`) A map of tags that you want the cluster to have.
-  ## Keyword parameters:
+    * `"clusterName" => t:string` (required) The name of the cluster.
+    * `"provisioned" => t:structure` Information about the provisioned cluster.
+    * `"serverless" => t:structure` Information about the serverless cluster.
+    * `"tags" => t:map` A map of tags that you want the cluster to have.
   """
   @spec create_cluster_v2(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_cluster_v2_response(), any()}
@@ -3126,15 +3121,14 @@ defmodule AWS.Kafka do
 
   ## Parameters:
   * `:input` (`t:map`):
-    * `:name` (`t:string` required) The name of the configuration.
-    * `:server_properties` (`t:blob` required) Contents of the server.properties
-  file. When using the API, you must ensure that the contents of the file are
-  base64 encoded. When using the AWS Management Console, the SDK, or the AWS
-  CLI, the contents of server.properties can be in plaintext.
-    * `:description` (`t:string`) The description of the configuration.
-    * `:kafka_versions` (`t:list[com.amazonaws.kafka#__string]`) The versions of
-  Apache Kafka with which you can use this MSK configuration.
-  ## Keyword parameters:
+    * `"name" => t:string` (required) The name of the configuration.
+    * `"serverProperties" => t:blob` (required) Contents of the server.properties
+    file. When using the API, you must ensure that the contents of the file are
+    base64 encoded. When using the AWS Management Console, the SDK, or the AWS
+    CLI, the contents of server.properties can be in plaintext.
+    * `"description" => t:string` The description of the configuration.
+    * `"kafkaVersions" => t:list[com.amazonaws.kafka#__string]` The versions of
+    Apache Kafka with which you can use this MSK configuration.
   """
   @spec create_configuration(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_configuration_response(), any()}
@@ -3177,19 +3171,18 @@ defmodule AWS.Kafka do
 
   ## Parameters:
   * `:input` (`t:map`):
-    * `:kafka_clusters` (`t:list[com.amazonaws.kafka#KafkaCluster]` required) Kafka
-  Clusters to use in setting up sources / targets for replication.
-    * `:replication_info_list` (`t:list[com.amazonaws.kafka#ReplicationInfo]`
-  required) A list of replication configurations, where each configuration
-  targets a given source cluster to target cluster replication flow.
-    * `:replicator_name` (`t:string` required) The name of the replicator.
-  Alpha-numeric characters with '-' are allowed.
-    * `:service_execution_role_arn` (`t:string` required) The ARN of the IAM role
-  used by the replicator to access resources in the customer's account (e.g
-  source and target clusters)
-    * `:description` (`t:string`) A summary description of the replicator.
-    * `:tags` (`t:map`) List of tags to attach to created Replicator.
-  ## Keyword parameters:
+    * `"kafkaClusters" => t:list[com.amazonaws.kafka#KafkaCluster]` (required) Kafka
+    Clusters to use in setting up sources / targets for replication.
+    * `"replicationInfoList" => t:list[com.amazonaws.kafka#ReplicationInfo]`
+    (required) A list of replication configurations, where each configuration
+    targets a given source cluster to target cluster replication flow.
+    * `"replicatorName" => t:string` (required) The name of the replicator.
+    Alpha-numeric characters with '-' are allowed.
+    * `"serviceExecutionRoleArn" => t:string` (required) The ARN of the IAM role
+    used by the replicator to access resources in the customer's account (e.g
+    source and target clusters)
+    * `"description" => t:string` A summary description of the replicator.
+    * `"tags" => t:map` List of tags to attach to created Replicator.
   """
   @spec create_replicator(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_replicator_response(), any()}
@@ -3232,17 +3225,16 @@ defmodule AWS.Kafka do
 
   ## Parameters:
   * `:input` (`t:map`):
-    * `:authentication` (`t:string` required) The authentication type of VPC
-  connection.
-    * `:client_subnets` (`t:list[com.amazonaws.kafka#__string]` required) The list
-  of client subnets.
-    * `:security_groups` (`t:list[com.amazonaws.kafka#__string]` required) The list
-  of security groups.
-    * `:target_cluster_arn` (`t:string` required) The cluster Amazon Resource Name
-  (ARN) for the VPC connection.
-    * `:vpc_id` (`t:string` required) The VPC ID of VPC connection.
-    * `:tags` (`t:map`) A map of tags for the VPC connection.
-  ## Keyword parameters:
+    * `"authentication" => t:string` (required) The authentication type of VPC
+    connection.
+    * `"clientSubnets" => t:list[com.amazonaws.kafka#__string]` (required) The list
+    of client subnets.
+    * `"securityGroups" => t:list[com.amazonaws.kafka#__string]` (required) The list
+    of security groups.
+    * `"targetClusterArn" => t:string` (required) The cluster Amazon Resource Name
+    (ARN) for the VPC connection.
+    * `"vpcId" => t:string` (required) The VPC ID of VPC connection.
+    * `"tags" => t:map` A map of tags for the VPC connection.
   """
   @spec create_vpc_connection(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_vpc_connection_response(), any()}
@@ -3286,7 +3278,8 @@ defmodule AWS.Kafka do
 
   ## Parameters:
   * `:cluster_arn` (`t:string` required) The Amazon Resource Name (ARN) that
-  uniquely identifies the cluster.
+    uniquely identifies the cluster.
+
   ## Keyword parameters:
   * `:current_version` (`t:string`) The current version of the MSK cluster.
   """
@@ -3353,8 +3346,7 @@ defmodule AWS.Kafka do
 
   ## Parameters:
   * `:cluster_arn` (`t:string` required) The Amazon Resource Name (ARN) of the
-  cluster.
-  ## Keyword parameters:
+    cluster.
   """
   @spec delete_cluster_policy(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, delete_cluster_policy_response(), any()}
@@ -3407,8 +3399,7 @@ defmodule AWS.Kafka do
 
   ## Parameters:
   * `:arn` (`t:string` required) The Amazon Resource Name (ARN) that uniquely
-  identifies an MSK configuration.
-  ## Keyword parameters:
+    identifies an MSK configuration.
   """
   @spec delete_configuration(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, delete_configuration_response(), any()}
@@ -3461,7 +3452,8 @@ defmodule AWS.Kafka do
 
   ## Parameters:
   * `:replicator_arn` (`t:string` required) The Amazon Resource Name (ARN) of the
-  replicator to be deleted.
+    replicator to be deleted.
+
   ## Keyword parameters:
   * `:current_version` (`t:string`) The current version of the replicator.
   """
@@ -3527,8 +3519,7 @@ defmodule AWS.Kafka do
 
   ## Parameters:
   * `:arn` (`t:string` required) The Amazon Resource Name (ARN) that uniquely
-  identifies an MSK VPC connection.
-  ## Keyword parameters:
+    identifies an MSK VPC connection.
   """
   @spec delete_vpc_connection(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, delete_vpc_connection_response(), any()}
@@ -3582,8 +3573,7 @@ defmodule AWS.Kafka do
 
   ## Parameters:
   * `:cluster_arn` (`t:string` required) The Amazon Resource Name (ARN) that
-  uniquely identifies the cluster.
-  ## Keyword parameters:
+    uniquely identifies the cluster.
   """
   @spec describe_cluster(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, describe_cluster_response(), any()}
@@ -3624,8 +3614,7 @@ defmodule AWS.Kafka do
 
   ## Parameters:
   * `:cluster_operation_arn` (`t:string` required) The Amazon Resource Name (ARN)
-  that uniquely identifies the MSK cluster operation.
-  ## Keyword parameters:
+    that uniquely identifies the MSK cluster operation.
   """
   @spec describe_cluster_operation(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, describe_cluster_operation_response(), any()}
@@ -3666,7 +3655,6 @@ defmodule AWS.Kafka do
 
   ## Parameters:
   * `:cluster_operation_arn` (`t:string` required)
-  ## Keyword parameters:
   """
   @spec describe_cluster_operation_v2(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, describe_cluster_operation_v2_response(), any()}
@@ -3708,8 +3696,7 @@ defmodule AWS.Kafka do
 
   ## Parameters:
   * `:cluster_arn` (`t:string` required) The Amazon Resource Name (ARN) that
-  uniquely identifies the cluster.
-  ## Keyword parameters:
+    uniquely identifies the cluster.
   """
   @spec describe_cluster_v2(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, describe_cluster_v2_response(), any()}
@@ -3750,8 +3737,7 @@ defmodule AWS.Kafka do
 
   ## Parameters:
   * `:arn` (`t:string` required) The Amazon Resource Name (ARN) that uniquely
-  identifies an MSK configuration and all of its revisions.
-  ## Keyword parameters:
+    identifies an MSK configuration and all of its revisions.
   """
   @spec describe_configuration(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, describe_configuration_response(), any()}
@@ -3792,10 +3778,9 @@ defmodule AWS.Kafka do
 
   ## Parameters:
   * `:arn` (`t:string` required) The Amazon Resource Name (ARN) that uniquely
-  identifies an MSK configuration and all of its revisions.
+    identifies an MSK configuration and all of its revisions.
   * `:revision` (`t:long` required) A string that uniquely identifies a revision
-  of an MSK configuration.
-  ## Keyword parameters:
+    of an MSK configuration.
   """
   @spec describe_configuration_revision(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, describe_configuration_revision_response(), any()}
@@ -3837,8 +3822,7 @@ defmodule AWS.Kafka do
 
   ## Parameters:
   * `:replicator_arn` (`t:string` required) The Amazon Resource Name (ARN) of the
-  replicator to be described.
-  ## Keyword parameters:
+    replicator to be described.
   """
   @spec describe_replicator(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, describe_replicator_response(), any()}
@@ -3879,8 +3863,7 @@ defmodule AWS.Kafka do
 
   ## Parameters:
   * `:arn` (`t:string` required) The Amazon Resource Name (ARN) that uniquely
-  identifies a MSK VPC connection.
-  ## Keyword parameters:
+    identifies a MSK VPC connection.
   """
   @spec describe_vpc_connection(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, describe_vpc_connection_response(), any()}
@@ -3921,8 +3904,7 @@ defmodule AWS.Kafka do
 
   ## Parameters:
   * `:cluster_arn` (`t:string` required) The Amazon Resource Name (ARN) that
-  uniquely identifies the cluster.
-  ## Keyword parameters:
+    uniquely identifies the cluster.
   """
   @spec get_bootstrap_brokers(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_bootstrap_brokers_response(), any()}
@@ -3964,8 +3946,7 @@ defmodule AWS.Kafka do
 
   ## Parameters:
   * `:cluster_arn` (`t:string` required) The Amazon Resource Name (ARN) of the
-  cluster.
-  ## Keyword parameters:
+    cluster.
   """
   @spec get_cluster_policy(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_cluster_policy_response(), any()}
@@ -4005,9 +3986,10 @@ defmodule AWS.Kafka do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=kafka%20GetCompatibleKafkaVersions&this_doc_guide=API%2520Reference)
 
   ## Parameters:
+
   ## Keyword parameters:
   * `:cluster_arn` (`t:string`) The Amazon Resource Name (ARN) of the cluster
-  check.
+    check.
   """
   @spec get_compatible_kafka_versions(AWS.Client.t(), Keyword.t()) ::
           {:ok, get_compatible_kafka_versions_response(), any()}
@@ -4059,14 +4041,15 @@ defmodule AWS.Kafka do
 
   ## Parameters:
   * `:cluster_arn` (`t:string` required) The Amazon Resource Name (ARN) of the
-  cluster.
+    cluster.
+
   ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of results to return in the
-  response. If there are more results, the response includes a NextToken
-  parameter.
+    response. If there are more results, the response includes a NextToken
+    parameter.
   * `:next_token` (`t:string`) The paginated results marker. When the result of
-  the operation is truncated, the call returns NextToken in the response. To
-  get the next batch, provide this token in your next request.
+    the operation is truncated, the call returns NextToken in the response. To
+    get the next batch, provide this token in your next request.
   """
   @spec list_client_vpc_connections(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_client_vpc_connections_response(), any()}
@@ -4126,14 +4109,15 @@ defmodule AWS.Kafka do
 
   ## Parameters:
   * `:cluster_arn` (`t:string` required) The Amazon Resource Name (ARN) that
-  uniquely identifies the cluster.
+    uniquely identifies the cluster.
+
   ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of results to return in the
-  response. If there are more results, the response includes a NextToken
-  parameter.
+    response. If there are more results, the response includes a NextToken
+    parameter.
   * `:next_token` (`t:string`) The paginated results marker. When the result of
-  the operation is truncated, the call returns NextToken in the response. To
-  get the next batch, provide this token in your next request.
+    the operation is truncated, the call returns NextToken in the response. To
+    get the next batch, provide this token in your next request.
   """
   @spec list_cluster_operations(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_cluster_operations_response(), any()}
@@ -4193,6 +4177,7 @@ defmodule AWS.Kafka do
 
   ## Parameters:
   * `:cluster_arn` (`t:string` required)
+
   ## Keyword parameters:
   * `:max_results` (`t:integer`)
   * `:next_token` (`t:string`)
@@ -4253,16 +4238,17 @@ defmodule AWS.Kafka do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=kafka%20ListClusters&this_doc_guide=API%2520Reference)
 
   ## Parameters:
+
   ## Keyword parameters:
   * `:cluster_name_filter` (`t:string`) Specify a prefix of the name of the
-  clusters that you want to list. The service lists all the clusters whose
-  names start with this prefix.
+    clusters that you want to list. The service lists all the clusters whose
+    names start with this prefix.
   * `:max_results` (`t:integer`) The maximum number of results to return in the
-  response. If there are more results, the response includes a NextToken
-  parameter.
+    response. If there are more results, the response includes a NextToken
+    parameter.
   * `:next_token` (`t:string`) The paginated results marker. When the result of
-  the operation is truncated, the call returns NextToken in the response. To
-  get the next batch, provide this token in your next request.
+    the operation is truncated, the call returns NextToken in the response. To
+    get the next batch, provide this token in your next request.
   """
   @spec list_clusters(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_clusters_response(), any()}
@@ -4327,17 +4313,18 @@ defmodule AWS.Kafka do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=kafka%20ListClustersV2&this_doc_guide=API%2520Reference)
 
   ## Parameters:
+
   ## Keyword parameters:
   * `:cluster_name_filter` (`t:string`) Specify a prefix of the names of the
-  clusters that you want to list. The service lists all the clusters whose
-  names start with this prefix.
+    clusters that you want to list. The service lists all the clusters whose
+    names start with this prefix.
   * `:cluster_type_filter` (`t:string`) Specify either PROVISIONED or SERVERLESS.
   * `:max_results` (`t:integer`) The maximum number of results to return in the
-  response. If there are more results, the response includes a NextToken
-  parameter.
+    response. If there are more results, the response includes a NextToken
+    parameter.
   * `:next_token` (`t:string`) The paginated results marker. When the result of
-  the operation is truncated, the call returns NextToken in the response. To
-  get the next batch, provide this token in your next request.
+    the operation is truncated, the call returns NextToken in the response. To
+    get the next batch, provide this token in your next request.
   """
   @spec list_clusters_v2(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_clusters_v2_response(), any()}
@@ -4415,14 +4402,15 @@ defmodule AWS.Kafka do
 
   ## Parameters:
   * `:arn` (`t:string` required) The Amazon Resource Name (ARN) that uniquely
-  identifies an MSK configuration and all of its revisions.
+    identifies an MSK configuration and all of its revisions.
+
   ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of results to return in the
-  response. If there are more results, the response includes a NextToken
-  parameter.
+    response. If there are more results, the response includes a NextToken
+    parameter.
   * `:next_token` (`t:string`) The paginated results marker. When the result of
-  the operation is truncated, the call returns NextToken in the response. To
-  get the next batch, provide this token in your next request.
+    the operation is truncated, the call returns NextToken in the response. To
+    get the next batch, provide this token in your next request.
   """
   @spec list_configuration_revisions(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_configuration_revisions_response(), any()}
@@ -4480,13 +4468,14 @@ defmodule AWS.Kafka do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=kafka%20ListConfigurations&this_doc_guide=API%2520Reference)
 
   ## Parameters:
+
   ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of results to return in the
-  response. If there are more results, the response includes a NextToken
-  parameter.
+    response. If there are more results, the response includes a NextToken
+    parameter.
   * `:next_token` (`t:string`) The paginated results marker. When the result of
-  the operation is truncated, the call returns NextToken in the response. To
-  get the next batch, provide this token in your next request.
+    the operation is truncated, the call returns NextToken in the response. To
+    get the next batch, provide this token in your next request.
   """
   @spec list_configurations(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_configurations_response(), any()}
@@ -4544,13 +4533,14 @@ defmodule AWS.Kafka do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=kafka%20ListKafkaVersions&this_doc_guide=API%2520Reference)
 
   ## Parameters:
+
   ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of results to return in the
-  response. If there are more results, the response includes a NextToken
-  parameter.
+    response. If there are more results, the response includes a NextToken
+    parameter.
   * `:next_token` (`t:string`) The paginated results marker. When the result of
-  the operation is truncated, the call returns NextToken in the response. To
-  get the next batch, provide this token in your next request.
+    the operation is truncated, the call returns NextToken in the response. To
+    get the next batch, provide this token in your next request.
   """
   @spec list_kafka_versions(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_kafka_versions_response(), any()}
@@ -4609,14 +4599,15 @@ defmodule AWS.Kafka do
 
   ## Parameters:
   * `:cluster_arn` (`t:string` required) The Amazon Resource Name (ARN) that
-  uniquely identifies the cluster.
+    uniquely identifies the cluster.
+
   ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of results to return in the
-  response. If there are more results, the response includes a NextToken
-  parameter.
+    response. If there are more results, the response includes a NextToken
+    parameter.
   * `:next_token` (`t:string`) The paginated results marker. When the result of
-  the operation is truncated, the call returns NextToken in the response. To
-  get the next batch, provide this token in your next request.
+    the operation is truncated, the call returns NextToken in the response. To
+    get the next batch, provide this token in your next request.
   """
   @spec list_nodes(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_nodes_response(), any()}
@@ -4674,15 +4665,16 @@ defmodule AWS.Kafka do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=kafka%20ListReplicators&this_doc_guide=API%2520Reference)
 
   ## Parameters:
+
   ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of results to return in the
-  response. If there are more results, the response includes a NextToken
-  parameter.
+    response. If there are more results, the response includes a NextToken
+    parameter.
   * `:next_token` (`t:string`) If the response of ListReplicators is truncated, it
-  returns a NextToken in the response. This NextToken should be sent in the
-  subsequent request to ListReplicators.
+    returns a NextToken in the response. This NextToken should be sent in the
+    subsequent request to ListReplicators.
   * `:replicator_name_filter` (`t:string`) Returns replicators starting with given
-  name.
+    name.
   """
   @spec list_replicators(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_replicators_response(), any()}
@@ -4748,6 +4740,7 @@ defmodule AWS.Kafka do
 
   ## Parameters:
   * `:cluster_arn` (`t:string` required) The arn of the cluster.
+
   ## Keyword parameters:
   * `:max_results` (`t:integer`) The maxResults of the query.
   * `:next_token` (`t:string`) The nextToken of the query.
@@ -4809,8 +4802,7 @@ defmodule AWS.Kafka do
 
   ## Parameters:
   * `:resource_arn` (`t:string` required) The Amazon Resource Name (ARN) that
-  uniquely identifies the resource that's associated with the tags.
-  ## Keyword parameters:
+    uniquely identifies the resource that's associated with the tags.
   """
   @spec list_tags_for_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_tags_for_resource_response(), any()}
@@ -4850,13 +4842,14 @@ defmodule AWS.Kafka do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=kafka%20ListVpcConnections&this_doc_guide=API%2520Reference)
 
   ## Parameters:
+
   ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of results to return in the
-  response. If there are more results, the response includes a NextToken
-  parameter.
+    response. If there are more results, the response includes a NextToken
+    parameter.
   * `:next_token` (`t:string`) The paginated results marker. When the result of
-  the operation is truncated, the call returns NextToken in the response. To
-  get the next batch, provide this token in your next request.
+    the operation is truncated, the call returns NextToken in the response. To
+    get the next batch, provide this token in your next request.
   """
   @spec list_vpc_connections(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_vpc_connections_response(), any()}
@@ -4916,11 +4909,10 @@ defmodule AWS.Kafka do
 
   ## Parameters:
   * `:cluster_arn` (`t:string` required) The Amazon Resource Name (ARN) of the
-  cluster.
+    cluster.
   * `:input` (`t:map`):
-    * `:policy` (`t:string` required) The policy.
-    * `:current_version` (`t:string`) The policy version.
-  ## Keyword parameters:
+    * `"policy" => t:string` (required) The policy.
+    * `"currentVersion" => t:string` The policy version.
   """
   @spec put_cluster_policy(AWS.Client.t(), String.t(), input :: map(), Keyword.t()) ::
           {:ok, put_cluster_policy_response(), any()}
@@ -4964,12 +4956,11 @@ defmodule AWS.Kafka do
 
   ## Parameters:
   * `:cluster_arn` (`t:string` required) The Amazon Resource Name (ARN) of the
-  cluster to be updated.
+    cluster to be updated.
   * `:input` (`t:map`):
-    * `:broker_ids` (`t:list[com.amazonaws.kafka#__string]` required) The list of
-  broker IDs to be rebooted. The reboot-broker operation supports rebooting
-  one broker at a time.
-  ## Keyword parameters:
+    * `"brokerIds" => t:list[com.amazonaws.kafka#__string]` (required) The list of
+    broker IDs to be rebooted. The reboot-broker operation supports rebooting
+    one broker at a time.
   """
   @spec reboot_broker(AWS.Client.t(), String.t(), input :: map(), Keyword.t()) ::
           {:ok, reboot_broker_response(), any()}
@@ -5012,10 +5003,9 @@ defmodule AWS.Kafka do
 
   ## Parameters:
   * `:cluster_arn` (`t:string` required) The Amazon Resource Name (ARN) of the
-  cluster.
+    cluster.
   * `:input` (`t:map`):
-    * `:vpc_connection_arn` (`t:string` required) The VPC connection ARN.
-  ## Keyword parameters:
+    * `"vpcConnectionArn" => t:string` (required) The VPC connection ARN.
   """
   @spec reject_client_vpc_connection(AWS.Client.t(), String.t(), input :: map(), Keyword.t()) ::
           {:ok, reject_client_vpc_connection_response(), any()}
@@ -5059,10 +5049,9 @@ defmodule AWS.Kafka do
 
   ## Parameters:
   * `:resource_arn` (`t:string` required) The Amazon Resource Name (ARN) that
-  uniquely identifies the resource that's associated with the tags.
+    uniquely identifies the resource that's associated with the tags.
   * `:input` (`t:map`):
-    * `:tags` (`t:map` required) The key-value pair for the resource tag.
-  ## Keyword parameters:
+    * `"tags" => t:map` (required) The key-value pair for the resource tag.
   """
   @spec tag_resource(AWS.Client.t(), String.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
@@ -5105,10 +5094,9 @@ defmodule AWS.Kafka do
 
   ## Parameters:
   * `:resource_arn` (`t:string` required) The Amazon Resource Name (ARN) that
-  uniquely identifies the resource that's associated with the tags.
+    uniquely identifies the resource that's associated with the tags.
   * `:tag_keys` (`t:list[com.amazonaws.kafka#__string]` required) Tag keys must be
-  unique for a given cluster. In addition, the following restrictions apply:
-  ## Keyword parameters:
+    unique for a given cluster. In addition, the following restrictions apply:
   """
   @spec untag_resource(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
@@ -5162,14 +5150,13 @@ defmodule AWS.Kafka do
 
   ## Parameters:
   * `:cluster_arn` (`t:string` required) The Amazon Resource Name (ARN) that
-  uniquely identifies the cluster.
+    uniquely identifies the cluster.
   * `:input` (`t:map`):
-    * `:current_version` (`t:string` required) The version of cluster to update
-  from. A successful operation will then generate a new version.
-    * `:target_number_of_broker_nodes` (`t:integer` required) The number of broker
-  nodes that you want the cluster to have after this operation completes
-  successfully.
-  ## Keyword parameters:
+    * `"currentVersion" => t:string` (required) The version of cluster to update
+    from. A successful operation will then generate a new version.
+    * `"targetNumberOfBrokerNodes" => t:integer` (required) The number of broker
+    nodes that you want the cluster to have after this operation completes
+    successfully.
   """
   @spec update_broker_count(AWS.Client.t(), String.t(), input :: map(), Keyword.t()) ::
           {:ok, update_broker_count_response(), any()}
@@ -5213,14 +5200,13 @@ defmodule AWS.Kafka do
 
   ## Parameters:
   * `:cluster_arn` (`t:string` required) The Amazon Resource Name (ARN) that
-  uniquely identifies the cluster.
+    uniquely identifies the cluster.
   * `:input` (`t:map`):
-    * `:current_version` (`t:string` required) The version of cluster to update
-  from. A successful operation will then generate a new version.
-    * `:target_broker_ebs_volume_info`
-  (`t:list[com.amazonaws.kafka#BrokerEBSVolumeInfo]` required) Describes the
-  target volume size and the ID of the broker to apply the update to.
-  ## Keyword parameters:
+    * `"currentVersion" => t:string` (required) The version of cluster to update
+    from. A successful operation will then generate a new version.
+    * `"targetBrokerEBSVolumeInfo" =>
+    t:list[com.amazonaws.kafka#BrokerEBSVolumeInfo]` (required) Describes the
+    target volume size and the ID of the broker to apply the update to.
   """
   @spec update_broker_storage(AWS.Client.t(), String.t(), input :: map(), Keyword.t()) ::
           {:ok, update_broker_storage_response(), any()}
@@ -5264,14 +5250,13 @@ defmodule AWS.Kafka do
 
   ## Parameters:
   * `:cluster_arn` (`t:string` required) The Amazon Resource Name (ARN) that
-  uniquely identifies the cluster.
+    uniquely identifies the cluster.
   * `:input` (`t:map`):
-    * `:current_version` (`t:string` required) The cluster version that you want to
-  change. After this operation completes successfully, the cluster will have a
-  new version.
-    * `:target_instance_type` (`t:string` required) The Amazon MSK broker type that
-  you want all of the brokers in this cluster to be.
-  ## Keyword parameters:
+    * `"currentVersion" => t:string` (required) The cluster version that you want to
+    change. After this operation completes successfully, the cluster will have a
+    new version.
+    * `"targetInstanceType" => t:string` (required) The Amazon MSK broker type that
+    you want all of the brokers in this cluster to be.
   """
   @spec update_broker_type(AWS.Client.t(), String.t(), input :: map(), Keyword.t()) ::
           {:ok, update_broker_type_response(), any()}
@@ -5316,13 +5301,12 @@ defmodule AWS.Kafka do
 
   ## Parameters:
   * `:cluster_arn` (`t:string` required) The Amazon Resource Name (ARN) that
-  uniquely identifies the cluster.
+    uniquely identifies the cluster.
   * `:input` (`t:map`):
-    * `:configuration_info` (`t:structure` required) Represents the configuration
-  that you want MSK to use for the brokers in a cluster.
-    * `:current_version` (`t:string` required) The version of the cluster that needs
-  to be updated.
-  ## Keyword parameters:
+    * `"configurationInfo" => t:structure` (required) Represents the configuration
+    that you want MSK to use for the brokers in a cluster.
+    * `"currentVersion" => t:string` (required) The version of the cluster that
+    needs to be updated.
   """
   @spec update_cluster_configuration(AWS.Client.t(), String.t(), input :: map(), Keyword.t()) ::
           {:ok, update_cluster_configuration_response(), any()}
@@ -5366,13 +5350,12 @@ defmodule AWS.Kafka do
 
   ## Parameters:
   * `:cluster_arn` (`t:string` required) The Amazon Resource Name (ARN) of the
-  cluster to be updated.
+    cluster to be updated.
   * `:input` (`t:map`):
-    * `:current_version` (`t:string` required) Current cluster version.
-    * `:target_kafka_version` (`t:string` required) Target Kafka version.
-    * `:configuration_info` (`t:structure`) The custom configuration that should be
-  applied on the new version of cluster.
-  ## Keyword parameters:
+    * `"currentVersion" => t:string` (required) Current cluster version.
+    * `"targetKafkaVersion" => t:string` (required) Target Kafka version.
+    * `"configurationInfo" => t:structure` The custom configuration that should be
+    applied on the new version of cluster.
   """
   @spec update_cluster_kafka_version(AWS.Client.t(), String.t(), input :: map(), Keyword.t()) ::
           {:ok, update_cluster_kafka_version_response(), any()}
@@ -5416,14 +5399,13 @@ defmodule AWS.Kafka do
 
   ## Parameters:
   * `:arn` (`t:string` required) The Amazon Resource Name (ARN) of the
-  configuration.
+    configuration.
   * `:input` (`t:map`):
-    * `:server_properties` (`t:blob` required) Contents of the server.properties
-  file. When using the API, you must ensure that the contents of the file are
-  base64 encoded. When using the AWS Management Console, the SDK, or the AWS
-  CLI, the contents of server.properties can be in plaintext.
-    * `:description` (`t:string`) The description of the configuration revision.
-  ## Keyword parameters:
+    * `"serverProperties" => t:blob` (required) Contents of the server.properties
+    file. When using the API, you must ensure that the contents of the file are
+    base64 encoded. When using the AWS Management Console, the SDK, or the AWS
+    CLI, the contents of server.properties can be in plaintext.
+    * `"description" => t:string` The description of the configuration revision.
   """
   @spec update_configuration(AWS.Client.t(), String.t(), input :: map(), Keyword.t()) ::
           {:ok, update_configuration_response(), any()}
@@ -5466,15 +5448,14 @@ defmodule AWS.Kafka do
 
   ## Parameters:
   * `:cluster_arn` (`t:string` required) The Amazon Resource Name (ARN) of the
-  configuration.
+    configuration.
   * `:input` (`t:map`):
-    * `:connectivity_info` (`t:structure` required) Information about the broker
-  access configuration.
-    * `:current_version` (`t:string` required) The version of the MSK cluster to
-  update. Cluster versions aren't simple numbers. You can describe an MSK
-  cluster to find its version. When this update operation is successful, it
-  generates a new cluster version.
-  ## Keyword parameters:
+    * `"connectivityInfo" => t:structure` (required) Information about the broker
+    access configuration.
+    * `"currentVersion" => t:string` (required) The version of the MSK cluster to
+    update. Cluster versions aren't simple numbers. You can describe an MSK
+    cluster to find its version. When this update operation is successful, it
+    generates a new cluster version.
   """
   @spec update_connectivity(AWS.Client.t(), String.t(), input :: map(), Keyword.t()) ::
           {:ok, update_connectivity_response(), any()}
@@ -5520,19 +5501,18 @@ defmodule AWS.Kafka do
 
   ## Parameters:
   * `:cluster_arn` (`t:string` required) The Amazon Resource Name (ARN) that
-  uniquely identifies the cluster.
+    uniquely identifies the cluster.
   * `:input` (`t:map`):
-    * `:current_version` (`t:string` required) The version of the MSK cluster to
-  update. Cluster versions aren't simple numbers. You can describe an MSK
-  cluster to find its version. When this update operation is successful, it
-  generates a new cluster version.
-    * `:enhanced_monitoring`
-  (`t:enum["DEFAULT|PER_BROKER|PER_TOPIC_PER_BROKER|PER_TOPIC_PER_PARTITION"]`)
-  Specifies which Apache Kafka metrics Amazon MSK gathers and sends to Amazon
-  CloudWatch for this cluster.
-    * `:logging_info` (`t:structure`)
-    * `:open_monitoring` (`t:structure`) The settings for open monitoring.
-  ## Keyword parameters:
+    * `"currentVersion" => t:string` (required) The version of the MSK cluster to
+    update. Cluster versions aren't simple numbers. You can describe an MSK
+    cluster to find its version. When this update operation is successful, it
+    generates a new cluster version.
+    * `"enhancedMonitoring" =>
+    t:enum["DEFAULT|PER_BROKER|PER_TOPIC_PER_BROKER|PER_TOPIC_PER_PARTITION"]`
+    Specifies which Apache Kafka metrics Amazon MSK gathers and sends to Amazon
+    CloudWatch for this cluster.
+    * `"loggingInfo" => t:structure`
+    * `"openMonitoring" => t:structure` The settings for open monitoring.
   """
   @spec update_monitoring(AWS.Client.t(), String.t(), input :: map(), Keyword.t()) ::
           {:ok, update_monitoring_response(), any()}
@@ -5576,17 +5556,16 @@ defmodule AWS.Kafka do
 
   ## Parameters:
   * `:replicator_arn` (`t:string` required) The Amazon Resource Name (ARN) of the
-  replicator to be updated.
+    replicator to be updated.
   * `:input` (`t:map`):
-    * `:current_version` (`t:string` required) Current replicator version.
-    * `:source_kafka_cluster_arn` (`t:string` required) The ARN of the source Kafka
-  cluster.
-    * `:target_kafka_cluster_arn` (`t:string` required) The ARN of the target Kafka
-  cluster.
-    * `:consumer_group_replication` (`t:structure`) Updated consumer group
-  replication information.
-    * `:topic_replication` (`t:structure`) Updated topic replication information.
-  ## Keyword parameters:
+    * `"currentVersion" => t:string` (required) Current replicator version.
+    * `"sourceKafkaClusterArn" => t:string` (required) The ARN of the source Kafka
+    cluster.
+    * `"targetKafkaClusterArn" => t:string` (required) The ARN of the target Kafka
+    cluster.
+    * `"consumerGroupReplication" => t:structure` Updated consumer group replication
+    information.
+    * `"topicReplication" => t:structure` Updated topic replication information.
   """
   @spec update_replication_info(AWS.Client.t(), String.t(), input :: map(), Keyword.t()) ::
           {:ok, update_replication_info_response(), any()}
@@ -5632,17 +5611,15 @@ defmodule AWS.Kafka do
 
   ## Parameters:
   * `:cluster_arn` (`t:string` required) The Amazon Resource Name (ARN) that
-  uniquely identifies the cluster.
+    uniquely identifies the cluster.
   * `:input` (`t:map`):
-    * `:current_version` (`t:string` required) The version of the MSK cluster to
-  update. Cluster versions aren't simple numbers. You can describe an MSK
-  cluster to find its version. When this update operation is successful, it
-  generates a new cluster version.
-    * `:client_authentication` (`t:structure`) Includes all client authentication
-  related information.
-    * `:encryption_info` (`t:structure`) Includes all encryption-related
-  information.
-  ## Keyword parameters:
+    * `"currentVersion" => t:string` (required) The version of the MSK cluster to
+    update. Cluster versions aren't simple numbers. You can describe an MSK
+    cluster to find its version. When this update operation is successful, it
+    generates a new cluster version.
+    * `"clientAuthentication" => t:structure` Includes all client authentication
+    related information.
+    * `"encryptionInfo" => t:structure` Includes all encryption-related information.
   """
   @spec update_security(AWS.Client.t(), String.t(), input :: map(), Keyword.t()) ::
           {:ok, update_security_response(), any()}
@@ -5695,16 +5672,15 @@ defmodule AWS.Kafka do
 
   ## Parameters:
   * `:cluster_arn` (`t:string` required) The Amazon Resource Name (ARN) of the
-  cluster to be updated.
+    cluster to be updated.
   * `:input` (`t:map`):
-    * `:current_version` (`t:string` required) The version of cluster to update
-  from. A successful operation will then generate a new version.
-    * `:provisioned_throughput` (`t:structure`) EBS volume provisioned throughput
-  information.
-    * `:storage_mode` (`t:enum["LOCAL|TIERED"]`) Controls storage mode for supported
-  storage tiers.
-    * `:volume_size_g_b` (`t:integer`) size of the EBS volume to update.
-  ## Keyword parameters:
+    * `"currentVersion" => t:string` (required) The version of cluster to update
+    from. A successful operation will then generate a new version.
+    * `"provisionedThroughput" => t:structure` EBS volume provisioned throughput
+    information.
+    * `"storageMode" => t:enum["LOCAL|TIERED"]` Controls storage mode for supported
+    storage tiers.
+    * `"volumeSizeGB" => t:integer` size of the EBS volume to update.
   """
   @spec update_storage(AWS.Client.t(), String.t(), input :: map(), Keyword.t()) ::
           {:ok, update_storage_response(), any()}

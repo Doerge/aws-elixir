@@ -1041,8 +1041,7 @@ defmodule AWS.Synthetics do
 
   ## Parameters:
   * `:group_identifier` (`t:string` required) Specifies the group. You can specify
-  the group name, the ARN, or the group ID as the GroupIdentifier.
-  ## Keyword parameters:
+    the group name, the ARN, or the group ID as the GroupIdentifier.
   """
   @spec associate_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, associate_resource_response(), any()}
@@ -1106,7 +1105,6 @@ defmodule AWS.Synthetics do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=synthetics%20CreateCanary&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec create_canary(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_canary_response(), any()}
@@ -1157,7 +1155,6 @@ defmodule AWS.Synthetics do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=synthetics%20CreateGroup&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec create_group(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_group_response(), any()}
@@ -1202,10 +1199,11 @@ defmodule AWS.Synthetics do
 
   ## Parameters:
   * `:name` (`t:string` required) The name of the canary that you want to delete.
-  To find the names of your canaries, use DescribeCanaries.
+    To find the names of your canaries, use DescribeCanaries.
+
   ## Keyword parameters:
   * `:delete_lambda` (`t:boolean`) Specifies whether to also delete the Lambda
-  functions and layers used by this canary. The default is false.
+    functions and layers used by this canary. The default is false.
   """
   @spec delete_canary(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, delete_canary_response(), any()}
@@ -1270,8 +1268,7 @@ defmodule AWS.Synthetics do
 
   ## Parameters:
   * `:group_identifier` (`t:string` required) Specifies which group to delete. You
-  can specify the group name, the ARN, or the group ID as the GroupIdentifier.
-  ## Keyword parameters:
+    can specify the group name, the ARN, or the group ID as the GroupIdentifier.
   """
   @spec delete_group(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, delete_group_response(), any()}
@@ -1329,7 +1326,6 @@ defmodule AWS.Synthetics do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=synthetics%20DescribeCanaries&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec describe_canaries(AWS.Client.t(), Keyword.t()) ::
           {:ok, describe_canaries_response(), any()}
@@ -1376,7 +1372,6 @@ defmodule AWS.Synthetics do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=synthetics%20DescribeCanariesLastRun&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec describe_canaries_last_run(AWS.Client.t(), Keyword.t()) ::
           {:ok, describe_canaries_last_run_response(), any()}
@@ -1420,7 +1415,6 @@ defmodule AWS.Synthetics do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=synthetics%20DescribeRuntimeVersions&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec describe_runtime_versions(AWS.Client.t(), Keyword.t()) ::
           {:ok, describe_runtime_versions_response(), any()}
@@ -1464,8 +1458,7 @@ defmodule AWS.Synthetics do
 
   ## Parameters:
   * `:group_identifier` (`t:string` required) Specifies the group. You can specify
-  the group name, the ARN, or the group ID as the GroupIdentifier.
-  ## Keyword parameters:
+    the group name, the ARN, or the group ID as the GroupIdentifier.
   """
   @spec disassociate_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, disassociate_resource_response(), any()}
@@ -1520,8 +1513,7 @@ defmodule AWS.Synthetics do
 
   ## Parameters:
   * `:name` (`t:string` required) The name of the canary that you want details
-  for.
-  ## Keyword parameters:
+    for.
   """
   @spec get_canary(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_canary_response(), any()}
@@ -1562,8 +1554,7 @@ defmodule AWS.Synthetics do
 
   ## Parameters:
   * `:name` (`t:string` required) The name of the canary that you want to see runs
-  for.
-  ## Keyword parameters:
+    for.
   """
   @spec get_canary_runs(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_canary_runs_response(), any()}
@@ -1607,9 +1598,8 @@ defmodule AWS.Synthetics do
 
   ## Parameters:
   * `:group_identifier` (`t:string` required) Specifies the group to return
-  information for. You can specify the group name, the ARN, or the group ID as
-  the GroupIdentifier.
-  ## Keyword parameters:
+    information for. You can specify the group name, the ARN, or the group ID as
+    the GroupIdentifier.
   """
   @spec get_group(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_group_response(), any()}
@@ -1651,8 +1641,7 @@ defmodule AWS.Synthetics do
 
   ## Parameters:
   * `:resource_arn` (`t:string` required) The ARN of the canary that you want to
-  view groups for.
-  ## Keyword parameters:
+    view groups for.
   """
   @spec list_associated_groups(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_associated_groups_response(), any()}
@@ -1696,9 +1685,8 @@ defmodule AWS.Synthetics do
 
   ## Parameters:
   * `:group_identifier` (`t:string` required) Specifies the group to return
-  information for. You can specify the group name, the ARN, or the group ID as
-  the GroupIdentifier.
-  ## Keyword parameters:
+    information for. You can specify the group name, the ARN, or the group ID as
+    the GroupIdentifier.
   """
   @spec list_group_resources(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_group_resources_response(), any()}
@@ -1741,7 +1729,6 @@ defmodule AWS.Synthetics do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=synthetics%20ListGroups&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec list_groups(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_groups_response(), any()}
@@ -1784,8 +1771,7 @@ defmodule AWS.Synthetics do
 
   ## Parameters:
   * `:resource_arn` (`t:string` required) The ARN of the canary or group that you
-  want to view tags for.
-  ## Keyword parameters:
+    want to view tags for.
   """
   @spec list_tags_for_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_tags_for_resource_response(), any()}
@@ -1829,8 +1815,7 @@ defmodule AWS.Synthetics do
 
   ## Parameters:
   * `:name` (`t:string` required) The name of the canary that you want to run. To
-  find canary names, use DescribeCanaries.
-  ## Keyword parameters:
+    find canary names, use DescribeCanaries.
   """
   @spec start_canary(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, start_canary_response(), any()}
@@ -1876,8 +1861,7 @@ defmodule AWS.Synthetics do
 
   ## Parameters:
   * `:name` (`t:string` required) The name of the canary that you want to stop. To
-  find the names of your canaries, use ListCanaries.
-  ## Keyword parameters:
+    find the names of your canaries, use ListCanaries.
   """
   @spec stop_canary(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, stop_canary_response(), any()}
@@ -1923,8 +1907,7 @@ defmodule AWS.Synthetics do
 
   ## Parameters:
   * `:resource_arn` (`t:string` required) The ARN of the canary or group that
-  you're adding tags to.
-  ## Keyword parameters:
+    you're adding tags to.
   """
   @spec tag_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, tag_resource_response(), any()}
@@ -1967,10 +1950,9 @@ defmodule AWS.Synthetics do
 
   ## Parameters:
   * `:resource_arn` (`t:string` required) The ARN of the canary or group that
-  you're removing tags from.
+    you're removing tags from.
   * `:tag_keys` (`t:list[com.amazonaws.synthetics#TagKey]` required) The list of
-  tag keys to remove from the resource.
-  ## Keyword parameters:
+    tag keys to remove from the resource.
   """
   @spec untag_resource(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, untag_resource_response(), any()}
@@ -2024,8 +2006,7 @@ defmodule AWS.Synthetics do
 
   ## Parameters:
   * `:name` (`t:string` required) The name of the canary that you want to update.
-  To find the names of your canaries, use DescribeCanaries.
-  ## Keyword parameters:
+    To find the names of your canaries, use DescribeCanaries.
   """
   @spec update_canary(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, update_canary_response(), any()}

@@ -1337,7 +1337,6 @@ defmodule AWS.Fis do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=fis%20CreateExperimentTemplate&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec create_experiment_template(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_experiment_template_response(), any()}
@@ -1385,9 +1384,8 @@ defmodule AWS.Fis do
 
   ## Parameters:
   * `:account_id` (`t:string` required) The Amazon Web Services account ID of the
-  target account.
+    target account.
   * `:experiment_template_id` (`t:string` required) The experiment template ID.
-  ## Keyword parameters:
   """
   @spec create_target_account_configuration(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, create_target_account_configuration_response(), any()}
@@ -1436,7 +1434,6 @@ defmodule AWS.Fis do
 
   ## Parameters:
   * `:id` (`t:string` required) The ID of the experiment template.
-  ## Keyword parameters:
   """
   @spec delete_experiment_template(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, delete_experiment_template_response(), any()}
@@ -1489,10 +1486,9 @@ defmodule AWS.Fis do
 
   ## Parameters:
   * `:account_id` (`t:string` required) The Amazon Web Services account ID of the
-  target account.
+    target account.
   * `:experiment_template_id` (`t:string` required) The ID of the experiment
-  template.
-  ## Keyword parameters:
+    template.
   """
   @spec delete_target_account_configuration(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, delete_target_account_configuration_response(), any()}
@@ -1551,7 +1547,6 @@ defmodule AWS.Fis do
 
   ## Parameters:
   * `:id` (`t:string` required) The ID of the action.
-  ## Keyword parameters:
   """
   @spec get_action(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_action_response(), any()}
@@ -1592,7 +1587,6 @@ defmodule AWS.Fis do
 
   ## Parameters:
   * `:id` (`t:string` required) The ID of the experiment.
-  ## Keyword parameters:
   """
   @spec get_experiment(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_experiment_response(), any()}
@@ -1634,9 +1628,8 @@ defmodule AWS.Fis do
 
   ## Parameters:
   * `:account_id` (`t:string` required) The Amazon Web Services account ID of the
-  target account.
+    target account.
   * `:experiment_id` (`t:string` required) The ID of the experiment.
-  ## Keyword parameters:
   """
   @spec get_experiment_target_account_configuration(
           AWS.Client.t(),
@@ -1688,7 +1681,6 @@ defmodule AWS.Fis do
 
   ## Parameters:
   * `:id` (`t:string` required) The ID of the experiment template.
-  ## Keyword parameters:
   """
   @spec get_experiment_template(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_experiment_template_response(), any()}
@@ -1730,10 +1722,9 @@ defmodule AWS.Fis do
 
   ## Parameters:
   * `:account_id` (`t:string` required) The Amazon Web Services account ID of the
-  target account.
+    target account.
   * `:experiment_template_id` (`t:string` required) The ID of the experiment
-  template.
-  ## Keyword parameters:
+    template.
   """
   @spec get_target_account_configuration(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_target_account_configuration_response(), any()}
@@ -1780,7 +1771,6 @@ defmodule AWS.Fis do
 
   ## Parameters:
   * `:resource_type` (`t:string` required) The resource type.
-  ## Keyword parameters:
   """
   @spec get_target_resource_type(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_target_resource_type_response(), any()}
@@ -1820,10 +1810,11 @@ defmodule AWS.Fis do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=fis%20ListActions&this_doc_guide=API%2520Reference)
 
   ## Parameters:
+
   ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of results to return with a
-  single call. To retrieve the remaining results, make another call with the
-  returned nextToken value.
+    single call. To retrieve the remaining results, make another call with the
+    returned nextToken value.
   * `:next_token` (`t:string`) The token for the next page of results.
   """
   @spec list_actions(AWS.Client.t(), Keyword.t()) ::
@@ -1883,10 +1874,11 @@ defmodule AWS.Fis do
 
   ## Parameters:
   * `:experiment_id` (`t:string` required) The ID of the experiment.
+
   ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of results to return with a
-  single call. To retrieve the remaining results, make another call with the
-  returned nextToken value.
+    single call. To retrieve the remaining results, make another call with the
+    returned nextToken value.
   * `:next_token` (`t:string`) The token for the next page of results.
   * `:target_name` (`t:string`) The name of the target.
   """
@@ -1954,6 +1946,7 @@ defmodule AWS.Fis do
 
   ## Parameters:
   * `:experiment_id` (`t:string` required) The ID of the experiment.
+
   ## Keyword parameters:
   * `:next_token` (`t:string`) The token for the next page of results.
   """
@@ -2010,10 +2003,11 @@ defmodule AWS.Fis do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=fis%20ListExperimentTemplates&this_doc_guide=API%2520Reference)
 
   ## Parameters:
+
   ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of results to return with a
-  single call. To retrieve the remaining results, make another call with the
-  returned nextToken value.
+    single call. To retrieve the remaining results, make another call with the
+    returned nextToken value.
   * `:next_token` (`t:string`) The token for the next page of results.
   """
   @spec list_experiment_templates(AWS.Client.t(), Keyword.t()) ::
@@ -2072,11 +2066,12 @@ defmodule AWS.Fis do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=fis%20ListExperiments&this_doc_guide=API%2520Reference)
 
   ## Parameters:
+
   ## Keyword parameters:
   * `:experiment_template_id` (`t:string`) The ID of the experiment template.
   * `:max_results` (`t:integer`) The maximum number of results to return with a
-  single call. To retrieve the remaining results, make another call with the
-  returned nextToken value.
+    single call. To retrieve the remaining results, make another call with the
+    returned nextToken value.
   * `:next_token` (`t:string`) The token for the next page of results.
   """
   @spec list_experiments(AWS.Client.t(), Keyword.t()) ::
@@ -2143,8 +2138,7 @@ defmodule AWS.Fis do
 
   ## Parameters:
   * `:resource_arn` (`t:string` required) The Amazon Resource Name (ARN) of the
-  resource.
-  ## Keyword parameters:
+    resource.
   """
   @spec list_tags_for_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_tags_for_resource_response(), any()}
@@ -2184,11 +2178,12 @@ defmodule AWS.Fis do
 
   ## Parameters:
   * `:experiment_template_id` (`t:string` required) The ID of the experiment
-  template.
+    template.
+
   ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of results to return with a
-  single call. To retrieve the remaining results, make another call with the
-  returned nextToken value.
+    single call. To retrieve the remaining results, make another call with the
+    returned nextToken value.
   * `:next_token` (`t:string`) The token for the next page of results.
   """
   @spec list_target_account_configurations(AWS.Client.t(), String.t(), Keyword.t()) ::
@@ -2252,10 +2247,11 @@ defmodule AWS.Fis do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=fis%20ListTargetResourceTypes&this_doc_guide=API%2520Reference)
 
   ## Parameters:
+
   ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of results to return with a
-  single call. To retrieve the remaining results, make another call with the
-  returned nextToken value.
+    single call. To retrieve the remaining results, make another call with the
+    returned nextToken value.
   * `:next_token` (`t:string`) The token for the next page of results.
   """
   @spec list_target_resource_types(AWS.Client.t(), Keyword.t()) ::
@@ -2314,7 +2310,6 @@ defmodule AWS.Fis do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=fis%20StartExperiment&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec start_experiment(AWS.Client.t(), Keyword.t()) ::
           {:ok, start_experiment_response(), any()}
@@ -2357,7 +2352,6 @@ defmodule AWS.Fis do
 
   ## Parameters:
   * `:id` (`t:string` required) The ID of the experiment.
-  ## Keyword parameters:
   """
   @spec stop_experiment(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, stop_experiment_response(), any()}
@@ -2410,8 +2404,7 @@ defmodule AWS.Fis do
 
   ## Parameters:
   * `:resource_arn` (`t:string` required) The Amazon Resource Name (ARN) of the
-  resource.
-  ## Keyword parameters:
+    resource.
   """
   @spec tag_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, tag_resource_response(), any()}
@@ -2453,7 +2446,8 @@ defmodule AWS.Fis do
 
   ## Parameters:
   * `:resource_arn` (`t:string` required) The Amazon Resource Name (ARN) of the
-  resource.
+    resource.
+
   ## Keyword parameters:
   * `:tag_keys` (`t:list[com.amazonaws.fis#TagKey]`) The tag keys to remove.
   """
@@ -2518,7 +2512,6 @@ defmodule AWS.Fis do
 
   ## Parameters:
   * `:id` (`t:string` required) The ID of the experiment template.
-  ## Keyword parameters:
   """
   @spec update_experiment_template(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, update_experiment_template_response(), any()}
@@ -2571,10 +2564,9 @@ defmodule AWS.Fis do
 
   ## Parameters:
   * `:account_id` (`t:string` required) The Amazon Web Services account ID of the
-  target account.
+    target account.
   * `:experiment_template_id` (`t:string` required) The ID of the experiment
-  template.
-  ## Keyword parameters:
+    template.
   """
   @spec update_target_account_configuration(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, update_target_account_configuration_response(), any()}

@@ -597,7 +597,6 @@ defmodule AWS.NetworkMonitor do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=networkmonitor%20CreateMonitor&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec create_monitor(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_monitor_output(), any()}
@@ -644,8 +643,7 @@ defmodule AWS.NetworkMonitor do
 
   ## Parameters:
   * `:monitor_name` (`t:string` required) The name of the monitor to associated
-  with the probe.
-  ## Keyword parameters:
+    with the probe.
   """
   @spec create_probe(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, create_probe_output(), any()}
@@ -688,7 +686,6 @@ defmodule AWS.NetworkMonitor do
 
   ## Parameters:
   * `:monitor_name` (`t:string` required) The name of the monitor to delete.
-  ## Keyword parameters:
   """
   @spec delete_monitor(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, delete_monitor_output(), any()}
@@ -743,7 +740,6 @@ defmodule AWS.NetworkMonitor do
   ## Parameters:
   * `:monitor_name` (`t:string` required) The name of the monitor to delete.
   * `:probe_id` (`t:string` required) The ID of the probe to delete.
-  ## Keyword parameters:
   """
   @spec delete_probe(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, delete_probe_output(), any()}
@@ -797,8 +793,7 @@ defmodule AWS.NetworkMonitor do
 
   ## Parameters:
   * `:monitor_name` (`t:string` required) The name of the monitor that details are
-  returned for.
-  ## Keyword parameters:
+    returned for.
   """
   @spec get_monitor(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_monitor_output(), any()}
@@ -841,11 +836,10 @@ defmodule AWS.NetworkMonitor do
 
   ## Parameters:
   * `:monitor_name` (`t:string` required) The name of the monitor associated with
-  the probe. Run ListMonitors to get a list of monitor names.
+    the probe. Run ListMonitors to get a list of monitor names.
   * `:probe_id` (`t:string` required) The ID of the probe to get information
-  about. Run GetMonitor action to get a list of probes and probe IDs for the
-  monitor.
-  ## Keyword parameters:
+    about. Run GetMonitor action to get a list of probes and probe IDs for the
+    monitor.
   """
   @spec get_probe(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_probe_output(), any()}
@@ -886,10 +880,11 @@ defmodule AWS.NetworkMonitor do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=networkmonitor%20ListMonitors&this_doc_guide=API%2520Reference)
 
   ## Parameters:
+
   ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of results to return with a
-  single call. To retrieve the remaining results, make another call with the
-  returned nextToken value.
+    single call. To retrieve the remaining results, make another call with the
+    returned nextToken value.
   * `:next_token` (`t:string`) The token for the next page of results.
   * `:state` (`t:string`) The list of all monitors and their states.
   """
@@ -957,7 +952,6 @@ defmodule AWS.NetworkMonitor do
 
   ## Parameters:
   * `:resource_arn` (`t:string` required) The
-  ## Keyword parameters:
   """
   @spec list_tags_for_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_tags_for_resource_output(), any()}
@@ -998,7 +992,6 @@ defmodule AWS.NetworkMonitor do
 
   ## Parameters:
   * `:resource_arn` (`t:string` required) The ARN of the monitor or probe to tag.
-  ## Keyword parameters:
   """
   @spec tag_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, tag_resource_output(), any()}
@@ -1041,10 +1034,9 @@ defmodule AWS.NetworkMonitor do
 
   ## Parameters:
   * `:resource_arn` (`t:string` required) The ARN of the monitor or probe that the
-  tag should be removed from.
+    tag should be removed from.
   * `:tag_keys` (`t:list[com.amazonaws.networkmonitor#TagKey]` required) The
-  key-value pa
-  ## Keyword parameters:
+    key-value pa
   """
   @spec untag_resource(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, untag_resource_output(), any()}
@@ -1101,7 +1093,6 @@ defmodule AWS.NetworkMonitor do
 
   ## Parameters:
   * `:monitor_name` (`t:string` required) The name of the monitor to update.
-  ## Keyword parameters:
   """
   @spec update_monitor(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, update_monitor_output(), any()}
@@ -1158,9 +1149,8 @@ defmodule AWS.NetworkMonitor do
 
   ## Parameters:
   * `:monitor_name` (`t:string` required) The name of the monitor that the probe
-  was updated for.
+    was updated for.
   * `:probe_id` (`t:string` required) The ID of the probe to update.
-  ## Keyword parameters:
   """
   @spec update_probe(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, update_probe_output(), any()}

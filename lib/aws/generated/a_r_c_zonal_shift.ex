@@ -602,8 +602,7 @@ defmodule AWS.ARCZonalShift do
 
   ## Parameters:
   * `:zonal_shift_id` (`t:string` required) The internally-generated identifier of
-  a zonal shift.
-  ## Keyword parameters:
+    a zonal shift.
   """
   @spec cancel_zonal_shift(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, zonal_shift(), any()}
@@ -664,7 +663,6 @@ defmodule AWS.ARCZonalShift do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=arczonalshift%20CreatePracticeRunConfiguration&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec create_practice_run_configuration(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_practice_run_configuration_response(), any()}
@@ -710,9 +708,8 @@ defmodule AWS.ARCZonalShift do
 
   ## Parameters:
   * `:resource_identifier` (`t:string` required) The identifier for the resource
-  that you want to delete the practice run configuration for. The identifier
-  is the Amazon Resource Name (ARN) for the resource.
-  ## Keyword parameters:
+    that you want to delete the practice run configuration for. The identifier
+    is the Amazon Resource Name (ARN) for the resource.
   """
   @spec delete_practice_run_configuration(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, delete_practice_run_configuration_response(), any()}
@@ -770,7 +767,6 @@ defmodule AWS.ARCZonalShift do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=arczonalshift%20GetAutoshiftObserverNotificationStatus&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec get_autoshift_observer_notification_status(AWS.Client.t(), Keyword.t()) ::
           {:ok, get_autoshift_observer_notification_status_response(), any()}
@@ -815,9 +811,8 @@ defmodule AWS.ARCZonalShift do
 
   ## Parameters:
   * `:resource_identifier` (`t:string` required) The identifier for the resource
-  that Amazon Web Services shifts traffic for. The identifier is the Amazon
-  Resource Name (ARN) for the resource.
-  ## Keyword parameters:
+    that Amazon Web Services shifts traffic for. The identifier is the Amazon
+    Resource Name (ARN) for the resource.
   """
   @spec get_managed_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_managed_resource_response(), any()}
@@ -859,14 +854,15 @@ defmodule AWS.ARCZonalShift do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=arczonalshift%20ListAutoshifts&this_doc_guide=API%2520Reference)
 
   ## Parameters:
+
   ## Keyword parameters:
   * `:max_results` (`t:integer`) The number of objects that you want to return
-  with this call.
+    with this call.
   * `:next_token` (`t:string`) Specifies that you want to receive the next page of
-  results. Valid only if you received a NextToken response in the previous
-  request. If you did, it indicates that more output is available. Set this
-  parameter to the value provided by the previous call's NextToken response to
-  request the next page of results.
+    results. Valid only if you received a NextToken response in the previous
+    request. If you did, it indicates that more output is available. Set this
+    parameter to the value provided by the previous call's NextToken response to
+    request the next page of results.
   * `:status` (`t:enum["ACTIVE|COMPLETED"]`) The status of the autoshift.
   """
   @spec list_autoshifts(AWS.Client.t(), Keyword.t()) ::
@@ -937,14 +933,15 @@ defmodule AWS.ARCZonalShift do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=arczonalshift%20ListManagedResources&this_doc_guide=API%2520Reference)
 
   ## Parameters:
+
   ## Keyword parameters:
   * `:max_results` (`t:integer`) The number of objects that you want to return
-  with this call.
+    with this call.
   * `:next_token` (`t:string`) Specifies that you want to receive the next page of
-  results. Valid only if you received a NextToken response in the previous
-  request. If you did, it indicates that more output is available. Set this
-  parameter to the value provided by the previous call's NextToken response to
-  request the next page of results.
+    results. Valid only if you received a NextToken response in the previous
+    request. If you did, it indicates that more output is available. Set this
+    parameter to the value provided by the previous call's NextToken response to
+    request the next page of results.
   """
   @spec list_managed_resources(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_managed_resources_response(), any()}
@@ -1006,17 +1003,18 @@ defmodule AWS.ARCZonalShift do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=arczonalshift%20ListZonalShifts&this_doc_guide=API%2520Reference)
 
   ## Parameters:
+
   ## Keyword parameters:
   * `:max_results` (`t:integer`) The number of objects that you want to return
-  with this call.
+    with this call.
   * `:next_token` (`t:string`) Specifies that you want to receive the next page of
-  results. Valid only if you received a NextToken response in the previous
-  request. If you did, it indicates that more output is available. Set this
-  parameter to the value provided by the previous call's NextToken response to
-  request the next page of results.
+    results. Valid only if you received a NextToken response in the previous
+    request. If you did, it indicates that more output is available. Set this
+    parameter to the value provided by the previous call's NextToken response to
+    request the next page of results.
   * `:resource_identifier` (`t:string`) The identifier for the resource that you
-  want to list zonal shifts for. The identifier is the Amazon Resource Name
-  (ARN) for the resource.
+    want to list zonal shifts for. The identifier is the Amazon Resource Name
+    (ARN) for the resource.
   * `:status` (`t:enum["ACTIVE|CANCELED|EXPIRED"]`) A status for a zonal shift.
   """
   @spec list_zonal_shifts(AWS.Client.t(), Keyword.t()) ::
@@ -1098,7 +1096,6 @@ defmodule AWS.ARCZonalShift do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=arczonalshift%20StartZonalShift&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec start_zonal_shift(AWS.Client.t(), Keyword.t()) ::
           {:ok, zonal_shift(), any()}
@@ -1146,7 +1143,6 @@ defmodule AWS.ARCZonalShift do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=arczonalshift%20UpdateAutoshiftObserverNotificationStatus&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec update_autoshift_observer_notification_status(AWS.Client.t(), Keyword.t()) ::
           {:ok, update_autoshift_observer_notification_status_response(), any()}
@@ -1191,9 +1187,8 @@ defmodule AWS.ARCZonalShift do
 
   ## Parameters:
   * `:resource_identifier` (`t:string` required) The identifier for the resource
-  that you want to update the practice run configuration for. The identifier
-  is the Amazon Resource Name (ARN) for the resource.
-  ## Keyword parameters:
+    that you want to update the practice run configuration for. The identifier
+    is the Amazon Resource Name (ARN) for the resource.
   """
   @spec update_practice_run_configuration(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, update_practice_run_configuration_response(), any()}
@@ -1251,9 +1246,8 @@ defmodule AWS.ARCZonalShift do
 
   ## Parameters:
   * `:resource_identifier` (`t:string` required) The identifier for the resource
-  that you want to update the zonal autoshift configuration for. The
-  identifier is the Amazon Resource Name (ARN) for the resource.
-  ## Keyword parameters:
+    that you want to update the zonal autoshift configuration for. The
+    identifier is the Amazon Resource Name (ARN) for the resource.
   """
   @spec update_zonal_autoshift_configuration(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, update_zonal_autoshift_configuration_response(), any()}
@@ -1298,7 +1292,6 @@ defmodule AWS.ARCZonalShift do
 
   ## Parameters:
   * `:zonal_shift_id` (`t:string` required) The identifier of a zonal shift.
-  ## Keyword parameters:
   """
   @spec update_zonal_shift(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, zonal_shift(), any()}

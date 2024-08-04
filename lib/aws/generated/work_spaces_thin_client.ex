@@ -788,7 +788,6 @@ defmodule AWS.WorkSpacesThinClient do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=workspacesthinclient%20CreateEnvironment&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec create_environment(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_environment_response(), any()}
@@ -831,13 +830,14 @@ defmodule AWS.WorkSpacesThinClient do
 
   ## Parameters:
   * `:id` (`t:string` required) The ID of the device to delete.
+
   ## Keyword parameters:
   * `:client_token` (`t:string`) Specifies a unique, case-sensitive identifier
-  that you provide to ensure the idempotency of the request. This lets you
-  safely retry the request without accidentally performing the same operation
-  a second time. Passing the same value to a later call to an operation
-  requires that you also pass the same value for all other parameters. We
-  recommend that you use a UUID type of value.
+    that you provide to ensure the idempotency of the request. This lets you
+    safely retry the request without accidentally performing the same operation
+    a second time. Passing the same value to a later call to an operation
+    requires that you also pass the same value for all other parameters. We
+    recommend that you use a UUID type of value.
   """
   @spec delete_device(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, delete_device_response(), any()}
@@ -901,13 +901,14 @@ defmodule AWS.WorkSpacesThinClient do
 
   ## Parameters:
   * `:id` (`t:string` required) The ID of the environment to delete.
+
   ## Keyword parameters:
   * `:client_token` (`t:string`) Specifies a unique, case-sensitive identifier
-  that you provide to ensure the idempotency of the request. This lets you
-  safely retry the request without accidentally performing the same operation
-  a second time. Passing the same value to a later call to an operation
-  requires that you also pass the same value for all other parameters. We
-  recommend that you use a UUID type of value.
+    that you provide to ensure the idempotency of the request. This lets you
+    safely retry the request without accidentally performing the same operation
+    a second time. Passing the same value to a later call to an operation
+    requires that you also pass the same value for all other parameters. We
+    recommend that you use a UUID type of value.
   """
   @spec delete_environment(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, delete_environment_response(), any()}
@@ -971,7 +972,6 @@ defmodule AWS.WorkSpacesThinClient do
 
   ## Parameters:
   * `:id` (`t:string` required) The ID of the device to deregister.
-  ## Keyword parameters:
   """
   @spec deregister_device(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, deregister_device_response(), any()}
@@ -1014,8 +1014,7 @@ defmodule AWS.WorkSpacesThinClient do
 
   ## Parameters:
   * `:id` (`t:string` required) The ID of the device for which to return
-  information.
-  ## Keyword parameters:
+    information.
   """
   @spec get_device(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_device_response(), any()}
@@ -1056,8 +1055,7 @@ defmodule AWS.WorkSpacesThinClient do
 
   ## Parameters:
   * `:id` (`t:string` required) The ID of the environment for which to return
-  information.
-  ## Keyword parameters:
+    information.
   """
   @spec get_environment(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_environment_response(), any()}
@@ -1098,8 +1096,7 @@ defmodule AWS.WorkSpacesThinClient do
 
   ## Parameters:
   * `:id` (`t:string` required) The ID of the software set for which to return
-  information.
-  ## Keyword parameters:
+    information.
   """
   @spec get_software_set(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_software_set_response(), any()}
@@ -1139,15 +1136,16 @@ defmodule AWS.WorkSpacesThinClient do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=workspacesthinclient%20ListDevices&this_doc_guide=API%2520Reference)
 
   ## Parameters:
+
   ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of results that are returned
-  per call. You can use nextToken to obtain further pages of results.
+    per call. You can use nextToken to obtain further pages of results.
   * `:next_token` (`t:string`) If nextToken is returned, there are more results
-  available. The value of nextToken is a unique pagination token for each
-  page. Make the call again using the returned token to retrieve the next
-  page. Keep all other arguments unchanged. Each pagination token expires
-  after 24 hours. Using an expired pagination token will return an HTTP 400
-  InvalidToken error.
+    available. The value of nextToken is a unique pagination token for each
+    page. Make the call again using the returned token to retrieve the next
+    page. Keep all other arguments unchanged. Each pagination token expires
+    after 24 hours. Using an expired pagination token will return an HTTP 400
+    InvalidToken error.
   """
   @spec list_devices(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_devices_response(), any()}
@@ -1205,15 +1203,16 @@ defmodule AWS.WorkSpacesThinClient do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=workspacesthinclient%20ListEnvironments&this_doc_guide=API%2520Reference)
 
   ## Parameters:
+
   ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of results that are returned
-  per call. You can use nextToken to obtain further pages of results.
+    per call. You can use nextToken to obtain further pages of results.
   * `:next_token` (`t:string`) If nextToken is returned, there are more results
-  available. The value of nextToken is a unique pagination token for each
-  page. Make the call again using the returned token to retrieve the next
-  page. Keep all other arguments unchanged. Each pagination token expires
-  after 24 hours. Using an expired pagination token will return an HTTP 400
-  InvalidToken error.
+    available. The value of nextToken is a unique pagination token for each
+    page. Make the call again using the returned token to retrieve the next
+    page. Keep all other arguments unchanged. Each pagination token expires
+    after 24 hours. Using an expired pagination token will return an HTTP 400
+    InvalidToken error.
   """
   @spec list_environments(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_environments_response(), any()}
@@ -1271,15 +1270,16 @@ defmodule AWS.WorkSpacesThinClient do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=workspacesthinclient%20ListSoftwareSets&this_doc_guide=API%2520Reference)
 
   ## Parameters:
+
   ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of results that are returned
-  per call. You can use nextToken to obtain further pages of results.
+    per call. You can use nextToken to obtain further pages of results.
   * `:next_token` (`t:string`) If nextToken is returned, there are more results
-  available. The value of nextToken is a unique pagination token for each
-  page. Make the call again using the returned token to retrieve the next
-  page. Keep all other arguments unchanged. Each pagination token expires
-  after 24 hours. Using an expired pagination token will return an HTTP 400
-  InvalidToken error.
+    available. The value of nextToken is a unique pagination token for each
+    page. Make the call again using the returned token to retrieve the next
+    page. Keep all other arguments unchanged. Each pagination token expires
+    after 24 hours. Using an expired pagination token will return an HTTP 400
+    InvalidToken error.
   """
   @spec list_software_sets(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_software_sets_response(), any()}
@@ -1338,8 +1338,7 @@ defmodule AWS.WorkSpacesThinClient do
 
   ## Parameters:
   * `:resource_arn` (`t:string` required) The Amazon Resource Name (ARN) of the
-  resource for which you want to retrieve tags.
-  ## Keyword parameters:
+    resource for which you want to retrieve tags.
   """
   @spec list_tags_for_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_tags_for_resource_response(), any()}
@@ -1380,8 +1379,7 @@ defmodule AWS.WorkSpacesThinClient do
 
   ## Parameters:
   * `:resource_arn` (`t:string` required) The Amazon Resource Name (ARN) of the
-  resource that you want to tag.
-  ## Keyword parameters:
+    resource that you want to tag.
   """
   @spec tag_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, tag_resource_response(), any()}
@@ -1424,10 +1422,9 @@ defmodule AWS.WorkSpacesThinClient do
 
   ## Parameters:
   * `:resource_arn` (`t:string` required) The Amazon Resource Name (ARN) of the
-  resource that you want to untag.
+    resource that you want to untag.
   * `:tag_keys` (`t:list[smithy.api#String]` required) The keys of the key-value
-  pairs for the tag or tags you want to remove from the specified resource.
-  ## Keyword parameters:
+    pairs for the tag or tags you want to remove from the specified resource.
   """
   @spec untag_resource(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, untag_resource_response(), any()}
@@ -1481,7 +1478,6 @@ defmodule AWS.WorkSpacesThinClient do
 
   ## Parameters:
   * `:id` (`t:string` required) The ID of the device to update.
-  ## Keyword parameters:
   """
   @spec update_device(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, update_device_response(), any()}
@@ -1534,7 +1530,6 @@ defmodule AWS.WorkSpacesThinClient do
 
   ## Parameters:
   * `:id` (`t:string` required) The ID of the environment to update.
-  ## Keyword parameters:
   """
   @spec update_environment(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, update_environment_response(), any()}
@@ -1587,7 +1582,6 @@ defmodule AWS.WorkSpacesThinClient do
 
   ## Parameters:
   * `:id` (`t:string` required) The ID of the software set to update.
-  ## Keyword parameters:
   """
   @spec update_software_set(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, update_software_set_response(), any()}

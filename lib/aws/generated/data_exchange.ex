@@ -1900,7 +1900,6 @@ defmodule AWS.DataExchange do
 
   ## Parameters:
   * `:job_id` (`t:string` required) The unique identifier for a job.
-  ## Keyword parameters:
   """
   @spec cancel_job(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
@@ -1952,7 +1951,6 @@ defmodule AWS.DataExchange do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=dataexchange%20CreateDataSet&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec create_data_set(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_data_set_response(), any()}
@@ -1994,7 +1992,6 @@ defmodule AWS.DataExchange do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=dataexchange%20CreateEventAction&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec create_event_action(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_event_action_response(), any()}
@@ -2036,7 +2033,6 @@ defmodule AWS.DataExchange do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=dataexchange%20CreateJob&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec create_job(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_job_response(), any()}
@@ -2079,7 +2075,6 @@ defmodule AWS.DataExchange do
 
   ## Parameters:
   * `:data_set_id` (`t:string` required) The unique identifier for a data set.
-  ## Keyword parameters:
   """
   @spec create_revision(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, create_revision_response(), any()}
@@ -2124,7 +2119,6 @@ defmodule AWS.DataExchange do
   * `:asset_id` (`t:string` required) The unique identifier for an asset.
   * `:data_set_id` (`t:string` required) The unique identifier for a data set.
   * `:revision_id` (`t:string` required) The unique identifier for a revision.
-  ## Keyword parameters:
   """
   @spec delete_asset(AWS.Client.t(), String.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
@@ -2178,7 +2172,6 @@ defmodule AWS.DataExchange do
 
   ## Parameters:
   * `:data_set_id` (`t:string` required) The unique identifier for a data set.
-  ## Keyword parameters:
   """
   @spec delete_data_set(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
@@ -2231,8 +2224,7 @@ defmodule AWS.DataExchange do
 
   ## Parameters:
   * `:event_action_id` (`t:string` required) The unique identifier for the event
-  action.
-  ## Keyword parameters:
+    action.
   """
   @spec delete_event_action(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
@@ -2286,7 +2278,6 @@ defmodule AWS.DataExchange do
   ## Parameters:
   * `:data_set_id` (`t:string` required) The unique identifier for a data set.
   * `:revision_id` (`t:string` required) The unique identifier for a revision.
-  ## Keyword parameters:
   """
   @spec delete_revision(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
@@ -2342,7 +2333,6 @@ defmodule AWS.DataExchange do
   * `:asset_id` (`t:string` required) The unique identifier for an asset.
   * `:data_set_id` (`t:string` required) The unique identifier for a data set.
   * `:revision_id` (`t:string` required) The unique identifier for a revision.
-  ## Keyword parameters:
   """
   @spec get_asset(AWS.Client.t(), String.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_asset_response(), any()}
@@ -2384,7 +2374,6 @@ defmodule AWS.DataExchange do
 
   ## Parameters:
   * `:data_set_id` (`t:string` required) The unique identifier for a data set.
-  ## Keyword parameters:
   """
   @spec get_data_set(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_data_set_response(), any()}
@@ -2425,8 +2414,7 @@ defmodule AWS.DataExchange do
 
   ## Parameters:
   * `:event_action_id` (`t:string` required) The unique identifier for the event
-  action.
-  ## Keyword parameters:
+    action.
   """
   @spec get_event_action(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_event_action_response(), any()}
@@ -2467,7 +2455,6 @@ defmodule AWS.DataExchange do
 
   ## Parameters:
   * `:job_id` (`t:string` required) The unique identifier for a job.
-  ## Keyword parameters:
   """
   @spec get_job(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_job_response(), any()}
@@ -2509,7 +2496,6 @@ defmodule AWS.DataExchange do
   ## Parameters:
   * `:data_set_id` (`t:string` required) The unique identifier for a data set.
   * `:revision_id` (`t:string` required) The unique identifier for a revision.
-  ## Keyword parameters:
   """
   @spec get_revision(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_revision_response(), any()}
@@ -2552,11 +2538,12 @@ defmodule AWS.DataExchange do
 
   ## Parameters:
   * `:data_set_id` (`t:string` required) The unique identifier for a data set.
+
   ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of results returned by a
-  single call.
+    single call.
   * `:next_token` (`t:string`) The token value retrieved from a previous call to
-  access the next page of results.
+    access the next page of results.
   """
   @spec list_data_set_revisions(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_data_set_revisions_response(), any()}
@@ -2616,13 +2603,14 @@ defmodule AWS.DataExchange do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=dataexchange%20ListDataSets&this_doc_guide=API%2520Reference)
 
   ## Parameters:
+
   ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of results returned by a
-  single call.
+    single call.
   * `:next_token` (`t:string`) The token value retrieved from a previous call to
-  access the next page of results.
+    access the next page of results.
   * `:origin` (`t:string`) A property that defines the data set as OWNED by the
-  account (for providers) or ENTITLED to the account (for subscribers).
+    account (for providers) or ENTITLED to the account (for subscribers).
   """
   @spec list_data_sets(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_data_sets_response(), any()}
@@ -2687,12 +2675,13 @@ defmodule AWS.DataExchange do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=dataexchange%20ListEventActions&this_doc_guide=API%2520Reference)
 
   ## Parameters:
+
   ## Keyword parameters:
   * `:event_source_id` (`t:string`) The unique identifier for the event source.
   * `:max_results` (`t:integer`) The maximum number of results returned by a
-  single call.
+    single call.
   * `:next_token` (`t:string`) The token value retrieved from a previous call to
-  access the next page of results.
+    access the next page of results.
   """
   @spec list_event_actions(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_event_actions_response(), any()}
@@ -2757,12 +2746,13 @@ defmodule AWS.DataExchange do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=dataexchange%20ListJobs&this_doc_guide=API%2520Reference)
 
   ## Parameters:
+
   ## Keyword parameters:
   * `:data_set_id` (`t:string`) The unique identifier for a data set.
   * `:max_results` (`t:integer`) The maximum number of results returned by a
-  single call.
+    single call.
   * `:next_token` (`t:string`) The token value retrieved from a previous call to
-  access the next page of results.
+    access the next page of results.
   * `:revision_id` (`t:string`) The unique identifier for a revision.
   """
   @spec list_jobs(AWS.Client.t(), Keyword.t()) ::
@@ -2838,11 +2828,12 @@ defmodule AWS.DataExchange do
   ## Parameters:
   * `:data_set_id` (`t:string` required) The unique identifier for a data set.
   * `:revision_id` (`t:string` required) The unique identifier for a revision.
+
   ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of results returned by a
-  single call.
+    single call.
   * `:next_token` (`t:string`) The token value retrieved from a previous call to
-  access the next page of results.
+    access the next page of results.
   """
   @spec list_revision_assets(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, list_revision_assets_response(), any()}
@@ -2902,8 +2893,7 @@ defmodule AWS.DataExchange do
 
   ## Parameters:
   * `:resource_arn` (`t:string` required) An Amazon Resource Name (ARN) that
-  uniquely identifies an AWS resource.
-  ## Keyword parameters:
+    uniquely identifies an AWS resource.
   """
   @spec list_tags_for_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_tags_for_resource_response(), any()}
@@ -2944,7 +2934,6 @@ defmodule AWS.DataExchange do
   ## Parameters:
   * `:data_set_id` (`t:string` required) The unique identifier for a data set.
   * `:revision_id` (`t:string` required) The unique identifier for a revision.
-  ## Keyword parameters:
   """
   @spec revoke_revision(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, revoke_revision_response(), any()}
@@ -2993,13 +2982,14 @@ defmodule AWS.DataExchange do
   * `:revision_id` (`t:string` required) Revision ID value for the API request.
   * `:input` (`t:binary | nil`)
 
+
   ## Keyword parameters:
   * `:query_string_parameters` (`t:map`) Attach query string parameters to the end
-  of the URI (for example, /v1/examplePath?exampleParam=exampleValue).
+    of the URI (for example, /v1/examplePath?exampleParam=exampleValue).
   * `:method` (`t:string`) HTTP method value for the API request. Alternatively,
-  you can use the appropriate verb in your request.
+    you can use the appropriate verb in your request.
   * `:path` (`t:string`) URI path value for the API request. Alternatively, you
-  can set the URI path directly by invoking /v1/{pathValue}.
+    can set the URI path directly by invoking /v1/{pathValue}.
   """
   @spec send_api_asset(
           AWS.Client.t(),
@@ -3093,7 +3083,6 @@ defmodule AWS.DataExchange do
 
   ## Parameters:
   * `:data_set_id` (`t:string` required) Affected data set of the notification.
-  ## Keyword parameters:
   """
   @spec send_data_set_notification(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, send_data_set_notification_response(), any()}
@@ -3136,7 +3125,6 @@ defmodule AWS.DataExchange do
 
   ## Parameters:
   * `:job_id` (`t:string` required) The unique identifier for a job.
-  ## Keyword parameters:
   """
   @spec start_job(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, start_job_response(), any()}
@@ -3189,11 +3177,10 @@ defmodule AWS.DataExchange do
 
   ## Parameters:
   * `:resource_arn` (`t:string` required) An Amazon Resource Name (ARN) that
-  uniquely identifies an AWS resource.
+    uniquely identifies an AWS resource.
   * `:input` (`t:map`):
-    * `:tags` (`t:map` required) A label that consists of a customer-defined key and
-  an optional value.
-  ## Keyword parameters:
+    * `"tags" => t:map` (required) A label that consists of a customer-defined key
+    and an optional value.
   """
   @spec tag_resource(AWS.Client.t(), String.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
@@ -3235,10 +3222,9 @@ defmodule AWS.DataExchange do
 
   ## Parameters:
   * `:resource_arn` (`t:string` required) An Amazon Resource Name (ARN) that
-  uniquely identifies an AWS resource.
+    uniquely identifies an AWS resource.
   * `:tag_keys` (`t:list[com.amazonaws.dataexchange#__string]` required) The key
-  tags.
-  ## Keyword parameters:
+    tags.
   """
   @spec untag_resource(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
@@ -3293,7 +3279,6 @@ defmodule AWS.DataExchange do
   * `:asset_id` (`t:string` required) The unique identifier for an asset.
   * `:data_set_id` (`t:string` required) The unique identifier for a data set.
   * `:revision_id` (`t:string` required) The unique identifier for a revision.
-  ## Keyword parameters:
   """
   @spec update_asset(AWS.Client.t(), String.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, update_asset_response(), any()}
@@ -3347,7 +3332,6 @@ defmodule AWS.DataExchange do
 
   ## Parameters:
   * `:data_set_id` (`t:string` required) The unique identifier for a data set.
-  ## Keyword parameters:
   """
   @spec update_data_set(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, update_data_set_response(), any()}
@@ -3400,8 +3384,7 @@ defmodule AWS.DataExchange do
 
   ## Parameters:
   * `:event_action_id` (`t:string` required) The unique identifier for the event
-  action.
-  ## Keyword parameters:
+    action.
   """
   @spec update_event_action(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, update_event_action_response(), any()}
@@ -3455,7 +3438,6 @@ defmodule AWS.DataExchange do
   ## Parameters:
   * `:data_set_id` (`t:string` required) The unique identifier for a data set.
   * `:revision_id` (`t:string` required) The unique identifier for a revision.
-  ## Keyword parameters:
   """
   @spec update_revision(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, update_revision_response(), any()}

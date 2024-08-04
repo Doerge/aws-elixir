@@ -230,7 +230,6 @@ defmodule AWS.PersonalizeEvents do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=personalizeevents%20PutActionInteractions&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec put_action_interactions(AWS.Client.t(), Keyword.t()) ::
           {:ok, nil, any()}
@@ -274,7 +273,6 @@ defmodule AWS.PersonalizeEvents do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=personalizeevents%20PutActions&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec put_actions(AWS.Client.t(), Keyword.t()) ::
           {:ok, nil, any()}
@@ -318,7 +316,6 @@ defmodule AWS.PersonalizeEvents do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=personalizeevents%20PutEvents&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec put_events(AWS.Client.t(), Keyword.t()) ::
           {:ok, nil, any()}
@@ -362,7 +359,6 @@ defmodule AWS.PersonalizeEvents do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=personalizeevents%20PutItems&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec put_items(AWS.Client.t(), Keyword.t()) ::
           {:ok, nil, any()}
@@ -406,7 +402,6 @@ defmodule AWS.PersonalizeEvents do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=personalizeevents%20PutUsers&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec put_users(AWS.Client.t(), Keyword.t()) ::
           {:ok, nil, any()}

@@ -2926,7 +2926,6 @@ defmodule AWS.Resiliencehub do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=resiliencehub%20AcceptResourceGroupingRecommendations&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec accept_resource_grouping_recommendations(AWS.Client.t(), Keyword.t()) ::
           {:ok, accept_resource_grouping_recommendations_response(), any()}
@@ -2974,7 +2973,6 @@ defmodule AWS.Resiliencehub do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=resiliencehub%20AddDraftAppVersionResourceMappings&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec add_draft_app_version_resource_mappings(AWS.Client.t(), Keyword.t()) ::
           {:ok, add_draft_app_version_resource_mappings_response(), any()}
@@ -3016,7 +3014,6 @@ defmodule AWS.Resiliencehub do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=resiliencehub%20BatchUpdateRecommendationStatus&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec batch_update_recommendation_status(AWS.Client.t(), Keyword.t()) ::
           {:ok, batch_update_recommendation_status_response(), any()}
@@ -3067,7 +3064,6 @@ defmodule AWS.Resiliencehub do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=resiliencehub%20CreateApp&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec create_app(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_app_response(), any()}
@@ -3109,7 +3105,6 @@ defmodule AWS.Resiliencehub do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=resiliencehub%20CreateAppVersionAppComponent&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec create_app_version_app_component(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_app_version_app_component_response(), any()}
@@ -3153,7 +3148,6 @@ defmodule AWS.Resiliencehub do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=resiliencehub%20CreateAppVersionResource&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec create_app_version_resource(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_app_version_resource_response(), any()}
@@ -3195,7 +3189,6 @@ defmodule AWS.Resiliencehub do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=resiliencehub%20CreateRecommendationTemplate&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec create_recommendation_template(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_recommendation_template_response(), any()}
@@ -3237,7 +3230,6 @@ defmodule AWS.Resiliencehub do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=resiliencehub%20CreateResiliencyPolicy&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec create_resiliency_policy(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_resiliency_policy_response(), any()}
@@ -3280,7 +3272,6 @@ defmodule AWS.Resiliencehub do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=resiliencehub%20DeleteApp&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec delete_app(AWS.Client.t(), Keyword.t()) ::
           {:ok, delete_app_response(), any()}
@@ -3323,7 +3314,6 @@ defmodule AWS.Resiliencehub do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=resiliencehub%20DeleteAppAssessment&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec delete_app_assessment(AWS.Client.t(), Keyword.t()) ::
           {:ok, delete_app_assessment_response(), any()}
@@ -3366,7 +3356,6 @@ defmodule AWS.Resiliencehub do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=resiliencehub%20DeleteAppInputSource&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec delete_app_input_source(AWS.Client.t(), Keyword.t()) ::
           {:ok, delete_app_input_source_response(), any()}
@@ -3408,7 +3397,6 @@ defmodule AWS.Resiliencehub do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=resiliencehub%20DeleteAppVersionAppComponent&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec delete_app_version_app_component(AWS.Client.t(), Keyword.t()) ::
           {:ok, delete_app_version_app_component_response(), any()}
@@ -3450,7 +3438,6 @@ defmodule AWS.Resiliencehub do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=resiliencehub%20DeleteAppVersionResource&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec delete_app_version_resource(AWS.Client.t(), Keyword.t()) ::
           {:ok, delete_app_version_resource_response(), any()}
@@ -3493,7 +3480,6 @@ defmodule AWS.Resiliencehub do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=resiliencehub%20DeleteRecommendationTemplate&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec delete_recommendation_template(AWS.Client.t(), Keyword.t()) ::
           {:ok, delete_recommendation_template_response(), any()}
@@ -3535,7 +3521,6 @@ defmodule AWS.Resiliencehub do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=resiliencehub%20DeleteResiliencyPolicy&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec delete_resiliency_policy(AWS.Client.t(), Keyword.t()) ::
           {:ok, delete_resiliency_policy_response(), any()}
@@ -3577,7 +3562,6 @@ defmodule AWS.Resiliencehub do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=resiliencehub%20DescribeApp&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec describe_app(AWS.Client.t(), Keyword.t()) ::
           {:ok, describe_app_response(), any()}
@@ -3619,7 +3603,6 @@ defmodule AWS.Resiliencehub do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=resiliencehub%20DescribeAppAssessment&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec describe_app_assessment(AWS.Client.t(), Keyword.t()) ::
           {:ok, describe_app_assessment_response(), any()}
@@ -3661,7 +3644,6 @@ defmodule AWS.Resiliencehub do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=resiliencehub%20DescribeAppVersion&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec describe_app_version(AWS.Client.t(), Keyword.t()) ::
           {:ok, describe_app_version_response(), any()}
@@ -3703,7 +3685,6 @@ defmodule AWS.Resiliencehub do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=resiliencehub%20DescribeAppVersionAppComponent&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec describe_app_version_app_component(AWS.Client.t(), Keyword.t()) ::
           {:ok, describe_app_version_app_component_response(), any()}
@@ -3745,7 +3726,6 @@ defmodule AWS.Resiliencehub do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=resiliencehub%20DescribeAppVersionResource&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec describe_app_version_resource(AWS.Client.t(), Keyword.t()) ::
           {:ok, describe_app_version_resource_response(), any()}
@@ -3789,7 +3769,6 @@ defmodule AWS.Resiliencehub do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=resiliencehub%20DescribeAppVersionResourcesResolutionStatus&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec describe_app_version_resources_resolution_status(AWS.Client.t(), Keyword.t()) ::
           {:ok, describe_app_version_resources_resolution_status_response(), any()}
@@ -3831,7 +3810,6 @@ defmodule AWS.Resiliencehub do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=resiliencehub%20DescribeAppVersionTemplate&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec describe_app_version_template(AWS.Client.t(), Keyword.t()) ::
           {:ok, describe_app_version_template_response(), any()}
@@ -3873,7 +3851,6 @@ defmodule AWS.Resiliencehub do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=resiliencehub%20DescribeDraftAppVersionResourcesImportStatus&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec describe_draft_app_version_resources_import_status(AWS.Client.t(), Keyword.t()) ::
           {:ok, describe_draft_app_version_resources_import_status_response(), any()}
@@ -3917,7 +3894,6 @@ defmodule AWS.Resiliencehub do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=resiliencehub%20DescribeResiliencyPolicy&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec describe_resiliency_policy(AWS.Client.t(), Keyword.t()) ::
           {:ok, describe_resiliency_policy_response(), any()}
@@ -3960,7 +3936,6 @@ defmodule AWS.Resiliencehub do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=resiliencehub%20DescribeResourceGroupingRecommendationTask&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec describe_resource_grouping_recommendation_task(AWS.Client.t(), Keyword.t()) ::
           {:ok, describe_resource_grouping_recommendation_task_response(), any()}
@@ -4005,7 +3980,6 @@ defmodule AWS.Resiliencehub do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=resiliencehub%20ImportResourcesToDraftAppVersion&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec import_resources_to_draft_app_version(AWS.Client.t(), Keyword.t()) ::
           {:ok, import_resources_to_draft_app_version_response(), any()}
@@ -4047,7 +4021,6 @@ defmodule AWS.Resiliencehub do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=resiliencehub%20ListAlarmRecommendations&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec list_alarm_recommendations(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_alarm_recommendations_response(), any()}
@@ -4089,7 +4062,6 @@ defmodule AWS.Resiliencehub do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=resiliencehub%20ListAppAssessmentComplianceDrifts&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec list_app_assessment_compliance_drifts(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_app_assessment_compliance_drifts_response(), any()}
@@ -4132,7 +4104,6 @@ defmodule AWS.Resiliencehub do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=resiliencehub%20ListAppAssessmentResourceDrifts&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec list_app_assessment_resource_drifts(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_app_assessment_resource_drifts_response(), any()}
@@ -4175,26 +4146,27 @@ defmodule AWS.Resiliencehub do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=resiliencehub%20ListAppAssessments&this_doc_guide=API%2520Reference)
 
   ## Parameters:
+
   ## Keyword parameters:
   * `:app_arn` (`t:string`) Amazon Resource Name (ARN) of the Resilience Hub
-  application. The format for this ARN is:
-  arn:partition:resiliencehub:region:account:app/app-id. For more information
-  about ARNs, see Amazon Resource Names (ARNs) in the Amazon Web Services
-  General Reference guide.
+    application. The format for this ARN is:
+    arn:partition:resiliencehub:region:account:app/app-id. For more information
+    about ARNs, see Amazon Resource Names (ARNs) in the Amazon Web Services
+    General Reference guide.
   * `:assessment_name` (`t:string`) The name for the assessment.
   * `:assessment_status` (`t:list[com.amazonaws.resiliencehub#AssessmentStatus]`)
-  The current status of the assessment for the resiliency policy.
+    The current status of the assessment for the resiliency policy.
   * `:compliance_status` (`t:string`) The current status of compliance for the
-  resiliency policy.
+    resiliency policy.
   * `:invoker` (`t:string`) Specifies the entity that invoked a specific
-  assessment, either a User or the System.
+    assessment, either a User or the System.
   * `:max_results` (`t:integer`) Maximum number of results to include in the
-  response. If more results exist than the specified MaxResults value, a token
-  is included in the response so that the remaining results can be retrieved.
+    response. If more results exist than the specified MaxResults value, a token
+    is included in the response so that the remaining results can be retrieved.
   * `:next_token` (`t:string`) Null, or the token from a previous call to get the
-  next set of results.
+    next set of results.
   * `:reverse_order` (`t:boolean`) The default is to sort by ascending startTime.
-  To sort by descending startTime, set reverseOrder to true.
+    To sort by descending startTime, set reverseOrder to true.
   """
   @spec list_app_assessments(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_app_assessments_response(), any()}
@@ -4312,7 +4284,6 @@ defmodule AWS.Resiliencehub do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=resiliencehub%20ListAppComponentCompliances&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec list_app_component_compliances(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_app_component_compliances_response(), any()}
@@ -4354,7 +4325,6 @@ defmodule AWS.Resiliencehub do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=resiliencehub%20ListAppComponentRecommendations&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec list_app_component_recommendations(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_app_component_recommendations_response(), any()}
@@ -4399,7 +4369,6 @@ defmodule AWS.Resiliencehub do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=resiliencehub%20ListAppInputSources&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec list_app_input_sources(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_app_input_sources_response(), any()}
@@ -4441,7 +4410,6 @@ defmodule AWS.Resiliencehub do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=resiliencehub%20ListAppVersionAppComponents&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec list_app_version_app_components(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_app_version_app_components_response(), any()}
@@ -4485,7 +4453,6 @@ defmodule AWS.Resiliencehub do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=resiliencehub%20ListAppVersionResourceMappings&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec list_app_version_resource_mappings(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_app_version_resource_mappings_response(), any()}
@@ -4527,7 +4494,6 @@ defmodule AWS.Resiliencehub do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=resiliencehub%20ListAppVersionResources&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec list_app_version_resources(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_app_version_resources_response(), any()}
@@ -4569,7 +4535,6 @@ defmodule AWS.Resiliencehub do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=resiliencehub%20ListAppVersions&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec list_app_versions(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_app_versions_response(), any()}
@@ -4611,28 +4576,29 @@ defmodule AWS.Resiliencehub do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=resiliencehub%20ListApps&this_doc_guide=API%2520Reference)
 
   ## Parameters:
+
   ## Keyword parameters:
   * `:app_arn` (`t:string`) Amazon Resource Name (ARN) of the Resilience Hub
-  application. The format for this ARN is:
-  arn:partition:resiliencehub:region:account:app/app-id. For more information
-  about ARNs, see Amazon Resource Names (ARNs) in the Amazon Web Services
-  General Reference guide.
+    application. The format for this ARN is:
+    arn:partition:resiliencehub:region:account:app/app-id. For more information
+    about ARNs, see Amazon Resource Names (ARNs) in the Amazon Web Services
+    General Reference guide.
   * `:from_last_assessment_time` (`t:timestamp`) Indicates the lower limit of the
-  range that is used to filter applications based on their last assessment
-  times.
+    range that is used to filter applications based on their last assessment
+    times.
   * `:max_results` (`t:integer`) Maximum number of results to include in the
-  response. If more results exist than the specified MaxResults value, a token
-  is included in the response so that the remaining results can be retrieved.
+    response. If more results exist than the specified MaxResults value, a token
+    is included in the response so that the remaining results can be retrieved.
   * `:name` (`t:string`) The name for the one of the listed applications.
   * `:next_token` (`t:string`) Null, or the token from a previous call to get the
-  next set of results.
+    next set of results.
   * `:reverse_order` (`t:boolean`) The application list is sorted based on the
-  values of lastAppComplianceEvaluationTime field. By default, application
-  list is sorted in ascending order. To sort the application list in
-  descending order, set this field to True.
+    values of lastAppComplianceEvaluationTime field. By default, application
+    list is sorted in ascending order. To sort the application list in
+    descending order, set this field to True.
   * `:to_last_assessment_time` (`t:timestamp`) Indicates the upper limit of the
-  range that is used to filter the applications based on their last assessment
-  times.
+    range that is used to filter the applications based on their last assessment
+    times.
   """
   @spec list_apps(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_apps_response(), any()}
@@ -4741,24 +4707,25 @@ defmodule AWS.Resiliencehub do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=resiliencehub%20ListRecommendationTemplates&this_doc_guide=API%2520Reference)
 
   ## Parameters:
+
   ## Keyword parameters:
   * `:assessment_arn` (`t:string`) Amazon Resource Name (ARN) of the assessment.
-  The format for this ARN is:
-  arn:partition:resiliencehub:region:account:app-assessment/app-id. For more
-  information about ARNs, see Amazon Resource Names (ARNs) in the Amazon Web
-  Services General Reference guide.
+    The format for this ARN is:
+    arn:partition:resiliencehub:region:account:app-assessment/app-id. For more
+    information about ARNs, see Amazon Resource Names (ARNs) in the Amazon Web
+    Services General Reference guide.
   * `:max_results` (`t:integer`) Maximum number of results to include in the
-  response. If more results exist than the specified MaxResults value, a token
-  is included in the response so that the remaining results can be retrieved.
+    response. If more results exist than the specified MaxResults value, a token
+    is included in the response so that the remaining results can be retrieved.
   * `:name` (`t:string`) The name for one of the listed recommendation templates.
   * `:next_token` (`t:string`) Null, or the token from a previous call to get the
-  next set of results.
+    next set of results.
   * `:recommendation_template_arn` (`t:string`) The Amazon Resource Name (ARN) for
-  a recommendation template.
+    a recommendation template.
   * `:reverse_order` (`t:boolean`) The default is to sort by ascending startTime.
-  To sort by descending startTime, set reverseOrder to true.
+    To sort by descending startTime, set reverseOrder to true.
   * `:status` (`t:list[com.amazonaws.resiliencehub#RecommendationTemplateStatus]`)
-  Status of the action.
+    Status of the action.
   """
   @spec list_recommendation_templates(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_recommendation_templates_response(), any()}
@@ -4867,12 +4834,13 @@ defmodule AWS.Resiliencehub do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=resiliencehub%20ListResiliencyPolicies&this_doc_guide=API%2520Reference)
 
   ## Parameters:
+
   ## Keyword parameters:
   * `:max_results` (`t:integer`) Maximum number of results to include in the
-  response. If more results exist than the specified MaxResults value, a token
-  is included in the response so that the remaining results can be retrieved.
+    response. If more results exist than the specified MaxResults value, a token
+    is included in the response so that the remaining results can be retrieved.
   * `:next_token` (`t:string`) Null, or the token from a previous call to get the
-  next set of results.
+    next set of results.
   * `:policy_name` (`t:string`) The name of the policy
   """
   @spec list_resiliency_policies(AWS.Client.t(), Keyword.t()) ::
@@ -4939,16 +4907,17 @@ defmodule AWS.Resiliencehub do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=resiliencehub%20ListResourceGroupingRecommendations&this_doc_guide=API%2520Reference)
 
   ## Parameters:
+
   ## Keyword parameters:
   * `:app_arn` (`t:string`) Amazon Resource Name (ARN) of the Resilience Hub
-  application. The format for this ARN is:
-  arn:partition:resiliencehub:region:account:app/app-id. For more information
-  about ARNs, see Amazon Resource Names (ARNs) in the Amazon Web Services
-  General Reference guide.
+    application. The format for this ARN is:
+    arn:partition:resiliencehub:region:account:app/app-id. For more information
+    about ARNs, see Amazon Resource Names (ARNs) in the Amazon Web Services
+    General Reference guide.
   * `:max_results` (`t:integer`) Maximum number of grouping recommendations to be
-  displayed per Resilience Hub application.
+    displayed per Resilience Hub application.
   * `:next_token` (`t:string`) Null, or the token from a previous call to get the
-  next set of results.
+    next set of results.
   """
   @spec list_resource_grouping_recommendations(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_resource_grouping_recommendations_response(), any()}
@@ -5014,7 +4983,6 @@ defmodule AWS.Resiliencehub do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=resiliencehub%20ListSopRecommendations&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec list_sop_recommendations(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_sop_recommendations_response(), any()}
@@ -5056,12 +5024,13 @@ defmodule AWS.Resiliencehub do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=resiliencehub%20ListSuggestedResiliencyPolicies&this_doc_guide=API%2520Reference)
 
   ## Parameters:
+
   ## Keyword parameters:
   * `:max_results` (`t:integer`) Maximum number of results to include in the
-  response. If more results exist than the specified MaxResults value, a token
-  is included in the response so that the remaining results can be retrieved.
+    response. If more results exist than the specified MaxResults value, a token
+    is included in the response so that the remaining results can be retrieved.
   * `:next_token` (`t:string`) Null, or the token from a previous call to get the
-  next set of results.
+    next set of results.
   """
   @spec list_suggested_resiliency_policies(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_suggested_resiliency_policies_response(), any()}
@@ -5120,8 +5089,7 @@ defmodule AWS.Resiliencehub do
 
   ## Parameters:
   * `:resource_arn` (`t:string` required) The Amazon Resource Name (ARN) for a
-  specific resource in your Resilience Hub application.
-  ## Keyword parameters:
+    specific resource in your Resilience Hub application.
   """
   @spec list_tags_for_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_tags_for_resource_response(), any()}
@@ -5161,7 +5129,6 @@ defmodule AWS.Resiliencehub do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=resiliencehub%20ListTestRecommendations&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec list_test_recommendations(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_test_recommendations_response(), any()}
@@ -5205,7 +5172,6 @@ defmodule AWS.Resiliencehub do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=resiliencehub%20ListUnsupportedAppVersionResources&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec list_unsupported_app_version_resources(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_unsupported_app_version_resources_response(), any()}
@@ -5247,7 +5213,6 @@ defmodule AWS.Resiliencehub do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=resiliencehub%20PublishAppVersion&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec publish_app_version(AWS.Client.t(), Keyword.t()) ::
           {:ok, publish_app_version_response(), any()}
@@ -5290,7 +5255,6 @@ defmodule AWS.Resiliencehub do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=resiliencehub%20PutDraftAppVersionTemplate&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec put_draft_app_version_template(AWS.Client.t(), Keyword.t()) ::
           {:ok, put_draft_app_version_template_response(), any()}
@@ -5332,7 +5296,6 @@ defmodule AWS.Resiliencehub do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=resiliencehub%20RejectResourceGroupingRecommendations&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec reject_resource_grouping_recommendations(AWS.Client.t(), Keyword.t()) ::
           {:ok, reject_resource_grouping_recommendations_response(), any()}
@@ -5374,7 +5337,6 @@ defmodule AWS.Resiliencehub do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=resiliencehub%20RemoveDraftAppVersionResourceMappings&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec remove_draft_app_version_resource_mappings(AWS.Client.t(), Keyword.t()) ::
           {:ok, remove_draft_app_version_resource_mappings_response(), any()}
@@ -5416,7 +5378,6 @@ defmodule AWS.Resiliencehub do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=resiliencehub%20ResolveAppVersionResources&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec resolve_app_version_resources(AWS.Client.t(), Keyword.t()) ::
           {:ok, resolve_app_version_resources_response(), any()}
@@ -5458,7 +5419,6 @@ defmodule AWS.Resiliencehub do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=resiliencehub%20StartAppAssessment&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec start_app_assessment(AWS.Client.t(), Keyword.t()) ::
           {:ok, start_app_assessment_response(), any()}
@@ -5500,7 +5460,6 @@ defmodule AWS.Resiliencehub do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=resiliencehub%20StartResourceGroupingRecommendationTask&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec start_resource_grouping_recommendation_task(AWS.Client.t(), Keyword.t()) ::
           {:ok, start_resource_grouping_recommendation_task_response(), any()}
@@ -5543,8 +5502,7 @@ defmodule AWS.Resiliencehub do
 
   ## Parameters:
   * `:resource_arn` (`t:string` required) Amazon Resource Name (ARN) of the
-  resource.
-  ## Keyword parameters:
+    resource.
   """
   @spec tag_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, tag_resource_response(), any()}
@@ -5587,10 +5545,9 @@ defmodule AWS.Resiliencehub do
 
   ## Parameters:
   * `:resource_arn` (`t:string` required) Amazon Resource Name (ARN) of the
-  resource.
+    resource.
   * `:tag_keys` (`t:list[com.amazonaws.resiliencehub#TagKey]` required) The keys
-  of the tags you want to remove.
-  ## Keyword parameters:
+    of the tags you want to remove.
   """
   @spec untag_resource(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, untag_resource_response(), any()}
@@ -5643,7 +5600,6 @@ defmodule AWS.Resiliencehub do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=resiliencehub%20UpdateApp&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec update_app(AWS.Client.t(), Keyword.t()) ::
           {:ok, update_app_response(), any()}
@@ -5685,7 +5641,6 @@ defmodule AWS.Resiliencehub do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=resiliencehub%20UpdateAppVersion&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec update_app_version(AWS.Client.t(), Keyword.t()) ::
           {:ok, update_app_version_response(), any()}
@@ -5727,7 +5682,6 @@ defmodule AWS.Resiliencehub do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=resiliencehub%20UpdateAppVersionAppComponent&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec update_app_version_app_component(AWS.Client.t(), Keyword.t()) ::
           {:ok, update_app_version_app_component_response(), any()}
@@ -5769,7 +5723,6 @@ defmodule AWS.Resiliencehub do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=resiliencehub%20UpdateAppVersionResource&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec update_app_version_resource(AWS.Client.t(), Keyword.t()) ::
           {:ok, update_app_version_resource_response(), any()}
@@ -5811,7 +5764,6 @@ defmodule AWS.Resiliencehub do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=resiliencehub%20UpdateResiliencyPolicy&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec update_resiliency_policy(AWS.Client.t(), Keyword.t()) ::
           {:ok, update_resiliency_policy_response(), any()}

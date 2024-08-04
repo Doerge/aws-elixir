@@ -798,7 +798,6 @@ defmodule AWS.OSIS do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=osis%20CreatePipeline&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec create_pipeline(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_pipeline_response(), any()}
@@ -843,7 +842,6 @@ defmodule AWS.OSIS do
 
   ## Parameters:
   * `:pipeline_name` (`t:string` required) The name of the pipeline to delete.
-  ## Keyword parameters:
   """
   @spec delete_pipeline(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, delete_pipeline_response(), any()}
@@ -896,7 +894,6 @@ defmodule AWS.OSIS do
 
   ## Parameters:
   * `:pipeline_name` (`t:string` required) The name of the pipeline.
-  ## Keyword parameters:
   """
   @spec get_pipeline(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_pipeline_response(), any()}
@@ -940,6 +937,7 @@ defmodule AWS.OSIS do
 
   ## Parameters:
   * `:blueprint_name` (`t:string` required) The name of the blueprint to retrieve.
+
   ## Keyword parameters:
   * `:format` (`t:string`) The format format of the blueprint to retrieve.
   """
@@ -995,7 +993,6 @@ defmodule AWS.OSIS do
 
   ## Parameters:
   * `:pipeline_name` (`t:string` required) The name of the pipeline.
-  ## Keyword parameters:
   """
   @spec get_pipeline_change_progress(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_pipeline_change_progress_response(), any()}
@@ -1037,7 +1034,6 @@ defmodule AWS.OSIS do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=osis%20ListPipelineBlueprints&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec list_pipeline_blueprints(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_pipeline_blueprints_response(), any()}
@@ -1082,13 +1078,14 @@ defmodule AWS.OSIS do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=osis%20ListPipelines&this_doc_guide=API%2520Reference)
 
   ## Parameters:
+
   ## Keyword parameters:
   * `:max_results` (`t:integer`) An optional parameter that specifies the maximum
-  number of results to return. You can use nextToken to get the next page of
-  results.
+    number of results to return. You can use nextToken to get the next page of
+    results.
   * `:next_token` (`t:string`) If your initial ListPipelines operation returns a
-  nextToken, you can include the returned nextToken in subsequent
-  ListPipelines operations, which returns results in the next page.
+    nextToken, you can include the returned nextToken in subsequent
+    ListPipelines operations, which returns results in the next page.
   """
   @spec list_pipelines(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_pipelines_response(), any()}
@@ -1149,8 +1146,7 @@ defmodule AWS.OSIS do
 
   ## Parameters:
   * `:arn` (`t:string` required) The Amazon Resource Name (ARN) of the pipeline to
-  retrieve tags for.
-  ## Keyword parameters:
+    retrieve tags for.
   """
   @spec list_tags_for_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_tags_for_resource_response(), any()}
@@ -1193,7 +1189,6 @@ defmodule AWS.OSIS do
 
   ## Parameters:
   * `:pipeline_name` (`t:string` required) The name of the pipeline to start.
-  ## Keyword parameters:
   """
   @spec start_pipeline(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, start_pipeline_response(), any()}
@@ -1238,7 +1233,6 @@ defmodule AWS.OSIS do
 
   ## Parameters:
   * `:pipeline_name` (`t:string` required) The name of the pipeline to stop.
-  ## Keyword parameters:
   """
   @spec stop_pipeline(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, stop_pipeline_response(), any()}
@@ -1283,8 +1277,7 @@ defmodule AWS.OSIS do
 
   ## Parameters:
   * `:arn` (`t:string` required) The Amazon Resource Name (ARN) of the pipeline to
-  tag.
-  ## Keyword parameters:
+    tag.
   """
   @spec tag_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, tag_resource_response(), any()}
@@ -1329,8 +1322,7 @@ defmodule AWS.OSIS do
 
   ## Parameters:
   * `:arn` (`t:string` required) The Amazon Resource Name (ARN) of the pipeline to
-  remove tags from.
-  ## Keyword parameters:
+    remove tags from.
   """
   @spec untag_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, untag_resource_response(), any()}
@@ -1375,7 +1367,6 @@ defmodule AWS.OSIS do
 
   ## Parameters:
   * `:pipeline_name` (`t:string` required) The name of the pipeline to update.
-  ## Keyword parameters:
   """
   @spec update_pipeline(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, update_pipeline_response(), any()}
@@ -1419,7 +1410,6 @@ defmodule AWS.OSIS do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=osis%20ValidatePipeline&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec validate_pipeline(AWS.Client.t(), Keyword.t()) ::
           {:ok, validate_pipeline_response(), any()}

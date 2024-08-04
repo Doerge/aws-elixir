@@ -1530,11 +1530,10 @@ defmodule AWS.AmplifyBackend do
   ## Parameters:
   * `:app_id` (`t:string` required) The app ID.
   * `:backend_environment_name` (`t:string` required) The name of the backend
-  environment.
+    environment.
   * `:input` (`t:map`):
-    * `:target_environment_name` (`t:string` required) The name of the destination
-  backend environment to be created.
-  ## Keyword parameters:
+    * `"targetEnvironmentName" => t:string` (required) The name of the destination
+    backend environment to be created.
   """
   @spec clone_backend(AWS.Client.t(), String.t(), String.t(), input :: map(), Keyword.t()) ::
           {:ok, clone_backend_response(), any()}
@@ -1580,14 +1579,13 @@ defmodule AWS.AmplifyBackend do
 
   ## Parameters:
   * `:input` (`t:map`):
-    * `:app_id` (`t:string` required) The app ID.
-    * `:app_name` (`t:string` required) The name of the app.
-    * `:backend_environment_name` (`t:string` required) The name of the backend
-  environment.
-    * `:resource_config` (`t:structure`) The resource configuration for creating a
-  backend.
-    * `:resource_name` (`t:string`) The name of the resource.
-  ## Keyword parameters:
+    * `"appId" => t:string` (required) The app ID.
+    * `"appName" => t:string` (required) The name of the app.
+    * `"backendEnvironmentName" => t:string` (required) The name of the backend
+    environment.
+    * `"resourceConfig" => t:structure` The resource configuration for creating a
+    backend.
+    * `"resourceName" => t:string` The name of the resource.
   """
   @spec create_backend(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_backend_response(), any()}
@@ -1631,12 +1629,11 @@ defmodule AWS.AmplifyBackend do
   ## Parameters:
   * `:app_id` (`t:string` required) The app ID.
   * `:input` (`t:map`):
-    * `:backend_environment_name` (`t:string` required) The name of the backend
-  environment.
-    * `:resource_config` (`t:structure` required) The resource configuration for
-  this request.
-    * `:resource_name` (`t:string` required) The name of this resource.
-  ## Keyword parameters:
+    * `"backendEnvironmentName" => t:string` (required) The name of the backend
+    environment.
+    * `"resourceConfig" => t:structure` (required) The resource configuration for
+    this request.
+    * `"resourceName" => t:string` (required) The name of this resource.
   """
   @spec create_backend_api(AWS.Client.t(), String.t(), input :: map(), Keyword.t()) ::
           {:ok, create_backend_api_response(), any()}
@@ -1680,12 +1677,11 @@ defmodule AWS.AmplifyBackend do
   ## Parameters:
   * `:app_id` (`t:string` required) The app ID.
   * `:input` (`t:map`):
-    * `:backend_environment_name` (`t:string` required) The name of the backend
-  environment.
-    * `:resource_config` (`t:structure` required) The resource configuration for
-  this request object.
-    * `:resource_name` (`t:string` required) The name of this resource.
-  ## Keyword parameters:
+    * `"backendEnvironmentName" => t:string` (required) The name of the backend
+    environment.
+    * `"resourceConfig" => t:structure` (required) The resource configuration for
+    this request object.
+    * `"resourceName" => t:string` (required) The name of this resource.
   """
   @spec create_backend_auth(AWS.Client.t(), String.t(), input :: map(), Keyword.t()) ::
           {:ok, create_backend_auth_response(), any()}
@@ -1729,8 +1725,7 @@ defmodule AWS.AmplifyBackend do
   ## Parameters:
   * `:app_id` (`t:string` required) The app ID.
   * `:input` (`t:map | nil`):
-    * `:backend_manager_app_id` (`t:string`) The app ID for the backend manager.
-  ## Keyword parameters:
+    * `"backendManagerAppId" => t:string` The app ID for the backend manager.
   """
   @spec create_backend_config(AWS.Client.t(), String.t(), input :: map() | nil, Keyword.t()) ::
           {:ok, create_backend_config_response(), any()}
@@ -1775,12 +1770,11 @@ defmodule AWS.AmplifyBackend do
   ## Parameters:
   * `:app_id` (`t:string` required) The app ID.
   * `:input` (`t:map`):
-    * `:backend_environment_name` (`t:string` required) The name of the backend
-  environment.
-    * `:resource_config` (`t:structure` required) The resource configuration for
-  creating backend storage.
-    * `:resource_name` (`t:string` required) The name of the storage resource.
-  ## Keyword parameters:
+    * `"backendEnvironmentName" => t:string` (required) The name of the backend
+    environment.
+    * `"resourceConfig" => t:structure` (required) The resource configuration for
+    creating backend storage.
+    * `"resourceName" => t:string` (required) The name of the storage resource.
   """
   @spec create_backend_storage(AWS.Client.t(), String.t(), input :: map(), Keyword.t()) ::
           {:ok, create_backend_storage_response(), any()}
@@ -1825,7 +1819,6 @@ defmodule AWS.AmplifyBackend do
 
   ## Parameters:
   * `:app_id` (`t:string` required) The app ID.
-  ## Keyword parameters:
   """
   @spec create_token(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, create_token_response(), any()}
@@ -1869,8 +1862,7 @@ defmodule AWS.AmplifyBackend do
   ## Parameters:
   * `:app_id` (`t:string` required) The app ID.
   * `:backend_environment_name` (`t:string` required) The name of the backend
-  environment.
-  ## Keyword parameters:
+    environment.
   """
   @spec delete_backend(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, delete_backend_response(), any()}
@@ -1915,12 +1907,11 @@ defmodule AWS.AmplifyBackend do
   ## Parameters:
   * `:app_id` (`t:string` required) The app ID.
   * `:backend_environment_name` (`t:string` required) The name of the backend
-  environment.
+    environment.
   * `:input` (`t:map`):
-    * `:resource_name` (`t:string` required) The name of this resource.
-    * `:resource_config` (`t:structure`) Defines the resource configuration for the
-  data model in your Amplify project.
-  ## Keyword parameters:
+    * `"resourceName" => t:string` (required) The name of this resource.
+    * `"resourceConfig" => t:structure` Defines the resource configuration for the
+    data model in your Amplify project.
   """
   @spec delete_backend_api(AWS.Client.t(), String.t(), String.t(), input :: map(), Keyword.t()) ::
           {:ok, delete_backend_api_response(), any()}
@@ -1972,10 +1963,9 @@ defmodule AWS.AmplifyBackend do
   ## Parameters:
   * `:app_id` (`t:string` required) The app ID.
   * `:backend_environment_name` (`t:string` required) The name of the backend
-  environment.
+    environment.
   * `:input` (`t:map`):
-    * `:resource_name` (`t:string` required) The name of this resource.
-  ## Keyword parameters:
+    * `"resourceName" => t:string` (required) The name of this resource.
   """
   @spec delete_backend_auth(AWS.Client.t(), String.t(), String.t(), input :: map(), Keyword.t()) ::
           {:ok, delete_backend_auth_response(), any()}
@@ -2027,11 +2017,10 @@ defmodule AWS.AmplifyBackend do
   ## Parameters:
   * `:app_id` (`t:string` required) The app ID.
   * `:backend_environment_name` (`t:string` required) The name of the backend
-  environment.
+    environment.
   * `:input` (`t:map`):
-    * `:resource_name` (`t:string` required) The name of the storage resource.
-    * `:service_name` (`t:enum["S3"]` required) The name of the storage service.
-  ## Keyword parameters:
+    * `"resourceName" => t:string` (required) The name of the storage resource.
+    * `"serviceName" => t:enum["S3"]` (required) The name of the storage service.
   """
   @spec delete_backend_storage(
           AWS.Client.t(),
@@ -2089,7 +2078,6 @@ defmodule AWS.AmplifyBackend do
   ## Parameters:
   * `:app_id` (`t:string` required) The app ID.
   * `:session_id` (`t:string` required) The session ID.
-  ## Keyword parameters:
   """
   @spec delete_token(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, delete_token_response(), any()}
@@ -2134,10 +2122,9 @@ defmodule AWS.AmplifyBackend do
   ## Parameters:
   * `:app_id` (`t:string` required) The app ID.
   * `:backend_environment_name` (`t:string` required) The name of the backend
-  environment.
+    environment.
   * `:input` (`t:map`):
-    * `:resource_name` (`t:string` required) The name of this resource.
-  ## Keyword parameters:
+    * `"resourceName" => t:string` (required) The name of this resource.
   """
   @spec generate_backend_api_models(
           AWS.Client.t(),
@@ -2195,8 +2182,7 @@ defmodule AWS.AmplifyBackend do
   ## Parameters:
   * `:app_id` (`t:string` required) The app ID.
   * `:input` (`t:map | nil`):
-    * `:backend_environment_name` (`t:string`) The name of the backend environment.
-  ## Keyword parameters:
+    * `"backendEnvironmentName" => t:string` The name of the backend environment.
   """
   @spec get_backend(AWS.Client.t(), String.t(), input :: map() | nil, Keyword.t()) ::
           {:ok, get_backend_response(), any()}
@@ -2241,12 +2227,11 @@ defmodule AWS.AmplifyBackend do
   ## Parameters:
   * `:app_id` (`t:string` required) The app ID.
   * `:backend_environment_name` (`t:string` required) The name of the backend
-  environment.
+    environment.
   * `:input` (`t:map`):
-    * `:resource_name` (`t:string` required) The name of this resource.
-    * `:resource_config` (`t:structure`) Defines the resource configuration for the
-  data model in your Amplify project.
-  ## Keyword parameters:
+    * `"resourceName" => t:string` (required) The name of this resource.
+    * `"resourceConfig" => t:structure` Defines the resource configuration for the
+    data model in your Amplify project.
   """
   @spec get_backend_api(AWS.Client.t(), String.t(), String.t(), input :: map(), Keyword.t()) ::
           {:ok, get_backend_api_response(), any()}
@@ -2292,10 +2277,9 @@ defmodule AWS.AmplifyBackend do
   ## Parameters:
   * `:app_id` (`t:string` required) The app ID.
   * `:backend_environment_name` (`t:string` required) The name of the backend
-  environment.
+    environment.
   * `:input` (`t:map`):
-    * `:resource_name` (`t:string` required) The name of this resource.
-  ## Keyword parameters:
+    * `"resourceName" => t:string` (required) The name of this resource.
   """
   @spec get_backend_api_models(
           AWS.Client.t(),
@@ -2353,10 +2337,9 @@ defmodule AWS.AmplifyBackend do
   ## Parameters:
   * `:app_id` (`t:string` required) The app ID.
   * `:backend_environment_name` (`t:string` required) The name of the backend
-  environment.
+    environment.
   * `:input` (`t:map`):
-    * `:resource_name` (`t:string` required) The name of this resource.
-  ## Keyword parameters:
+    * `"resourceName" => t:string` (required) The name of this resource.
   """
   @spec get_backend_auth(AWS.Client.t(), String.t(), String.t(), input :: map(), Keyword.t()) ::
           {:ok, get_backend_auth_response(), any()}
@@ -2402,9 +2385,8 @@ defmodule AWS.AmplifyBackend do
   ## Parameters:
   * `:app_id` (`t:string` required) The app ID.
   * `:backend_environment_name` (`t:string` required) The name of the backend
-  environment.
+    environment.
   * `:job_id` (`t:string` required) The ID for the job.
-  ## Keyword parameters:
   """
   @spec get_backend_job(AWS.Client.t(), String.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_backend_job_response(), any()}
@@ -2447,10 +2429,9 @@ defmodule AWS.AmplifyBackend do
   ## Parameters:
   * `:app_id` (`t:string` required) The app ID.
   * `:backend_environment_name` (`t:string` required) The name of the backend
-  environment.
+    environment.
   * `:input` (`t:map`):
-    * `:resource_name` (`t:string` required) The name of the storage resource.
-  ## Keyword parameters:
+    * `"resourceName" => t:string` (required) The name of the storage resource.
   """
   @spec get_backend_storage(AWS.Client.t(), String.t(), String.t(), input :: map(), Keyword.t()) ::
           {:ok, get_backend_storage_response(), any()}
@@ -2502,7 +2483,6 @@ defmodule AWS.AmplifyBackend do
   ## Parameters:
   * `:app_id` (`t:string` required) The app ID.
   * `:session_id` (`t:string` required) The session ID.
-  ## Keyword parameters:
   """
   @spec get_token(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_token_response(), any()}
@@ -2545,15 +2525,14 @@ defmodule AWS.AmplifyBackend do
   ## Parameters:
   * `:app_id` (`t:string` required) The app ID.
   * `:backend_environment_name` (`t:string` required) The name of the backend
-  environment.
+    environment.
   * `:input` (`t:map`):
-    * `:native_client_id` (`t:string` required) The ID of the Amazon Cognito native
-  client.
-    * `:user_pool_id` (`t:string` required) The ID of the Amazon Cognito user pool.
-    * `:web_client_id` (`t:string` required) The ID of the Amazon Cognito web
-  client.
-    * `:identity_pool_id` (`t:string`) The ID of the Amazon Cognito identity pool.
-  ## Keyword parameters:
+    * `"nativeClientId" => t:string` (required) The ID of the Amazon Cognito native
+    client.
+    * `"userPoolId" => t:string` (required) The ID of the Amazon Cognito user pool.
+    * `"webClientId" => t:string` (required) The ID of the Amazon Cognito web
+    client.
+    * `"identityPoolId" => t:string` The ID of the Amazon Cognito identity pool.
   """
   @spec import_backend_auth(AWS.Client.t(), String.t(), String.t(), input :: map(), Keyword.t()) ::
           {:ok, import_backend_auth_response(), any()}
@@ -2605,11 +2584,10 @@ defmodule AWS.AmplifyBackend do
   ## Parameters:
   * `:app_id` (`t:string` required) The app ID.
   * `:backend_environment_name` (`t:string` required) The name of the backend
-  environment.
+    environment.
   * `:input` (`t:map`):
-    * `:service_name` (`t:enum["S3"]` required) The name of the storage service.
-    * `:bucket_name` (`t:string`) The name of the S3 bucket.
-  ## Keyword parameters:
+    * `"serviceName" => t:enum["S3"]` (required) The name of the storage service.
+    * `"bucketName" => t:string` The name of the S3 bucket.
   """
   @spec import_backend_storage(
           AWS.Client.t(),
@@ -2667,17 +2645,16 @@ defmodule AWS.AmplifyBackend do
   ## Parameters:
   * `:app_id` (`t:string` required) The app ID.
   * `:backend_environment_name` (`t:string` required) The name of the backend
-  environment.
+    environment.
   * `:input` (`t:map | nil`):
-    * `:job_id` (`t:string`) The ID for the job.
-    * `:max_results` (`t:integer`) The maximum number of results that you want in
-  the response.
-    * `:next_token` (`t:string`) The token for the next set of results.
-    * `:operation` (`t:string`) Filters the list of response objects to include only
-  those with the specified operation name.
-    * `:status` (`t:string`) Filters the list of response objects to include only
-  those with the specified status.
-  ## Keyword parameters:
+    * `"jobId" => t:string` The ID for the job.
+    * `"maxResults" => t:integer` The maximum number of results that you want in the
+    response.
+    * `"nextToken" => t:string` The token for the next set of results.
+    * `"operation" => t:string` Filters the list of response objects to include only
+    those with the specified operation name.
+    * `"status" => t:string` Filters the list of response objects to include only
+    those with the specified status.
   """
   @spec list_backend_jobs(
           AWS.Client.t(),
@@ -2734,8 +2711,7 @@ defmodule AWS.AmplifyBackend do
 
   ## Parameters:
   * `:input` (`t:map | nil`):
-    * `:next_token` (`t:string`) Reserved for future use.
-  ## Keyword parameters:
+    * `"nextToken" => t:string` Reserved for future use.
   """
   @spec list_s3_buckets(AWS.Client.t(), input :: map() | nil, Keyword.t()) ::
           {:ok, list_s3_buckets_response(), any()}
@@ -2780,9 +2756,8 @@ defmodule AWS.AmplifyBackend do
   ## Parameters:
   * `:app_id` (`t:string` required) The app ID.
   * `:input` (`t:map | nil`):
-    * `:clean_amplify_app` (`t:boolean`) Cleans up the Amplify Console app if this
-  value is set to true.
-  ## Keyword parameters:
+    * `"cleanAmplifyApp" => t:boolean` Cleans up the Amplify Console app if this
+    value is set to true.
   """
   @spec remove_all_backends(AWS.Client.t(), String.t(), input :: map() | nil, Keyword.t()) ::
           {:ok, remove_all_backends_response(), any()}
@@ -2826,7 +2801,6 @@ defmodule AWS.AmplifyBackend do
 
   ## Parameters:
   * `:app_id` (`t:string` required) The app ID.
-  ## Keyword parameters:
   """
   @spec remove_backend_config(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, remove_backend_config_response(), any()}
@@ -2870,12 +2844,11 @@ defmodule AWS.AmplifyBackend do
   ## Parameters:
   * `:app_id` (`t:string` required) The app ID.
   * `:backend_environment_name` (`t:string` required) The name of the backend
-  environment.
+    environment.
   * `:input` (`t:map`):
-    * `:resource_name` (`t:string` required) The name of this resource.
-    * `:resource_config` (`t:structure`) Defines the resource configuration for the
-  data model in your Amplify project.
-  ## Keyword parameters:
+    * `"resourceName" => t:string` (required) The name of this resource.
+    * `"resourceConfig" => t:structure` Defines the resource configuration for the
+    data model in your Amplify project.
   """
   @spec update_backend_api(AWS.Client.t(), String.t(), String.t(), input :: map(), Keyword.t()) ::
           {:ok, update_backend_api_response(), any()}
@@ -2927,12 +2900,11 @@ defmodule AWS.AmplifyBackend do
   ## Parameters:
   * `:app_id` (`t:string` required) The app ID.
   * `:backend_environment_name` (`t:string` required) The name of the backend
-  environment.
+    environment.
   * `:input` (`t:map`):
-    * `:resource_config` (`t:structure` required) The resource configuration for
-  this request object.
-    * `:resource_name` (`t:string` required) The name of this resource.
-  ## Keyword parameters:
+    * `"resourceConfig" => t:structure` (required) The resource configuration for
+    this request object.
+    * `"resourceName" => t:string` (required) The name of this resource.
   """
   @spec update_backend_auth(AWS.Client.t(), String.t(), String.t(), input :: map(), Keyword.t()) ::
           {:ok, update_backend_auth_response(), any()}
@@ -2984,9 +2956,8 @@ defmodule AWS.AmplifyBackend do
   ## Parameters:
   * `:app_id` (`t:string` required) The app ID.
   * `:input` (`t:map | nil`):
-    * `:login_auth_config` (`t:structure`) Describes the Amazon Cognito
-  configuration for Admin UI access.
-  ## Keyword parameters:
+    * `"loginAuthConfig" => t:structure` Describes the Amazon Cognito configuration
+    for Admin UI access.
   """
   @spec update_backend_config(AWS.Client.t(), String.t(), input :: map() | nil, Keyword.t()) ::
           {:ok, update_backend_config_response(), any()}
@@ -3031,14 +3002,13 @@ defmodule AWS.AmplifyBackend do
   ## Parameters:
   * `:app_id` (`t:string` required) The app ID.
   * `:backend_environment_name` (`t:string` required) The name of the backend
-  environment.
+    environment.
   * `:job_id` (`t:string` required) The ID for the job.
   * `:input` (`t:map | nil`):
-    * `:operation` (`t:string`) Filters the list of response objects to include only
-  those with the specified operation name.
-    * `:status` (`t:string`) Filters the list of response objects to include only
-  those with the specified status.
-  ## Keyword parameters:
+    * `"operation" => t:string` Filters the list of response objects to include only
+    those with the specified operation name.
+    * `"status" => t:string` Filters the list of response objects to include only
+    those with the specified status.
   """
   @spec update_backend_job(
           AWS.Client.t(),
@@ -3098,12 +3068,11 @@ defmodule AWS.AmplifyBackend do
   ## Parameters:
   * `:app_id` (`t:string` required) The app ID.
   * `:backend_environment_name` (`t:string` required) The name of the backend
-  environment.
+    environment.
   * `:input` (`t:map`):
-    * `:resource_config` (`t:structure` required) The resource configuration for
-  updating backend storage.
-    * `:resource_name` (`t:string` required) The name of the storage resource.
-  ## Keyword parameters:
+    * `"resourceConfig" => t:structure` (required) The resource configuration for
+    updating backend storage.
+    * `"resourceName" => t:string` (required) The name of the storage resource.
   """
   @spec update_backend_storage(
           AWS.Client.t(),

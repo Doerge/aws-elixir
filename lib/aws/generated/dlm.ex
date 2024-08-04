@@ -670,7 +670,6 @@ defmodule AWS.DLM do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=dlm%20CreateLifecyclePolicy&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec create_lifecycle_policy(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_lifecycle_policy_response(), any()}
@@ -714,7 +713,6 @@ defmodule AWS.DLM do
 
   ## Parameters:
   * `:policy_id` (`t:string` required) The identifier of the lifecycle policy.
-  ## Keyword parameters:
   """
   @spec delete_lifecycle_policy(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, delete_lifecycle_policy_response(), any()}
@@ -766,19 +764,20 @@ defmodule AWS.DLM do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=dlm%20GetLifecyclePolicies&this_doc_guide=API%2520Reference)
 
   ## Parameters:
+
   ## Keyword parameters:
   * `:default_policy_type` (`t:enum["ALL|INSTANCE|VOLUME"]`) [Default policies
-  only] Specifies the type of default policy to get. Specify one of the
-  following:
+    only] Specifies the type of default policy to get. Specify one of the
+    following:
   * `:policy_ids` (`t:list[com.amazonaws.dlm#PolicyId]`) The identifiers of the
-  data lifecycle policies.
+    data lifecycle policies.
   * `:resource_types` (`t:list[com.amazonaws.dlm#ResourceTypeValues]`) The
-  resource type.
+    resource type.
   * `:state` (`t:enum["DISABLED|ENABLED|ERROR"]`) The activation state.
   * `:tags_to_add` (`t:list[com.amazonaws.dlm#TagFilter]`) The tags to add to
-  objects created by the policy.
+    objects created by the policy.
   * `:target_tags` (`t:list[com.amazonaws.dlm#TagFilter]`) The target tag for a
-  policy.
+    policy.
   """
   @spec get_lifecycle_policies(AWS.Client.t(), Keyword.t()) ::
           {:ok, get_lifecycle_policies_response(), any()}
@@ -879,7 +878,6 @@ defmodule AWS.DLM do
 
   ## Parameters:
   * `:policy_id` (`t:string` required) The identifier of the lifecycle policy.
-  ## Keyword parameters:
   """
   @spec get_lifecycle_policy(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_lifecycle_policy_response(), any()}
@@ -920,8 +918,7 @@ defmodule AWS.DLM do
 
   ## Parameters:
   * `:resource_arn` (`t:string` required) The Amazon Resource Name (ARN) of the
-  resource.
-  ## Keyword parameters:
+    resource.
   """
   @spec list_tags_for_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_tags_for_resource_response(), any()}
@@ -962,8 +959,7 @@ defmodule AWS.DLM do
 
   ## Parameters:
   * `:resource_arn` (`t:string` required) The Amazon Resource Name (ARN) of the
-  resource.
-  ## Keyword parameters:
+    resource.
   """
   @spec tag_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, tag_resource_response(), any()}
@@ -1006,9 +1002,8 @@ defmodule AWS.DLM do
 
   ## Parameters:
   * `:resource_arn` (`t:string` required) The Amazon Resource Name (ARN) of the
-  resource.
+    resource.
   * `:tag_keys` (`t:list[com.amazonaws.dlm#TagKey]` required) The tag keys.
-  ## Keyword parameters:
   """
   @spec untag_resource(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, untag_resource_response(), any()}
@@ -1062,7 +1057,6 @@ defmodule AWS.DLM do
 
   ## Parameters:
   * `:policy_id` (`t:string` required) The identifier of the lifecycle policy.
-  ## Keyword parameters:
   """
   @spec update_lifecycle_policy(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, update_lifecycle_policy_response(), any()}

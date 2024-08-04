@@ -430,7 +430,6 @@ defmodule AWS.PinpointSMSVoice do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=pinpointsmsvoice%20CreateConfigurationSet&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec create_configuration_set(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_configuration_set_response(), any()}
@@ -473,7 +472,6 @@ defmodule AWS.PinpointSMSVoice do
 
   ## Parameters:
   * `:configuration_set_name` (`t:string` required)
-  ## Keyword parameters:
   """
   @spec create_configuration_set_event_destination(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, create_configuration_set_event_destination_response(), any()}
@@ -521,7 +519,6 @@ defmodule AWS.PinpointSMSVoice do
 
   ## Parameters:
   * `:configuration_set_name` (`t:string` required)
-  ## Keyword parameters:
   """
   @spec delete_configuration_set(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, delete_configuration_set_response(), any()}
@@ -575,7 +572,6 @@ defmodule AWS.PinpointSMSVoice do
   ## Parameters:
   * `:configuration_set_name` (`t:string` required)
   * `:event_destination_name` (`t:string` required)
-  ## Keyword parameters:
   """
   @spec delete_configuration_set_event_destination(
           AWS.Client.t(),
@@ -641,7 +637,6 @@ defmodule AWS.PinpointSMSVoice do
 
   ## Parameters:
   * `:configuration_set_name` (`t:string` required)
-  ## Keyword parameters:
   """
   @spec get_configuration_set_event_destinations(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_configuration_set_event_destinations_response(), any()}
@@ -687,6 +682,7 @@ defmodule AWS.PinpointSMSVoice do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=pinpointsmsvoice%20ListConfigurationSets&this_doc_guide=API%2520Reference)
 
   ## Parameters:
+
   ## Keyword parameters:
   * `:next_token` (`t:string`)
   * `:page_size` (`t:string`)
@@ -747,7 +743,6 @@ defmodule AWS.PinpointSMSVoice do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=pinpointsmsvoice%20SendVoiceMessage&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec send_voice_message(AWS.Client.t(), Keyword.t()) ::
           {:ok, send_voice_message_response(), any()}
@@ -793,7 +788,6 @@ defmodule AWS.PinpointSMSVoice do
   ## Parameters:
   * `:configuration_set_name` (`t:string` required)
   * `:event_destination_name` (`t:string` required)
-  ## Keyword parameters:
   """
   @spec update_configuration_set_event_destination(
           AWS.Client.t(),

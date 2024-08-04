@@ -1432,7 +1432,6 @@ defmodule AWS.KinesisVideo do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=kinesisvideo%20CreateSignalingChannel&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec create_signaling_channel(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_signaling_channel_output(), any()}
@@ -1476,7 +1475,6 @@ defmodule AWS.KinesisVideo do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=kinesisvideo%20CreateStream&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec create_stream(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_stream_output(), any()}
@@ -1524,7 +1522,6 @@ defmodule AWS.KinesisVideo do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=kinesisvideo%20DeleteEdgeConfiguration&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec delete_edge_configuration(AWS.Client.t(), Keyword.t()) ::
           {:ok, delete_edge_configuration_output(), any()}
@@ -1568,7 +1565,6 @@ defmodule AWS.KinesisVideo do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=kinesisvideo%20DeleteSignalingChannel&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec delete_signaling_channel(AWS.Client.t(), Keyword.t()) ::
           {:ok, delete_signaling_channel_output(), any()}
@@ -1612,7 +1608,6 @@ defmodule AWS.KinesisVideo do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=kinesisvideo%20DeleteStream&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec delete_stream(AWS.Client.t(), Keyword.t()) ::
           {:ok, delete_stream_output(), any()}
@@ -1658,7 +1653,6 @@ defmodule AWS.KinesisVideo do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=kinesisvideo%20DescribeEdgeConfiguration&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec describe_edge_configuration(AWS.Client.t(), Keyword.t()) ::
           {:ok, describe_edge_configuration_output(), any()}
@@ -1700,7 +1694,6 @@ defmodule AWS.KinesisVideo do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=kinesisvideo%20DescribeImageGenerationConfiguration&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec describe_image_generation_configuration(AWS.Client.t(), Keyword.t()) ::
           {:ok, describe_image_generation_configuration_output(), any()}
@@ -1743,7 +1736,6 @@ defmodule AWS.KinesisVideo do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=kinesisvideo%20DescribeMappedResourceConfiguration&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec describe_mapped_resource_configuration(AWS.Client.t(), Keyword.t()) ::
           {:ok, describe_mapped_resource_configuration_output(), any()}
@@ -1786,7 +1778,6 @@ defmodule AWS.KinesisVideo do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=kinesisvideo%20DescribeMediaStorageConfiguration&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec describe_media_storage_configuration(AWS.Client.t(), Keyword.t()) ::
           {:ok, describe_media_storage_configuration_output(), any()}
@@ -1828,7 +1819,6 @@ defmodule AWS.KinesisVideo do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=kinesisvideo%20DescribeNotificationConfiguration&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec describe_notification_configuration(AWS.Client.t(), Keyword.t()) ::
           {:ok, describe_notification_configuration_output(), any()}
@@ -1872,7 +1862,6 @@ defmodule AWS.KinesisVideo do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=kinesisvideo%20DescribeSignalingChannel&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec describe_signaling_channel(AWS.Client.t(), Keyword.t()) ::
           {:ok, describe_signaling_channel_output(), any()}
@@ -1915,7 +1904,6 @@ defmodule AWS.KinesisVideo do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=kinesisvideo%20DescribeStream&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec describe_stream(AWS.Client.t(), Keyword.t()) ::
           {:ok, describe_stream_output(), any()}
@@ -1961,7 +1949,6 @@ defmodule AWS.KinesisVideo do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=kinesisvideo%20GetDataEndpoint&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec get_data_endpoint(AWS.Client.t(), Keyword.t()) ::
           {:ok, get_data_endpoint_output(), any()}
@@ -2009,7 +1996,6 @@ defmodule AWS.KinesisVideo do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=kinesisvideo%20GetSignalingChannelEndpoint&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec get_signaling_channel_endpoint(AWS.Client.t(), Keyword.t()) ::
           {:ok, get_signaling_channel_endpoint_output(), any()}
@@ -2052,7 +2038,6 @@ defmodule AWS.KinesisVideo do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=kinesisvideo%20ListEdgeAgentConfigurations&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec list_edge_agent_configurations(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_edge_agent_configurations_output(), any()}
@@ -2096,7 +2081,6 @@ defmodule AWS.KinesisVideo do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=kinesisvideo%20ListSignalingChannels&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec list_signaling_channels(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_signaling_channels_output(), any()}
@@ -2140,7 +2124,6 @@ defmodule AWS.KinesisVideo do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=kinesisvideo%20ListStreams&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec list_streams(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_streams_output(), any()}
@@ -2182,7 +2165,6 @@ defmodule AWS.KinesisVideo do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=kinesisvideo%20ListTagsForResource&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec list_tags_for_resource(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_tags_for_resource_output(), any()}
@@ -2224,7 +2206,6 @@ defmodule AWS.KinesisVideo do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=kinesisvideo%20ListTagsForStream&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec list_tags_for_stream(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_tags_for_stream_output(), any()}
@@ -2278,7 +2259,6 @@ defmodule AWS.KinesisVideo do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=kinesisvideo%20StartEdgeConfigurationUpdate&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec start_edge_configuration_update(AWS.Client.t(), Keyword.t()) ::
           {:ok, start_edge_configuration_update_output(), any()}
@@ -2326,7 +2306,6 @@ defmodule AWS.KinesisVideo do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=kinesisvideo%20TagResource&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec tag_resource(AWS.Client.t(), Keyword.t()) ::
           {:ok, tag_resource_output(), any()}
@@ -2375,7 +2354,6 @@ defmodule AWS.KinesisVideo do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=kinesisvideo%20TagStream&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec tag_stream(AWS.Client.t(), Keyword.t()) ::
           {:ok, tag_stream_output(), any()}
@@ -2419,7 +2397,6 @@ defmodule AWS.KinesisVideo do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=kinesisvideo%20UntagResource&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec untag_resource(AWS.Client.t(), Keyword.t()) ::
           {:ok, untag_resource_output(), any()}
@@ -2463,7 +2440,6 @@ defmodule AWS.KinesisVideo do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=kinesisvideo%20UntagStream&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec untag_stream(AWS.Client.t(), Keyword.t()) ::
           {:ok, untag_stream_output(), any()}
@@ -2510,7 +2486,6 @@ defmodule AWS.KinesisVideo do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=kinesisvideo%20UpdateDataRetention&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec update_data_retention(AWS.Client.t(), Keyword.t()) ::
           {:ok, update_data_retention_output(), any()}
@@ -2552,7 +2527,6 @@ defmodule AWS.KinesisVideo do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=kinesisvideo%20UpdateImageGenerationConfiguration&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec update_image_generation_configuration(AWS.Client.t(), Keyword.t()) ::
           {:ok, update_image_generation_configuration_output(), any()}
@@ -2595,7 +2569,6 @@ defmodule AWS.KinesisVideo do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=kinesisvideo%20UpdateMediaStorageConfiguration&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec update_media_storage_configuration(AWS.Client.t(), Keyword.t()) ::
           {:ok, update_media_storage_configuration_output(), any()}
@@ -2637,7 +2610,6 @@ defmodule AWS.KinesisVideo do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=kinesisvideo%20UpdateNotificationConfiguration&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec update_notification_configuration(AWS.Client.t(), Keyword.t()) ::
           {:ok, update_notification_configuration_output(), any()}
@@ -2680,7 +2652,6 @@ defmodule AWS.KinesisVideo do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=kinesisvideo%20UpdateSignalingChannel&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec update_signaling_channel(AWS.Client.t(), Keyword.t()) ::
           {:ok, update_signaling_channel_output(), any()}
@@ -2723,7 +2694,6 @@ defmodule AWS.KinesisVideo do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=kinesisvideo%20UpdateStream&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec update_stream(AWS.Client.t(), Keyword.t()) ::
           {:ok, update_stream_output(), any()}

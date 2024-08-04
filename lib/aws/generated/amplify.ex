@@ -1524,7 +1524,6 @@ defmodule AWS.Amplify do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=amplify%20CreateApp&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec create_app(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_app_result(), any()}
@@ -1567,7 +1566,6 @@ defmodule AWS.Amplify do
 
   ## Parameters:
   * `:app_id` (`t:string` required) The unique ID for an Amplify app.
-  ## Keyword parameters:
   """
   @spec create_backend_environment(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, create_backend_environment_result(), any()}
@@ -1610,7 +1608,6 @@ defmodule AWS.Amplify do
 
   ## Parameters:
   * `:app_id` (`t:string` required) The unique ID for an Amplify app.
-  ## Keyword parameters:
   """
   @spec create_branch(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, create_branch_result(), any()}
@@ -1655,8 +1652,7 @@ defmodule AWS.Amplify do
   ## Parameters:
   * `:app_id` (`t:string` required) The unique ID for an Amplify app.
   * `:branch_name` (`t:string` required) The name of the branch to use for the
-  job.
-  ## Keyword parameters:
+    job.
   """
   @spec create_deployment(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, create_deployment_result(), any()}
@@ -1701,7 +1697,6 @@ defmodule AWS.Amplify do
 
   ## Parameters:
   * `:app_id` (`t:string` required) The unique ID for an Amplify app.
-  ## Keyword parameters:
   """
   @spec create_domain_association(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, create_domain_association_result(), any()}
@@ -1744,7 +1739,6 @@ defmodule AWS.Amplify do
 
   ## Parameters:
   * `:app_id` (`t:string` required) The unique ID for an Amplify app.
-  ## Keyword parameters:
   """
   @spec create_webhook(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, create_webhook_result(), any()}
@@ -1787,7 +1781,6 @@ defmodule AWS.Amplify do
 
   ## Parameters:
   * `:app_id` (`t:string` required) The unique ID for an Amplify app.
-  ## Keyword parameters:
   """
   @spec delete_app(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, delete_app_result(), any()}
@@ -1841,8 +1834,7 @@ defmodule AWS.Amplify do
   ## Parameters:
   * `:app_id` (`t:string` required) The unique ID of an Amplify app.
   * `:environment_name` (`t:string` required) The name of a backend environment of
-  an Amplify app.
-  ## Keyword parameters:
+    an Amplify app.
   """
   @spec delete_backend_environment(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, delete_backend_environment_result(), any()}
@@ -1897,7 +1889,6 @@ defmodule AWS.Amplify do
   ## Parameters:
   * `:app_id` (`t:string` required) The unique ID for an Amplify app.
   * `:branch_name` (`t:string` required) The name of the branch.
-  ## Keyword parameters:
   """
   @spec delete_branch(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, delete_branch_result(), any()}
@@ -1951,7 +1942,6 @@ defmodule AWS.Amplify do
   ## Parameters:
   * `:app_id` (`t:string` required) The unique id for an Amplify app.
   * `:domain_name` (`t:string` required) The name of the domain.
-  ## Keyword parameters:
   """
   @spec delete_domain_association(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, delete_domain_association_result(), any()}
@@ -2005,9 +1995,8 @@ defmodule AWS.Amplify do
   ## Parameters:
   * `:app_id` (`t:string` required) The unique ID for an Amplify app.
   * `:branch_name` (`t:string` required) The name of the branch to use for the
-  job.
+    job.
   * `:job_id` (`t:string` required) The unique ID for the job.
-  ## Keyword parameters:
   """
   @spec delete_job(AWS.Client.t(), String.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, delete_job_result(), any()}
@@ -2061,7 +2050,6 @@ defmodule AWS.Amplify do
 
   ## Parameters:
   * `:webhook_id` (`t:string` required) The unique ID for a webhook.
-  ## Keyword parameters:
   """
   @spec delete_webhook(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, delete_webhook_result(), any()}
@@ -2114,7 +2102,6 @@ defmodule AWS.Amplify do
 
   ## Parameters:
   * `:app_id` (`t:string` required) The unique ID for an Amplify app.
-  ## Keyword parameters:
   """
   @spec generate_access_logs(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, generate_access_logs_result(), any()}
@@ -2157,7 +2144,6 @@ defmodule AWS.Amplify do
 
   ## Parameters:
   * `:app_id` (`t:string` required) The unique ID for an Amplify app.
-  ## Keyword parameters:
   """
   @spec get_app(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_app_result(), any()}
@@ -2198,7 +2184,6 @@ defmodule AWS.Amplify do
 
   ## Parameters:
   * `:artifact_id` (`t:string` required) The unique ID for an artifact.
-  ## Keyword parameters:
   """
   @spec get_artifact_url(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_artifact_url_result(), any()}
@@ -2240,8 +2225,7 @@ defmodule AWS.Amplify do
   ## Parameters:
   * `:app_id` (`t:string` required) The unique id for an Amplify app.
   * `:environment_name` (`t:string` required) The name for the backend
-  environment.
-  ## Keyword parameters:
+    environment.
   """
   @spec get_backend_environment(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_backend_environment_result(), any()}
@@ -2284,7 +2268,6 @@ defmodule AWS.Amplify do
   ## Parameters:
   * `:app_id` (`t:string` required) The unique ID for an Amplify app.
   * `:branch_name` (`t:string` required) The name of the branch.
-  ## Keyword parameters:
   """
   @spec get_branch(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_branch_result(), any()}
@@ -2326,7 +2309,6 @@ defmodule AWS.Amplify do
   ## Parameters:
   * `:app_id` (`t:string` required) The unique id for an Amplify app.
   * `:domain_name` (`t:string` required) The name of the domain.
-  ## Keyword parameters:
   """
   @spec get_domain_association(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_domain_association_result(), any()}
@@ -2368,9 +2350,8 @@ defmodule AWS.Amplify do
   ## Parameters:
   * `:app_id` (`t:string` required) The unique ID for an Amplify app.
   * `:branch_name` (`t:string` required) The name of the branch to use for the
-  job.
+    job.
   * `:job_id` (`t:string` required) The unique ID for the job.
-  ## Keyword parameters:
   """
   @spec get_job(AWS.Client.t(), String.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_job_result(), any()}
@@ -2412,7 +2393,6 @@ defmodule AWS.Amplify do
 
   ## Parameters:
   * `:webhook_id` (`t:string` required) The unique ID for a webhook.
-  ## Keyword parameters:
   """
   @spec get_webhook(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_webhook_result(), any()}
@@ -2452,12 +2432,13 @@ defmodule AWS.Amplify do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=amplify%20ListApps&this_doc_guide=API%2520Reference)
 
   ## Parameters:
+
   ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of records to list in a single
-  response.
+    response.
   * `:next_token` (`t:string`) A pagination token. If non-null, the pagination
-  token is returned in a result. Pass its value in another request to retrieve
-  more entries.
+    token is returned in a result. Pass its value in another request to retrieve
+    more entries.
   """
   @spec list_apps(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_apps_result(), any()}
@@ -2517,14 +2498,15 @@ defmodule AWS.Amplify do
   ## Parameters:
   * `:app_id` (`t:string` required) The unique ID for an Amplify app.
   * `:branch_name` (`t:string` required) The name of a branch that is part of an
-  Amplify app.
+    Amplify app.
   * `:job_id` (`t:string` required) The unique ID for a job.
+
   ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of records to list in a single
-  response.
+    response.
   * `:next_token` (`t:string`) A pagination token. Set to null to start listing
-  artifacts from start. If a non-null pagination token is returned in a
-  result, pass its value in here to list more artifacts.
+    artifacts from start. If a non-null pagination token is returned in a
+    result, pass its value in here to list more artifacts.
   """
   @spec list_artifacts(AWS.Client.t(), String.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, list_artifacts_result(), any()}
@@ -2584,14 +2566,15 @@ defmodule AWS.Amplify do
 
   ## Parameters:
   * `:app_id` (`t:string` required) The unique ID for an Amplify app.
+
   ## Keyword parameters:
   * `:environment_name` (`t:string`) The name of the backend environment
   * `:max_results` (`t:integer`) The maximum number of records to list in a single
-  response.
+    response.
   * `:next_token` (`t:string`) A pagination token. Set to null to start listing
-  backend environments from the start. If a non-null pagination token is
-  returned in a result, pass its value in here to list more backend
-  environments.
+    backend environments from the start. If a non-null pagination token is
+    returned in a result, pass its value in here to list more backend
+    environments.
   """
   @spec list_backend_environments(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_backend_environments_result(), any()}
@@ -2657,12 +2640,13 @@ defmodule AWS.Amplify do
 
   ## Parameters:
   * `:app_id` (`t:string` required) The unique ID for an Amplify app.
+
   ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of records to list in a single
-  response.
+    response.
   * `:next_token` (`t:string`) A pagination token. Set to null to start listing
-  branches from the start. If a non-null pagination token is returned in a
-  result, pass its value in here to list more branches.
+    branches from the start. If a non-null pagination token is returned in a
+    result, pass its value in here to list more branches.
   """
   @spec list_branches(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_branches_result(), any()}
@@ -2721,12 +2705,13 @@ defmodule AWS.Amplify do
 
   ## Parameters:
   * `:app_id` (`t:string` required) The unique ID for an Amplify app.
+
   ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of records to list in a single
-  response.
+    response.
   * `:next_token` (`t:string`) A pagination token. Set to null to start listing
-  apps from the start. If non-null, a pagination token is returned in a
-  result. Pass its value in here to list more projects.
+    apps from the start. If non-null, a pagination token is returned in a
+    result. Pass its value in here to list more projects.
   """
   @spec list_domain_associations(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_domain_associations_result(), any()}
@@ -2786,13 +2771,14 @@ defmodule AWS.Amplify do
   ## Parameters:
   * `:app_id` (`t:string` required) The unique ID for an Amplify app.
   * `:branch_name` (`t:string` required) The name of the branch to use for the
-  request.
+    request.
+
   ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of records to list in a single
-  response.
+    response.
   * `:next_token` (`t:string`) A pagination token. Set to null to start listing
-  steps from the start. If a non-null pagination token is returned in a
-  result, pass its value in here to list more steps.
+    steps from the start. If a non-null pagination token is returned in a
+    result, pass its value in here to list more steps.
   """
   @spec list_jobs(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, list_jobs_result(), any()}
@@ -2852,8 +2838,7 @@ defmodule AWS.Amplify do
 
   ## Parameters:
   * `:resource_arn` (`t:string` required) The Amazon Resource Name (ARN) to use to
-  list tags.
-  ## Keyword parameters:
+    list tags.
   """
   @spec list_tags_for_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_tags_for_resource_response(), any()}
@@ -2894,12 +2879,13 @@ defmodule AWS.Amplify do
 
   ## Parameters:
   * `:app_id` (`t:string` required) The unique ID for an Amplify app.
+
   ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of records to list in a single
-  response.
+    response.
   * `:next_token` (`t:string`) A pagination token. Set to null to start listing
-  webhooks from the start. If non-null,the pagination token is returned in a
-  result. Pass its value in here to list more webhooks.
+    webhooks from the start. If non-null,the pagination token is returned in a
+    result. Pass its value in here to list more webhooks.
   """
   @spec list_webhooks(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_webhooks_result(), any()}
@@ -2960,8 +2946,7 @@ defmodule AWS.Amplify do
   ## Parameters:
   * `:app_id` (`t:string` required) The unique ID for an Amplify app.
   * `:branch_name` (`t:string` required) The name of the branch to use for the
-  job.
-  ## Keyword parameters:
+    job.
   """
   @spec start_deployment(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, start_deployment_result(), any()}
@@ -3006,8 +2991,7 @@ defmodule AWS.Amplify do
   ## Parameters:
   * `:app_id` (`t:string` required) The unique ID for an Amplify app.
   * `:branch_name` (`t:string` required) The name of the branch to use for the
-  job.
-  ## Keyword parameters:
+    job.
   """
   @spec start_job(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, start_job_result(), any()}
@@ -3052,9 +3036,8 @@ defmodule AWS.Amplify do
   ## Parameters:
   * `:app_id` (`t:string` required) The unique ID for an Amplify app.
   * `:branch_name` (`t:string` required) The name of the branch to use for the
-  stop job request.
+    stop job request.
   * `:job_id` (`t:string` required) The unique id for the job.
-  ## Keyword parameters:
   """
   @spec stop_job(AWS.Client.t(), String.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, stop_job_result(), any()}
@@ -3108,8 +3091,7 @@ defmodule AWS.Amplify do
 
   ## Parameters:
   * `:resource_arn` (`t:string` required) The Amazon Resource Name (ARN) to use to
-  tag a resource.
-  ## Keyword parameters:
+    tag a resource.
   """
   @spec tag_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, tag_resource_response(), any()}
@@ -3152,10 +3134,9 @@ defmodule AWS.Amplify do
 
   ## Parameters:
   * `:resource_arn` (`t:string` required) The Amazon Resource Name (ARN) to use to
-  untag a resource.
+    untag a resource.
   * `:tag_keys` (`t:list[com.amazonaws.amplify#TagKey]` required) The tag keys to
-  use to untag a resource.
-  ## Keyword parameters:
+    use to untag a resource.
   """
   @spec untag_resource(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, untag_resource_response(), any()}
@@ -3209,7 +3190,6 @@ defmodule AWS.Amplify do
 
   ## Parameters:
   * `:app_id` (`t:string` required) The unique ID for an Amplify app.
-  ## Keyword parameters:
   """
   @spec update_app(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, update_app_result(), any()}
@@ -3253,7 +3233,6 @@ defmodule AWS.Amplify do
   ## Parameters:
   * `:app_id` (`t:string` required) The unique ID for an Amplify app.
   * `:branch_name` (`t:string` required) The name of the branch.
-  ## Keyword parameters:
   """
   @spec update_branch(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, update_branch_result(), any()}
@@ -3297,7 +3276,6 @@ defmodule AWS.Amplify do
   ## Parameters:
   * `:app_id` (`t:string` required) The unique ID for an Amplify app.
   * `:domain_name` (`t:string` required) The name of the domain.
-  ## Keyword parameters:
   """
   @spec update_domain_association(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, update_domain_association_result(), any()}
@@ -3340,7 +3318,6 @@ defmodule AWS.Amplify do
 
   ## Parameters:
   * `:webhook_id` (`t:string` required) The unique ID for a webhook.
-  ## Keyword parameters:
   """
   @spec update_webhook(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, update_webhook_result(), any()}

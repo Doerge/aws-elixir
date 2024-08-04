@@ -7112,7 +7112,6 @@ defmodule AWS.Chime do
   ## Parameters:
   * `:account_id` (`t:string` required) The Amazon Chime account ID.
   * `:user_id` (`t:string` required) The user ID.
-  ## Keyword parameters:
   """
   @spec associate_phone_number_with_user(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, associate_phone_number_with_user_response(), any()}
@@ -7156,8 +7155,7 @@ defmodule AWS.Chime do
 
   ## Parameters:
   * `:voice_connector_id` (`t:string` required) The Amazon Chime Voice Connector
-  ID.
-  ## Keyword parameters:
+    ID.
   """
   @spec associate_phone_numbers_with_voice_connector(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, associate_phone_numbers_with_voice_connector_response(), any()}
@@ -7205,8 +7203,7 @@ defmodule AWS.Chime do
 
   ## Parameters:
   * `:voice_connector_group_id` (`t:string` required) The Amazon Chime Voice
-  Connector group ID.
-  ## Keyword parameters:
+    Connector group ID.
   """
   @spec associate_phone_numbers_with_voice_connector_group(
           AWS.Client.t(),
@@ -7259,7 +7256,6 @@ defmodule AWS.Chime do
 
   ## Parameters:
   * `:account_id` (`t:string` required) The Amazon Chime account ID.
-  ## Keyword parameters:
   """
   @spec associate_signin_delegate_groups_with_account(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, associate_signin_delegate_groups_with_account_response(), any()}
@@ -7303,7 +7299,6 @@ defmodule AWS.Chime do
 
   ## Parameters:
   * `:meeting_id` (`t:string` required) The Amazon Chime SDK meeting ID.
-  ## Keyword parameters:
   """
   @spec batch_create_attendee(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, batch_create_attendee_response(), any()}
@@ -7346,10 +7341,11 @@ defmodule AWS.Chime do
 
   ## Parameters:
   * `:channel_arn` (`t:string` required) The ARN of the channel to which you're
-  adding users.
+    adding users.
+
   ## Keyword parameters:
   * `:chime_bearer` (`t:string`) The AppInstanceUserArn of the user that makes the
-  API call.
+    API call.
   """
   @spec batch_create_channel_membership(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, batch_create_channel_membership_response(), any()}
@@ -7406,7 +7402,6 @@ defmodule AWS.Chime do
   ## Parameters:
   * `:account_id` (`t:string` required) The Amazon Chime account ID.
   * `:room_id` (`t:string` required) The room ID.
-  ## Keyword parameters:
   """
   @spec batch_create_room_membership(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, batch_create_room_membership_response(), any()}
@@ -7451,7 +7446,6 @@ defmodule AWS.Chime do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chime%20BatchDeletePhoneNumber&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec batch_delete_phone_number(AWS.Client.t(), Keyword.t()) ::
           {:ok, batch_delete_phone_number_response(), any()}
@@ -7502,7 +7496,6 @@ defmodule AWS.Chime do
 
   ## Parameters:
   * `:account_id` (`t:string` required) The Amazon Chime account ID.
-  ## Keyword parameters:
   """
   @spec batch_suspend_user(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, batch_suspend_user_response(), any()}
@@ -7550,7 +7543,6 @@ defmodule AWS.Chime do
 
   ## Parameters:
   * `:account_id` (`t:string` required) The Amazon Chime account ID.
-  ## Keyword parameters:
   """
   @spec batch_unsuspend_user(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, batch_unsuspend_user_response(), any()}
@@ -7597,7 +7589,6 @@ defmodule AWS.Chime do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chime%20BatchUpdatePhoneNumber&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec batch_update_phone_number(AWS.Client.t(), Keyword.t()) ::
           {:ok, batch_update_phone_number_response(), any()}
@@ -7642,7 +7633,6 @@ defmodule AWS.Chime do
 
   ## Parameters:
   * `:account_id` (`t:string` required) The Amazon Chime account ID.
-  ## Keyword parameters:
   """
   @spec batch_update_user(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, batch_update_user_response(), any()}
@@ -7688,7 +7678,6 @@ defmodule AWS.Chime do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chime%20CreateAccount&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec create_account(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_account_response(), any()}
@@ -7732,7 +7721,6 @@ defmodule AWS.Chime do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chime%20CreateAppInstance&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec create_app_instance(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_app_instance_response(), any()}
@@ -7783,7 +7771,6 @@ defmodule AWS.Chime do
 
   ## Parameters:
   * `:app_instance_arn` (`t:string` required) The ARN of the AppInstance.
-  ## Keyword parameters:
   """
   @spec create_app_instance_admin(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, create_app_instance_admin_response(), any()}
@@ -7826,7 +7813,6 @@ defmodule AWS.Chime do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chime%20CreateAppInstanceUser&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec create_app_instance_user(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_app_instance_user_response(), any()}
@@ -7879,7 +7865,6 @@ defmodule AWS.Chime do
 
   ## Parameters:
   * `:meeting_id` (`t:string` required) The Amazon Chime SDK meeting ID.
-  ## Keyword parameters:
   """
   @spec create_attendee(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, create_attendee_response(), any()}
@@ -7922,7 +7907,6 @@ defmodule AWS.Chime do
 
   ## Parameters:
   * `:account_id` (`t:string` required) The Amazon Chime account ID.
-  ## Keyword parameters:
   """
   @spec create_bot(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, create_bot_response(), any()}
@@ -7965,9 +7949,10 @@ defmodule AWS.Chime do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chime%20CreateChannel&this_doc_guide=API%2520Reference)
 
   ## Parameters:
+
   ## Keyword parameters:
   * `:chime_bearer` (`t:string`) The AppInstanceUserArn of the user that makes the
-  API call.
+    API call.
   """
   @spec create_channel(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_channel_response(), any()}
@@ -8025,9 +8010,10 @@ defmodule AWS.Chime do
 
   ## Parameters:
   * `:channel_arn` (`t:string` required) The ARN of the ban request.
+
   ## Keyword parameters:
   * `:chime_bearer` (`t:string`) The AppInstanceUserArn of the user that makes the
-  API call.
+    API call.
   """
   @spec create_channel_ban(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, create_channel_ban_response(), any()}
@@ -8082,10 +8068,11 @@ defmodule AWS.Chime do
 
   ## Parameters:
   * `:channel_arn` (`t:string` required) The ARN of the channel to which you're
-  adding users.
+    adding users.
+
   ## Keyword parameters:
   * `:chime_bearer` (`t:string`) The AppInstanceUserArn of the user that makes the
-  API call.
+    API call.
   """
   @spec create_channel_membership(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, create_channel_membership_response(), any()}
@@ -8139,9 +8126,10 @@ defmodule AWS.Chime do
 
   ## Parameters:
   * `:channel_arn` (`t:string` required) The ARN of the channel.
+
   ## Keyword parameters:
   * `:chime_bearer` (`t:string`) The AppInstanceUserArn of the user that makes the
-  API call.
+    API call.
   """
   @spec create_channel_moderator(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, create_channel_moderator_response(), any()}
@@ -8194,7 +8182,6 @@ defmodule AWS.Chime do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chime%20CreateMediaCapturePipeline&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec create_media_capture_pipeline(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_media_capture_pipeline_response(), any()}
@@ -8250,7 +8237,6 @@ defmodule AWS.Chime do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chime%20CreateMeeting&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec create_meeting(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_meeting_response(), any()}
@@ -8298,7 +8284,6 @@ defmodule AWS.Chime do
 
   ## Parameters:
   * `:meeting_id` (`t:string` required) The Amazon Chime SDK meeting ID.
-  ## Keyword parameters:
   """
   @spec create_meeting_dial_out(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, create_meeting_dial_out_response(), any()}
@@ -8354,7 +8339,6 @@ defmodule AWS.Chime do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chime%20CreateMeetingWithAttendees&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec create_meeting_with_attendees(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_meeting_with_attendees_response(), any()}
@@ -8399,7 +8383,6 @@ defmodule AWS.Chime do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chime%20CreatePhoneNumberOrder&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec create_phone_number_order(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_phone_number_order_response(), any()}
@@ -8443,8 +8426,7 @@ defmodule AWS.Chime do
 
   ## Parameters:
   * `:voice_connector_id` (`t:string` required) The Amazon Chime voice connector
-  ID.
-  ## Keyword parameters:
+    ID.
   """
   @spec create_proxy_session(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, create_proxy_session_response(), any()}
@@ -8487,7 +8469,6 @@ defmodule AWS.Chime do
 
   ## Parameters:
   * `:account_id` (`t:string` required) The Amazon Chime account ID.
-  ## Keyword parameters:
   """
   @spec create_room(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, create_room_response(), any()}
@@ -8533,7 +8514,6 @@ defmodule AWS.Chime do
   ## Parameters:
   * `:account_id` (`t:string` required) The Amazon Chime account ID.
   * `:room_id` (`t:string` required) The room ID.
-  ## Keyword parameters:
   """
   @spec create_room_membership(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, create_room_membership_response(), any()}
@@ -8576,7 +8556,6 @@ defmodule AWS.Chime do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chime%20CreateSipMediaApplication&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec create_sip_media_application(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_sip_media_application_response(), any()}
@@ -8621,8 +8600,7 @@ defmodule AWS.Chime do
 
   ## Parameters:
   * `:sip_media_application_id` (`t:string` required) The ID of the SIP media
-  application.
-  ## Keyword parameters:
+    application.
   """
   @spec create_sip_media_application_call(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, create_sip_media_application_call_response(), any()}
@@ -8669,7 +8647,6 @@ defmodule AWS.Chime do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chime%20CreateSipRule&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec create_sip_rule(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_sip_rule_response(), any()}
@@ -8712,7 +8689,6 @@ defmodule AWS.Chime do
 
   ## Parameters:
   * `:account_id` (`t:string` required) The Amazon Chime account ID.
-  ## Keyword parameters:
   """
   @spec create_user(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, create_user_response(), any()}
@@ -8759,7 +8735,6 @@ defmodule AWS.Chime do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chime%20CreateVoiceConnector&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec create_voice_connector(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_voice_connector_response(), any()}
@@ -8806,7 +8781,6 @@ defmodule AWS.Chime do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chime%20CreateVoiceConnectorGroup&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec create_voice_connector_group(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_voice_connector_group_response(), any()}
@@ -8853,7 +8827,6 @@ defmodule AWS.Chime do
 
   ## Parameters:
   * `:account_id` (`t:string` required) The Amazon Chime account ID.
-  ## Keyword parameters:
   """
   @spec delete_account(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, delete_account_response(), any()}
@@ -8906,7 +8879,6 @@ defmodule AWS.Chime do
 
   ## Parameters:
   * `:app_instance_arn` (`t:string` required) The ARN of the AppInstance.
-  ## Keyword parameters:
   """
   @spec delete_app_instance(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
@@ -8960,9 +8932,8 @@ defmodule AWS.Chime do
 
   ## Parameters:
   * `:app_instance_admin_arn` (`t:string` required) The ARN of the AppInstance's
-  administrator.
+    administrator.
   * `:app_instance_arn` (`t:string` required) The ARN of the AppInstance.
-  ## Keyword parameters:
   """
   @spec delete_app_instance_admin(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
@@ -9021,8 +8992,7 @@ defmodule AWS.Chime do
 
   ## Parameters:
   * `:app_instance_arn` (`t:string` required) The ARN of the streaming
-  configurations being deleted.
-  ## Keyword parameters:
+    configurations being deleted.
   """
   @spec delete_app_instance_streaming_configurations(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
@@ -9079,8 +9049,7 @@ defmodule AWS.Chime do
 
   ## Parameters:
   * `:app_instance_user_arn` (`t:string` required) The ARN of the user request
-  being deleted.
-  ## Keyword parameters:
+    being deleted.
   """
   @spec delete_app_instance_user(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
@@ -9146,7 +9115,6 @@ defmodule AWS.Chime do
   ## Parameters:
   * `:attendee_id` (`t:string` required) The Amazon Chime SDK attendee ID.
   * `:meeting_id` (`t:string` required) The Amazon Chime SDK meeting ID.
-  ## Keyword parameters:
   """
   @spec delete_attendee(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
@@ -9203,9 +9171,10 @@ defmodule AWS.Chime do
 
   ## Parameters:
   * `:channel_arn` (`t:string` required) The ARN of the channel being deleted.
+
   ## Keyword parameters:
   * `:chime_bearer` (`t:string`) The AppInstanceUserArn of the user that makes the
-  API call.
+    API call.
   """
   @spec delete_channel(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
@@ -9271,12 +9240,13 @@ defmodule AWS.Chime do
 
   ## Parameters:
   * `:channel_arn` (`t:string` required) The ARN of the channel from which the
-  AppInstanceUser was banned.
+    AppInstanceUser was banned.
   * `:member_arn` (`t:string` required) The ARN of the AppInstanceUser that you
-  want to reinstate.
+    want to reinstate.
+
   ## Keyword parameters:
   * `:chime_bearer` (`t:string`) The AppInstanceUserArn of the user that makes the
-  API call.
+    API call.
   """
   @spec delete_channel_ban(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
@@ -9343,12 +9313,13 @@ defmodule AWS.Chime do
 
   ## Parameters:
   * `:channel_arn` (`t:string` required) The ARN of the channel from which you
-  want to remove the user.
+    want to remove the user.
   * `:member_arn` (`t:string` required) The ARN of the member that you're removing
-  from the channel.
+    from the channel.
+
   ## Keyword parameters:
   * `:chime_bearer` (`t:string`) The AppInstanceUserArn of the user that makes the
-  API call.
+    API call.
   """
   @spec delete_channel_membership(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
@@ -9418,9 +9389,10 @@ defmodule AWS.Chime do
   ## Parameters:
   * `:channel_arn` (`t:string` required) The ARN of the channel.
   * `:message_id` (`t:string` required) The ID of the message being deleted.
+
   ## Keyword parameters:
   * `:chime_bearer` (`t:string`) The AppInstanceUserArn of the user that makes the
-  API call.
+    API call.
   """
   @spec delete_channel_message(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
@@ -9488,10 +9460,11 @@ defmodule AWS.Chime do
   ## Parameters:
   * `:channel_arn` (`t:string` required) The ARN of the channel.
   * `:channel_moderator_arn` (`t:string` required) The ARN of the moderator being
-  deleted.
+    deleted.
+
   ## Keyword parameters:
   * `:chime_bearer` (`t:string`) The AppInstanceUserArn of the user that makes the
-  API call.
+    API call.
   """
   @spec delete_channel_moderator(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
@@ -9562,7 +9535,6 @@ defmodule AWS.Chime do
   ## Parameters:
   * `:account_id` (`t:string` required) The Amazon Chime account ID.
   * `:bot_id` (`t:string` required) The bot ID.
-  ## Keyword parameters:
   """
   @spec delete_events_configuration(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
@@ -9616,8 +9588,7 @@ defmodule AWS.Chime do
 
   ## Parameters:
   * `:media_pipeline_id` (`t:string` required) The ID of the media capture
-  pipeline being deleted.
-  ## Keyword parameters:
+    pipeline being deleted.
   """
   @spec delete_media_capture_pipeline(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
@@ -9682,7 +9653,6 @@ defmodule AWS.Chime do
 
   ## Parameters:
   * `:meeting_id` (`t:string` required) The Amazon Chime SDK meeting ID.
-  ## Keyword parameters:
   """
   @spec delete_meeting(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
@@ -9737,7 +9707,6 @@ defmodule AWS.Chime do
 
   ## Parameters:
   * `:phone_number_id` (`t:string` required) The phone number ID.
-  ## Keyword parameters:
   """
   @spec delete_phone_number(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
@@ -9792,8 +9761,7 @@ defmodule AWS.Chime do
   ## Parameters:
   * `:proxy_session_id` (`t:string` required) The proxy session ID.
   * `:voice_connector_id` (`t:string` required) The Amazon Chime voice connector
-  ID.
-  ## Keyword parameters:
+    ID.
   """
   @spec delete_proxy_session(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
@@ -9853,7 +9821,6 @@ defmodule AWS.Chime do
   ## Parameters:
   * `:account_id` (`t:string` required) The Amazon Chime account ID.
   * `:room_id` (`t:string` required) The chat room ID.
-  ## Keyword parameters:
   """
   @spec delete_room(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
@@ -9909,7 +9876,6 @@ defmodule AWS.Chime do
   * `:account_id` (`t:string` required) The Amazon Chime account ID.
   * `:member_id` (`t:string` required) The member ID (user ID or bot ID).
   * `:room_id` (`t:string` required) The room ID.
-  ## Keyword parameters:
   """
   @spec delete_room_membership(AWS.Client.t(), String.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
@@ -9963,8 +9929,7 @@ defmodule AWS.Chime do
 
   ## Parameters:
   * `:sip_media_application_id` (`t:string` required) The SIP media application
-  ID.
-  ## Keyword parameters:
+    ID.
   """
   @spec delete_sip_media_application(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
@@ -10017,7 +9982,6 @@ defmodule AWS.Chime do
 
   ## Parameters:
   * `:sip_rule_id` (`t:string` required) The SIP rule ID.
-  ## Keyword parameters:
   """
   @spec delete_sip_rule(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
@@ -10072,8 +10036,7 @@ defmodule AWS.Chime do
 
   ## Parameters:
   * `:voice_connector_id` (`t:string` required) The Amazon Chime Voice Connector
-  ID.
-  ## Keyword parameters:
+    ID.
   """
   @spec delete_voice_connector(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
@@ -10127,8 +10090,7 @@ defmodule AWS.Chime do
 
   ## Parameters:
   * `:voice_connector_id` (`t:string` required) The Amazon Chime Voice Connector
-  ID.
-  ## Keyword parameters:
+    ID.
   """
   @spec delete_voice_connector_emergency_calling_configuration(
           AWS.Client.t(),
@@ -10192,8 +10154,7 @@ defmodule AWS.Chime do
 
   ## Parameters:
   * `:voice_connector_group_id` (`t:string` required) The Amazon Chime Voice
-  Connector group ID.
-  ## Keyword parameters:
+    Connector group ID.
   """
   @spec delete_voice_connector_group(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
@@ -10248,8 +10209,7 @@ defmodule AWS.Chime do
 
   ## Parameters:
   * `:voice_connector_id` (`t:string` required) The Amazon Chime Voice Connector
-  ID.
-  ## Keyword parameters:
+    ID.
   """
   @spec delete_voice_connector_origination(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
@@ -10302,8 +10262,7 @@ defmodule AWS.Chime do
 
   ## Parameters:
   * `:voice_connector_id` (`t:string` required) The Amazon Chime Voice Connector
-  ID.
-  ## Keyword parameters:
+    ID.
   """
   @spec delete_voice_connector_proxy(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
@@ -10358,8 +10317,7 @@ defmodule AWS.Chime do
 
   ## Parameters:
   * `:voice_connector_id` (`t:string` required) The Amazon Chime Voice Connector
-  ID.
-  ## Keyword parameters:
+    ID.
   """
   @spec delete_voice_connector_streaming_configuration(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
@@ -10419,8 +10377,7 @@ defmodule AWS.Chime do
 
   ## Parameters:
   * `:voice_connector_id` (`t:string` required) The Amazon Chime Voice Connector
-  ID.
-  ## Keyword parameters:
+    ID.
   """
   @spec delete_voice_connector_termination(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
@@ -10474,8 +10431,7 @@ defmodule AWS.Chime do
 
   ## Parameters:
   * `:voice_connector_id` (`t:string` required) The Amazon Chime Voice Connector
-  ID.
-  ## Keyword parameters:
+    ID.
   """
   @spec delete_voice_connector_termination_credentials(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
@@ -10523,7 +10479,6 @@ defmodule AWS.Chime do
 
   ## Parameters:
   * `:app_instance_arn` (`t:string` required) The ARN of the AppInstance.
-  ## Keyword parameters:
   """
   @spec describe_app_instance(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, describe_app_instance_response(), any()}
@@ -10564,9 +10519,8 @@ defmodule AWS.Chime do
 
   ## Parameters:
   * `:app_instance_admin_arn` (`t:string` required) The ARN of the
-  AppInstanceAdmin.
+    AppInstanceAdmin.
   * `:app_instance_arn` (`t:string` required) The ARN of the AppInstance.
-  ## Keyword parameters:
   """
   @spec describe_app_instance_admin(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, describe_app_instance_admin_response(), any()}
@@ -10613,7 +10567,6 @@ defmodule AWS.Chime do
 
   ## Parameters:
   * `:app_instance_user_arn` (`t:string` required) The ARN of the AppInstanceUser.
-  ## Keyword parameters:
   """
   @spec describe_app_instance_user(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, describe_app_instance_user_response(), any()}
@@ -10656,9 +10609,10 @@ defmodule AWS.Chime do
 
   ## Parameters:
   * `:channel_arn` (`t:string` required) The ARN of the channel.
+
   ## Keyword parameters:
   * `:chime_bearer` (`t:string`) The AppInstanceUserArn of the user that makes the
-  API call.
+    API call.
   """
   @spec describe_channel(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, describe_channel_response(), any()}
@@ -10712,11 +10666,12 @@ defmodule AWS.Chime do
 
   ## Parameters:
   * `:channel_arn` (`t:string` required) The ARN of the channel from which the
-  user is banned.
+    user is banned.
   * `:member_arn` (`t:string` required) The ARN of the member being banned.
+
   ## Keyword parameters:
   * `:chime_bearer` (`t:string`) The AppInstanceUserArn of the user that makes the
-  API call.
+    API call.
   """
   @spec describe_channel_ban(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, describe_channel_ban_response(), any()}
@@ -10772,9 +10727,10 @@ defmodule AWS.Chime do
   ## Parameters:
   * `:channel_arn` (`t:string` required) The ARN of the channel.
   * `:member_arn` (`t:string` required) The ARN of the member.
+
   ## Keyword parameters:
   * `:chime_bearer` (`t:string`) The AppInstanceUserArn of the user that makes the
-  API call.
+    API call.
   """
   @spec describe_channel_membership(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, describe_channel_membership_response(), any()}
@@ -10830,12 +10786,13 @@ defmodule AWS.Chime do
 
   ## Parameters:
   * `:channel_arn` (`t:string` required) The ARN of the channel to which the user
-  belongs.
+    belongs.
   * `:app_instance_user_arn` (`t:string` required) The ARN of the user in a
-  channel.
+    channel.
+
   ## Keyword parameters:
   * `:chime_bearer` (`t:string`) The AppInstanceUserArn of the user that makes the
-  API call.
+    API call.
   """
   @spec describe_channel_membership_for_app_instance_user(
           AWS.Client.t(),
@@ -10902,10 +10859,11 @@ defmodule AWS.Chime do
   ## Parameters:
   * `:channel_arn` (`t:string` required) The ARN of the moderated channel.
   * `:app_instance_user_arn` (`t:string` required) The ARN of the AppInstanceUser
-  in the moderated channel.
+    in the moderated channel.
+
   ## Keyword parameters:
   * `:chime_bearer` (`t:string`) The AppInstanceUserArn of the user that makes the
-  API call.
+    API call.
   """
   @spec describe_channel_moderated_by_app_instance_user(
           AWS.Client.t(),
@@ -10972,10 +10930,11 @@ defmodule AWS.Chime do
   ## Parameters:
   * `:channel_arn` (`t:string` required) The ARN of the channel.
   * `:channel_moderator_arn` (`t:string` required) The ARN of the channel
-  moderator.
+    moderator.
+
   ## Keyword parameters:
   * `:chime_bearer` (`t:string`) The AppInstanceUserArn of the user that makes the
-  API call.
+    API call.
   """
   @spec describe_channel_moderator(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, describe_channel_moderator_response(), any()}
@@ -11035,7 +10994,6 @@ defmodule AWS.Chime do
   ## Parameters:
   * `:account_id` (`t:string` required) The Amazon Chime account ID.
   * `:user_id` (`t:string` required) The user ID.
-  ## Keyword parameters:
   """
   @spec disassociate_phone_number_from_user(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, disassociate_phone_number_from_user_response(), any()}
@@ -11080,8 +11038,7 @@ defmodule AWS.Chime do
 
   ## Parameters:
   * `:voice_connector_id` (`t:string` required) The Amazon Chime Voice Connector
-  ID.
-  ## Keyword parameters:
+    ID.
   """
   @spec disassociate_phone_numbers_from_voice_connector(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, disassociate_phone_numbers_from_voice_connector_response(), any()}
@@ -11130,8 +11087,7 @@ defmodule AWS.Chime do
 
   ## Parameters:
   * `:voice_connector_group_id` (`t:string` required) The Amazon Chime Voice
-  Connector group ID.
-  ## Keyword parameters:
+    Connector group ID.
   """
   @spec disassociate_phone_numbers_from_voice_connector_group(
           AWS.Client.t(),
@@ -11184,7 +11140,6 @@ defmodule AWS.Chime do
 
   ## Parameters:
   * `:account_id` (`t:string` required) The Amazon Chime account ID.
-  ## Keyword parameters:
   """
   @spec disassociate_signin_delegate_groups_from_account(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, disassociate_signin_delegate_groups_from_account_response(), any()}
@@ -11233,7 +11188,6 @@ defmodule AWS.Chime do
 
   ## Parameters:
   * `:account_id` (`t:string` required) The Amazon Chime account ID.
-  ## Keyword parameters:
   """
   @spec get_account(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_account_response(), any()}
@@ -11278,7 +11232,6 @@ defmodule AWS.Chime do
 
   ## Parameters:
   * `:account_id` (`t:string` required) The Amazon Chime account ID.
-  ## Keyword parameters:
   """
   @spec get_account_settings(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_account_settings_response(), any()}
@@ -11319,7 +11272,6 @@ defmodule AWS.Chime do
 
   ## Parameters:
   * `:app_instance_arn` (`t:string` required) The ARN of the AppInstance.
-  ## Keyword parameters:
   """
   @spec get_app_instance_retention_settings(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_app_instance_retention_settings_response(), any()}
@@ -11360,7 +11312,6 @@ defmodule AWS.Chime do
 
   ## Parameters:
   * `:app_instance_arn` (`t:string` required) The ARN of the AppInstance.
-  ## Keyword parameters:
   """
   @spec get_app_instance_streaming_configurations(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_app_instance_streaming_configurations_response(), any()}
@@ -11417,7 +11368,6 @@ defmodule AWS.Chime do
   ## Parameters:
   * `:attendee_id` (`t:string` required) The Amazon Chime SDK attendee ID.
   * `:meeting_id` (`t:string` required) The Amazon Chime SDK meeting ID.
-  ## Keyword parameters:
   """
   @spec get_attendee(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_attendee_response(), any()}
@@ -11461,7 +11411,6 @@ defmodule AWS.Chime do
   ## Parameters:
   * `:account_id` (`t:string` required) The Amazon Chime account ID.
   * `:bot_id` (`t:string` required) The bot ID.
-  ## Keyword parameters:
   """
   @spec get_bot(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_bot_response(), any()}
@@ -11505,9 +11454,10 @@ defmodule AWS.Chime do
   ## Parameters:
   * `:channel_arn` (`t:string` required) The ARN of the channel.
   * `:message_id` (`t:string` required) The ID of the message.
+
   ## Keyword parameters:
   * `:chime_bearer` (`t:string`) The AppInstanceUserArn of the user that makes the
-  API call.
+    API call.
   """
   @spec get_channel_message(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_channel_message_response(), any()}
@@ -11562,7 +11512,6 @@ defmodule AWS.Chime do
   ## Parameters:
   * `:account_id` (`t:string` required) The Amazon Chime account ID.
   * `:bot_id` (`t:string` required) The bot ID.
-  ## Keyword parameters:
   """
   @spec get_events_configuration(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_events_configuration_response(), any()}
@@ -11604,7 +11553,6 @@ defmodule AWS.Chime do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chime%20GetGlobalSettings&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec get_global_settings(AWS.Client.t(), Keyword.t()) ::
           {:ok, get_global_settings_response(), any()}
@@ -11645,8 +11593,7 @@ defmodule AWS.Chime do
 
   ## Parameters:
   * `:media_pipeline_id` (`t:string` required) The ID of the pipeline that you
-  want to get.
-  ## Keyword parameters:
+    want to get.
   """
   @spec get_media_capture_pipeline(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_media_capture_pipeline_response(), any()}
@@ -11698,7 +11645,6 @@ defmodule AWS.Chime do
 
   ## Parameters:
   * `:meeting_id` (`t:string` required) The Amazon Chime SDK meeting ID.
-  ## Keyword parameters:
   """
   @spec get_meeting(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_meeting_response(), any()}
@@ -11738,7 +11684,6 @@ defmodule AWS.Chime do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chime%20GetMessagingSessionEndpoint&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec get_messaging_session_endpoint(AWS.Client.t(), Keyword.t()) ::
           {:ok, get_messaging_session_endpoint_response(), any()}
@@ -11780,7 +11725,6 @@ defmodule AWS.Chime do
 
   ## Parameters:
   * `:phone_number_id` (`t:string` required) The phone number ID.
-  ## Keyword parameters:
   """
   @spec get_phone_number(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_phone_number_response(), any()}
@@ -11823,8 +11767,7 @@ defmodule AWS.Chime do
 
   ## Parameters:
   * `:phone_number_order_id` (`t:string` required) The ID for the phone number
-  order.
-  ## Keyword parameters:
+    order.
   """
   @spec get_phone_number_order(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_phone_number_order_response(), any()}
@@ -11865,7 +11808,6 @@ defmodule AWS.Chime do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chime%20GetPhoneNumberSettings&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec get_phone_number_settings(AWS.Client.t(), Keyword.t()) ::
           {:ok, get_phone_number_settings_response(), any()}
@@ -11908,8 +11850,7 @@ defmodule AWS.Chime do
   ## Parameters:
   * `:proxy_session_id` (`t:string` required) The proxy session ID.
   * `:voice_connector_id` (`t:string` required) The Amazon Chime voice connector
-  ID.
-  ## Keyword parameters:
+    ID.
   """
   @spec get_proxy_session(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_proxy_session_response(), any()}
@@ -11954,7 +11895,6 @@ defmodule AWS.Chime do
 
   ## Parameters:
   * `:account_id` (`t:string` required) The Amazon Chime account ID.
-  ## Keyword parameters:
   """
   @spec get_retention_settings(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_retention_settings_response(), any()}
@@ -11997,7 +11937,6 @@ defmodule AWS.Chime do
   ## Parameters:
   * `:account_id` (`t:string` required) The Amazon Chime account ID.
   * `:room_id` (`t:string` required) The room ID.
-  ## Keyword parameters:
   """
   @spec get_room(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_room_response(), any()}
@@ -12040,8 +11979,7 @@ defmodule AWS.Chime do
 
   ## Parameters:
   * `:sip_media_application_id` (`t:string` required) The SIP media application
-  ID.
-  ## Keyword parameters:
+    ID.
   """
   @spec get_sip_media_application(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_sip_media_application_response(), any()}
@@ -12082,8 +12020,7 @@ defmodule AWS.Chime do
 
   ## Parameters:
   * `:sip_media_application_id` (`t:string` required) The SIP media application
-  ID.
-  ## Keyword parameters:
+    ID.
   """
   @spec get_sip_media_application_logging_configuration(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_sip_media_application_logging_configuration_response(), any()}
@@ -12130,7 +12067,6 @@ defmodule AWS.Chime do
 
   ## Parameters:
   * `:sip_rule_id` (`t:string` required) The SIP rule ID.
-  ## Keyword parameters:
   """
   @spec get_sip_rule(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_sip_rule_response(), any()}
@@ -12173,7 +12109,6 @@ defmodule AWS.Chime do
   ## Parameters:
   * `:account_id` (`t:string` required) The Amazon Chime account ID.
   * `:user_id` (`t:string` required) The user ID.
-  ## Keyword parameters:
   """
   @spec get_user(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_user_response(), any()}
@@ -12217,7 +12152,6 @@ defmodule AWS.Chime do
   ## Parameters:
   * `:account_id` (`t:string` required) The Amazon Chime account ID.
   * `:user_id` (`t:string` required) The user ID.
-  ## Keyword parameters:
   """
   @spec get_user_settings(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_user_settings_response(), any()}
@@ -12260,8 +12194,7 @@ defmodule AWS.Chime do
 
   ## Parameters:
   * `:voice_connector_id` (`t:string` required) The Amazon Chime Voice Connector
-  ID.
-  ## Keyword parameters:
+    ID.
   """
   @spec get_voice_connector(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_voice_connector_response(), any()}
@@ -12303,8 +12236,7 @@ defmodule AWS.Chime do
 
   ## Parameters:
   * `:voice_connector_id` (`t:string` required) The Amazon Chime Voice Connector
-  ID.
-  ## Keyword parameters:
+    ID.
   """
   @spec get_voice_connector_emergency_calling_configuration(
           AWS.Client.t(),
@@ -12355,8 +12287,7 @@ defmodule AWS.Chime do
 
   ## Parameters:
   * `:voice_connector_group_id` (`t:string` required) The Amazon Chime Voice
-  Connector group ID.
-  ## Keyword parameters:
+    Connector group ID.
   """
   @spec get_voice_connector_group(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_voice_connector_group_response(), any()}
@@ -12399,8 +12330,7 @@ defmodule AWS.Chime do
 
   ## Parameters:
   * `:voice_connector_id` (`t:string` required) The Amazon Chime Voice Connector
-  ID.
-  ## Keyword parameters:
+    ID.
   """
   @spec get_voice_connector_logging_configuration(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_voice_connector_logging_configuration_response(), any()}
@@ -12447,8 +12377,7 @@ defmodule AWS.Chime do
 
   ## Parameters:
   * `:voice_connector_id` (`t:string` required) The Amazon Chime Voice Connector
-  ID.
-  ## Keyword parameters:
+    ID.
   """
   @spec get_voice_connector_origination(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_voice_connector_origination_response(), any()}
@@ -12490,8 +12419,7 @@ defmodule AWS.Chime do
 
   ## Parameters:
   * `:voice_connector_id` (`t:string` required) The Amazon Chime voice connector
-  ID.
-  ## Keyword parameters:
+    ID.
   """
   @spec get_voice_connector_proxy(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_voice_connector_proxy_response(), any()}
@@ -12536,8 +12464,7 @@ defmodule AWS.Chime do
 
   ## Parameters:
   * `:voice_connector_id` (`t:string` required) The Amazon Chime Voice Connector
-  ID.
-  ## Keyword parameters:
+    ID.
   """
   @spec get_voice_connector_streaming_configuration(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_voice_connector_streaming_configuration_response(), any()}
@@ -12584,8 +12511,7 @@ defmodule AWS.Chime do
 
   ## Parameters:
   * `:voice_connector_id` (`t:string` required) The Amazon Chime Voice Connector
-  ID.
-  ## Keyword parameters:
+    ID.
   """
   @spec get_voice_connector_termination(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_voice_connector_termination_response(), any()}
@@ -12633,8 +12559,7 @@ defmodule AWS.Chime do
 
   ## Parameters:
   * `:voice_connector_id` (`t:string` required) The Amazon Chime Voice Connector
-  ID.
-  ## Keyword parameters:
+    ID.
   """
   @spec get_voice_connector_termination_health(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_voice_connector_termination_health_response(), any()}
@@ -12681,7 +12606,6 @@ defmodule AWS.Chime do
 
   ## Parameters:
   * `:account_id` (`t:string` required) The Amazon Chime account ID.
-  ## Keyword parameters:
   """
   @spec invite_users(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, invite_users_response(), any()}
@@ -12726,13 +12650,14 @@ defmodule AWS.Chime do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chime%20ListAccounts&this_doc_guide=API%2520Reference)
 
   ## Parameters:
+
   ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of results to return in a
-  single call. Defaults to 100.
+    single call. Defaults to 100.
   * `:name` (`t:string`) Amazon Chime account name prefix with which to filter
-  results.
+    results.
   * `:next_token` (`t:string`) The token to use to retrieve the next page of
-  results.
+    results.
   * `:user_email` (`t:string`) User email address with which to filter results.
   """
   @spec list_accounts(AWS.Client.t(), Keyword.t()) ::
@@ -12806,11 +12731,12 @@ defmodule AWS.Chime do
 
   ## Parameters:
   * `:app_instance_arn` (`t:string` required) The ARN of the AppInstance.
+
   ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of administrators that you
-  want to return.
+    want to return.
   * `:next_token` (`t:string`) The token returned from previous API requests until
-  the number of administrators is reached.
+    the number of administrators is reached.
   """
   @spec list_app_instance_admins(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_app_instance_admins_response(), any()}
@@ -12869,11 +12795,12 @@ defmodule AWS.Chime do
 
   ## Parameters:
   * `:app_instance_arn` (`t:string` required) The ARN of the AppInstance.
+
   ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of requests that you want
-  returned.
+    returned.
   * `:next_token` (`t:string`) The token passed by previous API calls until all
-  requested users are returned.
+    requested users are returned.
   """
   @spec list_app_instance_users(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_app_instance_users_response(), any()}
@@ -12932,11 +12859,12 @@ defmodule AWS.Chime do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chime%20ListAppInstances&this_doc_guide=API%2520Reference)
 
   ## Parameters:
+
   ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of AppInstances that you want
-  to return.
+    to return.
   * `:next_token` (`t:string`) The token passed by previous API requests until you
-  reach the maximum number of AppInstances.
+    reach the maximum number of AppInstances.
   """
   @spec list_app_instances(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_app_instances_response(), any()}
@@ -12996,7 +12924,6 @@ defmodule AWS.Chime do
   ## Parameters:
   * `:attendee_id` (`t:string` required) The Amazon Chime SDK attendee ID.
   * `:meeting_id` (`t:string` required) The Amazon Chime SDK meeting ID.
-  ## Keyword parameters:
   """
   @spec list_attendee_tags(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, list_attendee_tags_response(), any()}
@@ -13048,11 +12975,12 @@ defmodule AWS.Chime do
 
   ## Parameters:
   * `:meeting_id` (`t:string` required) The Amazon Chime SDK meeting ID.
+
   ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of results to return in a
-  single call.
+    single call.
   * `:next_token` (`t:string`) The token to use to retrieve the next page of
-  results.
+    results.
   """
   @spec list_attendees(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_attendees_response(), any()}
@@ -13112,11 +13040,12 @@ defmodule AWS.Chime do
 
   ## Parameters:
   * `:account_id` (`t:string` required) The Amazon Chime account ID.
+
   ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of results to return in a
-  single call. The default is 10.
+    single call. The default is 10.
   * `:next_token` (`t:string`) The token to use to retrieve the next page of
-  results.
+    results.
   """
   @spec list_bots(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_bots_response(), any()}
@@ -13177,13 +13106,14 @@ defmodule AWS.Chime do
 
   ## Parameters:
   * `:channel_arn` (`t:string` required) The ARN of the channel.
+
   ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of bans that you want
-  returned.
+    returned.
   * `:next_token` (`t:string`) The token passed by previous API calls until all
-  requested bans are returned.
+    requested bans are returned.
   * `:chime_bearer` (`t:string`) The AppInstanceUserArn of the user that makes the
-  API call.
+    API call.
   """
   @spec list_channel_bans(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_channel_bans_response(), any()}
@@ -13250,19 +13180,20 @@ defmodule AWS.Chime do
 
   ## Parameters:
   * `:channel_arn` (`t:string` required) The maximum number of channel memberships
-  that you want returned.
+    that you want returned.
+
   ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of channel memberships that
-  you want returned.
+    you want returned.
   * `:next_token` (`t:string`) The token passed by previous API calls until all
-  requested channel memberships are returned.
+    requested channel memberships are returned.
   * `:type` (`t:enum["DEFAULT|HIDDEN"]`) The membership type of a user, DEFAULT or
-  HIDDEN. Default members are always returned as part of
-  ListChannelMemberships. Hidden members are only returned if the type filter
-  in ListChannelMemberships equals HIDDEN. Otherwise hidden members are not
-  returned.
+    HIDDEN. Default members are always returned as part of
+    ListChannelMemberships. Hidden members are only returned if the type filter
+    in ListChannelMemberships equals HIDDEN. Otherwise hidden members are not
+    returned.
   * `:chime_bearer` (`t:string`) The AppInstanceUserArn of the user that makes the
-  API call.
+    API call.
   """
   @spec list_channel_memberships(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_channel_memberships_response(), any()}
@@ -13336,14 +13267,15 @@ defmodule AWS.Chime do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chime%20ListChannelMembershipsForAppInstanceUser&this_doc_guide=API%2520Reference)
 
   ## Parameters:
+
   ## Keyword parameters:
   * `:app_instance_user_arn` (`t:string`) The ARN of the AppInstanceUsers
   * `:max_results` (`t:integer`) The maximum number of users that you want
-  returned.
+    returned.
   * `:next_token` (`t:string`) The token returned from previous API requests until
-  the number of channel memberships is reached.
+    the number of channel memberships is reached.
   * `:chime_bearer` (`t:string`) The AppInstanceUserArn of the user that makes the
-  API call.
+    API call.
   """
   @spec list_channel_memberships_for_app_instance_user(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_channel_memberships_for_app_instance_user_response(), any()}
@@ -13426,19 +13358,20 @@ defmodule AWS.Chime do
 
   ## Parameters:
   * `:channel_arn` (`t:string` required) The ARN of the channel.
+
   ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of messages that you want
-  returned.
+    returned.
   * `:next_token` (`t:string`) The token passed by previous API calls until all
-  requested messages are returned.
+    requested messages are returned.
   * `:not_after` (`t:timestamp`) The final or ending time stamp for your requested
-  messages.
+    messages.
   * `:not_before` (`t:timestamp`) The initial or starting time stamp for your
-  requested messages.
+    requested messages.
   * `:sort_order` (`t:enum["ASCENDING|DESCENDING"]`) The order in which you want
-  messages sorted. Default is Descending, based on time created.
+    messages sorted. Default is Descending, based on time created.
   * `:chime_bearer` (`t:string`) The AppInstanceUserArn of the user that makes the
-  API call.
+    API call.
   """
   @spec list_channel_messages(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_channel_messages_response(), any()}
@@ -13540,13 +13473,14 @@ defmodule AWS.Chime do
 
   ## Parameters:
   * `:channel_arn` (`t:string` required) The ARN of the channel.
+
   ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of moderators that you want
-  returned.
+    returned.
   * `:next_token` (`t:string`) The token passed by previous API calls until all
-  requested moderators are returned.
+    requested moderators are returned.
   * `:chime_bearer` (`t:string`) The AppInstanceUserArn of the user that makes the
-  API call.
+    API call.
   """
   @spec list_channel_moderators(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_channel_moderators_response(), any()}
@@ -13612,16 +13546,17 @@ defmodule AWS.Chime do
 
   ## Parameters:
   * `:app_instance_arn` (`t:string` required) The ARN of the AppInstance.
+
   ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of channels that you want to
-  return.
+    return.
   * `:next_token` (`t:string`) The token passed by previous API calls until all
-  requested channels are returned.
+    requested channels are returned.
   * `:privacy` (`t:enum["PRIVATE|PUBLIC"]`) The privacy setting. PUBLIC retrieves
-  all the public channels. PRIVATE retrieves private channels. Only an
-  AppInstanceAdmin can retrieve private channels.
+    all the public channels. PRIVATE retrieves private channels. Only an
+    AppInstanceAdmin can retrieve private channels.
   * `:chime_bearer` (`t:string`) The AppInstanceUserArn of the user that makes the
-  API call.
+    API call.
   """
   @spec list_channels(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_channels_response(), any()}
@@ -13695,14 +13630,15 @@ defmodule AWS.Chime do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chime%20ListChannelsModeratedByAppInstanceUser&this_doc_guide=API%2520Reference)
 
   ## Parameters:
+
   ## Keyword parameters:
   * `:app_instance_user_arn` (`t:string`) The ARN of the user in the moderated
-  channel.
+    channel.
   * `:max_results` (`t:integer`) The maximum number of channels in the request.
   * `:next_token` (`t:string`) The token returned from previous API requests until
-  the number of channels moderated by the user is reached.
+    the number of channels moderated by the user is reached.
   * `:chime_bearer` (`t:string`) The AppInstanceUserArn of the user that makes the
-  API call.
+    API call.
   """
   @spec list_channels_moderated_by_app_instance_user(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_channels_moderated_by_app_instance_user_response(), any()}
@@ -13778,11 +13714,12 @@ defmodule AWS.Chime do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chime%20ListMediaCapturePipelines&this_doc_guide=API%2520Reference)
 
   ## Parameters:
+
   ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of results to return in a
-  single call. Valid Range: 1 - 99.
+    single call. Valid Range: 1 - 99.
   * `:next_token` (`t:string`) The token used to retrieve the next page of
-  results.
+    results.
   """
   @spec list_media_capture_pipelines(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_media_capture_pipelines_response(), any()}
@@ -13841,7 +13778,6 @@ defmodule AWS.Chime do
 
   ## Parameters:
   * `:meeting_id` (`t:string` required) The Amazon Chime SDK meeting ID.
-  ## Keyword parameters:
   """
   @spec list_meeting_tags(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_meeting_tags_response(), any()}
@@ -13883,11 +13819,12 @@ defmodule AWS.Chime do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chime%20ListMeetings&this_doc_guide=API%2520Reference)
 
   ## Parameters:
+
   ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of results to return in a
-  single call.
+    single call.
   * `:next_token` (`t:string`) The token to use to retrieve the next page of
-  results.
+    results.
   """
   @spec list_meetings(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_meetings_response(), any()}
@@ -13945,11 +13882,12 @@ defmodule AWS.Chime do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chime%20ListPhoneNumberOrders&this_doc_guide=API%2520Reference)
 
   ## Parameters:
+
   ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of results to return in a
-  single call.
+    single call.
   * `:next_token` (`t:string`) The token to use to retrieve the next page of
-  results.
+    results.
   """
   @spec list_phone_number_orders(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_phone_number_orders_response(), any()}
@@ -14008,21 +13946,22 @@ defmodule AWS.Chime do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chime%20ListPhoneNumbers&this_doc_guide=API%2520Reference)
 
   ## Parameters:
+
   ## Keyword parameters:
   * `:filter_name`
-  (`t:enum["AccountId|SipRuleId|UserId|VoiceConnectorGroupId|VoiceConnectorId"]`)
-  The filter to use to limit the number of results.
+    (`t:enum["AccountId|SipRuleId|UserId|VoiceConnectorGroupId|VoiceConnectorId"]`)
+    The filter to use to limit the number of results.
   * `:filter_value` (`t:string`) The value to use for the filter.
   * `:max_results` (`t:integer`) The maximum number of results to return in a
-  single call.
+    single call.
   * `:next_token` (`t:string`) The token to use to retrieve the next page of
-  results.
+    results.
   * `:product_type`
-  (`t:enum["BusinessCalling|SipMediaApplicationDialIn|VoiceConnector"]`) The
-  phone number product type.
+    (`t:enum["BusinessCalling|SipMediaApplicationDialIn|VoiceConnector"]`) The
+    phone number product type.
   * `:status`
-  (`t:enum["AcquireFailed|AcquireInProgress|Assigned|DeleteFailed|DeleteInProgress|ReleaseFailed|ReleaseInProgress|Unassigned"]`)
-  The phone number status.
+    (`t:enum["AcquireFailed|AcquireInProgress|Assigned|DeleteFailed|DeleteInProgress|ReleaseFailed|ReleaseInProgress|Unassigned"]`)
+    The phone number status.
   """
   @spec list_phone_numbers(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_phone_numbers_response(), any()}
@@ -14123,12 +14062,13 @@ defmodule AWS.Chime do
 
   ## Parameters:
   * `:voice_connector_id` (`t:string` required) The Amazon Chime voice connector
-  ID.
+    ID.
+
   ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of results to return in a
-  single call.
+    single call.
   * `:next_token` (`t:string`) The token to use to retrieve the next page of
-  results.
+    results.
   * `:status` (`t:enum["Closed|InProgress|Open"]`) The proxy session status.
   """
   @spec list_proxy_sessions(AWS.Client.t(), String.t(), Keyword.t()) ::
@@ -14197,11 +14137,12 @@ defmodule AWS.Chime do
   ## Parameters:
   * `:account_id` (`t:string` required) The Amazon Chime account ID.
   * `:room_id` (`t:string` required) The room ID.
+
   ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of results to return in a
-  single call.
+    single call.
   * `:next_token` (`t:string`) The token to use to retrieve the next page of
-  results.
+    results.
   """
   @spec list_room_memberships(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, list_room_memberships_response(), any()}
@@ -14263,12 +14204,13 @@ defmodule AWS.Chime do
 
   ## Parameters:
   * `:account_id` (`t:string` required) The Amazon Chime account ID.
+
   ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of results to return in a
-  single call.
+    single call.
   * `:member_id` (`t:string`) The member ID (user ID or bot ID).
   * `:next_token` (`t:string`) The token to use to retrieve the next page of
-  results.
+    results.
   """
   @spec list_rooms(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_rooms_response(), any()}
@@ -14333,11 +14275,12 @@ defmodule AWS.Chime do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chime%20ListSipMediaApplications&this_doc_guide=API%2520Reference)
 
   ## Parameters:
+
   ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of results to return in a
-  single call. Defaults to 100.
+    single call. Defaults to 100.
   * `:next_token` (`t:string`) The token to use to retrieve the next page of
-  results.
+    results.
   """
   @spec list_sip_media_applications(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_sip_media_applications_response(), any()}
@@ -14395,11 +14338,12 @@ defmodule AWS.Chime do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chime%20ListSipRules&this_doc_guide=API%2520Reference)
 
   ## Parameters:
+
   ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of results to return in a
-  single call. Defaults to 100.
+    single call. Defaults to 100.
   * `:next_token` (`t:string`) The token to use to retrieve the next page of
-  results.
+    results.
   * `:sip_media_application_id` (`t:string`) The SIP media application ID.
   """
   @spec list_sip_rules(AWS.Client.t(), Keyword.t()) ::
@@ -14466,9 +14410,8 @@ defmodule AWS.Chime do
 
   ## Parameters:
   * `:product_type`
-  (`t:enum["BusinessCalling|SipMediaApplicationDialIn|VoiceConnector"]`
-  required) The phone number product type.
-  ## Keyword parameters:
+    (`t:enum["BusinessCalling|SipMediaApplicationDialIn|VoiceConnector"]`
+    required) The phone number product type.
   """
   @spec list_supported_phone_number_countries(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_supported_phone_number_countries_response(), any()}
@@ -14510,7 +14453,6 @@ defmodule AWS.Chime do
 
   ## Parameters:
   * `:resource_arn` (`t:string` required) The resource ARN.
-  ## Keyword parameters:
   """
   @spec list_tags_for_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_tags_for_resource_response(), any()}
@@ -14554,13 +14496,14 @@ defmodule AWS.Chime do
 
   ## Parameters:
   * `:account_id` (`t:string` required) The Amazon Chime account ID.
+
   ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of results to return in a
-  single call. Defaults to 100.
+    single call. Defaults to 100.
   * `:next_token` (`t:string`) The token to use to retrieve the next page of
-  results.
+    results.
   * `:user_email` (`t:string`) Optional. The user email address used to filter
-  results. Maximum 1.
+    results. Maximum 1.
   * `:user_type` (`t:enum["PrivateUser|SharedDevice"]`) The user type.
   """
   @spec list_users(AWS.Client.t(), String.t(), Keyword.t()) ::
@@ -14634,11 +14577,12 @@ defmodule AWS.Chime do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chime%20ListVoiceConnectorGroups&this_doc_guide=API%2520Reference)
 
   ## Parameters:
+
   ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of results to return in a
-  single call.
+    single call.
   * `:next_token` (`t:string`) The token to use to retrieve the next page of
-  results.
+    results.
   """
   @spec list_voice_connector_groups(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_voice_connector_groups_response(), any()}
@@ -14697,8 +14641,7 @@ defmodule AWS.Chime do
 
   ## Parameters:
   * `:voice_connector_id` (`t:string` required) The Amazon Chime Voice Connector
-  ID.
-  ## Keyword parameters:
+    ID.
   """
   @spec list_voice_connector_termination_credentials(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_voice_connector_termination_credentials_response(), any()}
@@ -14743,11 +14686,12 @@ defmodule AWS.Chime do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chime%20ListVoiceConnectors&this_doc_guide=API%2520Reference)
 
   ## Parameters:
+
   ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of results to return in a
-  single call.
+    single call.
   * `:next_token` (`t:string`) The token to use to retrieve the next page of
-  results.
+    results.
   """
   @spec list_voice_connectors(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_voice_connectors_response(), any()}
@@ -14808,7 +14752,6 @@ defmodule AWS.Chime do
   ## Parameters:
   * `:account_id` (`t:string` required) The Amazon Chime account ID.
   * `:user_id` (`t:string` required) The user ID.
-  ## Keyword parameters:
   """
   @spec logout_user(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, logout_user_response(), any()}
@@ -14852,7 +14795,6 @@ defmodule AWS.Chime do
 
   ## Parameters:
   * `:app_instance_arn` (`t:string` required) The ARN of the AppInstance.
-  ## Keyword parameters:
   """
   @spec put_app_instance_retention_settings(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, put_app_instance_retention_settings_response(), any()}
@@ -14895,7 +14837,6 @@ defmodule AWS.Chime do
 
   ## Parameters:
   * `:app_instance_arn` (`t:string` required) The ARN of the AppInstance.
-  ## Keyword parameters:
   """
   @spec put_app_instance_streaming_configurations(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, put_app_instance_streaming_configurations_response(), any()}
@@ -14945,7 +14886,6 @@ defmodule AWS.Chime do
   ## Parameters:
   * `:account_id` (`t:string` required) The Amazon Chime account ID.
   * `:bot_id` (`t:string` required) The bot ID.
-  ## Keyword parameters:
   """
   @spec put_events_configuration(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, put_events_configuration_response(), any()}
@@ -14998,7 +14938,6 @@ defmodule AWS.Chime do
 
   ## Parameters:
   * `:account_id` (`t:string` required) The Amazon Chime account ID.
-  ## Keyword parameters:
   """
   @spec put_retention_settings(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, put_retention_settings_response(), any()}
@@ -15041,8 +14980,7 @@ defmodule AWS.Chime do
 
   ## Parameters:
   * `:sip_media_application_id` (`t:string` required) The SIP media application
-  ID.
-  ## Keyword parameters:
+    ID.
   """
   @spec put_sip_media_application_logging_configuration(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, put_sip_media_application_logging_configuration_response(), any()}
@@ -15093,8 +15031,7 @@ defmodule AWS.Chime do
 
   ## Parameters:
   * `:voice_connector_id` (`t:string` required) The Amazon Chime Voice Connector
-  ID.
-  ## Keyword parameters:
+    ID.
   """
   @spec put_voice_connector_emergency_calling_configuration(
           AWS.Client.t(),
@@ -15148,8 +15085,7 @@ defmodule AWS.Chime do
 
   ## Parameters:
   * `:voice_connector_id` (`t:string` required) The Amazon Chime Voice Connector
-  ID.
-  ## Keyword parameters:
+    ID.
   """
   @spec put_voice_connector_logging_configuration(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, put_voice_connector_logging_configuration_response(), any()}
@@ -15199,8 +15135,7 @@ defmodule AWS.Chime do
 
   ## Parameters:
   * `:voice_connector_id` (`t:string` required) The Amazon Chime Voice Connector
-  ID.
-  ## Keyword parameters:
+    ID.
   """
   @spec put_voice_connector_origination(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, put_voice_connector_origination_response(), any()}
@@ -15244,8 +15179,7 @@ defmodule AWS.Chime do
 
   ## Parameters:
   * `:voice_connector_id` (`t:string` required) The Amazon Chime voice connector
-  ID.
-  ## Keyword parameters:
+    ID.
   """
   @spec put_voice_connector_proxy(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, put_voice_connector_proxy_response(), any()}
@@ -15292,8 +15226,7 @@ defmodule AWS.Chime do
 
   ## Parameters:
   * `:voice_connector_id` (`t:string` required) The Amazon Chime Voice Connector
-  ID.
-  ## Keyword parameters:
+    ID.
   """
   @spec put_voice_connector_streaming_configuration(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, put_voice_connector_streaming_configuration_response(), any()}
@@ -15343,8 +15276,7 @@ defmodule AWS.Chime do
 
   ## Parameters:
   * `:voice_connector_id` (`t:string` required) The Amazon Chime Voice Connector
-  ID.
-  ## Keyword parameters:
+    ID.
   """
   @spec put_voice_connector_termination(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, put_voice_connector_termination_response(), any()}
@@ -15387,8 +15319,7 @@ defmodule AWS.Chime do
 
   ## Parameters:
   * `:voice_connector_id` (`t:string` required) The Amazon Chime Voice Connector
-  ID.
-  ## Keyword parameters:
+    ID.
   """
   @spec put_voice_connector_termination_credentials(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
@@ -15439,11 +15370,12 @@ defmodule AWS.Chime do
 
   ## Parameters:
   * `:channel_arn` (`t:string` required) The ARN of the channel containing the
-  messages that you want to redact.
+    messages that you want to redact.
   * `:message_id` (`t:string` required) The ID of the message being redacted.
+
   ## Keyword parameters:
   * `:chime_bearer` (`t:string`) The AppInstanceUserArn of the user that makes the
-  API call.
+    API call.
   """
   @spec redact_channel_message(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, redact_channel_message_response(), any()}
@@ -15500,7 +15432,6 @@ defmodule AWS.Chime do
   * `:account_id` (`t:string` required) The Amazon Chime account ID.
   * `:conversation_id` (`t:string` required) The conversation ID.
   * `:message_id` (`t:string` required) The message ID.
-  ## Keyword parameters:
   """
   @spec redact_conversation_message(
           AWS.Client.t(),
@@ -15558,7 +15489,6 @@ defmodule AWS.Chime do
   * `:account_id` (`t:string` required) The Amazon Chime account ID.
   * `:message_id` (`t:string` required) The message ID.
   * `:room_id` (`t:string` required) The room ID.
-  ## Keyword parameters:
   """
   @spec redact_room_message(AWS.Client.t(), String.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, redact_room_message_response(), any()}
@@ -15603,7 +15533,6 @@ defmodule AWS.Chime do
   ## Parameters:
   * `:account_id` (`t:string` required) The Amazon Chime account ID.
   * `:bot_id` (`t:string` required) The bot ID.
-  ## Keyword parameters:
   """
   @spec regenerate_security_token(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, regenerate_security_token_response(), any()}
@@ -15649,7 +15578,6 @@ defmodule AWS.Chime do
   ## Parameters:
   * `:account_id` (`t:string` required) The Amazon Chime account ID.
   * `:user_id` (`t:string` required) The user ID.
-  ## Keyword parameters:
   """
   @spec reset_personal_pin(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, reset_personal_pin_response(), any()}
@@ -15694,7 +15622,6 @@ defmodule AWS.Chime do
 
   ## Parameters:
   * `:phone_number_id` (`t:string` required) The phone number.
-  ## Keyword parameters:
   """
   @spec restore_phone_number(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, restore_phone_number_response(), any()}
@@ -15740,22 +15667,23 @@ defmodule AWS.Chime do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chime%20SearchAvailablePhoneNumbers&this_doc_guide=API%2520Reference)
 
   ## Parameters:
+
   ## Keyword parameters:
   * `:area_code` (`t:string`) The area code used to filter results. Only applies
-  to the US.
+    to the US.
   * `:city` (`t:string`) The city used to filter results. Only applies to the US.
   * `:country` (`t:string`) The country used to filter results. Defaults to the US
-  Format: ISO 3166-1 alpha-2.
+    Format: ISO 3166-1 alpha-2.
   * `:max_results` (`t:integer`) The maximum number of results to return in a
-  single call.
+    single call.
   * `:next_token` (`t:string`) The token used to retrieve the next page of
-  results.
+    results.
   * `:phone_number_type` (`t:enum["Local|TollFree"]`) The phone number type used
-  to filter results. Required for non-US numbers.
+    to filter results. Required for non-US numbers.
   * `:state` (`t:string`) The state used to filter results. Required only if you
-  provide City. Only applies to the US.
+    provide City. Only applies to the US.
   * `:toll_free_prefix` (`t:string`) The toll-free prefix that you use to filter
-  results. Only applies to the US.
+    results. Only applies to the US.
   """
   @spec search_available_phone_numbers(AWS.Client.t(), Keyword.t()) ::
           {:ok, search_available_phone_numbers_response(), any()}
@@ -15878,9 +15806,10 @@ defmodule AWS.Chime do
 
   ## Parameters:
   * `:channel_arn` (`t:string` required) The ARN of the channel.
+
   ## Keyword parameters:
   * `:chime_bearer` (`t:string`) The AppInstanceUserArn of the user that makes the
-  API call.
+    API call.
   """
   @spec send_channel_message(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, send_channel_message_response(), any()}
@@ -15942,8 +15871,7 @@ defmodule AWS.Chime do
 
   ## Parameters:
   * `:meeting_id` (`t:string` required) The unique ID of the meeting being
-  transcribed.
-  ## Keyword parameters:
+    transcribed.
   """
   @spec start_meeting_transcription(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, start_meeting_transcription_response(), any()}
@@ -15986,8 +15914,7 @@ defmodule AWS.Chime do
 
   ## Parameters:
   * `:meeting_id` (`t:string` required) The unique ID of the meeting for which you
-  stop transcription.
-  ## Keyword parameters:
+    stop transcription.
   """
   @spec stop_meeting_transcription(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, stop_meeting_transcription_response(), any()}
@@ -16031,7 +15958,6 @@ defmodule AWS.Chime do
   ## Parameters:
   * `:attendee_id` (`t:string` required) The Amazon Chime SDK attendee ID.
   * `:meeting_id` (`t:string` required) The Amazon Chime SDK meeting ID.
-  ## Keyword parameters:
   """
   @spec tag_attendee(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
@@ -16075,7 +16001,6 @@ defmodule AWS.Chime do
 
   ## Parameters:
   * `:meeting_id` (`t:string` required) The Amazon Chime SDK meeting ID.
-  ## Keyword parameters:
   """
   @spec tag_meeting(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
@@ -16117,7 +16042,6 @@ defmodule AWS.Chime do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chime%20TagResource&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec tag_resource(AWS.Client.t(), Keyword.t()) ::
           {:ok, nil, any()}
@@ -16161,7 +16085,6 @@ defmodule AWS.Chime do
   ## Parameters:
   * `:attendee_id` (`t:string` required) The Amazon Chime SDK attendee ID.
   * `:meeting_id` (`t:string` required) The Amazon Chime SDK meeting ID.
-  ## Keyword parameters:
   """
   @spec untag_attendee(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
@@ -16205,7 +16128,6 @@ defmodule AWS.Chime do
 
   ## Parameters:
   * `:meeting_id` (`t:string` required) The Amazon Chime SDK meeting ID.
-  ## Keyword parameters:
   """
   @spec untag_meeting(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
@@ -16248,7 +16170,6 @@ defmodule AWS.Chime do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chime%20UntagResource&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec untag_resource(AWS.Client.t(), Keyword.t()) ::
           {:ok, nil, any()}
@@ -16292,7 +16213,6 @@ defmodule AWS.Chime do
 
   ## Parameters:
   * `:account_id` (`t:string` required) The Amazon Chime account ID.
-  ## Keyword parameters:
   """
   @spec update_account(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, update_account_response(), any()}
@@ -16339,7 +16259,6 @@ defmodule AWS.Chime do
 
   ## Parameters:
   * `:account_id` (`t:string` required) The Amazon Chime account ID.
-  ## Keyword parameters:
   """
   @spec update_account_settings(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, update_account_settings_response(), any()}
@@ -16382,7 +16301,6 @@ defmodule AWS.Chime do
 
   ## Parameters:
   * `:app_instance_arn` (`t:string` required) The ARN of the AppInstance.
-  ## Keyword parameters:
   """
   @spec update_app_instance(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, update_app_instance_response(), any()}
@@ -16425,7 +16343,6 @@ defmodule AWS.Chime do
 
   ## Parameters:
   * `:app_instance_user_arn` (`t:string` required) The ARN of the AppInstanceUser.
-  ## Keyword parameters:
   """
   @spec update_app_instance_user(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, update_app_instance_user_response(), any()}
@@ -16470,7 +16387,6 @@ defmodule AWS.Chime do
   ## Parameters:
   * `:account_id` (`t:string` required) The Amazon Chime account ID.
   * `:bot_id` (`t:string` required) The bot ID.
-  ## Keyword parameters:
   """
   @spec update_bot(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, update_bot_response(), any()}
@@ -16514,9 +16430,10 @@ defmodule AWS.Chime do
 
   ## Parameters:
   * `:channel_arn` (`t:string` required) The ARN of the channel.
+
   ## Keyword parameters:
   * `:chime_bearer` (`t:string`) The AppInstanceUserArn of the user that makes the
-  API call.
+    API call.
   """
   @spec update_channel(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, update_channel_response(), any()}
@@ -16573,10 +16490,11 @@ defmodule AWS.Chime do
   ## Parameters:
   * `:channel_arn` (`t:string` required) The ARN of the channel.
   * `:message_id` (`t:string` required) The ID string of the message being
-  updated.
+    updated.
+
   ## Keyword parameters:
   * `:chime_bearer` (`t:string`) The AppInstanceUserArn of the user that makes the
-  API call.
+    API call.
   """
   @spec update_channel_message(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, update_channel_message_response(), any()}
@@ -16633,9 +16551,10 @@ defmodule AWS.Chime do
 
   ## Parameters:
   * `:channel_arn` (`t:string` required) The ARN of the channel.
+
   ## Keyword parameters:
   * `:chime_bearer` (`t:string`) The AppInstanceUserArn of the user that makes the
-  API call.
+    API call.
   """
   @spec update_channel_read_marker(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, update_channel_read_marker_response(), any()}
@@ -16689,7 +16608,6 @@ defmodule AWS.Chime do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chime%20UpdateGlobalSettings&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec update_global_settings(AWS.Client.t(), Keyword.t()) ::
           {:ok, nil, any()}
@@ -16737,7 +16655,6 @@ defmodule AWS.Chime do
 
   ## Parameters:
   * `:phone_number_id` (`t:string` required) The phone number ID.
-  ## Keyword parameters:
   """
   @spec update_phone_number(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, update_phone_number_response(), any()}
@@ -16782,7 +16699,6 @@ defmodule AWS.Chime do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chime%20UpdatePhoneNumberSettings&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec update_phone_number_settings(AWS.Client.t(), Keyword.t()) ::
           {:ok, nil, any()}
@@ -16826,8 +16742,7 @@ defmodule AWS.Chime do
   ## Parameters:
   * `:proxy_session_id` (`t:string` required) The proxy session ID.
   * `:voice_connector_id` (`t:string` required) The Amazon Chime voice connector
-  ID.
-  ## Keyword parameters:
+    ID.
   """
   @spec update_proxy_session(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, update_proxy_session_response(), any()}
@@ -16878,7 +16793,6 @@ defmodule AWS.Chime do
   ## Parameters:
   * `:account_id` (`t:string` required) The Amazon Chime account ID.
   * `:room_id` (`t:string` required) The room ID.
-  ## Keyword parameters:
   """
   @spec update_room(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, update_room_response(), any()}
@@ -16927,7 +16841,6 @@ defmodule AWS.Chime do
   * `:account_id` (`t:string` required) The Amazon Chime account ID.
   * `:member_id` (`t:string` required) The member ID.
   * `:room_id` (`t:string` required) The room ID.
-  ## Keyword parameters:
   """
   @spec update_room_membership(AWS.Client.t(), String.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, update_room_membership_response(), any()}
@@ -16971,8 +16884,7 @@ defmodule AWS.Chime do
 
   ## Parameters:
   * `:sip_media_application_id` (`t:string` required) The SIP media application
-  ID.
-  ## Keyword parameters:
+    ID.
   """
   @spec update_sip_media_application(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, update_sip_media_application_response(), any()}
@@ -17017,9 +16929,8 @@ defmodule AWS.Chime do
 
   ## Parameters:
   * `:sip_media_application_id` (`t:string` required) The ID of the SIP media
-  application handling the call.
+    application handling the call.
   * `:transaction_id` (`t:string` required) The ID of the call transaction.
-  ## Keyword parameters:
   """
   @spec update_sip_media_application_call(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, update_sip_media_application_call_response(), any()}
@@ -17068,7 +16979,6 @@ defmodule AWS.Chime do
 
   ## Parameters:
   * `:sip_rule_id` (`t:string` required) The SIP rule ID.
-  ## Keyword parameters:
   """
   @spec update_sip_rule(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, update_sip_rule_response(), any()}
@@ -17113,7 +17023,6 @@ defmodule AWS.Chime do
   ## Parameters:
   * `:account_id` (`t:string` required) The Amazon Chime account ID.
   * `:user_id` (`t:string` required) The user ID.
-  ## Keyword parameters:
   """
   @spec update_user(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, update_user_response(), any()}
@@ -17158,7 +17067,6 @@ defmodule AWS.Chime do
   ## Parameters:
   * `:account_id` (`t:string` required) The Amazon Chime account ID.
   * `:user_id` (`t:string` required) The user ID.
-  ## Keyword parameters:
   """
   @spec update_user_settings(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
@@ -17202,8 +17110,7 @@ defmodule AWS.Chime do
 
   ## Parameters:
   * `:voice_connector_id` (`t:string` required) The Amazon Chime Voice Connector
-  ID.
-  ## Keyword parameters:
+    ID.
   """
   @spec update_voice_connector(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, update_voice_connector_response(), any()}
@@ -17247,8 +17154,7 @@ defmodule AWS.Chime do
 
   ## Parameters:
   * `:voice_connector_group_id` (`t:string` required) The Amazon Chime Voice
-  Connector group ID.
-  ## Keyword parameters:
+    Connector group ID.
   """
   @spec update_voice_connector_group(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, update_voice_connector_group_response(), any()}
@@ -17294,7 +17200,6 @@ defmodule AWS.Chime do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chime%20ValidateE911Address&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec validate_e911_address(AWS.Client.t(), Keyword.t()) ::
           {:ok, validate_e911_address_response(), any()}

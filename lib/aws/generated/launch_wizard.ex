@@ -552,7 +552,6 @@ defmodule AWS.LaunchWizard do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=launchwizard%20CreateDeployment&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec create_deployment(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_deployment_output(), any()}
@@ -594,7 +593,6 @@ defmodule AWS.LaunchWizard do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=launchwizard%20DeleteDeployment&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec delete_deployment(AWS.Client.t(), Keyword.t()) ::
           {:ok, delete_deployment_output(), any()}
@@ -636,7 +634,6 @@ defmodule AWS.LaunchWizard do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=launchwizard%20GetDeployment&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec get_deployment(AWS.Client.t(), Keyword.t()) ::
           {:ok, get_deployment_output(), any()}
@@ -678,7 +675,6 @@ defmodule AWS.LaunchWizard do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=launchwizard%20GetWorkload&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec get_workload(AWS.Client.t(), Keyword.t()) ::
           {:ok, get_workload_output(), any()}
@@ -726,7 +722,6 @@ defmodule AWS.LaunchWizard do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=launchwizard%20GetWorkloadDeploymentPattern&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec get_workload_deployment_pattern(AWS.Client.t(), Keyword.t()) ::
           {:ok, get_workload_deployment_pattern_output(), any()}
@@ -768,7 +763,6 @@ defmodule AWS.LaunchWizard do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=launchwizard%20ListDeploymentEvents&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec list_deployment_events(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_deployment_events_output(), any()}
@@ -810,7 +804,6 @@ defmodule AWS.LaunchWizard do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=launchwizard%20ListDeployments&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec list_deployments(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_deployments_output(), any()}
@@ -853,8 +846,7 @@ defmodule AWS.LaunchWizard do
 
   ## Parameters:
   * `:resource_arn` (`t:string` required) The Amazon Resource Name (ARN) of the
-  resource.
-  ## Keyword parameters:
+    resource.
   """
   @spec list_tags_for_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_tags_for_resource_output(), any()}
@@ -897,7 +889,6 @@ defmodule AWS.LaunchWizard do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=launchwizard%20ListWorkloadDeploymentPatterns&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec list_workload_deployment_patterns(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_workload_deployment_patterns_output(), any()}
@@ -941,7 +932,6 @@ defmodule AWS.LaunchWizard do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=launchwizard%20ListWorkloads&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec list_workloads(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_workloads_output(), any()}
@@ -984,8 +974,7 @@ defmodule AWS.LaunchWizard do
 
   ## Parameters:
   * `:resource_arn` (`t:string` required) The Amazon Resource Name (ARN) of the
-  resource.
-  ## Keyword parameters:
+    resource.
   """
   @spec tag_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, tag_resource_output(), any()}
@@ -1028,10 +1017,9 @@ defmodule AWS.LaunchWizard do
 
   ## Parameters:
   * `:resource_arn` (`t:string` required) The Amazon Resource Name (ARN) of the
-  resource.
+    resource.
   * `:tag_keys` (`t:list[com.amazonaws.launchwizard#TagKey]` required) Keys
-  identifying the tags to remove.
-  ## Keyword parameters:
+    identifying the tags to remove.
   """
   @spec untag_resource(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, untag_resource_output(), any()}

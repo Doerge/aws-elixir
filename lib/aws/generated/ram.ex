@@ -1760,7 +1760,6 @@ defmodule AWS.RAM do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ram%20AcceptResourceShareInvitation&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec accept_resource_share_invitation(AWS.Client.t(), Keyword.t()) ::
           {:ok, accept_resource_share_invitation_response(), any()}
@@ -1805,7 +1804,6 @@ defmodule AWS.RAM do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ram%20AssociateResourceShare&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec associate_resource_share(AWS.Client.t(), Keyword.t()) ::
           {:ok, associate_resource_share_response(), any()}
@@ -1850,7 +1848,6 @@ defmodule AWS.RAM do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ram%20AssociateResourceSharePermission&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec associate_resource_share_permission(AWS.Client.t(), Keyword.t()) ::
           {:ok, associate_resource_share_permission_response(), any()}
@@ -1894,7 +1891,6 @@ defmodule AWS.RAM do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ram%20CreatePermission&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec create_permission(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_permission_response(), any()}
@@ -1940,7 +1936,6 @@ defmodule AWS.RAM do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ram%20CreatePermissionVersion&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec create_permission_version(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_permission_version_response(), any()}
@@ -1985,7 +1980,6 @@ defmodule AWS.RAM do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ram%20CreateResourceShare&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec create_resource_share(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_resource_share_response(), any()}
@@ -2031,14 +2025,15 @@ defmodule AWS.RAM do
 
   ## Parameters:
   * `:permission_arn` (`t:string` required) Specifies the Amazon Resource Name
-  (ARN) of the customer managed permission that you want to delete.
+    (ARN) of the customer managed permission that you want to delete.
+
   ## Keyword parameters:
   * `:client_token` (`t:string`) Specifies a unique, case-sensitive identifier
-  that you provide to ensure the idempotency of the request. This lets you
-  safely retry the request without accidentally performing the same operation
-  a second time. Passing the same value to a later call to an operation
-  requires that you also pass the same value for all other parameters. We
-  recommend that you use a UUID type of value..
+    that you provide to ensure the idempotency of the request. This lets you
+    safely retry the request without accidentally performing the same operation
+    a second time. Passing the same value to a later call to an operation
+    requires that you also pass the same value for all other parameters. We
+    recommend that you use a UUID type of value..
   """
   @spec delete_permission(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, delete_permission_response(), any()}
@@ -2105,16 +2100,17 @@ defmodule AWS.RAM do
 
   ## Parameters:
   * `:permission_arn` (`t:string` required) Specifies the Amazon Resource Name
-  (ARN) of the permission with the version you want to delete.
+    (ARN) of the permission with the version you want to delete.
   * `:permission_version` (`t:integer` required) Specifies the version number to
-  delete.
+    delete.
+
   ## Keyword parameters:
   * `:client_token` (`t:string`) Specifies a unique, case-sensitive identifier
-  that you provide to ensure the idempotency of the request. This lets you
-  safely retry the request without accidentally performing the same operation
-  a second time. Passing the same value to a later call to an operation
-  requires that you also pass the same value for all other parameters. We
-  recommend that you use a UUID type of value..
+    that you provide to ensure the idempotency of the request. This lets you
+    safely retry the request without accidentally performing the same operation
+    a second time. Passing the same value to a later call to an operation
+    requires that you also pass the same value for all other parameters. We
+    recommend that you use a UUID type of value..
   """
   @spec delete_permission_version(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, delete_permission_version_response(), any()}
@@ -2184,14 +2180,15 @@ defmodule AWS.RAM do
 
   ## Parameters:
   * `:resource_share_arn` (`t:string` required) Specifies the Amazon Resource Name
-  (ARN) of the resource share to delete.
+    (ARN) of the resource share to delete.
+
   ## Keyword parameters:
   * `:client_token` (`t:string`) Specifies a unique, case-sensitive identifier
-  that you provide to ensure the idempotency of the request. This lets you
-  safely retry the request without accidentally performing the same operation
-  a second time. Passing the same value to a later call to an operation
-  requires that you also pass the same value for all other parameters. We
-  recommend that you use a UUID type of value..
+    that you provide to ensure the idempotency of the request. This lets you
+    safely retry the request without accidentally performing the same operation
+    a second time. Passing the same value to a later call to an operation
+    requires that you also pass the same value for all other parameters. We
+    recommend that you use a UUID type of value..
   """
   @spec delete_resource_share(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, delete_resource_share_response(), any()}
@@ -2256,7 +2253,6 @@ defmodule AWS.RAM do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ram%20DisassociateResourceShare&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec disassociate_resource_share(AWS.Client.t(), Keyword.t()) ::
           {:ok, disassociate_resource_share_response(), any()}
@@ -2301,7 +2297,6 @@ defmodule AWS.RAM do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ram%20DisassociateResourceSharePermission&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec disassociate_resource_share_permission(AWS.Client.t(), Keyword.t()) ::
           {:ok, disassociate_resource_share_permission_response(), any()}
@@ -2352,7 +2347,6 @@ defmodule AWS.RAM do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ram%20EnableSharingWithAwsOrganization&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec enable_sharing_with_aws_organization(AWS.Client.t(), Keyword.t()) ::
           {:ok, enable_sharing_with_aws_organization_response(), any()}
@@ -2394,7 +2388,6 @@ defmodule AWS.RAM do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ram%20GetPermission&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec get_permission(AWS.Client.t(), Keyword.t()) ::
           {:ok, get_permission_response(), any()}
@@ -2437,7 +2430,6 @@ defmodule AWS.RAM do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ram%20GetResourcePolicies&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec get_resource_policies(AWS.Client.t(), Keyword.t()) ::
           {:ok, get_resource_policies_response(), any()}
@@ -2480,7 +2472,6 @@ defmodule AWS.RAM do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ram%20GetResourceShareAssociations&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec get_resource_share_associations(AWS.Client.t(), Keyword.t()) ::
           {:ok, get_resource_share_associations_response(), any()}
@@ -2522,7 +2513,6 @@ defmodule AWS.RAM do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ram%20GetResourceShareInvitations&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec get_resource_share_invitations(AWS.Client.t(), Keyword.t()) ::
           {:ok, get_resource_share_invitations_response(), any()}
@@ -2565,7 +2555,6 @@ defmodule AWS.RAM do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ram%20GetResourceShares&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec get_resource_shares(AWS.Client.t(), Keyword.t()) ::
           {:ok, get_resource_shares_response(), any()}
@@ -2609,7 +2598,6 @@ defmodule AWS.RAM do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ram%20ListPendingInvitationResources&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec list_pending_invitation_resources(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_pending_invitation_resources_response(), any()}
@@ -2653,7 +2641,6 @@ defmodule AWS.RAM do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ram%20ListPermissionAssociations&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec list_permission_associations(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_permission_associations_response(), any()}
@@ -2695,7 +2682,6 @@ defmodule AWS.RAM do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ram%20ListPermissionVersions&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec list_permission_versions(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_permission_versions_response(), any()}
@@ -2738,7 +2724,6 @@ defmodule AWS.RAM do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ram%20ListPermissions&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec list_permissions(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_permissions_response(), any()}
@@ -2781,7 +2766,6 @@ defmodule AWS.RAM do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ram%20ListPrincipals&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec list_principals(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_principals_response(), any()}
@@ -2824,7 +2808,6 @@ defmodule AWS.RAM do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ram%20ListReplacePermissionAssociationsWork&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec list_replace_permission_associations_work(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_replace_permission_associations_work_response(), any()}
@@ -2866,7 +2849,6 @@ defmodule AWS.RAM do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ram%20ListResourceSharePermissions&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec list_resource_share_permissions(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_resource_share_permissions_response(), any()}
@@ -2908,7 +2890,6 @@ defmodule AWS.RAM do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ram%20ListResourceTypes&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec list_resource_types(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_resource_types_response(), any()}
@@ -2951,7 +2932,6 @@ defmodule AWS.RAM do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ram%20ListResources&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec list_resources(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_resources_response(), any()}
@@ -3001,7 +2981,6 @@ defmodule AWS.RAM do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ram%20PromotePermissionCreatedFromPolicy&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec promote_permission_created_from_policy(AWS.Client.t(), Keyword.t()) ::
           {:ok, promote_permission_created_from_policy_response(), any()}
@@ -3052,8 +3031,7 @@ defmodule AWS.RAM do
 
   ## Parameters:
   * `:resource_share_arn` (`t:string` required) Specifies the Amazon Resource Name
-  (ARN) of the resource share to promote.
-  ## Keyword parameters:
+    (ARN) of the resource share to promote.
   """
   @spec promote_resource_share_created_from_policy(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, promote_resource_share_created_from_policy_response(), any()}
@@ -3101,7 +3079,6 @@ defmodule AWS.RAM do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ram%20RejectResourceShareInvitation&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec reject_resource_share_invitation(AWS.Client.t(), Keyword.t()) ::
           {:ok, reject_resource_share_invitation_response(), any()}
@@ -3150,7 +3127,6 @@ defmodule AWS.RAM do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ram%20ReplacePermissionAssociations&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec replace_permission_associations(AWS.Client.t(), Keyword.t()) ::
           {:ok, replace_permission_associations_response(), any()}
@@ -3196,7 +3172,6 @@ defmodule AWS.RAM do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ram%20SetDefaultPermissionVersion&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec set_default_permission_version(AWS.Client.t(), Keyword.t()) ::
           {:ok, set_default_permission_version_response(), any()}
@@ -3240,7 +3215,6 @@ defmodule AWS.RAM do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ram%20TagResource&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec tag_resource(AWS.Client.t(), Keyword.t()) ::
           {:ok, tag_resource_response(), any()}
@@ -3283,7 +3257,6 @@ defmodule AWS.RAM do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ram%20UntagResource&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec untag_resource(AWS.Client.t(), Keyword.t()) ::
           {:ok, untag_resource_response(), any()}
@@ -3325,7 +3298,6 @@ defmodule AWS.RAM do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ram%20UpdateResourceShare&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec update_resource_share(AWS.Client.t(), Keyword.t()) ::
           {:ok, update_resource_share_response(), any()}

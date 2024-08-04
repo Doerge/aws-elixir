@@ -186,7 +186,6 @@ defmodule AWS.KinesisVideoSignaling do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=kinesisvideosignaling%20GetIceServerConfig&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec get_ice_server_config(AWS.Client.t(), Keyword.t()) ::
           {:ok, get_ice_server_config_response(), any()}
@@ -233,7 +232,6 @@ defmodule AWS.KinesisVideoSignaling do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=kinesisvideosignaling%20SendAlexaOfferToMaster&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec send_alexa_offer_to_master(AWS.Client.t(), Keyword.t()) ::
           {:ok, send_alexa_offer_to_master_response(), any()}

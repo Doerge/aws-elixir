@@ -950,9 +950,8 @@ defmodule AWS.EMRServerless do
 
   ## Parameters:
   * `:application_id` (`t:string` required) The ID of the application on which the
-  job run will be canceled.
+    job run will be canceled.
   * `:job_run_id` (`t:string` required) The ID of the job run to cancel.
-  ## Keyword parameters:
   """
   @spec cancel_job_run(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, cancel_job_run_response(), any()}
@@ -1005,7 +1004,6 @@ defmodule AWS.EMRServerless do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=emrserverless%20CreateApplication&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec create_application(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_application_response(), any()}
@@ -1049,8 +1047,7 @@ defmodule AWS.EMRServerless do
 
   ## Parameters:
   * `:application_id` (`t:string` required) The ID of the application that will be
-  deleted.
-  ## Keyword parameters:
+    deleted.
   """
   @spec delete_application(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, delete_application_response(), any()}
@@ -1103,8 +1100,7 @@ defmodule AWS.EMRServerless do
 
   ## Parameters:
   * `:application_id` (`t:string` required) The ID of the application that will be
-  described.
-  ## Keyword parameters:
+    described.
   """
   @spec get_application(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_application_response(), any()}
@@ -1150,10 +1146,11 @@ defmodule AWS.EMRServerless do
   ## Parameters:
   * `:application_id` (`t:string` required) The ID of the application.
   * `:job_run_id` (`t:string` required) The ID of the job run.
+
   ## Keyword parameters:
   * `:attempt` (`t:integer`) An optimal parameter that indicates the amount of
-  attempts for the job. If not specified, this value defaults to the attempt
-  of the latest job.
+    attempts for the job. If not specified, this value defaults to the attempt
+    of the latest job.
   """
   @spec get_dashboard_for_job_run(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_dashboard_for_job_run_response(), any()}
@@ -1206,12 +1203,13 @@ defmodule AWS.EMRServerless do
 
   ## Parameters:
   * `:application_id` (`t:string` required) The ID of the application on which the
-  job run is submitted.
+    job run is submitted.
   * `:job_run_id` (`t:string` required) The ID of the job run.
+
   ## Keyword parameters:
   * `:attempt` (`t:integer`) An optimal parameter that indicates the amount of
-  attempts for the job. If not specified, this value defaults to the attempt
-  of the latest job.
+    attempts for the job. If not specified, this value defaults to the attempt
+    of the latest job.
   """
   @spec get_job_run(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_job_run_response(), any()}
@@ -1263,13 +1261,14 @@ defmodule AWS.EMRServerless do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=emrserverless%20ListApplications&this_doc_guide=API%2520Reference)
 
   ## Parameters:
+
   ## Keyword parameters:
   * `:max_results` (`t:string`) The maximum number of applications that can be
-  listed.
+    listed.
   * `:next_token` (`t:string`) The token for the next set of application results.
   * `:states` (`t:list[com.amazonaws.emrserverless#ApplicationState]`) An optional
-  filter for application states. Note that if this filter contains multiple
-  states, the resulting list will be grouped by the state.
+    filter for application states. Note that if this filter contains multiple
+    states, the resulting list will be grouped by the state.
   """
   @spec list_applications(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_applications_response(), any()}
@@ -1335,12 +1334,13 @@ defmodule AWS.EMRServerless do
 
   ## Parameters:
   * `:application_id` (`t:string` required) The ID of the application for which to
-  list job runs.
+    list job runs.
   * `:job_run_id` (`t:string` required) The ID of the job run to list.
+
   ## Keyword parameters:
   * `:max_results` (`t:string`) The maximum number of job run attempts to list.
   * `:next_token` (`t:string`) The token for the next set of job run attempt
-  results.
+    results.
   """
   @spec list_job_run_attempts(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, list_job_run_attempts_response(), any()}
@@ -1400,18 +1400,19 @@ defmodule AWS.EMRServerless do
 
   ## Parameters:
   * `:application_id` (`t:string` required) The ID of the application for which to
-  list the job run.
+    list the job run.
+
   ## Keyword parameters:
   * `:created_at_after` (`t:timestamp`) The lower bound of the option to filter by
-  creation date and time.
+    creation date and time.
   * `:created_at_before` (`t:timestamp`) The upper bound of the option to filter
-  by creation date and time.
+    by creation date and time.
   * `:max_results` (`t:string`) The maximum number of job runs that can be listed.
   * `:mode` (`t:string`) The mode of the job runs to list.
   * `:next_token` (`t:string`) The token for the next set of job run results.
   * `:states` (`t:list[com.amazonaws.emrserverless#JobRunState]`) An optional
-  filter for job run states. Note that if this filter contains multiple
-  states, the resulting list will be grouped by the state.
+    filter for job run states. Note that if this filter contains multiple
+    states, the resulting list will be grouped by the state.
   """
   @spec list_job_runs(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_job_runs_response(), any()}
@@ -1512,9 +1513,8 @@ defmodule AWS.EMRServerless do
 
   ## Parameters:
   * `:resource_arn` (`t:string` required) The Amazon Resource Name (ARN) that
-  identifies the resource to list the tags for. Currently, the supported
-  resources are Amazon EMR Serverless applications and job runs.
-  ## Keyword parameters:
+    identifies the resource to list the tags for. Currently, the supported
+    resources are Amazon EMR Serverless applications and job runs.
   """
   @spec list_tags_for_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_tags_for_resource_response(), any()}
@@ -1555,7 +1555,6 @@ defmodule AWS.EMRServerless do
 
   ## Parameters:
   * `:application_id` (`t:string` required) The ID of the application to start.
-  ## Keyword parameters:
   """
   @spec start_application(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, start_application_response(), any()}
@@ -1598,8 +1597,7 @@ defmodule AWS.EMRServerless do
 
   ## Parameters:
   * `:application_id` (`t:string` required) The ID of the application on which to
-  run the job.
-  ## Keyword parameters:
+    run the job.
   """
   @spec start_job_run(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, start_job_run_response(), any()}
@@ -1644,7 +1642,6 @@ defmodule AWS.EMRServerless do
 
   ## Parameters:
   * `:application_id` (`t:string` required) The ID of the application to stop.
-  ## Keyword parameters:
   """
   @spec stop_application(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, stop_application_response(), any()}
@@ -1692,9 +1689,8 @@ defmodule AWS.EMRServerless do
 
   ## Parameters:
   * `:resource_arn` (`t:string` required) The Amazon Resource Name (ARN) that
-  identifies the resource to list the tags for. Currently, the supported
-  resources are Amazon EMR Serverless applications and job runs.
-  ## Keyword parameters:
+    identifies the resource to list the tags for. Currently, the supported
+    resources are Amazon EMR Serverless applications and job runs.
   """
   @spec tag_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, tag_resource_response(), any()}
@@ -1737,11 +1733,10 @@ defmodule AWS.EMRServerless do
 
   ## Parameters:
   * `:resource_arn` (`t:string` required) The Amazon Resource Name (ARN) that
-  identifies the resource to list the tags for. Currently, the supported
-  resources are Amazon EMR Serverless applications and job runs.
+    identifies the resource to list the tags for. Currently, the supported
+    resources are Amazon EMR Serverless applications and job runs.
   * `:tag_keys` (`t:list[com.amazonaws.emrserverless#TagKey]` required) The keys
-  of the tags to be removed.
-  ## Keyword parameters:
+    of the tags to be removed.
   """
   @spec untag_resource(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, untag_resource_response(), any()}
@@ -1796,7 +1791,6 @@ defmodule AWS.EMRServerless do
 
   ## Parameters:
   * `:application_id` (`t:string` required) The ID of the application to update.
-  ## Keyword parameters:
   """
   @spec update_application(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, update_application_response(), any()}

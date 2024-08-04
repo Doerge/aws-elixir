@@ -6200,8 +6200,9 @@ defmodule AWS.DataZone do
 
   ## Parameters:
   * `:domain_identifier` (`t:string` required) The identifier of the Amazon
-  DataZone domain.
+    DataZone domain.
   * `:identifier` (`t:string` required) The identifier of the asset.
+
   ## Keyword parameters:
   * `:revision` (`t:string`) The revision that is to be made to the asset.
   """
@@ -6258,10 +6259,9 @@ defmodule AWS.DataZone do
 
   ## Parameters:
   * `:domain_identifier` (`t:string` required) The Amazon DataZone domain where
-  the specified subscription request is being accepted.
+    the specified subscription request is being accepted.
   * `:identifier` (`t:string` required) The unique identifier of the subscription
-  request that is to be accepted.
-  ## Keyword parameters:
+    request that is to be accepted.
   """
   @spec accept_subscription_request(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, accept_subscription_request_output(), any()}
@@ -6310,11 +6310,10 @@ defmodule AWS.DataZone do
 
   ## Parameters:
   * `:domain_identifier` (`t:string` required) The ID of the Amazon DataZone
-  domain in which the environment role is associated.
+    domain in which the environment role is associated.
   * `:environment_identifier` (`t:string` required) The ID of the Amazon DataZone
-  environment.
+    environment.
   * `:environment_role_arn` (`t:string` required) The ARN of the environment role.
-  ## Keyword parameters:
   """
   @spec associate_environment_role(
           AWS.Client.t(),
@@ -6370,9 +6369,8 @@ defmodule AWS.DataZone do
 
   ## Parameters:
   * `:domain_identifier` (`t:string` required) The ID of the Amazon DataZone
-  domain in which the metadata generation run is to be cancelled.
+    domain in which the metadata generation run is to be cancelled.
   * `:identifier` (`t:string` required) The ID of the metadata generation run.
-  ## Keyword parameters:
   """
   @spec cancel_metadata_generation_run(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, cancel_metadata_generation_run_output(), any()}
@@ -6421,10 +6419,9 @@ defmodule AWS.DataZone do
 
   ## Parameters:
   * `:domain_identifier` (`t:string` required) The unique identifier of the Amazon
-  DataZone domain where the subscription request is being cancelled.
+    DataZone domain where the subscription request is being cancelled.
   * `:identifier` (`t:string` required) The unique identifier of the subscription
-  that is being cancelled.
-  ## Keyword parameters:
+    that is being cancelled.
   """
   @spec cancel_subscription(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, cancel_subscription_output(), any()}
@@ -6468,8 +6465,7 @@ defmodule AWS.DataZone do
 
   ## Parameters:
   * `:domain_identifier` (`t:string` required) Amazon DataZone domain where the
-  asset is created.
-  ## Keyword parameters:
+    asset is created.
   """
   @spec create_asset(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, create_asset_output(), any()}
@@ -6513,8 +6509,7 @@ defmodule AWS.DataZone do
   ## Parameters:
   * `:asset_identifier` (`t:string` required) The ID of the data asset.
   * `:domain_identifier` (`t:string` required) The ID of the domain in which you
-  want to create an asset filter.
-  ## Keyword parameters:
+    want to create an asset filter.
   """
   @spec create_asset_filter(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, create_asset_filter_output(), any()}
@@ -6558,9 +6553,8 @@ defmodule AWS.DataZone do
 
   ## Parameters:
   * `:domain_identifier` (`t:string` required) The unique identifier of the domain
-  where the asset is being revised.
+    where the asset is being revised.
   * `:identifier` (`t:string` required) The identifier of the asset.
-  ## Keyword parameters:
   """
   @spec create_asset_revision(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, create_asset_revision_output(), any()}
@@ -6604,8 +6598,7 @@ defmodule AWS.DataZone do
 
   ## Parameters:
   * `:domain_identifier` (`t:string` required) The unique identifier of the Amazon
-  DataZone domain where the custom asset type is being created.
-  ## Keyword parameters:
+    DataZone domain where the custom asset type is being created.
   """
   @spec create_asset_type(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, create_asset_type_output(), any()}
@@ -6648,8 +6641,7 @@ defmodule AWS.DataZone do
 
   ## Parameters:
   * `:domain_identifier` (`t:string` required) The ID of the Amazon DataZone
-  domain where the data source is created.
-  ## Keyword parameters:
+    domain where the data source is created.
   """
   @spec create_data_source(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, create_data_source_output(), any()}
@@ -6691,7 +6683,6 @@ defmodule AWS.DataZone do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=datazone%20CreateDomain&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec create_domain(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_domain_output(), any()}
@@ -6734,8 +6725,7 @@ defmodule AWS.DataZone do
 
   ## Parameters:
   * `:domain_identifier` (`t:string` required) The identifier of the Amazon
-  DataZone domain in which the environment is created.
-  ## Keyword parameters:
+    DataZone domain in which the environment is created.
   """
   @spec create_environment(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, create_environment_output(), any()}
@@ -6779,10 +6769,9 @@ defmodule AWS.DataZone do
 
   ## Parameters:
   * `:domain_identifier` (`t:string` required) The ID of the Amazon DataZone
-  domain in which the environment action is created.
+    domain in which the environment action is created.
   * `:environment_identifier` (`t:string` required) The ID of the environment in
-  which the environment action is created.
-  ## Keyword parameters:
+    which the environment action is created.
   """
   @spec create_environment_action(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, create_environment_action_output(), any()}
@@ -6831,8 +6820,7 @@ defmodule AWS.DataZone do
 
   ## Parameters:
   * `:domain_identifier` (`t:string` required) The ID of the Amazon DataZone
-  domain in which this environment profile is created.
-  ## Keyword parameters:
+    domain in which this environment profile is created.
   """
   @spec create_environment_profile(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, create_environment_profile_output(), any()}
@@ -6875,8 +6863,7 @@ defmodule AWS.DataZone do
 
   ## Parameters:
   * `:domain_identifier` (`t:string` required) The ID of the Amazon DataZone
-  domain in which this metadata form type is created.
-  ## Keyword parameters:
+    domain in which this metadata form type is created.
   """
   @spec create_form_type(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, create_form_type_output(), any()}
@@ -6919,8 +6906,7 @@ defmodule AWS.DataZone do
 
   ## Parameters:
   * `:domain_identifier` (`t:string` required) The ID of the Amazon DataZone
-  domain in which this business glossary is created.
-  ## Keyword parameters:
+    domain in which this business glossary is created.
   """
   @spec create_glossary(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, create_glossary_output(), any()}
@@ -6963,8 +6949,7 @@ defmodule AWS.DataZone do
 
   ## Parameters:
   * `:domain_identifier` (`t:string` required) The ID of the Amazon DataZone
-  domain in which this business glossary term is created.
-  ## Keyword parameters:
+    domain in which this business glossary term is created.
   """
   @spec create_glossary_term(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, create_glossary_term_output(), any()}
@@ -7007,8 +6992,7 @@ defmodule AWS.DataZone do
 
   ## Parameters:
   * `:domain_identifier` (`t:string` required) The identifier of the Amazon
-  DataZone domain in which the group profile is created.
-  ## Keyword parameters:
+    DataZone domain in which the group profile is created.
   """
   @spec create_group_profile(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, create_group_profile_output(), any()}
@@ -7052,8 +7036,7 @@ defmodule AWS.DataZone do
 
   ## Parameters:
   * `:domain_identifier` (`t:string` required) The ID of the Amazon DataZone
-  domain.
-  ## Keyword parameters:
+    domain.
   """
   @spec create_listing_change_set(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, create_listing_change_set_output(), any()}
@@ -7096,8 +7079,7 @@ defmodule AWS.DataZone do
 
   ## Parameters:
   * `:domain_identifier` (`t:string` required) The ID of the Amazon DataZone
-  domain in which this project is created.
-  ## Keyword parameters:
+    domain in which this project is created.
   """
   @spec create_project(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, create_project_output(), any()}
@@ -7140,10 +7122,9 @@ defmodule AWS.DataZone do
 
   ## Parameters:
   * `:domain_identifier` (`t:string` required) The ID of the Amazon DataZone
-  domain in which project membership is created.
+    domain in which project membership is created.
   * `:project_identifier` (`t:string` required) The ID of the project for which
-  this project membership was created.
-  ## Keyword parameters:
+    this project membership was created.
   """
   @spec create_project_membership(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, create_project_membership_output(), any()}
@@ -7192,8 +7173,7 @@ defmodule AWS.DataZone do
 
   ## Parameters:
   * `:domain_identifier` (`t:string` required) The ID of the Amazon DataZone
-  domain in which the subscription grant is created.
-  ## Keyword parameters:
+    domain in which the subscription grant is created.
   """
   @spec create_subscription_grant(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, create_subscription_grant_output(), any()}
@@ -7236,8 +7216,7 @@ defmodule AWS.DataZone do
 
   ## Parameters:
   * `:domain_identifier` (`t:string` required) The ID of the Amazon DataZone
-  domain in which the subscription request is created.
-  ## Keyword parameters:
+    domain in which the subscription request is created.
   """
   @spec create_subscription_request(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, create_subscription_request_output(), any()}
@@ -7280,10 +7259,9 @@ defmodule AWS.DataZone do
 
   ## Parameters:
   * `:domain_identifier` (`t:string` required) The ID of the Amazon DataZone
-  domain in which subscription target is created.
+    domain in which subscription target is created.
   * `:environment_identifier` (`t:string` required) The ID of the environment in
-  which subscription target is created.
-  ## Keyword parameters:
+    which subscription target is created.
   """
   @spec create_subscription_target(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, create_subscription_target_output(), any()}
@@ -7332,8 +7310,7 @@ defmodule AWS.DataZone do
 
   ## Parameters:
   * `:domain_identifier` (`t:string` required) The identifier of the Amazon
-  DataZone domain in which a user profile is created.
-  ## Keyword parameters:
+    DataZone domain in which a user profile is created.
   """
   @spec create_user_profile(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, create_user_profile_output(), any()}
@@ -7376,10 +7353,9 @@ defmodule AWS.DataZone do
 
   ## Parameters:
   * `:domain_identifier` (`t:string` required) The ID of the Amazon DataZone
-  domain in which the asset is deleted.
+    domain in which the asset is deleted.
   * `:identifier` (`t:string` required) The identifier of the asset that is
-  deleted.
-  ## Keyword parameters:
+    deleted.
   """
   @spec delete_asset(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, delete_asset_output(), any()}
@@ -7434,10 +7410,9 @@ defmodule AWS.DataZone do
   ## Parameters:
   * `:asset_identifier` (`t:string` required) The ID of the data asset.
   * `:domain_identifier` (`t:string` required) The ID of the domain where you want
-  to delete an asset filter.
+    to delete an asset filter.
   * `:identifier` (`t:string` required) The ID of the asset filter that you want
-  to delete.
-  ## Keyword parameters:
+    to delete.
   """
   @spec delete_asset_filter(AWS.Client.t(), String.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
@@ -7497,10 +7472,9 @@ defmodule AWS.DataZone do
 
   ## Parameters:
   * `:domain_identifier` (`t:string` required) The ID of the Amazon DataZone
-  domain in which the asset type is deleted.
+    domain in which the asset type is deleted.
   * `:identifier` (`t:string` required) The identifier of the asset type that is
-  deleted.
-  ## Keyword parameters:
+    deleted.
   """
   @spec delete_asset_type(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, delete_asset_type_output(), any()}
@@ -7554,15 +7528,16 @@ defmodule AWS.DataZone do
 
   ## Parameters:
   * `:domain_identifier` (`t:string` required) The ID of the Amazon DataZone
-  domain in which the data source is deleted.
+    domain in which the data source is deleted.
   * `:identifier` (`t:string` required) The identifier of the data source that is
-  deleted.
+    deleted.
+
   ## Keyword parameters:
   * `:client_token` (`t:string`) A unique, case-sensitive identifier that is
-  provided to ensure the idempotency of the request.
+    provided to ensure the idempotency of the request.
   * `:retain_permissions_on_revoke_failure` (`t:string`) Specifies that the
-  granted permissions are retained in case of a self-subscribe functionality
-  failure for a data source.
+    granted permissions are retained in case of a self-subscribe functionality
+    failure for a data source.
   """
   @spec delete_data_source(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, delete_data_source_output(), any()}
@@ -7634,12 +7609,13 @@ defmodule AWS.DataZone do
 
   ## Parameters:
   * `:identifier` (`t:string` required) The identifier of the Amazon Web Services
-  domain that is to be deleted.
+    domain that is to be deleted.
+
   ## Keyword parameters:
   * `:client_token` (`t:string`) A unique, case-sensitive identifier that is
-  provided to ensure the idempotency of the request.
+    provided to ensure the idempotency of the request.
   * `:skip_deletion_check` (`t:string`) Specifies the optional flag to delete all
-  child entities within the domain.
+    child entities within the domain.
   """
   @spec delete_domain(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, delete_domain_output(), any()}
@@ -7710,10 +7686,9 @@ defmodule AWS.DataZone do
 
   ## Parameters:
   * `:domain_identifier` (`t:string` required) The ID of the Amazon DataZone
-  domain in which the environment is deleted.
+    domain in which the environment is deleted.
   * `:identifier` (`t:string` required) The identifier of the environment that is
-  to be deleted.
-  ## Keyword parameters:
+    to be deleted.
   """
   @spec delete_environment(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
@@ -7768,12 +7743,11 @@ defmodule AWS.DataZone do
 
   ## Parameters:
   * `:domain_identifier` (`t:string` required) The ID of the Amazon DataZone
-  domain in which an environment action is deleted.
+    domain in which an environment action is deleted.
   * `:environment_identifier` (`t:string` required) The ID of the environment
-  where an environment action is deleted.
+    where an environment action is deleted.
   * `:identifier` (`t:string` required) The ID of the environment action that is
-  deleted.
-  ## Keyword parameters:
+    deleted.
   """
   @spec delete_environment_action(AWS.Client.t(), String.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
@@ -7833,10 +7807,9 @@ defmodule AWS.DataZone do
 
   ## Parameters:
   * `:domain_identifier` (`t:string` required) The ID of the Amazon DataZone
-  domain in which the blueprint configuration is deleted.
+    domain in which the blueprint configuration is deleted.
   * `:environment_blueprint_identifier` (`t:string` required) The ID of the
-  blueprint the configuration of which is deleted.
-  ## Keyword parameters:
+    blueprint the configuration of which is deleted.
   """
   @spec delete_environment_blueprint_configuration(
           AWS.Client.t(),
@@ -7900,10 +7873,9 @@ defmodule AWS.DataZone do
 
   ## Parameters:
   * `:domain_identifier` (`t:string` required) The ID of the Amazon DataZone
-  domain in which the environment profile is deleted.
+    domain in which the environment profile is deleted.
   * `:identifier` (`t:string` required) The ID of the environment profile that is
-  deleted.
-  ## Keyword parameters:
+    deleted.
   """
   @spec delete_environment_profile(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
@@ -7957,10 +7929,9 @@ defmodule AWS.DataZone do
 
   ## Parameters:
   * `:domain_identifier` (`t:string` required) The ID of the Amazon DataZone
-  domain in which the metadata form type is deleted.
+    domain in which the metadata form type is deleted.
   * `:form_type_identifier` (`t:string` required) The ID of the metadata form type
-  that is deleted.
-  ## Keyword parameters:
+    that is deleted.
   """
   @spec delete_form_type(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, delete_form_type_output(), any()}
@@ -8014,10 +7985,9 @@ defmodule AWS.DataZone do
 
   ## Parameters:
   * `:domain_identifier` (`t:string` required) The ID of the Amazon DataZone
-  domain in which the business glossary is deleted.
+    domain in which the business glossary is deleted.
   * `:identifier` (`t:string` required) The ID of the business glossary that is
-  deleted.
-  ## Keyword parameters:
+    deleted.
   """
   @spec delete_glossary(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, delete_glossary_output(), any()}
@@ -8071,10 +8041,9 @@ defmodule AWS.DataZone do
 
   ## Parameters:
   * `:domain_identifier` (`t:string` required) The ID of the Amazon DataZone
-  domain in which the business glossary term is deleted.
+    domain in which the business glossary term is deleted.
   * `:identifier` (`t:string` required) The ID of the business glossary term that
-  is deleted.
-  ## Keyword parameters:
+    is deleted.
   """
   @spec delete_glossary_term(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, delete_glossary_term_output(), any()}
@@ -8128,9 +8097,8 @@ defmodule AWS.DataZone do
 
   ## Parameters:
   * `:domain_identifier` (`t:string` required) The ID of the Amazon DataZone
-  domain.
+    domain.
   * `:identifier` (`t:string` required) The ID of the listing to be deleted.
-  ## Keyword parameters:
   """
   @spec delete_listing(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, delete_listing_output(), any()}
@@ -8184,12 +8152,13 @@ defmodule AWS.DataZone do
 
   ## Parameters:
   * `:domain_identifier` (`t:string` required) The ID of the Amazon DataZone
-  domain in which the project is deleted.
+    domain in which the project is deleted.
   * `:identifier` (`t:string` required) The identifier of the project that is to
-  be deleted.
+    be deleted.
+
   ## Keyword parameters:
   * `:skip_deletion_check` (`t:string`) Specifies the optional flag to delete all
-  child entities within the project.
+    child entities within the project.
   """
   @spec delete_project(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, delete_project_output(), any()}
@@ -8254,10 +8223,9 @@ defmodule AWS.DataZone do
 
   ## Parameters:
   * `:domain_identifier` (`t:string` required) The ID of the Amazon DataZone
-  domain where project membership is deleted.
+    domain where project membership is deleted.
   * `:project_identifier` (`t:string` required) The ID of the Amazon DataZone
-  project the membership to which is deleted.
-  ## Keyword parameters:
+    project the membership to which is deleted.
   """
   @spec delete_project_membership(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, delete_project_membership_output(), any()}
@@ -8306,10 +8274,9 @@ defmodule AWS.DataZone do
 
   ## Parameters:
   * `:domain_identifier` (`t:string` required) The ID of the Amazon DataZone
-  domain where the subscription grant is deleted.
+    domain where the subscription grant is deleted.
   * `:identifier` (`t:string` required) The ID of the subscription grant that is
-  deleted.
-  ## Keyword parameters:
+    deleted.
   """
   @spec delete_subscription_grant(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, delete_subscription_grant_output(), any()}
@@ -8363,10 +8330,9 @@ defmodule AWS.DataZone do
 
   ## Parameters:
   * `:domain_identifier` (`t:string` required) The ID of the Amazon DataZone
-  domain in which the subscription request is deleted.
+    domain in which the subscription request is deleted.
   * `:identifier` (`t:string` required) The ID of the subscription request that is
-  deleted.
-  ## Keyword parameters:
+    deleted.
   """
   @spec delete_subscription_request(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
@@ -8425,12 +8391,11 @@ defmodule AWS.DataZone do
 
   ## Parameters:
   * `:domain_identifier` (`t:string` required) The ID of the Amazon DataZone
-  domain in which the subscription target is deleted.
+    domain in which the subscription target is deleted.
   * `:environment_identifier` (`t:string` required) The ID of the Amazon DataZone
-  environment in which the subscription target is deleted.
+    environment in which the subscription target is deleted.
   * `:identifier` (`t:string` required) The ID of the subscription target that is
-  deleted.
-  ## Keyword parameters:
+    deleted.
   """
   @spec delete_subscription_target(
           AWS.Client.t(),
@@ -8496,18 +8461,19 @@ defmodule AWS.DataZone do
 
   ## Parameters:
   * `:domain_identifier` (`t:string` required) The ID of the Amazon DataZone
-  domain that houses the asset for which you want to delete a time series
-  form.
+    domain that houses the asset for which you want to delete a time series
+    form.
   * `:entity_identifier` (`t:string` required) The ID of the asset for which you
-  want to delete a time series form.
+    want to delete a time series form.
   * `:entity_type` (`t:enum["ASSET|LISTING"]` required) The type of the asset for
-  which you want to delete a time series form.
+    which you want to delete a time series form.
   * `:form_name` (`t:string` required) The name of the time series form that you
-  want to delete.
+    want to delete.
+
   ## Keyword parameters:
   * `:client_token` (`t:string`) A unique, case-sensitive identifier to ensure
-  idempotency of the request. This field is automatically populated if not
-  provided.
+    idempotency of the request. This field is automatically populated if not
+    provided.
   """
   @spec delete_time_series_data_points(
           AWS.Client.t(),
@@ -8587,10 +8553,9 @@ defmodule AWS.DataZone do
 
   ## Parameters:
   * `:domain_identifier` (`t:string` required) The ID of the Amazon DataZone
-  domain in which an environment role is disassociated.
+    domain in which an environment role is disassociated.
   * `:environment_identifier` (`t:string` required) The ID of the environment.
   * `:environment_role_arn` (`t:string` required) The ARN of the environment role.
-  ## Keyword parameters:
   """
   @spec disassociate_environment_role(
           AWS.Client.t(),
@@ -8656,8 +8621,9 @@ defmodule AWS.DataZone do
 
   ## Parameters:
   * `:domain_identifier` (`t:string` required) The ID of the Amazon DataZone
-  domain to which the asset belongs.
+    domain to which the asset belongs.
   * `:identifier` (`t:string` required) The ID of the Amazon DataZone asset.
+
   ## Keyword parameters:
   * `:revision` (`t:string`) The revision of the Amazon DataZone asset.
   """
@@ -8713,9 +8679,8 @@ defmodule AWS.DataZone do
   ## Parameters:
   * `:asset_identifier` (`t:string` required) The ID of the data asset.
   * `:domain_identifier` (`t:string` required) The ID of the domain where you want
-  to get an asset filter.
+    to get an asset filter.
   * `:identifier` (`t:string` required) The ID of the asset filter.
-  ## Keyword parameters:
   """
   @spec get_asset_filter(AWS.Client.t(), String.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_asset_filter_output(), any()}
@@ -8763,8 +8728,9 @@ defmodule AWS.DataZone do
 
   ## Parameters:
   * `:domain_identifier` (`t:string` required) The ID of the Amazon DataZone
-  domain in which the asset type exists.
+    domain in which the asset type exists.
   * `:identifier` (`t:string` required) The ID of the asset type.
+
   ## Keyword parameters:
   * `:revision` (`t:string`) The revision of the asset type.
   """
@@ -8819,9 +8785,8 @@ defmodule AWS.DataZone do
 
   ## Parameters:
   * `:domain_identifier` (`t:string` required) The ID of the Amazon DataZone
-  domain in which the data source exists.
+    domain in which the data source exists.
   * `:identifier` (`t:string` required) The ID of the Amazon DataZone data source.
-  ## Keyword parameters:
   """
   @spec get_data_source(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_data_source_output(), any()}
@@ -8863,9 +8828,8 @@ defmodule AWS.DataZone do
 
   ## Parameters:
   * `:domain_identifier` (`t:string` required) The ID of the domain in which this
-  data source run was performed.
+    data source run was performed.
   * `:identifier` (`t:string` required) The ID of the data source run.
-  ## Keyword parameters:
   """
   @spec get_data_source_run(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_data_source_run_output(), any()}
@@ -8907,8 +8871,7 @@ defmodule AWS.DataZone do
 
   ## Parameters:
   * `:identifier` (`t:string` required) The identifier of the specified Amazon
-  DataZone domain.
-  ## Keyword parameters:
+    DataZone domain.
   """
   @spec get_domain(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_domain_output(), any()}
@@ -8949,9 +8912,8 @@ defmodule AWS.DataZone do
 
   ## Parameters:
   * `:domain_identifier` (`t:string` required) The ID of the Amazon DataZone
-  domain where the environment exists.
+    domain where the environment exists.
   * `:identifier` (`t:string` required) The ID of the Amazon DataZone environment.
-  ## Keyword parameters:
   """
   @spec get_environment(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_environment_output(), any()}
@@ -8993,11 +8955,10 @@ defmodule AWS.DataZone do
 
   ## Parameters:
   * `:domain_identifier` (`t:string` required) The ID of the Amazon DataZone
-  domain in which the GetEnvironmentAction API is invoked.
+    domain in which the GetEnvironmentAction API is invoked.
   * `:environment_identifier` (`t:string` required) The environment ID of the
-  environment action.
+    environment action.
   * `:identifier` (`t:string` required) The ID of the environment action
-  ## Keyword parameters:
   """
   @spec get_environment_action(AWS.Client.t(), String.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_environment_action_output(), any()}
@@ -9045,9 +9006,8 @@ defmodule AWS.DataZone do
 
   ## Parameters:
   * `:domain_identifier` (`t:string` required) The identifier of the domain in
-  which this blueprint exists.
+    which this blueprint exists.
   * `:identifier` (`t:string` required) The ID of this Amazon DataZone blueprint.
-  ## Keyword parameters:
   """
   @spec get_environment_blueprint(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_environment_blueprint_output(), any()}
@@ -9089,10 +9049,9 @@ defmodule AWS.DataZone do
 
   ## Parameters:
   * `:domain_identifier` (`t:string` required) The ID of the Amazon DataZone
-  domain where this blueprint exists.
+    domain where this blueprint exists.
   * `:environment_blueprint_identifier` (`t:string` required) He ID of the
-  blueprint.
-  ## Keyword parameters:
+    blueprint.
   """
   @spec get_environment_blueprint_configuration(
           AWS.Client.t(),
@@ -9144,10 +9103,9 @@ defmodule AWS.DataZone do
 
   ## Parameters:
   * `:domain_identifier` (`t:string` required) The ID of the Amazon DataZone
-  domain in which this environment and its credentials exist.
+    domain in which this environment and its credentials exist.
   * `:environment_identifier` (`t:string` required) The ID of the environment
-  whose credentials this operation gets.
-  ## Keyword parameters:
+    whose credentials this operation gets.
   """
   @spec get_environment_credentials(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_environment_credentials_output(), any()}
@@ -9194,9 +9152,8 @@ defmodule AWS.DataZone do
 
   ## Parameters:
   * `:domain_identifier` (`t:string` required) The ID of the Amazon DataZone
-  domain in which this environment profile exists.
+    domain in which this environment profile exists.
   * `:identifier` (`t:string` required) The ID of the environment profile.
-  ## Keyword parameters:
   """
   @spec get_environment_profile(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_environment_profile_output(), any()}
@@ -9238,9 +9195,10 @@ defmodule AWS.DataZone do
 
   ## Parameters:
   * `:domain_identifier` (`t:string` required) The ID of the Amazon DataZone
-  domain in which this metadata form type exists.
+    domain in which this metadata form type exists.
   * `:form_type_identifier` (`t:string` required) The ID of the metadata form
-  type.
+    type.
+
   ## Keyword parameters:
   * `:revision` (`t:string`) The revision of this metadata form type.
   """
@@ -9295,9 +9253,8 @@ defmodule AWS.DataZone do
 
   ## Parameters:
   * `:domain_identifier` (`t:string` required) The ID of the Amazon DataZone
-  domain in which this business glossary exists.
+    domain in which this business glossary exists.
   * `:identifier` (`t:string` required) The ID of the business glossary.
-  ## Keyword parameters:
   """
   @spec get_glossary(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_glossary_output(), any()}
@@ -9339,9 +9296,8 @@ defmodule AWS.DataZone do
 
   ## Parameters:
   * `:domain_identifier` (`t:string` required) The ID of the Amazon DataZone
-  domain in which this business glossary term exists.
+    domain in which this business glossary term exists.
   * `:identifier` (`t:string` required) The ID of the business glossary term.
-  ## Keyword parameters:
   """
   @spec get_glossary_term(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_glossary_term_output(), any()}
@@ -9383,9 +9339,8 @@ defmodule AWS.DataZone do
 
   ## Parameters:
   * `:domain_identifier` (`t:string` required) The identifier of the Amazon
-  DataZone domain in which the group profile exists.
+    DataZone domain in which the group profile exists.
   * `:group_identifier` (`t:string` required) The identifier of the group profile.
-  ## Keyword parameters:
   """
   @spec get_group_profile(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_group_profile_output(), any()}
@@ -9427,8 +9382,7 @@ defmodule AWS.DataZone do
 
   ## Parameters:
   * `:domain_identifier` (`t:string` required) the ID of the Amazon DataZone
-  domain the data portal of which you want to get.
-  ## Keyword parameters:
+    domain the data portal of which you want to get.
   """
   @spec get_iam_portal_login_url(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_iam_portal_login_url_output(), any()}
@@ -9471,12 +9425,13 @@ defmodule AWS.DataZone do
 
   ## Parameters:
   * `:domain_identifier` (`t:string` required) The ID of the domain in which you
-  want to get the data lineage node.
+    want to get the data lineage node.
   * `:identifier` (`t:string` required) The ID of the data lineage node that you
-  want to get.
+    want to get.
+
   ## Keyword parameters:
   * `:event_timestamp` (`t:string`) The event time stamp for which you want to get
-  the data lineage node.
+    the data lineage node.
   """
   @spec get_lineage_node(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_lineage_node_output(), any()}
@@ -9529,8 +9484,9 @@ defmodule AWS.DataZone do
 
   ## Parameters:
   * `:domain_identifier` (`t:string` required) The ID of the Amazon DataZone
-  domain.
+    domain.
   * `:identifier` (`t:string` required) The ID of the listing.
+
   ## Keyword parameters:
   * `:listing_revision` (`t:string`) The revision of the listing.
   """
@@ -9585,10 +9541,9 @@ defmodule AWS.DataZone do
 
   ## Parameters:
   * `:domain_identifier` (`t:string` required) The ID of the Amazon DataZone
-  domain the metadata generation run of which you want to get.
+    domain the metadata generation run of which you want to get.
   * `:identifier` (`t:string` required) The identifier of the metadata generation
-  run.
-  ## Keyword parameters:
+    run.
   """
   @spec get_metadata_generation_run(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_metadata_generation_run_output(), any()}
@@ -9635,9 +9590,8 @@ defmodule AWS.DataZone do
 
   ## Parameters:
   * `:domain_identifier` (`t:string` required) The ID of the Amazon DataZone
-  domain in which the project exists.
+    domain in which the project exists.
   * `:identifier` (`t:string` required) The ID of the project.
-  ## Keyword parameters:
   """
   @spec get_project(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_project_output(), any()}
@@ -9679,9 +9633,8 @@ defmodule AWS.DataZone do
 
   ## Parameters:
   * `:domain_identifier` (`t:string` required) The ID of the Amazon DataZone
-  domain in which the subscription exists.
+    domain in which the subscription exists.
   * `:identifier` (`t:string` required) The ID of the subscription.
-  ## Keyword parameters:
   """
   @spec get_subscription(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_subscription_output(), any()}
@@ -9723,9 +9676,8 @@ defmodule AWS.DataZone do
 
   ## Parameters:
   * `:domain_identifier` (`t:string` required) The ID of the Amazon DataZone
-  domain in which the subscription grant exists.
+    domain in which the subscription grant exists.
   * `:identifier` (`t:string` required) The ID of the subscription grant.
-  ## Keyword parameters:
   """
   @spec get_subscription_grant(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_subscription_grant_output(), any()}
@@ -9767,10 +9719,9 @@ defmodule AWS.DataZone do
 
   ## Parameters:
   * `:domain_identifier` (`t:string` required) The identifier of the Amazon
-  DataZone domain in which to get the subscription request details.
+    DataZone domain in which to get the subscription request details.
   * `:identifier` (`t:string` required) The identifier of the subscription request
-  the details of which to get.
-  ## Keyword parameters:
+    the details of which to get.
   """
   @spec get_subscription_request_details(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_subscription_request_details_output(), any()}
@@ -9817,11 +9768,10 @@ defmodule AWS.DataZone do
 
   ## Parameters:
   * `:domain_identifier` (`t:string` required) The ID of the Amazon DataZone
-  domain in which the subscription target exists.
+    domain in which the subscription target exists.
   * `:environment_identifier` (`t:string` required) The ID of the environment
-  associated with the subscription target.
+    associated with the subscription target.
   * `:identifier` (`t:string` required) The ID of the subscription target.
-  ## Keyword parameters:
   """
   @spec get_subscription_target(AWS.Client.t(), String.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_subscription_target_output(), any()}
@@ -9869,16 +9819,15 @@ defmodule AWS.DataZone do
 
   ## Parameters:
   * `:domain_identifier` (`t:string` required) The ID of the Amazon DataZone
-  domain that houses the asset for which you want to get the data point.
+    domain that houses the asset for which you want to get the data point.
   * `:entity_identifier` (`t:string` required) The ID of the asset for which you
-  want to get the data point.
+    want to get the data point.
   * `:entity_type` (`t:enum["ASSET|LISTING"]` required) The type of the asset for
-  which you want to get the data point.
+    which you want to get the data point.
   * `:identifier` (`t:string` required) The ID of the data point that you want to
-  get.
+    get.
   * `:form_name` (`t:string` required) The name of the time series form that
-  houses the data point that you want to get.
-  ## Keyword parameters:
+    houses the data point that you want to get.
   """
   @spec get_time_series_data_point(
           AWS.Client.t(),
@@ -9937,9 +9886,10 @@ defmodule AWS.DataZone do
 
   ## Parameters:
   * `:domain_identifier` (`t:string` required) the ID of the Amazon DataZone
-  domain the data portal of which you want to get.
+    domain the data portal of which you want to get.
   * `:user_identifier` (`t:string` required) The identifier of the user for which
-  you want to get the user profile.
+    you want to get the user profile.
+
   ## Keyword parameters:
   * `:type` (`t:enum["IAM|SSO"]`) The type of the user profile.
   """
@@ -9995,19 +9945,20 @@ defmodule AWS.DataZone do
   ## Parameters:
   * `:asset_identifier` (`t:string` required) The ID of the data asset.
   * `:domain_identifier` (`t:string` required) The ID of the domain where you want
-  to list asset filters.
+    to list asset filters.
+
   ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of asset filters to return in
-  a single call to ListAssetFilters. When the number of asset filters to be
-  listed is greater than the value of MaxResults, the response contains a
-  NextToken value that you can use in a subsequent call to ListAssetFilters to
-  list the next set of asset filters.
+    a single call to ListAssetFilters. When the number of asset filters to be
+    listed is greater than the value of MaxResults, the response contains a
+    NextToken value that you can use in a subsequent call to ListAssetFilters to
+    list the next set of asset filters.
   * `:next_token` (`t:string`) When the number of asset filters is greater than
-  the default value for the MaxResults parameter, or if you explicitly specify
-  a value for MaxResults that is less than the number of asset filters, the
-  response includes a pagination token named NextToken. You can specify this
-  NextToken value in a subsequent call to ListAssetFilters to list the next
-  set of asset filters.
+    the default value for the MaxResults parameter, or if you explicitly specify
+    a value for MaxResults that is less than the number of asset filters, the
+    response includes a pagination token named NextToken. You can specify this
+    NextToken value in a subsequent call to ListAssetFilters to list the next
+    set of asset filters.
   * `:status` (`t:enum["INVALID|VALID"]`) The status of the asset filter.
   """
   @spec list_asset_filters(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
@@ -10076,18 +10027,19 @@ defmodule AWS.DataZone do
   ## Parameters:
   * `:domain_identifier` (`t:string` required) The identifier of the domain.
   * `:identifier` (`t:string` required) The identifier of the asset.
+
   ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of revisions to return in a
-  single call to ListAssetRevisions. When the number of revisions to be listed
-  is greater than the value of MaxResults, the response contains a NextToken
-  value that you can use in a subsequent call to ListAssetRevisions to list
-  the next set of revisions.
+    single call to ListAssetRevisions. When the number of revisions to be listed
+    is greater than the value of MaxResults, the response contains a NextToken
+    value that you can use in a subsequent call to ListAssetRevisions to list
+    the next set of revisions.
   * `:next_token` (`t:string`) When the number of revisions is greater than the
-  default value for the MaxResults parameter, or if you explicitly specify a
-  value for MaxResults that is less than the number of revisions, the response
-  includes a pagination token named NextToken. You can specify this NextToken
-  value in a subsequent call to ListAssetRevisions to list the next set of
-  revisions.
+    default value for the MaxResults parameter, or if you explicitly specify a
+    value for MaxResults that is less than the number of revisions, the response
+    includes a pagination token named NextToken. You can specify this NextToken
+    value in a subsequent call to ListAssetRevisions to list the next set of
+    revisions.
   """
   @spec list_asset_revisions(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, list_asset_revisions_output(), any()}
@@ -10147,23 +10099,24 @@ defmodule AWS.DataZone do
 
   ## Parameters:
   * `:domain_identifier` (`t:string` required) The identifier of the Amazon
-  DataZone domain in which to list data source run activities.
+    DataZone domain in which to list data source run activities.
   * `:identifier` (`t:string` required) The identifier of the data source run.
+
   ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of activities to return in a
-  single call to ListDataSourceRunActivities. When the number of activities to
-  be listed is greater than the value of MaxResults, the response contains a
-  NextToken value that you can use in a subsequent call to
-  ListDataSourceRunActivities to list the next set of activities.
+    single call to ListDataSourceRunActivities. When the number of activities to
+    be listed is greater than the value of MaxResults, the response contains a
+    NextToken value that you can use in a subsequent call to
+    ListDataSourceRunActivities to list the next set of activities.
   * `:next_token` (`t:string`) When the number of activities is greater than the
-  default value for the MaxResults parameter, or if you explicitly specify a
-  value for MaxResults that is less than the number of activities, the
-  response includes a pagination token named NextToken. You can specify this
-  NextToken value in a subsequent call to ListDataSourceRunActivities to list
-  the next set of activities.
+    default value for the MaxResults parameter, or if you explicitly specify a
+    value for MaxResults that is less than the number of activities, the
+    response includes a pagination token named NextToken. You can specify this
+    NextToken value in a subsequent call to ListDataSourceRunActivities to list
+    the next set of activities.
   * `:status`
-  (`t:enum["FAILED|PUBLISHING_FAILED|SKIPPED_ALREADY_IMPORTED|SKIPPED_ARCHIVED|SKIPPED_NO_ACCESS|SUCCEEDED_CREATED|SUCCEEDED_UPDATED|UNCHANGED"]`)
-  The status of the data source run.
+    (`t:enum["FAILED|PUBLISHING_FAILED|SKIPPED_ALREADY_IMPORTED|SKIPPED_ARCHIVED|SKIPPED_NO_ACCESS|SUCCEEDED_CREATED|SUCCEEDED_UPDATED|UNCHANGED"]`)
+    The status of the data source run.
   """
   @spec list_data_source_run_activities(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, list_data_source_run_activities_output(), any()}
@@ -10235,22 +10188,23 @@ defmodule AWS.DataZone do
 
   ## Parameters:
   * `:data_source_identifier` (`t:string` required) The identifier of the data
-  source.
+    source.
   * `:domain_identifier` (`t:string` required) The identifier of the Amazon
-  DataZone domain in which to invoke the ListDataSourceRuns action.
+    DataZone domain in which to invoke the ListDataSourceRuns action.
+
   ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of runs to return in a single
-  call to ListDataSourceRuns. When the number of runs to be listed is greater
-  than the value of MaxResults, the response contains a NextToken value that
-  you can use in a subsequent call to ListDataSourceRuns to list the next set
-  of runs.
+    call to ListDataSourceRuns. When the number of runs to be listed is greater
+    than the value of MaxResults, the response contains a NextToken value that
+    you can use in a subsequent call to ListDataSourceRuns to list the next set
+    of runs.
   * `:next_token` (`t:string`) When the number of runs is greater than the default
-  value for the MaxResults parameter, or if you explicitly specify a value for
-  MaxResults that is less than the number of runs, the response includes a
-  pagination token named NextToken. You can specify this NextToken value in a
-  subsequent call to ListDataSourceRuns to list the next set of runs.
+    value for the MaxResults parameter, or if you explicitly specify a value for
+    MaxResults that is less than the number of runs, the response includes a
+    pagination token named NextToken. You can specify this NextToken value in a
+    subsequent call to ListDataSourceRuns to list the next set of runs.
   * `:status` (`t:enum["FAILED|PARTIALLY_SUCCEEDED|REQUESTED|RUNNING|SUCCESS"]`)
-  The status of the data source.
+    The status of the data source.
   """
   @spec list_data_source_runs(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, list_data_source_runs_output(), any()}
@@ -10322,27 +10276,28 @@ defmodule AWS.DataZone do
 
   ## Parameters:
   * `:domain_identifier` (`t:string` required) The identifier of the Amazon
-  DataZone domain in which to list the data sources.
+    DataZone domain in which to list the data sources.
   * `:project_identifier` (`t:string` required) The identifier of the project in
-  which to list data sources.
+    which to list data sources.
+
   ## Keyword parameters:
   * `:environment_identifier` (`t:string`) The identifier of the environment in
-  which to list the data sources.
+    which to list the data sources.
   * `:max_results` (`t:integer`) The maximum number of data sources to return in a
-  single call to ListDataSources. When the number of data sources to be listed
-  is greater than the value of MaxResults, the response contains a NextToken
-  value that you can use in a subsequent call to ListDataSources to list the
-  next set of data sources.
+    single call to ListDataSources. When the number of data sources to be listed
+    is greater than the value of MaxResults, the response contains a NextToken
+    value that you can use in a subsequent call to ListDataSources to list the
+    next set of data sources.
   * `:name` (`t:string`) The name of the data source.
   * `:next_token` (`t:string`) When the number of data sources is greater than the
-  default value for the MaxResults parameter, or if you explicitly specify a
-  value for MaxResults that is less than the number of data sources, the
-  response includes a pagination token named NextToken. You can specify this
-  NextToken value in a subsequent call to ListDataSources to list the next set
-  of data sources.
+    default value for the MaxResults parameter, or if you explicitly specify a
+    value for MaxResults that is less than the number of data sources, the
+    response includes a pagination token named NextToken. You can specify this
+    NextToken value in a subsequent call to ListDataSources to list the next set
+    of data sources.
   * `:status`
-  (`t:enum["CREATING|DELETING|FAILED_CREATION|FAILED_DELETION|FAILED_UPDATE|READY|RUNNING|UPDATING"]`)
-  The status of the data source.
+    (`t:enum["CREATING|DELETING|FAILED_CREATION|FAILED_DELETION|FAILED_UPDATE|READY|RUNNING|UPDATING"]`)
+    The status of the data source.
   * `:type` (`t:string`) The type of the data source.
   """
   @spec list_data_sources(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
@@ -10437,20 +10392,21 @@ defmodule AWS.DataZone do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=datazone%20ListDomains&this_doc_guide=API%2520Reference)
 
   ## Parameters:
+
   ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of domains to return in a
-  single call to ListDomains. When the number of domains to be listed is
-  greater than the value of MaxResults, the response contains a NextToken
-  value that you can use in a subsequent call to ListDomains to list the next
-  set of domains.
+    single call to ListDomains. When the number of domains to be listed is
+    greater than the value of MaxResults, the response contains a NextToken
+    value that you can use in a subsequent call to ListDomains to list the next
+    set of domains.
   * `:next_token` (`t:string`) When the number of domains is greater than the
-  default value for the MaxResults parameter, or if you explicitly specify a
-  value for MaxResults that is less than the number of domains, the response
-  includes a pagination token named NextToken. You can specify this NextToken
-  value in a subsequent call to ListDomains to list the next set of domains.
+    default value for the MaxResults parameter, or if you explicitly specify a
+    value for MaxResults that is less than the number of domains, the response
+    includes a pagination token named NextToken. You can specify this NextToken
+    value in a subsequent call to ListDomains to list the next set of domains.
   * `:status`
-  (`t:enum["AVAILABLE|CREATING|CREATION_FAILED|DELETED|DELETING|DELETION_FAILED"]`)
-  The status of the data source.
+    (`t:enum["AVAILABLE|CREATING|CREATION_FAILED|DELETED|DELETING|DELETION_FAILED"]`)
+    The status of the data source.
   """
   @spec list_domains(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_domains_output(), any()}
@@ -10516,21 +10472,22 @@ defmodule AWS.DataZone do
 
   ## Parameters:
   * `:domain_identifier` (`t:string` required) The ID of the Amazon DataZone
-  domain in which the environment actions are listed.
+    domain in which the environment actions are listed.
   * `:environment_identifier` (`t:string` required) The ID of the envrironment
-  whose environment actions are listed.
+    whose environment actions are listed.
+
   ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of environment actions to
-  return in a single call to ListEnvironmentActions. When the number of
-  environment actions to be listed is greater than the value of MaxResults,
-  the response contains a NextToken value that you can use in a subsequent
-  call to ListEnvironmentActions to list the next set of environment actions.
+    return in a single call to ListEnvironmentActions. When the number of
+    environment actions to be listed is greater than the value of MaxResults,
+    the response contains a NextToken value that you can use in a subsequent
+    call to ListEnvironmentActions to list the next set of environment actions.
   * `:next_token` (`t:string`) When the number of environment actions is greater
-  than the default value for the MaxResults parameter, or if you explicitly
-  specify a value for MaxResults that is less than the number of environment
-  actions, the response includes a pagination token named NextToken. You can
-  specify this NextToken value in a subsequent call to ListEnvironmentActions
-  to list the next set of environment actions.
+    than the default value for the MaxResults parameter, or if you explicitly
+    specify a value for MaxResults that is less than the number of environment
+    actions, the response includes a pagination token named NextToken. You can
+    specify this NextToken value in a subsequent call to ListEnvironmentActions
+    to list the next set of environment actions.
   """
   @spec list_environment_actions(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, list_environment_actions_output(), any()}
@@ -10595,21 +10552,22 @@ defmodule AWS.DataZone do
 
   ## Parameters:
   * `:domain_identifier` (`t:string` required) The identifier of the Amazon
-  DataZone domain.
+    DataZone domain.
+
   ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of blueprint configurations to
-  return in a single call to ListEnvironmentBlueprintConfigurations. When the
-  number of configurations to be listed is greater than the value of
-  MaxResults, the response contains a NextToken value that you can use in a
-  subsequent call to ListEnvironmentBlueprintConfigurations to list the next
-  set of configurations.
+    return in a single call to ListEnvironmentBlueprintConfigurations. When the
+    number of configurations to be listed is greater than the value of
+    MaxResults, the response contains a NextToken value that you can use in a
+    subsequent call to ListEnvironmentBlueprintConfigurations to list the next
+    set of configurations.
   * `:next_token` (`t:string`) When the number of blueprint configurations is
-  greater than the default value for the MaxResults parameter, or if you
-  explicitly specify a value for MaxResults that is less than the number of
-  configurations, the response includes a pagination token named NextToken.
-  You can specify this NextToken value in a subsequent call to
-  ListEnvironmentBlueprintConfigurations to list the next set of
-  configurations.
+    greater than the default value for the MaxResults parameter, or if you
+    explicitly specify a value for MaxResults that is less than the number of
+    configurations, the response includes a pagination token named NextToken.
+    You can specify this NextToken value in a subsequent call to
+    ListEnvironmentBlueprintConfigurations to list the next set of
+    configurations.
   """
   @spec list_environment_blueprint_configurations(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_environment_blueprint_configurations_output(), any()}
@@ -10673,22 +10631,23 @@ defmodule AWS.DataZone do
 
   ## Parameters:
   * `:domain_identifier` (`t:string` required) The identifier of the Amazon
-  DataZone domain.
+    DataZone domain.
+
   ## Keyword parameters:
   * `:managed` (`t:string`) Specifies whether the environment blueprint is managed
-  by Amazon DataZone.
+    by Amazon DataZone.
   * `:max_results` (`t:integer`) The maximum number of blueprints to return in a
-  single call to ListEnvironmentBlueprints. When the number of blueprints to
-  be listed is greater than the value of MaxResults, the response contains a
-  NextToken value that you can use in a subsequent call to
-  ListEnvironmentBlueprints to list the next set of blueprints.
+    single call to ListEnvironmentBlueprints. When the number of blueprints to
+    be listed is greater than the value of MaxResults, the response contains a
+    NextToken value that you can use in a subsequent call to
+    ListEnvironmentBlueprints to list the next set of blueprints.
   * `:name` (`t:string`) The name of the Amazon DataZone environment.
   * `:next_token` (`t:string`) When the number of blueprints in the environment is
-  greater than the default value for the MaxResults parameter, or if you
-  explicitly specify a value for MaxResults that is less than the number of
-  blueprints in the environment, the response includes a pagination token
-  named NextToken. You can specify this NextToken value in a subsequent call
-  to ListEnvironmentBlueprintsto list the next set of blueprints.
+    greater than the default value for the MaxResults parameter, or if you
+    explicitly specify a value for MaxResults that is less than the number of
+    blueprints in the environment, the response includes a pagination token
+    named NextToken. You can specify this NextToken value in a subsequent call
+    to ListEnvironmentBlueprintsto list the next set of blueprints.
   """
   @spec list_environment_blueprints(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_environment_blueprints_output(), any()}
@@ -10761,30 +10720,31 @@ defmodule AWS.DataZone do
 
   ## Parameters:
   * `:domain_identifier` (`t:string` required) The identifier of the Amazon
-  DataZone domain.
+    DataZone domain.
+
   ## Keyword parameters:
   * `:aws_account_id` (`t:string`) The identifier of the Amazon Web Services
-  account where you want to list environment profiles.
+    account where you want to list environment profiles.
   * `:aws_account_region` (`t:string`) The Amazon Web Services region where you
-  want to list environment profiles.
+    want to list environment profiles.
   * `:environment_blueprint_identifier` (`t:string`) The identifier of the
-  blueprint that was used to create the environment profiles that you want to
-  list.
+    blueprint that was used to create the environment profiles that you want to
+    list.
   * `:max_results` (`t:integer`) The maximum number of environment profiles to
-  return in a single call to ListEnvironmentProfiles. When the number of
-  environment profiles to be listed is greater than the value of MaxResults,
-  the response contains a NextToken value that you can use in a subsequent
-  call to ListEnvironmentProfiles to list the next set of environment
-  profiles.
+    return in a single call to ListEnvironmentProfiles. When the number of
+    environment profiles to be listed is greater than the value of MaxResults,
+    the response contains a NextToken value that you can use in a subsequent
+    call to ListEnvironmentProfiles to list the next set of environment
+    profiles.
   * `:name` (`t:string`)
   * `:next_token` (`t:string`) When the number of environment profiles is greater
-  than the default value for the MaxResults parameter, or if you explicitly
-  specify a value for MaxResults that is less than the number of environment
-  profiles, the response includes a pagination token named NextToken. You can
-  specify this NextToken value in a subsequent call to ListEnvironmentProfiles
-  to list the next set of environment profiles.
+    than the default value for the MaxResults parameter, or if you explicitly
+    specify a value for MaxResults that is less than the number of environment
+    profiles, the response includes a pagination token named NextToken. You can
+    specify this NextToken value in a subsequent call to ListEnvironmentProfiles
+    to list the next set of environment profiles.
   * `:project_identifier` (`t:string`) The identifier of the Amazon DataZone
-  project.
+    project.
   """
   @spec list_environment_profiles(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_environment_profiles_output(), any()}
@@ -10894,34 +10854,35 @@ defmodule AWS.DataZone do
 
   ## Parameters:
   * `:domain_identifier` (`t:string` required) The identifier of the Amazon
-  DataZone domain.
+    DataZone domain.
   * `:project_identifier` (`t:string` required) The identifier of the Amazon
-  DataZone project.
+    DataZone project.
+
   ## Keyword parameters:
   * `:aws_account_id` (`t:string`) The identifier of the Amazon Web Services
-  account where you want to list environments.
+    account where you want to list environments.
   * `:aws_account_region` (`t:string`) The Amazon Web Services region where you
-  want to list environments.
+    want to list environments.
   * `:environment_blueprint_identifier` (`t:string`) The identifier of the Amazon
-  DataZone blueprint.
+    DataZone blueprint.
   * `:environment_profile_identifier` (`t:string`) The identifier of the
-  environment profile.
+    environment profile.
   * `:max_results` (`t:integer`) The maximum number of environments to return in a
-  single call to ListEnvironments. When the number of environments to be
-  listed is greater than the value of MaxResults, the response contains a
-  NextToken value that you can use in a subsequent call to ListEnvironments to
-  list the next set of environments.
+    single call to ListEnvironments. When the number of environments to be
+    listed is greater than the value of MaxResults, the response contains a
+    NextToken value that you can use in a subsequent call to ListEnvironments to
+    list the next set of environments.
   * `:name` (`t:string`) The name of the environment.
   * `:next_token` (`t:string`) When the number of environments is greater than the
-  default value for the MaxResults parameter, or if you explicitly specify a
-  value for MaxResults that is less than the number of environments, the
-  response includes a pagination token named NextToken. You can specify this
-  NextToken value in a subsequent call to ListEnvironments to list the next
-  set of environments.
+    default value for the MaxResults parameter, or if you explicitly specify a
+    value for MaxResults that is less than the number of environments, the
+    response includes a pagination token named NextToken. You can specify this
+    NextToken value in a subsequent call to ListEnvironments to list the next
+    set of environments.
   * `:provider` (`t:string`) The provider of the environment.
   * `:status`
-  (`t:enum["ACTIVE|CREATE_FAILED|CREATING|DELETED|DELETE_FAILED|DELETING|DISABLED|EXPIRED|INACCESSIBLE|SUSPENDED|UPDATE_FAILED|UPDATING|VALIDATION_FAILED"]`)
-  The status of the environments that you want to list.
+    (`t:enum["ACTIVE|CREATE_FAILED|CREATING|DELETED|DELETE_FAILED|DELETING|DISABLED|EXPIRED|INACCESSIBLE|SUSPENDED|UPDATE_FAILED|UPDATING|VALIDATION_FAILED"]`)
+    The status of the environments that you want to list.
   """
   @spec list_environments(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, list_environments_output(), any()}
@@ -11050,31 +11011,32 @@ defmodule AWS.DataZone do
 
   ## Parameters:
   * `:domain_identifier` (`t:string` required) The ID of the domain where you want
-  to list the history of the specified data lineage node.
+    to list the history of the specified data lineage node.
   * `:identifier` (`t:string` required) The ID of the data lineage node whose
-  history you want to list.
+    history you want to list.
+
   ## Keyword parameters:
   * `:direction` (`t:enum["DOWNSTREAM|UPSTREAM"]`) The direction of the data
-  lineage node refers to the lineage node having neighbors in that direction.
-  For example, if direction is UPSTREAM, the ListLineageNodeHistory API
-  responds with historical versions with upstream neighbors only.
+    lineage node refers to the lineage node having neighbors in that direction.
+    For example, if direction is UPSTREAM, the ListLineageNodeHistory API
+    responds with historical versions with upstream neighbors only.
   * `:event_timestamp_g_t_e` (`t:string`) Specifies whether the action is to
-  return data lineage node history from the time after the event timestamp.
+    return data lineage node history from the time after the event timestamp.
   * `:event_timestamp_l_t_e` (`t:string`) Specifies whether the action is to
-  return data lineage node history from the time prior of the event timestamp.
+    return data lineage node history from the time prior of the event timestamp.
   * `:max_results` (`t:integer`) The maximum number of history items to return in
-  a single call to ListLineageNodeHistory. When the number of memberships to
-  be listed is greater than the value of MaxResults, the response contains a
-  NextToken value that you can use in a subsequent call to
-  ListLineageNodeHistory to list the next set of items.
+    a single call to ListLineageNodeHistory. When the number of memberships to
+    be listed is greater than the value of MaxResults, the response contains a
+    NextToken value that you can use in a subsequent call to
+    ListLineageNodeHistory to list the next set of items.
   * `:next_token` (`t:string`) When the number of history items is greater than
-  the default value for the MaxResults parameter, or if you explicitly specify
-  a value for MaxResults that is less than the number of items, the response
-  includes a pagination token named NextToken. You can specify this NextToken
-  value in a subsequent call to ListLineageNodeHistory to list the next set of
-  items.
+    the default value for the MaxResults parameter, or if you explicitly specify
+    a value for MaxResults that is less than the number of items, the response
+    includes a pagination token named NextToken. You can specify this NextToken
+    value in a subsequent call to ListLineageNodeHistory to list the next set of
+    items.
   * `:sort_order` (`t:enum["ASCENDING|DESCENDING"]`) The order by which you want
-  data lineage node history to be sorted.
+    data lineage node history to be sorted.
   """
   @spec list_lineage_node_history(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, list_lineage_node_history_output(), any()}
@@ -11176,24 +11138,25 @@ defmodule AWS.DataZone do
 
   ## Parameters:
   * `:domain_identifier` (`t:string` required) The ID of the Amazon DataZone
-  domain where you want to list metadata generation runs.
+    domain where you want to list metadata generation runs.
+
   ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of metadata generation runs to
-  return in a single call to ListMetadataGenerationRuns. When the number of
-  metadata generation runs to be listed is greater than the value of
-  MaxResults, the response contains a NextToken value that you can use in a
-  subsequent call to ListMetadataGenerationRuns to list the next set of
-  revisions.
+    return in a single call to ListMetadataGenerationRuns. When the number of
+    metadata generation runs to be listed is greater than the value of
+    MaxResults, the response contains a NextToken value that you can use in a
+    subsequent call to ListMetadataGenerationRuns to list the next set of
+    revisions.
   * `:next_token` (`t:string`) When the number of metadata generation runs is
-  greater than the default value for the MaxResults parameter, or if you
-  explicitly specify a value for MaxResults that is less than the number of
-  metadata generation runs, the response includes a pagination token named
-  NextToken. You can specify this NextToken value in a subsequent call to
-  ListMetadataGenerationRuns to list the next set of revisions.
+    greater than the default value for the MaxResults parameter, or if you
+    explicitly specify a value for MaxResults that is less than the number of
+    metadata generation runs, the response includes a pagination token named
+    NextToken. You can specify this NextToken value in a subsequent call to
+    ListMetadataGenerationRuns to list the next set of revisions.
   * `:status` (`t:enum["CANCELED|FAILED|IN_PROGRESS|SUBMITTED|SUCCEEDED"]`) The
-  status of the metadata generation runs.
+    status of the metadata generation runs.
   * `:type` (`t:enum["BUSINESS_DESCRIPTIONS"]`) The type of the metadata
-  generation runs.
+    generation runs.
   """
   @spec list_metadata_generation_runs(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_metadata_generation_runs_output(), any()}
@@ -11266,24 +11229,25 @@ defmodule AWS.DataZone do
 
   ## Parameters:
   * `:domain_identifier` (`t:string` required) The identifier of the Amazon
-  DataZone domain.
+    DataZone domain.
   * `:type` (`t:enum["EVENT|TASK"]` required) The type of notifications.
+
   ## Keyword parameters:
   * `:after_timestamp` (`t:string`) The time after which you want to list
-  notifications.
+    notifications.
   * `:before_timestamp` (`t:string`) The time before which you want to list
-  notifications.
+    notifications.
   * `:max_results` (`t:integer`) The maximum number of notifications to return in
-  a single call to ListNotifications. When the number of notifications to be
-  listed is greater than the value of MaxResults, the response contains a
-  NextToken value that you can use in a subsequent call to ListNotifications
-  to list the next set of notifications.
+    a single call to ListNotifications. When the number of notifications to be
+    listed is greater than the value of MaxResults, the response contains a
+    NextToken value that you can use in a subsequent call to ListNotifications
+    to list the next set of notifications.
   * `:next_token` (`t:string`) When the number of notifications is greater than
-  the default value for the MaxResults parameter, or if you explicitly specify
-  a value for MaxResults that is less than the number of notifications, the
-  response includes a pagination token named NextToken. You can specify this
-  NextToken value in a subsequent call to ListNotifications to list the next
-  set of notifications.
+    the default value for the MaxResults parameter, or if you explicitly specify
+    a value for MaxResults that is less than the number of notifications, the
+    response includes a pagination token named NextToken. You can specify this
+    NextToken value in a subsequent call to ListNotifications to list the next
+    set of notifications.
   * `:subjects` (`t:list[smithy.api#String]`) The subjects of notifications.
   * `:task_status` (`t:enum["ACTIVE|INACTIVE"]`) The task status of notifications.
   """
@@ -11387,25 +11351,26 @@ defmodule AWS.DataZone do
 
   ## Parameters:
   * `:domain_identifier` (`t:string` required) The identifier of the Amazon
-  DataZone domain in which you want to list project memberships.
+    DataZone domain in which you want to list project memberships.
   * `:project_identifier` (`t:string` required) The identifier of the project
-  whose memberships you want to list.
+    whose memberships you want to list.
+
   ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of memberships to return in a
-  single call to ListProjectMemberships. When the number of memberships to be
-  listed is greater than the value of MaxResults, the response contains a
-  NextToken value that you can use in a subsequent call to
-  ListProjectMemberships to list the next set of memberships.
+    single call to ListProjectMemberships. When the number of memberships to be
+    listed is greater than the value of MaxResults, the response contains a
+    NextToken value that you can use in a subsequent call to
+    ListProjectMemberships to list the next set of memberships.
   * `:next_token` (`t:string`) When the number of memberships is greater than the
-  default value for the MaxResults parameter, or if you explicitly specify a
-  value for MaxResults that is less than the number of memberships, the
-  response includes a pagination token named NextToken. You can specify this
-  NextToken value in a subsequent call to ListProjectMemberships to list the
-  next set of memberships.
+    default value for the MaxResults parameter, or if you explicitly specify a
+    value for MaxResults that is less than the number of memberships, the
+    response includes a pagination token named NextToken. You can specify this
+    NextToken value in a subsequent call to ListProjectMemberships to list the
+    next set of memberships.
   * `:sort_by` (`t:enum["NAME"]`) The method by which you want to sort the project
-  memberships.
+    memberships.
   * `:sort_order` (`t:enum["ASCENDING|DESCENDING"]`) The sort order of the project
-  memberships.
+    memberships.
   """
   @spec list_project_memberships(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, list_project_memberships_output(), any()}
@@ -11484,20 +11449,21 @@ defmodule AWS.DataZone do
 
   ## Parameters:
   * `:domain_identifier` (`t:string` required) The identifier of the Amazon
-  DataZone domain.
+    DataZone domain.
+
   ## Keyword parameters:
   * `:group_identifier` (`t:string`) The identifier of a group.
   * `:max_results` (`t:integer`) The maximum number of projects to return in a
-  single call to ListProjects. When the number of projects to be listed is
-  greater than the value of MaxResults, the response contains a NextToken
-  value that you can use in a subsequent call to ListProjects to list the next
-  set of projects.
+    single call to ListProjects. When the number of projects to be listed is
+    greater than the value of MaxResults, the response contains a NextToken
+    value that you can use in a subsequent call to ListProjects to list the next
+    set of projects.
   * `:name` (`t:string`) The name of the project.
   * `:next_token` (`t:string`) When the number of projects is greater than the
-  default value for the MaxResults parameter, or if you explicitly specify a
-  value for MaxResults that is less than the number of projects, the response
-  includes a pagination token named NextToken. You can specify this NextToken
-  value in a subsequent call to ListProjects to list the next set of projects.
+    default value for the MaxResults parameter, or if you explicitly specify a
+    value for MaxResults that is less than the number of projects, the response
+    includes a pagination token named NextToken. You can specify this NextToken
+    value in a subsequent call to ListProjects to list the next set of projects.
   * `:user_identifier` (`t:string`) The identifier of the Amazon DataZone user.
   """
   @spec list_projects(AWS.Client.t(), String.t(), Keyword.t()) ::
@@ -11584,30 +11550,31 @@ defmodule AWS.DataZone do
 
   ## Parameters:
   * `:domain_identifier` (`t:string` required) The identifier of the Amazon
-  DataZone domain.
+    DataZone domain.
+
   ## Keyword parameters:
   * `:environment_id` (`t:string`) The identifier of the Amazon DataZone
-  environment.
+    environment.
   * `:max_results` (`t:integer`) The maximum number of subscription grants to
-  return in a single call to ListSubscriptionGrants. When the number of
-  subscription grants to be listed is greater than the value of MaxResults,
-  the response contains a NextToken value that you can use in a subsequent
-  call to ListSubscriptionGrants to list the next set of subscription grants.
+    return in a single call to ListSubscriptionGrants. When the number of
+    subscription grants to be listed is greater than the value of MaxResults,
+    the response contains a NextToken value that you can use in a subsequent
+    call to ListSubscriptionGrants to list the next set of subscription grants.
   * `:next_token` (`t:string`) When the number of subscription grants is greater
-  than the default value for the MaxResults parameter, or if you explicitly
-  specify a value for MaxResults that is less than the number of subscription
-  grants, the response includes a pagination token named NextToken. You can
-  specify this NextToken value in a subsequent call to ListSubscriptionGrants
-  to list the next set of subscription grants.
+    than the default value for the MaxResults parameter, or if you explicitly
+    specify a value for MaxResults that is less than the number of subscription
+    grants, the response includes a pagination token named NextToken. You can
+    specify this NextToken value in a subsequent call to ListSubscriptionGrants
+    to list the next set of subscription grants.
   * `:sort_by` (`t:enum["CREATED_AT|UPDATED_AT"]`) Specifies the way of sorting
-  the results of this action.
+    the results of this action.
   * `:sort_order` (`t:enum["ASCENDING|DESCENDING"]`) Specifies the sort order of
-  this action.
+    this action.
   * `:subscribed_listing_id` (`t:string`) The identifier of the subscribed
-  listing.
+    listing.
   * `:subscription_id` (`t:string`) The identifier of the subscription.
   * `:subscription_target_id` (`t:string`) The identifier of the subscription
-  target.
+    target.
   """
   @spec list_subscription_grants(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_subscription_grants_output(), any()}
@@ -11726,32 +11693,33 @@ defmodule AWS.DataZone do
 
   ## Parameters:
   * `:domain_identifier` (`t:string` required) The identifier of the Amazon
-  DataZone domain.
+    DataZone domain.
+
   ## Keyword parameters:
   * `:approver_project_id` (`t:string`) The identifier of the subscription request
-  approver's project.
+    approver's project.
   * `:max_results` (`t:integer`) The maximum number of subscription requests to
-  return in a single call to ListSubscriptionRequests. When the number of
-  subscription requests to be listed is greater than the value of MaxResults,
-  the response contains a NextToken value that you can use in a subsequent
-  call to ListSubscriptionRequests to list the next set of subscription
-  requests.
+    return in a single call to ListSubscriptionRequests. When the number of
+    subscription requests to be listed is greater than the value of MaxResults,
+    the response contains a NextToken value that you can use in a subsequent
+    call to ListSubscriptionRequests to list the next set of subscription
+    requests.
   * `:next_token` (`t:string`) When the number of subscription requests is greater
-  than the default value for the MaxResults parameter, or if you explicitly
-  specify a value for MaxResults that is less than the number of subscription
-  requests, the response includes a pagination token named NextToken. You can
-  specify this NextToken value in a subsequent call to
-  ListSubscriptionRequests to list the next set of subscription requests.
+    than the default value for the MaxResults parameter, or if you explicitly
+    specify a value for MaxResults that is less than the number of subscription
+    requests, the response includes a pagination token named NextToken. You can
+    specify this NextToken value in a subsequent call to
+    ListSubscriptionRequests to list the next set of subscription requests.
   * `:owning_project_id` (`t:string`) The identifier of the project for the
-  subscription requests.
+    subscription requests.
   * `:sort_by` (`t:enum["CREATED_AT|UPDATED_AT"]`) Specifies the way to sort the
-  results of this action.
+    results of this action.
   * `:sort_order` (`t:enum["ASCENDING|DESCENDING"]`) Specifies the sort order for
-  the results of this action.
+    the results of this action.
   * `:status` (`t:enum["ACCEPTED|PENDING|REJECTED"]`) Specifies the status of the
-  subscription requests.
+    subscription requests.
   * `:subscribed_listing_id` (`t:string`) The identifier of the subscribed
-  listing.
+    listing.
   """
   @spec list_subscription_requests(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_subscription_requests_output(), any()}
@@ -11870,26 +11838,27 @@ defmodule AWS.DataZone do
 
   ## Parameters:
   * `:domain_identifier` (`t:string` required) The identifier of the Amazon
-  DataZone domain where you want to list subscription targets.
+    DataZone domain where you want to list subscription targets.
   * `:environment_identifier` (`t:string` required) The identifier of the
-  environment where you want to list subscription targets.
+    environment where you want to list subscription targets.
+
   ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of subscription targets to
-  return in a single call to ListSubscriptionTargets. When the number of
-  subscription targets to be listed is greater than the value of MaxResults,
-  the response contains a NextToken value that you can use in a subsequent
-  call to ListSubscriptionTargets to list the next set of subscription
-  targets.
+    return in a single call to ListSubscriptionTargets. When the number of
+    subscription targets to be listed is greater than the value of MaxResults,
+    the response contains a NextToken value that you can use in a subsequent
+    call to ListSubscriptionTargets to list the next set of subscription
+    targets.
   * `:next_token` (`t:string`) When the number of subscription targets is greater
-  than the default value for the MaxResults parameter, or if you explicitly
-  specify a value for MaxResults that is less than the number of subscription
-  targets, the response includes a pagination token named NextToken. You can
-  specify this NextToken value in a subsequent call to ListSubscriptionTargets
-  to list the next set of subscription targets.
+    than the default value for the MaxResults parameter, or if you explicitly
+    specify a value for MaxResults that is less than the number of subscription
+    targets, the response includes a pagination token named NextToken. You can
+    specify this NextToken value in a subsequent call to ListSubscriptionTargets
+    to list the next set of subscription targets.
   * `:sort_by` (`t:enum["CREATED_AT|UPDATED_AT"]`) Specifies the way in which the
-  results of this action are to be sorted.
+    results of this action are to be sorted.
   * `:sort_order` (`t:enum["ASCENDING|DESCENDING"]`) Specifies the sort order for
-  the results of this action.
+    the results of this action.
   """
   @spec list_subscription_targets(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, list_subscription_targets_output(), any()}
@@ -11968,32 +11937,33 @@ defmodule AWS.DataZone do
 
   ## Parameters:
   * `:domain_identifier` (`t:string` required) The identifier of the Amazon
-  DataZone domain.
+    DataZone domain.
+
   ## Keyword parameters:
   * `:approver_project_id` (`t:string`) The identifier of the project for the
-  subscription's approver.
+    subscription's approver.
   * `:max_results` (`t:integer`) The maximum number of subscriptions to return in
-  a single call to ListSubscriptions. When the number of subscriptions to be
-  listed is greater than the value of MaxResults, the response contains a
-  NextToken value that you can use in a subsequent call to ListSubscriptions
-  to list the next set of Subscriptions.
+    a single call to ListSubscriptions. When the number of subscriptions to be
+    listed is greater than the value of MaxResults, the response contains a
+    NextToken value that you can use in a subsequent call to ListSubscriptions
+    to list the next set of Subscriptions.
   * `:next_token` (`t:string`) When the number of subscriptions is greater than
-  the default value for the MaxResults parameter, or if you explicitly specify
-  a value for MaxResults that is less than the number of subscriptions, the
-  response includes a pagination token named NextToken. You can specify this
-  NextToken value in a subsequent call to ListSubscriptions to list the next
-  set of subscriptions.
+    the default value for the MaxResults parameter, or if you explicitly specify
+    a value for MaxResults that is less than the number of subscriptions, the
+    response includes a pagination token named NextToken. You can specify this
+    NextToken value in a subsequent call to ListSubscriptions to list the next
+    set of subscriptions.
   * `:owning_project_id` (`t:string`) The identifier of the owning project.
   * `:sort_by` (`t:enum["CREATED_AT|UPDATED_AT"]`) Specifies the way in which the
-  results of this action are to be sorted.
+    results of this action are to be sorted.
   * `:sort_order` (`t:enum["ASCENDING|DESCENDING"]`) Specifies the sort order for
-  the results of this action.
+    the results of this action.
   * `:status` (`t:enum["APPROVED|CANCELLED|REVOKED"]`) The status of the
-  subscriptions that you want to list.
+    subscriptions that you want to list.
   * `:subscribed_listing_id` (`t:string`) The identifier of the subscribed listing
-  for the subscriptions that you want to list.
+    for the subscriptions that you want to list.
   * `:subscription_request_identifier` (`t:string`) The identifier of the
-  subscription request for the subscriptions that you want to list.
+    subscription request for the subscriptions that you want to list.
   """
   @spec list_subscriptions(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_subscriptions_output(), any()}
@@ -12121,8 +12091,7 @@ defmodule AWS.DataZone do
 
   ## Parameters:
   * `:resource_arn` (`t:string` required) The ARN of the resource whose tags you
-  want to list.
-  ## Keyword parameters:
+    want to list.
   """
   @spec list_tags_for_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_tags_for_resource_response(), any()}
@@ -12163,30 +12132,31 @@ defmodule AWS.DataZone do
 
   ## Parameters:
   * `:domain_identifier` (`t:string` required) The ID of the Amazon DataZone
-  domain that houses the assets for which you want to list time series data
-  points.
+    domain that houses the assets for which you want to list time series data
+    points.
   * `:entity_identifier` (`t:string` required) The ID of the asset for which you
-  want to list data points.
+    want to list data points.
   * `:entity_type` (`t:enum["ASSET|LISTING"]` required) The type of the asset for
-  which you want to list data points.
+    which you want to list data points.
   * `:form_name` (`t:string` required) The name of the time series data points
-  form.
+    form.
+
   ## Keyword parameters:
   * `:ended_at` (`t:string`) The timestamp at which the data points that you
-  wanted to list ended.
+    wanted to list ended.
   * `:max_results` (`t:integer`) The maximum number of data points to return in a
-  single call to ListTimeSeriesDataPoints. When the number of data points to
-  be listed is greater than the value of MaxResults, the response contains a
-  NextToken value that you can use in a subsequent call to
-  ListTimeSeriesDataPoints to list the next set of data points.
+    single call to ListTimeSeriesDataPoints. When the number of data points to
+    be listed is greater than the value of MaxResults, the response contains a
+    NextToken value that you can use in a subsequent call to
+    ListTimeSeriesDataPoints to list the next set of data points.
   * `:next_token` (`t:string`) When the number of data points is greater than the
-  default value for the MaxResults parameter, or if you explicitly specify a
-  value for MaxResults that is less than the number of data points, the
-  response includes a pagination token named NextToken. You can specify this
-  NextToken value in a subsequent call to ListTimeSeriesDataPoints to list the
-  next set of data points.
+    default value for the MaxResults parameter, or if you explicitly specify a
+    value for MaxResults that is less than the number of data points, the
+    response includes a pagination token named NextToken. You can specify this
+    NextToken value in a subsequent call to ListTimeSeriesDataPoints to list the
+    next set of data points.
   * `:started_at` (`t:string`) The timestamp at which the data points that you
-  want to list started.
+    want to list started.
   """
   @spec list_time_series_data_points(
           AWS.Client.t(),
@@ -12275,13 +12245,14 @@ defmodule AWS.DataZone do
 
   ## Parameters:
   * `:domain_identifier` (`t:string` required) The ID of the domain where you want
-  to post a data lineage event.
+    to post a data lineage event.
   * `:input` (`t:map`):
-    * `:event` (`t:blob` required) The data lineage event that you want to post.
-  Only open-lineage run event are supported as events.
+    * `"event" => t:blob` (required) The data lineage event that you want to post.
+    Only open-lineage run event are supported as events.
+
   ## Keyword parameters:
   * `:client_token` (`t:string`) A unique, case-sensitive identifier that is
-  provided to ensure the idempotency of the request.
+    provided to ensure the idempotency of the request.
   """
   @spec post_lineage_event(AWS.Client.t(), String.t(), input :: map(), Keyword.t()) ::
           {:ok, post_lineage_event_output(), any()}
@@ -12336,12 +12307,11 @@ defmodule AWS.DataZone do
 
   ## Parameters:
   * `:domain_identifier` (`t:string` required) The ID of the Amazon DataZone
-  domain in which you want to post time series data points.
+    domain in which you want to post time series data points.
   * `:entity_identifier` (`t:string` required) The ID of the asset for which you
-  want to post time series data points.
+    want to post time series data points.
   * `:entity_type` (`t:enum["ASSET|LISTING"]` required) The type of the asset for
-  which you want to post data points.
-  ## Keyword parameters:
+    which you want to post data points.
   """
   @spec post_time_series_data_points(
           AWS.Client.t(),
@@ -12398,10 +12368,9 @@ defmodule AWS.DataZone do
 
   ## Parameters:
   * `:domain_identifier` (`t:string` required) The identifier of the Amazon
-  DataZone domain.
+    DataZone domain.
   * `:environment_blueprint_identifier` (`t:string` required) The identifier of
-  the environment blueprint.
-  ## Keyword parameters:
+    the environment blueprint.
   """
   @spec put_environment_blueprint_configuration(
           AWS.Client.t(),
@@ -12456,8 +12425,9 @@ defmodule AWS.DataZone do
 
   ## Parameters:
   * `:domain_identifier` (`t:string` required) The identifier of the Amazon
-  DataZone domain.
+    DataZone domain.
   * `:identifier` (`t:string` required) The identifier of the prediction.
+
   ## Keyword parameters:
   * `:revision` (`t:string`) The revision that is to be made to the asset.
   """
@@ -12514,10 +12484,9 @@ defmodule AWS.DataZone do
 
   ## Parameters:
   * `:domain_identifier` (`t:string` required) The identifier of the Amazon
-  DataZone domain in which the subscription request was rejected.
+    DataZone domain in which the subscription request was rejected.
   * `:identifier` (`t:string` required) The identifier of the subscription request
-  that was rejected.
-  ## Keyword parameters:
+    that was rejected.
   """
   @spec reject_subscription_request(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, reject_subscription_request_output(), any()}
@@ -12566,10 +12535,9 @@ defmodule AWS.DataZone do
 
   ## Parameters:
   * `:domain_identifier` (`t:string` required) The identifier of the Amazon
-  DataZone domain where you want to revoke a subscription.
+    DataZone domain where you want to revoke a subscription.
   * `:identifier` (`t:string` required) The identifier of the revoked
-  subscription.
-  ## Keyword parameters:
+    subscription.
   """
   @spec revoke_subscription(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, revoke_subscription_output(), any()}
@@ -12613,8 +12581,7 @@ defmodule AWS.DataZone do
 
   ## Parameters:
   * `:domain_identifier` (`t:string` required) The identifier of the Amazon
-  DataZone domain.
-  ## Keyword parameters:
+    DataZone domain.
   """
   @spec search(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, search_output(), any()}
@@ -12657,8 +12624,7 @@ defmodule AWS.DataZone do
 
   ## Parameters:
   * `:domain_identifier` (`t:string` required) The identifier of the Amazon
-  DataZone domain in which you want to search group profiles.
-  ## Keyword parameters:
+    DataZone domain in which you want to search group profiles.
   """
   @spec search_group_profiles(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, search_group_profiles_output(), any()}
@@ -12701,8 +12667,7 @@ defmodule AWS.DataZone do
 
   ## Parameters:
   * `:domain_identifier` (`t:string` required) The identifier of the domain in
-  which to search listings.
-  ## Keyword parameters:
+    which to search listings.
   """
   @spec search_listings(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, search_listings_output(), any()}
@@ -12745,8 +12710,7 @@ defmodule AWS.DataZone do
 
   ## Parameters:
   * `:domain_identifier` (`t:string` required) The identifier of the Amazon
-  DataZone domain in which to invoke the SearchTypes action.
-  ## Keyword parameters:
+    DataZone domain in which to invoke the SearchTypes action.
   """
   @spec search_types(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, search_types_output(), any()}
@@ -12789,8 +12753,7 @@ defmodule AWS.DataZone do
 
   ## Parameters:
   * `:domain_identifier` (`t:string` required) The identifier of the Amazon
-  DataZone domain in which you want to search user profiles.
-  ## Keyword parameters:
+    DataZone domain in which you want to search user profiles.
   """
   @spec search_user_profiles(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, search_user_profiles_output(), any()}
@@ -12833,10 +12796,9 @@ defmodule AWS.DataZone do
 
   ## Parameters:
   * `:data_source_identifier` (`t:string` required) The identifier of the data
-  source.
+    source.
   * `:domain_identifier` (`t:string` required) The identifier of the Amazon
-  DataZone domain in which to start a data source run.
-  ## Keyword parameters:
+    DataZone domain in which to start a data source run.
   """
   @spec start_data_source_run(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, start_data_source_run_output(), any()}
@@ -12885,8 +12847,7 @@ defmodule AWS.DataZone do
 
   ## Parameters:
   * `:domain_identifier` (`t:string` required) The ID of the Amazon DataZone
-  domain where you want to start a metadata generation run.
-  ## Keyword parameters:
+    domain where you want to start a metadata generation run.
   """
   @spec start_metadata_generation_run(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, start_metadata_generation_run_output(), any()}
@@ -12929,8 +12890,7 @@ defmodule AWS.DataZone do
 
   ## Parameters:
   * `:resource_arn` (`t:string` required) The ARN of the resource to be tagged in
-  Amazon DataZone.
-  ## Keyword parameters:
+    Amazon DataZone.
   """
   @spec tag_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, tag_resource_response(), any()}
@@ -12973,10 +12933,9 @@ defmodule AWS.DataZone do
 
   ## Parameters:
   * `:resource_arn` (`t:string` required) The ARN of the resource to be untagged
-  in Amazon DataZone.
+    in Amazon DataZone.
   * `:tag_keys` (`t:list[com.amazonaws.datazone#TagKey]` required) Specifies the
-  tag keys for the UntagResource action.
-  ## Keyword parameters:
+    tag keys for the UntagResource action.
   """
   @spec untag_resource(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, untag_resource_response(), any()}
@@ -13031,9 +12990,8 @@ defmodule AWS.DataZone do
   ## Parameters:
   * `:asset_identifier` (`t:string` required) The ID of the data asset.
   * `:domain_identifier` (`t:string` required) The ID of the domain where you want
-  to update an asset filter.
+    to update an asset filter.
   * `:identifier` (`t:string` required) The ID of the asset filter.
-  ## Keyword parameters:
   """
   @spec update_asset_filter(AWS.Client.t(), String.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, update_asset_filter_output(), any()}
@@ -13093,10 +13051,9 @@ defmodule AWS.DataZone do
 
   ## Parameters:
   * `:domain_identifier` (`t:string` required) The identifier of the domain in
-  which to update a data source.
+    which to update a data source.
   * `:identifier` (`t:string` required) The identifier of the data source to be
-  updated.
-  ## Keyword parameters:
+    updated.
   """
   @spec update_data_source(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, update_data_source_output(), any()}
@@ -13150,10 +13107,11 @@ defmodule AWS.DataZone do
 
   ## Parameters:
   * `:identifier` (`t:string` required) The ID of the Amazon Web Services domain
-  that is to be updated.
+    that is to be updated.
+
   ## Keyword parameters:
   * `:client_token` (`t:string`) A unique, case-sensitive identifier that is
-  provided to ensure the idempotency of the request.
+    provided to ensure the idempotency of the request.
   """
   @spec update_domain(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, update_domain_output(), any()}
@@ -13207,10 +13165,9 @@ defmodule AWS.DataZone do
 
   ## Parameters:
   * `:domain_identifier` (`t:string` required) The identifier of the domain in
-  which the environment is to be updated.
+    which the environment is to be updated.
   * `:identifier` (`t:string` required) The identifier of the environment that is
-  to be updated.
-  ## Keyword parameters:
+    to be updated.
   """
   @spec update_environment(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, update_environment_output(), any()}
@@ -13264,11 +13221,10 @@ defmodule AWS.DataZone do
 
   ## Parameters:
   * `:domain_identifier` (`t:string` required) The domain ID of the environment
-  action.
+    action.
   * `:environment_identifier` (`t:string` required) The environment ID of the
-  environment action.
+    environment action.
   * `:identifier` (`t:string` required) The ID of the environment action.
-  ## Keyword parameters:
   """
   @spec update_environment_action(AWS.Client.t(), String.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, update_environment_action_output(), any()}
@@ -13328,10 +13284,9 @@ defmodule AWS.DataZone do
 
   ## Parameters:
   * `:domain_identifier` (`t:string` required) The identifier of the Amazon
-  DataZone domain in which an environment profile is to be updated.
+    DataZone domain in which an environment profile is to be updated.
   * `:identifier` (`t:string` required) The identifier of the environment profile
-  that is to be updated.
-  ## Keyword parameters:
+    that is to be updated.
   """
   @spec update_environment_profile(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, update_environment_profile_output(), any()}
@@ -13385,10 +13340,9 @@ defmodule AWS.DataZone do
 
   ## Parameters:
   * `:domain_identifier` (`t:string` required) The identifier of the Amazon
-  DataZone domain in which a business glossary is to be updated.
+    DataZone domain in which a business glossary is to be updated.
   * `:identifier` (`t:string` required) The identifier of the business glossary to
-  be updated.
-  ## Keyword parameters:
+    be updated.
   """
   @spec update_glossary(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, update_glossary_output(), any()}
@@ -13442,10 +13396,9 @@ defmodule AWS.DataZone do
 
   ## Parameters:
   * `:domain_identifier` (`t:string` required) The identifier of the Amazon
-  DataZone domain in which a business glossary term is to be updated.
+    DataZone domain in which a business glossary term is to be updated.
   * `:identifier` (`t:string` required) The identifier of the business glossary
-  term that is to be updated.
-  ## Keyword parameters:
+    term that is to be updated.
   """
   @spec update_glossary_term(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, update_glossary_term_output(), any()}
@@ -13499,10 +13452,9 @@ defmodule AWS.DataZone do
 
   ## Parameters:
   * `:domain_identifier` (`t:string` required) The identifier of the Amazon
-  DataZone domain in which a group profile is updated.
+    DataZone domain in which a group profile is updated.
   * `:group_identifier` (`t:string` required) The identifier of the group profile
-  that is updated.
-  ## Keyword parameters:
+    that is updated.
   """
   @spec update_group_profile(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, update_group_profile_output(), any()}
@@ -13546,10 +13498,9 @@ defmodule AWS.DataZone do
 
   ## Parameters:
   * `:domain_identifier` (`t:string` required) The identifier of the Amazon
-  DataZone domain in which a project is to be updated.
+    DataZone domain in which a project is to be updated.
   * `:identifier` (`t:string` required) The identifier of the project that is to
-  be updated.
-  ## Keyword parameters:
+    be updated.
   """
   @spec update_project(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, update_project_output(), any()}
@@ -13604,12 +13555,11 @@ defmodule AWS.DataZone do
 
   ## Parameters:
   * `:asset_identifier` (`t:string` required) The identifier of the asset the
-  subscription grant status of which is to be updated.
+    subscription grant status of which is to be updated.
   * `:domain_identifier` (`t:string` required) The identifier of the Amazon
-  DataZone domain in which a subscription grant status is to be updated.
+    DataZone domain in which a subscription grant status is to be updated.
   * `:identifier` (`t:string` required) The identifier of the subscription grant
-  the status of which is to be updated.
-  ## Keyword parameters:
+    the status of which is to be updated.
   """
   @spec update_subscription_grant_status(
           AWS.Client.t(),
@@ -13675,10 +13625,9 @@ defmodule AWS.DataZone do
 
   ## Parameters:
   * `:domain_identifier` (`t:string` required) The identifier of the Amazon
-  DataZone domain in which a subscription request is to be updated.
+    DataZone domain in which a subscription request is to be updated.
   * `:identifier` (`t:string` required) The identifier of the subscription request
-  that is to be updated.
-  ## Keyword parameters:
+    that is to be updated.
   """
   @spec update_subscription_request(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, update_subscription_request_output(), any()}
@@ -13737,12 +13686,11 @@ defmodule AWS.DataZone do
 
   ## Parameters:
   * `:domain_identifier` (`t:string` required) The identifier of the Amazon
-  DataZone domain in which a subscription target is to be updated.
+    DataZone domain in which a subscription target is to be updated.
   * `:environment_identifier` (`t:string` required) The identifier of the
-  environment in which a subscription target is to be updated.
+    environment in which a subscription target is to be updated.
   * `:identifier` (`t:string` required) Identifier of the subscription target that
-  is to be updated.
-  ## Keyword parameters:
+    is to be updated.
   """
   @spec update_subscription_target(
           AWS.Client.t(),
@@ -13808,10 +13756,9 @@ defmodule AWS.DataZone do
 
   ## Parameters:
   * `:domain_identifier` (`t:string` required) The identifier of the Amazon
-  DataZone domain in which a user profile is updated.
+    DataZone domain in which a user profile is updated.
   * `:user_identifier` (`t:string` required) The identifier of the user whose user
-  profile is to be updated.
-  ## Keyword parameters:
+    profile is to be updated.
   """
   @spec update_user_profile(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, update_user_profile_output(), any()}

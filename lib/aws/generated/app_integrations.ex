@@ -944,7 +944,6 @@ defmodule AWS.AppIntegrations do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=appintegrations%20CreateApplication&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec create_application(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_application_response(), any()}
@@ -986,7 +985,6 @@ defmodule AWS.AppIntegrations do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=appintegrations%20CreateDataIntegration&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec create_data_integration(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_data_integration_response(), any()}
@@ -1032,7 +1030,6 @@ defmodule AWS.AppIntegrations do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=appintegrations%20CreateEventIntegration&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec create_event_integration(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_event_integration_response(), any()}
@@ -1076,8 +1073,7 @@ defmodule AWS.AppIntegrations do
 
   ## Parameters:
   * `:arn` (`t:string` required) The Amazon Resource Name (ARN) of the
-  Application.
-  ## Keyword parameters:
+    Application.
   """
   @spec delete_application(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, delete_application_response(), any()}
@@ -1132,8 +1128,7 @@ defmodule AWS.AppIntegrations do
 
   ## Parameters:
   * `:data_integration_identifier` (`t:string` required) A unique identifier for
-  the DataIntegration.
-  ## Keyword parameters:
+    the DataIntegration.
   """
   @spec delete_data_integration(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, delete_data_integration_response(), any()}
@@ -1187,7 +1182,6 @@ defmodule AWS.AppIntegrations do
 
   ## Parameters:
   * `:name` (`t:string` required) The name of the event integration.
-  ## Keyword parameters:
   """
   @spec delete_event_integration(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, delete_event_integration_response(), any()}
@@ -1240,8 +1234,7 @@ defmodule AWS.AppIntegrations do
 
   ## Parameters:
   * `:arn` (`t:string` required) The Amazon Resource Name (ARN) of the
-  Application.
-  ## Keyword parameters:
+    Application.
   """
   @spec get_application(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_application_response(), any()}
@@ -1282,7 +1275,6 @@ defmodule AWS.AppIntegrations do
 
   ## Parameters:
   * `:identifier` (`t:string` required) A unique identifier.
-  ## Keyword parameters:
   """
   @spec get_data_integration(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_data_integration_response(), any()}
@@ -1323,7 +1315,6 @@ defmodule AWS.AppIntegrations do
 
   ## Parameters:
   * `:name` (`t:string` required) The name of the event integration.
-  ## Keyword parameters:
   """
   @spec get_event_integration(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_event_integration_response(), any()}
@@ -1364,12 +1355,13 @@ defmodule AWS.AppIntegrations do
 
   ## Parameters:
   * `:application_id` (`t:string` required) A unique identifier for the
-  Application.
+    Application.
+
   ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of results to return per page.
   * `:next_token` (`t:string`) The token for the next set of results. Use the
-  value returned in the previous response in the next request to retrieve the
-  next set of results.
+    value returned in the previous response in the next request to retrieve the
+    next set of results.
   """
   @spec list_application_associations(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_application_associations_response(), any()}
@@ -1427,11 +1419,12 @@ defmodule AWS.AppIntegrations do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=appintegrations%20ListApplications&this_doc_guide=API%2520Reference)
 
   ## Parameters:
+
   ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of results to return per page.
   * `:next_token` (`t:string`) The token for the next set of results. Use the
-  value returned in the previous response in the next request to retrieve the
-  next set of results.
+    value returned in the previous response in the next request to retrieve the
+    next set of results.
   """
   @spec list_applications(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_applications_response(), any()}
@@ -1490,12 +1483,13 @@ defmodule AWS.AppIntegrations do
 
   ## Parameters:
   * `:data_integration_identifier` (`t:string` required) A unique identifier for
-  the DataIntegration.
+    the DataIntegration.
+
   ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of results to return per page.
   * `:next_token` (`t:string`) The token for the next set of results. Use the
-  value returned in the previous response in the next request to retrieve the
-  next set of results.
+    value returned in the previous response in the next request to retrieve the
+    next set of results.
   """
   @spec list_data_integration_associations(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_data_integration_associations_response(), any()}
@@ -1558,11 +1552,12 @@ defmodule AWS.AppIntegrations do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=appintegrations%20ListDataIntegrations&this_doc_guide=API%2520Reference)
 
   ## Parameters:
+
   ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of results to return per page.
   * `:next_token` (`t:string`) The token for the next set of results. Use the
-  value returned in the previous response in the next request to retrieve the
-  next set of results.
+    value returned in the previous response in the next request to retrieve the
+    next set of results.
   """
   @spec list_data_integrations(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_data_integrations_response(), any()}
@@ -1621,12 +1616,13 @@ defmodule AWS.AppIntegrations do
 
   ## Parameters:
   * `:event_integration_name` (`t:string` required) The name of the event
-  integration.
+    integration.
+
   ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of results to return per page.
   * `:next_token` (`t:string`) The token for the next set of results. Use the
-  value returned in the previous response in the next request to retrieve the
-  next set of results.
+    value returned in the previous response in the next request to retrieve the
+    next set of results.
   """
   @spec list_event_integration_associations(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_event_integration_associations_response(), any()}
@@ -1688,11 +1684,12 @@ defmodule AWS.AppIntegrations do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=appintegrations%20ListEventIntegrations&this_doc_guide=API%2520Reference)
 
   ## Parameters:
+
   ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of results to return per page.
   * `:next_token` (`t:string`) The token for the next set of results. Use the
-  value returned in the previous response in the next request to retrieve the
-  next set of results.
+    value returned in the previous response in the next request to retrieve the
+    next set of results.
   """
   @spec list_event_integrations(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_event_integrations_response(), any()}
@@ -1751,8 +1748,7 @@ defmodule AWS.AppIntegrations do
 
   ## Parameters:
   * `:resource_arn` (`t:string` required) The Amazon Resource Name (ARN) of the
-  resource.
-  ## Keyword parameters:
+    resource.
   """
   @spec list_tags_for_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_tags_for_resource_response(), any()}
@@ -1793,8 +1789,7 @@ defmodule AWS.AppIntegrations do
 
   ## Parameters:
   * `:resource_arn` (`t:string` required) The Amazon Resource Name (ARN) of the
-  resource.
-  ## Keyword parameters:
+    resource.
   """
   @spec tag_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, tag_resource_response(), any()}
@@ -1837,10 +1832,9 @@ defmodule AWS.AppIntegrations do
 
   ## Parameters:
   * `:resource_arn` (`t:string` required) The Amazon Resource Name (ARN) of the
-  resource.
+    resource.
   * `:tag_keys` (`t:list[com.amazonaws.appintegrations#TagKey]` required) The tag
-  keys.
-  ## Keyword parameters:
+    keys.
   """
   @spec untag_resource(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, untag_resource_response(), any()}
@@ -1894,8 +1888,7 @@ defmodule AWS.AppIntegrations do
 
   ## Parameters:
   * `:arn` (`t:string` required) The Amazon Resource Name (ARN) of the
-  Application.
-  ## Keyword parameters:
+    Application.
   """
   @spec update_application(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, update_application_response(), any()}
@@ -1948,8 +1941,7 @@ defmodule AWS.AppIntegrations do
 
   ## Parameters:
   * `:identifier` (`t:string` required) A unique identifier for the
-  DataIntegration.
-  ## Keyword parameters:
+    DataIntegration.
   """
   @spec update_data_integration(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, update_data_integration_response(), any()}
@@ -2002,7 +1994,6 @@ defmodule AWS.AppIntegrations do
 
   ## Parameters:
   * `:name` (`t:string` required) The name of the event integration.
-  ## Keyword parameters:
   """
   @spec update_event_integration(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, update_event_integration_response(), any()}

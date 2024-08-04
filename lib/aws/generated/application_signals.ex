@@ -823,7 +823,6 @@ defmodule AWS.ApplicationSignals do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=applicationsignals%20BatchGetServiceLevelObjectiveBudgetReport&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec batch_get_service_level_objective_budget_report(AWS.Client.t(), Keyword.t()) ::
           {:ok, batch_get_service_level_objective_budget_report_output(), any()}
@@ -872,7 +871,6 @@ defmodule AWS.ApplicationSignals do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=applicationsignals%20CreateServiceLevelObjective&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec create_service_level_objective(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_service_level_objective_output(), any()}
@@ -915,8 +913,7 @@ defmodule AWS.ApplicationSignals do
 
   ## Parameters:
   * `:id` (`t:string` required) The ARN or name of the service level objective to
-  delete.
-  ## Keyword parameters:
+    delete.
   """
   @spec delete_service_level_objective(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, delete_service_level_objective_output(), any()}
@@ -969,12 +966,11 @@ defmodule AWS.ApplicationSignals do
 
   ## Parameters:
   * `:end_time` (`t:string` required) The end of the time period to retrieve
-  information about. When used in a raw HTTP Query API, it is formatted as be
-  epoch time in seconds. For example: 1698778057
+    information about. When used in a raw HTTP Query API, it is formatted as be
+    epoch time in seconds. For example: 1698778057
   * `:start_time` (`t:string` required) The start of the time period to retrieve
-  information about. When used in a raw HTTP Query API, it is formatted as be
-  epoch time in seconds. For example: 1698778057
-  ## Keyword parameters:
+    information about. When used in a raw HTTP Query API, it is formatted as be
+    epoch time in seconds. For example: 1698778057
   """
   @spec get_service(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_service_output(), any()}
@@ -1018,9 +1014,8 @@ defmodule AWS.ApplicationSignals do
 
   ## Parameters:
   * `:id` (`t:string` required) The ARN or name of the SLO that you want to
-  retrieve information about. You can find the ARNs of SLOs by using the
-  ListServiceLevelObjectives operation.
-  ## Keyword parameters:
+    retrieve information about. You can find the ARNs of SLOs by using the
+    ListServiceLevelObjectives operation.
   """
   @spec get_service_level_objective(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_service_level_objective_output(), any()}
@@ -1064,16 +1059,17 @@ defmodule AWS.ApplicationSignals do
 
   ## Parameters:
   * `:end_time` (`t:string` required) The end of the time period to retrieve
-  information about. When used in a raw HTTP Query API, it is formatted as be
-  epoch time in seconds. For example: 1698778057
+    information about. When used in a raw HTTP Query API, it is formatted as be
+    epoch time in seconds. For example: 1698778057
   * `:start_time` (`t:string` required) The start of the time period to retrieve
-  information about. When used in a raw HTTP Query API, it is formatted as be
-  epoch time in seconds. For example: 1698778057
+    information about. When used in a raw HTTP Query API, it is formatted as be
+    epoch time in seconds. For example: 1698778057
+
   ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of results to return in one
-  operation. If you omit this parameter, the default of 50 is used.
+    operation. If you omit this parameter, the default of 50 is used.
   * `:next_token` (`t:string`) Include this value, if it was returned by the
-  previous operation, to get the next set of service dependencies.
+    previous operation, to get the next set of service dependencies.
   """
   @spec list_service_dependencies(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, list_service_dependencies_output(), any()}
@@ -1137,16 +1133,17 @@ defmodule AWS.ApplicationSignals do
 
   ## Parameters:
   * `:end_time` (`t:string` required) The end of the time period to retrieve
-  information about. When used in a raw HTTP Query API, it is formatted as be
-  epoch time in seconds. For example: 1698778057
+    information about. When used in a raw HTTP Query API, it is formatted as be
+    epoch time in seconds. For example: 1698778057
   * `:start_time` (`t:string` required) The start of the time period to retrieve
-  information about. When used in a raw HTTP Query API, it is formatted as be
-  epoch time in seconds. For example: 1698778057
+    information about. When used in a raw HTTP Query API, it is formatted as be
+    epoch time in seconds. For example: 1698778057
+
   ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of results to return in one
-  operation. If you omit this parameter, the default of 50 is used.
+    operation. If you omit this parameter, the default of 50 is used.
   * `:next_token` (`t:string`) Include this value, if it was returned by the
-  previous operation, to get the next set of service dependents.
+    previous operation, to get the next set of service dependents.
   """
   @spec list_service_dependents(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, list_service_dependents_output(), any()}
@@ -1207,13 +1204,14 @@ defmodule AWS.ApplicationSignals do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=applicationsignals%20ListServiceLevelObjectives&this_doc_guide=API%2520Reference)
 
   ## Parameters:
+
   ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of results to return in one
-  operation. If you omit this parameter, the default of 50 is used.
+    operation. If you omit this parameter, the default of 50 is used.
   * `:next_token` (`t:string`) Include this value, if it was returned by the
-  previous operation, to get the next set of service level objectives.
+    previous operation, to get the next set of service level objectives.
   * `:operation_name` (`t:string`) The name of the operation that this SLO is
-  associated with.
+    associated with.
   """
   @spec list_service_level_objectives(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_service_level_objectives_output(), any()}
@@ -1283,16 +1281,17 @@ defmodule AWS.ApplicationSignals do
 
   ## Parameters:
   * `:end_time` (`t:string` required) The end of the time period to retrieve
-  information about. When used in a raw HTTP Query API, it is formatted as be
-  epoch time in seconds. For example: 1698778057
+    information about. When used in a raw HTTP Query API, it is formatted as be
+    epoch time in seconds. For example: 1698778057
   * `:start_time` (`t:string` required) The start of the time period to retrieve
-  information about. When used in a raw HTTP Query API, it is formatted as be
-  epoch time in seconds. For example: 1698778057
+    information about. When used in a raw HTTP Query API, it is formatted as be
+    epoch time in seconds. For example: 1698778057
+
   ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of results to return in one
-  operation. If you omit this parameter, the default of 50 is used.
+    operation. If you omit this parameter, the default of 50 is used.
   * `:next_token` (`t:string`) Include this value, if it was returned by the
-  previous operation, to get the next set of service operations.
+    previous operation, to get the next set of service operations.
   """
   @spec list_service_operations(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, list_service_operations_output(), any()}
@@ -1357,16 +1356,17 @@ defmodule AWS.ApplicationSignals do
 
   ## Parameters:
   * `:end_time` (`t:string` required) The end of the time period to retrieve
-  information about. When used in a raw HTTP Query API, it is formatted as be
-  epoch time in seconds. For example: 1698778057
+    information about. When used in a raw HTTP Query API, it is formatted as be
+    epoch time in seconds. For example: 1698778057
   * `:start_time` (`t:string` required) The start of the time period to retrieve
-  information about. When used in a raw HTTP Query API, it is formatted as be
-  epoch time in seconds. For example: 1698778057
+    information about. When used in a raw HTTP Query API, it is formatted as be
+    epoch time in seconds. For example: 1698778057
+
   ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of results to return in one
-  operation. If you omit this parameter, the default of 50 is used.
+    operation. If you omit this parameter, the default of 50 is used.
   * `:next_token` (`t:string`) Include this value, if it was returned by the
-  previous operation, to get the next set of services.
+    previous operation, to get the next set of services.
   """
   @spec list_services(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, list_services_output(), any()}
@@ -1427,8 +1427,7 @@ defmodule AWS.ApplicationSignals do
 
   ## Parameters:
   * `:resource_arn` (`t:string` required) The Amazon Resource Name (ARN) of the
-  CloudWatch resource that you want to view tags for.
-  ## Keyword parameters:
+    CloudWatch resource that you want to view tags for.
   """
   @spec list_tags_for_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_tags_for_resource_response(), any()}
@@ -1472,7 +1471,6 @@ defmodule AWS.ApplicationSignals do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=applicationsignals%20StartDiscovery&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec start_discovery(AWS.Client.t(), Keyword.t()) ::
           {:ok, start_discovery_output(), any()}
@@ -1517,7 +1515,6 @@ defmodule AWS.ApplicationSignals do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=applicationsignals%20TagResource&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec tag_resource(AWS.Client.t(), Keyword.t()) ::
           {:ok, tag_resource_response(), any()}
@@ -1559,7 +1556,6 @@ defmodule AWS.ApplicationSignals do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=applicationsignals%20UntagResource&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec untag_resource(AWS.Client.t(), Keyword.t()) ::
           {:ok, untag_resource_response(), any()}
@@ -1603,8 +1599,7 @@ defmodule AWS.ApplicationSignals do
 
   ## Parameters:
   * `:id` (`t:string` required) The Amazon Resource Name (ARN) or name of the
-  service level objective that you want to update.
-  ## Keyword parameters:
+    service level objective that you want to update.
   """
   @spec update_service_level_objective(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, update_service_level_objective_output(), any()}

@@ -2760,7 +2760,6 @@ defmodule AWS.RoboMaker do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=robomaker%20BatchDeleteWorlds&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec batch_delete_worlds(AWS.Client.t(), Keyword.t()) ::
           {:ok, batch_delete_worlds_response(), any()}
@@ -2802,7 +2801,6 @@ defmodule AWS.RoboMaker do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=robomaker%20BatchDescribeSimulationJob&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec batch_describe_simulation_job(AWS.Client.t(), Keyword.t()) ::
           {:ok, batch_describe_simulation_job_response(), any()}
@@ -2844,7 +2842,6 @@ defmodule AWS.RoboMaker do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=robomaker%20CancelDeploymentJob&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec cancel_deployment_job(AWS.Client.t(), Keyword.t()) ::
           {:ok, cancel_deployment_job_response(), any()}
@@ -2886,7 +2883,6 @@ defmodule AWS.RoboMaker do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=robomaker%20CancelSimulationJob&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec cancel_simulation_job(AWS.Client.t(), Keyword.t()) ::
           {:ok, cancel_simulation_job_response(), any()}
@@ -2930,7 +2926,6 @@ defmodule AWS.RoboMaker do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=robomaker%20CancelSimulationJobBatch&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec cancel_simulation_job_batch(AWS.Client.t(), Keyword.t()) ::
           {:ok, cancel_simulation_job_batch_response(), any()}
@@ -2972,7 +2967,6 @@ defmodule AWS.RoboMaker do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=robomaker%20CancelWorldExportJob&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec cancel_world_export_job(AWS.Client.t(), Keyword.t()) ::
           {:ok, cancel_world_export_job_response(), any()}
@@ -3014,7 +3008,6 @@ defmodule AWS.RoboMaker do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=robomaker%20CancelWorldGenerationJob&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec cancel_world_generation_job(AWS.Client.t(), Keyword.t()) ::
           {:ok, cancel_world_generation_job_response(), any()}
@@ -3057,7 +3050,6 @@ defmodule AWS.RoboMaker do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=robomaker%20CreateDeploymentJob&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec create_deployment_job(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_deployment_job_response(), any()}
@@ -3099,7 +3091,6 @@ defmodule AWS.RoboMaker do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=robomaker%20CreateFleet&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec create_fleet(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_fleet_response(), any()}
@@ -3141,7 +3132,6 @@ defmodule AWS.RoboMaker do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=robomaker%20CreateRobot&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec create_robot(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_robot_response(), any()}
@@ -3183,7 +3173,6 @@ defmodule AWS.RoboMaker do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=robomaker%20CreateRobotApplication&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec create_robot_application(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_robot_application_response(), any()}
@@ -3225,7 +3214,6 @@ defmodule AWS.RoboMaker do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=robomaker%20CreateRobotApplicationVersion&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec create_robot_application_version(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_robot_application_version_response(), any()}
@@ -3267,7 +3255,6 @@ defmodule AWS.RoboMaker do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=robomaker%20CreateSimulationApplication&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec create_simulation_application(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_simulation_application_response(), any()}
@@ -3309,7 +3296,6 @@ defmodule AWS.RoboMaker do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=robomaker%20CreateSimulationApplicationVersion&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec create_simulation_application_version(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_simulation_application_version_response(), any()}
@@ -3351,7 +3337,6 @@ defmodule AWS.RoboMaker do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=robomaker%20CreateSimulationJob&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec create_simulation_job(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_simulation_job_response(), any()}
@@ -3393,7 +3378,6 @@ defmodule AWS.RoboMaker do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=robomaker%20CreateWorldExportJob&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec create_world_export_job(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_world_export_job_response(), any()}
@@ -3435,7 +3419,6 @@ defmodule AWS.RoboMaker do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=robomaker%20CreateWorldGenerationJob&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec create_world_generation_job(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_world_generation_job_response(), any()}
@@ -3477,7 +3460,6 @@ defmodule AWS.RoboMaker do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=robomaker%20CreateWorldTemplate&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec create_world_template(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_world_template_response(), any()}
@@ -3519,7 +3501,6 @@ defmodule AWS.RoboMaker do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=robomaker%20DeleteFleet&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec delete_fleet(AWS.Client.t(), Keyword.t()) ::
           {:ok, delete_fleet_response(), any()}
@@ -3561,7 +3542,6 @@ defmodule AWS.RoboMaker do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=robomaker%20DeleteRobot&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec delete_robot(AWS.Client.t(), Keyword.t()) ::
           {:ok, delete_robot_response(), any()}
@@ -3603,7 +3583,6 @@ defmodule AWS.RoboMaker do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=robomaker%20DeleteRobotApplication&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec delete_robot_application(AWS.Client.t(), Keyword.t()) ::
           {:ok, delete_robot_application_response(), any()}
@@ -3645,7 +3624,6 @@ defmodule AWS.RoboMaker do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=robomaker%20DeleteSimulationApplication&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec delete_simulation_application(AWS.Client.t(), Keyword.t()) ::
           {:ok, delete_simulation_application_response(), any()}
@@ -3687,7 +3665,6 @@ defmodule AWS.RoboMaker do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=robomaker%20DeleteWorldTemplate&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec delete_world_template(AWS.Client.t(), Keyword.t()) ::
           {:ok, delete_world_template_response(), any()}
@@ -3729,7 +3706,6 @@ defmodule AWS.RoboMaker do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=robomaker%20DeregisterRobot&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec deregister_robot(AWS.Client.t(), Keyword.t()) ::
           {:ok, deregister_robot_response(), any()}
@@ -3771,7 +3747,6 @@ defmodule AWS.RoboMaker do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=robomaker%20DescribeDeploymentJob&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec describe_deployment_job(AWS.Client.t(), Keyword.t()) ::
           {:ok, describe_deployment_job_response(), any()}
@@ -3813,7 +3788,6 @@ defmodule AWS.RoboMaker do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=robomaker%20DescribeFleet&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec describe_fleet(AWS.Client.t(), Keyword.t()) ::
           {:ok, describe_fleet_response(), any()}
@@ -3855,7 +3829,6 @@ defmodule AWS.RoboMaker do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=robomaker%20DescribeRobot&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec describe_robot(AWS.Client.t(), Keyword.t()) ::
           {:ok, describe_robot_response(), any()}
@@ -3897,7 +3870,6 @@ defmodule AWS.RoboMaker do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=robomaker%20DescribeRobotApplication&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec describe_robot_application(AWS.Client.t(), Keyword.t()) ::
           {:ok, describe_robot_application_response(), any()}
@@ -3939,7 +3911,6 @@ defmodule AWS.RoboMaker do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=robomaker%20DescribeSimulationApplication&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec describe_simulation_application(AWS.Client.t(), Keyword.t()) ::
           {:ok, describe_simulation_application_response(), any()}
@@ -3981,7 +3952,6 @@ defmodule AWS.RoboMaker do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=robomaker%20DescribeSimulationJob&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec describe_simulation_job(AWS.Client.t(), Keyword.t()) ::
           {:ok, describe_simulation_job_response(), any()}
@@ -4023,7 +3993,6 @@ defmodule AWS.RoboMaker do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=robomaker%20DescribeSimulationJobBatch&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec describe_simulation_job_batch(AWS.Client.t(), Keyword.t()) ::
           {:ok, describe_simulation_job_batch_response(), any()}
@@ -4065,7 +4034,6 @@ defmodule AWS.RoboMaker do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=robomaker%20DescribeWorld&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec describe_world(AWS.Client.t(), Keyword.t()) ::
           {:ok, describe_world_response(), any()}
@@ -4107,7 +4075,6 @@ defmodule AWS.RoboMaker do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=robomaker%20DescribeWorldExportJob&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec describe_world_export_job(AWS.Client.t(), Keyword.t()) ::
           {:ok, describe_world_export_job_response(), any()}
@@ -4149,7 +4116,6 @@ defmodule AWS.RoboMaker do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=robomaker%20DescribeWorldGenerationJob&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec describe_world_generation_job(AWS.Client.t(), Keyword.t()) ::
           {:ok, describe_world_generation_job_response(), any()}
@@ -4191,7 +4157,6 @@ defmodule AWS.RoboMaker do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=robomaker%20DescribeWorldTemplate&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec describe_world_template(AWS.Client.t(), Keyword.t()) ::
           {:ok, describe_world_template_response(), any()}
@@ -4233,7 +4198,6 @@ defmodule AWS.RoboMaker do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=robomaker%20GetWorldTemplateBody&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec get_world_template_body(AWS.Client.t(), Keyword.t()) ::
           {:ok, get_world_template_body_response(), any()}
@@ -4276,7 +4240,6 @@ defmodule AWS.RoboMaker do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=robomaker%20ListDeploymentJobs&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec list_deployment_jobs(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_deployment_jobs_response(), any()}
@@ -4319,7 +4282,6 @@ defmodule AWS.RoboMaker do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=robomaker%20ListFleets&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec list_fleets(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_fleets_response(), any()}
@@ -4362,7 +4324,6 @@ defmodule AWS.RoboMaker do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=robomaker%20ListRobotApplications&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec list_robot_applications(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_robot_applications_response(), any()}
@@ -4405,7 +4366,6 @@ defmodule AWS.RoboMaker do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=robomaker%20ListRobots&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec list_robots(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_robots_response(), any()}
@@ -4448,7 +4408,6 @@ defmodule AWS.RoboMaker do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=robomaker%20ListSimulationApplications&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec list_simulation_applications(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_simulation_applications_response(), any()}
@@ -4491,7 +4450,6 @@ defmodule AWS.RoboMaker do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=robomaker%20ListSimulationJobBatches&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec list_simulation_job_batches(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_simulation_job_batches_response(), any()}
@@ -4534,7 +4492,6 @@ defmodule AWS.RoboMaker do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=robomaker%20ListSimulationJobs&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec list_simulation_jobs(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_simulation_jobs_response(), any()}
@@ -4577,8 +4534,7 @@ defmodule AWS.RoboMaker do
 
   ## Parameters:
   * `:resource_arn` (`t:string` required) The AWS RoboMaker Amazon Resource Name
-  (ARN) with tags to be listed.
-  ## Keyword parameters:
+    (ARN) with tags to be listed.
   """
   @spec list_tags_for_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_tags_for_resource_response(), any()}
@@ -4618,7 +4574,6 @@ defmodule AWS.RoboMaker do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=robomaker%20ListWorldExportJobs&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec list_world_export_jobs(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_world_export_jobs_response(), any()}
@@ -4660,7 +4615,6 @@ defmodule AWS.RoboMaker do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=robomaker%20ListWorldGenerationJobs&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec list_world_generation_jobs(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_world_generation_jobs_response(), any()}
@@ -4702,7 +4656,6 @@ defmodule AWS.RoboMaker do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=robomaker%20ListWorldTemplates&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec list_world_templates(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_world_templates_response(), any()}
@@ -4744,7 +4697,6 @@ defmodule AWS.RoboMaker do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=robomaker%20ListWorlds&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec list_worlds(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_worlds_response(), any()}
@@ -4786,7 +4738,6 @@ defmodule AWS.RoboMaker do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=robomaker%20RegisterRobot&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec register_robot(AWS.Client.t(), Keyword.t()) ::
           {:ok, register_robot_response(), any()}
@@ -4828,7 +4779,6 @@ defmodule AWS.RoboMaker do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=robomaker%20RestartSimulationJob&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec restart_simulation_job(AWS.Client.t(), Keyword.t()) ::
           {:ok, restart_simulation_job_response(), any()}
@@ -4871,7 +4821,6 @@ defmodule AWS.RoboMaker do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=robomaker%20StartSimulationJobBatch&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec start_simulation_job_batch(AWS.Client.t(), Keyword.t()) ::
           {:ok, start_simulation_job_batch_response(), any()}
@@ -4914,7 +4863,6 @@ defmodule AWS.RoboMaker do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=robomaker%20SyncDeploymentJob&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec sync_deployment_job(AWS.Client.t(), Keyword.t()) ::
           {:ok, sync_deployment_job_response(), any()}
@@ -4959,8 +4907,7 @@ defmodule AWS.RoboMaker do
 
   ## Parameters:
   * `:resource_arn` (`t:string` required) The Amazon Resource Name (ARN) of the
-  AWS RoboMaker resource you are tagging.
-  ## Keyword parameters:
+    AWS RoboMaker resource you are tagging.
   """
   @spec tag_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, tag_resource_response(), any()}
@@ -5003,10 +4950,9 @@ defmodule AWS.RoboMaker do
 
   ## Parameters:
   * `:resource_arn` (`t:string` required) The Amazon Resource Name (ARN) of the
-  AWS RoboMaker resource you are removing tags.
+    AWS RoboMaker resource you are removing tags.
   * `:tag_keys` (`t:list[com.amazonaws.robomaker#TagKey]` required) A map that
-  contains tag keys and tag values that will be unattached from the resource.
-  ## Keyword parameters:
+    contains tag keys and tag values that will be unattached from the resource.
   """
   @spec untag_resource(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, untag_resource_response(), any()}
@@ -5059,7 +5005,6 @@ defmodule AWS.RoboMaker do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=robomaker%20UpdateRobotApplication&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec update_robot_application(AWS.Client.t(), Keyword.t()) ::
           {:ok, update_robot_application_response(), any()}
@@ -5101,7 +5046,6 @@ defmodule AWS.RoboMaker do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=robomaker%20UpdateSimulationApplication&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec update_simulation_application(AWS.Client.t(), Keyword.t()) ::
           {:ok, update_simulation_application_response(), any()}
@@ -5143,7 +5087,6 @@ defmodule AWS.RoboMaker do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=robomaker%20UpdateWorldTemplate&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec update_world_template(AWS.Client.t(), Keyword.t()) ::
           {:ok, update_world_template_response(), any()}

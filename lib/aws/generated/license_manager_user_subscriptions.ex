@@ -594,7 +594,6 @@ defmodule AWS.LicenseManagerUserSubscriptions do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=licensemanagerusersubscriptions%20AssociateUser&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec associate_user(AWS.Client.t(), Keyword.t()) ::
           {:ok, associate_user_response(), any()}
@@ -636,7 +635,6 @@ defmodule AWS.LicenseManagerUserSubscriptions do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=licensemanagerusersubscriptions%20DeregisterIdentityProvider&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec deregister_identity_provider(AWS.Client.t(), Keyword.t()) ::
           {:ok, deregister_identity_provider_response(), any()}
@@ -678,7 +676,6 @@ defmodule AWS.LicenseManagerUserSubscriptions do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=licensemanagerusersubscriptions%20DisassociateUser&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec disassociate_user(AWS.Client.t(), Keyword.t()) ::
           {:ok, disassociate_user_response(), any()}
@@ -720,7 +717,6 @@ defmodule AWS.LicenseManagerUserSubscriptions do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=licensemanagerusersubscriptions%20ListIdentityProviders&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec list_identity_providers(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_identity_providers_response(), any()}
@@ -762,7 +758,6 @@ defmodule AWS.LicenseManagerUserSubscriptions do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=licensemanagerusersubscriptions%20ListInstances&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec list_instances(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_instances_response(), any()}
@@ -804,7 +799,6 @@ defmodule AWS.LicenseManagerUserSubscriptions do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=licensemanagerusersubscriptions%20ListProductSubscriptions&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec list_product_subscriptions(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_product_subscriptions_response(), any()}
@@ -846,7 +840,6 @@ defmodule AWS.LicenseManagerUserSubscriptions do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=licensemanagerusersubscriptions%20ListUserAssociations&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec list_user_associations(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_user_associations_response(), any()}
@@ -888,7 +881,6 @@ defmodule AWS.LicenseManagerUserSubscriptions do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=licensemanagerusersubscriptions%20RegisterIdentityProvider&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec register_identity_provider(AWS.Client.t(), Keyword.t()) ::
           {:ok, register_identity_provider_response(), any()}
@@ -930,7 +922,6 @@ defmodule AWS.LicenseManagerUserSubscriptions do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=licensemanagerusersubscriptions%20StartProductSubscription&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec start_product_subscription(AWS.Client.t(), Keyword.t()) ::
           {:ok, start_product_subscription_response(), any()}
@@ -972,7 +963,6 @@ defmodule AWS.LicenseManagerUserSubscriptions do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=licensemanagerusersubscriptions%20StopProductSubscription&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec stop_product_subscription(AWS.Client.t(), Keyword.t()) ::
           {:ok, stop_product_subscription_response(), any()}
@@ -1015,7 +1005,6 @@ defmodule AWS.LicenseManagerUserSubscriptions do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=licensemanagerusersubscriptions%20UpdateIdentityProviderSettings&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec update_identity_provider_settings(AWS.Client.t(), Keyword.t()) ::
           {:ok, update_identity_provider_settings_response(), any()}

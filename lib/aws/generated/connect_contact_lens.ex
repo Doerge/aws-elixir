@@ -222,7 +222,6 @@ defmodule AWS.ConnectContactLens do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=connectcontactlens%20ListRealtimeContactAnalysisSegments&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec list_realtime_contact_analysis_segments(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_realtime_contact_analysis_segments_response(), any()}

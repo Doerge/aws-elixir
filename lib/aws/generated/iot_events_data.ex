@@ -893,7 +893,6 @@ defmodule AWS.IoTEventsData do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ioteventsdata%20BatchAcknowledgeAlarm&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec batch_acknowledge_alarm(AWS.Client.t(), Keyword.t()) ::
           {:ok, batch_acknowledge_alarm_response(), any()}
@@ -939,7 +938,6 @@ defmodule AWS.IoTEventsData do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ioteventsdata%20BatchDeleteDetector&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec batch_delete_detector(AWS.Client.t(), Keyword.t()) ::
           {:ok, batch_delete_detector_response(), any()}
@@ -982,7 +980,6 @@ defmodule AWS.IoTEventsData do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ioteventsdata%20BatchDisableAlarm&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec batch_disable_alarm(AWS.Client.t(), Keyword.t()) ::
           {:ok, batch_disable_alarm_response(), any()}
@@ -1025,7 +1022,6 @@ defmodule AWS.IoTEventsData do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ioteventsdata%20BatchEnableAlarm&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec batch_enable_alarm(AWS.Client.t(), Keyword.t()) ::
           {:ok, batch_enable_alarm_response(), any()}
@@ -1071,7 +1067,6 @@ defmodule AWS.IoTEventsData do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ioteventsdata%20BatchPutMessage&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec batch_put_message(AWS.Client.t(), Keyword.t()) ::
           {:ok, batch_put_message_response(), any()}
@@ -1114,7 +1109,6 @@ defmodule AWS.IoTEventsData do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ioteventsdata%20BatchResetAlarm&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec batch_reset_alarm(AWS.Client.t(), Keyword.t()) ::
           {:ok, batch_reset_alarm_response(), any()}
@@ -1157,7 +1151,6 @@ defmodule AWS.IoTEventsData do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ioteventsdata%20BatchSnoozeAlarm&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec batch_snooze_alarm(AWS.Client.t(), Keyword.t()) ::
           {:ok, batch_snooze_alarm_response(), any()}
@@ -1200,7 +1193,6 @@ defmodule AWS.IoTEventsData do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ioteventsdata%20BatchUpdateDetector&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec batch_update_detector(AWS.Client.t(), Keyword.t()) ::
           {:ok, batch_update_detector_response(), any()}
@@ -1243,9 +1235,10 @@ defmodule AWS.IoTEventsData do
 
   ## Parameters:
   * `:alarm_model_name` (`t:string` required) The name of the alarm model.
+
   ## Keyword parameters:
   * `:key_value` (`t:string`) The value of the key used as a filter to select only
-  the alarms associated with the key.
+    the alarms associated with the key.
   """
   @spec describe_alarm(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, describe_alarm_response(), any()}
@@ -1297,10 +1290,11 @@ defmodule AWS.IoTEventsData do
 
   ## Parameters:
   * `:detector_model_name` (`t:string` required) The name of the detector model
-  whose detectors (instances) you want information about.
+    whose detectors (instances) you want information about.
+
   ## Keyword parameters:
   * `:key_value` (`t:string`) A filter used to limit results to detectors
-  (instances) created because of the given key ID.
+    (instances) created because of the given key ID.
   """
   @spec describe_detector(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, describe_detector_response(), any()}
@@ -1353,11 +1347,12 @@ defmodule AWS.IoTEventsData do
 
   ## Parameters:
   * `:alarm_model_name` (`t:string` required) The name of the alarm model.
+
   ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of results to be returned per
-  request.
+    request.
   * `:next_token` (`t:string`) The token that you can use to return the next set
-  of results.
+    of results.
   """
   @spec list_alarms(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_alarms_response(), any()}
@@ -1416,14 +1411,15 @@ defmodule AWS.IoTEventsData do
 
   ## Parameters:
   * `:detector_model_name` (`t:string` required) The name of the detector model
-  whose detectors (instances) are listed.
+    whose detectors (instances) are listed.
+
   ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of results to be returned per
-  request.
+    request.
   * `:next_token` (`t:string`) The token that you can use to return the next set
-  of results.
+    of results.
   * `:state_name` (`t:string`) A filter that limits results to those detectors
-  (instances) in the given state.
+    (instances) in the given state.
   """
   @spec list_detectors(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_detectors_response(), any()}

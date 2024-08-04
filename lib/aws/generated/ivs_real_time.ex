@@ -1462,7 +1462,6 @@ defmodule AWS.IVSRealTime do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ivsrealtime%20CreateEncoderConfiguration&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec create_encoder_configuration(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_encoder_configuration_response(), any()}
@@ -1506,7 +1505,6 @@ defmodule AWS.IVSRealTime do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ivsrealtime%20CreateParticipantToken&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec create_participant_token(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_participant_token_response(), any()}
@@ -1548,7 +1546,6 @@ defmodule AWS.IVSRealTime do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ivsrealtime%20CreateStage&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec create_stage(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_stage_response(), any()}
@@ -1593,7 +1590,6 @@ defmodule AWS.IVSRealTime do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ivsrealtime%20CreateStorageConfiguration&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec create_storage_configuration(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_storage_configuration_response(), any()}
@@ -1636,7 +1632,6 @@ defmodule AWS.IVSRealTime do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ivsrealtime%20DeleteEncoderConfiguration&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec delete_encoder_configuration(AWS.Client.t(), Keyword.t()) ::
           {:ok, delete_encoder_configuration_response(), any()}
@@ -1680,7 +1675,6 @@ defmodule AWS.IVSRealTime do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ivsrealtime%20DeletePublicKey&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec delete_public_key(AWS.Client.t(), Keyword.t()) ::
           {:ok, delete_public_key_response(), any()}
@@ -1722,7 +1716,6 @@ defmodule AWS.IVSRealTime do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ivsrealtime%20DeleteStage&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec delete_stage(AWS.Client.t(), Keyword.t()) ::
           {:ok, delete_stage_response(), any()}
@@ -1764,7 +1757,6 @@ defmodule AWS.IVSRealTime do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ivsrealtime%20DeleteStorageConfiguration&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec delete_storage_configuration(AWS.Client.t(), Keyword.t()) ::
           {:ok, delete_storage_configuration_response(), any()}
@@ -1807,7 +1799,6 @@ defmodule AWS.IVSRealTime do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ivsrealtime%20DisconnectParticipant&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec disconnect_participant(AWS.Client.t(), Keyword.t()) ::
           {:ok, disconnect_participant_response(), any()}
@@ -1849,7 +1840,6 @@ defmodule AWS.IVSRealTime do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ivsrealtime%20GetComposition&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec get_composition(AWS.Client.t(), Keyword.t()) ::
           {:ok, get_composition_response(), any()}
@@ -1891,7 +1881,6 @@ defmodule AWS.IVSRealTime do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ivsrealtime%20GetEncoderConfiguration&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec get_encoder_configuration(AWS.Client.t(), Keyword.t()) ::
           {:ok, get_encoder_configuration_response(), any()}
@@ -1933,7 +1922,6 @@ defmodule AWS.IVSRealTime do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ivsrealtime%20GetParticipant&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec get_participant(AWS.Client.t(), Keyword.t()) ::
           {:ok, get_participant_response(), any()}
@@ -1975,7 +1963,6 @@ defmodule AWS.IVSRealTime do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ivsrealtime%20GetPublicKey&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec get_public_key(AWS.Client.t(), Keyword.t()) ::
           {:ok, get_public_key_response(), any()}
@@ -2017,7 +2004,6 @@ defmodule AWS.IVSRealTime do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ivsrealtime%20GetStage&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec get_stage(AWS.Client.t(), Keyword.t()) ::
           {:ok, get_stage_response(), any()}
@@ -2059,7 +2045,6 @@ defmodule AWS.IVSRealTime do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ivsrealtime%20GetStageSession&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec get_stage_session(AWS.Client.t(), Keyword.t()) ::
           {:ok, get_stage_session_response(), any()}
@@ -2101,7 +2086,6 @@ defmodule AWS.IVSRealTime do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ivsrealtime%20GetStorageConfiguration&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec get_storage_configuration(AWS.Client.t(), Keyword.t()) ::
           {:ok, get_storage_configuration_response(), any()}
@@ -2143,7 +2127,6 @@ defmodule AWS.IVSRealTime do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ivsrealtime%20ImportPublicKey&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec import_public_key(AWS.Client.t(), Keyword.t()) ::
           {:ok, import_public_key_response(), any()}
@@ -2186,7 +2169,6 @@ defmodule AWS.IVSRealTime do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ivsrealtime%20ListCompositions&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec list_compositions(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_compositions_response(), any()}
@@ -2229,7 +2211,6 @@ defmodule AWS.IVSRealTime do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ivsrealtime%20ListEncoderConfigurations&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec list_encoder_configurations(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_encoder_configurations_response(), any()}
@@ -2272,7 +2253,6 @@ defmodule AWS.IVSRealTime do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ivsrealtime%20ListParticipantEvents&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec list_participant_events(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_participant_events_response(), any()}
@@ -2314,7 +2294,6 @@ defmodule AWS.IVSRealTime do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ivsrealtime%20ListParticipants&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec list_participants(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_participants_response(), any()}
@@ -2357,7 +2336,6 @@ defmodule AWS.IVSRealTime do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ivsrealtime%20ListPublicKeys&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec list_public_keys(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_public_keys_response(), any()}
@@ -2399,7 +2377,6 @@ defmodule AWS.IVSRealTime do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ivsrealtime%20ListStageSessions&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec list_stage_sessions(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_stage_sessions_response(), any()}
@@ -2442,7 +2419,6 @@ defmodule AWS.IVSRealTime do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ivsrealtime%20ListStages&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec list_stages(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_stages_response(), any()}
@@ -2485,7 +2461,6 @@ defmodule AWS.IVSRealTime do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ivsrealtime%20ListStorageConfigurations&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec list_storage_configurations(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_storage_configurations_response(), any()}
@@ -2528,8 +2503,7 @@ defmodule AWS.IVSRealTime do
 
   ## Parameters:
   * `:resource_arn` (`t:string` required) The ARN of the resource to be retrieved.
-  The ARN must be URL-encoded.
-  ## Keyword parameters:
+    The ARN must be URL-encoded.
   """
   @spec list_tags_for_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_tags_for_resource_response(), any()}
@@ -2571,7 +2545,6 @@ defmodule AWS.IVSRealTime do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ivsrealtime%20StartComposition&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec start_composition(AWS.Client.t(), Keyword.t()) ::
           {:ok, start_composition_response(), any()}
@@ -2614,7 +2587,6 @@ defmodule AWS.IVSRealTime do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ivsrealtime%20StopComposition&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec stop_composition(AWS.Client.t(), Keyword.t()) ::
           {:ok, stop_composition_response(), any()}
@@ -2657,8 +2629,7 @@ defmodule AWS.IVSRealTime do
 
   ## Parameters:
   * `:resource_arn` (`t:string` required) The ARN of the resource to be tagged.
-  The ARN must be URL-encoded.
-  ## Keyword parameters:
+    The ARN must be URL-encoded.
   """
   @spec tag_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, tag_resource_response(), any()}
@@ -2701,13 +2672,12 @@ defmodule AWS.IVSRealTime do
 
   ## Parameters:
   * `:resource_arn` (`t:string` required) The ARN of the resource to be untagged.
-  The ARN must be URL-encoded.
+    The ARN must be URL-encoded.
   * `:tag_keys` (`t:list[com.amazonaws.ivsrealtime#TagKey]` required) Array of
-  tags to be removed. Array of maps, each of the form string:string
-  (key:value). See Tagging AWS Resources for details, including restrictions
-  that apply to tags and "Tag naming limits and requirements"; Amazon IVS has
-  no constraints beyond what is documented there.
-  ## Keyword parameters:
+    tags to be removed. Array of maps, each of the form string:string
+    (key:value). See Tagging AWS Resources for details, including restrictions
+    that apply to tags and "Tag naming limits and requirements"; Amazon IVS has
+    no constraints beyond what is documented there.
   """
   @spec untag_resource(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, untag_resource_response(), any()}
@@ -2760,7 +2730,6 @@ defmodule AWS.IVSRealTime do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ivsrealtime%20UpdateStage&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec update_stage(AWS.Client.t(), Keyword.t()) ::
           {:ok, update_stage_response(), any()}

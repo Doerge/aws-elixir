@@ -994,12 +994,13 @@ defmodule AWS.MedicalImaging do
   * `:datastore_id` (`t:string` required) The data store identifier.
   * `:source_image_set_id` (`t:string` required) The source image set identifier.
   * `:input` (`t:map`):
-    * `:copy_image_set_information` (`t:structure` required) Copy image set
-  information.
+    * `"copyImageSetInformation" => t:structure` (required) Copy image set
+    information.
+
   ## Keyword parameters:
   * `:force` (`t:string`) Setting this flag will force the CopyImageSet operation,
-  even if Patient, Study, or Series level metadata are mismatched across the
-  sourceImageSet and destinationImageSet.
+    even if Patient, Study, or Series level metadata are mismatched across the
+    sourceImageSet and destinationImageSet.
   """
   @spec copy_image_set(AWS.Client.t(), String.t(), String.t(), input :: map(), Keyword.t()) ::
           {:ok, copy_image_set_response(), any()}
@@ -1054,7 +1055,6 @@ defmodule AWS.MedicalImaging do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=medicalimaging%20CreateDatastore&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec create_datastore(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_datastore_response(), any()}
@@ -1097,7 +1097,6 @@ defmodule AWS.MedicalImaging do
 
   ## Parameters:
   * `:datastore_id` (`t:string` required) The data store identifier.
-  ## Keyword parameters:
   """
   @spec delete_datastore(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, delete_datastore_response(), any()}
@@ -1151,7 +1150,6 @@ defmodule AWS.MedicalImaging do
   ## Parameters:
   * `:datastore_id` (`t:string` required) The data store identifier.
   * `:image_set_id` (`t:string` required) The image set identifier.
-  ## Keyword parameters:
   """
   @spec delete_image_set(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, delete_image_set_response(), any()}
@@ -1196,7 +1194,6 @@ defmodule AWS.MedicalImaging do
   ## Parameters:
   * `:datastore_id` (`t:string` required) The data store identifier.
   * `:job_id` (`t:string` required) The import job identifier.
-  ## Keyword parameters:
   """
   @spec get_d_i_c_o_m_import_job(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_d_i_c_o_m_import_job_response(), any()}
@@ -1238,7 +1235,6 @@ defmodule AWS.MedicalImaging do
 
   ## Parameters:
   * `:datastore_id` (`t:string` required) The data store identifier.
-  ## Keyword parameters:
   """
   @spec get_datastore(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_datastore_response(), any()}
@@ -1281,9 +1277,8 @@ defmodule AWS.MedicalImaging do
   * `:datastore_id` (`t:string` required) The data store identifier.
   * `:image_set_id` (`t:string` required) The image set identifier.
   * `:input` (`t:map`):
-    * `:image_frame_information` (`t:structure` required) Information about the
-  image frame (pixel data) identifier.
-  ## Keyword parameters:
+    * `"imageFrameInformation" => t:structure` (required) Information about the
+    image frame (pixel data) identifier.
   """
   @spec get_image_frame(AWS.Client.t(), String.t(), String.t(), input :: map(), Keyword.t()) ::
           {:ok, get_image_frame_response(), any()}
@@ -1319,13 +1314,6 @@ defmodule AWS.MedicalImaging do
         [{"Content-Type", "contentType"}]
       )
 
-    options =
-      Keyword.put(
-        options,
-        :response_header_parameters,
-        [{"Content-Type", "contentType"}]
-      )
-
     meta =
       metadata() |> Map.put_new(:host_prefix, "runtime-")
 
@@ -1342,6 +1330,7 @@ defmodule AWS.MedicalImaging do
   ## Parameters:
   * `:datastore_id` (`t:string` required) The data store identifier.
   * `:image_set_id` (`t:string` required) The image set identifier.
+
   ## Keyword parameters:
   * `:version_id` (`t:string`) The image set version identifier.
   """
@@ -1399,6 +1388,7 @@ defmodule AWS.MedicalImaging do
   ## Parameters:
   * `:datastore_id` (`t:string` required) The data store identifier.
   * `:image_set_id` (`t:string` required) The image set identifier.
+
   ## Keyword parameters:
   * `:version_id` (`t:string`) The image set version identifier.
   """
@@ -1442,13 +1432,6 @@ defmodule AWS.MedicalImaging do
         [{"Content-Encoding", "contentEncoding"}, {"Content-Type", "contentType"}]
       )
 
-    options =
-      Keyword.put(
-        options,
-        :response_header_parameters,
-        [{"Content-Encoding", "contentEncoding"}, {"Content-Type", "contentType"}]
-      )
-
     meta =
       metadata() |> Map.put_new(:host_prefix, "runtime-")
 
@@ -1469,13 +1452,14 @@ defmodule AWS.MedicalImaging do
 
   ## Parameters:
   * `:datastore_id` (`t:string` required) The data store identifier.
+
   ## Keyword parameters:
   * `:job_status` (`t:enum["COMPLETED|FAILED|IN_PROGRESS|SUBMITTED"]`) The filters
-  for listing import jobs based on status.
+    for listing import jobs based on status.
   * `:max_results` (`t:string`) The max results count. The upper bound is
-  determined by load testing.
+    determined by load testing.
   * `:next_token` (`t:string`) The pagination token used to request the list of
-  import jobs on the next page.
+    import jobs on the next page.
   """
   @spec list_d_i_c_o_m_import_jobs(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_d_i_c_o_m_import_jobs_response(), any()}
@@ -1540,14 +1524,15 @@ defmodule AWS.MedicalImaging do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=medicalimaging%20ListDatastores&this_doc_guide=API%2520Reference)
 
   ## Parameters:
+
   ## Keyword parameters:
   * `:datastore_status`
-  (`t:enum["ACTIVE|CREATE_FAILED|CREATING|DELETED|DELETING"]`) The data store
-  status.
+    (`t:enum["ACTIVE|CREATE_FAILED|CREATING|DELETED|DELETING"]`) The data store
+    status.
   * `:max_results` (`t:string`) Valid Range: Minimum value of 1. Maximum value of
-  50.
+    50.
   * `:next_token` (`t:string`) The pagination token used to request the list of
-  data stores on the next page.
+    data stores on the next page.
   """
   @spec list_datastores(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_datastores_response(), any()}
@@ -1614,10 +1599,11 @@ defmodule AWS.MedicalImaging do
   ## Parameters:
   * `:datastore_id` (`t:string` required) The data store identifier.
   * `:image_set_id` (`t:string` required) The image set identifier.
+
   ## Keyword parameters:
   * `:max_results` (`t:string`) The max results count.
   * `:next_token` (`t:string`) The pagination token used to request the list of
-  image set versions on the next page.
+    image set versions on the next page.
   """
   @spec list_image_set_versions(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, list_image_set_versions_response(), any()}
@@ -1679,8 +1665,7 @@ defmodule AWS.MedicalImaging do
 
   ## Parameters:
   * `:resource_arn` (`t:string` required) The Amazon Resource Name (ARN) of the
-  medical imaging resource to list tags for.
-  ## Keyword parameters:
+    medical imaging resource to list tags for.
   """
   @spec list_tags_for_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_tags_for_resource_response(), any()}
@@ -1721,16 +1706,17 @@ defmodule AWS.MedicalImaging do
 
   ## Parameters:
   * `:datastore_id` (`t:string` required) The identifier of the data store where
-  the image sets reside.
+    the image sets reside.
   * `:input` (`t:map | nil`):
-    * `:search_criteria` (`t:structure`) The search criteria that filters by
-  applying a maximum of 1 item to SearchByAttribute.
+    * `"searchCriteria" => t:structure` The search criteria that filters by applying
+    a maximum of 1 item to SearchByAttribute.
+
   ## Keyword parameters:
   * `:max_results` (`t:string`) The maximum number of results that can be returned
-  in a search.
+    in a search.
   * `:next_token` (`t:string`) The token used for pagination of results returned
-  in the response. Use the token returned from the previous request to
-  continue results where the previous request ended.
+    in the response. Use the token returned from the previous request to
+    continue results where the previous request ended.
   """
   @spec search_image_sets(AWS.Client.t(), String.t(), input :: map() | nil, Keyword.t()) ::
           {:ok, search_image_sets_response(), any()}
@@ -1795,7 +1781,6 @@ defmodule AWS.MedicalImaging do
 
   ## Parameters:
   * `:datastore_id` (`t:string` required) The data store identifier.
-  ## Keyword parameters:
   """
   @spec start_d_i_c_o_m_import_job(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, start_d_i_c_o_m_import_job_response(), any()}
@@ -1838,8 +1823,7 @@ defmodule AWS.MedicalImaging do
 
   ## Parameters:
   * `:resource_arn` (`t:string` required) The Amazon Resource Name (ARN) of the
-  medical imaging resource that tags are being added to.
-  ## Keyword parameters:
+    medical imaging resource that tags are being added to.
   """
   @spec tag_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, tag_resource_response(), any()}
@@ -1882,10 +1866,9 @@ defmodule AWS.MedicalImaging do
 
   ## Parameters:
   * `:resource_arn` (`t:string` required) The Amazon Resource Name (ARN) of the
-  medical imaging resource that tags are being removed from.
+    medical imaging resource that tags are being removed from.
   * `:tag_keys` (`t:list[com.amazonaws.medicalimaging#TagKey]` required) The keys
-  for the tags to be removed from the medical imaging resource.
-  ## Keyword parameters:
+    for the tags to be removed from the medical imaging resource.
   """
   @spec untag_resource(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, untag_resource_response(), any()}
@@ -1941,13 +1924,14 @@ defmodule AWS.MedicalImaging do
   * `:datastore_id` (`t:string` required) The data store identifier.
   * `:image_set_id` (`t:string` required) The image set identifier.
   * `:latest_version_id` (`t:string` required) The latest image set version
-  identifier.
+    identifier.
   * `:input` (`t:map`):
-    * `:update_image_set_metadata_updates` (`t:union` required) Update image set
-  metadata updates.
+    * `"updateImageSetMetadataUpdates" => t:union` (required) Update image set
+    metadata updates.
+
   ## Keyword parameters:
   * `:force` (`t:string`) Setting this flag will force the UpdateImageSetMetadata
-  operation for the following attributes:
+    operation for the following attributes:
   """
   @spec update_image_set_metadata(
           AWS.Client.t(),

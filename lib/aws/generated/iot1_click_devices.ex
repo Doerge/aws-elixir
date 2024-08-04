@@ -509,8 +509,7 @@ defmodule AWS.IoT1ClickDevices do
 
   ## Parameters:
   * `:claim_code` (`t:string` required) The claim code, starting with "C-", as
-  provided by the device manufacturer.
-  ## Keyword parameters:
+    provided by the device manufacturer.
   """
   @spec claim_devices_by_claim_code(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, claim_devices_by_claim_code_response(), any()}
@@ -554,7 +553,6 @@ defmodule AWS.IoT1ClickDevices do
 
   ## Parameters:
   * `:device_id` (`t:string` required) The unique identifier of the device.
-  ## Keyword parameters:
   """
   @spec describe_device(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, describe_device_response(), any()}
@@ -596,10 +594,9 @@ defmodule AWS.IoT1ClickDevices do
   ## Parameters:
   * `:device_id` (`t:string` required) The unique identifier of the device.
   * `:input` (`t:map | nil`):
-    * `:tags` (`t:map`) A collection of key/value pairs defining the resource tags.
-  For example, { "tags": {"key1": "value1", "key2": "value2"} }. For more
-  information, see AWS Tagging Strategies.
-  ## Keyword parameters:
+    * `"tags" => t:map` A collection of key/value pairs defining the resource tags.
+    For example, { "tags": {"key1": "value1", "key2": "value2"} }. For more
+    information, see AWS Tagging Strategies.
   """
   @spec finalize_device_claim(AWS.Client.t(), String.t(), input :: map() | nil, Keyword.t()) ::
           {:ok, finalize_device_claim_response(), any()}
@@ -643,7 +640,6 @@ defmodule AWS.IoT1ClickDevices do
 
   ## Parameters:
   * `:device_id` (`t:string` required) The unique identifier of the device.
-  ## Keyword parameters:
   """
   @spec get_device_methods(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_device_methods_response(), any()}
@@ -684,7 +680,6 @@ defmodule AWS.IoT1ClickDevices do
 
   ## Parameters:
   * `:device_id` (`t:string` required) The unique identifier of the device.
-  ## Keyword parameters:
   """
   @spec initiate_device_claim(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, initiate_device_claim_response(), any()}
@@ -729,10 +724,9 @@ defmodule AWS.IoT1ClickDevices do
   ## Parameters:
   * `:device_id` (`t:string` required) The unique identifier of the device.
   * `:input` (`t:map | nil`):
-    * `:device_method` (`t:structure`) The device method to invoke.
-    * `:device_method_parameters` (`t:string`) A JSON encoded string containing the
-  device method request parameters.
-  ## Keyword parameters:
+    * `"deviceMethod" => t:structure` The device method to invoke.
+    * `"deviceMethodParameters" => t:string` A JSON encoded string containing the
+    device method request parameters.
   """
   @spec invoke_device_method(AWS.Client.t(), String.t(), input :: map() | nil, Keyword.t()) ::
           {:ok, invoke_device_method_response(), any()}
@@ -778,12 +772,13 @@ defmodule AWS.IoT1ClickDevices do
   ## Parameters:
   * `:device_id` (`t:string` required) The unique identifier of the device.
   * `:from_time_stamp` (`t:timestamp[date-time]` required) The start date for the
-  device event query, in ISO8061 format. For example, 2018-03-28T15:45:12.880Z
+    device event query, in ISO8061 format. For example, 2018-03-28T15:45:12.880Z
   * `:to_time_stamp` (`t:timestamp[date-time]` required) The end date for the
-  device event query, in ISO8061 format. For example, 2018-03-28T15:45:12.880Z
+    device event query, in ISO8061 format. For example, 2018-03-28T15:45:12.880Z
+
   ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of results to return per
-  request. If not set, a default value of 100 is used.
+    request. If not set, a default value of 100 is used.
   * `:next_token` (`t:string`) The token to retrieve the next set of results.
   """
   @spec list_device_events(AWS.Client.t(), String.t(), String.t(), String.t(), Keyword.t()) ::
@@ -849,10 +844,11 @@ defmodule AWS.IoT1ClickDevices do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iot1clickdevicesservice%20ListDevices&this_doc_guide=API%2520Reference)
 
   ## Parameters:
+
   ## Keyword parameters:
   * `:device_type` (`t:string`) The type of the device, such as "button".
   * `:max_results` (`t:integer`) The maximum number of results to return per
-  request. If not set, a default value of 100 is used.
+    request. If not set, a default value of 100 is used.
   * `:next_token` (`t:string`) The token to retrieve the next set of results.
   """
   @spec list_devices(AWS.Client.t(), Keyword.t()) ::
@@ -919,7 +915,6 @@ defmodule AWS.IoT1ClickDevices do
 
   ## Parameters:
   * `:resource_arn` (`t:string` required) The ARN of the resource.
-  ## Keyword parameters:
   """
   @spec list_tags_for_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_tags_for_resource_response(), any()}
@@ -964,10 +959,9 @@ defmodule AWS.IoT1ClickDevices do
   ## Parameters:
   * `:resource_arn` (`t:string` required) The ARN of the resource.
   * `:input` (`t:map`):
-    * `:tags` (`t:map` required) A collection of key/value pairs defining the
-  resource tags. For example, { "tags": {"key1": "value1", "key2": "value2"}
-  }. For more information, see AWS Tagging Strategies.
-  ## Keyword parameters:
+    * `"tags" => t:map` (required) A collection of key/value pairs defining the
+    resource tags. For example, { "tags": {"key1": "value1", "key2": "value2"}
+    }. For more information, see AWS Tagging Strategies.
   """
   @spec tag_resource(AWS.Client.t(), String.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
@@ -1010,7 +1004,6 @@ defmodule AWS.IoT1ClickDevices do
 
   ## Parameters:
   * `:device_id` (`t:string` required) The unique identifier of the device.
-  ## Keyword parameters:
   """
   @spec unclaim_device(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, unclaim_device_response(), any()}
@@ -1055,8 +1048,7 @@ defmodule AWS.IoT1ClickDevices do
   ## Parameters:
   * `:resource_arn` (`t:string` required) The ARN of the resource.
   * `:tag_keys` (`t:list[com.amazonaws.iot1clickdevicesservice#__string]`
-  required) A collections of tag keys. For example, {"key1","key2"}
-  ## Keyword parameters:
+    required) A collections of tag keys. For example, {"key1","key2"}
   """
   @spec untag_resource(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
@@ -1112,9 +1104,8 @@ defmodule AWS.IoT1ClickDevices do
   ## Parameters:
   * `:device_id` (`t:string` required) The unique identifier of the device.
   * `:input` (`t:map | nil`):
-    * `:enabled` (`t:boolean`) If true, the device is enabled. If false, the device
-  is disabled.
-  ## Keyword parameters:
+    * `"enabled" => t:boolean` If true, the device is enabled. If false, the device
+    is disabled.
   """
   @spec update_device_state(AWS.Client.t(), String.t(), input :: map() | nil, Keyword.t()) ::
           {:ok, update_device_state_response(), any()}

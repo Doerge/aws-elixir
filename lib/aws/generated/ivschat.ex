@@ -751,7 +751,6 @@ defmodule AWS.Ivschat do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ivschat%20CreateChatToken&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec create_chat_token(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_chat_token_response(), any()}
@@ -794,7 +793,6 @@ defmodule AWS.Ivschat do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ivschat%20CreateLoggingConfiguration&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec create_logging_configuration(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_logging_configuration_response(), any()}
@@ -836,7 +834,6 @@ defmodule AWS.Ivschat do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ivschat%20CreateRoom&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec create_room(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_room_response(), any()}
@@ -878,7 +875,6 @@ defmodule AWS.Ivschat do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ivschat%20DeleteLoggingConfiguration&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec delete_logging_configuration(AWS.Client.t(), Keyword.t()) ::
           {:ok, nil, any()}
@@ -925,7 +921,6 @@ defmodule AWS.Ivschat do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ivschat%20DeleteMessage&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec delete_message(AWS.Client.t(), Keyword.t()) ::
           {:ok, delete_message_response(), any()}
@@ -967,7 +962,6 @@ defmodule AWS.Ivschat do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ivschat%20DeleteRoom&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec delete_room(AWS.Client.t(), Keyword.t()) ::
           {:ok, nil, any()}
@@ -1012,7 +1006,6 @@ defmodule AWS.Ivschat do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ivschat%20DisconnectUser&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec disconnect_user(AWS.Client.t(), Keyword.t()) ::
           {:ok, disconnect_user_response(), any()}
@@ -1054,7 +1047,6 @@ defmodule AWS.Ivschat do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ivschat%20GetLoggingConfiguration&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec get_logging_configuration(AWS.Client.t(), Keyword.t()) ::
           {:ok, get_logging_configuration_response(), any()}
@@ -1096,7 +1088,6 @@ defmodule AWS.Ivschat do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ivschat%20GetRoom&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec get_room(AWS.Client.t(), Keyword.t()) ::
           {:ok, get_room_response(), any()}
@@ -1139,7 +1130,6 @@ defmodule AWS.Ivschat do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ivschat%20ListLoggingConfigurations&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec list_logging_configurations(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_logging_configurations_response(), any()}
@@ -1182,7 +1172,6 @@ defmodule AWS.Ivschat do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ivschat%20ListRooms&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec list_rooms(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_rooms_response(), any()}
@@ -1225,8 +1214,7 @@ defmodule AWS.Ivschat do
 
   ## Parameters:
   * `:resource_arn` (`t:string` required) The ARN of the resource to be retrieved.
-  The ARN must be URL-encoded.
-  ## Keyword parameters:
+    The ARN must be URL-encoded.
   """
   @spec list_tags_for_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_tags_for_resource_response(), any()}
@@ -1268,7 +1256,6 @@ defmodule AWS.Ivschat do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ivschat%20SendEvent&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec send_event(AWS.Client.t(), Keyword.t()) ::
           {:ok, send_event_response(), any()}
@@ -1311,8 +1298,7 @@ defmodule AWS.Ivschat do
 
   ## Parameters:
   * `:resource_arn` (`t:string` required) The ARN of the resource to be tagged.
-  The ARN must be URL-encoded.
-  ## Keyword parameters:
+    The ARN must be URL-encoded.
   """
   @spec tag_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, tag_resource_response(), any()}
@@ -1355,13 +1341,12 @@ defmodule AWS.Ivschat do
 
   ## Parameters:
   * `:resource_arn` (`t:string` required) The ARN of the resource to be untagged.
-  The ARN must be URL-encoded.
+    The ARN must be URL-encoded.
   * `:tag_keys` (`t:list[com.amazonaws.ivschat#TagKey]` required) Array of tags to
-  be removed. Array of maps, each of the form string:string (key:value). See
-  Tagging AWS Resources for details, including restrictions that apply to tags
-  and "Tag naming limits and requirements"; Amazon IVS Chat has no constraints
-  beyond what is documented there.
-  ## Keyword parameters:
+    be removed. Array of maps, each of the form string:string (key:value). See
+    Tagging AWS Resources for details, including restrictions that apply to tags
+    and "Tag naming limits and requirements"; Amazon IVS Chat has no constraints
+    beyond what is documented there.
   """
   @spec untag_resource(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, untag_resource_response(), any()}
@@ -1414,7 +1399,6 @@ defmodule AWS.Ivschat do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ivschat%20UpdateLoggingConfiguration&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec update_logging_configuration(AWS.Client.t(), Keyword.t()) ::
           {:ok, update_logging_configuration_response(), any()}
@@ -1456,7 +1440,6 @@ defmodule AWS.Ivschat do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ivschat%20UpdateRoom&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec update_room(AWS.Client.t(), Keyword.t()) ::
           {:ok, update_room_response(), any()}

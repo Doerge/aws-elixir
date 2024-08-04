@@ -764,7 +764,6 @@ defmodule AWS.CodeGuruSecurity do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=codegurusecurity%20BatchGetFindings&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec batch_get_findings(AWS.Client.t(), Keyword.t()) ::
           {:ok, batch_get_findings_response(), any()}
@@ -806,7 +805,6 @@ defmodule AWS.CodeGuruSecurity do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=codegurusecurity%20CreateScan&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec create_scan(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_scan_response(), any()}
@@ -849,7 +847,6 @@ defmodule AWS.CodeGuruSecurity do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=codegurusecurity%20CreateUploadUrl&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec create_upload_url(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_upload_url_response(), any()}
@@ -891,7 +888,6 @@ defmodule AWS.CodeGuruSecurity do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=codegurusecurity%20GetAccountConfiguration&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec get_account_configuration(AWS.Client.t(), Keyword.t()) ::
           {:ok, get_account_configuration_response(), any()}
@@ -932,19 +928,20 @@ defmodule AWS.CodeGuruSecurity do
 
   ## Parameters:
   * `:scan_name` (`t:string` required) The name of the scan you want to retrieve
-  findings from.
+    findings from.
+
   ## Keyword parameters:
   * `:max_results` (`t:string`) The maximum number of results to return in the
-  response. Use this parameter when paginating results. If additional results
-  exist beyond the number you specify, the nextToken element is returned in
-  the response. Use nextToken in a subsequent request to retrieve additional
-  results. If not specified, returns 1000 results.
+    response. Use this parameter when paginating results. If additional results
+    exist beyond the number you specify, the nextToken element is returned in
+    the response. Use nextToken in a subsequent request to retrieve additional
+    results. If not specified, returns 1000 results.
   * `:next_token` (`t:string`) A token to use for paginating results that are
-  returned in the response. Set the value of this parameter to null for the
-  first request. For subsequent calls, use the nextToken value returned from
-  the previous request to continue listing results after the first page.
+    returned in the response. Set the value of this parameter to null for the
+    first request. For subsequent calls, use the nextToken value returned from
+    the previous request to continue listing results after the first page.
   * `:status` (`t:enum["ALL|CLOSED|OPEN"]`) The status of the findings you want to
-  get. Pass either Open, Closed, or All.
+    get. Pass either Open, Closed, or All.
   """
   @spec get_findings(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_findings_response(), any()}
@@ -1012,9 +1009,8 @@ defmodule AWS.CodeGuruSecurity do
 
   ## Parameters:
   * `:date` (`t:string` required) The date you want to retrieve summary metrics
-  from, rounded to the nearest day. The date must be within the past two
-  years.
-  ## Keyword parameters:
+    from, rounded to the nearest day. The date must be within the past two
+    years.
   """
   @spec get_metrics_summary(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_metrics_summary_response(), any()}
@@ -1055,11 +1051,12 @@ defmodule AWS.CodeGuruSecurity do
 
   ## Parameters:
   * `:scan_name` (`t:string` required) The name of the scan you want to view
-  details about.
+    details about.
+
   ## Keyword parameters:
   * `:run_id` (`t:string`) UUID that identifies the individual scan run you want
-  to view details about. You retrieve this when you call the CreateScan
-  operation. Defaults to the latest scan run if missing.
+    to view details about. You retrieve this when you call the CreateScan
+    operation. Defaults to the latest scan run if missing.
   """
   @spec get_scan(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_scan_response(), any()}
@@ -1111,19 +1108,20 @@ defmodule AWS.CodeGuruSecurity do
 
   ## Parameters:
   * `:end_date` (`t:string` required) The end date of the interval which you want
-  to retrieve metrics from. Round to the nearest day.
+    to retrieve metrics from. Round to the nearest day.
   * `:start_date` (`t:string` required) The start date of the interval which you
-  want to retrieve metrics from. Rounds to the nearest day.
+    want to retrieve metrics from. Rounds to the nearest day.
+
   ## Keyword parameters:
   * `:max_results` (`t:string`) The maximum number of results to return in the
-  response. Use this parameter when paginating results. If additional results
-  exist beyond the number you specify, the nextToken element is returned in
-  the response. Use nextToken in a subsequent request to retrieve additional
-  results. If not specified, returns 1000 results.
+    response. Use this parameter when paginating results. If additional results
+    exist beyond the number you specify, the nextToken element is returned in
+    the response. Use nextToken in a subsequent request to retrieve additional
+    results. If not specified, returns 1000 results.
   * `:next_token` (`t:string`) A token to use for paginating results that are
-  returned in the response. Set the value of this parameter to null for the
-  first request. For subsequent calls, use the nextToken value returned from
-  the previous request to continue listing results after the first page.
+    returned in the response. Set the value of this parameter to null for the
+    first request. For subsequent calls, use the nextToken value returned from
+    the previous request to continue listing results after the first page.
   """
   @spec list_findings_metrics(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, list_findings_metrics_response(), any()}
@@ -1182,16 +1180,17 @@ defmodule AWS.CodeGuruSecurity do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=codegurusecurity%20ListScans&this_doc_guide=API%2520Reference)
 
   ## Parameters:
+
   ## Keyword parameters:
   * `:max_results` (`t:string`) The maximum number of results to return in the
-  response. Use this parameter when paginating results. If additional results
-  exist beyond the number you specify, the nextToken element is returned in
-  the response. Use nextToken in a subsequent request to retrieve additional
-  results. If not specified, returns 100 results.
+    response. Use this parameter when paginating results. If additional results
+    exist beyond the number you specify, the nextToken element is returned in
+    the response. Use nextToken in a subsequent request to retrieve additional
+    results. If not specified, returns 100 results.
   * `:next_token` (`t:string`) A token to use for paginating results that are
-  returned in the response. Set the value of this parameter to null for the
-  first request. For subsequent calls, use the nextToken value returned from
-  the previous request to continue listing results after the first page.
+    returned in the response. Set the value of this parameter to null for the
+    first request. For subsequent calls, use the nextToken value returned from
+    the previous request to continue listing results after the first page.
   """
   @spec list_scans(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_scans_response(), any()}
@@ -1250,8 +1249,7 @@ defmodule AWS.CodeGuruSecurity do
 
   ## Parameters:
   * `:resource_arn` (`t:string` required) The ARN of the ScanName object. You can
-  retrieve this ARN by calling CreateScan, ListScans, or GetScan.
-  ## Keyword parameters:
+    retrieve this ARN by calling CreateScan, ListScans, or GetScan.
   """
   @spec list_tags_for_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_tags_for_resource_response(), any()}
@@ -1292,8 +1290,7 @@ defmodule AWS.CodeGuruSecurity do
 
   ## Parameters:
   * `:resource_arn` (`t:string` required) The ARN of the ScanName object. You can
-  retrieve this ARN by calling CreateScan, ListScans, or GetScan.
-  ## Keyword parameters:
+    retrieve this ARN by calling CreateScan, ListScans, or GetScan.
   """
   @spec tag_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, tag_resource_response(), any()}
@@ -1336,10 +1333,9 @@ defmodule AWS.CodeGuruSecurity do
 
   ## Parameters:
   * `:resource_arn` (`t:string` required) The ARN of the ScanName object. You can
-  retrieve this ARN by calling CreateScan, ListScans, or GetScan.
+    retrieve this ARN by calling CreateScan, ListScans, or GetScan.
   * `:tag_keys` (`t:list[com.amazonaws.codegurusecurity#TagKey]` required) A list
-  of keys for each tag you want to remove from a scan.
-  ## Keyword parameters:
+    of keys for each tag you want to remove from a scan.
   """
   @spec untag_resource(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, untag_resource_response(), any()}
@@ -1392,7 +1388,6 @@ defmodule AWS.CodeGuruSecurity do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=codegurusecurity%20UpdateAccountConfiguration&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec update_account_configuration(AWS.Client.t(), Keyword.t()) ::
           {:ok, update_account_configuration_response(), any()}

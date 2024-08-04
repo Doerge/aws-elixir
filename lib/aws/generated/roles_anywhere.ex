@@ -762,7 +762,6 @@ defmodule AWS.RolesAnywhere do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=rolesanywhere%20CreateProfile&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec create_profile(AWS.Client.t(), Keyword.t()) ::
           {:ok, profile_detail_response(), any()}
@@ -809,7 +808,6 @@ defmodule AWS.RolesAnywhere do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=rolesanywhere%20CreateTrustAnchor&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec create_trust_anchor(AWS.Client.t(), Keyword.t()) ::
           {:ok, trust_anchor_detail_response(), any()}
@@ -853,10 +851,11 @@ defmodule AWS.RolesAnywhere do
   ## Parameters:
   * `:profile_id` (`t:string` required) The unique identifier of the profile.
   * `:certificate_field` (`t:string` required) Fields (x509Subject, x509Issuer and
-  x509SAN) within X.509 certificates.
+    x509SAN) within X.509 certificates.
+
   ## Keyword parameters:
   * `:specifiers` (`t:list[smithy.api#String]`) A list of specifiers of a
-  certificate field; for example, CN, OU, UID from a Subject.
+    certificate field; for example, CN, OU, UID from a Subject.
   """
   @spec delete_attribute_mapping(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, delete_attribute_mapping_response(), any()}
@@ -921,8 +920,7 @@ defmodule AWS.RolesAnywhere do
 
   ## Parameters:
   * `:crl_id` (`t:string` required) The unique identifier of the certificate
-  revocation list (CRL).
-  ## Keyword parameters:
+    revocation list (CRL).
   """
   @spec delete_crl(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, crl_detail_response(), any()}
@@ -975,7 +973,6 @@ defmodule AWS.RolesAnywhere do
 
   ## Parameters:
   * `:profile_id` (`t:string` required) The unique identifier of the profile.
-  ## Keyword parameters:
   """
   @spec delete_profile(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, profile_detail_response(), any()}
@@ -1028,8 +1025,7 @@ defmodule AWS.RolesAnywhere do
 
   ## Parameters:
   * `:trust_anchor_id` (`t:string` required) The unique identifier of the trust
-  anchor.
-  ## Keyword parameters:
+    anchor.
   """
   @spec delete_trust_anchor(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, trust_anchor_detail_response(), any()}
@@ -1082,8 +1078,7 @@ defmodule AWS.RolesAnywhere do
 
   ## Parameters:
   * `:crl_id` (`t:string` required) The unique identifier of the certificate
-  revocation list (CRL).
-  ## Keyword parameters:
+    revocation list (CRL).
   """
   @spec disable_crl(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, crl_detail_response(), any()}
@@ -1127,7 +1122,6 @@ defmodule AWS.RolesAnywhere do
 
   ## Parameters:
   * `:profile_id` (`t:string` required) The unique identifier of the profile.
-  ## Keyword parameters:
   """
   @spec disable_profile(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, profile_detail_response(), any()}
@@ -1171,8 +1165,7 @@ defmodule AWS.RolesAnywhere do
 
   ## Parameters:
   * `:trust_anchor_id` (`t:string` required) The unique identifier of the trust
-  anchor.
-  ## Keyword parameters:
+    anchor.
   """
   @spec disable_trust_anchor(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, trust_anchor_detail_response(), any()}
@@ -1216,8 +1209,7 @@ defmodule AWS.RolesAnywhere do
 
   ## Parameters:
   * `:crl_id` (`t:string` required) The unique identifier of the certificate
-  revocation list (CRL).
-  ## Keyword parameters:
+    revocation list (CRL).
   """
   @spec enable_crl(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, crl_detail_response(), any()}
@@ -1260,7 +1252,6 @@ defmodule AWS.RolesAnywhere do
 
   ## Parameters:
   * `:profile_id` (`t:string` required) The unique identifier of the profile.
-  ## Keyword parameters:
   """
   @spec enable_profile(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, profile_detail_response(), any()}
@@ -1304,8 +1295,7 @@ defmodule AWS.RolesAnywhere do
 
   ## Parameters:
   * `:trust_anchor_id` (`t:string` required) The unique identifier of the trust
-  anchor.
-  ## Keyword parameters:
+    anchor.
   """
   @spec enable_trust_anchor(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, trust_anchor_detail_response(), any()}
@@ -1348,8 +1338,7 @@ defmodule AWS.RolesAnywhere do
 
   ## Parameters:
   * `:crl_id` (`t:string` required) The unique identifier of the certificate
-  revocation list (CRL).
-  ## Keyword parameters:
+    revocation list (CRL).
   """
   @spec get_crl(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, crl_detail_response(), any()}
@@ -1390,7 +1379,6 @@ defmodule AWS.RolesAnywhere do
 
   ## Parameters:
   * `:profile_id` (`t:string` required) The unique identifier of the profile.
-  ## Keyword parameters:
   """
   @spec get_profile(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, profile_detail_response(), any()}
@@ -1434,7 +1422,6 @@ defmodule AWS.RolesAnywhere do
 
   ## Parameters:
   * `:subject_id` (`t:string` required) The unique identifier of the subject.
-  ## Keyword parameters:
   """
   @spec get_subject(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, subject_detail_response(), any()}
@@ -1475,8 +1462,7 @@ defmodule AWS.RolesAnywhere do
 
   ## Parameters:
   * `:trust_anchor_id` (`t:string` required) The unique identifier of the trust
-  anchor.
-  ## Keyword parameters:
+    anchor.
   """
   @spec get_trust_anchor(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, trust_anchor_detail_response(), any()}
@@ -1519,7 +1505,6 @@ defmodule AWS.RolesAnywhere do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=rolesanywhere%20ImportCrl&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec import_crl(AWS.Client.t(), Keyword.t()) ::
           {:ok, crl_detail_response(), any()}
@@ -1562,10 +1547,11 @@ defmodule AWS.RolesAnywhere do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=rolesanywhere%20ListCrls&this_doc_guide=API%2520Reference)
 
   ## Parameters:
+
   ## Keyword parameters:
   * `:next_token` (`t:string`) A token that indicates where the output should
-  continue from, if a previous request did not show all results. To get the
-  next results, make the request again with this value.
+    continue from, if a previous request did not show all results. To get the
+    next results, make the request again with this value.
   * `:page_size` (`t:string`) The number of resources in the paginated list.
   """
   @spec list_crls(AWS.Client.t(), Keyword.t()) ::
@@ -1624,10 +1610,11 @@ defmodule AWS.RolesAnywhere do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=rolesanywhere%20ListProfiles&this_doc_guide=API%2520Reference)
 
   ## Parameters:
+
   ## Keyword parameters:
   * `:next_token` (`t:string`) A token that indicates where the output should
-  continue from, if a previous request did not show all results. To get the
-  next results, make the request again with this value.
+    continue from, if a previous request did not show all results. To get the
+    next results, make the request again with this value.
   * `:page_size` (`t:string`) The number of resources in the paginated list.
   """
   @spec list_profiles(AWS.Client.t(), Keyword.t()) ::
@@ -1686,10 +1673,11 @@ defmodule AWS.RolesAnywhere do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=rolesanywhere%20ListSubjects&this_doc_guide=API%2520Reference)
 
   ## Parameters:
+
   ## Keyword parameters:
   * `:next_token` (`t:string`) A token that indicates where the output should
-  continue from, if a previous request did not show all results. To get the
-  next results, make the request again with this value.
+    continue from, if a previous request did not show all results. To get the
+    next results, make the request again with this value.
   * `:page_size` (`t:string`) The number of resources in the paginated list.
   """
   @spec list_subjects(AWS.Client.t(), Keyword.t()) ::
@@ -1749,7 +1737,6 @@ defmodule AWS.RolesAnywhere do
 
   ## Parameters:
   * `:resource_arn` (`t:string` required) The ARN of the resource.
-  ## Keyword parameters:
   """
   @spec list_tags_for_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_tags_for_resource_response(), any()}
@@ -1791,10 +1778,11 @@ defmodule AWS.RolesAnywhere do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=rolesanywhere%20ListTrustAnchors&this_doc_guide=API%2520Reference)
 
   ## Parameters:
+
   ## Keyword parameters:
   * `:next_token` (`t:string`) A token that indicates where the output should
-  continue from, if a previous request did not show all results. To get the
-  next results, make the request again with this value.
+    continue from, if a previous request did not show all results. To get the
+    next results, make the request again with this value.
   * `:page_size` (`t:string`) The number of resources in the paginated list.
   """
   @spec list_trust_anchors(AWS.Client.t(), Keyword.t()) ::
@@ -1856,7 +1844,6 @@ defmodule AWS.RolesAnywhere do
 
   ## Parameters:
   * `:profile_id` (`t:string` required) The unique identifier of the profile.
-  ## Keyword parameters:
   """
   @spec put_attribute_mapping(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, put_attribute_mapping_response(), any()}
@@ -1900,7 +1887,6 @@ defmodule AWS.RolesAnywhere do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=rolesanywhere%20PutNotificationSettings&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec put_notification_settings(AWS.Client.t(), Keyword.t()) ::
           {:ok, put_notification_settings_response(), any()}
@@ -1952,7 +1938,6 @@ defmodule AWS.RolesAnywhere do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=rolesanywhere%20ResetNotificationSettings&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec reset_notification_settings(AWS.Client.t(), Keyword.t()) ::
           {:ok, reset_notification_settings_response(), any()}
@@ -2004,7 +1989,6 @@ defmodule AWS.RolesAnywhere do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=rolesanywhere%20TagResource&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec tag_resource(AWS.Client.t(), Keyword.t()) ::
           {:ok, tag_resource_response(), any()}
@@ -2046,7 +2030,6 @@ defmodule AWS.RolesAnywhere do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=rolesanywhere%20UntagResource&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec untag_resource(AWS.Client.t(), Keyword.t()) ::
           {:ok, untag_resource_response(), any()}
@@ -2091,8 +2074,7 @@ defmodule AWS.RolesAnywhere do
 
   ## Parameters:
   * `:crl_id` (`t:string` required) The unique identifier of the certificate
-  revocation list (CRL).
-  ## Keyword parameters:
+    revocation list (CRL).
   """
   @spec update_crl(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, crl_detail_response(), any()}
@@ -2147,7 +2129,6 @@ defmodule AWS.RolesAnywhere do
 
   ## Parameters:
   * `:profile_id` (`t:string` required) The unique identifier of the profile.
-  ## Keyword parameters:
   """
   @spec update_profile(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, profile_detail_response(), any()}
@@ -2205,8 +2186,7 @@ defmodule AWS.RolesAnywhere do
 
   ## Parameters:
   * `:trust_anchor_id` (`t:string` required) The unique identifier of the trust
-  anchor.
-  ## Keyword parameters:
+    anchor.
   """
   @spec update_trust_anchor(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, trust_anchor_detail_response(), any()}

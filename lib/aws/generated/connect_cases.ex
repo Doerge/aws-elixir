@@ -1577,7 +1577,6 @@ defmodule AWS.ConnectCases do
 
   ## Parameters:
   * `:domain_id` (`t:string` required) The unique identifier of the Cases domain.
-  ## Keyword parameters:
   """
   @spec batch_get_field(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, batch_get_field_response(), any()}
@@ -1622,7 +1621,6 @@ defmodule AWS.ConnectCases do
   ## Parameters:
   * `:domain_id` (`t:string` required) The unique identifier of the Cases domain.
   * `:field_id` (`t:string` required) The unique identifier of a field.
-  ## Keyword parameters:
   """
   @spec batch_put_field_options(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, batch_put_field_options_response(), any()}
@@ -1670,7 +1668,6 @@ defmodule AWS.ConnectCases do
 
   ## Parameters:
   * `:domain_id` (`t:string` required) The unique identifier of the Cases domain.
-  ## Keyword parameters:
   """
   @spec create_case(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, create_case_response(), any()}
@@ -1714,7 +1711,6 @@ defmodule AWS.ConnectCases do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=connectcases%20CreateDomain&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec create_domain(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_domain_response(), any()}
@@ -1759,7 +1755,6 @@ defmodule AWS.ConnectCases do
 
   ## Parameters:
   * `:domain_id` (`t:string` required) The unique identifier of the Cases domain.
-  ## Keyword parameters:
   """
   @spec create_field(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, create_field_response(), any()}
@@ -1803,7 +1798,6 @@ defmodule AWS.ConnectCases do
 
   ## Parameters:
   * `:domain_id` (`t:string` required) The unique identifier of the Cases domain.
-  ## Keyword parameters:
   """
   @spec create_layout(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, create_layout_response(), any()}
@@ -1848,7 +1842,6 @@ defmodule AWS.ConnectCases do
   ## Parameters:
   * `:case_id` (`t:string` required) A unique identifier of the case.
   * `:domain_id` (`t:string` required) The unique identifier of the Cases domain.
-  ## Keyword parameters:
   """
   @spec create_related_item(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, create_related_item_response(), any()}
@@ -1898,7 +1891,6 @@ defmodule AWS.ConnectCases do
 
   ## Parameters:
   * `:domain_id` (`t:string` required) The unique identifier of the Cases domain.
-  ## Keyword parameters:
   """
   @spec create_template(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, create_template_response(), any()}
@@ -1941,7 +1933,6 @@ defmodule AWS.ConnectCases do
 
   ## Parameters:
   * `:domain_id` (`t:string` required) The unique identifier of the Cases domain.
-  ## Keyword parameters:
   """
   @spec delete_domain(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, delete_domain_response(), any()}
@@ -1996,7 +1987,6 @@ defmodule AWS.ConnectCases do
   ## Parameters:
   * `:domain_id` (`t:string` required) The unique identifier of the Cases domain.
   * `:field_id` (`t:string` required) Unique identifier of the field.
-  ## Keyword parameters:
   """
   @spec delete_field(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, delete_field_response(), any()}
@@ -2052,7 +2042,6 @@ defmodule AWS.ConnectCases do
   ## Parameters:
   * `:domain_id` (`t:string` required) The unique identifier of the Cases domain.
   * `:layout_id` (`t:string` required) The unique identifier of the layout.
-  ## Keyword parameters:
   """
   @spec delete_layout(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, delete_layout_response(), any()}
@@ -2107,7 +2096,6 @@ defmodule AWS.ConnectCases do
   ## Parameters:
   * `:domain_id` (`t:string` required) The unique identifier of the Cases domain.
   * `:template_id` (`t:string` required) A unique identifier of a template.
-  ## Keyword parameters:
   """
   @spec delete_template(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, delete_template_response(), any()}
@@ -2162,7 +2150,6 @@ defmodule AWS.ConnectCases do
   ## Parameters:
   * `:case_id` (`t:string` required) A unique identifier of the case.
   * `:domain_id` (`t:string` required) The unique identifier of the Cases domain.
-  ## Keyword parameters:
   """
   @spec get_case(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_case_response(), any()}
@@ -2206,7 +2193,6 @@ defmodule AWS.ConnectCases do
   ## Parameters:
   * `:case_id` (`t:string` required) A unique identifier of the case.
   * `:domain_id` (`t:string` required) The unique identifier of the Cases domain.
-  ## Keyword parameters:
   """
   @spec get_case_audit_events(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_case_audit_events_response(), any()}
@@ -2250,7 +2236,6 @@ defmodule AWS.ConnectCases do
 
   ## Parameters:
   * `:domain_id` (`t:string` required) The unique identifier of the Cases domain.
-  ## Keyword parameters:
   """
   @spec get_case_event_configuration(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_case_event_configuration_response(), any()}
@@ -2293,7 +2278,6 @@ defmodule AWS.ConnectCases do
 
   ## Parameters:
   * `:domain_id` (`t:string` required) The unique identifier of the Cases domain.
-  ## Keyword parameters:
   """
   @spec get_domain(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_domain_response(), any()}
@@ -2337,7 +2321,6 @@ defmodule AWS.ConnectCases do
   ## Parameters:
   * `:domain_id` (`t:string` required) The unique identifier of the Cases domain.
   * `:layout_id` (`t:string` required) The unique identifier of the layout.
-  ## Keyword parameters:
   """
   @spec get_layout(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_layout_response(), any()}
@@ -2382,7 +2365,6 @@ defmodule AWS.ConnectCases do
   ## Parameters:
   * `:domain_id` (`t:string` required) The unique identifier of the Cases domain.
   * `:template_id` (`t:string` required) A unique identifier of a template.
-  ## Keyword parameters:
   """
   @spec get_template(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_template_response(), any()}
@@ -2426,7 +2408,6 @@ defmodule AWS.ConnectCases do
 
   ## Parameters:
   * `:domain_id` (`t:string` required) The unique identifier of the Cases domain.
-  ## Keyword parameters:
   """
   @spec list_cases_for_contact(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_cases_for_contact_response(), any()}
@@ -2469,11 +2450,12 @@ defmodule AWS.ConnectCases do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=connectcases%20ListDomains&this_doc_guide=API%2520Reference)
 
   ## Parameters:
+
   ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of results to return per page.
   * `:next_token` (`t:string`) The token for the next set of results. Use the
-  value returned in the previous response in the next request to retrieve the
-  next set of results.
+    value returned in the previous response in the next request to retrieve the
+    next set of results.
   """
   @spec list_domains(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_domains_response(), any()}
@@ -2535,13 +2517,14 @@ defmodule AWS.ConnectCases do
   ## Parameters:
   * `:domain_id` (`t:string` required) The unique identifier of the Cases domain.
   * `:field_id` (`t:string` required) The unique identifier of a field.
+
   ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of results to return per page.
   * `:next_token` (`t:string`) The token for the next set of results. Use the
-  value returned in the previous response in the next request to retrieve the
-  next set of results.
+    value returned in the previous response in the next request to retrieve the
+    next set of results.
   * `:values` (`t:list[com.amazonaws.connectcases#Value]`) A list of FieldOption
-  values to filter on for ListFieldOptions.
+    values to filter on for ListFieldOptions.
   """
   @spec list_field_options(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, list_field_options_response(), any()}
@@ -2610,11 +2593,12 @@ defmodule AWS.ConnectCases do
 
   ## Parameters:
   * `:domain_id` (`t:string` required) The unique identifier of the Cases domain.
+
   ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of results to return per page.
   * `:next_token` (`t:string`) The token for the next set of results. Use the
-  value returned in the previous response in the next request to retrieve the
-  next set of results.
+    value returned in the previous response in the next request to retrieve the
+    next set of results.
   """
   @spec list_fields(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_fields_response(), any()}
@@ -2676,11 +2660,12 @@ defmodule AWS.ConnectCases do
 
   ## Parameters:
   * `:domain_id` (`t:string` required) The unique identifier of the Cases domain.
+
   ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of results to return per page.
   * `:next_token` (`t:string`) The token for the next set of results. Use the
-  value returned in the previous response in the next request to retrieve the
-  next set of results.
+    value returned in the previous response in the next request to retrieve the
+    next set of results.
   """
   @spec list_layouts(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_layouts_response(), any()}
@@ -2741,7 +2726,6 @@ defmodule AWS.ConnectCases do
 
   ## Parameters:
   * `:arn` (`t:string` required) The Amazon Resource Name (ARN)
-  ## Keyword parameters:
   """
   @spec list_tags_for_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_tags_for_resource_response(), any()}
@@ -2783,13 +2767,14 @@ defmodule AWS.ConnectCases do
 
   ## Parameters:
   * `:domain_id` (`t:string` required) The unique identifier of the Cases domain.
+
   ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of results to return per page.
   * `:next_token` (`t:string`) The token for the next set of results. Use the
-  value returned in the previous response in the next request to retrieve the
-  next set of results.
+    value returned in the previous response in the next request to retrieve the
+    next set of results.
   * `:status` (`t:list[com.amazonaws.connectcases#TemplateStatus]`) A list of
-  status values to filter on.
+    status values to filter on.
   """
   @spec list_templates(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_templates_response(), any()}
@@ -2860,7 +2845,6 @@ defmodule AWS.ConnectCases do
 
   ## Parameters:
   * `:domain_id` (`t:string` required) The unique identifier of the Cases domain.
-  ## Keyword parameters:
   """
   @spec put_case_event_configuration(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, put_case_event_configuration_response(), any()}
@@ -2904,7 +2888,6 @@ defmodule AWS.ConnectCases do
 
   ## Parameters:
   * `:domain_id` (`t:string` required) The unique identifier of the Cases domain.
-  ## Keyword parameters:
   """
   @spec search_cases(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, search_cases_response(), any()}
@@ -2948,7 +2931,6 @@ defmodule AWS.ConnectCases do
   ## Parameters:
   * `:case_id` (`t:string` required) A unique identifier of the case.
   * `:domain_id` (`t:string` required) The unique identifier of the Cases domain.
-  ## Keyword parameters:
   """
   @spec search_related_items(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, search_related_items_response(), any()}
@@ -2992,7 +2974,6 @@ defmodule AWS.ConnectCases do
 
   ## Parameters:
   * `:arn` (`t:string` required) The Amazon Resource Name (ARN)
-  ## Keyword parameters:
   """
   @spec tag_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
@@ -3036,8 +3017,7 @@ defmodule AWS.ConnectCases do
   ## Parameters:
   * `:arn` (`t:string` required) The Amazon Resource Name (ARN)
   * `:tag_keys` (`t:list[com.amazonaws.connectcases#TagKey]` required) List of tag
-  keys.
-  ## Keyword parameters:
+    keys.
   """
   @spec untag_resource(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
@@ -3095,7 +3075,6 @@ defmodule AWS.ConnectCases do
   ## Parameters:
   * `:case_id` (`t:string` required) A unique identifier of the case.
   * `:domain_id` (`t:string` required) The unique identifier of the Cases domain.
-  ## Keyword parameters:
   """
   @spec update_case(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, update_case_response(), any()}
@@ -3139,7 +3118,6 @@ defmodule AWS.ConnectCases do
   ## Parameters:
   * `:domain_id` (`t:string` required) The unique identifier of the Cases domain.
   * `:field_id` (`t:string` required) The unique identifier of a field.
-  ## Keyword parameters:
   """
   @spec update_field(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, update_field_response(), any()}
@@ -3185,7 +3163,6 @@ defmodule AWS.ConnectCases do
   ## Parameters:
   * `:domain_id` (`t:string` required) The unique identifier of the Cases domain.
   * `:layout_id` (`t:string` required) The unique identifier of the layout.
-  ## Keyword parameters:
   """
   @spec update_layout(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, update_layout_response(), any()}
@@ -3234,7 +3211,6 @@ defmodule AWS.ConnectCases do
   ## Parameters:
   * `:domain_id` (`t:string` required) The unique identifier of the Cases domain.
   * `:template_id` (`t:string` required) A unique identifier for the template.
-  ## Keyword parameters:
   """
   @spec update_template(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, update_template_response(), any()}

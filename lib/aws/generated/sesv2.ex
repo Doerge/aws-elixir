@@ -3809,7 +3809,6 @@ defmodule AWS.SESv2 do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sesv2%20BatchGetMetricData&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec batch_get_metric_data(AWS.Client.t(), Keyword.t()) ::
           {:ok, batch_get_metric_data_response(), any()}
@@ -3852,7 +3851,6 @@ defmodule AWS.SESv2 do
 
   ## Parameters:
   * `:job_id` (`t:string` required) The export job ID.
-  ## Keyword parameters:
   """
   @spec cancel_export_job(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, cancel_export_job_response(), any()}
@@ -3898,7 +3896,6 @@ defmodule AWS.SESv2 do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sesv2%20CreateConfigurationSet&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec create_configuration_set(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_configuration_set_response(), any()}
@@ -3945,8 +3942,7 @@ defmodule AWS.SESv2 do
 
   ## Parameters:
   * `:configuration_set_name` (`t:string` required) The name of the configuration
-  set .
-  ## Keyword parameters:
+    set .
   """
   @spec create_configuration_set_event_destination(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, create_configuration_set_event_destination_response(), any()}
@@ -3995,8 +3991,7 @@ defmodule AWS.SESv2 do
 
   ## Parameters:
   * `:contact_list_name` (`t:string` required) The name of the contact list to
-  which the contact should be added.
-  ## Keyword parameters:
+    which the contact should be added.
   """
   @spec create_contact(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, create_contact_response(), any()}
@@ -4038,7 +4033,6 @@ defmodule AWS.SESv2 do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sesv2%20CreateContactList&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec create_contact_list(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_contact_list_response(), any()}
@@ -4083,7 +4077,6 @@ defmodule AWS.SESv2 do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sesv2%20CreateCustomVerificationEmailTemplate&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec create_custom_verification_email_template(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_custom_verification_email_template_response(), any()}
@@ -4129,7 +4122,6 @@ defmodule AWS.SESv2 do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sesv2%20CreateDedicatedIpPool&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec create_dedicated_ip_pool(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_dedicated_ip_pool_response(), any()}
@@ -4178,7 +4170,6 @@ defmodule AWS.SESv2 do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sesv2%20CreateDeliverabilityTestReport&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec create_deliverability_test_report(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_deliverability_test_report_response(), any()}
@@ -4226,7 +4217,6 @@ defmodule AWS.SESv2 do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sesv2%20CreateEmailIdentity&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec create_email_identity(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_email_identity_response(), any()}
@@ -4272,7 +4262,6 @@ defmodule AWS.SESv2 do
   ## Parameters:
   * `:email_identity` (`t:string` required) The email identity.
   * `:policy_name` (`t:string` required) The name of the policy.
-  ## Keyword parameters:
   """
   @spec create_email_identity_policy(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, create_email_identity_policy_response(), any()}
@@ -4318,7 +4307,6 @@ defmodule AWS.SESv2 do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sesv2%20CreateEmailTemplate&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec create_email_template(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_email_template_response(), any()}
@@ -4360,7 +4348,6 @@ defmodule AWS.SESv2 do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sesv2%20CreateExportJob&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec create_export_job(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_export_job_response(), any()}
@@ -4402,7 +4389,6 @@ defmodule AWS.SESv2 do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sesv2%20CreateImportJob&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec create_import_job(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_import_job_response(), any()}
@@ -4445,8 +4431,7 @@ defmodule AWS.SESv2 do
 
   ## Parameters:
   * `:configuration_set_name` (`t:string` required) The name of the configuration
-  set.
-  ## Keyword parameters:
+    set.
   """
   @spec delete_configuration_set(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, delete_configuration_set_response(), any()}
@@ -4499,10 +4484,9 @@ defmodule AWS.SESv2 do
 
   ## Parameters:
   * `:configuration_set_name` (`t:string` required) The name of the configuration
-  set that contains the event destination to delete.
+    set that contains the event destination to delete.
   * `:event_destination_name` (`t:string` required) The name of the event
-  destination to delete.
-  ## Keyword parameters:
+    destination to delete.
   """
   @spec delete_configuration_set_event_destination(
           AWS.Client.t(),
@@ -4566,9 +4550,8 @@ defmodule AWS.SESv2 do
 
   ## Parameters:
   * `:contact_list_name` (`t:string` required) The name of the contact list from
-  which the contact should be removed.
+    which the contact should be removed.
   * `:email_address` (`t:string` required) The contact's email address.
-  ## Keyword parameters:
   """
   @spec delete_contact(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, delete_contact_response(), any()}
@@ -4622,7 +4605,6 @@ defmodule AWS.SESv2 do
 
   ## Parameters:
   * `:contact_list_name` (`t:string` required) The name of the contact list.
-  ## Keyword parameters:
   """
   @spec delete_contact_list(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, delete_contact_list_response(), any()}
@@ -4679,8 +4661,7 @@ defmodule AWS.SESv2 do
 
   ## Parameters:
   * `:template_name` (`t:string` required) The name of the custom verification
-  email template that you want to delete.
-  ## Keyword parameters:
+    email template that you want to delete.
   """
   @spec delete_custom_verification_email_template(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, delete_custom_verification_email_template_response(), any()}
@@ -4734,8 +4715,7 @@ defmodule AWS.SESv2 do
 
   ## Parameters:
   * `:pool_name` (`t:string` required) The name of the dedicated IP pool that you
-  want to delete.
-  ## Keyword parameters:
+    want to delete.
   """
   @spec delete_dedicated_ip_pool(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, delete_dedicated_ip_pool_response(), any()}
@@ -4789,8 +4769,7 @@ defmodule AWS.SESv2 do
 
   ## Parameters:
   * `:email_identity` (`t:string` required) The identity (that is, the email
-  address or domain) to delete.
-  ## Keyword parameters:
+    address or domain) to delete.
   """
   @spec delete_email_identity(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, delete_email_identity_response(), any()}
@@ -4847,7 +4826,6 @@ defmodule AWS.SESv2 do
   ## Parameters:
   * `:email_identity` (`t:string` required) The email identity.
   * `:policy_name` (`t:string` required) The name of the policy.
-  ## Keyword parameters:
   """
   @spec delete_email_identity_policy(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, delete_email_identity_policy_response(), any()}
@@ -4901,7 +4879,6 @@ defmodule AWS.SESv2 do
 
   ## Parameters:
   * `:template_name` (`t:string` required) The name of the template to be deleted.
-  ## Keyword parameters:
   """
   @spec delete_email_template(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, delete_email_template_response(), any()}
@@ -4954,8 +4931,7 @@ defmodule AWS.SESv2 do
 
   ## Parameters:
   * `:email_address` (`t:string` required) The suppressed email destination to
-  remove from the account suppression list.
-  ## Keyword parameters:
+    remove from the account suppression list.
   """
   @spec delete_suppressed_destination(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, delete_suppressed_destination_response(), any()}
@@ -5008,7 +4984,6 @@ defmodule AWS.SESv2 do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sesv2%20GetAccount&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec get_account(AWS.Client.t(), Keyword.t()) ::
           {:ok, get_account_response(), any()}
@@ -5049,10 +5024,9 @@ defmodule AWS.SESv2 do
 
   ## Parameters:
   * `:blacklist_item_names` (`t:list[com.amazonaws.sesv2#BlacklistItemName]`
-  required) A list of IP addresses that you want to retrieve blacklist
-  information about. You can only specify the dedicated IP addresses that you
-  use to send email using Amazon SES or Amazon Pinpoint.
-  ## Keyword parameters:
+    required) A list of IP addresses that you want to retrieve blacklist
+    information about. You can only specify the dedicated IP addresses that you
+    use to send email using Amazon SES or Amazon Pinpoint.
   """
   @spec get_blacklist_reports(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_blacklist_reports_response(), any()}
@@ -5096,8 +5070,7 @@ defmodule AWS.SESv2 do
 
   ## Parameters:
   * `:configuration_set_name` (`t:string` required) The name of the configuration
-  set.
-  ## Keyword parameters:
+    set.
   """
   @spec get_configuration_set(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_configuration_set_response(), any()}
@@ -5139,8 +5112,7 @@ defmodule AWS.SESv2 do
 
   ## Parameters:
   * `:configuration_set_name` (`t:string` required) The name of the configuration
-  set that contains the event destination.
-  ## Keyword parameters:
+    set that contains the event destination.
   """
   @spec get_configuration_set_event_destinations(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_configuration_set_event_destinations_response(), any()}
@@ -5186,9 +5158,8 @@ defmodule AWS.SESv2 do
 
   ## Parameters:
   * `:contact_list_name` (`t:string` required) The name of the contact list to
-  which the contact belongs.
+    which the contact belongs.
   * `:email_address` (`t:string` required) The contact's email address.
-  ## Keyword parameters:
   """
   @spec get_contact(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_contact_response(), any()}
@@ -5231,7 +5202,6 @@ defmodule AWS.SESv2 do
 
   ## Parameters:
   * `:contact_list_name` (`t:string` required) The name of the contact list.
-  ## Keyword parameters:
   """
   @spec get_contact_list(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_contact_list_response(), any()}
@@ -5276,8 +5246,7 @@ defmodule AWS.SESv2 do
 
   ## Parameters:
   * `:template_name` (`t:string` required) The name of the custom verification
-  email template that you want to retrieve.
-  ## Keyword parameters:
+    email template that you want to retrieve.
   """
   @spec get_custom_verification_email_template(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_custom_verification_email_template_response(), any()}
@@ -5321,9 +5290,8 @@ defmodule AWS.SESv2 do
 
   ## Parameters:
   * `:ip` (`t:string` required) The IP address that you want to obtain more
-  information about. The value you specify has to be a dedicated IP address
-  that's assocaited with your Amazon Web Services account.
-  ## Keyword parameters:
+    information about. The value you specify has to be a dedicated IP address
+    that's assocaited with your Amazon Web Services account.
   """
   @spec get_dedicated_ip(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_dedicated_ip_response(), any()}
@@ -5364,8 +5332,7 @@ defmodule AWS.SESv2 do
 
   ## Parameters:
   * `:pool_name` (`t:string` required) The name of the dedicated IP pool to
-  retrieve.
-  ## Keyword parameters:
+    retrieve.
   """
   @spec get_dedicated_ip_pool(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_dedicated_ip_pool_response(), any()}
@@ -5406,16 +5373,17 @@ defmodule AWS.SESv2 do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sesv2%20GetDedicatedIps&this_doc_guide=API%2520Reference)
 
   ## Parameters:
+
   ## Keyword parameters:
   * `:next_token` (`t:string`) A token returned from a previous call to
-  GetDedicatedIps to indicate the position of the dedicated IP pool in the
-  list of IP pools.
+    GetDedicatedIps to indicate the position of the dedicated IP pool in the
+    list of IP pools.
   * `:page_size` (`t:integer`) The number of results to show in a single call to
-  GetDedicatedIpsRequest. If the number of results is larger than the number
-  you specified in this parameter, then the response includes a NextToken
-  element, which you can use to obtain additional results.
+    GetDedicatedIpsRequest. If the number of results is larger than the number
+    you specified in this parameter, then the response includes a NextToken
+    element, which you can use to obtain additional results.
   * `:pool_name` (`t:string`) The name of the IP pool that the dedicated IP
-  address is associated with.
+    address is associated with.
   """
   @spec get_dedicated_ips(AWS.Client.t(), Keyword.t()) ::
           {:ok, get_dedicated_ips_response(), any()}
@@ -5484,7 +5452,6 @@ defmodule AWS.SESv2 do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sesv2%20GetDeliverabilityDashboardOptions&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec get_deliverability_dashboard_options(AWS.Client.t(), Keyword.t()) ::
           {:ok, get_deliverability_dashboard_options_response(), any()}
@@ -5525,8 +5492,7 @@ defmodule AWS.SESv2 do
 
   ## Parameters:
   * `:report_id` (`t:string` required) A unique string that identifies the
-  predictive inbox placement test.
-  ## Keyword parameters:
+    predictive inbox placement test.
   """
   @spec get_deliverability_test_report(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_deliverability_test_report_response(), any()}
@@ -5569,9 +5535,8 @@ defmodule AWS.SESv2 do
 
   ## Parameters:
   * `:campaign_id` (`t:string` required) The unique identifier for the campaign.
-  The Deliverability dashboard automatically generates and assigns this
-  identifier to a campaign.
-  ## Keyword parameters:
+    The Deliverability dashboard automatically generates and assigns this
+    identifier to a campaign.
   """
   @spec get_domain_deliverability_campaign(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_domain_deliverability_campaign_response(), any()}
@@ -5613,13 +5578,12 @@ defmodule AWS.SESv2 do
 
   ## Parameters:
   * `:domain` (`t:string` required) The domain that you want to obtain
-  deliverability metrics for.
+    deliverability metrics for.
   * `:end_date` (`t:timestamp` required) The last day (in Unix time) that you want
-  to obtain domain deliverability metrics for. The EndDate that you specify
-  has to be less than or equal to 30 days after the StartDate.
+    to obtain domain deliverability metrics for. The EndDate that you specify
+    has to be less than or equal to 30 days after the StartDate.
   * `:start_date` (`t:timestamp` required) The first day (in Unix time) that you
-  want to obtain domain deliverability metrics for.
-  ## Keyword parameters:
+    want to obtain domain deliverability metrics for.
   """
   @spec get_domain_statistics_report(
           AWS.Client.t(),
@@ -5676,7 +5640,6 @@ defmodule AWS.SESv2 do
 
   ## Parameters:
   * `:email_identity` (`t:string` required) The email identity.
-  ## Keyword parameters:
   """
   @spec get_email_identity(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_email_identity_response(), any()}
@@ -5721,7 +5684,6 @@ defmodule AWS.SESv2 do
 
   ## Parameters:
   * `:email_identity` (`t:string` required) The email identity.
-  ## Keyword parameters:
   """
   @spec get_email_identity_policies(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_email_identity_policies_response(), any()}
@@ -5763,7 +5725,6 @@ defmodule AWS.SESv2 do
 
   ## Parameters:
   * `:template_name` (`t:string` required) The name of the template.
-  ## Keyword parameters:
   """
   @spec get_email_template(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_email_template_response(), any()}
@@ -5804,7 +5765,6 @@ defmodule AWS.SESv2 do
 
   ## Parameters:
   * `:job_id` (`t:string` required) The export job ID.
-  ## Keyword parameters:
   """
   @spec get_export_job(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_export_job_response(), any()}
@@ -5845,7 +5805,6 @@ defmodule AWS.SESv2 do
 
   ## Parameters:
   * `:job_id` (`t:string` required) The ID of the import job.
-  ## Keyword parameters:
   """
   @spec get_import_job(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_import_job_response(), any()}
@@ -5888,8 +5847,7 @@ defmodule AWS.SESv2 do
 
   ## Parameters:
   * `:message_id` (`t:string` required) A MessageId is a unique identifier for a
-  message, and is returned when sending emails through Amazon SES.
-  ## Keyword parameters:
+    message, and is returned when sending emails through Amazon SES.
   """
   @spec get_message_insights(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_message_insights_response(), any()}
@@ -5931,8 +5889,7 @@ defmodule AWS.SESv2 do
 
   ## Parameters:
   * `:email_address` (`t:string` required) The email address that's on the account
-  suppression list.
-  ## Keyword parameters:
+    suppression list.
   """
   @spec get_suppressed_destination(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_suppressed_destination_response(), any()}
@@ -5973,14 +5930,15 @@ defmodule AWS.SESv2 do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sesv2%20ListConfigurationSets&this_doc_guide=API%2520Reference)
 
   ## Parameters:
+
   ## Keyword parameters:
   * `:next_token` (`t:string`) A token returned from a previous call to
-  ListConfigurationSets to indicate the position in the list of configuration
-  sets.
+    ListConfigurationSets to indicate the position in the list of configuration
+    sets.
   * `:page_size` (`t:integer`) The number of results to show in a single call to
-  ListConfigurationSets. If the number of results is larger than the number
-  you specified in this parameter, then the response includes a NextToken
-  element, which you can use to obtain additional results.
+    ListConfigurationSets. If the number of results is larger than the number
+    you specified in this parameter, then the response includes a NextToken
+    element, which you can use to obtain additional results.
   """
   @spec list_configuration_sets(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_configuration_sets_response(), any()}
@@ -6038,15 +5996,16 @@ defmodule AWS.SESv2 do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sesv2%20ListContactLists&this_doc_guide=API%2520Reference)
 
   ## Parameters:
+
   ## Keyword parameters:
   * `:next_token` (`t:string`) A string token indicating that there might be
-  additional contact lists available to be listed. Use the token provided in
-  the Response to use in the subsequent call to ListContactLists with the same
-  parameters to retrieve the next page of contact lists.
+    additional contact lists available to be listed. Use the token provided in
+    the Response to use in the subsequent call to ListContactLists with the same
+    parameters to retrieve the next page of contact lists.
   * `:page_size` (`t:integer`) Maximum number of contact lists to return at once.
-  Use this parameter to paginate results. If additional contact lists exist
-  beyond the specified limit, the NextToken element is sent in the response.
-  Use the NextToken value in subsequent requests to retrieve additional lists.
+    Use this parameter to paginate results. If additional contact lists exist
+    beyond the specified limit, the NextToken element is sent in the response.
+    Use the NextToken value in subsequent requests to retrieve additional lists.
   """
   @spec list_contact_lists(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_contact_lists_response(), any()}
@@ -6105,7 +6064,6 @@ defmodule AWS.SESv2 do
 
   ## Parameters:
   * `:contact_list_name` (`t:string` required) The name of the contact list.
-  ## Keyword parameters:
   """
   @spec list_contacts(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_contacts_response(), any()}
@@ -6151,14 +6109,15 @@ defmodule AWS.SESv2 do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sesv2%20ListCustomVerificationEmailTemplates&this_doc_guide=API%2520Reference)
 
   ## Parameters:
+
   ## Keyword parameters:
   * `:next_token` (`t:string`) A token returned from a previous call to
-  ListCustomVerificationEmailTemplates to indicate the position in the list of
-  custom verification email templates.
+    ListCustomVerificationEmailTemplates to indicate the position in the list of
+    custom verification email templates.
   * `:page_size` (`t:integer`) The number of results to show in a single call to
-  ListCustomVerificationEmailTemplates. If the number of results is larger
-  than the number you specified in this parameter, then the response includes
-  a NextToken element, which you can use to obtain additional results.
+    ListCustomVerificationEmailTemplates. If the number of results is larger
+    than the number you specified in this parameter, then the response includes
+    a NextToken element, which you can use to obtain additional results.
   """
   @spec list_custom_verification_email_templates(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_custom_verification_email_templates_response(), any()}
@@ -6217,14 +6176,15 @@ defmodule AWS.SESv2 do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sesv2%20ListDedicatedIpPools&this_doc_guide=API%2520Reference)
 
   ## Parameters:
+
   ## Keyword parameters:
   * `:next_token` (`t:string`) A token returned from a previous call to
-  ListDedicatedIpPools to indicate the position in the list of dedicated IP
-  pools.
+    ListDedicatedIpPools to indicate the position in the list of dedicated IP
+    pools.
   * `:page_size` (`t:integer`) The number of results to show in a single call to
-  ListDedicatedIpPools. If the number of results is larger than the number you
-  specified in this parameter, then the response includes a NextToken element,
-  which you can use to obtain additional results.
+    ListDedicatedIpPools. If the number of results is larger than the number you
+    specified in this parameter, then the response includes a NextToken element,
+    which you can use to obtain additional results.
   """
   @spec list_dedicated_ip_pools(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_dedicated_ip_pools_response(), any()}
@@ -6285,14 +6245,15 @@ defmodule AWS.SESv2 do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sesv2%20ListDeliverabilityTestReports&this_doc_guide=API%2520Reference)
 
   ## Parameters:
+
   ## Keyword parameters:
   * `:next_token` (`t:string`) A token returned from a previous call to
-  ListDeliverabilityTestReports to indicate the position in the list of
-  predictive inbox placement tests.
+    ListDeliverabilityTestReports to indicate the position in the list of
+    predictive inbox placement tests.
   * `:page_size` (`t:integer`) The number of results to show in a single call to
-  ListDeliverabilityTestReports. If the number of results is larger than the
-  number you specified in this parameter, then the response includes a
-  NextToken element, which you can use to obtain additional results.
+    ListDeliverabilityTestReports. If the number of results is larger than the
+    number you specified in this parameter, then the response includes a
+    NextToken element, which you can use to obtain additional results.
   """
   @spec list_deliverability_test_reports(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_deliverability_test_reports_response(), any()}
@@ -6353,21 +6314,22 @@ defmodule AWS.SESv2 do
 
   ## Parameters:
   * `:subscribed_domain` (`t:string` required) The domain to obtain deliverability
-  data for.
+    data for.
   * `:end_date` (`t:timestamp` required) The last day that you want to obtain
-  deliverability data for. This value has to be less than or equal to 30 days
-  after the value of the StartDate parameter.
+    deliverability data for. This value has to be less than or equal to 30 days
+    after the value of the StartDate parameter.
   * `:start_date` (`t:timestamp` required) The first day that you want to obtain
-  deliverability data for.
+    deliverability data for.
+
   ## Keyword parameters:
   * `:next_token` (`t:string`) A token that’s returned from a previous call to the
-  ListDomainDeliverabilityCampaigns operation. This token indicates the
-  position of a campaign in the list of campaigns.
+    ListDomainDeliverabilityCampaigns operation. This token indicates the
+    position of a campaign in the list of campaigns.
   * `:page_size` (`t:integer`) The maximum number of results to include in
-  response to a single call to the ListDomainDeliverabilityCampaigns
-  operation. If the number of results is larger than the number that you
-  specify in this parameter, the response includes a NextToken element, which
-  you can use to obtain additional results.
+    response to a single call to the ListDomainDeliverabilityCampaigns
+    operation. If the number of results is larger than the number that you
+    specify in this parameter, the response includes a NextToken element, which
+    you can use to obtain additional results.
   """
   @spec list_domain_deliverability_campaigns(
           AWS.Client.t(),
@@ -6443,13 +6405,14 @@ defmodule AWS.SESv2 do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sesv2%20ListEmailIdentities&this_doc_guide=API%2520Reference)
 
   ## Parameters:
+
   ## Keyword parameters:
   * `:next_token` (`t:string`) A token returned from a previous call to
-  ListEmailIdentities to indicate the position in the list of identities.
+    ListEmailIdentities to indicate the position in the list of identities.
   * `:page_size` (`t:integer`) The number of results to show in a single call to
-  ListEmailIdentities. If the number of results is larger than the number you
-  specified in this parameter, then the response includes a NextToken element,
-  which you can use to obtain additional results.
+    ListEmailIdentities. If the number of results is larger than the number you
+    specified in this parameter, then the response includes a NextToken element,
+    which you can use to obtain additional results.
   """
   @spec list_email_identities(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_email_identities_response(), any()}
@@ -6508,13 +6471,14 @@ defmodule AWS.SESv2 do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sesv2%20ListEmailTemplates&this_doc_guide=API%2520Reference)
 
   ## Parameters:
+
   ## Keyword parameters:
   * `:next_token` (`t:string`) A token returned from a previous call to
-  ListEmailTemplates to indicate the position in the list of email templates.
+    ListEmailTemplates to indicate the position in the list of email templates.
   * `:page_size` (`t:integer`) The number of results to show in a single call to
-  ListEmailTemplates. If the number of results is larger than the number you
-  specified in this parameter, then the response includes a NextToken element,
-  which you can use to obtain additional results.
+    ListEmailTemplates. If the number of results is larger than the number you
+    specified in this parameter, then the response includes a NextToken element,
+    which you can use to obtain additional results.
   """
   @spec list_email_templates(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_email_templates_response(), any()}
@@ -6572,7 +6536,6 @@ defmodule AWS.SESv2 do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sesv2%20ListExportJobs&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec list_export_jobs(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_export_jobs_response(), any()}
@@ -6614,7 +6577,6 @@ defmodule AWS.SESv2 do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sesv2%20ListImportJobs&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec list_import_jobs(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_import_jobs_response(), any()}
@@ -6657,7 +6619,6 @@ defmodule AWS.SESv2 do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sesv2%20ListRecommendations&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec list_recommendations(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_recommendations_response(), any()}
@@ -6700,22 +6661,23 @@ defmodule AWS.SESv2 do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sesv2%20ListSuppressedDestinations&this_doc_guide=API%2520Reference)
 
   ## Parameters:
+
   ## Keyword parameters:
   * `:end_date` (`t:timestamp`) Used to filter the list of suppressed email
-  destinations so that it only includes addresses that were added to the list
-  before a specific date.
+    destinations so that it only includes addresses that were added to the list
+    before a specific date.
   * `:next_token` (`t:string`) A token returned from a previous call to
-  ListSuppressedDestinations to indicate the position in the list of
-  suppressed email addresses.
+    ListSuppressedDestinations to indicate the position in the list of
+    suppressed email addresses.
   * `:page_size` (`t:integer`) The number of results to show in a single call to
-  ListSuppressedDestinations. If the number of results is larger than the
-  number you specified in this parameter, then the response includes a
-  NextToken element, which you can use to obtain additional results.
+    ListSuppressedDestinations. If the number of results is larger than the
+    number you specified in this parameter, then the response includes a
+    NextToken element, which you can use to obtain additional results.
   * `:reasons` (`t:list[com.amazonaws.sesv2#SuppressionListReason]`) The factors
-  that caused the email address to be added to .
+    that caused the email address to be added to .
   * `:start_date` (`t:timestamp`) Used to filter the list of suppressed email
-  destinations so that it only includes addresses that were added to the list
-  after a specific date.
+    destinations so that it only includes addresses that were added to the list
+    after a specific date.
   """
   @spec list_suppressed_destinations(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_suppressed_destinations_response(), any()}
@@ -6806,8 +6768,7 @@ defmodule AWS.SESv2 do
 
   ## Parameters:
   * `:resource_arn` (`t:string` required) The Amazon Resource Name (ARN) of the
-  resource that you want to retrieve tag information for.
-  ## Keyword parameters:
+    resource that you want to retrieve tag information for.
   """
   @spec list_tags_for_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_tags_for_resource_response(), any()}
@@ -6848,7 +6809,6 @@ defmodule AWS.SESv2 do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sesv2%20PutAccountDedicatedIpWarmupAttributes&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec put_account_dedicated_ip_warmup_attributes(AWS.Client.t(), Keyword.t()) ::
           {:ok, put_account_dedicated_ip_warmup_attributes_response(), any()}
@@ -6890,7 +6850,6 @@ defmodule AWS.SESv2 do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sesv2%20PutAccountDetails&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec put_account_details(AWS.Client.t(), Keyword.t()) ::
           {:ok, put_account_details_response(), any()}
@@ -6932,7 +6891,6 @@ defmodule AWS.SESv2 do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sesv2%20PutAccountSendingAttributes&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec put_account_sending_attributes(AWS.Client.t(), Keyword.t()) ::
           {:ok, put_account_sending_attributes_response(), any()}
@@ -6974,7 +6932,6 @@ defmodule AWS.SESv2 do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sesv2%20PutAccountSuppressionAttributes&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec put_account_suppression_attributes(AWS.Client.t(), Keyword.t()) ::
           {:ok, put_account_suppression_attributes_response(), any()}
@@ -7016,7 +6973,6 @@ defmodule AWS.SESv2 do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sesv2%20PutAccountVdmAttributes&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec put_account_vdm_attributes(AWS.Client.t(), Keyword.t()) ::
           {:ok, put_account_vdm_attributes_response(), any()}
@@ -7061,8 +7017,7 @@ defmodule AWS.SESv2 do
 
   ## Parameters:
   * `:configuration_set_name` (`t:string` required) The name of the configuration
-  set to associate with a dedicated IP pool.
-  ## Keyword parameters:
+    set to associate with a dedicated IP pool.
   """
   @spec put_configuration_set_delivery_options(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, put_configuration_set_delivery_options_response(), any()}
@@ -7111,8 +7066,7 @@ defmodule AWS.SESv2 do
 
   ## Parameters:
   * `:configuration_set_name` (`t:string` required) The name of the configuration
-  set.
-  ## Keyword parameters:
+    set.
   """
   @spec put_configuration_set_reputation_options(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, put_configuration_set_reputation_options_response(), any()}
@@ -7161,8 +7115,7 @@ defmodule AWS.SESv2 do
 
   ## Parameters:
   * `:configuration_set_name` (`t:string` required) The name of the configuration
-  set to enable or disable email sending for.
-  ## Keyword parameters:
+    set to enable or disable email sending for.
   """
   @spec put_configuration_set_sending_options(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, put_configuration_set_sending_options_response(), any()}
@@ -7210,8 +7163,7 @@ defmodule AWS.SESv2 do
 
   ## Parameters:
   * `:configuration_set_name` (`t:string` required) The name of the configuration
-  set to change the suppression list preferences for.
-  ## Keyword parameters:
+    set to change the suppression list preferences for.
   """
   @spec put_configuration_set_suppression_options(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, put_configuration_set_suppression_options_response(), any()}
@@ -7260,8 +7212,7 @@ defmodule AWS.SESv2 do
 
   ## Parameters:
   * `:configuration_set_name` (`t:string` required) The name of the configuration
-  set.
-  ## Keyword parameters:
+    set.
   """
   @spec put_configuration_set_tracking_options(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, put_configuration_set_tracking_options_response(), any()}
@@ -7309,8 +7260,7 @@ defmodule AWS.SESv2 do
 
   ## Parameters:
   * `:configuration_set_name` (`t:string` required) The name of the configuration
-  set.
-  ## Keyword parameters:
+    set.
   """
   @spec put_configuration_set_vdm_options(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, put_configuration_set_vdm_options_response(), any()}
@@ -7354,9 +7304,8 @@ defmodule AWS.SESv2 do
 
   ## Parameters:
   * `:ip` (`t:string` required) The IP address that you want to move to the
-  dedicated IP pool. The value you specify has to be a dedicated IP address
-  that's associated with your Amazon Web Services account.
-  ## Keyword parameters:
+    dedicated IP pool. The value you specify has to be a dedicated IP address
+    that's associated with your Amazon Web Services account.
   """
   @spec put_dedicated_ip_in_pool(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, put_dedicated_ip_in_pool_response(), any()}
@@ -7399,7 +7348,6 @@ defmodule AWS.SESv2 do
 
   ## Parameters:
   * `:pool_name` (`t:string` required) The name of the dedicated IP pool.
-  ## Keyword parameters:
   """
   @spec put_dedicated_ip_pool_scaling_attributes(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, put_dedicated_ip_pool_scaling_attributes_response(), any()}
@@ -7442,8 +7390,7 @@ defmodule AWS.SESv2 do
 
   ## Parameters:
   * `:ip` (`t:string` required) The dedicated IP address that you want to update
-  the warm-up attributes for.
-  ## Keyword parameters:
+    the warm-up attributes for.
   """
   @spec put_dedicated_ip_warmup_attributes(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, put_dedicated_ip_warmup_attributes_response(), any()}
@@ -7488,7 +7435,6 @@ defmodule AWS.SESv2 do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sesv2%20PutDeliverabilityDashboardOption&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec put_deliverability_dashboard_option(AWS.Client.t(), Keyword.t()) ::
           {:ok, put_deliverability_dashboard_option_response(), any()}
@@ -7531,8 +7477,7 @@ defmodule AWS.SESv2 do
 
   ## Parameters:
   * `:email_identity` (`t:string` required) The email address or domain to
-  associate with a configuration set.
-  ## Keyword parameters:
+    associate with a configuration set.
   """
   @spec put_email_identity_configuration_set_attributes(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, put_email_identity_configuration_set_attributes_response(), any()}
@@ -7579,7 +7524,6 @@ defmodule AWS.SESv2 do
 
   ## Parameters:
   * `:email_identity` (`t:string` required) The email identity.
-  ## Keyword parameters:
   """
   @spec put_email_identity_dkim_attributes(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, put_email_identity_dkim_attributes_response(), any()}
@@ -7623,7 +7567,6 @@ defmodule AWS.SESv2 do
 
   ## Parameters:
   * `:email_identity` (`t:string` required) The email identity.
-  ## Keyword parameters:
   """
   @spec put_email_identity_dkim_signing_attributes(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, put_email_identity_dkim_signing_attributes_response(), any()}
@@ -7675,7 +7618,6 @@ defmodule AWS.SESv2 do
 
   ## Parameters:
   * `:email_identity` (`t:string` required) The email identity.
-  ## Keyword parameters:
   """
   @spec put_email_identity_feedback_attributes(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, put_email_identity_feedback_attributes_response(), any()}
@@ -7719,7 +7661,6 @@ defmodule AWS.SESv2 do
 
   ## Parameters:
   * `:email_identity` (`t:string` required) The verified email identity.
-  ## Keyword parameters:
   """
   @spec put_email_identity_mail_from_attributes(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, put_email_identity_mail_from_attributes_response(), any()}
@@ -7761,7 +7702,6 @@ defmodule AWS.SESv2 do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sesv2%20PutSuppressedDestination&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec put_suppressed_destination(AWS.Client.t(), Keyword.t()) ::
           {:ok, put_suppressed_destination_response(), any()}
@@ -7803,7 +7743,6 @@ defmodule AWS.SESv2 do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sesv2%20SendBulkEmail&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec send_bulk_email(AWS.Client.t(), Keyword.t()) ::
           {:ok, send_bulk_email_response(), any()}
@@ -7852,7 +7791,6 @@ defmodule AWS.SESv2 do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sesv2%20SendCustomVerificationEmail&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec send_custom_verification_email(AWS.Client.t(), Keyword.t()) ::
           {:ok, send_custom_verification_email_response(), any()}
@@ -7895,7 +7833,6 @@ defmodule AWS.SESv2 do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sesv2%20SendEmail&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec send_email(AWS.Client.t(), Keyword.t()) ::
           {:ok, send_email_response(), any()}
@@ -7940,7 +7877,6 @@ defmodule AWS.SESv2 do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sesv2%20TagResource&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec tag_resource(AWS.Client.t(), Keyword.t()) ::
           {:ok, tag_resource_response(), any()}
@@ -7984,7 +7920,6 @@ defmodule AWS.SESv2 do
 
   ## Parameters:
   * `:template_name` (`t:string` required) The name of the template.
-  ## Keyword parameters:
   """
   @spec test_render_email_template(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, test_render_email_template_response(), any()}
@@ -8027,11 +7962,10 @@ defmodule AWS.SESv2 do
 
   ## Parameters:
   * `:resource_arn` (`t:string` required) The Amazon Resource Name (ARN) of the
-  resource that you want to remove one or more tags from.
+    resource that you want to remove one or more tags from.
   * `:tag_keys` (`t:list[com.amazonaws.sesv2#TagKey]` required) The tags (tag
-  keys) that you want to remove from the resource. When you specify a tag key,
-  the action removes both that key and its associated tag value.
-  ## Keyword parameters:
+    keys) that you want to remove from the resource. When you specify a tag key,
+    the action removes both that key and its associated tag value.
   """
   @spec untag_resource(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, untag_resource_response(), any()}
@@ -8085,10 +8019,9 @@ defmodule AWS.SESv2 do
 
   ## Parameters:
   * `:configuration_set_name` (`t:string` required) The name of the configuration
-  set that contains the event destination to modify.
+    set that contains the event destination to modify.
   * `:event_destination_name` (`t:string` required) The name of the event
-  destination.
-  ## Keyword parameters:
+    destination.
   """
   @spec update_configuration_set_event_destination(
           AWS.Client.t(),
@@ -8143,7 +8076,6 @@ defmodule AWS.SESv2 do
   ## Parameters:
   * `:contact_list_name` (`t:string` required) The name of the contact list.
   * `:email_address` (`t:string` required) The contact's email address.
-  ## Keyword parameters:
   """
   @spec update_contact(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, update_contact_response(), any()}
@@ -8187,7 +8119,6 @@ defmodule AWS.SESv2 do
 
   ## Parameters:
   * `:contact_list_name` (`t:string` required) The name of the contact list.
-  ## Keyword parameters:
   """
   @spec update_contact_list(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, update_contact_list_response(), any()}
@@ -8234,8 +8165,7 @@ defmodule AWS.SESv2 do
 
   ## Parameters:
   * `:template_name` (`t:string` required) The name of the custom verification
-  email template that you want to update.
-  ## Keyword parameters:
+    email template that you want to update.
   """
   @spec update_custom_verification_email_template(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, update_custom_verification_email_template_response(), any()}
@@ -8283,7 +8213,6 @@ defmodule AWS.SESv2 do
   ## Parameters:
   * `:email_identity` (`t:string` required) The email identity.
   * `:policy_name` (`t:string` required) The name of the policy.
-  ## Keyword parameters:
   """
   @spec update_email_identity_policy(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, update_email_identity_policy_response(), any()}
@@ -8330,7 +8259,6 @@ defmodule AWS.SESv2 do
 
   ## Parameters:
   * `:template_name` (`t:string` required) The name of the template.
-  ## Keyword parameters:
   """
   @spec update_email_template(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, update_email_template_response(), any()}

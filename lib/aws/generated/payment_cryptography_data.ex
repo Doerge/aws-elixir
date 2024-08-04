@@ -966,8 +966,7 @@ defmodule AWS.PaymentCryptographyData do
 
   ## Parameters:
   * `:key_identifier` (`t:string` required) The keyARN of the encryption key that
-  Amazon Web Services Payment Cryptography uses for ciphertext decryption.
-  ## Keyword parameters:
+    Amazon Web Services Payment Cryptography uses for ciphertext decryption.
   """
   @spec decrypt_data(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, decrypt_data_output(), any()}
@@ -1030,8 +1029,7 @@ defmodule AWS.PaymentCryptographyData do
 
   ## Parameters:
   * `:key_identifier` (`t:string` required) The keyARN of the encryption key that
-  Amazon Web Services Payment Cryptography uses for plaintext encryption.
-  ## Keyword parameters:
+    Amazon Web Services Payment Cryptography uses for plaintext encryption.
   """
   @spec encrypt_data(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, encrypt_data_output(), any()}
@@ -1095,7 +1093,6 @@ defmodule AWS.PaymentCryptographyData do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=paymentcryptographydata%20GenerateCardValidationData&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec generate_card_validation_data(AWS.Client.t(), Keyword.t()) ::
           {:ok, generate_card_validation_data_output(), any()}
@@ -1144,7 +1141,6 @@ defmodule AWS.PaymentCryptographyData do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=paymentcryptographydata%20GenerateMac&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec generate_mac(AWS.Client.t(), Keyword.t()) ::
           {:ok, generate_mac_output(), any()}
@@ -1200,7 +1196,6 @@ defmodule AWS.PaymentCryptographyData do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=paymentcryptographydata%20GeneratePinData&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec generate_pin_data(AWS.Client.t(), Keyword.t()) ::
           {:ok, generate_pin_data_output(), any()}
@@ -1255,8 +1250,7 @@ defmodule AWS.PaymentCryptographyData do
 
   ## Parameters:
   * `:incoming_key_identifier` (`t:string` required) The keyARN of the encryption
-  key of incoming ciphertext data.
-  ## Keyword parameters:
+    key of incoming ciphertext data.
   """
   @spec re_encrypt_data(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, re_encrypt_data_output(), any()}
@@ -1313,7 +1307,6 @@ defmodule AWS.PaymentCryptographyData do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=paymentcryptographydata%20TranslatePinData&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec translate_pin_data(AWS.Client.t(), Keyword.t()) ::
           {:ok, translate_pin_data_output(), any()}
@@ -1378,7 +1371,6 @@ defmodule AWS.PaymentCryptographyData do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=paymentcryptographydata%20VerifyAuthRequestCryptogram&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec verify_auth_request_cryptogram(AWS.Client.t(), Keyword.t()) ::
           {:ok, verify_auth_request_cryptogram_output(), any()}
@@ -1437,7 +1429,6 @@ defmodule AWS.PaymentCryptographyData do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=paymentcryptographydata%20VerifyCardValidationData&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec verify_card_validation_data(AWS.Client.t(), Keyword.t()) ::
           {:ok, verify_card_validation_data_output(), any()}
@@ -1484,7 +1475,6 @@ defmodule AWS.PaymentCryptographyData do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=paymentcryptographydata%20VerifyMac&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec verify_mac(AWS.Client.t(), Keyword.t()) ::
           {:ok, verify_mac_output(), any()}
@@ -1540,7 +1530,6 @@ defmodule AWS.PaymentCryptographyData do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=paymentcryptographydata%20VerifyPinData&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec verify_pin_data(AWS.Client.t(), Keyword.t()) ::
           {:ok, verify_pin_data_output(), any()}

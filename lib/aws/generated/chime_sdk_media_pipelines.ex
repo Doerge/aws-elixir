@@ -2090,7 +2090,6 @@ defmodule AWS.ChimeSDKMediaPipelines do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chimesdkmediapipelines%20CreateMediaCapturePipeline&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec create_media_capture_pipeline(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_media_capture_pipeline_response(), any()}
@@ -2132,7 +2131,6 @@ defmodule AWS.ChimeSDKMediaPipelines do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chimesdkmediapipelines%20CreateMediaConcatenationPipeline&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec create_media_concatenation_pipeline(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_media_concatenation_pipeline_response(), any()}
@@ -2174,7 +2172,6 @@ defmodule AWS.ChimeSDKMediaPipelines do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chimesdkmediapipelines%20CreateMediaInsightsPipeline&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec create_media_insights_pipeline(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_media_insights_pipeline_response(), any()}
@@ -2217,7 +2214,6 @@ defmodule AWS.ChimeSDKMediaPipelines do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chimesdkmediapipelines%20CreateMediaInsightsPipelineConfiguration&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec create_media_insights_pipeline_configuration(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_media_insights_pipeline_configuration_response(), any()}
@@ -2259,7 +2255,6 @@ defmodule AWS.ChimeSDKMediaPipelines do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chimesdkmediapipelines%20CreateMediaLiveConnectorPipeline&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec create_media_live_connector_pipeline(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_media_live_connector_pipeline_response(), any()}
@@ -2301,7 +2296,6 @@ defmodule AWS.ChimeSDKMediaPipelines do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chimesdkmediapipelines%20CreateMediaPipelineKinesisVideoStreamPool&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec create_media_pipeline_kinesis_video_stream_pool(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_media_pipeline_kinesis_video_stream_pool_response(), any()}
@@ -2343,7 +2337,6 @@ defmodule AWS.ChimeSDKMediaPipelines do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chimesdkmediapipelines%20CreateMediaStreamPipeline&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec create_media_stream_pipeline(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_media_stream_pipeline_response(), any()}
@@ -2386,8 +2379,7 @@ defmodule AWS.ChimeSDKMediaPipelines do
 
   ## Parameters:
   * `:media_pipeline_id` (`t:string` required) The ID of the media pipeline being
-  deleted.
-  ## Keyword parameters:
+    deleted.
   """
   @spec delete_media_capture_pipeline(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
@@ -2440,9 +2432,8 @@ defmodule AWS.ChimeSDKMediaPipelines do
 
   ## Parameters:
   * `:identifier` (`t:string` required) The unique identifier of the resource to
-  be deleted. Valid values include the name and ARN of the media insights
-  pipeline configuration.
-  ## Keyword parameters:
+    be deleted. Valid values include the name and ARN of the media insights
+    pipeline configuration.
   """
   @spec delete_media_insights_pipeline_configuration(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
@@ -2495,8 +2486,7 @@ defmodule AWS.ChimeSDKMediaPipelines do
 
   ## Parameters:
   * `:media_pipeline_id` (`t:string` required) The ID of the media pipeline to
-  delete.
-  ## Keyword parameters:
+    delete.
   """
   @spec delete_media_pipeline(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
@@ -2549,9 +2539,8 @@ defmodule AWS.ChimeSDKMediaPipelines do
 
   ## Parameters:
   * `:identifier` (`t:string` required) The unique identifier of the requested
-  resource. Valid values include the name and ARN of the media pipeline
-  Kinesis Video Stream pool.
-  ## Keyword parameters:
+    resource. Valid values include the name and ARN of the media pipeline
+    Kinesis Video Stream pool.
   """
   @spec delete_media_pipeline_kinesis_video_stream_pool(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
@@ -2608,8 +2597,7 @@ defmodule AWS.ChimeSDKMediaPipelines do
 
   ## Parameters:
   * `:media_pipeline_id` (`t:string` required) The ID of the pipeline that you
-  want to get.
-  ## Keyword parameters:
+    want to get.
   """
   @spec get_media_capture_pipeline(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_media_capture_pipeline_response(), any()}
@@ -2650,9 +2638,8 @@ defmodule AWS.ChimeSDKMediaPipelines do
 
   ## Parameters:
   * `:identifier` (`t:string` required) The unique identifier of the requested
-  resource. Valid values include the name and ARN of the media insights
-  pipeline configuration.
-  ## Keyword parameters:
+    resource. Valid values include the name and ARN of the media insights
+    pipeline configuration.
   """
   @spec get_media_insights_pipeline_configuration(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_media_insights_pipeline_configuration_response(), any()}
@@ -2693,8 +2680,7 @@ defmodule AWS.ChimeSDKMediaPipelines do
 
   ## Parameters:
   * `:media_pipeline_id` (`t:string` required) The ID of the pipeline that you
-  want to get.
-  ## Keyword parameters:
+    want to get.
   """
   @spec get_media_pipeline(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_media_pipeline_response(), any()}
@@ -2735,9 +2721,8 @@ defmodule AWS.ChimeSDKMediaPipelines do
 
   ## Parameters:
   * `:identifier` (`t:string` required) The unique identifier of the requested
-  resource. Valid values include the name and ARN of the media pipeline
-  Kinesis Video Stream pool.
-  ## Keyword parameters:
+    resource. Valid values include the name and ARN of the media pipeline
+    Kinesis Video Stream pool.
   """
   @spec get_media_pipeline_kinesis_video_stream_pool(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_media_pipeline_kinesis_video_stream_pool_response(), any()}
@@ -2778,11 +2763,10 @@ defmodule AWS.ChimeSDKMediaPipelines do
 
   ## Parameters:
   * `:identifier` (`t:string` required) The unique identifier of the resource to
-  be updated. Valid values include the ID and ARN of the media insights
-  pipeline.
+    be updated. Valid values include the ID and ARN of the media insights
+    pipeline.
   * `:speaker_search_task_id` (`t:string` required) The ID of the speaker search
-  task.
-  ## Keyword parameters:
+    task.
   """
   @spec get_speaker_search_task(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_speaker_search_task_response(), any()}
@@ -2829,11 +2813,10 @@ defmodule AWS.ChimeSDKMediaPipelines do
 
   ## Parameters:
   * `:identifier` (`t:string` required) The unique identifier of the resource to
-  be updated. Valid values include the ID and ARN of the media insights
-  pipeline.
+    be updated. Valid values include the ID and ARN of the media insights
+    pipeline.
   * `:voice_tone_analysis_task_id` (`t:string` required) The ID of the voice tone
-  analysis task.
-  ## Keyword parameters:
+    analysis task.
   """
   @spec get_voice_tone_analysis_task(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_voice_tone_analysis_task_response(), any()}
@@ -2879,11 +2862,12 @@ defmodule AWS.ChimeSDKMediaPipelines do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chimesdkmediapipelines%20ListMediaCapturePipelines&this_doc_guide=API%2520Reference)
 
   ## Parameters:
+
   ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of results to return in a
-  single call. Valid Range: 1 - 99.
+    single call. Valid Range: 1 - 99.
   * `:next_token` (`t:string`) The token used to retrieve the next page of
-  results.
+    results.
   """
   @spec list_media_capture_pipelines(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_media_capture_pipelines_response(), any()}
@@ -2941,9 +2925,10 @@ defmodule AWS.ChimeSDKMediaPipelines do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chimesdkmediapipelines%20ListMediaInsightsPipelineConfigurations&this_doc_guide=API%2520Reference)
 
   ## Parameters:
+
   ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of results to return in a
-  single call.
+    single call.
   * `:next_token` (`t:string`) The token used to return the next page of results.
   """
   @spec list_media_insights_pipeline_configurations(AWS.Client.t(), Keyword.t()) ::
@@ -3002,9 +2987,10 @@ defmodule AWS.ChimeSDKMediaPipelines do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chimesdkmediapipelines%20ListMediaPipelineKinesisVideoStreamPools&this_doc_guide=API%2520Reference)
 
   ## Parameters:
+
   ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of results to return in a
-  single call.
+    single call.
   * `:next_token` (`t:string`) The token used to return the next page of results.
   """
   @spec list_media_pipeline_kinesis_video_stream_pools(AWS.Client.t(), Keyword.t()) ::
@@ -3063,11 +3049,12 @@ defmodule AWS.ChimeSDKMediaPipelines do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chimesdkmediapipelines%20ListMediaPipelines&this_doc_guide=API%2520Reference)
 
   ## Parameters:
+
   ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of results to return in a
-  single call. Valid Range: 1 - 99.
+    single call. Valid Range: 1 - 99.
   * `:next_token` (`t:string`) The token used to retrieve the next page of
-  results.
+    results.
   """
   @spec list_media_pipelines(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_media_pipelines_response(), any()}
@@ -3126,9 +3113,8 @@ defmodule AWS.ChimeSDKMediaPipelines do
 
   ## Parameters:
   * `:resource_arn` (`t:string` required) The ARN of the media pipeline associated
-  with any tags. The ARN consists of the pipeline's region, resource ID, and
-  pipeline ID.
-  ## Keyword parameters:
+    with any tags. The ARN consists of the pipeline's region, resource ID, and
+    pipeline ID.
   """
   @spec list_tags_for_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_tags_for_resource_response(), any()}
@@ -3170,9 +3156,8 @@ defmodule AWS.ChimeSDKMediaPipelines do
 
   ## Parameters:
   * `:identifier` (`t:string` required) The unique identifier of the resource to
-  be updated. Valid values include the ID and ARN of the media insights
-  pipeline.
-  ## Keyword parameters:
+    be updated. Valid values include the ID and ARN of the media insights
+    pipeline.
   """
   @spec start_speaker_search_task(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, start_speaker_search_task_response(), any()}
@@ -3223,9 +3208,8 @@ defmodule AWS.ChimeSDKMediaPipelines do
 
   ## Parameters:
   * `:identifier` (`t:string` required) The unique identifier of the resource to
-  be updated. Valid values include the ID and ARN of the media insights
-  pipeline.
-  ## Keyword parameters:
+    be updated. Valid values include the ID and ARN of the media insights
+    pipeline.
   """
   @spec start_voice_tone_analysis_task(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, start_voice_tone_analysis_task_response(), any()}
@@ -3269,10 +3253,9 @@ defmodule AWS.ChimeSDKMediaPipelines do
 
   ## Parameters:
   * `:identifier` (`t:string` required) The unique identifier of the resource to
-  be updated. Valid values include the ID and ARN of the media insights
-  pipeline.
+    be updated. Valid values include the ID and ARN of the media insights
+    pipeline.
   * `:speaker_search_task_id` (`t:string` required) The speaker search task ID.
-  ## Keyword parameters:
   """
   @spec stop_speaker_search_task(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
@@ -3321,11 +3304,10 @@ defmodule AWS.ChimeSDKMediaPipelines do
 
   ## Parameters:
   * `:identifier` (`t:string` required) The unique identifier of the resource to
-  be updated. Valid values include the ID and ARN of the media insights
-  pipeline.
+    be updated. Valid values include the ID and ARN of the media insights
+    pipeline.
   * `:voice_tone_analysis_task_id` (`t:string` required) The ID of the voice tone
-  analysis task.
-  ## Keyword parameters:
+    analysis task.
   """
   @spec stop_voice_tone_analysis_task(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
@@ -3374,7 +3356,6 @@ defmodule AWS.ChimeSDKMediaPipelines do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chimesdkmediapipelines%20TagResource&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec tag_resource(AWS.Client.t(), Keyword.t()) ::
           {:ok, tag_resource_response(), any()}
@@ -3416,7 +3397,6 @@ defmodule AWS.ChimeSDKMediaPipelines do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chimesdkmediapipelines%20UntagResource&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec untag_resource(AWS.Client.t(), Keyword.t()) ::
           {:ok, untag_resource_response(), any()}
@@ -3459,9 +3439,8 @@ defmodule AWS.ChimeSDKMediaPipelines do
 
   ## Parameters:
   * `:identifier` (`t:string` required) The unique identifier for the resource to
-  be updated. Valid values include the name and ARN of the media insights
-  pipeline configuration.
-  ## Keyword parameters:
+    be updated. Valid values include the name and ARN of the media insights
+    pipeline configuration.
   """
   @spec update_media_insights_pipeline_configuration(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, update_media_insights_pipeline_configuration_response(), any()}
@@ -3504,9 +3483,8 @@ defmodule AWS.ChimeSDKMediaPipelines do
 
   ## Parameters:
   * `:identifier` (`t:string` required) The unique identifier of the resource to
-  be updated. Valid values include the ID and ARN of the media insights
-  pipeline.
-  ## Keyword parameters:
+    be updated. Valid values include the ID and ARN of the media insights
+    pipeline.
   """
   @spec update_media_insights_pipeline_status(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
@@ -3549,9 +3527,8 @@ defmodule AWS.ChimeSDKMediaPipelines do
 
   ## Parameters:
   * `:identifier` (`t:string` required) The unique identifier of the requested
-  resource. Valid values include the name and ARN of the media pipeline
-  Kinesis Video Stream pool.
-  ## Keyword parameters:
+    resource. Valid values include the name and ARN of the media pipeline
+    Kinesis Video Stream pool.
   """
   @spec update_media_pipeline_kinesis_video_stream_pool(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, update_media_pipeline_kinesis_video_stream_pool_response(), any()}

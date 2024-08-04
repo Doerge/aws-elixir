@@ -3029,12 +3029,13 @@ defmodule AWS.Lambda do
 
   ## Parameters:
   * `:layer_name` (`t:string` required) The name or Amazon Resource Name (ARN) of
-  the layer.
+    the layer.
   * `:version_number` (`t:long` required) The version number.
+
   ## Keyword parameters:
   * `:revision_id` (`t:string`) Only update the policy if the revision ID matches
-  the ID specified. Use this option to avoid modifying a policy that has
-  changed since you last read it.
+    the ID specified. Use this option to avoid modifying a policy that has
+    changed since you last read it.
   """
   @spec add_layer_version_permission(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, add_layer_version_permission_response(), any()}
@@ -3103,10 +3104,11 @@ defmodule AWS.Lambda do
 
   ## Parameters:
   * `:function_name` (`t:string` required) The name or ARN of the Lambda function,
-  version, or alias.
+    version, or alias.
+
   ## Keyword parameters:
   * `:qualifier` (`t:string`) Specify a version or alias to add permissions to a
-  published version of the function.
+    published version of the function.
   """
   @spec add_permission(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, add_permission_response(), any()}
@@ -3163,7 +3165,6 @@ defmodule AWS.Lambda do
 
   ## Parameters:
   * `:function_name` (`t:string` required) The name or ARN of the Lambda function.
-  ## Keyword parameters:
   """
   @spec create_alias(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, alias_configuration(), any()}
@@ -3208,7 +3209,6 @@ defmodule AWS.Lambda do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lambda%20CreateCodeSigningConfig&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec create_code_signing_config(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_code_signing_config_response(), any()}
@@ -3252,7 +3252,6 @@ defmodule AWS.Lambda do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lambda%20CreateEventSourceMapping&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec create_event_source_mapping(AWS.Client.t(), Keyword.t()) ::
           {:ok, event_source_mapping_configuration(), any()}
@@ -3320,7 +3319,6 @@ defmodule AWS.Lambda do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lambda%20CreateFunction&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec create_function(AWS.Client.t(), Keyword.t()) ::
           {:ok, function_configuration(), any()}
@@ -3365,6 +3363,7 @@ defmodule AWS.Lambda do
 
   ## Parameters:
   * `:function_name` (`t:string` required) The name or ARN of the Lambda function.
+
   ## Keyword parameters:
   * `:qualifier` (`t:string`) The alias name.
   """
@@ -3422,7 +3421,6 @@ defmodule AWS.Lambda do
   ## Parameters:
   * `:function_name` (`t:string` required) The name or ARN of the Lambda function.
   * `:name` (`t:string` required) The name of the alias.
-  ## Keyword parameters:
   """
   @spec delete_alias(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
@@ -3477,8 +3475,7 @@ defmodule AWS.Lambda do
 
   ## Parameters:
   * `:code_signing_config_arn` (`t:string` required) The The Amazon Resource Name
-  (ARN) of the code signing configuration.
-  ## Keyword parameters:
+    (ARN) of the code signing configuration.
   """
   @spec delete_code_signing_config(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, delete_code_signing_config_response(), any()}
@@ -3534,7 +3531,6 @@ defmodule AWS.Lambda do
 
   ## Parameters:
   * `:uuid` (`t:string` required) The identifier of the event source mapping.
-  ## Keyword parameters:
   """
   @spec delete_event_source_mapping(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, event_source_mapping_configuration(), any()}
@@ -3589,10 +3585,11 @@ defmodule AWS.Lambda do
 
   ## Parameters:
   * `:function_name` (`t:string` required) The name or ARN of the Lambda function
-  or version.
+    or version.
+
   ## Keyword parameters:
   * `:qualifier` (`t:string`) Specify a version to delete. You can't delete a
-  version that an alias references.
+    version that an alias references.
   """
   @spec delete_function(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
@@ -3656,7 +3653,6 @@ defmodule AWS.Lambda do
 
   ## Parameters:
   * `:function_name` (`t:string` required) The name or ARN of the Lambda function.
-  ## Keyword parameters:
   """
   @spec delete_function_code_signing_config(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
@@ -3709,7 +3705,6 @@ defmodule AWS.Lambda do
 
   ## Parameters:
   * `:function_name` (`t:string` required) The name or ARN of the Lambda function.
-  ## Keyword parameters:
   """
   @spec delete_function_concurrency(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
@@ -3763,7 +3758,8 @@ defmodule AWS.Lambda do
 
   ## Parameters:
   * `:function_name` (`t:string` required) The name or ARN of the Lambda function,
-  version, or alias.
+    version, or alias.
+
   ## Keyword parameters:
   * `:qualifier` (`t:string`) A version number or alias name.
   """
@@ -3830,6 +3826,7 @@ defmodule AWS.Lambda do
 
   ## Parameters:
   * `:function_name` (`t:string` required) The name or ARN of the Lambda function.
+
   ## Keyword parameters:
   * `:qualifier` (`t:string`) The alias name.
   """
@@ -3899,9 +3896,8 @@ defmodule AWS.Lambda do
 
   ## Parameters:
   * `:layer_name` (`t:string` required) The name or Amazon Resource Name (ARN) of
-  the layer.
+    the layer.
   * `:version_number` (`t:long` required) The version number.
-  ## Keyword parameters:
   """
   @spec delete_layer_version(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
@@ -3956,7 +3952,6 @@ defmodule AWS.Lambda do
   ## Parameters:
   * `:function_name` (`t:string` required) The name or ARN of the Lambda function.
   * `:qualifier` (`t:string` required) The version number or alias name.
-  ## Keyword parameters:
   """
   @spec delete_provisioned_concurrency_config(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
@@ -4017,7 +4012,6 @@ defmodule AWS.Lambda do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lambda%20GetAccountSettings&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec get_account_settings(AWS.Client.t(), Keyword.t()) ::
           {:ok, get_account_settings_response(), any()}
@@ -4060,7 +4054,6 @@ defmodule AWS.Lambda do
   ## Parameters:
   * `:function_name` (`t:string` required) The name or ARN of the Lambda function.
   * `:name` (`t:string` required) The name of the alias.
-  ## Keyword parameters:
   """
   @spec get_alias(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, alias_configuration(), any()}
@@ -4102,8 +4095,7 @@ defmodule AWS.Lambda do
 
   ## Parameters:
   * `:code_signing_config_arn` (`t:string` required) The The Amazon Resource Name
-  (ARN) of the code signing configuration.
-  ## Keyword parameters:
+    (ARN) of the code signing configuration.
   """
   @spec get_code_signing_config(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_code_signing_config_response(), any()}
@@ -4145,7 +4137,6 @@ defmodule AWS.Lambda do
 
   ## Parameters:
   * `:uuid` (`t:string` required) The identifier of the event source mapping.
-  ## Keyword parameters:
   """
   @spec get_event_source_mapping(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, event_source_mapping_configuration(), any()}
@@ -4188,10 +4179,11 @@ defmodule AWS.Lambda do
 
   ## Parameters:
   * `:function_name` (`t:string` required) The name or ARN of the Lambda function,
-  version, or alias.
+    version, or alias.
+
   ## Keyword parameters:
   * `:qualifier` (`t:string`) Specify a version or alias to get details about a
-  published version of the function.
+    published version of the function.
   """
   @spec get_function(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_function_response(), any()}
@@ -4243,7 +4235,6 @@ defmodule AWS.Lambda do
 
   ## Parameters:
   * `:function_name` (`t:string` required) The name or ARN of the Lambda function.
-  ## Keyword parameters:
   """
   @spec get_function_code_signing_config(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_function_code_signing_config_response(), any()}
@@ -4285,7 +4276,6 @@ defmodule AWS.Lambda do
 
   ## Parameters:
   * `:function_name` (`t:string` required) The name or ARN of the Lambda function.
-  ## Keyword parameters:
   """
   @spec get_function_concurrency(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_function_concurrency_response(), any()}
@@ -4328,10 +4318,11 @@ defmodule AWS.Lambda do
 
   ## Parameters:
   * `:function_name` (`t:string` required) The name or ARN of the Lambda function,
-  version, or alias.
+    version, or alias.
+
   ## Keyword parameters:
   * `:qualifier` (`t:string`) Specify a version or alias to get details about a
-  published version of the function.
+    published version of the function.
   """
   @spec get_function_configuration(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, function_configuration(), any()}
@@ -4384,7 +4375,8 @@ defmodule AWS.Lambda do
 
   ## Parameters:
   * `:function_name` (`t:string` required) The name or ARN of the Lambda function,
-  version, or alias.
+    version, or alias.
+
   ## Keyword parameters:
   * `:qualifier` (`t:string`) A version number or alias name.
   """
@@ -4438,6 +4430,7 @@ defmodule AWS.Lambda do
 
   ## Parameters:
   * `:function_name` (`t:string` required) The name or ARN of the Lambda function.
+
   ## Keyword parameters:
   * `:qualifier` (`t:string`) The alias name.
   """
@@ -4493,9 +4486,8 @@ defmodule AWS.Lambda do
 
   ## Parameters:
   * `:layer_name` (`t:string` required) The name or Amazon Resource Name (ARN) of
-  the layer.
+    the layer.
   * `:version_number` (`t:long` required) The version number.
-  ## Keyword parameters:
   """
   @spec get_layer_version(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_layer_version_response(), any()}
@@ -4539,7 +4531,6 @@ defmodule AWS.Lambda do
 
   ## Parameters:
   * `:arn` (`t:string` required) The ARN of the layer version.
-  ## Keyword parameters:
   """
   @spec get_layer_version_by_arn(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_layer_version_response(), any()}
@@ -4582,9 +4573,8 @@ defmodule AWS.Lambda do
 
   ## Parameters:
   * `:layer_name` (`t:string` required) The name or Amazon Resource Name (ARN) of
-  the layer.
+    the layer.
   * `:version_number` (`t:long` required) The version number.
-  ## Keyword parameters:
   """
   @spec get_layer_version_policy(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_layer_version_policy_response(), any()}
@@ -4628,10 +4618,11 @@ defmodule AWS.Lambda do
 
   ## Parameters:
   * `:function_name` (`t:string` required) The name or ARN of the Lambda function,
-  version, or alias.
+    version, or alias.
+
   ## Keyword parameters:
   * `:qualifier` (`t:string`) Specify a version or alias to get the policy for
-  that resource.
+    that resource.
   """
   @spec get_policy(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_policy_response(), any()}
@@ -4685,7 +4676,6 @@ defmodule AWS.Lambda do
   ## Parameters:
   * `:function_name` (`t:string` required) The name or ARN of the Lambda function.
   * `:qualifier` (`t:string` required) The version number or alias name.
-  ## Keyword parameters:
   """
   @spec get_provisioned_concurrency_config(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_provisioned_concurrency_config_response(), any()}
@@ -4738,10 +4728,11 @@ defmodule AWS.Lambda do
 
   ## Parameters:
   * `:function_name` (`t:string` required) The name or ARN of the Lambda function.
+
   ## Keyword parameters:
   * `:qualifier` (`t:string`) Specify a version of the function. This can be
-  $LATEST or a published version number. If no value is specified, the
-  configuration for the $LATEST version is returned.
+    $LATEST or a published version number. If no value is specified, the
+    configuration for the $LATEST version is returned.
   """
   @spec get_runtime_management_config(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_runtime_management_config_response(), any()}
@@ -4811,21 +4802,22 @@ defmodule AWS.Lambda do
 
   ## Parameters:
   * `:function_name` (`t:string` required) The name or ARN of the Lambda function,
-  version, or alias.
+    version, or alias.
   * `:input` (`t:map | nil`):
-    * `:payload` (`t:blob`) The JSON that you want to provide to your Lambda
-  function as input.
+    * `"Payload" => t:blob` The JSON that you want to provide to your Lambda
+    function as input.
+
   ## Keyword parameters:
   * `:qualifier` (`t:string`) Specify a version or alias to invoke a published
-  version of the function.
+    version of the function.
   * `:client_context` (`t:string`) Up to 3,583 bytes of base64-encoded data about
-  the invoking client to pass to the function in the context object. Lambda
-  passes the ClientContext object to your function for synchronous invocations
-  only.
+    the invoking client to pass to the function in the context object. Lambda
+    passes the ClientContext object to your function for synchronous invocations
+    only.
   * `:invocation_type` (`t:enum["DryRun|Event|RequestResponse"]`) Choose from the
-  following options.
+    following options.
   * `:log_type` (`t:enum["None|Tail"]`) Set to Tail to include the execution log
-  in the response. Applies to synchronously invoked functions only.
+    in the response. Applies to synchronously invoked functions only.
   """
   @spec invoke(AWS.Client.t(), String.t(), input :: map() | nil, Keyword.t()) ::
           {:ok, invocation_response(), any()}
@@ -4891,17 +4883,6 @@ defmodule AWS.Lambda do
         ]
       )
 
-    options =
-      Keyword.put(
-        options,
-        :response_header_parameters,
-        [
-          {"X-Amz-Executed-Version", "ExecutedVersion"},
-          {"X-Amz-Function-Error", "FunctionError"},
-          {"X-Amz-Log-Result", "LogResult"}
-        ]
-      )
-
     meta =
       metadata()
 
@@ -4924,9 +4905,8 @@ defmodule AWS.Lambda do
   ## Parameters:
   * `:function_name` (`t:string` required) The name or ARN of the Lambda function.
   * `:input` (`t:map`):
-    * `:invoke_args` (`t:blob` required) The JSON that you want to provide to your
-  Lambda function as input.
-  ## Keyword parameters:
+    * `"InvokeArgs" => t:blob` (required) The JSON that you want to provide to your
+    Lambda function as input.
   """
   @spec invoke_async(AWS.Client.t(), String.t(), input :: map(), Keyword.t()) ::
           {:ok, invoke_async_response(), any()}
@@ -4977,16 +4957,17 @@ defmodule AWS.Lambda do
   ## Parameters:
   * `:function_name` (`t:string` required) The name or ARN of the Lambda function.
   * `:input` (`t:map | nil`):
-    * `:payload` (`t:blob`) The JSON that you want to provide to your Lambda
-  function as input.
+    * `"Payload" => t:blob` The JSON that you want to provide to your Lambda
+    function as input.
+
   ## Keyword parameters:
   * `:qualifier` (`t:string`) The alias name.
   * `:client_context` (`t:string`) Up to 3,583 bytes of base64-encoded data about
-  the invoking client to pass to the function in the context object.
+    the invoking client to pass to the function in the context object.
   * `:invocation_type` (`t:enum["DryRun|RequestResponse"]`) Use one of the
-  following options:
+    following options:
   * `:log_type` (`t:enum["None|Tail"]`) Set to Tail to include the execution log
-  in the response. Applies to synchronously invoked functions only.
+    in the response. Applies to synchronously invoked functions only.
   """
   @spec invoke_with_response_stream(AWS.Client.t(), String.t(), input :: map() | nil, Keyword.t()) ::
           {:ok, invoke_with_response_stream_response(), any()}
@@ -5052,16 +5033,6 @@ defmodule AWS.Lambda do
         ]
       )
 
-    options =
-      Keyword.put(
-        options,
-        :response_header_parameters,
-        [
-          {"X-Amz-Executed-Version", "ExecutedVersion"},
-          {"Content-Type", "ResponseStreamContentType"}
-        ]
-      )
-
     meta =
       metadata()
 
@@ -5084,11 +5055,12 @@ defmodule AWS.Lambda do
 
   ## Parameters:
   * `:function_name` (`t:string` required) The name or ARN of the Lambda function.
+
   ## Keyword parameters:
   * `:function_version` (`t:string`) Specify a function version to only list
-  aliases that invoke that version.
+    aliases that invoke that version.
   * `:marker` (`t:string`) Specify the pagination token that's returned by a
-  previous request to retrieve the next page of results.
+    previous request to retrieve the next page of results.
   * `:max_items` (`t:integer`) Limit the number of aliases returned.
   """
   @spec list_aliases(AWS.Client.t(), String.t(), Keyword.t()) ::
@@ -5157,9 +5129,10 @@ defmodule AWS.Lambda do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lambda%20ListCodeSigningConfigs&this_doc_guide=API%2520Reference)
 
   ## Parameters:
+
   ## Keyword parameters:
   * `:marker` (`t:string`) Specify the pagination token that's returned by a
-  previous request to retrieve the next page of results.
+    previous request to retrieve the next page of results.
   * `:max_items` (`t:integer`) Maximum number of items to return.
   """
   @spec list_code_signing_configs(AWS.Client.t(), Keyword.t()) ::
@@ -5219,14 +5192,15 @@ defmodule AWS.Lambda do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lambda%20ListEventSourceMappings&this_doc_guide=API%2520Reference)
 
   ## Parameters:
+
   ## Keyword parameters:
   * `:event_source_arn` (`t:string`) The Amazon Resource Name (ARN) of the event
-  source.
+    source.
   * `:function_name` (`t:string`) The name or ARN of the Lambda function.
   * `:marker` (`t:string`) A pagination token returned by a previous call.
   * `:max_items` (`t:integer`) The maximum number of event source mappings to
-  return. Note that ListEventSourceMappings returns a maximum of 100 items in
-  each response, even if you set the number higher.
+    return. Note that ListEventSourceMappings returns a maximum of 100 items in
+    each response, even if you set the number higher.
   """
   @spec list_event_source_mappings(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_event_source_mappings_response(), any()}
@@ -5299,9 +5273,10 @@ defmodule AWS.Lambda do
 
   ## Parameters:
   * `:function_name` (`t:string` required) The name or ARN of the Lambda function.
+
   ## Keyword parameters:
   * `:marker` (`t:string`) Specify the pagination token that's returned by a
-  previous request to retrieve the next page of results.
+    previous request to retrieve the next page of results.
   * `:max_items` (`t:integer`) The maximum number of configurations to return.
   """
   @spec list_function_event_invoke_configs(AWS.Client.t(), String.t(), Keyword.t()) ::
@@ -5362,12 +5337,13 @@ defmodule AWS.Lambda do
 
   ## Parameters:
   * `:function_name` (`t:string` required) The name or ARN of the Lambda function.
+
   ## Keyword parameters:
   * `:marker` (`t:string`) Specify the pagination token that's returned by a
-  previous request to retrieve the next page of results.
+    previous request to retrieve the next page of results.
   * `:max_items` (`t:integer`) The maximum number of function URLs to return in
-  the response. Note that ListFunctionUrlConfigs returns a maximum of 50 items
-  in each response, even if you set the number higher.
+    the response. Note that ListFunctionUrlConfigs returns a maximum of 50 items
+    in each response, even if you set the number higher.
   """
   @spec list_function_url_configs(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_function_url_configs_response(), any()}
@@ -5428,19 +5404,20 @@ defmodule AWS.Lambda do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lambda%20ListFunctions&this_doc_guide=API%2520Reference)
 
   ## Parameters:
+
   ## Keyword parameters:
   * `:function_version` (`t:enum["ALL"]`) Set to ALL to include entries for all
-  published versions of each function.
+    published versions of each function.
   * `:marker` (`t:string`) Specify the pagination token that's returned by a
-  previous request to retrieve the next page of results.
+    previous request to retrieve the next page of results.
   * `:master_region` (`t:string`) For Lambda@Edge functions, the Amazon Web
-  Services Region of the master function. For example, us-east-1 filters the
-  list of functions to include only Lambda@Edge functions replicated from a
-  master function in US East (N. Virginia). If specified, you must set
-  FunctionVersion to ALL.
+    Services Region of the master function. For example, us-east-1 filters the
+    list of functions to include only Lambda@Edge functions replicated from a
+    master function in US East (N. Virginia). If specified, you must set
+    FunctionVersion to ALL.
   * `:max_items` (`t:integer`) The maximum number of functions to return in the
-  response. Note that ListFunctions returns a maximum of 50 items in each
-  response, even if you set the number higher.
+    response. Note that ListFunctions returns a maximum of 50 items in each
+    response, even if you set the number higher.
   """
   @spec list_functions(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_functions_response(), any()}
@@ -5515,10 +5492,11 @@ defmodule AWS.Lambda do
 
   ## Parameters:
   * `:code_signing_config_arn` (`t:string` required) The The Amazon Resource Name
-  (ARN) of the code signing configuration.
+    (ARN) of the code signing configuration.
+
   ## Keyword parameters:
   * `:marker` (`t:string`) Specify the pagination token that's returned by a
-  previous request to retrieve the next page of results.
+    previous request to retrieve the next page of results.
   * `:max_items` (`t:integer`) Maximum number of items to return.
   """
   @spec list_functions_by_code_signing_config(AWS.Client.t(), String.t(), Keyword.t()) ::
@@ -5589,13 +5567,14 @@ defmodule AWS.Lambda do
 
   ## Parameters:
   * `:layer_name` (`t:string` required) The name or Amazon Resource Name (ARN) of
-  the layer.
+    the layer.
+
   ## Keyword parameters:
   * `:compatible_architecture` (`t:enum["arm64|x86_64"]`) The compatible
-  instruction set architecture.
+    instruction set architecture.
   * `:compatible_runtime`
-  (`t:enum["nodejs14x|java8al2|nodejs18x|java8|go1x|python39|java17|ruby25|nodejs20x|nodejs12x|nodejs43|dotnetcore10|nodejs10x|ruby32|python310|java21|nodejs43edge|dotnetcore20|nodejs16x|java11|nodejs810|python27|nodejs|dotnet6|python311|dotnetcore21|nodejs610|providedal2|python37|providedal2023|python312|dotnet8|python38|provided|python36|ruby27|dotnetcore31|ruby33"]`)
-  A runtime identifier. For example, java21.
+    (`t:enum["nodejs14x|java8al2|nodejs18x|java8|go1x|python39|java17|ruby25|nodejs20x|nodejs12x|nodejs43|dotnetcore10|nodejs10x|ruby32|python310|java21|nodejs43edge|dotnetcore20|nodejs16x|java11|nodejs810|python27|nodejs|dotnet6|python311|dotnetcore21|nodejs610|providedal2|python37|providedal2023|python312|dotnet8|python38|provided|python36|ruby27|dotnetcore31|ruby33"]`)
+    A runtime identifier. For example, java21.
   * `:marker` (`t:string`) A pagination token returned by a previous call.
   * `:max_items` (`t:integer`) The maximum number of versions to return.
   """
@@ -5681,12 +5660,13 @@ defmodule AWS.Lambda do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lambda%20ListLayers&this_doc_guide=API%2520Reference)
 
   ## Parameters:
+
   ## Keyword parameters:
   * `:compatible_architecture` (`t:enum["arm64|x86_64"]`) The compatible
-  instruction set architecture.
+    instruction set architecture.
   * `:compatible_runtime`
-  (`t:enum["nodejs14x|java8al2|nodejs18x|java8|go1x|python39|java17|ruby25|nodejs20x|nodejs12x|nodejs43|dotnetcore10|nodejs10x|ruby32|python310|java21|nodejs43edge|dotnetcore20|nodejs16x|java11|nodejs810|python27|nodejs|dotnet6|python311|dotnetcore21|nodejs610|providedal2|python37|providedal2023|python312|dotnet8|python38|provided|python36|ruby27|dotnetcore31|ruby33"]`)
-  A runtime identifier. For example, java21.
+    (`t:enum["nodejs14x|java8al2|nodejs18x|java8|go1x|python39|java17|ruby25|nodejs20x|nodejs12x|nodejs43|dotnetcore10|nodejs10x|ruby32|python310|java21|nodejs43edge|dotnetcore20|nodejs16x|java11|nodejs810|python27|nodejs|dotnet6|python311|dotnetcore21|nodejs610|providedal2|python37|providedal2023|python312|dotnet8|python38|provided|python36|ruby27|dotnetcore31|ruby33"]`)
+    A runtime identifier. For example, java21.
   * `:marker` (`t:string`) A pagination token returned by a previous call.
   * `:max_items` (`t:integer`) The maximum number of layers to return.
   """
@@ -5766,11 +5746,12 @@ defmodule AWS.Lambda do
 
   ## Parameters:
   * `:function_name` (`t:string` required) The name or ARN of the Lambda function.
+
   ## Keyword parameters:
   * `:marker` (`t:string`) Specify the pagination token that's returned by a
-  previous request to retrieve the next page of results.
+    previous request to retrieve the next page of results.
   * `:max_items` (`t:integer`) Specify a number to limit the number of
-  configurations returned.
+    configurations returned.
   """
   @spec list_provisioned_concurrency_configs(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_provisioned_concurrency_configs_response(), any()}
@@ -5832,8 +5813,7 @@ defmodule AWS.Lambda do
 
   ## Parameters:
   * `:resource` (`t:string` required) The function's Amazon Resource Name (ARN).
-  Note: Lambda does not support adding tags to aliases or versions.
-  ## Keyword parameters:
+    Note: Lambda does not support adding tags to aliases or versions.
   """
   @spec list_tags(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_tags_response(), any()}
@@ -5877,12 +5857,13 @@ defmodule AWS.Lambda do
 
   ## Parameters:
   * `:function_name` (`t:string` required) The name or ARN of the Lambda function.
+
   ## Keyword parameters:
   * `:marker` (`t:string`) Specify the pagination token that's returned by a
-  previous request to retrieve the next page of results.
+    previous request to retrieve the next page of results.
   * `:max_items` (`t:integer`) The maximum number of versions to return. Note that
-  ListVersionsByFunction returns a maximum of 50 items in each response, even
-  if you set the number higher.
+    ListVersionsByFunction returns a maximum of 50 items in each response, even
+    if you set the number higher.
   """
   @spec list_versions_by_function(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_versions_by_function_response(), any()}
@@ -5944,8 +5925,7 @@ defmodule AWS.Lambda do
 
   ## Parameters:
   * `:layer_name` (`t:string` required) The name or Amazon Resource Name (ARN) of
-  the layer.
-  ## Keyword parameters:
+    the layer.
   """
   @spec publish_layer_version(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, publish_layer_version_response(), any()}
@@ -5995,7 +5975,6 @@ defmodule AWS.Lambda do
 
   ## Parameters:
   * `:function_name` (`t:string` required) The name or ARN of the Lambda function.
-  ## Keyword parameters:
   """
   @spec publish_version(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, function_configuration(), any()}
@@ -6040,7 +6019,6 @@ defmodule AWS.Lambda do
 
   ## Parameters:
   * `:function_name` (`t:string` required) The name or ARN of the Lambda function.
-  ## Keyword parameters:
   """
   @spec put_function_code_signing_config(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, put_function_code_signing_config_response(), any()}
@@ -6089,7 +6067,6 @@ defmodule AWS.Lambda do
 
   ## Parameters:
   * `:function_name` (`t:string` required) The name or ARN of the Lambda function.
-  ## Keyword parameters:
   """
   @spec put_function_concurrency(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, concurrency(), any()}
@@ -6142,7 +6119,8 @@ defmodule AWS.Lambda do
 
   ## Parameters:
   * `:function_name` (`t:string` required) The name or ARN of the Lambda function,
-  version, or alias.
+    version, or alias.
+
   ## Keyword parameters:
   * `:qualifier` (`t:string`) A version number or alias name.
   """
@@ -6199,7 +6177,6 @@ defmodule AWS.Lambda do
   ## Parameters:
   * `:function_name` (`t:string` required) The name or ARN of the Lambda function.
   * `:qualifier` (`t:string` required) The version number or alias name.
-  ## Keyword parameters:
   """
   @spec put_provisioned_concurrency_config(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, put_provisioned_concurrency_config_response(), any()}
@@ -6251,10 +6228,11 @@ defmodule AWS.Lambda do
 
   ## Parameters:
   * `:function_name` (`t:string` required) The name or ARN of the Lambda function.
+
   ## Keyword parameters:
   * `:qualifier` (`t:string`) Specify a version of the function. This can be
-  $LATEST or a published version number. If no value is specified, the
-  configuration for the $LATEST version is returned.
+    $LATEST or a published version number. If no value is specified, the
+    configuration for the $LATEST version is returned.
   """
   @spec put_runtime_management_config(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, put_runtime_management_config_response(), any()}
@@ -6311,14 +6289,15 @@ defmodule AWS.Lambda do
 
   ## Parameters:
   * `:layer_name` (`t:string` required) The name or Amazon Resource Name (ARN) of
-  the layer.
+    the layer.
   * `:statement_id` (`t:string` required) The identifier that was specified when
-  the statement was added.
+    the statement was added.
   * `:version_number` (`t:long` required) The version number.
+
   ## Keyword parameters:
   * `:revision_id` (`t:string`) Only update the policy if the revision ID matches
-  the ID specified. Use this option to avoid modifying a policy that has
-  changed since you last read it.
+    the ID specified. Use this option to avoid modifying a policy that has
+    changed since you last read it.
   """
   @spec remove_layer_version_permission(
           AWS.Client.t(),
@@ -6397,15 +6376,16 @@ defmodule AWS.Lambda do
 
   ## Parameters:
   * `:function_name` (`t:string` required) The name or ARN of the Lambda function,
-  version, or alias.
+    version, or alias.
   * `:statement_id` (`t:string` required) Statement ID of the permission to
-  remove.
+    remove.
+
   ## Keyword parameters:
   * `:qualifier` (`t:string`) Specify a version or alias to remove permissions
-  from a published version of the function.
+    from a published version of the function.
   * `:revision_id` (`t:string`) Update the policy only if the revision ID matches
-  the ID that's specified. Use this option to avoid modifying a policy that
-  has changed since you last read it.
+    the ID that's specified. Use this option to avoid modifying a policy that
+    has changed since you last read it.
   """
   @spec remove_permission(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
@@ -6478,7 +6458,6 @@ defmodule AWS.Lambda do
 
   ## Parameters:
   * `:resource` (`t:string` required) The function's Amazon Resource Name (ARN).
-  ## Keyword parameters:
   """
   @spec tag_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
@@ -6523,8 +6502,7 @@ defmodule AWS.Lambda do
   ## Parameters:
   * `:resource` (`t:string` required) The function's Amazon Resource Name (ARN).
   * `:tag_keys` (`t:list[com.amazonaws.lambda#TagKey]` required) A list of tag
-  keys to remove from the function.
-  ## Keyword parameters:
+    keys to remove from the function.
   """
   @spec untag_resource(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
@@ -6580,7 +6558,6 @@ defmodule AWS.Lambda do
   ## Parameters:
   * `:function_name` (`t:string` required) The name or ARN of the Lambda function.
   * `:name` (`t:string` required) The name of the alias.
-  ## Keyword parameters:
   """
   @spec update_alias(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, alias_configuration(), any()}
@@ -6626,8 +6603,7 @@ defmodule AWS.Lambda do
 
   ## Parameters:
   * `:code_signing_config_arn` (`t:string` required) The The Amazon Resource Name
-  (ARN) of the code signing configuration.
-  ## Keyword parameters:
+    (ARN) of the code signing configuration.
   """
   @spec update_code_signing_config(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, update_code_signing_config_response(), any()}
@@ -6673,7 +6649,6 @@ defmodule AWS.Lambda do
 
   ## Parameters:
   * `:uuid` (`t:string` required) The identifier of the event source mapping.
-  ## Keyword parameters:
   """
   @spec update_event_source_mapping(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, event_source_mapping_configuration(), any()}
@@ -6727,7 +6702,6 @@ defmodule AWS.Lambda do
 
   ## Parameters:
   * `:function_name` (`t:string` required) The name or ARN of the Lambda function.
-  ## Keyword parameters:
   """
   @spec update_function_code(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, function_configuration(), any()}
@@ -6779,7 +6753,6 @@ defmodule AWS.Lambda do
 
   ## Parameters:
   * `:function_name` (`t:string` required) The name or ARN of the Lambda function.
-  ## Keyword parameters:
   """
   @spec update_function_configuration(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, function_configuration(), any()}
@@ -6823,7 +6796,8 @@ defmodule AWS.Lambda do
 
   ## Parameters:
   * `:function_name` (`t:string` required) The name or ARN of the Lambda function,
-  version, or alias.
+    version, or alias.
+
   ## Keyword parameters:
   * `:qualifier` (`t:string`) A version number or alias name.
   """
@@ -6879,6 +6853,7 @@ defmodule AWS.Lambda do
 
   ## Parameters:
   * `:function_name` (`t:string` required) The name or ARN of the Lambda function.
+
   ## Keyword parameters:
   * `:qualifier` (`t:string`) The alias name.
   """

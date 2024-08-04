@@ -1207,7 +1207,6 @@ defmodule AWS.Detective do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=detective%20AcceptInvitation&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec accept_invitation(AWS.Client.t(), Keyword.t()) ::
           {:ok, nil, any()}
@@ -1249,7 +1248,6 @@ defmodule AWS.Detective do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=detective%20BatchGetGraphMemberDatasources&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec batch_get_graph_member_datasources(AWS.Client.t(), Keyword.t()) ::
           {:ok, batch_get_graph_member_datasources_response(), any()}
@@ -1291,7 +1289,6 @@ defmodule AWS.Detective do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=detective%20BatchGetMembershipDatasources&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec batch_get_membership_datasources(AWS.Client.t(), Keyword.t()) ::
           {:ok, batch_get_membership_datasources_response(), any()}
@@ -1337,7 +1334,6 @@ defmodule AWS.Detective do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=detective%20CreateGraph&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec create_graph(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_graph_response(), any()}
@@ -1384,7 +1380,6 @@ defmodule AWS.Detective do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=detective%20CreateMembers&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec create_members(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_members_response(), any()}
@@ -1428,7 +1423,6 @@ defmodule AWS.Detective do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=detective%20DeleteGraph&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec delete_graph(AWS.Client.t(), Keyword.t()) ::
           {:ok, nil, any()}
@@ -1475,7 +1469,6 @@ defmodule AWS.Detective do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=detective%20DeleteMembers&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec delete_members(AWS.Client.t(), Keyword.t()) ::
           {:ok, delete_members_response(), any()}
@@ -1519,7 +1512,6 @@ defmodule AWS.Detective do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=detective%20DescribeOrganizationConfiguration&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec describe_organization_configuration(AWS.Client.t(), Keyword.t()) ::
           {:ok, describe_organization_configuration_response(), any()}
@@ -1563,7 +1555,6 @@ defmodule AWS.Detective do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=detective%20DisableOrganizationAdminAccount&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec disable_organization_admin_account(AWS.Client.t(), Keyword.t()) ::
           {:ok, nil, any()}
@@ -1606,7 +1597,6 @@ defmodule AWS.Detective do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=detective%20DisassociateMembership&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec disassociate_membership(AWS.Client.t(), Keyword.t()) ::
           {:ok, nil, any()}
@@ -1650,7 +1640,6 @@ defmodule AWS.Detective do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=detective%20EnableOrganizationAdminAccount&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec enable_organization_admin_account(AWS.Client.t(), Keyword.t()) ::
           {:ok, nil, any()}
@@ -1697,7 +1686,6 @@ defmodule AWS.Detective do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=detective%20GetInvestigation&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec get_investigation(AWS.Client.t(), Keyword.t()) ::
           {:ok, get_investigation_response(), any()}
@@ -1740,7 +1728,6 @@ defmodule AWS.Detective do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=detective%20GetMembers&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec get_members(AWS.Client.t(), Keyword.t()) ::
           {:ok, get_members_response(), any()}
@@ -1782,7 +1769,6 @@ defmodule AWS.Detective do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=detective%20ListDatasourcePackages&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec list_datasource_packages(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_datasource_packages_response(), any()}
@@ -1825,7 +1811,6 @@ defmodule AWS.Detective do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=detective%20ListGraphs&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec list_graphs(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_graphs_response(), any()}
@@ -1869,7 +1854,6 @@ defmodule AWS.Detective do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=detective%20ListIndicators&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec list_indicators(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_indicators_response(), any()}
@@ -1915,7 +1899,6 @@ defmodule AWS.Detective do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=detective%20ListInvestigations&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec list_investigations(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_investigations_response(), any()}
@@ -1960,7 +1943,6 @@ defmodule AWS.Detective do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=detective%20ListInvitations&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec list_invitations(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_invitations_response(), any()}
@@ -2004,7 +1986,6 @@ defmodule AWS.Detective do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=detective%20ListMembers&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec list_members(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_members_response(), any()}
@@ -2047,7 +2028,6 @@ defmodule AWS.Detective do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=detective%20ListOrganizationAdminAccounts&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec list_organization_admin_accounts(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_organization_admin_accounts_response(), any()}
@@ -2090,8 +2070,7 @@ defmodule AWS.Detective do
 
   ## Parameters:
   * `:resource_arn` (`t:string` required) The ARN of the behavior graph for which
-  to retrieve the tag values.
-  ## Keyword parameters:
+    to retrieve the tag values.
   """
   @spec list_tags_for_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_tags_for_resource_response(), any()}
@@ -2133,7 +2112,6 @@ defmodule AWS.Detective do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=detective%20RejectInvitation&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec reject_invitation(AWS.Client.t(), Keyword.t()) ::
           {:ok, nil, any()}
@@ -2180,7 +2158,6 @@ defmodule AWS.Detective do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=detective%20StartInvestigation&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec start_investigation(AWS.Client.t(), Keyword.t()) ::
           {:ok, start_investigation_response(), any()}
@@ -2224,7 +2201,6 @@ defmodule AWS.Detective do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=detective%20StartMonitoringMember&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec start_monitoring_member(AWS.Client.t(), Keyword.t()) ::
           {:ok, nil, any()}
@@ -2267,8 +2243,7 @@ defmodule AWS.Detective do
 
   ## Parameters:
   * `:resource_arn` (`t:string` required) The ARN of the behavior graph to assign
-  the tags to.
-  ## Keyword parameters:
+    the tags to.
   """
   @spec tag_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, tag_resource_response(), any()}
@@ -2311,11 +2286,10 @@ defmodule AWS.Detective do
 
   ## Parameters:
   * `:resource_arn` (`t:string` required) The ARN of the behavior graph to remove
-  the tags from.
+    the tags from.
   * `:tag_keys` (`t:list[com.amazonaws.detective#TagKey]` required) The tag keys
-  of the tags to remove from the behavior graph. You can remove up to 50 tags
-  at a time.
-  ## Keyword parameters:
+    of the tags to remove from the behavior graph. You can remove up to 50 tags
+    at a time.
   """
   @spec untag_resource(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, untag_resource_response(), any()}
@@ -2368,7 +2342,6 @@ defmodule AWS.Detective do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=detective%20UpdateDatasourcePackages&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec update_datasource_packages(AWS.Client.t(), Keyword.t()) ::
           {:ok, nil, any()}
@@ -2410,7 +2383,6 @@ defmodule AWS.Detective do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=detective%20UpdateInvestigationState&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec update_investigation_state(AWS.Client.t(), Keyword.t()) ::
           {:ok, nil, any()}
@@ -2454,7 +2426,6 @@ defmodule AWS.Detective do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=detective%20UpdateOrganizationConfiguration&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec update_organization_configuration(AWS.Client.t(), Keyword.t()) ::
           {:ok, nil, any()}

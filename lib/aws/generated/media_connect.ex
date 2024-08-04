@@ -2889,9 +2889,8 @@ defmodule AWS.MediaConnect do
   ## Parameters:
   * `:bridge_arn` (`t:string` required)
   * `:input` (`t:map`):
-    * `:outputs` (`t:list[com.amazonaws.mediaconnect#AddBridgeOutputRequest]`
-  required)
-  ## Keyword parameters:
+    * `"outputs" => t:list[com.amazonaws.mediaconnect#AddBridgeOutputRequest]`
+    (required)
   """
   @spec add_bridge_outputs(AWS.Client.t(), String.t(), input :: map(), Keyword.t()) ::
           {:ok, add_bridge_outputs_response(), any()}
@@ -2936,9 +2935,8 @@ defmodule AWS.MediaConnect do
   ## Parameters:
   * `:bridge_arn` (`t:string` required)
   * `:input` (`t:map`):
-    * `:sources` (`t:list[com.amazonaws.mediaconnect#AddBridgeSourceRequest]`
-  required)
-  ## Keyword parameters:
+    * `"sources" => t:list[com.amazonaws.mediaconnect#AddBridgeSourceRequest]`
+    (required)
   """
   @spec add_bridge_sources(AWS.Client.t(), String.t(), input :: map(), Keyword.t()) ::
           {:ok, add_bridge_sources_response(), any()}
@@ -2985,9 +2983,8 @@ defmodule AWS.MediaConnect do
   ## Parameters:
   * `:flow_arn` (`t:string` required)
   * `:input` (`t:map`):
-    * `:media_streams` (`t:list[com.amazonaws.mediaconnect#AddMediaStreamRequest]`
-  required)
-  ## Keyword parameters:
+    * `"mediaStreams" => t:list[com.amazonaws.mediaconnect#AddMediaStreamRequest]`
+    (required)
   """
   @spec add_flow_media_streams(AWS.Client.t(), String.t(), input :: map(), Keyword.t()) ::
           {:ok, add_flow_media_streams_response(), any()}
@@ -3032,8 +3029,7 @@ defmodule AWS.MediaConnect do
   ## Parameters:
   * `:flow_arn` (`t:string` required)
   * `:input` (`t:map`):
-    * `:outputs` (`t:list[com.amazonaws.mediaconnect#AddOutputRequest]` required)
-  ## Keyword parameters:
+    * `"outputs" => t:list[com.amazonaws.mediaconnect#AddOutputRequest]` (required)
   """
   @spec add_flow_outputs(AWS.Client.t(), String.t(), input :: map(), Keyword.t()) ::
           {:ok, add_flow_outputs_response(), any()}
@@ -3077,8 +3073,7 @@ defmodule AWS.MediaConnect do
   ## Parameters:
   * `:flow_arn` (`t:string` required)
   * `:input` (`t:map`):
-    * `:sources` (`t:list[com.amazonaws.mediaconnect#SetSourceRequest]` required)
-  ## Keyword parameters:
+    * `"sources" => t:list[com.amazonaws.mediaconnect#SetSourceRequest]` (required)
   """
   @spec add_flow_sources(AWS.Client.t(), String.t(), input :: map(), Keyword.t()) ::
           {:ok, add_flow_sources_response(), any()}
@@ -3122,9 +3117,8 @@ defmodule AWS.MediaConnect do
   ## Parameters:
   * `:flow_arn` (`t:string` required)
   * `:input` (`t:map`):
-    * `:vpc_interfaces` (`t:list[com.amazonaws.mediaconnect#VpcInterfaceRequest]`
-  required)
-  ## Keyword parameters:
+    * `"vpcInterfaces" => t:list[com.amazonaws.mediaconnect#VpcInterfaceRequest]`
+    (required)
   """
   @spec add_flow_vpc_interfaces(AWS.Client.t(), String.t(), input :: map(), Keyword.t()) ::
           {:ok, add_flow_vpc_interfaces_response(), any()}
@@ -3168,15 +3162,14 @@ defmodule AWS.MediaConnect do
 
   ## Parameters:
   * `:input` (`t:map`):
-    * `:name` (`t:string` required)
-    * `:placement_arn` (`t:string` required)
-    * `:sources` (`t:list[com.amazonaws.mediaconnect#AddBridgeSourceRequest]`
-  required)
-    * `:egress_gateway_bridge` (`t:structure`)
-    * `:ingress_gateway_bridge` (`t:structure`)
-    * `:outputs` (`t:list[com.amazonaws.mediaconnect#AddBridgeOutputRequest]`)
-    * `:source_failover_config` (`t:structure`)
-  ## Keyword parameters:
+    * `"name" => t:string` (required)
+    * `"placementArn" => t:string` (required)
+    * `"sources" => t:list[com.amazonaws.mediaconnect#AddBridgeSourceRequest]`
+    (required)
+    * `"egressGatewayBridge" => t:structure`
+    * `"ingressGatewayBridge" => t:structure`
+    * `"outputs" => t:list[com.amazonaws.mediaconnect#AddBridgeOutputRequest]`
+    * `"sourceFailoverConfig" => t:structure`
   """
   @spec create_bridge(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_bridge_response(), any()}
@@ -3220,17 +3213,16 @@ defmodule AWS.MediaConnect do
 
   ## Parameters:
   * `:input` (`t:map`):
-    * `:name` (`t:string` required)
-    * `:availability_zone` (`t:string`)
-    * `:entitlements` (`t:list[com.amazonaws.mediaconnect#GrantEntitlementRequest]`)
-    * `:maintenance` (`t:structure`)
-    * `:media_streams` (`t:list[com.amazonaws.mediaconnect#AddMediaStreamRequest]`)
-    * `:outputs` (`t:list[com.amazonaws.mediaconnect#AddOutputRequest]`)
-    * `:source` (`t:structure`)
-    * `:source_failover_config` (`t:structure`)
-    * `:sources` (`t:list[com.amazonaws.mediaconnect#SetSourceRequest]`)
-    * `:vpc_interfaces` (`t:list[com.amazonaws.mediaconnect#VpcInterfaceRequest]`)
-  ## Keyword parameters:
+    * `"name" => t:string` (required)
+    * `"availabilityZone" => t:string`
+    * `"entitlements" => t:list[com.amazonaws.mediaconnect#GrantEntitlementRequest]`
+    * `"maintenance" => t:structure`
+    * `"mediaStreams" => t:list[com.amazonaws.mediaconnect#AddMediaStreamRequest]`
+    * `"outputs" => t:list[com.amazonaws.mediaconnect#AddOutputRequest]`
+    * `"source" => t:structure`
+    * `"sourceFailoverConfig" => t:structure`
+    * `"sources" => t:list[com.amazonaws.mediaconnect#SetSourceRequest]`
+    * `"vpcInterfaces" => t:list[com.amazonaws.mediaconnect#VpcInterfaceRequest]`
   """
   @spec create_flow(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_flow_response(), any()}
@@ -3273,10 +3265,9 @@ defmodule AWS.MediaConnect do
 
   ## Parameters:
   * `:input` (`t:map`):
-    * `:egress_cidr_blocks` (`t:list[com.amazonaws.mediaconnect#__string]` required)
-    * `:name` (`t:string` required)
-    * `:networks` (`t:list[com.amazonaws.mediaconnect#GatewayNetwork]` required)
-  ## Keyword parameters:
+    * `"egressCidrBlocks" => t:list[com.amazonaws.mediaconnect#__string]` (required)
+    * `"name" => t:string` (required)
+    * `"networks" => t:list[com.amazonaws.mediaconnect#GatewayNetwork]` (required)
   """
   @spec create_gateway(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_gateway_response(), any()}
@@ -3319,7 +3310,6 @@ defmodule AWS.MediaConnect do
 
   ## Parameters:
   * `:bridge_arn` (`t:string` required)
-  ## Keyword parameters:
   """
   @spec delete_bridge(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, delete_bridge_response(), any()}
@@ -3372,7 +3362,6 @@ defmodule AWS.MediaConnect do
 
   ## Parameters:
   * `:flow_arn` (`t:string` required)
-  ## Keyword parameters:
   """
   @spec delete_flow(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, delete_flow_response(), any()}
@@ -3426,7 +3415,6 @@ defmodule AWS.MediaConnect do
 
   ## Parameters:
   * `:gateway_arn` (`t:string` required)
-  ## Keyword parameters:
   """
   @spec delete_gateway(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, delete_gateway_response(), any()}
@@ -3481,6 +3469,7 @@ defmodule AWS.MediaConnect do
 
   ## Parameters:
   * `:gateway_instance_arn` (`t:string` required)
+
   ## Keyword parameters:
   * `:force` (`t:boolean`)
   """
@@ -3546,7 +3535,6 @@ defmodule AWS.MediaConnect do
 
   ## Parameters:
   * `:bridge_arn` (`t:string` required)
-  ## Keyword parameters:
   """
   @spec describe_bridge(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, describe_bridge_response(), any()}
@@ -3589,7 +3577,6 @@ defmodule AWS.MediaConnect do
 
   ## Parameters:
   * `:flow_arn` (`t:string` required)
-  ## Keyword parameters:
   """
   @spec describe_flow(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, describe_flow_response(), any()}
@@ -3631,7 +3618,6 @@ defmodule AWS.MediaConnect do
 
   ## Parameters:
   * `:flow_arn` (`t:string` required)
-  ## Keyword parameters:
   """
   @spec describe_flow_source_metadata(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, describe_flow_source_metadata_response(), any()}
@@ -3673,7 +3659,6 @@ defmodule AWS.MediaConnect do
 
   ## Parameters:
   * `:gateway_arn` (`t:string` required)
-  ## Keyword parameters:
   """
   @spec describe_gateway(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, describe_gateway_response(), any()}
@@ -3714,7 +3699,6 @@ defmodule AWS.MediaConnect do
 
   ## Parameters:
   * `:gateway_instance_arn` (`t:string` required)
-  ## Keyword parameters:
   """
   @spec describe_gateway_instance(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, describe_gateway_instance_response(), any()}
@@ -3757,7 +3741,6 @@ defmodule AWS.MediaConnect do
 
   ## Parameters:
   * `:offering_arn` (`t:string` required)
-  ## Keyword parameters:
   """
   @spec describe_offering(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, describe_offering_response(), any()}
@@ -3800,7 +3783,6 @@ defmodule AWS.MediaConnect do
 
   ## Parameters:
   * `:reservation_arn` (`t:string` required)
-  ## Keyword parameters:
   """
   @spec describe_reservation(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, describe_reservation_response(), any()}
@@ -3842,9 +3824,8 @@ defmodule AWS.MediaConnect do
   ## Parameters:
   * `:flow_arn` (`t:string` required)
   * `:input` (`t:map`):
-    * `:entitlements` (`t:list[com.amazonaws.mediaconnect#GrantEntitlementRequest]`
-  required)
-  ## Keyword parameters:
+    * `"entitlements" => t:list[com.amazonaws.mediaconnect#GrantEntitlementRequest]`
+    (required)
   """
   @spec grant_flow_entitlements(AWS.Client.t(), String.t(), input :: map(), Keyword.t()) ::
           {:ok, grant_flow_entitlements_response(), any()}
@@ -3888,6 +3869,7 @@ defmodule AWS.MediaConnect do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mediaconnect%20ListBridges&this_doc_guide=API%2520Reference)
 
   ## Parameters:
+
   ## Keyword parameters:
   * `:filter_arn` (`t:string`)
   * `:max_results` (`t:integer`)
@@ -3957,6 +3939,7 @@ defmodule AWS.MediaConnect do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mediaconnect%20ListEntitlements&this_doc_guide=API%2520Reference)
 
   ## Parameters:
+
   ## Keyword parameters:
   * `:max_results` (`t:integer`)
   * `:next_token` (`t:string`)
@@ -4018,6 +4001,7 @@ defmodule AWS.MediaConnect do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mediaconnect%20ListFlows&this_doc_guide=API%2520Reference)
 
   ## Parameters:
+
   ## Keyword parameters:
   * `:max_results` (`t:integer`)
   * `:next_token` (`t:string`)
@@ -4080,6 +4064,7 @@ defmodule AWS.MediaConnect do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mediaconnect%20ListGatewayInstances&this_doc_guide=API%2520Reference)
 
   ## Parameters:
+
   ## Keyword parameters:
   * `:filter_arn` (`t:string`)
   * `:max_results` (`t:integer`)
@@ -4149,6 +4134,7 @@ defmodule AWS.MediaConnect do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mediaconnect%20ListGateways&this_doc_guide=API%2520Reference)
 
   ## Parameters:
+
   ## Keyword parameters:
   * `:max_results` (`t:integer`)
   * `:next_token` (`t:string`)
@@ -4212,6 +4198,7 @@ defmodule AWS.MediaConnect do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mediaconnect%20ListOfferings&this_doc_guide=API%2520Reference)
 
   ## Parameters:
+
   ## Keyword parameters:
   * `:max_results` (`t:integer`)
   * `:next_token` (`t:string`)
@@ -4274,6 +4261,7 @@ defmodule AWS.MediaConnect do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mediaconnect%20ListReservations&this_doc_guide=API%2520Reference)
 
   ## Parameters:
+
   ## Keyword parameters:
   * `:max_results` (`t:integer`)
   * `:next_token` (`t:string`)
@@ -4335,7 +4323,6 @@ defmodule AWS.MediaConnect do
 
   ## Parameters:
   * `:resource_arn` (`t:string` required)
-  ## Keyword parameters:
   """
   @spec list_tags_for_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_tags_for_resource_response(), any()}
@@ -4378,9 +4365,8 @@ defmodule AWS.MediaConnect do
   ## Parameters:
   * `:offering_arn` (`t:string` required)
   * `:input` (`t:map`):
-    * `:reservation_name` (`t:string` required)
-    * `:start` (`t:string` required)
-  ## Keyword parameters:
+    * `"reservationName" => t:string` (required)
+    * `"start" => t:string` (required)
   """
   @spec purchase_offering(AWS.Client.t(), String.t(), input :: map(), Keyword.t()) ::
           {:ok, purchase_offering_response(), any()}
@@ -4425,7 +4411,6 @@ defmodule AWS.MediaConnect do
   ## Parameters:
   * `:bridge_arn` (`t:string` required)
   * `:output_name` (`t:string` required)
-  ## Keyword parameters:
   """
   @spec remove_bridge_output(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, remove_bridge_output_response(), any()}
@@ -4480,7 +4465,6 @@ defmodule AWS.MediaConnect do
   ## Parameters:
   * `:bridge_arn` (`t:string` required)
   * `:source_name` (`t:string` required)
-  ## Keyword parameters:
   """
   @spec remove_bridge_source(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, remove_bridge_source_response(), any()}
@@ -4536,7 +4520,6 @@ defmodule AWS.MediaConnect do
   ## Parameters:
   * `:flow_arn` (`t:string` required)
   * `:media_stream_name` (`t:string` required)
-  ## Keyword parameters:
   """
   @spec remove_flow_media_stream(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, remove_flow_media_stream_response(), any()}
@@ -4595,7 +4578,6 @@ defmodule AWS.MediaConnect do
   ## Parameters:
   * `:flow_arn` (`t:string` required)
   * `:output_arn` (`t:string` required)
-  ## Keyword parameters:
   """
   @spec remove_flow_output(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, remove_flow_output_response(), any()}
@@ -4651,7 +4633,6 @@ defmodule AWS.MediaConnect do
   ## Parameters:
   * `:flow_arn` (`t:string` required)
   * `:source_arn` (`t:string` required)
-  ## Keyword parameters:
   """
   @spec remove_flow_source(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, remove_flow_source_response(), any()}
@@ -4709,7 +4690,6 @@ defmodule AWS.MediaConnect do
   ## Parameters:
   * `:flow_arn` (`t:string` required)
   * `:vpc_interface_name` (`t:string` required)
-  ## Keyword parameters:
   """
   @spec remove_flow_vpc_interface(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, remove_flow_vpc_interface_response(), any()}
@@ -4765,7 +4745,6 @@ defmodule AWS.MediaConnect do
   ## Parameters:
   * `:entitlement_arn` (`t:string` required)
   * `:flow_arn` (`t:string` required)
-  ## Keyword parameters:
   """
   @spec revoke_flow_entitlement(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, revoke_flow_entitlement_response(), any()}
@@ -4819,7 +4798,6 @@ defmodule AWS.MediaConnect do
 
   ## Parameters:
   * `:flow_arn` (`t:string` required)
-  ## Keyword parameters:
   """
   @spec start_flow(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, start_flow_response(), any()}
@@ -4862,7 +4840,6 @@ defmodule AWS.MediaConnect do
 
   ## Parameters:
   * `:flow_arn` (`t:string` required)
-  ## Keyword parameters:
   """
   @spec stop_flow(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, stop_flow_response(), any()}
@@ -4909,8 +4886,7 @@ defmodule AWS.MediaConnect do
   ## Parameters:
   * `:resource_arn` (`t:string` required)
   * `:input` (`t:map`):
-    * `:tags` (`t:map` required)
-  ## Keyword parameters:
+    * `"tags" => t:map` (required)
   """
   @spec tag_resource(AWS.Client.t(), String.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
@@ -4954,7 +4930,6 @@ defmodule AWS.MediaConnect do
   ## Parameters:
   * `:resource_arn` (`t:string` required)
   * `:tag_keys` (`t:list[com.amazonaws.mediaconnect#__string]` required)
-  ## Keyword parameters:
   """
   @spec untag_resource(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
@@ -5009,10 +4984,9 @@ defmodule AWS.MediaConnect do
   ## Parameters:
   * `:bridge_arn` (`t:string` required)
   * `:input` (`t:map | nil`):
-    * `:egress_gateway_bridge` (`t:structure`)
-    * `:ingress_gateway_bridge` (`t:structure`)
-    * `:source_failover_config` (`t:structure`)
-  ## Keyword parameters:
+    * `"egressGatewayBridge" => t:structure`
+    * `"ingressGatewayBridge" => t:structure`
+    * `"sourceFailoverConfig" => t:structure`
   """
   @spec update_bridge(AWS.Client.t(), String.t(), input :: map() | nil, Keyword.t()) ::
           {:ok, update_bridge_response(), any()}
@@ -5058,8 +5032,7 @@ defmodule AWS.MediaConnect do
   * `:bridge_arn` (`t:string` required)
   * `:output_name` (`t:string` required)
   * `:input` (`t:map | nil`):
-    * `:network_output` (`t:structure`)
-  ## Keyword parameters:
+    * `"networkOutput" => t:structure`
   """
   @spec update_bridge_output(
           AWS.Client.t(),
@@ -5112,9 +5085,8 @@ defmodule AWS.MediaConnect do
   * `:bridge_arn` (`t:string` required)
   * `:source_name` (`t:string` required)
   * `:input` (`t:map | nil`):
-    * `:flow_source` (`t:structure`)
-    * `:network_source` (`t:structure`)
-  ## Keyword parameters:
+    * `"flowSource" => t:structure`
+    * `"networkSource" => t:structure`
   """
   @spec update_bridge_source(
           AWS.Client.t(),
@@ -5166,8 +5138,7 @@ defmodule AWS.MediaConnect do
   ## Parameters:
   * `:bridge_arn` (`t:string` required)
   * `:input` (`t:map`):
-    * `:desired_state` (`t:enum["ACTIVE|DELETED|STANDBY"]` required)
-  ## Keyword parameters:
+    * `"desiredState" => t:enum["ACTIVE|DELETED|STANDBY"]` (required)
   """
   @spec update_bridge_state(AWS.Client.t(), String.t(), input :: map(), Keyword.t()) ::
           {:ok, update_bridge_state_response(), any()}
@@ -5212,9 +5183,8 @@ defmodule AWS.MediaConnect do
   ## Parameters:
   * `:flow_arn` (`t:string` required)
   * `:input` (`t:map | nil`):
-    * `:maintenance` (`t:structure`)
-    * `:source_failover_config` (`t:structure`)
-  ## Keyword parameters:
+    * `"maintenance" => t:structure`
+    * `"sourceFailoverConfig" => t:structure`
   """
   @spec update_flow(AWS.Client.t(), String.t(), input :: map() | nil, Keyword.t()) ::
           {:ok, update_flow_response(), any()}
@@ -5262,11 +5232,10 @@ defmodule AWS.MediaConnect do
   * `:entitlement_arn` (`t:string` required)
   * `:flow_arn` (`t:string` required)
   * `:input` (`t:map | nil`):
-    * `:description` (`t:string`)
-    * `:encryption` (`t:structure`)
-    * `:entitlement_status` (`t:enum["DISABLED|ENABLED"]`)
-    * `:subscribers` (`t:list[com.amazonaws.mediaconnect#__string]`)
-  ## Keyword parameters:
+    * `"description" => t:string`
+    * `"encryption" => t:structure`
+    * `"entitlementStatus" => t:enum["DISABLED|ENABLED"]`
+    * `"subscribers" => t:list[com.amazonaws.mediaconnect#__string]`
   """
   @spec update_flow_entitlement(
           AWS.Client.t(),
@@ -5319,12 +5288,11 @@ defmodule AWS.MediaConnect do
   * `:flow_arn` (`t:string` required)
   * `:media_stream_name` (`t:string` required)
   * `:input` (`t:map | nil`):
-    * `:attributes` (`t:structure`)
-    * `:clock_rate` (`t:integer`)
-    * `:description` (`t:string`)
-    * `:media_stream_type` (`t:enum["ancillary_data|audio|video"]`)
-    * `:video_format` (`t:string`)
-  ## Keyword parameters:
+    * `"attributes" => t:structure`
+    * `"clockRate" => t:integer`
+    * `"description" => t:string`
+    * `"mediaStreamType" => t:enum["ancillary_data|audio|video"]`
+    * `"videoFormat" => t:string`
   """
   @spec update_flow_media_stream(
           AWS.Client.t(),
@@ -5383,25 +5351,24 @@ defmodule AWS.MediaConnect do
   * `:flow_arn` (`t:string` required)
   * `:output_arn` (`t:string` required)
   * `:input` (`t:map | nil`):
-    * `:cidr_allow_list` (`t:list[com.amazonaws.mediaconnect#__string]`)
-    * `:description` (`t:string`)
-    * `:destination` (`t:string`)
-    * `:encryption` (`t:structure`)
-    * `:max_latency` (`t:integer`)
-    * `:media_stream_output_configurations`
-  (`t:list[com.amazonaws.mediaconnect#MediaStreamOutputConfigurationRequest]`)
-    * `:min_latency` (`t:integer`)
-    * `:output_status` (`t:enum["DISABLED|ENABLED"]`)
-    * `:port` (`t:integer`)
-    * `:protocol`
-  (`t:enum["cdi|fujitsu_qos|rist|rtp|rtp_fec|srt_caller|srt_listener|st2110_jpegxs|udp|zixi_pull|zixi_push"]`)
-    * `:remote_id` (`t:string`)
-    * `:sender_control_port` (`t:integer`)
-    * `:sender_ip_address` (`t:string`)
-    * `:smoothing_latency` (`t:integer`)
-    * `:stream_id` (`t:string`)
-    * `:vpc_interface_attachment` (`t:structure`)
-  ## Keyword parameters:
+    * `"cidrAllowList" => t:list[com.amazonaws.mediaconnect#__string]`
+    * `"description" => t:string`
+    * `"destination" => t:string`
+    * `"encryption" => t:structure`
+    * `"maxLatency" => t:integer`
+    * `"mediaStreamOutputConfigurations" =>
+    t:list[com.amazonaws.mediaconnect#MediaStreamOutputConfigurationRequest]`
+    * `"minLatency" => t:integer`
+    * `"outputStatus" => t:enum["DISABLED|ENABLED"]`
+    * `"port" => t:integer`
+    * `"protocol" =>
+    t:enum["cdi|fujitsu_qos|rist|rtp|rtp_fec|srt_caller|srt_listener|st2110_jpegxs|udp|zixi_pull|zixi_push"]`
+    * `"remoteId" => t:string`
+    * `"senderControlPort" => t:integer`
+    * `"senderIpAddress" => t:string`
+    * `"smoothingLatency" => t:integer`
+    * `"streamId" => t:string`
+    * `"vpcInterfaceAttachment" => t:structure`
   """
   @spec update_flow_output(
           AWS.Client.t(),
@@ -5454,27 +5421,26 @@ defmodule AWS.MediaConnect do
   * `:flow_arn` (`t:string` required)
   * `:source_arn` (`t:string` required)
   * `:input` (`t:map | nil`):
-    * `:decryption` (`t:structure`)
-    * `:description` (`t:string`)
-    * `:entitlement_arn` (`t:string`)
-    * `:gateway_bridge_source` (`t:structure`)
-    * `:ingest_port` (`t:integer`)
-    * `:max_bitrate` (`t:integer`)
-    * `:max_latency` (`t:integer`)
-    * `:max_sync_buffer` (`t:integer`)
-    * `:media_stream_source_configurations`
-  (`t:list[com.amazonaws.mediaconnect#MediaStreamSourceConfigurationRequest]`)
-    * `:min_latency` (`t:integer`)
-    * `:protocol`
-  (`t:enum["cdi|fujitsu_qos|rist|rtp|rtp_fec|srt_caller|srt_listener|st2110_jpegxs|udp|zixi_pull|zixi_push"]`)
-    * `:sender_control_port` (`t:integer`)
-    * `:sender_ip_address` (`t:string`)
-    * `:source_listener_address` (`t:string`)
-    * `:source_listener_port` (`t:integer`)
-    * `:stream_id` (`t:string`)
-    * `:vpc_interface_name` (`t:string`)
-    * `:whitelist_cidr` (`t:string`)
-  ## Keyword parameters:
+    * `"decryption" => t:structure`
+    * `"description" => t:string`
+    * `"entitlementArn" => t:string`
+    * `"gatewayBridgeSource" => t:structure`
+    * `"ingestPort" => t:integer`
+    * `"maxBitrate" => t:integer`
+    * `"maxLatency" => t:integer`
+    * `"maxSyncBuffer" => t:integer`
+    * `"mediaStreamSourceConfigurations" =>
+    t:list[com.amazonaws.mediaconnect#MediaStreamSourceConfigurationRequest]`
+    * `"minLatency" => t:integer`
+    * `"protocol" =>
+    t:enum["cdi|fujitsu_qos|rist|rtp|rtp_fec|srt_caller|srt_listener|st2110_jpegxs|udp|zixi_pull|zixi_push"]`
+    * `"senderControlPort" => t:integer`
+    * `"senderIpAddress" => t:string`
+    * `"sourceListenerAddress" => t:string`
+    * `"sourceListenerPort" => t:integer`
+    * `"streamId" => t:string`
+    * `"vpcInterfaceName" => t:string`
+    * `"whitelistCidr" => t:string`
   """
   @spec update_flow_source(
           AWS.Client.t(),
@@ -5526,8 +5492,7 @@ defmodule AWS.MediaConnect do
   ## Parameters:
   * `:gateway_instance_arn` (`t:string` required)
   * `:input` (`t:map | nil`):
-    * `:bridge_placement` (`t:enum["AVAILABLE|LOCKED"]`)
-  ## Keyword parameters:
+    * `"bridgePlacement" => t:enum["AVAILABLE|LOCKED"]`
   """
   @spec update_gateway_instance(AWS.Client.t(), String.t(), input :: map() | nil, Keyword.t()) ::
           {:ok, update_gateway_instance_response(), any()}

@@ -951,8 +951,7 @@ defmodule AWS.ServiceCatalogAppRegistry do
   ## Parameters:
   * `:application` (`t:string` required) The name, ID, or ARN of the application.
   * `:attribute_group` (`t:string` required) The name, ID, or ARN of the attribute
-  group that holds the attributes to describe the application.
-  ## Keyword parameters:
+    group that holds the attributes to describe the application.
   """
   @spec associate_attribute_group(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, associate_attribute_group_response(), any()}
@@ -999,10 +998,9 @@ defmodule AWS.ServiceCatalogAppRegistry do
   ## Parameters:
   * `:application` (`t:string` required) The name, ID, or ARN of the application.
   * `:resource` (`t:string` required) The name or ID of the resource of which the
-  application will be associated.
+    application will be associated.
   * `:resource_type` (`t:enum["CFN_STACK|RESOURCE_TAG_VALUE"]` required) The type
-  of resource of which the application will be associated.
-  ## Keyword parameters:
+    of resource of which the application will be associated.
   """
   @spec associate_resource(AWS.Client.t(), String.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, associate_resource_response(), any()}
@@ -1046,7 +1044,6 @@ defmodule AWS.ServiceCatalogAppRegistry do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=servicecatalogappregistry%20CreateApplication&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec create_application(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_application_response(), any()}
@@ -1091,7 +1088,6 @@ defmodule AWS.ServiceCatalogAppRegistry do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=servicecatalogappregistry%20CreateAttributeGroup&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec create_attribute_group(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_attribute_group_response(), any()}
@@ -1136,7 +1132,6 @@ defmodule AWS.ServiceCatalogAppRegistry do
 
   ## Parameters:
   * `:application` (`t:string` required) The name, ID, or ARN of the application.
-  ## Keyword parameters:
   """
   @spec delete_application(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, delete_application_response(), any()}
@@ -1190,8 +1185,7 @@ defmodule AWS.ServiceCatalogAppRegistry do
 
   ## Parameters:
   * `:attribute_group` (`t:string` required) The name, ID, or ARN of the attribute
-  group that holds the attributes to describe the application.
-  ## Keyword parameters:
+    group that holds the attributes to describe the application.
   """
   @spec delete_attribute_group(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, delete_attribute_group_response(), any()}
@@ -1247,8 +1241,7 @@ defmodule AWS.ServiceCatalogAppRegistry do
   ## Parameters:
   * `:application` (`t:string` required) The name, ID, or ARN of the application.
   * `:attribute_group` (`t:string` required) The name, ID, or ARN of the attribute
-  group that holds the attributes to describe the application.
-  ## Keyword parameters:
+    group that holds the attributes to describe the application.
   """
   @spec disassociate_attribute_group(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, disassociate_attribute_group_response(), any()}
@@ -1310,8 +1303,7 @@ defmodule AWS.ServiceCatalogAppRegistry do
   * `:application` (`t:string` required) The name or ID of the application.
   * `:resource` (`t:string` required) The name or ID of the resource.
   * `:resource_type` (`t:enum["CFN_STACK|RESOURCE_TAG_VALUE"]` required) The type
-  of the resource that is being disassociated.
-  ## Keyword parameters:
+    of the resource that is being disassociated.
   """
   @spec disassociate_resource(AWS.Client.t(), String.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, disassociate_resource_response(), any()}
@@ -1376,7 +1368,6 @@ defmodule AWS.ServiceCatalogAppRegistry do
 
   ## Parameters:
   * `:application` (`t:string` required) The name, ID, or ARN of the application.
-  ## Keyword parameters:
   """
   @spec get_application(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_application_response(), any()}
@@ -1418,19 +1409,20 @@ defmodule AWS.ServiceCatalogAppRegistry do
   ## Parameters:
   * `:application` (`t:string` required) The name, ID, or ARN of the application.
   * `:resource` (`t:string` required) The name or ID of the resource associated
-  with the application.
+    with the application.
   * `:resource_type` (`t:enum["CFN_STACK|RESOURCE_TAG_VALUE"]` required) The type
-  of resource associated with the application.
+    of resource associated with the application.
+
   ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of results to return. If the
-  parameter is omitted, it defaults to 25. The value is optional.
+    parameter is omitted, it defaults to 25. The value is optional.
   * `:next_token` (`t:string`) A unique pagination token for each page of results.
-  Make the call again with the returned token to retrieve the next page of
-  results.
+    Make the call again with the returned token to retrieve the next page of
+    results.
   * `:resource_tag_status`
-  (`t:list[com.amazonaws.servicecatalogappregistry#ResourceItemStatus]`)
-  States whether an application tag is applied, not applied, in the process of
-  being applied, or skipped.
+    (`t:list[com.amazonaws.servicecatalogappregistry#ResourceItemStatus]`)
+    States whether an application tag is applied, not applied, in the process of
+    being applied, or skipped.
   """
   @spec get_associated_resource(AWS.Client.t(), String.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_associated_resource_response(), any()}
@@ -1504,8 +1496,7 @@ defmodule AWS.ServiceCatalogAppRegistry do
 
   ## Parameters:
   * `:attribute_group` (`t:string` required) The name, ID, or ARN of the attribute
-  group that holds the attributes to describe the application.
-  ## Keyword parameters:
+    group that holds the attributes to describe the application.
   """
   @spec get_attribute_group(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_attribute_group_response(), any()}
@@ -1545,7 +1536,6 @@ defmodule AWS.ServiceCatalogAppRegistry do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=servicecatalogappregistry%20GetConfiguration&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec get_configuration(AWS.Client.t(), Keyword.t()) ::
           {:ok, get_configuration_response(), any()}
@@ -1585,12 +1575,13 @@ defmodule AWS.ServiceCatalogAppRegistry do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=servicecatalogappregistry%20ListApplications&this_doc_guide=API%2520Reference)
 
   ## Parameters:
+
   ## Keyword parameters:
   * `:max_results` (`t:integer`) The upper bound of the number of results to
-  return (cannot exceed 25). If this parameter is omitted, it defaults to 25.
-  This value is optional.
+    return (cannot exceed 25). If this parameter is omitted, it defaults to 25.
+    This value is optional.
   * `:next_token` (`t:string`) The token to use to get the next page of results
-  after a previous API call.
+    after a previous API call.
   """
   @spec list_applications(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_applications_response(), any()}
@@ -1650,12 +1641,13 @@ defmodule AWS.ServiceCatalogAppRegistry do
 
   ## Parameters:
   * `:application` (`t:string` required) The name or ID of the application.
+
   ## Keyword parameters:
   * `:max_results` (`t:integer`) The upper bound of the number of results to
-  return (cannot exceed 25). If this parameter is omitted, it defaults to 25.
-  This value is optional.
+    return (cannot exceed 25). If this parameter is omitted, it defaults to 25.
+    This value is optional.
   * `:next_token` (`t:string`) The token to use to get the next page of results
-  after a previous API call.
+    after a previous API call.
   """
   @spec list_associated_attribute_groups(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_associated_attribute_groups_response(), any()}
@@ -1715,12 +1707,13 @@ defmodule AWS.ServiceCatalogAppRegistry do
 
   ## Parameters:
   * `:application` (`t:string` required) The name, ID, or ARN of the application.
+
   ## Keyword parameters:
   * `:max_results` (`t:integer`) The upper bound of the number of results to
-  return (cannot exceed 25). If this parameter is omitted, it defaults to 25.
-  This value is optional.
+    return (cannot exceed 25). If this parameter is omitted, it defaults to 25.
+    This value is optional.
   * `:next_token` (`t:string`) The token to use to get the next page of results
-  after a previous API call.
+    after a previous API call.
   """
   @spec list_associated_resources(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_associated_resources_response(), any()}
@@ -1778,12 +1771,13 @@ defmodule AWS.ServiceCatalogAppRegistry do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=servicecatalogappregistry%20ListAttributeGroups&this_doc_guide=API%2520Reference)
 
   ## Parameters:
+
   ## Keyword parameters:
   * `:max_results` (`t:integer`) The upper bound of the number of results to
-  return (cannot exceed 25). If this parameter is omitted, it defaults to 25.
-  This value is optional.
+    return (cannot exceed 25). If this parameter is omitted, it defaults to 25.
+    This value is optional.
   * `:next_token` (`t:string`) The token to use to get the next page of results
-  after a previous API call.
+    after a previous API call.
   """
   @spec list_attribute_groups(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_attribute_groups_response(), any()}
@@ -1843,12 +1837,13 @@ defmodule AWS.ServiceCatalogAppRegistry do
 
   ## Parameters:
   * `:application` (`t:string` required) The name or ID of the application.
+
   ## Keyword parameters:
   * `:max_results` (`t:integer`) The upper bound of the number of results to
-  return. The value cannot exceed 25. If you omit this parameter, it defaults
-  to 25. This value is optional.
+    return. The value cannot exceed 25. If you omit this parameter, it defaults
+    to 25. This value is optional.
   * `:next_token` (`t:string`) This token retrieves the next page of results after
-  a previous API call.
+    a previous API call.
   """
   @spec list_attribute_groups_for_application(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_attribute_groups_for_application_response(), any()}
@@ -1907,8 +1902,7 @@ defmodule AWS.ServiceCatalogAppRegistry do
 
   ## Parameters:
   * `:resource_arn` (`t:string` required) The Amazon resource name (ARN) that
-  specifies the resource.
-  ## Keyword parameters:
+    specifies the resource.
   """
   @spec list_tags_for_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_tags_for_resource_response(), any()}
@@ -1948,7 +1942,6 @@ defmodule AWS.ServiceCatalogAppRegistry do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=servicecatalogappregistry%20PutConfiguration&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec put_configuration(AWS.Client.t(), Keyword.t()) ::
           {:ok, nil, any()}
@@ -1991,11 +1984,10 @@ defmodule AWS.ServiceCatalogAppRegistry do
 
   ## Parameters:
   * `:resource` (`t:string` required) An entity you can work with and specify with
-  a name or ID. Examples include an Amazon EC2 instance, an Amazon Web
-  Services CloudFormation stack, or an Amazon S3 bucket.
+    a name or ID. Examples include an Amazon EC2 instance, an Amazon Web
+    Services CloudFormation stack, or an Amazon S3 bucket.
   * `:resource_type` (`t:enum["CFN_STACK|RESOURCE_TAG_VALUE"]` required) The type
-  of resource of which the application will be associated.
-  ## Keyword parameters:
+    of resource of which the application will be associated.
   """
   @spec sync_resource(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, sync_resource_response(), any()}
@@ -2040,8 +2032,7 @@ defmodule AWS.ServiceCatalogAppRegistry do
 
   ## Parameters:
   * `:resource_arn` (`t:string` required) The Amazon resource name (ARN) that
-  specifies the resource.
-  ## Keyword parameters:
+    specifies the resource.
   """
   @spec tag_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, tag_resource_response(), any()}
@@ -2084,10 +2075,9 @@ defmodule AWS.ServiceCatalogAppRegistry do
 
   ## Parameters:
   * `:resource_arn` (`t:string` required) The Amazon resource name (ARN) that
-  specifies the resource.
+    specifies the resource.
   * `:tag_keys` (`t:list[com.amazonaws.servicecatalogappregistry#TagKey]`
-  required) A list of the tag keys to remove from the specified resource.
-  ## Keyword parameters:
+    required) A list of the tag keys to remove from the specified resource.
   """
   @spec untag_resource(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, untag_resource_response(), any()}
@@ -2141,8 +2131,7 @@ defmodule AWS.ServiceCatalogAppRegistry do
 
   ## Parameters:
   * `:application` (`t:string` required) The name, ID, or ARN of the application
-  that will be updated.
-  ## Keyword parameters:
+    that will be updated.
   """
   @spec update_application(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, update_application_response(), any()}
@@ -2195,8 +2184,7 @@ defmodule AWS.ServiceCatalogAppRegistry do
 
   ## Parameters:
   * `:attribute_group` (`t:string` required) The name, ID, or ARN of the attribute
-  group that holds the attributes to describe the application.
-  ## Keyword parameters:
+    group that holds the attributes to describe the application.
   """
   @spec update_attribute_group(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, update_attribute_group_response(), any()}

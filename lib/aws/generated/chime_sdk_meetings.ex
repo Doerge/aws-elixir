@@ -903,8 +903,7 @@ defmodule AWS.ChimeSDKMeetings do
 
   ## Parameters:
   * `:meeting_id` (`t:string` required) The Amazon Chime SDK ID of the meeting to
-  which you're adding attendees.
-  ## Keyword parameters:
+    which you're adding attendees.
   """
   @spec batch_create_attendee(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, batch_create_attendee_response(), any()}
@@ -950,8 +949,7 @@ defmodule AWS.ChimeSDKMeetings do
 
   ## Parameters:
   * `:meeting_id` (`t:string` required) The ID of the meeting associated with the
-  update request.
-  ## Keyword parameters:
+    update request.
   """
   @spec batch_update_attendee_capabilities_except(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
@@ -998,7 +996,6 @@ defmodule AWS.ChimeSDKMeetings do
 
   ## Parameters:
   * `:meeting_id` (`t:string` required) The unique ID of the meeting.
-  ## Keyword parameters:
   """
   @spec create_attendee(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, create_attendee_response(), any()}
@@ -1047,7 +1044,6 @@ defmodule AWS.ChimeSDKMeetings do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chimesdkmeetings%20CreateMeeting&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec create_meeting(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_meeting_response(), any()}
@@ -1096,7 +1092,6 @@ defmodule AWS.ChimeSDKMeetings do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chimesdkmeetings%20CreateMeetingWithAttendees&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec create_meeting_with_attendees(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_meeting_with_attendees_response(), any()}
@@ -1145,7 +1140,6 @@ defmodule AWS.ChimeSDKMeetings do
   ## Parameters:
   * `:attendee_id` (`t:string` required) The Amazon Chime SDK attendee ID.
   * `:meeting_id` (`t:string` required) The Amazon Chime SDK meeting ID.
-  ## Keyword parameters:
   """
   @spec delete_attendee(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
@@ -1204,7 +1198,6 @@ defmodule AWS.ChimeSDKMeetings do
 
   ## Parameters:
   * `:meeting_id` (`t:string` required) The Amazon Chime SDK meeting ID.
-  ## Keyword parameters:
   """
   @spec delete_meeting(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
@@ -1262,7 +1255,6 @@ defmodule AWS.ChimeSDKMeetings do
   ## Parameters:
   * `:attendee_id` (`t:string` required) The Amazon Chime SDK attendee ID.
   * `:meeting_id` (`t:string` required) The Amazon Chime SDK meeting ID.
-  ## Keyword parameters:
   """
   @spec get_attendee(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_attendee_response(), any()}
@@ -1307,7 +1299,6 @@ defmodule AWS.ChimeSDKMeetings do
 
   ## Parameters:
   * `:meeting_id` (`t:string` required) The Amazon Chime SDK meeting ID.
-  ## Keyword parameters:
   """
   @spec get_meeting(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_meeting_response(), any()}
@@ -1351,11 +1342,12 @@ defmodule AWS.ChimeSDKMeetings do
 
   ## Parameters:
   * `:meeting_id` (`t:string` required) The Amazon Chime SDK meeting ID.
+
   ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of results to return in a
-  single call.
+    single call.
   * `:next_token` (`t:string`) The token to use to retrieve the next page of
-  results.
+    results.
   """
   @spec list_attendees(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_attendees_response(), any()}
@@ -1414,7 +1406,6 @@ defmodule AWS.ChimeSDKMeetings do
 
   ## Parameters:
   * `:resource_arn` (`t:string` required) The ARN of the resource.
-  ## Keyword parameters:
   """
   @spec list_tags_for_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_tags_for_resource_response(), any()}
@@ -1464,8 +1455,7 @@ defmodule AWS.ChimeSDKMeetings do
 
   ## Parameters:
   * `:meeting_id` (`t:string` required) The unique ID of the meeting being
-  transcribed.
-  ## Keyword parameters:
+    transcribed.
   """
   @spec start_meeting_transcription(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
@@ -1523,8 +1513,7 @@ defmodule AWS.ChimeSDKMeetings do
 
   ## Parameters:
   * `:meeting_id` (`t:string` required) The unique ID of the meeting for which you
-  stop transcription.
-  ## Keyword parameters:
+    stop transcription.
   """
   @spec stop_meeting_transcription(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
@@ -1566,7 +1555,6 @@ defmodule AWS.ChimeSDKMeetings do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chimesdkmeetings%20TagResource&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec tag_resource(AWS.Client.t(), Keyword.t()) ::
           {:ok, tag_resource_response(), any()}
@@ -1611,7 +1599,6 @@ defmodule AWS.ChimeSDKMeetings do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chimesdkmeetings%20UntagResource&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec untag_resource(AWS.Client.t(), Keyword.t()) ::
           {:ok, untag_resource_response(), any()}
@@ -1656,10 +1643,9 @@ defmodule AWS.ChimeSDKMeetings do
 
   ## Parameters:
   * `:attendee_id` (`t:string` required) The ID of the attendee associated with
-  the update request.
+    the update request.
   * `:meeting_id` (`t:string` required) The ID of the meeting associated with the
-  update request.
-  ## Keyword parameters:
+    update request.
   """
   @spec update_attendee_capabilities(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, update_attendee_capabilities_response(), any()}

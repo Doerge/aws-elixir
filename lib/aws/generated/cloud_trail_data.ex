@@ -179,11 +179,12 @@ defmodule AWS.CloudTrailData do
 
   ## Parameters:
   * `:channel_arn` (`t:string` required) The ARN or ID (the ARN suffix) of a
-  channel.
+    channel.
+
   ## Keyword parameters:
   * `:external_id` (`t:string`) A unique identifier that is conditionally required
-  when the channel's resource policy includes an external ID. This value can
-  be any string, such as a passphrase or account number.
+    when the channel's resource policy includes an external ID. This value can
+    be any string, such as a passphrase or account number.
   """
   @spec put_audit_events(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, put_audit_events_response(), any()}

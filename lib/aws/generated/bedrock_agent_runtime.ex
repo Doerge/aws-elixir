@@ -1493,9 +1493,10 @@ defmodule AWS.BedrockAgentRuntime do
 
   ## Parameters:
   * `:agent_alias_id` (`t:string` required) The unique identifier of an alias of
-  an agent.
+    an agent.
   * `:agent_id` (`t:string` required) The unique identifier of the agent to which
-  the alias belongs.
+    the alias belongs.
+
   ## Keyword parameters:
   * `:memory_id` (`t:string`) The unique identifier of the memory.
   """
@@ -1562,20 +1563,21 @@ defmodule AWS.BedrockAgentRuntime do
 
   ## Parameters:
   * `:agent_alias_id` (`t:string` required) The unique identifier of an alias of
-  an agent.
+    an agent.
   * `:agent_id` (`t:string` required) The unique identifier of the agent to which
-  the alias belongs.
+    the alias belongs.
   * `:memory_id` (`t:string` required) The unique identifier of the memory.
   * `:memory_type` (`t:enum["SESSION_SUMMARY"]` required) The type of memory.
+
   ## Keyword parameters:
   * `:max_items` (`t:integer`) The maximum number of items to return in the
-  response. If the total number of results is greater than this value, use the
-  token returned in the response in the nextToken field when making another
-  request to return the next batch of results.
+    response. If the total number of results is greater than this value, use the
+    token returned in the response in the nextToken field when making another
+    request to return the next batch of results.
   * `:next_token` (`t:string`) If the total number of results is greater than the
-  maxItems value provided in the request, enter the token returned in the
-  nextToken field in the response in this field to return the next batch of
-  results.
+    maxItems value provided in the request, enter the token returned in the
+    nextToken field in the response in this field to return the next batch of
+    results.
   """
   @spec get_agent_memory(
           AWS.Client.t(),
@@ -1654,8 +1656,7 @@ defmodule AWS.BedrockAgentRuntime do
   * `:agent_alias_id` (`t:string` required) The alias of the agent to use.
   * `:agent_id` (`t:string` required) The unique identifier of the agent to use.
   * `:session_id` (`t:string` required) The unique identifier of the session. Use
-  the same value across requests to continue the same conversation.
-  ## Keyword parameters:
+    the same value across requests to continue the same conversation.
   """
   @spec invoke_agent(AWS.Client.t(), String.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, invoke_agent_response(), any()}
@@ -1694,17 +1695,6 @@ defmodule AWS.BedrockAgentRuntime do
         ]
       )
 
-    options =
-      Keyword.put(
-        options,
-        :response_header_parameters,
-        [
-          {"x-amzn-bedrock-agent-content-type", "contentType"},
-          {"x-amz-bedrock-agent-memory-id", "memoryId"},
-          {"x-amz-bedrock-agent-session-id", "sessionId"}
-        ]
-      )
-
     meta =
       metadata()
 
@@ -1724,9 +1714,8 @@ defmodule AWS.BedrockAgentRuntime do
 
   ## Parameters:
   * `:flow_alias_identifier` (`t:string` required) The unique identifier of the
-  flow alias.
+    flow alias.
   * `:flow_identifier` (`t:string` required) The unique identifier of the flow.
-  ## Keyword parameters:
   """
   @spec invoke_flow(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, invoke_flow_response(), any()}
@@ -1770,8 +1759,7 @@ defmodule AWS.BedrockAgentRuntime do
 
   ## Parameters:
   * `:knowledge_base_id` (`t:string` required) The unique identifier of the
-  knowledge base to query.
-  ## Keyword parameters:
+    knowledge base to query.
   """
   @spec retrieve(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, retrieve_response(), any()}
@@ -1814,7 +1802,6 @@ defmodule AWS.BedrockAgentRuntime do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=bedrockagentruntime%20RetrieveAndGenerate&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec retrieve_and_generate(AWS.Client.t(), Keyword.t()) ::
           {:ok, retrieve_and_generate_response(), any()}

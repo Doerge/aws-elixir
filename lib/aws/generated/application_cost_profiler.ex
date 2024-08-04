@@ -313,7 +313,6 @@ defmodule AWS.ApplicationCostProfiler do
 
   ## Parameters:
   * `:report_id` (`t:string` required) Required. ID of the report to delete.
-  ## Keyword parameters:
   """
   @spec delete_report_definition(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, delete_report_definition_result(), any()}
@@ -367,7 +366,6 @@ defmodule AWS.ApplicationCostProfiler do
 
   ## Parameters:
   * `:report_id` (`t:string` required) ID of the report to retrieve.
-  ## Keyword parameters:
   """
   @spec get_report_definition(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_report_definition_result(), any()}
@@ -407,7 +405,6 @@ defmodule AWS.ApplicationCostProfiler do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=applicationcostprofiler%20ImportApplicationUsage&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec import_application_usage(AWS.Client.t(), Keyword.t()) ::
           {:ok, import_application_usage_result(), any()}
@@ -449,10 +446,11 @@ defmodule AWS.ApplicationCostProfiler do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=applicationcostprofiler%20ListReportDefinitions&this_doc_guide=API%2520Reference)
 
   ## Parameters:
+
   ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of results to return.
   * `:next_token` (`t:string`) The token value from a previous call to access the
-  next page of results.
+    next page of results.
   """
   @spec list_report_definitions(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_report_definitions_result(), any()}
@@ -510,7 +508,6 @@ defmodule AWS.ApplicationCostProfiler do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=applicationcostprofiler%20PutReportDefinition&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec put_report_definition(AWS.Client.t(), Keyword.t()) ::
           {:ok, put_report_definition_result(), any()}
@@ -553,7 +550,6 @@ defmodule AWS.ApplicationCostProfiler do
 
   ## Parameters:
   * `:report_id` (`t:string` required) Required. ID of the report to update.
-  ## Keyword parameters:
   """
   @spec update_report_definition(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, update_report_definition_result(), any()}

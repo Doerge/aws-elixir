@@ -1185,13 +1185,14 @@ defmodule AWS.Grafana do
 
   ## Parameters:
   * `:license_type` (`t:string` required) The type of license to associate with
-  the workspace.
+    the workspace.
   * `:workspace_id` (`t:string` required) The ID of the workspace to associate the
-  license with.
+    license with.
+
   ## Keyword parameters:
   * `:grafana_token` (`t:string`) A token from Grafana Labs that ties your Amazon
-  Web Services account with a Grafana Labs account. For more information, see
-  Link your account with Grafana Labs.
+    Web Services account with a Grafana Labs account. For more information, see
+    Link your account with Grafana Labs.
   """
   @spec associate_license(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, associate_license_response(), any()}
@@ -1247,7 +1248,6 @@ defmodule AWS.Grafana do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=grafana%20CreateWorkspace&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec create_workspace(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_workspace_response(), any()}
@@ -1293,8 +1293,7 @@ defmodule AWS.Grafana do
 
   ## Parameters:
   * `:workspace_id` (`t:string` required) The ID of the workspace to create an API
-  key.
-  ## Keyword parameters:
+    key.
   """
   @spec create_workspace_api_key(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, create_workspace_api_key_response(), any()}
@@ -1342,8 +1341,7 @@ defmodule AWS.Grafana do
 
   ## Parameters:
   * `:workspace_id` (`t:string` required) The ID of the workspace within which to
-  create the service account.
-  ## Keyword parameters:
+    create the service account.
   """
   @spec create_workspace_service_account(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, create_workspace_service_account_response(), any()}
@@ -1394,10 +1392,9 @@ defmodule AWS.Grafana do
 
   ## Parameters:
   * `:service_account_id` (`t:string` required) The ID of the service account for
-  which to create a token.
+    which to create a token.
   * `:workspace_id` (`t:string` required) The ID of the workspace the service
-  account resides within.
-  ## Keyword parameters:
+    account resides within.
   """
   @spec create_workspace_service_account_token(
           AWS.Client.t(),
@@ -1451,7 +1448,6 @@ defmodule AWS.Grafana do
 
   ## Parameters:
   * `:workspace_id` (`t:string` required) The ID of the workspace to delete.
-  ## Keyword parameters:
   """
   @spec delete_workspace(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, delete_workspace_response(), any()}
@@ -1505,7 +1501,6 @@ defmodule AWS.Grafana do
   ## Parameters:
   * `:key_name` (`t:string` required) The name of the API key to delete.
   * `:workspace_id` (`t:string` required) The ID of the workspace to delete.
-  ## Keyword parameters:
   """
   @spec delete_workspace_api_key(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, delete_workspace_api_key_response(), any()}
@@ -1561,10 +1556,9 @@ defmodule AWS.Grafana do
 
   ## Parameters:
   * `:service_account_id` (`t:string` required) The ID of the service account to
-  delete.
+    delete.
   * `:workspace_id` (`t:string` required) The ID of the workspace where the
-  service account resides.
-  ## Keyword parameters:
+    service account resides.
   """
   @spec delete_workspace_service_account(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, delete_workspace_service_account_response(), any()}
@@ -1626,11 +1620,10 @@ defmodule AWS.Grafana do
 
   ## Parameters:
   * `:service_account_id` (`t:string` required) The ID of the service account from
-  which to delete the token.
+    which to delete the token.
   * `:token_id` (`t:string` required) The ID of the token to delete.
   * `:workspace_id` (`t:string` required) The ID of the workspace from which to
-  delete the token.
-  ## Keyword parameters:
+    delete the token.
   """
   @spec delete_workspace_service_account_token(
           AWS.Client.t(),
@@ -1696,8 +1689,7 @@ defmodule AWS.Grafana do
 
   ## Parameters:
   * `:workspace_id` (`t:string` required) The ID of the workspace to display
-  information about.
-  ## Keyword parameters:
+    information about.
   """
   @spec describe_workspace(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, describe_workspace_response(), any()}
@@ -1739,8 +1731,7 @@ defmodule AWS.Grafana do
 
   ## Parameters:
   * `:workspace_id` (`t:string` required) The ID of the workspace to return
-  authentication information about.
-  ## Keyword parameters:
+    authentication information about.
   """
   @spec describe_workspace_authentication(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, describe_workspace_authentication_response(), any()}
@@ -1781,8 +1772,7 @@ defmodule AWS.Grafana do
 
   ## Parameters:
   * `:workspace_id` (`t:string` required) The ID of the workspace to get
-  configuration information for.
-  ## Keyword parameters:
+    configuration information for.
   """
   @spec describe_workspace_configuration(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, describe_workspace_configuration_response(), any()}
@@ -1823,10 +1813,9 @@ defmodule AWS.Grafana do
 
   ## Parameters:
   * `:license_type` (`t:string` required) The type of license to remove from the
-  workspace.
+    workspace.
   * `:workspace_id` (`t:string` required) The ID of the workspace to remove the
-  Grafana Enterprise license from.
-  ## Keyword parameters:
+    Grafana Enterprise license from.
   """
   @spec disassociate_license(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, disassociate_license_response(), any()}
@@ -1884,19 +1873,20 @@ defmodule AWS.Grafana do
 
   ## Parameters:
   * `:workspace_id` (`t:string` required) The ID of the workspace to list
-  permissions for. This parameter is required.
+    permissions for. This parameter is required.
+
   ## Keyword parameters:
   * `:group_id` (`t:string`) (Optional) Limits the results to only the group that
-  matches this ID.
+    matches this ID.
   * `:max_results` (`t:string`) The maximum number of results to include in the
-  response.
+    response.
   * `:next_token` (`t:string`) The token to use when requesting the next set of
-  results. You received this token from a previous ListPermissions operation.
+    results. You received this token from a previous ListPermissions operation.
   * `:user_id` (`t:string`) (Optional) Limits the results to only the user that
-  matches this ID.
+    matches this ID.
   * `:user_type` (`t:string`) (Optional) If you specify SSO_USER, then only the
-  permissions of IAM Identity Center users are returned. If you specify
-  SSO_GROUP, only the permissions of IAM Identity Center groups are returned.
+    permissions of IAM Identity Center users are returned. If you specify
+    SSO_GROUP, only the permissions of IAM Identity Center groups are returned.
   """
   @spec list_permissions(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_permissions_response(), any()}
@@ -1984,8 +1974,7 @@ defmodule AWS.Grafana do
 
   ## Parameters:
   * `:resource_arn` (`t:string` required) The ARN of the resource the list of tags
-  are associated with.
-  ## Keyword parameters:
+    are associated with.
   """
   @spec list_tags_for_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_tags_for_resource_response(), any()}
@@ -2027,14 +2016,15 @@ defmodule AWS.Grafana do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=grafana%20ListVersions&this_doc_guide=API%2520Reference)
 
   ## Parameters:
+
   ## Keyword parameters:
   * `:max_results` (`t:string`) The maximum number of results to include in the
-  response.
+    response.
   * `:next_token` (`t:string`) The token to use when requesting the next set of
-  results. You receive this token from a previous ListVersions operation.
+    results. You receive this token from a previous ListVersions operation.
   * `:workspace_id` (`t:string`) The ID of the workspace to list the available
-  upgrade versions. If not included, lists all versions of Grafana that are
-  supported for CreateWorkspace.
+    upgrade versions. If not included, lists all versions of Grafana that are
+    supported for CreateWorkspace.
   """
   @spec list_versions(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_versions_response(), any()}
@@ -2102,15 +2092,16 @@ defmodule AWS.Grafana do
 
   ## Parameters:
   * `:service_account_id` (`t:string` required) The ID of the service account for
-  which to return tokens.
+    which to return tokens.
   * `:workspace_id` (`t:string` required) The ID of the workspace for which to
-  return tokens.
+    return tokens.
+
   ## Keyword parameters:
   * `:max_results` (`t:string`) The maximum number of tokens to include in the
-  results.
+    results.
   * `:next_token` (`t:string`) The token for the next set of service accounts to
-  return. (You receive this token from a previous
-  ListWorkspaceServiceAccountTokens operation.)
+    return. (You receive this token from a previous
+    ListWorkspaceServiceAccountTokens operation.)
   """
   @spec list_workspace_service_account_tokens(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, list_workspace_service_account_tokens_response(), any()}
@@ -2175,13 +2166,14 @@ defmodule AWS.Grafana do
 
   ## Parameters:
   * `:workspace_id` (`t:string` required) The workspace for which to list service
-  accounts.
+    accounts.
+
   ## Keyword parameters:
   * `:max_results` (`t:string`) The maximum number of service accounts to include
-  in the results.
+    in the results.
   * `:next_token` (`t:string`) The token for the next set of service accounts to
-  return. (You receive this token from a previous ListWorkspaceServiceAccounts
-  operation.)
+    return. (You receive this token from a previous ListWorkspaceServiceAccounts
+    operation.)
   """
   @spec list_workspace_service_accounts(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_workspace_service_accounts_response(), any()}
@@ -2242,11 +2234,12 @@ defmodule AWS.Grafana do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=grafana%20ListWorkspaces&this_doc_guide=API%2520Reference)
 
   ## Parameters:
+
   ## Keyword parameters:
   * `:max_results` (`t:string`) The maximum number of workspaces to include in the
-  results.
+    results.
   * `:next_token` (`t:string`) The token for the next set of workspaces to return.
-  (You receive this token from a previous ListWorkspaces operation.)
+    (You receive this token from a previous ListWorkspaces operation.)
   """
   @spec list_workspaces(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_workspaces_response(), any()}
@@ -2306,8 +2299,7 @@ defmodule AWS.Grafana do
 
   ## Parameters:
   * `:resource_arn` (`t:string` required) The ARN of the resource the tag is
-  associated with.
-  ## Keyword parameters:
+    associated with.
   """
   @spec tag_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, tag_resource_response(), any()}
@@ -2351,10 +2343,9 @@ defmodule AWS.Grafana do
 
   ## Parameters:
   * `:resource_arn` (`t:string` required) The ARN of the resource the tag
-  association is removed from.
+    association is removed from.
   * `:tag_keys` (`t:list[com.amazonaws.grafana#TagKey]` required) The key values
-  of the tag to be removed from the resource.
-  ## Keyword parameters:
+    of the tag to be removed from the resource.
   """
   @spec untag_resource(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, untag_resource_response(), any()}
@@ -2408,7 +2399,6 @@ defmodule AWS.Grafana do
 
   ## Parameters:
   * `:workspace_id` (`t:string` required) The ID of the workspace to update.
-  ## Keyword parameters:
   """
   @spec update_permissions(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, update_permissions_response(), any()}
@@ -2463,7 +2453,6 @@ defmodule AWS.Grafana do
 
   ## Parameters:
   * `:workspace_id` (`t:string` required) The ID of the workspace to update.
-  ## Keyword parameters:
   """
   @spec update_workspace(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, update_workspace_response(), any()}
@@ -2510,8 +2499,7 @@ defmodule AWS.Grafana do
 
   ## Parameters:
   * `:workspace_id` (`t:string` required) The ID of the workspace to update the
-  authentication for.
-  ## Keyword parameters:
+    authentication for.
   """
   @spec update_workspace_authentication(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, update_workspace_authentication_response(), any()}
@@ -2554,7 +2542,6 @@ defmodule AWS.Grafana do
 
   ## Parameters:
   * `:workspace_id` (`t:string` required) The ID of the workspace to update.
-  ## Keyword parameters:
   """
   @spec update_workspace_configuration(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, update_workspace_configuration_response(), any()}

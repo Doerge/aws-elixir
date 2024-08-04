@@ -4544,15 +4544,14 @@ defmodule AWS.Macie2 do
 
   ## Parameters:
   * `:input` (`t:map`):
-    * `:invitation_id` (`t:string` required) The unique identifier for the
-  invitation to accept.
-    * `:administrator_account_id` (`t:string`) The Amazon Web Services account ID
-  for the account that sent the invitation.
-    * `:master_account` (`t:string`) (Deprecated) The Amazon Web Services account ID
-  for the account that sent the invitation. This property has been replaced by
-  the administratorAccountId property and is retained only for backward
-  compatibility.
-  ## Keyword parameters:
+    * `"invitationId" => t:string` (required) The unique identifier for the
+    invitation to accept.
+    * `"administratorAccountId" => t:string` The Amazon Web Services account ID for
+    the account that sent the invitation.
+    * `"masterAccount" => t:string` (Deprecated) The Amazon Web Services account ID
+    for the account that sent the invitation. This property has been replaced by
+    the administratorAccountId property and is retained only for backward
+    compatibility.
   """
   @spec accept_invitation(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, accept_invitation_response(), any()}
@@ -4595,10 +4594,9 @@ defmodule AWS.Macie2 do
 
   ## Parameters:
   * `:input` (`t:map | nil`):
-    * `:ids` (`t:list[com.amazonaws.macie2#__string]`) An array of custom data
-  identifier IDs, one for each custom data identifier to retrieve information
-  about.
-  ## Keyword parameters:
+    * `"ids" => t:list[com.amazonaws.macie2#__string]` An array of custom data
+    identifier IDs, one for each custom data identifier to retrieve information
+    about.
   """
   @spec batch_get_custom_data_identifiers(AWS.Client.t(), input :: map() | nil, Keyword.t()) ::
           {:ok, batch_get_custom_data_identifiers_response(), any()}
@@ -4643,11 +4641,10 @@ defmodule AWS.Macie2 do
 
   ## Parameters:
   * `:input` (`t:map | nil`):
-    * `:accounts` (`t:list[com.amazonaws.macie2#AutomatedDiscoveryAccountUpdate]`)
-  An array of objects, one for each account to change the status of automated
-  sensitive data discovery for. Each object specifies the Amazon Web Services
-  account ID for an account and a new status for that account.
-  ## Keyword parameters:
+    * `"accounts" => t:list[com.amazonaws.macie2#AutomatedDiscoveryAccountUpdate]`
+    An array of objects, one for each account to change the status of automated
+    sensitive data discovery for. Each object specifies the Amazon Web Services
+    account ID for an account and a new status for that account.
   """
   @spec batch_update_automated_discovery_accounts(
           AWS.Client.t(),
@@ -4705,19 +4702,18 @@ defmodule AWS.Macie2 do
 
   ## Parameters:
   * `:input` (`t:map`):
-    * `:client_token` (`t:string` required) A unique, case-sensitive token that you
-  provide to ensure the idempotency of the request.
-    * `:criteria` (`t:structure` required) The criteria that specify the text or
-  text pattern to ignore. The criteria can be the location and name of an S3
-  object that lists specific text to ignore (s3WordsList), or a regular
-  expression (regex) that defines a text pattern to ignore.
-    * `:name` (`t:string` required) A custom name for the allow list. The name can
-  contain as many as 128 characters.
-    * `:description` (`t:string`) A custom description of the allow list. The
-  description can contain as many as 512 characters.
-    * `:tags` (`t:map`) A map of key-value pairs that specifies the tags to
-  associate with the allow list.
-  ## Keyword parameters:
+    * `"clientToken" => t:string` (required) A unique, case-sensitive token that you
+    provide to ensure the idempotency of the request.
+    * `"criteria" => t:structure` (required) The criteria that specify the text or
+    text pattern to ignore. The criteria can be the location and name of an S3
+    object that lists specific text to ignore (s3WordsList), or a regular
+    expression (regex) that defines a text pattern to ignore.
+    * `"name" => t:string` (required) A custom name for the allow list. The name can
+    contain as many as 128 characters.
+    * `"description" => t:string` A custom description of the allow list. The
+    description can contain as many as 512 characters.
+    * `"tags" => t:map` A map of key-value pairs that specifies the tags to
+    associate with the allow list.
   """
   @spec create_allow_list(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_allow_list_response(), any()}
@@ -4760,48 +4756,47 @@ defmodule AWS.Macie2 do
 
   ## Parameters:
   * `:input` (`t:map`):
-    * `:client_token` (`t:string` required) A unique, case-sensitive token that you
-  provide to ensure the idempotency of the request.
-    * `:job_type` (`t:enum["ONE_TIME|SCHEDULED"]` required) The schedule for running
-  the job. Valid values are:
-    * `:name` (`t:string` required) A custom name for the job. The name can contain
-  as many as 500 characters.
-    * `:s3_job_definition` (`t:structure` required) The S3 buckets that contain the
-  objects to analyze, and the scope of that analysis.
-    * `:allow_list_ids` (`t:list[com.amazonaws.macie2#__string]`) An array of unique
-  identifiers, one for each allow list for the job to use when it analyzes
-  data.
-    * `:custom_data_identifier_ids` (`t:list[com.amazonaws.macie2#__string]`) An
-  array of unique identifiers, one for each custom data identifier for the job
-  to use when it analyzes data. To use only managed data identifiers, don't
-  specify a value for this property and specify a value other than NONE for
-  the managedDataIdentifierSelector property.
-    * `:description` (`t:string`) A custom description of the job. The description
-  can contain as many as 200 characters.
-    * `:initial_run` (`t:boolean`) For a recurring job, specifies whether to analyze
-  all existing, eligible objects immediately after the job is created (true).
-  To analyze only those objects that are created or changed after you create
-  the job and before the job's first scheduled run, set this value to false.
-    * `:managed_data_identifier_ids` (`t:list[com.amazonaws.macie2#__string]`) An
-  array of unique identifiers, one for each managed data identifier for the
-  job to include (use) or exclude (not use) when it analyzes data. Inclusion
-  or exclusion depends on the managed data identifier selection type that you
-  specify for the job (managedDataIdentifierSelector).
-    * `:managed_data_identifier_selector`
-  (`t:enum["ALL|EXCLUDE|INCLUDE|NONE|RECOMMENDED"]`) The selection type to
-  apply when determining which managed data identifiers the job uses to
-  analyze data. Valid values are:
-    * `:sampling_percentage` (`t:integer`) The sampling depth, as a percentage, for
-  the job to apply when processing objects. This value determines the
-  percentage of eligible objects that the job analyzes. If this value is less
-  than 100, Amazon Macie selects the objects to analyze at random, up to the
-  specified percentage, and analyzes all the data in those objects.
-    * `:schedule_frequency` (`t:structure`) The recurrence pattern for running the
-  job. To run the job only once, don't specify a value for this property and
-  set the value for the jobType property to ONE_TIME.
-    * `:tags` (`t:map`) A map of key-value pairs that specifies the tags to
-  associate with the job.
-  ## Keyword parameters:
+    * `"clientToken" => t:string` (required) A unique, case-sensitive token that you
+    provide to ensure the idempotency of the request.
+    * `"jobType" => t:enum["ONE_TIME|SCHEDULED"]` (required) The schedule for
+    running the job. Valid values are:
+    * `"name" => t:string` (required) A custom name for the job. The name can
+    contain as many as 500 characters.
+    * `"s3JobDefinition" => t:structure` (required) The S3 buckets that contain the
+    objects to analyze, and the scope of that analysis.
+    * `"allowListIds" => t:list[com.amazonaws.macie2#__string]` An array of unique
+    identifiers, one for each allow list for the job to use when it analyzes
+    data.
+    * `"customDataIdentifierIds" => t:list[com.amazonaws.macie2#__string]` An array
+    of unique identifiers, one for each custom data identifier for the job to
+    use when it analyzes data. To use only managed data identifiers, don't
+    specify a value for this property and specify a value other than NONE for
+    the managedDataIdentifierSelector property.
+    * `"description" => t:string` A custom description of the job. The description
+    can contain as many as 200 characters.
+    * `"initialRun" => t:boolean` For a recurring job, specifies whether to analyze
+    all existing, eligible objects immediately after the job is created (true).
+    To analyze only those objects that are created or changed after you create
+    the job and before the job's first scheduled run, set this value to false.
+    * `"managedDataIdentifierIds" => t:list[com.amazonaws.macie2#__string]` An array
+    of unique identifiers, one for each managed data identifier for the job to
+    include (use) or exclude (not use) when it analyzes data. Inclusion or
+    exclusion depends on the managed data identifier selection type that you
+    specify for the job (managedDataIdentifierSelector).
+    * `"managedDataIdentifierSelector" =>
+    t:enum["ALL|EXCLUDE|INCLUDE|NONE|RECOMMENDED"]` The selection type to apply
+    when determining which managed data identifiers the job uses to analyze
+    data. Valid values are:
+    * `"samplingPercentage" => t:integer` The sampling depth, as a percentage, for
+    the job to apply when processing objects. This value determines the
+    percentage of eligible objects that the job analyzes. If this value is less
+    than 100, Amazon Macie selects the objects to analyze at random, up to the
+    specified percentage, and analyzes all the data in those objects.
+    * `"scheduleFrequency" => t:structure` The recurrence pattern for running the
+    job. To run the job only once, don't specify a value for this property and
+    set the value for the jobType property to ONE_TIME.
+    * `"tags" => t:map` A map of key-value pairs that specifies the tags to
+    associate with the job.
   """
   @spec create_classification_job(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_classification_job_response(), any()}
@@ -4845,44 +4840,43 @@ defmodule AWS.Macie2 do
 
   ## Parameters:
   * `:input` (`t:map`):
-    * `:name` (`t:string` required) A custom name for the custom data identifier.
-  The name can contain as many as 128 characters.
-    * `:regex` (`t:string` required) The regular expression (regex) that defines the
-  pattern to match. The expression can contain as many as 512 characters.
-    * `:client_token` (`t:string`) A unique, case-sensitive token that you provide
-  to ensure the idempotency of the request.
-    * `:description` (`t:string`) A custom description of the custom data
-  identifier. The description can contain as many as 512 characters.
-    * `:ignore_words` (`t:list[com.amazonaws.macie2#__string]`) An array that lists
-  specific character sequences (ignore words) to exclude from the results. If
-  the text matched by the regular expression contains any string in this
-  array, Amazon Macie ignores it. The array can contain as many as 10 ignore
-  words. Each ignore word can contain 4-90 UTF-8 characters. Ignore words are
-  case sensitive.
-    * `:keywords` (`t:list[com.amazonaws.macie2#__string]`) An array that lists
-  specific character sequences (keywords), one of which must precede and be
-  within proximity (maximumMatchDistance) of the regular expression to match.
-  The array can contain as many as 50 keywords. Each keyword can contain 3-90
-  UTF-8 characters. Keywords aren't case sensitive.
-    * `:maximum_match_distance` (`t:integer`) The maximum number of characters that
-  can exist between the end of at least one complete character sequence
-  specified by the keywords array and the end of the text that matches the
-  regex pattern. If a complete keyword precedes all the text that matches the
-  pattern and the keyword is within the specified distance, Amazon Macie
-  includes the result. The distance can be 1-300 characters. The default value
-  is 50.
-    * `:severity_levels` (`t:list[com.amazonaws.macie2#SeverityLevel]`) The severity
-  to assign to findings that the custom data identifier produces, based on the
-  number of occurrences of text that match the custom data identifier's
-  detection criteria. You can specify as many as three SeverityLevel objects
-  in this array, one for each severity: LOW, MEDIUM, or HIGH. If you specify
-  more than one, the occurrences thresholds must be in ascending order by
-  severity, moving from LOW to HIGH. For example, 1 for LOW, 50 for MEDIUM,
-  and 100 for HIGH. If an S3 object contains fewer occurrences than the lowest
-  specified threshold, Amazon Macie doesn't create a finding.
-    * `:tags` (`t:map`) A map of key-value pairs that specifies the tags to
-  associate with the custom data identifier.
-  ## Keyword parameters:
+    * `"name" => t:string` (required) A custom name for the custom data identifier.
+    The name can contain as many as 128 characters.
+    * `"regex" => t:string` (required) The regular expression (regex) that defines
+    the pattern to match. The expression can contain as many as 512 characters.
+    * `"clientToken" => t:string` A unique, case-sensitive token that you provide to
+    ensure the idempotency of the request.
+    * `"description" => t:string` A custom description of the custom data
+    identifier. The description can contain as many as 512 characters.
+    * `"ignoreWords" => t:list[com.amazonaws.macie2#__string]` An array that lists
+    specific character sequences (ignore words) to exclude from the results. If
+    the text matched by the regular expression contains any string in this
+    array, Amazon Macie ignores it. The array can contain as many as 10 ignore
+    words. Each ignore word can contain 4-90 UTF-8 characters. Ignore words are
+    case sensitive.
+    * `"keywords" => t:list[com.amazonaws.macie2#__string]` An array that lists
+    specific character sequences (keywords), one of which must precede and be
+    within proximity (maximumMatchDistance) of the regular expression to match.
+    The array can contain as many as 50 keywords. Each keyword can contain 3-90
+    UTF-8 characters. Keywords aren't case sensitive.
+    * `"maximumMatchDistance" => t:integer` The maximum number of characters that
+    can exist between the end of at least one complete character sequence
+    specified by the keywords array and the end of the text that matches the
+    regex pattern. If a complete keyword precedes all the text that matches the
+    pattern and the keyword is within the specified distance, Amazon Macie
+    includes the result. The distance can be 1-300 characters. The default value
+    is 50.
+    * `"severityLevels" => t:list[com.amazonaws.macie2#SeverityLevel]` The severity
+    to assign to findings that the custom data identifier produces, based on the
+    number of occurrences of text that match the custom data identifier's
+    detection criteria. You can specify as many as three SeverityLevel objects
+    in this array, one for each severity: LOW, MEDIUM, or HIGH. If you specify
+    more than one, the occurrences thresholds must be in ascending order by
+    severity, moving from LOW to HIGH. For example, 1 for LOW, 50 for MEDIUM,
+    and 100 for HIGH. If an S3 object contains fewer occurrences than the lowest
+    specified threshold, Amazon Macie doesn't create a finding.
+    * `"tags" => t:map` A map of key-value pairs that specifies the tags to
+    associate with the custom data identifier.
   """
   @spec create_custom_data_identifier(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_custom_data_identifier_response(), any()}
@@ -4926,25 +4920,24 @@ defmodule AWS.Macie2 do
 
   ## Parameters:
   * `:input` (`t:map`):
-    * `:action` (`t:enum["ARCHIVE|NOOP"]` required) The action to perform on
-  findings that match the filter criteria (findingCriteria). Valid values are:
-  ARCHIVE, suppress (automatically archive) the findings; and, NOOP, don't
-  perform any action on the findings.
-    * `:finding_criteria` (`t:structure` required) The criteria to use to filter
-  findings.
-    * `:name` (`t:string` required) A custom name for the filter. The name must
-  contain at least 3 characters and can contain as many as 64 characters.
-    * `:client_token` (`t:string`) A unique, case-sensitive token that you provide
-  to ensure the idempotency of the request.
-    * `:description` (`t:string`) A custom description of the filter. The
-  description can contain as many as 512 characters.
-    * `:position` (`t:integer`) The position of the filter in the list of saved
-  filters on the Amazon Macie console. This value also determines the order in
-  which the filter is applied to findings, relative to other filters that are
-  also applied to the findings.
-    * `:tags` (`t:map`) A map of key-value pairs that specifies the tags to
-  associate with the filter.
-  ## Keyword parameters:
+    * `"action" => t:enum["ARCHIVE|NOOP"]` (required) The action to perform on
+    findings that match the filter criteria (findingCriteria). Valid values are:
+    ARCHIVE, suppress (automatically archive) the findings; and, NOOP, don't
+    perform any action on the findings.
+    * `"findingCriteria" => t:structure` (required) The criteria to use to filter
+    findings.
+    * `"name" => t:string` (required) A custom name for the filter. The name must
+    contain at least 3 characters and can contain as many as 64 characters.
+    * `"clientToken" => t:string` A unique, case-sensitive token that you provide to
+    ensure the idempotency of the request.
+    * `"description" => t:string` A custom description of the filter. The
+    description can contain as many as 512 characters.
+    * `"position" => t:integer` The position of the filter in the list of saved
+    filters on the Amazon Macie console. This value also determines the order in
+    which the filter is applied to findings, relative to other filters that are
+    also applied to the findings.
+    * `"tags" => t:map` A map of key-value pairs that specifies the tags to
+    associate with the filter.
   """
   @spec create_findings_filter(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_findings_filter_response(), any()}
@@ -4987,18 +4980,17 @@ defmodule AWS.Macie2 do
 
   ## Parameters:
   * `:input` (`t:map`):
-    * `:account_ids` (`t:list[com.amazonaws.macie2#__string]` required) An array
-  that lists Amazon Web Services account IDs, one for each account to send the
-  invitation to.
-    * `:disable_email_notification` (`t:boolean`) Specifies whether to send the
-  invitation as an email message. If this value is false, Amazon Macie sends
-  the invitation (as an email message) to the email address that you specified
-  for the recipient's account when you associated the account with your
-  account. The default value is false.
-    * `:message` (`t:string`) Custom text to include in the email message that
-  contains the invitation. The text can contain as many as 80 alphanumeric
-  characters.
-  ## Keyword parameters:
+    * `"accountIds" => t:list[com.amazonaws.macie2#__string]` (required) An array
+    that lists Amazon Web Services account IDs, one for each account to send the
+    invitation to.
+    * `"disableEmailNotification" => t:boolean` Specifies whether to send the
+    invitation as an email message. If this value is false, Amazon Macie sends
+    the invitation (as an email message) to the email address that you specified
+    for the recipient's account when you associated the account with your
+    account. The default value is false.
+    * `"message" => t:string` Custom text to include in the email message that
+    contains the invitation. The text can contain as many as 80 alphanumeric
+    characters.
   """
   @spec create_invitations(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_invitations_response(), any()}
@@ -5041,11 +5033,10 @@ defmodule AWS.Macie2 do
 
   ## Parameters:
   * `:input` (`t:map`):
-    * `:account` (`t:structure` required) The details of the account to associate
-  with the administrator account.
-    * `:tags` (`t:map`) A map of key-value pairs that specifies the tags to
-  associate with the account in Amazon Macie.
-  ## Keyword parameters:
+    * `"account" => t:structure` (required) The details of the account to associate
+    with the administrator account.
+    * `"tags" => t:map` A map of key-value pairs that specifies the tags to
+    associate with the account in Amazon Macie.
   """
   @spec create_member(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_member_response(), any()}
@@ -5088,11 +5079,10 @@ defmodule AWS.Macie2 do
 
   ## Parameters:
   * `:input` (`t:map | nil`):
-    * `:finding_types` (`t:list[com.amazonaws.macie2#FindingType]`) An array of
-  finding types, one for each type of sample finding to create. To create a
-  sample of every type of finding that Amazon Macie supports, don't include
-  this array in your request.
-  ## Keyword parameters:
+    * `"findingTypes" => t:list[com.amazonaws.macie2#FindingType]` An array of
+    finding types, one for each type of sample finding to create. To create a
+    sample of every type of finding that Amazon Macie supports, don't include
+    this array in your request.
   """
   @spec create_sample_findings(AWS.Client.t(), input :: map() | nil, Keyword.t()) ::
           {:ok, create_sample_findings_response(), any()}
@@ -5137,10 +5127,9 @@ defmodule AWS.Macie2 do
 
   ## Parameters:
   * `:input` (`t:map`):
-    * `:account_ids` (`t:list[com.amazonaws.macie2#__string]` required) An array
-  that lists Amazon Web Services account IDs, one for each account that sent
-  an invitation to decline.
-  ## Keyword parameters:
+    * `"accountIds" => t:list[com.amazonaws.macie2#__string]` (required) An array
+    that lists Amazon Web Services account IDs, one for each account that sent
+    an invitation to decline.
   """
   @spec decline_invitations(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, decline_invitations_response(), any()}
@@ -5183,11 +5172,12 @@ defmodule AWS.Macie2 do
 
   ## Parameters:
   * `:id` (`t:string` required) The unique identifier for the Amazon Macie
-  resource that the request applies to.
+    resource that the request applies to.
+
   ## Keyword parameters:
   * `:ignore_job_checks` (`t:string`) Specifies whether to force deletion of the
-  allow list, even if active classification jobs are configured to use the
-  list.
+    allow list, even if active classification jobs are configured to use the
+    list.
   """
   @spec delete_allow_list(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, delete_allow_list_response(), any()}
@@ -5251,8 +5241,7 @@ defmodule AWS.Macie2 do
 
   ## Parameters:
   * `:id` (`t:string` required) The unique identifier for the Amazon Macie
-  resource that the request applies to.
-  ## Keyword parameters:
+    resource that the request applies to.
   """
   @spec delete_custom_data_identifier(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, delete_custom_data_identifier_response(), any()}
@@ -5305,8 +5294,7 @@ defmodule AWS.Macie2 do
 
   ## Parameters:
   * `:id` (`t:string` required) The unique identifier for the Amazon Macie
-  resource that the request applies to.
-  ## Keyword parameters:
+    resource that the request applies to.
   """
   @spec delete_findings_filter(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, delete_findings_filter_response(), any()}
@@ -5360,10 +5348,9 @@ defmodule AWS.Macie2 do
 
   ## Parameters:
   * `:input` (`t:map`):
-    * `:account_ids` (`t:list[com.amazonaws.macie2#__string]` required) An array
-  that lists Amazon Web Services account IDs, one for each account that sent
-  an invitation to delete.
-  ## Keyword parameters:
+    * `"accountIds" => t:list[com.amazonaws.macie2#__string]` (required) An array
+    that lists Amazon Web Services account IDs, one for each account that sent
+    an invitation to delete.
   """
   @spec delete_invitations(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, delete_invitations_response(), any()}
@@ -5407,8 +5394,7 @@ defmodule AWS.Macie2 do
 
   ## Parameters:
   * `:id` (`t:string` required) The unique identifier for the Amazon Macie
-  resource that the request applies to.
-  ## Keyword parameters:
+    resource that the request applies to.
   """
   @spec delete_member(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, delete_member_response(), any()}
@@ -5462,14 +5448,12 @@ defmodule AWS.Macie2 do
 
   ## Parameters:
   * `:input` (`t:map | nil`):
-    * `:criteria` (`t:map`) The criteria to use to filter the query results.
-    * `:max_results` (`t:integer`) The maximum number of items to include in each
-  page of the response. The default value is 50.
-    * `:next_token` (`t:string`) The nextToken string that specifies which page of
-  results to return in a paginated response.
-    * `:sort_criteria` (`t:structure`) The criteria to use to sort the query
-  results.
-  ## Keyword parameters:
+    * `"criteria" => t:map` The criteria to use to filter the query results.
+    * `"maxResults" => t:integer` The maximum number of items to include in each
+    page of the response. The default value is 50.
+    * `"nextToken" => t:string` The nextToken string that specifies which page of
+    results to return in a paginated response.
+    * `"sortCriteria" => t:structure` The criteria to use to sort the query results.
   """
   @spec describe_buckets(AWS.Client.t(), input :: map() | nil, Keyword.t()) ::
           {:ok, describe_buckets_response(), any()}
@@ -5513,8 +5497,7 @@ defmodule AWS.Macie2 do
 
   ## Parameters:
   * `:job_id` (`t:string` required) The unique identifier for the classification
-  job.
-  ## Keyword parameters:
+    job.
   """
   @spec describe_classification_job(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, describe_classification_job_response(), any()}
@@ -5555,7 +5538,6 @@ defmodule AWS.Macie2 do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=macie2%20DescribeOrganizationConfiguration&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec describe_organization_configuration(AWS.Client.t(), Keyword.t()) ::
           {:ok, describe_organization_configuration_response(), any()}
@@ -5596,7 +5578,6 @@ defmodule AWS.Macie2 do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=macie2%20DisableMacie&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec disable_macie(AWS.Client.t(), Keyword.t()) ::
           {:ok, disable_macie_response(), any()}
@@ -5650,8 +5631,7 @@ defmodule AWS.Macie2 do
 
   ## Parameters:
   * `:admin_account_id` (`t:string` required) The Amazon Web Services account ID
-  of the delegated Amazon Macie administrator account.
-  ## Keyword parameters:
+    of the delegated Amazon Macie administrator account.
   """
   @spec disable_organization_admin_account(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, disable_organization_admin_account_response(), any()}
@@ -5704,7 +5684,6 @@ defmodule AWS.Macie2 do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=macie2%20DisassociateFromAdministratorAccount&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec disassociate_from_administrator_account(AWS.Client.t(), Keyword.t()) ::
           {:ok, disassociate_from_administrator_account_response(), any()}
@@ -5748,7 +5727,6 @@ defmodule AWS.Macie2 do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=macie2%20DisassociateFromMasterAccount&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec disassociate_from_master_account(AWS.Client.t(), Keyword.t()) ::
           {:ok, disassociate_from_master_account_response(), any()}
@@ -5791,8 +5769,7 @@ defmodule AWS.Macie2 do
 
   ## Parameters:
   * `:id` (`t:string` required) The unique identifier for the Amazon Macie
-  resource that the request applies to.
-  ## Keyword parameters:
+    resource that the request applies to.
   """
   @spec disassociate_member(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, disassociate_member_response(), any()}
@@ -5836,17 +5813,15 @@ defmodule AWS.Macie2 do
 
   ## Parameters:
   * `:input` (`t:map | nil`):
-    * `:client_token` (`t:string`) A unique, case-sensitive token that you provide
-  to ensure the idempotency of the request.
-    * `:finding_publishing_frequency`
-  (`t:enum["FIFTEEN_MINUTES|ONE_HOUR|SIX_HOURS"]`) Specifies how often to
-  publish updates to policy findings for the account. This includes publishing
-  updates to Security Hub and Amazon EventBridge (formerly Amazon CloudWatch
-  Events).
-    * `:status` (`t:enum["ENABLED|PAUSED"]`) Specifies the new status for the
-  account. To enable Amazon Macie and start all Macie activities for the
-  account, set this value to ENABLED.
-  ## Keyword parameters:
+    * `"clientToken" => t:string` A unique, case-sensitive token that you provide to
+    ensure the idempotency of the request.
+    * `"findingPublishingFrequency" => t:enum["FIFTEEN_MINUTES|ONE_HOUR|SIX_HOURS"]`
+    Specifies how often to publish updates to policy findings for the account.
+    This includes publishing updates to Security Hub and Amazon EventBridge
+    (formerly Amazon CloudWatch Events).
+    * `"status" => t:enum["ENABLED|PAUSED"]` Specifies the new status for the
+    account. To enable Amazon Macie and start all Macie activities for the
+    account, set this value to ENABLED.
   """
   @spec enable_macie(AWS.Client.t(), input :: map() | nil, Keyword.t()) ::
           {:ok, enable_macie_response(), any()}
@@ -5891,12 +5866,11 @@ defmodule AWS.Macie2 do
 
   ## Parameters:
   * `:input` (`t:map`):
-    * `:admin_account_id` (`t:string` required) The Amazon Web Services account ID
-  for the account to designate as the delegated Amazon Macie administrator
-  account for the organization.
-    * `:client_token` (`t:string`) A unique, case-sensitive token that you provide
-  to ensure the idempotency of the request.
-  ## Keyword parameters:
+    * `"adminAccountId" => t:string` (required) The Amazon Web Services account ID
+    for the account to designate as the delegated Amazon Macie administrator
+    account for the organization.
+    * `"clientToken" => t:string` A unique, case-sensitive token that you provide to
+    ensure the idempotency of the request.
   """
   @spec enable_organization_admin_account(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, enable_organization_admin_account_response(), any()}
@@ -5940,7 +5914,6 @@ defmodule AWS.Macie2 do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=macie2%20GetAdministratorAccount&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec get_administrator_account(AWS.Client.t(), Keyword.t()) ::
           {:ok, get_administrator_account_response(), any()}
@@ -5981,8 +5954,7 @@ defmodule AWS.Macie2 do
 
   ## Parameters:
   * `:id` (`t:string` required) The unique identifier for the Amazon Macie
-  resource that the request applies to.
-  ## Keyword parameters:
+    resource that the request applies to.
   """
   @spec get_allow_list(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_allow_list_response(), any()}
@@ -6023,7 +5995,6 @@ defmodule AWS.Macie2 do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=macie2%20GetAutomatedDiscoveryConfiguration&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec get_automated_discovery_configuration(AWS.Client.t(), Keyword.t()) ::
           {:ok, get_automated_discovery_configuration_response(), any()}
@@ -6065,9 +6036,8 @@ defmodule AWS.Macie2 do
 
   ## Parameters:
   * `:input` (`t:map | nil`):
-    * `:account_id` (`t:string`) The unique identifier for the Amazon Web Services
-  account.
-  ## Keyword parameters:
+    * `"accountId" => t:string` The unique identifier for the Amazon Web Services
+    account.
   """
   @spec get_bucket_statistics(AWS.Client.t(), input :: map() | nil, Keyword.t()) ::
           {:ok, get_bucket_statistics_response(), any()}
@@ -6110,7 +6080,6 @@ defmodule AWS.Macie2 do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=macie2%20GetClassificationExportConfiguration&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec get_classification_export_configuration(AWS.Client.t(), Keyword.t()) ::
           {:ok, get_classification_export_configuration_response(), any()}
@@ -6151,8 +6120,7 @@ defmodule AWS.Macie2 do
 
   ## Parameters:
   * `:id` (`t:string` required) The unique identifier for the Amazon Macie
-  resource that the request applies to.
-  ## Keyword parameters:
+    resource that the request applies to.
   """
   @spec get_classification_scope(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_classification_scope_response(), any()}
@@ -6193,8 +6161,7 @@ defmodule AWS.Macie2 do
 
   ## Parameters:
   * `:id` (`t:string` required) The unique identifier for the Amazon Macie
-  resource that the request applies to.
-  ## Keyword parameters:
+    resource that the request applies to.
   """
   @spec get_custom_data_identifier(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_custom_data_identifier_response(), any()}
@@ -6235,17 +6202,15 @@ defmodule AWS.Macie2 do
 
   ## Parameters:
   * `:input` (`t:map`):
-    * `:group_by`
-  (`t:enum["classificationDetails_jobId|resourcesAffected_s3Bucket_name|severity_description|type"]`
-  required) The finding property to use to group the query results. Valid
-  values are:
-    * `:finding_criteria` (`t:structure`) The criteria to use to filter the query
-  results.
-    * `:size` (`t:integer`) The maximum number of items to include in each page of
-  the response.
-    * `:sort_criteria` (`t:structure`) The criteria to use to sort the query
-  results.
-  ## Keyword parameters:
+    * `"groupBy" =>
+    t:enum["classificationDetails_jobId|resourcesAffected_s3Bucket_name|severity_description|type"]`
+    (required) The finding property to use to group the query results. Valid
+    values are:
+    * `"findingCriteria" => t:structure` The criteria to use to filter the query
+    results.
+    * `"size" => t:integer` The maximum number of items to include in each page of
+    the response.
+    * `"sortCriteria" => t:structure` The criteria to use to sort the query results.
   """
   @spec get_finding_statistics(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_finding_statistics_response(), any()}
@@ -6288,12 +6253,11 @@ defmodule AWS.Macie2 do
 
   ## Parameters:
   * `:input` (`t:map`):
-    * `:finding_ids` (`t:list[com.amazonaws.macie2#__string]` required) An array of
-  strings that lists the unique identifiers for the findings to retrieve. You
-  can specify as many as 50 unique identifiers in this array.
-    * `:sort_criteria` (`t:structure`) The criteria for sorting the results of the
-  request.
-  ## Keyword parameters:
+    * `"findingIds" => t:list[com.amazonaws.macie2#__string]` (required) An array of
+    strings that lists the unique identifiers for the findings to retrieve. You
+    can specify as many as 50 unique identifiers in this array.
+    * `"sortCriteria" => t:structure` The criteria for sorting the results of the
+    request.
   """
   @spec get_findings(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, get_findings_response(), any()}
@@ -6336,8 +6300,7 @@ defmodule AWS.Macie2 do
 
   ## Parameters:
   * `:id` (`t:string` required) The unique identifier for the Amazon Macie
-  resource that the request applies to.
-  ## Keyword parameters:
+    resource that the request applies to.
   """
   @spec get_findings_filter(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_findings_filter_response(), any()}
@@ -6377,7 +6340,6 @@ defmodule AWS.Macie2 do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=macie2%20GetFindingsPublicationConfiguration&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec get_findings_publication_configuration(AWS.Client.t(), Keyword.t()) ::
           {:ok, get_findings_publication_configuration_response(), any()}
@@ -6418,7 +6380,6 @@ defmodule AWS.Macie2 do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=macie2%20GetInvitationsCount&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec get_invitations_count(AWS.Client.t(), Keyword.t()) ::
           {:ok, get_invitations_count_response(), any()}
@@ -6458,7 +6419,6 @@ defmodule AWS.Macie2 do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=macie2%20GetMacieSession&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec get_macie_session(AWS.Client.t(), Keyword.t()) ::
           {:ok, get_macie_session_response(), any()}
@@ -6500,7 +6460,6 @@ defmodule AWS.Macie2 do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=macie2%20GetMasterAccount&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec get_master_account(AWS.Client.t(), Keyword.t()) ::
           {:ok, get_master_account_response(), any()}
@@ -6542,8 +6501,7 @@ defmodule AWS.Macie2 do
 
   ## Parameters:
   * `:id` (`t:string` required) The unique identifier for the Amazon Macie
-  resource that the request applies to.
-  ## Keyword parameters:
+    resource that the request applies to.
   """
   @spec get_member(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_member_response(), any()}
@@ -6585,8 +6543,7 @@ defmodule AWS.Macie2 do
 
   ## Parameters:
   * `:resource_arn` (`t:string` required) The Amazon Resource Name (ARN) of the S3
-  bucket that the request applies to.
-  ## Keyword parameters:
+    bucket that the request applies to.
   """
   @spec get_resource_profile(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_resource_profile_response(), any()}
@@ -6628,7 +6585,6 @@ defmodule AWS.Macie2 do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=macie2%20GetRevealConfiguration&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec get_reveal_configuration(AWS.Client.t(), Keyword.t()) ::
           {:ok, get_reveal_configuration_response(), any()}
@@ -6669,7 +6625,6 @@ defmodule AWS.Macie2 do
 
   ## Parameters:
   * `:finding_id` (`t:string` required) The unique identifier for the finding.
-  ## Keyword parameters:
   """
   @spec get_sensitive_data_occurrences(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_sensitive_data_occurrences_response(), any()}
@@ -6710,7 +6665,6 @@ defmodule AWS.Macie2 do
 
   ## Parameters:
   * `:finding_id` (`t:string` required) The unique identifier for the finding.
-  ## Keyword parameters:
   """
   @spec get_sensitive_data_occurrences_availability(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_sensitive_data_occurrences_availability_response(), any()}
@@ -6751,8 +6705,7 @@ defmodule AWS.Macie2 do
 
   ## Parameters:
   * `:id` (`t:string` required) The unique identifier for the Amazon Macie
-  resource that the request applies to.
-  ## Keyword parameters:
+    resource that the request applies to.
   """
   @spec get_sensitivity_inspection_template(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_sensitivity_inspection_template_response(), any()}
@@ -6793,21 +6746,20 @@ defmodule AWS.Macie2 do
 
   ## Parameters:
   * `:input` (`t:map | nil`):
-    * `:filter_by` (`t:list[com.amazonaws.macie2#UsageStatisticsFilter]`) An array
-  of objects, one for each condition to use to filter the query results. If
-  you specify more than one condition, Amazon Macie uses an AND operator to
-  join the conditions.
-    * `:max_results` (`t:integer`) The maximum number of items to include in each
-  page of the response.
-    * `:next_token` (`t:string`) The nextToken string that specifies which page of
-  results to return in a paginated response.
-    * `:sort_by` (`t:structure`) The criteria to use to sort the query results.
-    * `:time_range` (`t:enum["MONTH_TO_DATE|PAST_30_DAYS"]`) The inclusive time
-  period to query usage data for. Valid values are: MONTH_TO_DATE, for the
-  current calendar month to date; and, PAST_30_DAYS, for the preceding 30
-  days. If you don't specify a value, Amazon Macie provides usage data for the
-  preceding 30 days.
-  ## Keyword parameters:
+    * `"filterBy" => t:list[com.amazonaws.macie2#UsageStatisticsFilter]` An array of
+    objects, one for each condition to use to filter the query results. If you
+    specify more than one condition, Amazon Macie uses an AND operator to join
+    the conditions.
+    * `"maxResults" => t:integer` The maximum number of items to include in each
+    page of the response.
+    * `"nextToken" => t:string` The nextToken string that specifies which page of
+    results to return in a paginated response.
+    * `"sortBy" => t:structure` The criteria to use to sort the query results.
+    * `"timeRange" => t:enum["MONTH_TO_DATE|PAST_30_DAYS"]` The inclusive time
+    period to query usage data for. Valid values are: MONTH_TO_DATE, for the
+    current calendar month to date; and, PAST_30_DAYS, for the preceding 30
+    days. If you don't specify a value, Amazon Macie provides usage data for the
+    preceding 30 days.
   """
   @spec get_usage_statistics(AWS.Client.t(), input :: map() | nil, Keyword.t()) ::
           {:ok, get_usage_statistics_response(), any()}
@@ -6850,12 +6802,13 @@ defmodule AWS.Macie2 do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=macie2%20GetUsageTotals&this_doc_guide=API%2520Reference)
 
   ## Parameters:
+
   ## Keyword parameters:
   * `:time_range` (`t:string`) The inclusive time period to retrieve the data for.
-  Valid values are: MONTH_TO_DATE, for the current calendar month to date;
-  and, PAST_30_DAYS, for the preceding 30 days. If you don't specify a value
-  for this parameter, Amazon Macie provides aggregated usage data for the
-  preceding 30 days.
+    Valid values are: MONTH_TO_DATE, for the current calendar month to date;
+    and, PAST_30_DAYS, for the preceding 30 days. If you don't specify a value
+    for this parameter, Amazon Macie provides aggregated usage data for the
+    preceding 30 days.
   """
   @spec get_usage_totals(AWS.Client.t(), Keyword.t()) ::
           {:ok, get_usage_totals_response(), any()}
@@ -6906,11 +6859,12 @@ defmodule AWS.Macie2 do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=macie2%20ListAllowLists&this_doc_guide=API%2520Reference)
 
   ## Parameters:
+
   ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of items to include in each
-  page of a paginated response.
+    page of a paginated response.
   * `:next_token` (`t:string`) The nextToken string that specifies which page of
-  results to return in a paginated response.
+    results to return in a paginated response.
   """
   @spec list_allow_lists(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_allow_lists_response(), any()}
@@ -6969,16 +6923,17 @@ defmodule AWS.Macie2 do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=macie2%20ListAutomatedDiscoveryAccounts&this_doc_guide=API%2520Reference)
 
   ## Parameters:
+
   ## Keyword parameters:
   * `:account_ids` (`t:list[com.amazonaws.macie2#__string]`) The Amazon Web
-  Services account ID for each account, for as many as 50 accounts. To
-  retrieve the status for multiple accounts, append the accountIds parameter
-  and argument for each account, separated by an ampersand (&). To retrieve
-  the status for all the accounts in an organization, omit this parameter.
+    Services account ID for each account, for as many as 50 accounts. To
+    retrieve the status for multiple accounts, append the accountIds parameter
+    and argument for each account, separated by an ampersand (&). To retrieve
+    the status for all the accounts in an organization, omit this parameter.
   * `:max_results` (`t:integer`) The maximum number of items to include in each
-  page of a paginated response.
+    page of a paginated response.
   * `:next_token` (`t:string`) The nextToken string that specifies which page of
-  results to return in a paginated response.
+    results to return in a paginated response.
   """
   @spec list_automated_discovery_accounts(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_automated_discovery_accounts_response(), any()}
@@ -7044,13 +6999,12 @@ defmodule AWS.Macie2 do
 
   ## Parameters:
   * `:input` (`t:map | nil`):
-    * `:filter_criteria` (`t:structure`) The criteria to use to filter the results.
-    * `:max_results` (`t:integer`) The maximum number of items to include in each
-  page of the response.
-    * `:next_token` (`t:string`) The nextToken string that specifies which page of
-  results to return in a paginated response.
-    * `:sort_criteria` (`t:structure`) The criteria to use to sort the results.
-  ## Keyword parameters:
+    * `"filterCriteria" => t:structure` The criteria to use to filter the results.
+    * `"maxResults" => t:integer` The maximum number of items to include in each
+    page of the response.
+    * `"nextToken" => t:string` The nextToken string that specifies which page of
+    results to return in a paginated response.
+    * `"sortCriteria" => t:structure` The criteria to use to sort the results.
   """
   @spec list_classification_jobs(AWS.Client.t(), input :: map() | nil, Keyword.t()) ::
           {:ok, list_classification_jobs_response(), any()}
@@ -7093,11 +7047,12 @@ defmodule AWS.Macie2 do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=macie2%20ListClassificationScopes&this_doc_guide=API%2520Reference)
 
   ## Parameters:
+
   ## Keyword parameters:
   * `:name` (`t:string`) The name of the classification scope to retrieve the
-  unique identifier for.
+    unique identifier for.
   * `:next_token` (`t:string`) The nextToken string that specifies which page of
-  results to return in a paginated response.
+    results to return in a paginated response.
   """
   @spec list_classification_scopes(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_classification_scopes_response(), any()}
@@ -7157,11 +7112,10 @@ defmodule AWS.Macie2 do
 
   ## Parameters:
   * `:input` (`t:map | nil`):
-    * `:max_results` (`t:integer`) The maximum number of items to include in each
-  page of the response.
-    * `:next_token` (`t:string`) The nextToken string that specifies which page of
-  results to return in a paginated response.
-  ## Keyword parameters:
+    * `"maxResults" => t:integer` The maximum number of items to include in each
+    page of the response.
+    * `"nextToken" => t:string` The nextToken string that specifies which page of
+    results to return in a paginated response.
   """
   @spec list_custom_data_identifiers(AWS.Client.t(), input :: map() | nil, Keyword.t()) ::
           {:ok, list_custom_data_identifiers_response(), any()}
@@ -7205,13 +7159,12 @@ defmodule AWS.Macie2 do
 
   ## Parameters:
   * `:input` (`t:map | nil`):
-    * `:finding_criteria` (`t:structure`) The criteria to use to filter the results.
-    * `:max_results` (`t:integer`) The maximum number of items to include in each
-  page of the response.
-    * `:next_token` (`t:string`) The nextToken string that specifies which page of
-  results to return in a paginated response.
-    * `:sort_criteria` (`t:structure`) The criteria to use to sort the results.
-  ## Keyword parameters:
+    * `"findingCriteria" => t:structure` The criteria to use to filter the results.
+    * `"maxResults" => t:integer` The maximum number of items to include in each
+    page of the response.
+    * `"nextToken" => t:string` The nextToken string that specifies which page of
+    results to return in a paginated response.
+    * `"sortCriteria" => t:structure` The criteria to use to sort the results.
   """
   @spec list_findings(AWS.Client.t(), input :: map() | nil, Keyword.t()) ::
           {:ok, list_findings_response(), any()}
@@ -7254,11 +7207,12 @@ defmodule AWS.Macie2 do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=macie2%20ListFindingsFilters&this_doc_guide=API%2520Reference)
 
   ## Parameters:
+
   ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of items to include in each
-  page of a paginated response.
+    page of a paginated response.
   * `:next_token` (`t:string`) The nextToken string that specifies which page of
-  results to return in a paginated response.
+    results to return in a paginated response.
   """
   @spec list_findings_filters(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_findings_filters_response(), any()}
@@ -7317,11 +7271,12 @@ defmodule AWS.Macie2 do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=macie2%20ListInvitations&this_doc_guide=API%2520Reference)
 
   ## Parameters:
+
   ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of items to include in each
-  page of a paginated response.
+    page of a paginated response.
   * `:next_token` (`t:string`) The nextToken string that specifies which page of
-  results to return in a paginated response.
+    results to return in a paginated response.
   """
   @spec list_invitations(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_invitations_response(), any()}
@@ -7381,9 +7336,8 @@ defmodule AWS.Macie2 do
 
   ## Parameters:
   * `:input` (`t:map | nil`):
-    * `:next_token` (`t:string`) The nextToken string that specifies which page of
-  results to return in a paginated response.
-  ## Keyword parameters:
+    * `"nextToken" => t:string` The nextToken string that specifies which page of
+    results to return in a paginated response.
   """
   @spec list_managed_data_identifiers(AWS.Client.t(), input :: map() | nil, Keyword.t()) ::
           {:ok, list_managed_data_identifiers_response(), any()}
@@ -7426,15 +7380,16 @@ defmodule AWS.Macie2 do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=macie2%20ListMembers&this_doc_guide=API%2520Reference)
 
   ## Parameters:
+
   ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of items to include in each
-  page of a paginated response.
+    page of a paginated response.
   * `:next_token` (`t:string`) The nextToken string that specifies which page of
-  results to return in a paginated response.
+    results to return in a paginated response.
   * `:only_associated` (`t:string`) Specifies which accounts to include in the
-  response, based on the status of an account's relationship with the
-  administrator account. By default, the response includes only current member
-  accounts. To include all accounts, set this value to false.
+    response, based on the status of an account's relationship with the
+    administrator account. By default, the response includes only current member
+    accounts. To include all accounts, set this value to false.
   """
   @spec list_members(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_members_response(), any()}
@@ -7500,11 +7455,12 @@ defmodule AWS.Macie2 do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=macie2%20ListOrganizationAdminAccounts&this_doc_guide=API%2520Reference)
 
   ## Parameters:
+
   ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of items to include in each
-  page of a paginated response.
+    page of a paginated response.
   * `:next_token` (`t:string`) The nextToken string that specifies which page of
-  results to return in a paginated response.
+    results to return in a paginated response.
   """
   @spec list_organization_admin_accounts(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_organization_admin_accounts_response(), any()}
@@ -7564,10 +7520,11 @@ defmodule AWS.Macie2 do
 
   ## Parameters:
   * `:resource_arn` (`t:string` required) The Amazon Resource Name (ARN) of the S3
-  bucket that the request applies to.
+    bucket that the request applies to.
+
   ## Keyword parameters:
   * `:next_token` (`t:string`) The nextToken string that specifies which page of
-  results to return in a paginated response.
+    results to return in a paginated response.
   """
   @spec list_resource_profile_artifacts(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_resource_profile_artifacts_response(), any()}
@@ -7621,12 +7578,13 @@ defmodule AWS.Macie2 do
 
   ## Parameters:
   * `:resource_arn` (`t:string` required) The Amazon Resource Name (ARN) of the S3
-  bucket that the request applies to.
+    bucket that the request applies to.
+
   ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of items to include in each
-  page of a paginated response.
+    page of a paginated response.
   * `:next_token` (`t:string`) The nextToken string that specifies which page of
-  results to return in a paginated response.
+    results to return in a paginated response.
   """
   @spec list_resource_profile_detections(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_resource_profile_detections_response(), any()}
@@ -7686,11 +7644,12 @@ defmodule AWS.Macie2 do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=macie2%20ListSensitivityInspectionTemplates&this_doc_guide=API%2520Reference)
 
   ## Parameters:
+
   ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of items to include in each
-  page of a paginated response.
+    page of a paginated response.
   * `:next_token` (`t:string`) The nextToken string that specifies which page of
-  results to return in a paginated response.
+    results to return in a paginated response.
   """
   @spec list_sensitivity_inspection_templates(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_sensitivity_inspection_templates_response(), any()}
@@ -7750,8 +7709,7 @@ defmodule AWS.Macie2 do
 
   ## Parameters:
   * `:resource_arn` (`t:string` required) The Amazon Resource Name (ARN) of the
-  resource.
-  ## Keyword parameters:
+    resource.
   """
   @spec list_tags_for_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_tags_for_resource_response(), any()}
@@ -7792,10 +7750,9 @@ defmodule AWS.Macie2 do
 
   ## Parameters:
   * `:input` (`t:map`):
-    * `:configuration` (`t:structure` required) The location to store data
-  classification results in, and the encryption settings to use when storing
-  results in that location.
-  ## Keyword parameters:
+    * `"configuration" => t:structure` (required) The location to store data
+    classification results in, and the encryption settings to use when storing
+    results in that location.
   """
   @spec put_classification_export_configuration(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, put_classification_export_configuration_response(), any()}
@@ -7839,11 +7796,10 @@ defmodule AWS.Macie2 do
 
   ## Parameters:
   * `:input` (`t:map | nil`):
-    * `:client_token` (`t:string`) A unique, case-sensitive token that you provide
-  to ensure the idempotency of the request.
-    * `:security_hub_configuration` (`t:structure`) The configuration settings that
-  determine which findings to publish to Security Hub.
-  ## Keyword parameters:
+    * `"clientToken" => t:string` A unique, case-sensitive token that you provide to
+    ensure the idempotency of the request.
+    * `"securityHubConfiguration" => t:structure` The configuration settings that
+    determine which findings to publish to Security Hub.
   """
   @spec put_findings_publication_configuration(AWS.Client.t(), input :: map() | nil, Keyword.t()) ::
           {:ok, put_findings_publication_configuration_response(), any()}
@@ -7888,14 +7844,13 @@ defmodule AWS.Macie2 do
 
   ## Parameters:
   * `:input` (`t:map | nil`):
-    * `:bucket_criteria` (`t:structure`) The filter conditions that determine which
-  S3 buckets to include or exclude from the query results.
-    * `:max_results` (`t:integer`) The maximum number of items to include in each
-  page of the response. The default value is 50.
-    * `:next_token` (`t:string`) The nextToken string that specifies which page of
-  results to return in a paginated response.
-    * `:sort_criteria` (`t:structure`) The criteria to use to sort the results.
-  ## Keyword parameters:
+    * `"bucketCriteria" => t:structure` The filter conditions that determine which
+    S3 buckets to include or exclude from the query results.
+    * `"maxResults" => t:integer` The maximum number of items to include in each
+    page of the response. The default value is 50.
+    * `"nextToken" => t:string` The nextToken string that specifies which page of
+    results to return in a paginated response.
+    * `"sortCriteria" => t:structure` The criteria to use to sort the results.
   """
   @spec search_resources(AWS.Client.t(), input :: map() | nil, Keyword.t()) ::
           {:ok, search_resources_response(), any()}
@@ -7940,11 +7895,10 @@ defmodule AWS.Macie2 do
 
   ## Parameters:
   * `:resource_arn` (`t:string` required) The Amazon Resource Name (ARN) of the
-  resource.
+    resource.
   * `:input` (`t:map`):
-    * `:tags` (`t:map` required) A map of key-value pairs that specifies the tags to
-  associate with the resource.
-  ## Keyword parameters:
+    * `"tags" => t:map` (required) A map of key-value pairs that specifies the tags
+    to associate with the resource.
   """
   @spec tag_resource(AWS.Client.t(), String.t(), input :: map(), Keyword.t()) ::
           {:ok, tag_resource_response(), any()}
@@ -7986,29 +7940,28 @@ defmodule AWS.Macie2 do
 
   ## Parameters:
   * `:input` (`t:map`):
-    * `:regex` (`t:string` required) The regular expression (regex) that defines the
-  pattern to match. The expression can contain as many as 512 characters.
-    * `:sample_text` (`t:string` required) The sample text to inspect by using the
-  custom data identifier. The text can contain as many as 1,000 characters.
-    * `:ignore_words` (`t:list[com.amazonaws.macie2#__string]`) An array that lists
-  specific character sequences (ignore words) to exclude from the results. If
-  the text matched by the regular expression contains any string in this
-  array, Amazon Macie ignores it. The array can contain as many as 10 ignore
-  words. Each ignore word can contain 4-90 UTF-8 characters. Ignore words are
-  case sensitive.
-    * `:keywords` (`t:list[com.amazonaws.macie2#__string]`) An array that lists
-  specific character sequences (keywords), one of which must precede and be
-  within proximity (maximumMatchDistance) of the regular expression to match.
-  The array can contain as many as 50 keywords. Each keyword can contain 3-90
-  UTF-8 characters. Keywords aren't case sensitive.
-    * `:maximum_match_distance` (`t:integer`) The maximum number of characters that
-  can exist between the end of at least one complete character sequence
-  specified by the keywords array and the end of the text that matches the
-  regex pattern. If a complete keyword precedes all the text that matches the
-  pattern and the keyword is within the specified distance, Amazon Macie
-  includes the result. The distance can be 1-300 characters. The default value
-  is 50.
-  ## Keyword parameters:
+    * `"regex" => t:string` (required) The regular expression (regex) that defines
+    the pattern to match. The expression can contain as many as 512 characters.
+    * `"sampleText" => t:string` (required) The sample text to inspect by using the
+    custom data identifier. The text can contain as many as 1,000 characters.
+    * `"ignoreWords" => t:list[com.amazonaws.macie2#__string]` An array that lists
+    specific character sequences (ignore words) to exclude from the results. If
+    the text matched by the regular expression contains any string in this
+    array, Amazon Macie ignores it. The array can contain as many as 10 ignore
+    words. Each ignore word can contain 4-90 UTF-8 characters. Ignore words are
+    case sensitive.
+    * `"keywords" => t:list[com.amazonaws.macie2#__string]` An array that lists
+    specific character sequences (keywords), one of which must precede and be
+    within proximity (maximumMatchDistance) of the regular expression to match.
+    The array can contain as many as 50 keywords. Each keyword can contain 3-90
+    UTF-8 characters. Keywords aren't case sensitive.
+    * `"maximumMatchDistance" => t:integer` The maximum number of characters that
+    can exist between the end of at least one complete character sequence
+    specified by the keywords array and the end of the text that matches the
+    regex pattern. If a complete keyword precedes all the text that matches the
+    pattern and the keyword is within the specified distance, Amazon Macie
+    includes the result. The distance can be 1-300 characters. The default value
+    is 50.
   """
   @spec test_custom_data_identifier(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, test_custom_data_identifier_response(), any()}
@@ -8051,12 +8004,11 @@ defmodule AWS.Macie2 do
 
   ## Parameters:
   * `:resource_arn` (`t:string` required) The Amazon Resource Name (ARN) of the
-  resource.
+    resource.
   * `:tag_keys` (`t:list[com.amazonaws.macie2#__string]` required) One or more
-  tags (keys) to remove from the resource. In an HTTP request to remove
-  multiple tags, append the tagKeys parameter and argument for each tag to
-  remove, separated by an ampersand (&).
-  ## Keyword parameters:
+    tags (keys) to remove from the resource. In an HTTP request to remove
+    multiple tags, append the tagKeys parameter and argument for each tag to
+    remove, separated by an ampersand (&).
   """
   @spec untag_resource(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, untag_resource_response(), any()}
@@ -8109,17 +8061,16 @@ defmodule AWS.Macie2 do
 
   ## Parameters:
   * `:id` (`t:string` required) The unique identifier for the Amazon Macie
-  resource that the request applies to.
+    resource that the request applies to.
   * `:input` (`t:map`):
-    * `:criteria` (`t:structure` required) The criteria that specify the text or
-  text pattern to ignore. The criteria can be the location and name of an S3
-  object that lists specific text to ignore (s3WordsList), or a regular
-  expression that defines a text pattern to ignore (regex).
-    * `:name` (`t:string` required) A custom name for the allow list. The name can
-  contain as many as 128 characters.
-    * `:description` (`t:string`) A custom description of the allow list. The
-  description can contain as many as 512 characters.
-  ## Keyword parameters:
+    * `"criteria" => t:structure` (required) The criteria that specify the text or
+    text pattern to ignore. The criteria can be the location and name of an S3
+    object that lists specific text to ignore (s3WordsList), or a regular
+    expression that defines a text pattern to ignore (regex).
+    * `"name" => t:string` (required) A custom name for the allow list. The name can
+    contain as many as 128 characters.
+    * `"description" => t:string` A custom description of the allow list. The
+    description can contain as many as 512 characters.
   """
   @spec update_allow_list(AWS.Client.t(), String.t(), input :: map(), Keyword.t()) ::
           {:ok, update_allow_list_response(), any()}
@@ -8163,17 +8114,16 @@ defmodule AWS.Macie2 do
 
   ## Parameters:
   * `:input` (`t:map`):
-    * `:status` (`t:enum["DISABLED|ENABLED"]` required) The new status of automated
-  sensitive data discovery for the organization or account. Valid values are:
-  ENABLED, start or resume all automated sensitive data discovery activities;
-  and, DISABLED, stop performing all automated sensitive data discovery
-  activities.
-    * `:auto_enable_organization_members` (`t:enum["ALL|NEW|NONE"]`) Specifies
-  whether to automatically enable automated sensitive data discovery for
-  accounts in the organization. Valid values are: ALL (default), enable it for
-  all existing accounts and new member accounts; NEW, enable it only for new
-  member accounts; and, NONE, don't enable it for any accounts.
-  ## Keyword parameters:
+    * `"status" => t:enum["DISABLED|ENABLED"]` (required) The new status of
+    automated sensitive data discovery for the organization or account. Valid
+    values are: ENABLED, start or resume all automated sensitive data discovery
+    activities; and, DISABLED, stop performing all automated sensitive data
+    discovery activities.
+    * `"autoEnableOrganizationMembers" => t:enum["ALL|NEW|NONE"]` Specifies whether
+    to automatically enable automated sensitive data discovery for accounts in
+    the organization. Valid values are: ALL (default), enable it for all
+    existing accounts and new member accounts; NEW, enable it only for new
+    member accounts; and, NONE, don't enable it for any accounts.
   """
   @spec update_automated_discovery_configuration(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, update_automated_discovery_configuration_response(), any()}
@@ -8217,11 +8167,10 @@ defmodule AWS.Macie2 do
 
   ## Parameters:
   * `:job_id` (`t:string` required) The unique identifier for the classification
-  job.
+    job.
   * `:input` (`t:map`):
-    * `:job_status` (`t:enum["CANCELLED|COMPLETE|IDLE|PAUSED|RUNNING|USER_PAUSED"]`
-  required) The new status for the job. Valid values are:
-  ## Keyword parameters:
+    * `"jobStatus" => t:enum["CANCELLED|COMPLETE|IDLE|PAUSED|RUNNING|USER_PAUSED"]`
+    (required) The new status for the job. Valid values are:
   """
   @spec update_classification_job(AWS.Client.t(), String.t(), input :: map(), Keyword.t()) ::
           {:ok, update_classification_job_response(), any()}
@@ -8275,11 +8224,10 @@ defmodule AWS.Macie2 do
 
   ## Parameters:
   * `:id` (`t:string` required) The unique identifier for the Amazon Macie
-  resource that the request applies to.
+    resource that the request applies to.
   * `:input` (`t:map | nil`):
-    * `:s3` (`t:structure`) The S3 buckets to add or remove from the exclusion list
-  defined by the classification scope.
-  ## Keyword parameters:
+    * `"s3" => t:structure` The S3 buckets to add or remove from the exclusion list
+    defined by the classification scope.
   """
   @spec update_classification_scope(AWS.Client.t(), String.t(), input :: map() | nil, Keyword.t()) ::
           {:ok, update_classification_scope_response(), any()}
@@ -8333,24 +8281,23 @@ defmodule AWS.Macie2 do
 
   ## Parameters:
   * `:id` (`t:string` required) The unique identifier for the Amazon Macie
-  resource that the request applies to.
+    resource that the request applies to.
   * `:input` (`t:map | nil`):
-    * `:action` (`t:enum["ARCHIVE|NOOP"]`) The action to perform on findings that
-  match the filter criteria (findingCriteria). Valid values are: ARCHIVE,
-  suppress (automatically archive) the findings; and, NOOP, don't perform any
-  action on the findings.
-    * `:client_token` (`t:string`) A unique, case-sensitive token that you provide
-  to ensure the idempotency of the request.
-    * `:description` (`t:string`) A custom description of the filter. The
-  description can contain as many as 512 characters.
-    * `:finding_criteria` (`t:structure`) The criteria to use to filter findings.
-    * `:name` (`t:string`) A custom name for the filter. The name must contain at
-  least 3 characters and can contain as many as 64 characters.
-    * `:position` (`t:integer`) The position of the filter in the list of saved
-  filters on the Amazon Macie console. This value also determines the order in
-  which the filter is applied to findings, relative to other filters that are
-  also applied to the findings.
-  ## Keyword parameters:
+    * `"action" => t:enum["ARCHIVE|NOOP"]` The action to perform on findings that
+    match the filter criteria (findingCriteria). Valid values are: ARCHIVE,
+    suppress (automatically archive) the findings; and, NOOP, don't perform any
+    action on the findings.
+    * `"clientToken" => t:string` A unique, case-sensitive token that you provide to
+    ensure the idempotency of the request.
+    * `"description" => t:string` A custom description of the filter. The
+    description can contain as many as 512 characters.
+    * `"findingCriteria" => t:structure` The criteria to use to filter findings.
+    * `"name" => t:string` A custom name for the filter. The name must contain at
+    least 3 characters and can contain as many as 64 characters.
+    * `"position" => t:integer` The position of the filter in the list of saved
+    filters on the Amazon Macie console. This value also determines the order in
+    which the filter is applied to findings, relative to other filters that are
+    also applied to the findings.
   """
   @spec update_findings_filter(AWS.Client.t(), String.t(), input :: map() | nil, Keyword.t()) ::
           {:ok, update_findings_filter_response(), any()}
@@ -8405,15 +8352,13 @@ defmodule AWS.Macie2 do
 
   ## Parameters:
   * `:input` (`t:map | nil`):
-    * `:finding_publishing_frequency`
-  (`t:enum["FIFTEEN_MINUTES|ONE_HOUR|SIX_HOURS"]`) Specifies how often to
-  publish updates to policy findings for the account. This includes publishing
-  updates to Security Hub and Amazon EventBridge (formerly Amazon CloudWatch
-  Events).
-    * `:status` (`t:enum["ENABLED|PAUSED"]`) Specifies a new status for the account.
-  Valid values are: ENABLED, resume all Amazon Macie activities for the
-  account; and, PAUSED, suspend all Macie activities for the account.
-  ## Keyword parameters:
+    * `"findingPublishingFrequency" => t:enum["FIFTEEN_MINUTES|ONE_HOUR|SIX_HOURS"]`
+    Specifies how often to publish updates to policy findings for the account.
+    This includes publishing updates to Security Hub and Amazon EventBridge
+    (formerly Amazon CloudWatch Events).
+    * `"status" => t:enum["ENABLED|PAUSED"]` Specifies a new status for the account.
+    Valid values are: ENABLED, resume all Amazon Macie activities for the
+    account; and, PAUSED, suspend all Macie activities for the account.
   """
   @spec update_macie_session(AWS.Client.t(), input :: map() | nil, Keyword.t()) ::
           {:ok, update_macie_session_response(), any()}
@@ -8468,12 +8413,11 @@ defmodule AWS.Macie2 do
 
   ## Parameters:
   * `:id` (`t:string` required) The unique identifier for the Amazon Macie
-  resource that the request applies to.
+    resource that the request applies to.
   * `:input` (`t:map`):
-    * `:status` (`t:enum["ENABLED|PAUSED"]` required) Specifies the new status for
-  the account. Valid values are: ENABLED, resume all Amazon Macie activities
-  for the account; and, PAUSED, suspend all Macie activities for the account.
-  ## Keyword parameters:
+    * `"status" => t:enum["ENABLED|PAUSED"]` (required) Specifies the new status for
+    the account. Valid values are: ENABLED, resume all Amazon Macie activities
+    for the account; and, PAUSED, suspend all Macie activities for the account.
   """
   @spec update_member_session(AWS.Client.t(), String.t(), input :: map(), Keyword.t()) ::
           {:ok, update_member_session_response(), any()}
@@ -8527,10 +8471,9 @@ defmodule AWS.Macie2 do
 
   ## Parameters:
   * `:input` (`t:map`):
-    * `:auto_enable` (`t:boolean` required) Specifies whether to enable Amazon Macie
-  automatically for accounts that are added to the organization in
-  Organizations.
-  ## Keyword parameters:
+    * `"autoEnable" => t:boolean` (required) Specifies whether to enable Amazon
+    Macie automatically for accounts that are added to the organization in
+    Organizations.
   """
   @spec update_organization_configuration(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, update_organization_configuration_response(), any()}
@@ -8584,13 +8527,12 @@ defmodule AWS.Macie2 do
 
   ## Parameters:
   * `:resource_arn` (`t:string` required) The Amazon Resource Name (ARN) of the S3
-  bucket that the request applies to.
+    bucket that the request applies to.
   * `:input` (`t:map | nil`):
-    * `:sensitivity_score_override` (`t:integer`) The new sensitivity score for the
-  bucket. Valid values are: 100, assign the maximum score and apply the
-  Sensitive label to the bucket; and, null (empty), assign a score that Amazon
-  Macie calculates automatically after you submit the request.
-  ## Keyword parameters:
+    * `"sensitivityScoreOverride" => t:integer` The new sensitivity score for the
+    bucket. Valid values are: 100, assign the maximum score and apply the
+    Sensitive label to the bucket; and, null (empty), assign a score that Amazon
+    Macie calculates automatically after you submit the request.
   """
   @spec update_resource_profile(AWS.Client.t(), String.t(), input :: map() | nil, Keyword.t()) ::
           {:ok, update_resource_profile_response(), any()}
@@ -8644,15 +8586,14 @@ defmodule AWS.Macie2 do
 
   ## Parameters:
   * `:resource_arn` (`t:string` required) The Amazon Resource Name (ARN) of the S3
-  bucket that the request applies to.
+    bucket that the request applies to.
   * `:input` (`t:map | nil`):
-    * `:suppress_data_identifiers`
-  (`t:list[com.amazonaws.macie2#SuppressDataIdentifier]`) An array of objects,
-  one for each custom data identifier or managed data identifier that detected
-  the type of sensitive data to start excluding or including in the bucket's
-  score. To start including all sensitive data types in the score, don't
-  specify any values for this array.
-  ## Keyword parameters:
+    * `"suppressDataIdentifiers" =>
+    t:list[com.amazonaws.macie2#SuppressDataIdentifier]` An array of objects,
+    one for each custom data identifier or managed data identifier that detected
+    the type of sensitive data to start excluding or including in the bucket's
+    score. To start including all sensitive data types in the score, don't
+    specify any values for this array.
   """
   @spec update_resource_profile_detections(
           AWS.Client.t(),
@@ -8712,12 +8653,11 @@ defmodule AWS.Macie2 do
 
   ## Parameters:
   * `:input` (`t:map`):
-    * `:configuration` (`t:structure` required) The KMS key to use to encrypt the
-  sensitive data, and the status of the configuration for the Amazon Macie
-  account.
-    * `:retrieval_configuration` (`t:structure`) The access method and settings to
-  use when retrieving the sensitive data.
-  ## Keyword parameters:
+    * `"configuration" => t:structure` (required) The KMS key to use to encrypt the
+    sensitive data, and the status of the configuration for the Amazon Macie
+    account.
+    * `"retrievalConfiguration" => t:structure` The access method and settings to
+    use when retrieving the sensitive data.
   """
   @spec update_reveal_configuration(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, update_reveal_configuration_response(), any()}
@@ -8760,16 +8700,15 @@ defmodule AWS.Macie2 do
 
   ## Parameters:
   * `:id` (`t:string` required) The unique identifier for the Amazon Macie
-  resource that the request applies to.
+    resource that the request applies to.
   * `:input` (`t:map | nil`):
-    * `:description` (`t:string`) A custom description of the template. The
-  description can contain as many as 200 characters.
-    * `:excludes` (`t:structure`) The managed data identifiers to explicitly exclude
-  (not use) when performing automated sensitive data discovery.
-    * `:includes` (`t:structure`) The allow lists, custom data identifiers, and
-  managed data identifiers to explicitly include (use) when performing
-  automated sensitive data discovery.
-  ## Keyword parameters:
+    * `"description" => t:string` A custom description of the template. The
+    description can contain as many as 200 characters.
+    * `"excludes" => t:structure` The managed data identifiers to explicitly exclude
+    (not use) when performing automated sensitive data discovery.
+    * `"includes" => t:structure` The allow lists, custom data identifiers, and
+    managed data identifiers to explicitly include (use) when performing
+    automated sensitive data discovery.
   """
   @spec update_sensitivity_inspection_template(
           AWS.Client.t(),

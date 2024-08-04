@@ -392,7 +392,6 @@ defmodule AWS.ControlCatalog do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=controlcatalog%20GetControl&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec get_control(AWS.Client.t(), Keyword.t()) ::
           {:ok, get_control_response(), any()}
@@ -435,11 +434,12 @@ defmodule AWS.ControlCatalog do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=controlcatalog%20ListCommonControls&this_doc_guide=API%2520Reference)
 
   ## Parameters:
+
   ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of results on a page or for an
-  API request call.
+    API request call.
   * `:next_token` (`t:string`) The pagination token that's used to fetch the next
-  set of results.
+    set of results.
   """
   @spec list_common_controls(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_common_controls_response(), any()}
@@ -502,11 +502,12 @@ defmodule AWS.ControlCatalog do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=controlcatalog%20ListControls&this_doc_guide=API%2520Reference)
 
   ## Parameters:
+
   ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of results on a page or for an
-  API request call.
+    API request call.
   * `:next_token` (`t:string`) The pagination token that's used to fetch the next
-  set of results.
+    set of results.
   """
   @spec list_controls(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_controls_response(), any()}
@@ -567,11 +568,12 @@ defmodule AWS.ControlCatalog do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=controlcatalog%20ListDomains&this_doc_guide=API%2520Reference)
 
   ## Parameters:
+
   ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of results on a page or for an
-  API request call.
+    API request call.
   * `:next_token` (`t:string`) The pagination token that's used to fetch the next
-  set of results.
+    set of results.
   """
   @spec list_domains(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_domains_response(), any()}
@@ -632,11 +634,12 @@ defmodule AWS.ControlCatalog do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=controlcatalog%20ListObjectives&this_doc_guide=API%2520Reference)
 
   ## Parameters:
+
   ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of results on a page or for an
-  API request call.
+    API request call.
   * `:next_token` (`t:string`) The pagination token that's used to fetch the next
-  set of results.
+    set of results.
   """
   @spec list_objectives(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_objectives_response(), any()}

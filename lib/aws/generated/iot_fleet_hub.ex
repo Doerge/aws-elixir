@@ -341,7 +341,6 @@ defmodule AWS.IoTFleetHub do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotfleethub%20CreateApplication&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec create_application(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_application_response(), any()}
@@ -384,10 +383,11 @@ defmodule AWS.IoTFleetHub do
 
   ## Parameters:
   * `:application_id` (`t:string` required) The unique Id of the web application.
+
   ## Keyword parameters:
   * `:client_token` (`t:string`) A unique case-sensitive identifier that you can
-  provide to ensure the idempotency of the request. Don't reuse this client
-  token if a new idempotent request is required.
+    provide to ensure the idempotency of the request. Don't reuse this client
+    token if a new idempotent request is required.
   """
   @spec delete_application(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, delete_application_response(), any()}
@@ -451,7 +451,6 @@ defmodule AWS.IoTFleetHub do
 
   ## Parameters:
   * `:application_id` (`t:string` required) The unique Id of the web application.
-  ## Keyword parameters:
   """
   @spec describe_application(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, describe_application_response(), any()}
@@ -492,6 +491,7 @@ defmodule AWS.IoTFleetHub do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotfleethub%20ListApplications&this_doc_guide=API%2520Reference)
 
   ## Parameters:
+
   ## Keyword parameters:
   * `:next_token` (`t:string`) A token used to get the next set of results.
   """
@@ -545,7 +545,6 @@ defmodule AWS.IoTFleetHub do
 
   ## Parameters:
   * `:resource_arn` (`t:string` required) The ARN of the resource.
-  ## Keyword parameters:
   """
   @spec list_tags_for_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_tags_for_resource_response(), any()}
@@ -587,7 +586,6 @@ defmodule AWS.IoTFleetHub do
 
   ## Parameters:
   * `:resource_arn` (`t:string` required) The ARN of the resource.
-  ## Keyword parameters:
   """
   @spec tag_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, tag_resource_response(), any()}
@@ -631,8 +629,7 @@ defmodule AWS.IoTFleetHub do
   ## Parameters:
   * `:resource_arn` (`t:string` required) The ARN of the resource.
   * `:tag_keys` (`t:list[com.amazonaws.iotfleethub#TagKey]` required) A list of
-  the keys of the tags to be removed from the resource.
-  ## Keyword parameters:
+    the keys of the tags to be removed from the resource.
   """
   @spec untag_resource(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, untag_resource_response(), any()}
@@ -686,7 +683,6 @@ defmodule AWS.IoTFleetHub do
 
   ## Parameters:
   * `:application_id` (`t:string` required) The unique Id of the web application.
-  ## Keyword parameters:
   """
   @spec update_application(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, update_application_response(), any()}

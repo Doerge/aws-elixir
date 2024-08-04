@@ -856,8 +856,7 @@ defmodule AWS.RUM do
 
   ## Parameters:
   * `:app_monitor_name` (`t:string` required) The name of the CloudWatch RUM app
-  monitor that is to send the metrics.
-  ## Keyword parameters:
+    monitor that is to send the metrics.
   """
   @spec batch_create_rum_metric_definitions(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, batch_create_rum_metric_definitions_response(), any()}
@@ -904,18 +903,19 @@ defmodule AWS.RUM do
 
   ## Parameters:
   * `:app_monitor_name` (`t:string` required) The name of the CloudWatch RUM app
-  monitor that is sending these metrics.
+    monitor that is sending these metrics.
   * `:destination` (`t:string` required) Defines the destination where you want to
-  stop sending the specified metrics. Valid values are CloudWatch and
-  Evidently. If you specify Evidently, you must also specify the ARN of the
-  CloudWatchEvidently experiment that is to be the destination and an IAM role
-  that has permission to write to the experiment.
+    stop sending the specified metrics. Valid values are CloudWatch and
+    Evidently. If you specify Evidently, you must also specify the ARN of the
+    CloudWatchEvidently experiment that is to be the destination and an IAM role
+    that has permission to write to the experiment.
   * `:metric_definition_ids` (`t:list[com.amazonaws.rum#MetricDefinitionId]`
-  required) An array of structures which define the metrics that you want to
-  stop sending.
+    required) An array of structures which define the metrics that you want to
+    stop sending.
+
   ## Keyword parameters:
   * `:destination_arn` (`t:string`) This parameter is required if Destination is
-  Evidently. If Destination is CloudWatch, do not use this parameter.
+    Evidently. If Destination is CloudWatch, do not use this parameter.
   """
   @spec batch_delete_rum_metric_definitions(
           AWS.Client.t(),
@@ -993,16 +993,17 @@ defmodule AWS.RUM do
 
   ## Parameters:
   * `:app_monitor_name` (`t:string` required) The name of the CloudWatch RUM app
-  monitor that is sending the metrics.
+    monitor that is sending the metrics.
   * `:destination` (`t:string` required) The type of destination that you want to
-  view metrics for. Valid values are CloudWatch and Evidently.
+    view metrics for. Valid values are CloudWatch and Evidently.
+
   ## Keyword parameters:
   * `:destination_arn` (`t:string`) This parameter is required if Destination is
-  Evidently. If Destination is CloudWatch, do not use this parameter.
+    Evidently. If Destination is CloudWatch, do not use this parameter.
   * `:max_results` (`t:integer`) The maximum number of results to return in one
-  operation. The default is 50. The maximum that you can specify is 100.
+    operation. The default is 50. The maximum that you can specify is 100.
   * `:next_token` (`t:string`) Use the token returned by the previous operation to
-  request the next page of results.
+    request the next page of results.
   """
   @spec batch_get_rum_metric_definitions(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, batch_get_rum_metric_definitions_response(), any()}
@@ -1076,7 +1077,6 @@ defmodule AWS.RUM do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=rum%20CreateAppMonitor&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec create_app_monitor(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_app_monitor_response(), any()}
@@ -1119,7 +1119,6 @@ defmodule AWS.RUM do
 
   ## Parameters:
   * `:name` (`t:string` required) The name of the app monitor to delete.
-  ## Keyword parameters:
   """
   @spec delete_app_monitor(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, delete_app_monitor_response(), any()}
@@ -1173,14 +1172,15 @@ defmodule AWS.RUM do
 
   ## Parameters:
   * `:app_monitor_name` (`t:string` required) The name of the app monitor that is
-  sending metrics to the destination that you want to delete.
+    sending metrics to the destination that you want to delete.
   * `:destination` (`t:string` required) The type of destination to delete. Valid
-  values are CloudWatch and Evidently.
+    values are CloudWatch and Evidently.
+
   ## Keyword parameters:
   * `:destination_arn` (`t:string`) This parameter is required if Destination is
-  Evidently. If Destination is CloudWatch, do not use this parameter. This
-  parameter specifies the ARN of the Evidently experiment that corresponds to
-  the destination to delete.
+    Evidently. If Destination is CloudWatch, do not use this parameter. This
+    parameter specifies the ARN of the Evidently experiment that corresponds to
+    the destination to delete.
   """
   @spec delete_rum_metrics_destination(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, delete_rum_metrics_destination_response(), any()}
@@ -1250,7 +1250,6 @@ defmodule AWS.RUM do
 
   ## Parameters:
   * `:name` (`t:string` required) The app monitor to retrieve information for.
-  ## Keyword parameters:
   """
   @spec get_app_monitor(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_app_monitor_response(), any()}
@@ -1292,8 +1291,7 @@ defmodule AWS.RUM do
 
   ## Parameters:
   * `:name` (`t:string` required) The name of the app monitor that collected the
-  data that you want to retrieve.
-  ## Keyword parameters:
+    data that you want to retrieve.
   """
   @spec get_app_monitor_data(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_app_monitor_data_response(), any()}
@@ -1335,11 +1333,12 @@ defmodule AWS.RUM do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=rum%20ListAppMonitors&this_doc_guide=API%2520Reference)
 
   ## Parameters:
+
   ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of results to return in one
-  operation. The default is 50. The maximum that you can specify is 100.
+    operation. The default is 50. The maximum that you can specify is 100.
   * `:next_token` (`t:string`) Use the token returned by the previous operation to
-  request the next page of results.
+    request the next page of results.
   """
   @spec list_app_monitors(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_app_monitors_response(), any()}
@@ -1401,12 +1400,13 @@ defmodule AWS.RUM do
 
   ## Parameters:
   * `:app_monitor_name` (`t:string` required) The name of the app monitor
-  associated with the destinations that you want to retrieve.
+    associated with the destinations that you want to retrieve.
+
   ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of results to return in one
-  operation. The default is 50. The maximum that you can specify is 100.
+    operation. The default is 50. The maximum that you can specify is 100.
   * `:next_token` (`t:string`) Use the token returned by the previous operation to
-  request the next page of results.
+    request the next page of results.
   """
   @spec list_rum_metrics_destinations(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_rum_metrics_destinations_response(), any()}
@@ -1465,8 +1465,7 @@ defmodule AWS.RUM do
 
   ## Parameters:
   * `:resource_arn` (`t:string` required) The ARN of the resource that you want to
-  see the tags of.
-  ## Keyword parameters:
+    see the tags of.
   """
   @spec list_tags_for_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_tags_for_resource_response(), any()}
@@ -1509,8 +1508,7 @@ defmodule AWS.RUM do
 
   ## Parameters:
   * `:id` (`t:string` required) The ID of the app monitor that is sending this
-  data.
-  ## Keyword parameters:
+    data.
   """
   @spec put_rum_events(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, put_rum_events_response(), any()}
@@ -1555,8 +1553,7 @@ defmodule AWS.RUM do
 
   ## Parameters:
   * `:app_monitor_name` (`t:string` required) The name of the CloudWatch RUM app
-  monitor that will send the metrics.
-  ## Keyword parameters:
+    monitor that will send the metrics.
   """
   @spec put_rum_metrics_destination(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, put_rum_metrics_destination_response(), any()}
@@ -1603,8 +1600,7 @@ defmodule AWS.RUM do
 
   ## Parameters:
   * `:resource_arn` (`t:string` required) The ARN of the CloudWatch RUM resource
-  that you're adding tags to.
-  ## Keyword parameters:
+    that you're adding tags to.
   """
   @spec tag_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, tag_resource_response(), any()}
@@ -1647,10 +1643,9 @@ defmodule AWS.RUM do
 
   ## Parameters:
   * `:resource_arn` (`t:string` required) The ARN of the CloudWatch RUM resource
-  that you're removing tags from.
+    that you're removing tags from.
   * `:tag_keys` (`t:list[com.amazonaws.rum#TagKey]` required) The list of tag keys
-  to remove from the resource.
-  ## Keyword parameters:
+    to remove from the resource.
   """
   @spec untag_resource(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, untag_resource_response(), any()}
@@ -1711,7 +1706,6 @@ defmodule AWS.RUM do
 
   ## Parameters:
   * `:name` (`t:string` required) The name of the app monitor to update.
-  ## Keyword parameters:
   """
   @spec update_app_monitor(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, update_app_monitor_response(), any()}
@@ -1766,8 +1760,7 @@ defmodule AWS.RUM do
 
   ## Parameters:
   * `:app_monitor_name` (`t:string` required) The name of the CloudWatch RUM app
-  monitor that sends these metrics.
-  ## Keyword parameters:
+    monitor that sends these metrics.
   """
   @spec update_rum_metric_definition(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, update_rum_metric_definition_response(), any()}

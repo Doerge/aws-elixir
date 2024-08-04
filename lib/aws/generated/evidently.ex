@@ -1895,8 +1895,7 @@ defmodule AWS.Evidently do
 
   ## Parameters:
   * `:project` (`t:string` required) The name or ARN of the project that contains
-  the feature being evaluated.
-  ## Keyword parameters:
+    the feature being evaluated.
   """
   @spec batch_evaluate_feature(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, batch_evaluate_feature_response(), any()}
@@ -1944,8 +1943,7 @@ defmodule AWS.Evidently do
 
   ## Parameters:
   * `:project` (`t:string` required) The name or ARN of the project that you want
-  to create the new experiment in.
-  ## Keyword parameters:
+    to create the new experiment in.
   """
   @spec create_experiment(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, create_experiment_response(), any()}
@@ -1994,8 +1992,7 @@ defmodule AWS.Evidently do
 
   ## Parameters:
   * `:project` (`t:string` required) The name or ARN of the project that is to
-  contain the new feature.
-  ## Keyword parameters:
+    contain the new feature.
   """
   @spec create_feature(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, create_feature_response(), any()}
@@ -2044,8 +2041,7 @@ defmodule AWS.Evidently do
 
   ## Parameters:
   * `:project` (`t:string` required) The name or ARN of the project that you want
-  to create the launch in.
-  ## Keyword parameters:
+    to create the launch in.
   """
   @spec create_launch(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, create_launch_response(), any()}
@@ -2089,7 +2085,6 @@ defmodule AWS.Evidently do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=evidently%20CreateProject&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec create_project(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_project_response(), any()}
@@ -2138,7 +2133,6 @@ defmodule AWS.Evidently do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=evidently%20CreateSegment&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec create_segment(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_segment_response(), any()}
@@ -2183,8 +2177,7 @@ defmodule AWS.Evidently do
   ## Parameters:
   * `:experiment` (`t:string` required) The name of the experiment to delete.
   * `:project` (`t:string` required) The name or ARN of the project that contains
-  the experiment to delete.
-  ## Keyword parameters:
+    the experiment to delete.
   """
   @spec delete_experiment(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, delete_experiment_response(), any()}
@@ -2239,8 +2232,7 @@ defmodule AWS.Evidently do
   ## Parameters:
   * `:feature` (`t:string` required) The name of the feature to delete.
   * `:project` (`t:string` required) The name or ARN of the project that contains
-  the feature to delete.
-  ## Keyword parameters:
+    the feature to delete.
   """
   @spec delete_feature(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, delete_feature_response(), any()}
@@ -2295,8 +2287,7 @@ defmodule AWS.Evidently do
   ## Parameters:
   * `:launch` (`t:string` required) The name of the launch to delete.
   * `:project` (`t:string` required) The name or ARN of the project that contains
-  the launch to delete.
-  ## Keyword parameters:
+    the launch to delete.
   """
   @spec delete_launch(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, delete_launch_response(), any()}
@@ -2351,7 +2342,6 @@ defmodule AWS.Evidently do
 
   ## Parameters:
   * `:project` (`t:string` required) The name or ARN of the project to delete.
-  ## Keyword parameters:
   """
   @spec delete_project(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, delete_project_response(), any()}
@@ -2405,7 +2395,6 @@ defmodule AWS.Evidently do
 
   ## Parameters:
   * `:segment` (`t:string` required) Specifies the segment to delete.
-  ## Keyword parameters:
   """
   @spec delete_segment(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, delete_segment_response(), any()}
@@ -2463,8 +2452,7 @@ defmodule AWS.Evidently do
   ## Parameters:
   * `:feature` (`t:string` required) The name of the feature being evaluated.
   * `:project` (`t:string` required) The name or ARN of the project that contains
-  this feature.
-  ## Keyword parameters:
+    this feature.
   """
   @spec evaluate_feature(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, evaluate_feature_response(), any()}
@@ -2510,10 +2498,9 @@ defmodule AWS.Evidently do
 
   ## Parameters:
   * `:experiment` (`t:string` required) The name of the experiment that you want
-  to see the details of.
+    to see the details of.
   * `:project` (`t:string` required) The name or ARN of the project that contains
-  the experiment.
-  ## Keyword parameters:
+    the experiment.
   """
   @spec get_experiment(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_experiment_response(), any()}
@@ -2561,10 +2548,9 @@ defmodule AWS.Evidently do
 
   ## Parameters:
   * `:experiment` (`t:string` required) The name of the experiment to retrieve the
-  results of.
+    results of.
   * `:project` (`t:string` required) The name or ARN of the project that contains
-  the experiment that you want to see the results of.
-  ## Keyword parameters:
+    the experiment that you want to see the results of.
   """
   @spec get_experiment_results(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_experiment_results_response(), any()}
@@ -2610,10 +2596,9 @@ defmodule AWS.Evidently do
 
   ## Parameters:
   * `:feature` (`t:string` required) The name of the feature that you want to
-  retrieve information for.
+    retrieve information for.
   * `:project` (`t:string` required) The name or ARN of the project that contains
-  the feature.
-  ## Keyword parameters:
+    the feature.
   """
   @spec get_feature(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_feature_response(), any()}
@@ -2657,10 +2642,9 @@ defmodule AWS.Evidently do
 
   ## Parameters:
   * `:launch` (`t:string` required) The name of the launch that you want to see
-  the details of.
+    the details of.
   * `:project` (`t:string` required) The name or ARN of the project that contains
-  the launch.
-  ## Keyword parameters:
+    the launch.
   """
   @spec get_launch(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_launch_response(), any()}
@@ -2703,8 +2687,7 @@ defmodule AWS.Evidently do
 
   ## Parameters:
   * `:project` (`t:string` required) The name or ARN of the project that you want
-  to see the details of.
-  ## Keyword parameters:
+    to see the details of.
   """
   @spec get_project(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_project_response(), any()}
@@ -2746,8 +2729,7 @@ defmodule AWS.Evidently do
 
   ## Parameters:
   * `:segment` (`t:string` required) The ARN of the segment to return information
-  for.
-  ## Keyword parameters:
+    for.
   """
   @spec get_segment(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_segment_response(), any()}
@@ -2789,14 +2771,15 @@ defmodule AWS.Evidently do
 
   ## Parameters:
   * `:project` (`t:string` required) The name or ARN of the project to return the
-  experiment list from.
+    experiment list from.
+
   ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of results to include in the
-  response.
+    response.
   * `:next_token` (`t:string`) The token to use when requesting the next set of
-  results. You received this token from a previous ListExperiments operation.
+    results. You received this token from a previous ListExperiments operation.
   * `:status` (`t:string`) Use this optional parameter to limit the returned
-  results to only the experiments with the status that you specify here.
+    results to only the experiments with the status that you specify here.
   """
   @spec list_experiments(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_experiments_response(), any()}
@@ -2862,12 +2845,13 @@ defmodule AWS.Evidently do
 
   ## Parameters:
   * `:project` (`t:string` required) The name or ARN of the project to return the
-  feature list from.
+    feature list from.
+
   ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of results to include in the
-  response.
+    response.
   * `:next_token` (`t:string`) The token to use when requesting the next set of
-  results. You received this token from a previous ListFeatures operation.
+    results. You received this token from a previous ListFeatures operation.
   """
   @spec list_features(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_features_response(), any()}
@@ -2926,14 +2910,15 @@ defmodule AWS.Evidently do
 
   ## Parameters:
   * `:project` (`t:string` required) The name or ARN of the project to return the
-  launch list from.
+    launch list from.
+
   ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of results to include in the
-  response.
+    response.
   * `:next_token` (`t:string`) The token to use when requesting the next set of
-  results. You received this token from a previous ListLaunches operation.
+    results. You received this token from a previous ListLaunches operation.
   * `:status` (`t:string`) Use this optional parameter to limit the returned
-  results to only the launches with the status that you specify here.
+    results to only the launches with the status that you specify here.
   """
   @spec list_launches(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_launches_response(), any()}
@@ -2999,11 +2984,12 @@ defmodule AWS.Evidently do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=evidently%20ListProjects&this_doc_guide=API%2520Reference)
 
   ## Parameters:
+
   ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of results to include in the
-  response.
+    response.
   * `:next_token` (`t:string`) The token to use when requesting the next set of
-  results. You received this token from a previous ListProjects operation.
+    results. You received this token from a previous ListProjects operation.
   """
   @spec list_projects(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_projects_response(), any()}
@@ -3063,15 +3049,16 @@ defmodule AWS.Evidently do
 
   ## Parameters:
   * `:segment` (`t:string` required) The ARN of the segment that you want to view
-  information for.
+    information for.
   * `:type` (`t:string` required) Specifies whether to return information about
-  launches or experiments that use this segment.
+    launches or experiments that use this segment.
+
   ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of results to include in the
-  response. If you omit this, the default of 50 is used.
+    response. If you omit this, the default of 50 is used.
   * `:next_token` (`t:string`) The token to use when requesting the next set of
-  results. You received this token from a previous ListSegmentReferences
-  operation.
+    results. You received this token from a previous ListSegmentReferences
+    operation.
   """
   @spec list_segment_references(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, list_segment_references_response(), any()}
@@ -3131,11 +3118,12 @@ defmodule AWS.Evidently do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=evidently%20ListSegments&this_doc_guide=API%2520Reference)
 
   ## Parameters:
+
   ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of results to include in the
-  response. If you omit this, the default of 50 is used.
+    response. If you omit this, the default of 50 is used.
   * `:next_token` (`t:string`) The token to use when requesting the next set of
-  results. You received this token from a previous ListSegments operation.
+    results. You received this token from a previous ListSegments operation.
   """
   @spec list_segments(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_segments_response(), any()}
@@ -3194,8 +3182,7 @@ defmodule AWS.Evidently do
 
   ## Parameters:
   * `:resource_arn` (`t:string` required) The ARN of the resource that you want to
-  see the tags of.
-  ## Keyword parameters:
+    see the tags of.
   """
   @spec list_tags_for_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_tags_for_resource_response(), any()}
@@ -3237,8 +3224,7 @@ defmodule AWS.Evidently do
 
   ## Parameters:
   * `:project` (`t:string` required) The name or ARN of the project to write the
-  events to.
-  ## Keyword parameters:
+    events to.
   """
   @spec put_project_events(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, put_project_events_response(), any()}
@@ -3283,8 +3269,7 @@ defmodule AWS.Evidently do
   ## Parameters:
   * `:experiment` (`t:string` required) The name of the experiment to start.
   * `:project` (`t:string` required) The name or ARN of the project that contains
-  the experiment to start.
-  ## Keyword parameters:
+    the experiment to start.
   """
   @spec start_experiment(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, start_experiment_response(), any()}
@@ -3330,8 +3315,7 @@ defmodule AWS.Evidently do
   ## Parameters:
   * `:launch` (`t:string` required) The name of the launch to start.
   * `:project` (`t:string` required) The name or ARN of the project that contains
-  the launch to start.
-  ## Keyword parameters:
+    the launch to start.
   """
   @spec start_launch(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, start_launch_response(), any()}
@@ -3377,8 +3361,7 @@ defmodule AWS.Evidently do
   ## Parameters:
   * `:experiment` (`t:string` required) The name of the experiment to stop.
   * `:project` (`t:string` required) The name or ARN of the project that contains
-  the experiment to stop.
-  ## Keyword parameters:
+    the experiment to stop.
   """
   @spec stop_experiment(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, stop_experiment_response(), any()}
@@ -3427,8 +3410,7 @@ defmodule AWS.Evidently do
   ## Parameters:
   * `:launch` (`t:string` required) The name of the launch to stop.
   * `:project` (`t:string` required) The name or ARN of the project that contains
-  the launch that you want to stop.
-  ## Keyword parameters:
+    the launch that you want to stop.
   """
   @spec stop_launch(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, stop_launch_response(), any()}
@@ -3476,8 +3458,7 @@ defmodule AWS.Evidently do
 
   ## Parameters:
   * `:resource_arn` (`t:string` required) The ARN of the CloudWatch Evidently
-  resource that you're adding tags to.
-  ## Keyword parameters:
+    resource that you're adding tags to.
   """
   @spec tag_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, tag_resource_response(), any()}
@@ -3521,7 +3502,6 @@ defmodule AWS.Evidently do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=evidently%20TestSegmentPattern&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec test_segment_pattern(AWS.Client.t(), Keyword.t()) ::
           {:ok, test_segment_pattern_response(), any()}
@@ -3564,10 +3544,9 @@ defmodule AWS.Evidently do
 
   ## Parameters:
   * `:resource_arn` (`t:string` required) The ARN of the CloudWatch Evidently
-  resource that you're removing tags from.
+    resource that you're removing tags from.
   * `:tag_keys` (`t:list[com.amazonaws.evidently#TagKey]` required) The list of
-  tag keys to remove from the resource.
-  ## Keyword parameters:
+    tag keys to remove from the resource.
   """
   @spec untag_resource(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, untag_resource_response(), any()}
@@ -3622,8 +3601,7 @@ defmodule AWS.Evidently do
   ## Parameters:
   * `:experiment` (`t:string` required) The name of the experiment to update.
   * `:project` (`t:string` required) The name or ARN of the project that contains
-  the experiment that you want to update.
-  ## Keyword parameters:
+    the experiment that you want to update.
   """
   @spec update_experiment(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, update_experiment_response(), any()}
@@ -3678,8 +3656,7 @@ defmodule AWS.Evidently do
   ## Parameters:
   * `:feature` (`t:string` required) The name of the feature to be updated.
   * `:project` (`t:string` required) The name or ARN of the project that contains
-  the feature to be updated.
-  ## Keyword parameters:
+    the feature to be updated.
   """
   @spec update_feature(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, update_feature_response(), any()}
@@ -3734,8 +3711,7 @@ defmodule AWS.Evidently do
   ## Parameters:
   * `:launch` (`t:string` required) The name of the launch that is to be updated.
   * `:project` (`t:string` required) The name or ARN of the project that contains
-  the launch that you want to update.
-  ## Keyword parameters:
+    the launch that you want to update.
   """
   @spec update_launch(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, update_launch_response(), any()}
@@ -3792,7 +3768,6 @@ defmodule AWS.Evidently do
 
   ## Parameters:
   * `:project` (`t:string` required) The name or ARN of the project to update.
-  ## Keyword parameters:
   """
   @spec update_project(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, update_project_response(), any()}
@@ -3848,8 +3823,7 @@ defmodule AWS.Evidently do
 
   ## Parameters:
   * `:project` (`t:string` required) The name or ARN of the project that you want
-  to modify the data storage options for.
-  ## Keyword parameters:
+    to modify the data storage options for.
   """
   @spec update_project_data_delivery(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, update_project_data_delivery_response(), any()}

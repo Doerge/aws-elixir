@@ -1561,8 +1561,7 @@ defmodule AWS.Tnb do
 
   ## Parameters:
   * `:ns_lcm_op_occ_id` (`t:string` required) The identifier of the network
-  operation.
-  ## Keyword parameters:
+    operation.
   """
   @spec cancel_sol_network_operation(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
@@ -1604,7 +1603,6 @@ defmodule AWS.Tnb do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=tnb%20CreateSolFunctionPackage&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec create_sol_function_package(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_sol_function_package_output(), any()}
@@ -1646,7 +1644,6 @@ defmodule AWS.Tnb do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=tnb%20CreateSolNetworkInstance&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec create_sol_network_instance(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_sol_network_instance_output(), any()}
@@ -1698,7 +1695,6 @@ defmodule AWS.Tnb do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=tnb%20CreateSolNetworkPackage&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec create_sol_network_package(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_sol_network_package_output(), any()}
@@ -1745,7 +1741,6 @@ defmodule AWS.Tnb do
 
   ## Parameters:
   * `:vnf_pkg_id` (`t:string` required) ID of the function package.
-  ## Keyword parameters:
   """
   @spec delete_sol_function_package(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
@@ -1800,7 +1795,6 @@ defmodule AWS.Tnb do
 
   ## Parameters:
   * `:ns_instance_id` (`t:string` required) Network instance ID.
-  ## Keyword parameters:
   """
   @spec delete_sol_network_instance(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
@@ -1855,8 +1849,7 @@ defmodule AWS.Tnb do
 
   ## Parameters:
   * `:nsd_info_id` (`t:string` required) ID of the network service descriptor in
-  the network package.
-  ## Keyword parameters:
+    the network package.
   """
   @spec delete_sol_network_package(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
@@ -1911,7 +1904,6 @@ defmodule AWS.Tnb do
 
   ## Parameters:
   * `:vnf_instance_id` (`t:string` required) ID of the network function.
-  ## Keyword parameters:
   """
   @spec get_sol_function_instance(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_sol_function_instance_output(), any()}
@@ -1953,7 +1945,6 @@ defmodule AWS.Tnb do
 
   ## Parameters:
   * `:vnf_pkg_id` (`t:string` required) ID of the function package.
-  ## Keyword parameters:
   """
   @spec get_sol_function_package(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_sol_function_package_output(), any()}
@@ -1995,8 +1986,7 @@ defmodule AWS.Tnb do
   ## Parameters:
   * `:vnf_pkg_id` (`t:string` required) ID of the function package.
   * `:accept` (`t:enum["APPLICATION_ZIP"]` required) The format of the package
-  that you want to download from the function packages.
-  ## Keyword parameters:
+    that you want to download from the function packages.
   """
   @spec get_sol_function_package_content(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_sol_function_package_content_output(), any()}
@@ -2048,8 +2038,7 @@ defmodule AWS.Tnb do
   ## Parameters:
   * `:vnf_pkg_id` (`t:string` required) ID of the function package.
   * `:accept` (`t:enum["TEXT_PLAIN"]` required) Indicates which content types,
-  expressed as MIME types, the client is able to understand.
-  ## Keyword parameters:
+    expressed as MIME types, the client is able to understand.
   """
   @spec get_sol_function_package_descriptor(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_sol_function_package_descriptor_output(), any()}
@@ -2097,7 +2086,6 @@ defmodule AWS.Tnb do
 
   ## Parameters:
   * `:ns_instance_id` (`t:string` required) ID of the network instance.
-  ## Keyword parameters:
   """
   @spec get_sol_network_instance(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_sol_network_instance_output(), any()}
@@ -2139,8 +2127,7 @@ defmodule AWS.Tnb do
 
   ## Parameters:
   * `:ns_lcm_op_occ_id` (`t:string` required) The identifier of the network
-  operation.
-  ## Keyword parameters:
+    operation.
   """
   @spec get_sol_network_operation(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_sol_network_operation_output(), any()}
@@ -2181,8 +2168,7 @@ defmodule AWS.Tnb do
 
   ## Parameters:
   * `:nsd_info_id` (`t:string` required) ID of the network service descriptor in
-  the network package.
-  ## Keyword parameters:
+    the network package.
   """
   @spec get_sol_network_package(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_sol_network_package_output(), any()}
@@ -2223,10 +2209,9 @@ defmodule AWS.Tnb do
 
   ## Parameters:
   * `:nsd_info_id` (`t:string` required) ID of the network service descriptor in
-  the network package.
+    the network package.
   * `:accept` (`t:enum["APPLICATION_ZIP"]` required) The format of the package you
-  want to download from the network package.
-  ## Keyword parameters:
+    want to download from the network package.
   """
   @spec get_sol_network_package_content(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_sol_network_package_content_output(), any()}
@@ -2274,8 +2259,7 @@ defmodule AWS.Tnb do
 
   ## Parameters:
   * `:nsd_info_id` (`t:string` required) ID of the network service descriptor in
-  the network package.
-  ## Keyword parameters:
+    the network package.
   """
   @spec get_sol_network_package_descriptor(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_sol_network_package_descriptor_output(), any()}
@@ -2324,11 +2308,12 @@ defmodule AWS.Tnb do
 
   ## Parameters:
   * `:ns_instance_id` (`t:string` required) ID of the network instance.
+
   ## Keyword parameters:
   * `:dry_run` (`t:string`) A check for whether you have the required permissions
-  for the action without actually making the request and provides an error
-  response. If you have the required permissions, the error response is
-  DryRunOperation. Otherwise, it is UnauthorizedOperation.
+    for the action without actually making the request and provides an error
+    response. If you have the required permissions, the error response is
+    DryRunOperation. Otherwise, it is UnauthorizedOperation.
   """
   @spec instantiate_sol_network_instance(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, instantiate_sol_network_instance_output(), any()}
@@ -2381,9 +2366,10 @@ defmodule AWS.Tnb do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=tnb%20ListSolFunctionInstances&this_doc_guide=API%2520Reference)
 
   ## Parameters:
+
   ## Keyword parameters:
   * `:max_results` (`t:string`) The maximum number of results to include in the
-  response.
+    response.
   * `:next_token` (`t:string`) The token for the next page of results.
   """
   @spec list_sol_function_instances(AWS.Client.t(), Keyword.t()) ::
@@ -2442,9 +2428,10 @@ defmodule AWS.Tnb do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=tnb%20ListSolFunctionPackages&this_doc_guide=API%2520Reference)
 
   ## Parameters:
+
   ## Keyword parameters:
   * `:max_results` (`t:string`) The maximum number of results to include in the
-  response.
+    response.
   * `:next_token` (`t:string`) The token for the next page of results.
   """
   @spec list_sol_function_packages(AWS.Client.t(), Keyword.t()) ::
@@ -2503,9 +2490,10 @@ defmodule AWS.Tnb do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=tnb%20ListSolNetworkInstances&this_doc_guide=API%2520Reference)
 
   ## Parameters:
+
   ## Keyword parameters:
   * `:max_results` (`t:string`) The maximum number of results to include in the
-  response.
+    response.
   * `:next_token` (`t:string`) The token for the next page of results.
   """
   @spec list_sol_network_instances(AWS.Client.t(), Keyword.t()) ::
@@ -2565,12 +2553,13 @@ defmodule AWS.Tnb do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=tnb%20ListSolNetworkOperations&this_doc_guide=API%2520Reference)
 
   ## Parameters:
+
   ## Keyword parameters:
   * `:max_results` (`t:string`) The maximum number of results to include in the
-  response.
+    response.
   * `:next_token` (`t:string`) The token for the next page of results.
   * `:ns_instance_id` (`t:string`) Network instance id filter, to retrieve network
-  operations associated to a network instance.
+    operations associated to a network instance.
   """
   @spec list_sol_network_operations(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_sol_network_operations_output(), any()}
@@ -2635,9 +2624,10 @@ defmodule AWS.Tnb do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=tnb%20ListSolNetworkPackages&this_doc_guide=API%2520Reference)
 
   ## Parameters:
+
   ## Keyword parameters:
   * `:max_results` (`t:string`) The maximum number of results to include in the
-  response.
+    response.
   * `:next_token` (`t:string`) The token for the next page of results.
   """
   @spec list_sol_network_packages(AWS.Client.t(), Keyword.t()) ::
@@ -2697,7 +2687,6 @@ defmodule AWS.Tnb do
 
   ## Parameters:
   * `:resource_arn` (`t:string` required) Resource ARN.
-  ## Keyword parameters:
   """
   @spec list_tags_for_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_tags_for_resource_output(), any()}
@@ -2739,7 +2728,8 @@ defmodule AWS.Tnb do
   ## Parameters:
   * `:vnf_pkg_id` (`t:string` required) Function package ID.
   * `:input` (`t:map`):
-    * `:file` (`t:blob` required) Function package file.
+    * `"file" => t:blob` (required) Function package file.
+
   ## Keyword parameters:
   * `:content_type` (`t:enum["APPLICATION_ZIP"]`) Function package content type.
   """
@@ -2797,7 +2787,8 @@ defmodule AWS.Tnb do
   ## Parameters:
   * `:nsd_info_id` (`t:string` required) Network service descriptor info ID.
   * `:input` (`t:map`):
-    * `:file` (`t:blob` required) Network package file.
+    * `"file" => t:blob` (required) Network package file.
+
   ## Keyword parameters:
   * `:content_type` (`t:enum["APPLICATION_ZIP"]`) Network package content type.
   """
@@ -2854,7 +2845,6 @@ defmodule AWS.Tnb do
 
   ## Parameters:
   * `:resource_arn` (`t:string` required) Resource ARN.
-  ## Keyword parameters:
   """
   @spec tag_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, tag_resource_output(), any()}
@@ -2899,7 +2889,6 @@ defmodule AWS.Tnb do
 
   ## Parameters:
   * `:ns_instance_id` (`t:string` required) ID of the network instance.
-  ## Keyword parameters:
   """
   @spec terminate_sol_network_instance(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, terminate_sol_network_instance_output(), any()}
@@ -2943,7 +2932,6 @@ defmodule AWS.Tnb do
   ## Parameters:
   * `:resource_arn` (`t:string` required) Resource ARN.
   * `:tag_keys` (`t:list[com.amazonaws.tnb#TagKey]` required) Tag keys.
-  ## Keyword parameters:
   """
   @spec untag_resource(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, untag_resource_output(), any()}
@@ -2997,7 +2985,6 @@ defmodule AWS.Tnb do
 
   ## Parameters:
   * `:vnf_pkg_id` (`t:string` required) ID of the function package.
-  ## Keyword parameters:
   """
   @spec update_sol_function_package(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, update_sol_function_package_output(), any()}
@@ -3052,7 +3039,6 @@ defmodule AWS.Tnb do
 
   ## Parameters:
   * `:ns_instance_id` (`t:string` required) ID of the network instance.
-  ## Keyword parameters:
   """
   @spec update_sol_network_instance(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, update_sol_network_instance_output(), any()}
@@ -3098,8 +3084,7 @@ defmodule AWS.Tnb do
 
   ## Parameters:
   * `:nsd_info_id` (`t:string` required) ID of the network service descriptor in
-  the network package.
-  ## Keyword parameters:
+    the network package.
   """
   @spec update_sol_network_package(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, update_sol_network_package_output(), any()}
@@ -3155,7 +3140,8 @@ defmodule AWS.Tnb do
   ## Parameters:
   * `:vnf_pkg_id` (`t:string` required) Function package ID.
   * `:input` (`t:map`):
-    * `:file` (`t:blob` required) Function package file.
+    * `"file" => t:blob` (required) Function package file.
+
   ## Keyword parameters:
   * `:content_type` (`t:enum["APPLICATION_ZIP"]`) Function package content type.
   """
@@ -3221,7 +3207,8 @@ defmodule AWS.Tnb do
   ## Parameters:
   * `:nsd_info_id` (`t:string` required) Network service descriptor file.
   * `:input` (`t:map`):
-    * `:file` (`t:blob` required) Network package file.
+    * `"file" => t:blob` (required) Network package file.
+
   ## Keyword parameters:
   * `:content_type` (`t:enum["APPLICATION_ZIP"]`) Network package content type.
   """

@@ -847,7 +847,6 @@ defmodule AWS.Braket do
 
   ## Parameters:
   * `:job_arn` (`t:string` required) The ARN of the Amazon Braket job to cancel.
-  ## Keyword parameters:
   """
   @spec cancel_job(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, cancel_job_response(), any()}
@@ -890,7 +889,6 @@ defmodule AWS.Braket do
 
   ## Parameters:
   * `:quantum_task_arn` (`t:string` required) The ARN of the task to cancel.
-  ## Keyword parameters:
   """
   @spec cancel_quantum_task(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, cancel_quantum_task_response(), any()}
@@ -932,7 +930,6 @@ defmodule AWS.Braket do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=braket%20CreateJob&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec create_job(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_job_response(), any()}
@@ -974,7 +971,6 @@ defmodule AWS.Braket do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=braket%20CreateQuantumTask&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec create_quantum_task(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_quantum_task_response(), any()}
@@ -1017,7 +1013,6 @@ defmodule AWS.Braket do
 
   ## Parameters:
   * `:device_arn` (`t:string` required) The ARN of the device to retrieve.
-  ## Keyword parameters:
   """
   @spec get_device(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_device_response(), any()}
@@ -1058,10 +1053,11 @@ defmodule AWS.Braket do
 
   ## Parameters:
   * `:job_arn` (`t:string` required) The ARN of the job to retrieve.
+
   ## Keyword parameters:
   * `:additional_attribute_names`
-  (`t:list[com.amazonaws.braket#HybridJobAdditionalAttributeName]`) A list of
-  attributes to return information for.
+    (`t:list[com.amazonaws.braket#HybridJobAdditionalAttributeName]`) A list of
+    attributes to return information for.
   """
   @spec get_job(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_job_response(), any()}
@@ -1113,10 +1109,11 @@ defmodule AWS.Braket do
 
   ## Parameters:
   * `:quantum_task_arn` (`t:string` required) The ARN of the task to retrieve.
+
   ## Keyword parameters:
   * `:additional_attribute_names`
-  (`t:list[com.amazonaws.braket#QuantumTaskAdditionalAttributeName]`) A list
-  of attributes to return information for.
+    (`t:list[com.amazonaws.braket#QuantumTaskAdditionalAttributeName]`) A list
+    of attributes to return information for.
   """
   @spec get_quantum_task(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_quantum_task_response(), any()}
@@ -1168,8 +1165,7 @@ defmodule AWS.Braket do
 
   ## Parameters:
   * `:resource_arn` (`t:string` required) Specify the resourceArn for the resource
-  whose tags to display.
-  ## Keyword parameters:
+    whose tags to display.
   """
   @spec list_tags_for_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_tags_for_resource_response(), any()}
@@ -1209,7 +1205,6 @@ defmodule AWS.Braket do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=braket%20SearchDevices&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec search_devices(AWS.Client.t(), Keyword.t()) ::
           {:ok, search_devices_response(), any()}
@@ -1251,7 +1246,6 @@ defmodule AWS.Braket do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=braket%20SearchJobs&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec search_jobs(AWS.Client.t(), Keyword.t()) ::
           {:ok, search_jobs_response(), any()}
@@ -1293,7 +1287,6 @@ defmodule AWS.Braket do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=braket%20SearchQuantumTasks&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec search_quantum_tasks(AWS.Client.t(), Keyword.t()) ::
           {:ok, search_quantum_tasks_response(), any()}
@@ -1336,8 +1329,7 @@ defmodule AWS.Braket do
 
   ## Parameters:
   * `:resource_arn` (`t:string` required) Specify the resourceArn of the resource
-  to which a tag will be added.
-  ## Keyword parameters:
+    to which a tag will be added.
   """
   @spec tag_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, tag_resource_response(), any()}
@@ -1380,10 +1372,9 @@ defmodule AWS.Braket do
 
   ## Parameters:
   * `:resource_arn` (`t:string` required) Specify the resourceArn for the resource
-  from which to remove the tags.
+    from which to remove the tags.
   * `:tag_keys` (`t:list[smithy.api#String]` required) Specify the keys for the
-  tags to remove from the resource.
-  ## Keyword parameters:
+    tags to remove from the resource.
   """
   @spec untag_resource(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, untag_resource_response(), any()}

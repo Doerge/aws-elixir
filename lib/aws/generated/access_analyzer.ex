@@ -2038,7 +2038,6 @@ defmodule AWS.AccessAnalyzer do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=accessanalyzer%20ApplyArchiveRule&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec apply_archive_rule(AWS.Client.t(), Keyword.t()) ::
           {:ok, nil, any()}
@@ -2081,10 +2080,9 @@ defmodule AWS.AccessAnalyzer do
 
   ## Parameters:
   * `:job_id` (`t:string` required) The JobId that is returned by the
-  StartPolicyGeneration operation. The JobId can be used with
-  GetGeneratedPolicy to retrieve the generated policies or used with
-  CancelPolicyGeneration to cancel the policy generation request.
-  ## Keyword parameters:
+    StartPolicyGeneration operation. The JobId can be used with
+    GetGeneratedPolicy to retrieve the generated policies or used with
+    CancelPolicyGeneration to cancel the policy generation request.
   """
   @spec cancel_policy_generation(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, cancel_policy_generation_response(), any()}
@@ -2126,7 +2124,6 @@ defmodule AWS.AccessAnalyzer do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=accessanalyzer%20CheckAccessNotGranted&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec check_access_not_granted(AWS.Client.t(), Keyword.t()) ::
           {:ok, check_access_not_granted_response(), any()}
@@ -2169,7 +2166,6 @@ defmodule AWS.AccessAnalyzer do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=accessanalyzer%20CheckNoNewAccess&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec check_no_new_access(AWS.Client.t(), Keyword.t()) ::
           {:ok, check_no_new_access_response(), any()}
@@ -2212,7 +2208,6 @@ defmodule AWS.AccessAnalyzer do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=accessanalyzer%20CheckNoPublicAccess&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec check_no_public_access(AWS.Client.t(), Keyword.t()) ::
           {:ok, check_no_public_access_response(), any()}
@@ -2255,7 +2250,6 @@ defmodule AWS.AccessAnalyzer do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=accessanalyzer%20CreateAccessPreview&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec create_access_preview(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_access_preview_response(), any()}
@@ -2297,7 +2291,6 @@ defmodule AWS.AccessAnalyzer do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=accessanalyzer%20CreateAnalyzer&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec create_analyzer(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_analyzer_response(), any()}
@@ -2342,7 +2335,6 @@ defmodule AWS.AccessAnalyzer do
 
   ## Parameters:
   * `:analyzer_name` (`t:string` required) The name of the created analyzer.
-  ## Keyword parameters:
   """
   @spec create_archive_rule(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
@@ -2388,6 +2380,7 @@ defmodule AWS.AccessAnalyzer do
 
   ## Parameters:
   * `:analyzer_name` (`t:string` required) The name of the analyzer to delete.
+
   ## Keyword parameters:
   * `:client_token` (`t:string`) A client token.
   """
@@ -2453,8 +2446,9 @@ defmodule AWS.AccessAnalyzer do
 
   ## Parameters:
   * `:analyzer_name` (`t:string` required) The name of the analyzer that
-  associated with the archive rule to delete.
+    associated with the archive rule to delete.
   * `:rule_name` (`t:string` required) The name of the rule to delete.
+
   ## Keyword parameters:
   * `:client_token` (`t:string`) A client token.
   """
@@ -2522,8 +2516,7 @@ defmodule AWS.AccessAnalyzer do
   ## Parameters:
   * `:id` (`t:string` required) The unique ID for the finding recommendation.
   * `:analyzer_arn` (`t:string` required) The ARN of the analyzer used to generate
-  the finding recommendation.
-  ## Keyword parameters:
+    the finding recommendation.
   """
   @spec generate_finding_recommendation(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
@@ -2567,10 +2560,9 @@ defmodule AWS.AccessAnalyzer do
 
   ## Parameters:
   * `:access_preview_id` (`t:string` required) The unique ID for the access
-  preview.
+    preview.
   * `:analyzer_arn` (`t:string` required) The ARN of the analyzer used to generate
-  the access preview.
-  ## Keyword parameters:
+    the access preview.
   """
   @spec get_access_preview(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_access_preview_response(), any()}
@@ -2612,10 +2604,9 @@ defmodule AWS.AccessAnalyzer do
 
   ## Parameters:
   * `:analyzer_arn` (`t:string` required) The ARN of the analyzer to retrieve
-  information from.
+    information from.
   * `:resource_arn` (`t:string` required) The ARN of the resource to retrieve
-  information about.
-  ## Keyword parameters:
+    information about.
   """
   @spec get_analyzed_resource(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_analyzed_resource_response(), any()}
@@ -2657,7 +2648,6 @@ defmodule AWS.AccessAnalyzer do
 
   ## Parameters:
   * `:analyzer_name` (`t:string` required) The name of the analyzer retrieved.
-  ## Keyword parameters:
   """
   @spec get_analyzer(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_analyzer_response(), any()}
@@ -2698,9 +2688,8 @@ defmodule AWS.AccessAnalyzer do
 
   ## Parameters:
   * `:analyzer_name` (`t:string` required) The name of the analyzer to retrieve
-  rules from.
+    rules from.
   * `:rule_name` (`t:string` required) The name of the rule to retrieve.
-  ## Keyword parameters:
   """
   @spec get_archive_rule(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_archive_rule_response(), any()}
@@ -2746,8 +2735,7 @@ defmodule AWS.AccessAnalyzer do
   ## Parameters:
   * `:id` (`t:string` required) The ID of the finding to retrieve.
   * `:analyzer_arn` (`t:string` required) The ARN of the analyzer that generated
-  the finding.
-  ## Keyword parameters:
+    the finding.
   """
   @spec get_finding(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_finding_response(), any()}
@@ -2790,10 +2778,11 @@ defmodule AWS.AccessAnalyzer do
   ## Parameters:
   * `:id` (`t:string` required) The unique ID for the finding recommendation.
   * `:analyzer_arn` (`t:string` required) The ARN of the analyzer used to generate
-  the finding recommendation.
+    the finding recommendation.
+
   ## Keyword parameters:
   * `:max_results` (`t:string`) The maximum number of results to return in the
-  response.
+    response.
   * `:next_token` (`t:string`) A token used for pagination of results returned.
   """
   @spec get_finding_recommendation(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
@@ -2858,10 +2847,11 @@ defmodule AWS.AccessAnalyzer do
   ## Parameters:
   * `:id` (`t:string` required) The ID of the finding to retrieve.
   * `:analyzer_arn` (`t:string` required) The ARN of the analyzer that generated
-  the finding.
+    the finding.
+
   ## Keyword parameters:
   * `:max_results` (`t:string`) The maximum number of results to return in the
-  response.
+    response.
   * `:next_token` (`t:string`) A token used for pagination of results returned.
   """
   @spec get_finding_v2(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
@@ -2922,17 +2912,18 @@ defmodule AWS.AccessAnalyzer do
 
   ## Parameters:
   * `:job_id` (`t:string` required) The JobId that is returned by the
-  StartPolicyGeneration operation. The JobId can be used with
-  GetGeneratedPolicy to retrieve the generated policies or used with
-  CancelPolicyGeneration to cancel the policy generation request.
+    StartPolicyGeneration operation. The JobId can be used with
+    GetGeneratedPolicy to retrieve the generated policies or used with
+    CancelPolicyGeneration to cancel the policy generation request.
+
   ## Keyword parameters:
   * `:include_resource_placeholders` (`t:string`) The level of detail that you
-  want to generate. You can specify whether to generate policies with
-  placeholders for resource ARNs for actions that support resource level
-  granularity in policies.
+    want to generate. You can specify whether to generate policies with
+    placeholders for resource ARNs for actions that support resource level
+    granularity in policies.
   * `:include_service_level_template` (`t:string`) The level of detail that you
-  want to generate. You can specify whether to generate service-level
-  policies.
+    want to generate. You can specify whether to generate service-level
+    policies.
   """
   @spec get_generated_policy(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_generated_policy_response(), any()}
@@ -2992,8 +2983,7 @@ defmodule AWS.AccessAnalyzer do
 
   ## Parameters:
   * `:access_preview_id` (`t:string` required) The unique ID for the access
-  preview.
-  ## Keyword parameters:
+    preview.
   """
   @spec list_access_preview_findings(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_access_preview_findings_response(), any()}
@@ -3036,10 +3026,11 @@ defmodule AWS.AccessAnalyzer do
 
   ## Parameters:
   * `:analyzer_arn` (`t:string` required) The ARN of the analyzer used to generate
-  the access preview.
+    the access preview.
+
   ## Keyword parameters:
   * `:max_results` (`t:string`) The maximum number of results to return in the
-  response.
+    response.
   * `:next_token` (`t:string`) A token used for pagination of results returned.
   """
   @spec list_access_previews(AWS.Client.t(), String.t(), Keyword.t()) ::
@@ -3101,7 +3092,6 @@ defmodule AWS.AccessAnalyzer do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=accessanalyzer%20ListAnalyzedResources&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec list_analyzed_resources(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_analyzed_resources_response(), any()}
@@ -3143,9 +3133,10 @@ defmodule AWS.AccessAnalyzer do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=accessanalyzer%20ListAnalyzers&this_doc_guide=API%2520Reference)
 
   ## Parameters:
+
   ## Keyword parameters:
   * `:max_results` (`t:string`) The maximum number of results to return in the
-  response.
+    response.
   * `:next_token` (`t:string`) A token used for pagination of results returned.
   * `:type` (`t:string`) The type of analyzer.
   """
@@ -3213,10 +3204,11 @@ defmodule AWS.AccessAnalyzer do
 
   ## Parameters:
   * `:analyzer_name` (`t:string` required) The name of the analyzer to retrieve
-  rules from.
+    rules from.
+
   ## Keyword parameters:
   * `:max_results` (`t:string`) The maximum number of results to return in the
-  request.
+    request.
   * `:next_token` (`t:string`) A token used for pagination of results returned.
   """
   @spec list_archive_rules(AWS.Client.t(), String.t(), Keyword.t()) ::
@@ -3278,7 +3270,6 @@ defmodule AWS.AccessAnalyzer do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=accessanalyzer%20ListFindings&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec list_findings(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_findings_response(), any()}
@@ -3323,7 +3314,6 @@ defmodule AWS.AccessAnalyzer do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=accessanalyzer%20ListFindingsV2&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec list_findings_v2(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_findings_v2_response(), any()}
@@ -3365,13 +3355,14 @@ defmodule AWS.AccessAnalyzer do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=accessanalyzer%20ListPolicyGenerations&this_doc_guide=API%2520Reference)
 
   ## Parameters:
+
   ## Keyword parameters:
   * `:max_results` (`t:string`) The maximum number of results to return in the
-  response.
+    response.
   * `:next_token` (`t:string`) A token used for pagination of results returned.
   * `:principal_arn` (`t:string`) The ARN of the IAM entity (user or role) for
-  which you are generating a policy. Use this with ListGeneratedPolicies to
-  filter the results to only include results for a specific principal.
+    which you are generating a policy. Use this with ListGeneratedPolicies to
+    filter the results to only include results for a specific principal.
   """
   @spec list_policy_generations(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_policy_generations_response(), any()}
@@ -3437,8 +3428,7 @@ defmodule AWS.AccessAnalyzer do
 
   ## Parameters:
   * `:resource_arn` (`t:string` required) The ARN of the resource to retrieve tags
-  from.
-  ## Keyword parameters:
+    from.
   """
   @spec list_tags_for_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_tags_for_resource_response(), any()}
@@ -3478,7 +3468,6 @@ defmodule AWS.AccessAnalyzer do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=accessanalyzer%20StartPolicyGeneration&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec start_policy_generation(AWS.Client.t(), Keyword.t()) ::
           {:ok, start_policy_generation_response(), any()}
@@ -3520,7 +3509,6 @@ defmodule AWS.AccessAnalyzer do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=accessanalyzer%20StartResourceScan&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec start_resource_scan(AWS.Client.t(), Keyword.t()) ::
           {:ok, nil, any()}
@@ -3563,8 +3551,7 @@ defmodule AWS.AccessAnalyzer do
 
   ## Parameters:
   * `:resource_arn` (`t:string` required) The ARN of the resource to add the tag
-  to.
-  ## Keyword parameters:
+    to.
   """
   @spec tag_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, tag_resource_response(), any()}
@@ -3607,9 +3594,8 @@ defmodule AWS.AccessAnalyzer do
 
   ## Parameters:
   * `:resource_arn` (`t:string` required) The ARN of the resource to remove the
-  tag from.
+    tag from.
   * `:tag_keys` (`t:list[smithy.api#String]` required) The key for the tag to add.
-  ## Keyword parameters:
   """
   @spec untag_resource(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, untag_resource_response(), any()}
@@ -3663,9 +3649,8 @@ defmodule AWS.AccessAnalyzer do
 
   ## Parameters:
   * `:analyzer_name` (`t:string` required) The name of the analyzer to update the
-  archive rules for.
+    archive rules for.
   * `:rule_name` (`t:string` required) The name of the rule to update.
-  ## Keyword parameters:
   """
   @spec update_archive_rule(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
@@ -3708,7 +3693,6 @@ defmodule AWS.AccessAnalyzer do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=accessanalyzer%20UpdateFindings&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec update_findings(AWS.Client.t(), Keyword.t()) ::
           {:ok, nil, any()}
@@ -3753,9 +3737,10 @@ defmodule AWS.AccessAnalyzer do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=accessanalyzer%20ValidatePolicy&this_doc_guide=API%2520Reference)
 
   ## Parameters:
+
   ## Keyword parameters:
   * `:max_results` (`t:string`) The maximum number of results to return in the
-  response.
+    response.
   * `:next_token` (`t:string`) A token used for pagination of results returned.
   """
   @spec validate_policy(AWS.Client.t(), Keyword.t()) ::

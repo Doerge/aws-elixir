@@ -1698,7 +1698,6 @@ defmodule AWS.AppTest do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=apptest%20CreateTestCase&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec create_test_case(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_test_case_response(), any()}
@@ -1740,7 +1739,6 @@ defmodule AWS.AppTest do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=apptest%20CreateTestConfiguration&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec create_test_configuration(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_test_configuration_response(), any()}
@@ -1782,7 +1780,6 @@ defmodule AWS.AppTest do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=apptest%20CreateTestSuite&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec create_test_suite(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_test_suite_response(), any()}
@@ -1825,7 +1822,6 @@ defmodule AWS.AppTest do
 
   ## Parameters:
   * `:test_case_id` (`t:string` required) The test case ID of the test case.
-  ## Keyword parameters:
   """
   @spec delete_test_case(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, delete_test_case_response(), any()}
@@ -1878,8 +1874,7 @@ defmodule AWS.AppTest do
 
   ## Parameters:
   * `:test_configuration_id` (`t:string` required) The test ID of the test
-  configuration.
-  ## Keyword parameters:
+    configuration.
   """
   @spec delete_test_configuration(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, delete_test_configuration_response(), any()}
@@ -1932,7 +1927,6 @@ defmodule AWS.AppTest do
 
   ## Parameters:
   * `:test_run_id` (`t:string` required) The run ID of the test run.
-  ## Keyword parameters:
   """
   @spec delete_test_run(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, delete_test_run_response(), any()}
@@ -1985,7 +1979,6 @@ defmodule AWS.AppTest do
 
   ## Parameters:
   * `:test_suite_id` (`t:string` required) The test ID of the test suite.
-  ## Keyword parameters:
   """
   @spec delete_test_suite(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, delete_test_suite_response(), any()}
@@ -2038,6 +2031,7 @@ defmodule AWS.AppTest do
 
   ## Parameters:
   * `:test_case_id` (`t:string` required) The request test ID of the test case.
+
   ## Keyword parameters:
   * `:test_case_version` (`t:integer`) The test case version of the test case.
   """
@@ -2091,7 +2085,8 @@ defmodule AWS.AppTest do
 
   ## Parameters:
   * `:test_configuration_id` (`t:string` required) The request test configuration
-  ID.
+    ID.
+
   ## Keyword parameters:
   * `:test_configuration_version` (`t:integer`) The test configuration version.
   """
@@ -2146,6 +2141,7 @@ defmodule AWS.AppTest do
   ## Parameters:
   * `:step_name` (`t:string` required) The step name of the test run step.
   * `:test_run_id` (`t:string` required) The test run ID of the test run step.
+
   ## Keyword parameters:
   * `:test_case_id` (`t:string`) The test case ID of a test run step.
   * `:test_suite_id` (`t:string`) The test suite ID of a test run step.
@@ -2208,6 +2204,7 @@ defmodule AWS.AppTest do
 
   ## Parameters:
   * `:test_suite_id` (`t:string` required) The ID of the test suite.
+
   ## Keyword parameters:
   * `:test_suite_version` (`t:integer`) The version of the test suite.
   """
@@ -2261,8 +2258,7 @@ defmodule AWS.AppTest do
 
   ## Parameters:
   * `:resource_arn` (`t:string` required) The Amazon Resource Name (ARN) of the
-  resource.
-  ## Keyword parameters:
+    resource.
   """
   @spec list_tags_for_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_tags_for_resource_response(), any()}
@@ -2302,11 +2298,12 @@ defmodule AWS.AppTest do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=apptest%20ListTestCases&this_doc_guide=API%2520Reference)
 
   ## Parameters:
+
   ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum results of the test case.
   * `:next_token` (`t:string`) The next token of the test cases.
   * `:test_case_ids` (`t:list[com.amazonaws.apptest#Identifier]`) The IDs of the
-  test cases.
+    test cases.
   """
   @spec list_test_cases(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_test_cases_response(), any()}
@@ -2371,11 +2368,12 @@ defmodule AWS.AppTest do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=apptest%20ListTestConfigurations&this_doc_guide=API%2520Reference)
 
   ## Parameters:
+
   ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum results of the test configuration.
   * `:next_token` (`t:string`) The next token for the test configurations.
   * `:test_configuration_ids` (`t:list[com.amazonaws.apptest#Identifier]`) The
-  configuration IDs of the test configurations.
+    configuration IDs of the test configurations.
   """
   @spec list_test_configurations(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_test_configurations_response(), any()}
@@ -2441,11 +2439,12 @@ defmodule AWS.AppTest do
 
   ## Parameters:
   * `:test_run_id` (`t:string` required) The test run ID of the test run steps.
+
   ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of test run steps to return in
-  one page of results.
+    one page of results.
   * `:next_token` (`t:string`) The token from a previous step to retrieve the next
-  page of results.
+    page of results.
   * `:test_case_id` (`t:string`) The test case ID of the test run steps.
   * `:test_suite_id` (`t:string`) The test suite ID of the test run steps.
   """
@@ -2520,11 +2519,12 @@ defmodule AWS.AppTest do
 
   ## Parameters:
   * `:test_run_id` (`t:string` required) The test run ID of the test cases.
+
   ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of test run test cases to
-  return in one page of results.
+    return in one page of results.
   * `:next_token` (`t:string`) The token from a previous request to retrieve the
-  next page of results.
+    next page of results.
   """
   @spec list_test_run_test_cases(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_test_run_test_cases_response(), any()}
@@ -2582,13 +2582,14 @@ defmodule AWS.AppTest do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=apptest%20ListTestRuns&this_doc_guide=API%2520Reference)
 
   ## Parameters:
+
   ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of test runs to return in one
-  page of results.
+    page of results.
   * `:next_token` (`t:string`) The token from the previous request to retrieve the
-  next page of test run results.
+    next page of test run results.
   * `:test_run_ids` (`t:list[com.amazonaws.apptest#Identifier]`) The test run IDs
-  of the test runs.
+    of the test runs.
   * `:test_suite_id` (`t:string`) The test suite ID of the test runs.
   """
   @spec list_test_runs(AWS.Client.t(), Keyword.t()) ::
@@ -2661,13 +2662,14 @@ defmodule AWS.AppTest do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=apptest%20ListTestSuites&this_doc_guide=API%2520Reference)
 
   ## Parameters:
+
   ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of test suites to return in
-  one page of results.
+    one page of results.
   * `:next_token` (`t:string`) The token from a previous request to retrieve the
-  next page of results.
+    next page of results.
   * `:test_suite_ids` (`t:list[com.amazonaws.apptest#Identifier]`) The suite ID of
-  the test suites.
+    the test suites.
   """
   @spec list_test_suites(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_test_suites_response(), any()}
@@ -2732,7 +2734,6 @@ defmodule AWS.AppTest do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=apptest%20StartTestRun&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec start_test_run(AWS.Client.t(), Keyword.t()) ::
           {:ok, start_test_run_response(), any()}
@@ -2775,8 +2776,7 @@ defmodule AWS.AppTest do
 
   ## Parameters:
   * `:resource_arn` (`t:string` required) The Amazon Resource Name (ARN) of the
-  tag resource.
-  ## Keyword parameters:
+    tag resource.
   """
   @spec tag_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, tag_resource_response(), any()}
@@ -2819,10 +2819,9 @@ defmodule AWS.AppTest do
 
   ## Parameters:
   * `:resource_arn` (`t:string` required) The Amazon Resource Name (ARN) of the
-  resource.
+    resource.
   * `:tag_keys` (`t:list[com.amazonaws.apptest#TagKey]` required) The tag keys of
-  the resource.
-  ## Keyword parameters:
+    the resource.
   """
   @spec untag_resource(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, untag_resource_response(), any()}
@@ -2876,7 +2875,6 @@ defmodule AWS.AppTest do
 
   ## Parameters:
   * `:test_case_id` (`t:string` required) The test case ID of the test case.
-  ## Keyword parameters:
   """
   @spec update_test_case(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, update_test_case_response(), any()}
@@ -2929,8 +2927,7 @@ defmodule AWS.AppTest do
 
   ## Parameters:
   * `:test_configuration_id` (`t:string` required) The test configuration ID of
-  the test configuration.
-  ## Keyword parameters:
+    the test configuration.
   """
   @spec update_test_configuration(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, update_test_configuration_response(), any()}
@@ -2983,7 +2980,6 @@ defmodule AWS.AppTest do
 
   ## Parameters:
   * `:test_suite_id` (`t:string` required) The test suite ID of the test suite.
-  ## Keyword parameters:
   """
   @spec update_test_suite(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, update_test_suite_response(), any()}

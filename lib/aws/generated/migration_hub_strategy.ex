@@ -1450,8 +1450,7 @@ defmodule AWS.MigrationHubStrategy do
 
   ## Parameters:
   * `:application_component_id` (`t:string` required) The ID of the application
-  component. The ID is unique within an AWS account.
-  ## Keyword parameters:
+    component. The ID is unique within an AWS account.
   """
   @spec get_application_component_details(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_application_component_details_response(), any()}
@@ -1498,8 +1497,7 @@ defmodule AWS.MigrationHubStrategy do
 
   ## Parameters:
   * `:application_component_id` (`t:string` required) The ID of the application
-  component. The ID is unique within an AWS account.
-  ## Keyword parameters:
+    component. The ID is unique within an AWS account.
   """
   @spec get_application_component_strategies(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_application_component_strategies_response(), any()}
@@ -1545,7 +1543,6 @@ defmodule AWS.MigrationHubStrategy do
 
   ## Parameters:
   * `:id` (`t:string` required) The assessmentid returned by StartAssessment.
-  ## Keyword parameters:
   """
   @spec get_assessment(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_assessment_response(), any()}
@@ -1586,8 +1583,7 @@ defmodule AWS.MigrationHubStrategy do
 
   ## Parameters:
   * `:id` (`t:string` required) The ID of the import file task. This ID is
-  returned in the response of StartImportFileTask.
-  ## Keyword parameters:
+    returned in the response of StartImportFileTask.
   """
   @spec get_import_file_task(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_import_file_task_response(), any()}
@@ -1627,7 +1623,6 @@ defmodule AWS.MigrationHubStrategy do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=migrationhubstrategy%20GetLatestAssessmentId&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec get_latest_assessment_id(AWS.Client.t(), Keyword.t()) ::
           {:ok, get_latest_assessment_id_response(), any()}
@@ -1667,7 +1662,6 @@ defmodule AWS.MigrationHubStrategy do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=migrationhubstrategy%20GetPortfolioPreferences&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec get_portfolio_preferences(AWS.Client.t(), Keyword.t()) ::
           {:ok, get_portfolio_preferences_response(), any()}
@@ -1708,7 +1702,6 @@ defmodule AWS.MigrationHubStrategy do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=migrationhubstrategy%20GetPortfolioSummary&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec get_portfolio_summary(AWS.Client.t(), Keyword.t()) ::
           {:ok, get_portfolio_summary_response(), any()}
@@ -1749,8 +1742,7 @@ defmodule AWS.MigrationHubStrategy do
 
   ## Parameters:
   * `:id` (`t:string` required) The recommendation report generation task id
-  returned by StartRecommendationReportGeneration.
-  ## Keyword parameters:
+    returned by StartRecommendationReportGeneration.
   """
   @spec get_recommendation_report_details(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_recommendation_report_details_response(), any()}
@@ -1791,14 +1783,15 @@ defmodule AWS.MigrationHubStrategy do
 
   ## Parameters:
   * `:server_id` (`t:string` required) The ID of the server.
+
   ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of items to include in the
-  response. The maximum value is 100.
+    response. The maximum value is 100.
   * `:next_token` (`t:string`) The token from a previous call that you use to
-  retrieve the next set of results. For example, if a previous call to this
-  action returned 100 items, but you set maxResults to 10. You'll receive a
-  set of 10 results along with a token. You then use the returned token to
-  retrieve the next set of 10.
+    retrieve the next set of results. For example, if a previous call to this
+    action returned 100 items, but you set maxResults to 10. You'll receive a
+    set of 10 results along with a token. You then use the returned token to
+    retrieve the next set of 10.
   """
   @spec get_server_details(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_server_details_response(), any()}
@@ -1857,7 +1850,6 @@ defmodule AWS.MigrationHubStrategy do
 
   ## Parameters:
   * `:server_id` (`t:string` required) The ID of the server.
-  ## Keyword parameters:
   """
   @spec get_server_strategies(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_server_strategies_response(), any()}
@@ -1898,7 +1890,6 @@ defmodule AWS.MigrationHubStrategy do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=migrationhubstrategy%20ListAnalyzableServers&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec list_analyzable_servers(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_analyzable_servers_response(), any()}
@@ -1940,7 +1931,6 @@ defmodule AWS.MigrationHubStrategy do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=migrationhubstrategy%20ListApplicationComponents&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec list_application_components(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_application_components_response(), any()}
@@ -1982,14 +1972,15 @@ defmodule AWS.MigrationHubStrategy do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=migrationhubstrategy%20ListCollectors&this_doc_guide=API%2520Reference)
 
   ## Parameters:
+
   ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of items to include in the
-  response. The maximum value is 100.
+    response. The maximum value is 100.
   * `:next_token` (`t:string`) The token from a previous call that you use to
-  retrieve the next set of results. For example, if a previous call to this
-  action returned 100 items, but you set maxResults to 10. You'll receive a
-  set of 10 results along with a token. You then use the returned token to
-  retrieve the next set of 10.
+    retrieve the next set of results. For example, if a previous call to this
+    action returned 100 items, but you set maxResults to 10. You'll receive a
+    set of 10 results along with a token. You then use the returned token to
+    retrieve the next set of 10.
   """
   @spec list_collectors(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_collectors_response(), any()}
@@ -2047,14 +2038,15 @@ defmodule AWS.MigrationHubStrategy do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=migrationhubstrategy%20ListImportFileTask&this_doc_guide=API%2520Reference)
 
   ## Parameters:
+
   ## Keyword parameters:
   * `:max_results` (`t:integer`) The total number of items to return. The maximum
-  value is 100.
+    value is 100.
   * `:next_token` (`t:string`) The token from a previous call that you use to
-  retrieve the next set of results. For example, if a previous call to this
-  action returned 100 items, but you set maxResults to 10. You'll receive a
-  set of 10 results along with a token. You then use the returned token to
-  retrieve the next set of 10.
+    retrieve the next set of results. For example, if a previous call to this
+    action returned 100 items, but you set maxResults to 10. You'll receive a
+    set of 10 results along with a token. You then use the returned token to
+    retrieve the next set of 10.
   """
   @spec list_import_file_task(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_import_file_task_response(), any()}
@@ -2112,7 +2104,6 @@ defmodule AWS.MigrationHubStrategy do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=migrationhubstrategy%20ListServers&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec list_servers(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_servers_response(), any()}
@@ -2154,7 +2145,6 @@ defmodule AWS.MigrationHubStrategy do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=migrationhubstrategy%20PutPortfolioPreferences&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec put_portfolio_preferences(AWS.Client.t(), Keyword.t()) ::
           {:ok, put_portfolio_preferences_response(), any()}
@@ -2196,7 +2186,6 @@ defmodule AWS.MigrationHubStrategy do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=migrationhubstrategy%20StartAssessment&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec start_assessment(AWS.Client.t(), Keyword.t()) ::
           {:ok, start_assessment_response(), any()}
@@ -2238,7 +2227,6 @@ defmodule AWS.MigrationHubStrategy do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=migrationhubstrategy%20StartImportFileTask&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec start_import_file_task(AWS.Client.t(), Keyword.t()) ::
           {:ok, start_import_file_task_response(), any()}
@@ -2280,7 +2268,6 @@ defmodule AWS.MigrationHubStrategy do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=migrationhubstrategy%20StartRecommendationReportGeneration&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec start_recommendation_report_generation(AWS.Client.t(), Keyword.t()) ::
           {:ok, start_recommendation_report_generation_response(), any()}
@@ -2322,7 +2309,6 @@ defmodule AWS.MigrationHubStrategy do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=migrationhubstrategy%20StopAssessment&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec stop_assessment(AWS.Client.t(), Keyword.t()) ::
           {:ok, stop_assessment_response(), any()}
@@ -2364,7 +2350,6 @@ defmodule AWS.MigrationHubStrategy do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=migrationhubstrategy%20UpdateApplicationComponentConfig&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec update_application_component_config(AWS.Client.t(), Keyword.t()) ::
           {:ok, update_application_component_config_response(), any()}
@@ -2406,7 +2391,6 @@ defmodule AWS.MigrationHubStrategy do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=migrationhubstrategy%20UpdateServerConfig&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec update_server_config(AWS.Client.t(), Keyword.t()) ::
           {:ok, update_server_config_response(), any()}

@@ -1274,7 +1274,6 @@ defmodule AWS.Chatbot do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chatbot%20CreateChimeWebhookConfiguration&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec create_chime_webhook_configuration(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_chime_webhook_configuration_result(), any()}
@@ -1316,7 +1315,6 @@ defmodule AWS.Chatbot do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chatbot%20CreateMicrosoftTeamsChannelConfiguration&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec create_microsoft_teams_channel_configuration(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_teams_channel_configuration_result(), any()}
@@ -1358,7 +1356,6 @@ defmodule AWS.Chatbot do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chatbot%20CreateSlackChannelConfiguration&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec create_slack_channel_configuration(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_slack_channel_configuration_result(), any()}
@@ -1400,7 +1397,6 @@ defmodule AWS.Chatbot do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chatbot%20DeleteChimeWebhookConfiguration&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec delete_chime_webhook_configuration(AWS.Client.t(), Keyword.t()) ::
           {:ok, delete_chime_webhook_configuration_result(), any()}
@@ -1442,7 +1438,6 @@ defmodule AWS.Chatbot do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chatbot%20DeleteMicrosoftTeamsChannelConfiguration&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec delete_microsoft_teams_channel_configuration(AWS.Client.t(), Keyword.t()) ::
           {:ok, delete_teams_channel_configuration_result(), any()}
@@ -1486,7 +1481,6 @@ defmodule AWS.Chatbot do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chatbot%20DeleteMicrosoftTeamsConfiguredTeam&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec delete_microsoft_teams_configured_team(AWS.Client.t(), Keyword.t()) ::
           {:ok, delete_teams_configured_team_result(), any()}
@@ -1528,7 +1522,6 @@ defmodule AWS.Chatbot do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chatbot%20DeleteMicrosoftTeamsUserIdentity&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec delete_microsoft_teams_user_identity(AWS.Client.t(), Keyword.t()) ::
           {:ok, delete_microsoft_teams_user_identity_result(), any()}
@@ -1570,7 +1563,6 @@ defmodule AWS.Chatbot do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chatbot%20DeleteSlackChannelConfiguration&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec delete_slack_channel_configuration(AWS.Client.t(), Keyword.t()) ::
           {:ok, delete_slack_channel_configuration_result(), any()}
@@ -1612,7 +1604,6 @@ defmodule AWS.Chatbot do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chatbot%20DeleteSlackUserIdentity&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec delete_slack_user_identity(AWS.Client.t(), Keyword.t()) ::
           {:ok, delete_slack_user_identity_result(), any()}
@@ -1656,7 +1647,6 @@ defmodule AWS.Chatbot do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chatbot%20DeleteSlackWorkspaceAuthorization&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec delete_slack_workspace_authorization(AWS.Client.t(), Keyword.t()) ::
           {:ok, delete_slack_workspace_authorization_result(), any()}
@@ -1698,7 +1688,6 @@ defmodule AWS.Chatbot do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chatbot%20DescribeChimeWebhookConfigurations&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec describe_chime_webhook_configurations(AWS.Client.t(), Keyword.t()) ::
           {:ok, describe_chime_webhook_configurations_result(), any()}
@@ -1740,7 +1729,6 @@ defmodule AWS.Chatbot do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chatbot%20DescribeSlackChannelConfigurations&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec describe_slack_channel_configurations(AWS.Client.t(), Keyword.t()) ::
           {:ok, describe_slack_channel_configurations_result(), any()}
@@ -1782,7 +1770,6 @@ defmodule AWS.Chatbot do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chatbot%20DescribeSlackUserIdentities&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec describe_slack_user_identities(AWS.Client.t(), Keyword.t()) ::
           {:ok, describe_slack_user_identities_result(), any()}
@@ -1824,7 +1811,6 @@ defmodule AWS.Chatbot do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chatbot%20DescribeSlackWorkspaces&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec describe_slack_workspaces(AWS.Client.t(), Keyword.t()) ::
           {:ok, describe_slack_workspaces_result(), any()}
@@ -1866,7 +1852,6 @@ defmodule AWS.Chatbot do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chatbot%20GetAccountPreferences&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec get_account_preferences(AWS.Client.t(), Keyword.t()) ::
           {:ok, get_account_preferences_result(), any()}
@@ -1908,7 +1893,6 @@ defmodule AWS.Chatbot do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chatbot%20GetMicrosoftTeamsChannelConfiguration&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec get_microsoft_teams_channel_configuration(AWS.Client.t(), Keyword.t()) ::
           {:ok, get_teams_channel_configuration_result(), any()}
@@ -1950,7 +1934,6 @@ defmodule AWS.Chatbot do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chatbot%20ListMicrosoftTeamsChannelConfigurations&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec list_microsoft_teams_channel_configurations(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_teams_channel_configurations_result(), any()}
@@ -1992,7 +1975,6 @@ defmodule AWS.Chatbot do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chatbot%20ListMicrosoftTeamsConfiguredTeams&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec list_microsoft_teams_configured_teams(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_microsoft_teams_configured_teams_result(), any()}
@@ -2034,7 +2016,6 @@ defmodule AWS.Chatbot do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chatbot%20ListMicrosoftTeamsUserIdentities&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec list_microsoft_teams_user_identities(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_microsoft_teams_user_identities_result(), any()}
@@ -2076,7 +2057,6 @@ defmodule AWS.Chatbot do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chatbot%20ListTagsForResource&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec list_tags_for_resource(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_tags_for_resource_response(), any()}
@@ -2118,7 +2098,6 @@ defmodule AWS.Chatbot do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chatbot%20TagResource&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec tag_resource(AWS.Client.t(), Keyword.t()) ::
           {:ok, tag_resource_response(), any()}
@@ -2160,7 +2139,6 @@ defmodule AWS.Chatbot do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chatbot%20UntagResource&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec untag_resource(AWS.Client.t(), Keyword.t()) ::
           {:ok, untag_resource_response(), any()}
@@ -2202,7 +2180,6 @@ defmodule AWS.Chatbot do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chatbot%20UpdateAccountPreferences&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec update_account_preferences(AWS.Client.t(), Keyword.t()) ::
           {:ok, update_account_preferences_result(), any()}
@@ -2244,7 +2221,6 @@ defmodule AWS.Chatbot do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chatbot%20UpdateChimeWebhookConfiguration&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec update_chime_webhook_configuration(AWS.Client.t(), Keyword.t()) ::
           {:ok, update_chime_webhook_configuration_result(), any()}
@@ -2286,7 +2262,6 @@ defmodule AWS.Chatbot do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chatbot%20UpdateMicrosoftTeamsChannelConfiguration&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec update_microsoft_teams_channel_configuration(AWS.Client.t(), Keyword.t()) ::
           {:ok, update_teams_channel_configuration_result(), any()}
@@ -2328,7 +2303,6 @@ defmodule AWS.Chatbot do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chatbot%20UpdateSlackChannelConfiguration&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec update_slack_channel_configuration(AWS.Client.t(), Keyword.t()) ::
           {:ok, update_slack_channel_configuration_result(), any()}

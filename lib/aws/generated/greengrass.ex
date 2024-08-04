@@ -2990,7 +2990,6 @@ defmodule AWS.Greengrass do
 
   ## Parameters:
   * `:group_id` (`t:string` required)
-  ## Keyword parameters:
   """
   @spec associate_role_to_group(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, associate_role_to_group_response(), any()}
@@ -3035,7 +3034,6 @@ defmodule AWS.Greengrass do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=greengrass%20AssociateServiceRoleToAccount&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec associate_service_role_to_account(AWS.Client.t(), Keyword.t()) ::
           {:ok, associate_service_role_to_account_response(), any()}
@@ -3079,6 +3077,7 @@ defmodule AWS.Greengrass do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=greengrass%20CreateConnectorDefinition&this_doc_guide=API%2520Reference)
 
   ## Parameters:
+
   ## Keyword parameters:
   * `:amzn_client_token` (`t:string`)
   """
@@ -3134,6 +3133,7 @@ defmodule AWS.Greengrass do
 
   ## Parameters:
   * `:connector_definition_id` (`t:string` required)
+
   ## Keyword parameters:
   * `:amzn_client_token` (`t:string`)
   """
@@ -3195,6 +3195,7 @@ defmodule AWS.Greengrass do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=greengrass%20CreateCoreDefinition&this_doc_guide=API%2520Reference)
 
   ## Parameters:
+
   ## Keyword parameters:
   * `:amzn_client_token` (`t:string`)
   """
@@ -3251,6 +3252,7 @@ defmodule AWS.Greengrass do
 
   ## Parameters:
   * `:core_definition_id` (`t:string` required)
+
   ## Keyword parameters:
   * `:amzn_client_token` (`t:string`)
   """
@@ -3307,6 +3309,7 @@ defmodule AWS.Greengrass do
 
   ## Parameters:
   * `:group_id` (`t:string` required)
+
   ## Keyword parameters:
   * `:amzn_client_token` (`t:string`)
   """
@@ -3362,6 +3365,7 @@ defmodule AWS.Greengrass do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=greengrass%20CreateDeviceDefinition&this_doc_guide=API%2520Reference)
 
   ## Parameters:
+
   ## Keyword parameters:
   * `:amzn_client_token` (`t:string`)
   """
@@ -3417,6 +3421,7 @@ defmodule AWS.Greengrass do
 
   ## Parameters:
   * `:device_definition_id` (`t:string` required)
+
   ## Keyword parameters:
   * `:amzn_client_token` (`t:string`)
   """
@@ -3475,6 +3480,7 @@ defmodule AWS.Greengrass do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=greengrass%20CreateFunctionDefinition&this_doc_guide=API%2520Reference)
 
   ## Parameters:
+
   ## Keyword parameters:
   * `:amzn_client_token` (`t:string`)
   """
@@ -3530,6 +3536,7 @@ defmodule AWS.Greengrass do
 
   ## Parameters:
   * `:function_definition_id` (`t:string` required)
+
   ## Keyword parameters:
   * `:amzn_client_token` (`t:string`)
   """
@@ -3593,6 +3600,7 @@ defmodule AWS.Greengrass do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=greengrass%20CreateGroup&this_doc_guide=API%2520Reference)
 
   ## Parameters:
+
   ## Keyword parameters:
   * `:amzn_client_token` (`t:string`)
   """
@@ -3649,6 +3657,7 @@ defmodule AWS.Greengrass do
 
   ## Parameters:
   * `:group_id` (`t:string` required)
+
   ## Keyword parameters:
   * `:amzn_client_token` (`t:string`)
   """
@@ -3704,6 +3713,7 @@ defmodule AWS.Greengrass do
 
   ## Parameters:
   * `:group_id` (`t:string` required)
+
   ## Keyword parameters:
   * `:amzn_client_token` (`t:string`)
   """
@@ -3759,6 +3769,7 @@ defmodule AWS.Greengrass do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=greengrass%20CreateLoggerDefinition&this_doc_guide=API%2520Reference)
 
   ## Parameters:
+
   ## Keyword parameters:
   * `:amzn_client_token` (`t:string`)
   """
@@ -3814,6 +3825,7 @@ defmodule AWS.Greengrass do
 
   ## Parameters:
   * `:logger_definition_id` (`t:string` required)
+
   ## Keyword parameters:
   * `:amzn_client_token` (`t:string`)
   """
@@ -3871,6 +3883,7 @@ defmodule AWS.Greengrass do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=greengrass%20CreateResourceDefinition&this_doc_guide=API%2520Reference)
 
   ## Parameters:
+
   ## Keyword parameters:
   * `:amzn_client_token` (`t:string`)
   """
@@ -3926,6 +3939,7 @@ defmodule AWS.Greengrass do
 
   ## Parameters:
   * `:resource_definition_id` (`t:string` required)
+
   ## Keyword parameters:
   * `:amzn_client_token` (`t:string`)
   """
@@ -3988,6 +4002,7 @@ defmodule AWS.Greengrass do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=greengrass%20CreateSoftwareUpdateJob&this_doc_guide=API%2520Reference)
 
   ## Parameters:
+
   ## Keyword parameters:
   * `:amzn_client_token` (`t:string`)
   """
@@ -4044,6 +4059,7 @@ defmodule AWS.Greengrass do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=greengrass%20CreateSubscriptionDefinition&this_doc_guide=API%2520Reference)
 
   ## Parameters:
+
   ## Keyword parameters:
   * `:amzn_client_token` (`t:string`)
   """
@@ -4099,6 +4115,7 @@ defmodule AWS.Greengrass do
 
   ## Parameters:
   * `:subscription_definition_id` (`t:string` required)
+
   ## Keyword parameters:
   * `:amzn_client_token` (`t:string`)
   """
@@ -4159,7 +4176,6 @@ defmodule AWS.Greengrass do
 
   ## Parameters:
   * `:connector_definition_id` (`t:string` required)
-  ## Keyword parameters:
   """
   @spec delete_connector_definition(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, delete_connector_definition_response(), any()}
@@ -4212,7 +4228,6 @@ defmodule AWS.Greengrass do
 
   ## Parameters:
   * `:core_definition_id` (`t:string` required)
-  ## Keyword parameters:
   """
   @spec delete_core_definition(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, delete_core_definition_response(), any()}
@@ -4265,7 +4280,6 @@ defmodule AWS.Greengrass do
 
   ## Parameters:
   * `:device_definition_id` (`t:string` required)
-  ## Keyword parameters:
   """
   @spec delete_device_definition(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, delete_device_definition_response(), any()}
@@ -4318,7 +4332,6 @@ defmodule AWS.Greengrass do
 
   ## Parameters:
   * `:function_definition_id` (`t:string` required)
-  ## Keyword parameters:
   """
   @spec delete_function_definition(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, delete_function_definition_response(), any()}
@@ -4371,7 +4384,6 @@ defmodule AWS.Greengrass do
 
   ## Parameters:
   * `:group_id` (`t:string` required)
-  ## Keyword parameters:
   """
   @spec delete_group(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, delete_group_response(), any()}
@@ -4424,7 +4436,6 @@ defmodule AWS.Greengrass do
 
   ## Parameters:
   * `:logger_definition_id` (`t:string` required)
-  ## Keyword parameters:
   """
   @spec delete_logger_definition(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, delete_logger_definition_response(), any()}
@@ -4477,7 +4488,6 @@ defmodule AWS.Greengrass do
 
   ## Parameters:
   * `:resource_definition_id` (`t:string` required)
-  ## Keyword parameters:
   """
   @spec delete_resource_definition(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, delete_resource_definition_response(), any()}
@@ -4530,7 +4540,6 @@ defmodule AWS.Greengrass do
 
   ## Parameters:
   * `:subscription_definition_id` (`t:string` required)
-  ## Keyword parameters:
   """
   @spec delete_subscription_definition(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, delete_subscription_definition_response(), any()}
@@ -4588,7 +4597,6 @@ defmodule AWS.Greengrass do
 
   ## Parameters:
   * `:group_id` (`t:string` required)
-  ## Keyword parameters:
   """
   @spec disassociate_role_from_group(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, disassociate_role_from_group_response(), any()}
@@ -4641,7 +4649,6 @@ defmodule AWS.Greengrass do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=greengrass%20DisassociateServiceRoleFromAccount&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec disassociate_service_role_from_account(AWS.Client.t(), Keyword.t()) ::
           {:ok, disassociate_service_role_from_account_response(), any()}
@@ -4694,7 +4701,6 @@ defmodule AWS.Greengrass do
 
   ## Parameters:
   * `:group_id` (`t:string` required)
-  ## Keyword parameters:
   """
   @spec get_associated_role(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_associated_role_response(), any()}
@@ -4735,7 +4741,6 @@ defmodule AWS.Greengrass do
 
   ## Parameters:
   * `:bulk_deployment_id` (`t:string` required)
-  ## Keyword parameters:
   """
   @spec get_bulk_deployment_status(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_bulk_deployment_status_response(), any()}
@@ -4776,7 +4781,6 @@ defmodule AWS.Greengrass do
 
   ## Parameters:
   * `:thing_name` (`t:string` required)
-  ## Keyword parameters:
   """
   @spec get_connectivity_info(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_connectivity_info_response(), any()}
@@ -4817,7 +4821,6 @@ defmodule AWS.Greengrass do
 
   ## Parameters:
   * `:connector_definition_id` (`t:string` required)
-  ## Keyword parameters:
   """
   @spec get_connector_definition(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_connector_definition_response(), any()}
@@ -4862,6 +4865,7 @@ defmodule AWS.Greengrass do
   ## Parameters:
   * `:connector_definition_id` (`t:string` required)
   * `:connector_definition_version_id` (`t:string` required)
+
   ## Keyword parameters:
   * `:next_token` (`t:string`)
   """
@@ -4921,7 +4925,6 @@ defmodule AWS.Greengrass do
 
   ## Parameters:
   * `:core_definition_id` (`t:string` required)
-  ## Keyword parameters:
   """
   @spec get_core_definition(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_core_definition_response(), any()}
@@ -4963,7 +4966,6 @@ defmodule AWS.Greengrass do
   ## Parameters:
   * `:core_definition_id` (`t:string` required)
   * `:core_definition_version_id` (`t:string` required)
-  ## Keyword parameters:
   """
   @spec get_core_definition_version(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_core_definition_version_response(), any()}
@@ -5011,7 +5013,6 @@ defmodule AWS.Greengrass do
   ## Parameters:
   * `:deployment_id` (`t:string` required)
   * `:group_id` (`t:string` required)
-  ## Keyword parameters:
   """
   @spec get_deployment_status(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_deployment_status_response(), any()}
@@ -5053,7 +5054,6 @@ defmodule AWS.Greengrass do
 
   ## Parameters:
   * `:device_definition_id` (`t:string` required)
-  ## Keyword parameters:
   """
   @spec get_device_definition(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_device_definition_response(), any()}
@@ -5095,6 +5095,7 @@ defmodule AWS.Greengrass do
   ## Parameters:
   * `:device_definition_id` (`t:string` required)
   * `:device_definition_version_id` (`t:string` required)
+
   ## Keyword parameters:
   * `:next_token` (`t:string`)
   """
@@ -5155,7 +5156,6 @@ defmodule AWS.Greengrass do
 
   ## Parameters:
   * `:function_definition_id` (`t:string` required)
-  ## Keyword parameters:
   """
   @spec get_function_definition(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_function_definition_response(), any()}
@@ -5198,6 +5198,7 @@ defmodule AWS.Greengrass do
   ## Parameters:
   * `:function_definition_id` (`t:string` required)
   * `:function_definition_version_id` (`t:string` required)
+
   ## Keyword parameters:
   * `:next_token` (`t:string`)
   """
@@ -5257,7 +5258,6 @@ defmodule AWS.Greengrass do
 
   ## Parameters:
   * `:group_id` (`t:string` required)
-  ## Keyword parameters:
   """
   @spec get_group(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_group_response(), any()}
@@ -5299,7 +5299,6 @@ defmodule AWS.Greengrass do
   ## Parameters:
   * `:certificate_authority_id` (`t:string` required)
   * `:group_id` (`t:string` required)
-  ## Keyword parameters:
   """
   @spec get_group_certificate_authority(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_group_certificate_authority_response(), any()}
@@ -5346,7 +5345,6 @@ defmodule AWS.Greengrass do
 
   ## Parameters:
   * `:group_id` (`t:string` required)
-  ## Keyword parameters:
   """
   @spec get_group_certificate_configuration(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_group_certificate_configuration_response(), any()}
@@ -5389,7 +5387,6 @@ defmodule AWS.Greengrass do
   ## Parameters:
   * `:group_id` (`t:string` required)
   * `:group_version_id` (`t:string` required)
-  ## Keyword parameters:
   """
   @spec get_group_version(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_group_version_response(), any()}
@@ -5431,7 +5428,6 @@ defmodule AWS.Greengrass do
 
   ## Parameters:
   * `:logger_definition_id` (`t:string` required)
-  ## Keyword parameters:
   """
   @spec get_logger_definition(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_logger_definition_response(), any()}
@@ -5473,6 +5469,7 @@ defmodule AWS.Greengrass do
   ## Parameters:
   * `:logger_definition_id` (`t:string` required)
   * `:logger_definition_version_id` (`t:string` required)
+
   ## Keyword parameters:
   * `:next_token` (`t:string`)
   """
@@ -5533,7 +5530,6 @@ defmodule AWS.Greengrass do
 
   ## Parameters:
   * `:resource_definition_id` (`t:string` required)
-  ## Keyword parameters:
   """
   @spec get_resource_definition(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_resource_definition_response(), any()}
@@ -5576,7 +5572,6 @@ defmodule AWS.Greengrass do
   ## Parameters:
   * `:resource_definition_id` (`t:string` required)
   * `:resource_definition_version_id` (`t:string` required)
-  ## Keyword parameters:
   """
   @spec get_resource_definition_version(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_resource_definition_version_response(), any()}
@@ -5622,7 +5617,6 @@ defmodule AWS.Greengrass do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=greengrass%20GetServiceRoleForAccount&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec get_service_role_for_account(AWS.Client.t(), Keyword.t()) ::
           {:ok, get_service_role_for_account_response(), any()}
@@ -5663,7 +5657,6 @@ defmodule AWS.Greengrass do
 
   ## Parameters:
   * `:subscription_definition_id` (`t:string` required)
-  ## Keyword parameters:
   """
   @spec get_subscription_definition(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_subscription_definition_response(), any()}
@@ -5706,6 +5699,7 @@ defmodule AWS.Greengrass do
   ## Parameters:
   * `:subscription_definition_id` (`t:string` required)
   * `:subscription_definition_version_id` (`t:string` required)
+
   ## Keyword parameters:
   * `:next_token` (`t:string`)
   """
@@ -5765,7 +5759,6 @@ defmodule AWS.Greengrass do
 
   ## Parameters:
   * `:thing_name` (`t:string` required)
-  ## Keyword parameters:
   """
   @spec get_thing_runtime_configuration(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_thing_runtime_configuration_response(), any()}
@@ -5807,6 +5800,7 @@ defmodule AWS.Greengrass do
 
   ## Parameters:
   * `:bulk_deployment_id` (`t:string` required)
+
   ## Keyword parameters:
   * `:max_results` (`t:string`)
   * `:next_token` (`t:string`)
@@ -5868,6 +5862,7 @@ defmodule AWS.Greengrass do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=greengrass%20ListBulkDeployments&this_doc_guide=API%2520Reference)
 
   ## Parameters:
+
   ## Keyword parameters:
   * `:max_results` (`t:string`)
   * `:next_token` (`t:string`)
@@ -5932,6 +5927,7 @@ defmodule AWS.Greengrass do
 
   ## Parameters:
   * `:connector_definition_id` (`t:string` required)
+
   ## Keyword parameters:
   * `:max_results` (`t:string`)
   * `:next_token` (`t:string`)
@@ -5997,6 +5993,7 @@ defmodule AWS.Greengrass do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=greengrass%20ListConnectorDefinitions&this_doc_guide=API%2520Reference)
 
   ## Parameters:
+
   ## Keyword parameters:
   * `:max_results` (`t:string`)
   * `:next_token` (`t:string`)
@@ -6057,6 +6054,7 @@ defmodule AWS.Greengrass do
 
   ## Parameters:
   * `:core_definition_id` (`t:string` required)
+
   ## Keyword parameters:
   * `:max_results` (`t:string`)
   * `:next_token` (`t:string`)
@@ -6117,6 +6115,7 @@ defmodule AWS.Greengrass do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=greengrass%20ListCoreDefinitions&this_doc_guide=API%2520Reference)
 
   ## Parameters:
+
   ## Keyword parameters:
   * `:max_results` (`t:string`)
   * `:next_token` (`t:string`)
@@ -6177,6 +6176,7 @@ defmodule AWS.Greengrass do
 
   ## Parameters:
   * `:group_id` (`t:string` required)
+
   ## Keyword parameters:
   * `:max_results` (`t:string`)
   * `:next_token` (`t:string`)
@@ -6238,6 +6238,7 @@ defmodule AWS.Greengrass do
 
   ## Parameters:
   * `:device_definition_id` (`t:string` required)
+
   ## Keyword parameters:
   * `:max_results` (`t:string`)
   * `:next_token` (`t:string`)
@@ -6299,6 +6300,7 @@ defmodule AWS.Greengrass do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=greengrass%20ListDeviceDefinitions&this_doc_guide=API%2520Reference)
 
   ## Parameters:
+
   ## Keyword parameters:
   * `:max_results` (`t:string`)
   * `:next_token` (`t:string`)
@@ -6359,6 +6361,7 @@ defmodule AWS.Greengrass do
 
   ## Parameters:
   * `:function_definition_id` (`t:string` required)
+
   ## Keyword parameters:
   * `:max_results` (`t:string`)
   * `:next_token` (`t:string`)
@@ -6420,6 +6423,7 @@ defmodule AWS.Greengrass do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=greengrass%20ListFunctionDefinitions&this_doc_guide=API%2520Reference)
 
   ## Parameters:
+
   ## Keyword parameters:
   * `:max_results` (`t:string`)
   * `:next_token` (`t:string`)
@@ -6480,7 +6484,6 @@ defmodule AWS.Greengrass do
 
   ## Parameters:
   * `:group_id` (`t:string` required)
-  ## Keyword parameters:
   """
   @spec list_group_certificate_authorities(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_group_certificate_authorities_response(), any()}
@@ -6521,6 +6524,7 @@ defmodule AWS.Greengrass do
 
   ## Parameters:
   * `:group_id` (`t:string` required)
+
   ## Keyword parameters:
   * `:max_results` (`t:string`)
   * `:next_token` (`t:string`)
@@ -6581,6 +6585,7 @@ defmodule AWS.Greengrass do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=greengrass%20ListGroups&this_doc_guide=API%2520Reference)
 
   ## Parameters:
+
   ## Keyword parameters:
   * `:max_results` (`t:string`)
   * `:next_token` (`t:string`)
@@ -6641,6 +6646,7 @@ defmodule AWS.Greengrass do
 
   ## Parameters:
   * `:logger_definition_id` (`t:string` required)
+
   ## Keyword parameters:
   * `:max_results` (`t:string`)
   * `:next_token` (`t:string`)
@@ -6702,6 +6708,7 @@ defmodule AWS.Greengrass do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=greengrass%20ListLoggerDefinitions&this_doc_guide=API%2520Reference)
 
   ## Parameters:
+
   ## Keyword parameters:
   * `:max_results` (`t:string`)
   * `:next_token` (`t:string`)
@@ -6762,6 +6769,7 @@ defmodule AWS.Greengrass do
 
   ## Parameters:
   * `:resource_definition_id` (`t:string` required)
+
   ## Keyword parameters:
   * `:max_results` (`t:string`)
   * `:next_token` (`t:string`)
@@ -6823,6 +6831,7 @@ defmodule AWS.Greengrass do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=greengrass%20ListResourceDefinitions&this_doc_guide=API%2520Reference)
 
   ## Parameters:
+
   ## Keyword parameters:
   * `:max_results` (`t:string`)
   * `:next_token` (`t:string`)
@@ -6883,6 +6892,7 @@ defmodule AWS.Greengrass do
 
   ## Parameters:
   * `:subscription_definition_id` (`t:string` required)
+
   ## Keyword parameters:
   * `:max_results` (`t:string`)
   * `:next_token` (`t:string`)
@@ -6948,6 +6958,7 @@ defmodule AWS.Greengrass do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=greengrass%20ListSubscriptionDefinitions&this_doc_guide=API%2520Reference)
 
   ## Parameters:
+
   ## Keyword parameters:
   * `:max_results` (`t:string`)
   * `:next_token` (`t:string`)
@@ -7008,7 +7019,6 @@ defmodule AWS.Greengrass do
 
   ## Parameters:
   * `:resource_arn` (`t:string` required)
-  ## Keyword parameters:
   """
   @spec list_tags_for_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_tags_for_resource_response(), any()}
@@ -7049,6 +7059,7 @@ defmodule AWS.Greengrass do
 
   ## Parameters:
   * `:group_id` (`t:string` required)
+
   ## Keyword parameters:
   * `:amzn_client_token` (`t:string`)
   """
@@ -7108,6 +7119,7 @@ defmodule AWS.Greengrass do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=greengrass%20StartBulkDeployment&this_doc_guide=API%2520Reference)
 
   ## Parameters:
+
   ## Keyword parameters:
   * `:amzn_client_token` (`t:string`)
   """
@@ -7166,7 +7178,6 @@ defmodule AWS.Greengrass do
 
   ## Parameters:
   * `:bulk_deployment_id` (`t:string` required)
-  ## Keyword parameters:
   """
   @spec stop_bulk_deployment(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, stop_bulk_deployment_response(), any()}
@@ -7212,7 +7223,6 @@ defmodule AWS.Greengrass do
 
   ## Parameters:
   * `:resource_arn` (`t:string` required)
-  ## Keyword parameters:
   """
   @spec tag_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
@@ -7256,7 +7266,6 @@ defmodule AWS.Greengrass do
   ## Parameters:
   * `:resource_arn` (`t:string` required)
   * `:tag_keys` (`t:list[com.amazonaws.greengrass#__string]` required)
-  ## Keyword parameters:
   """
   @spec untag_resource(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
@@ -7312,7 +7321,6 @@ defmodule AWS.Greengrass do
 
   ## Parameters:
   * `:thing_name` (`t:string` required)
-  ## Keyword parameters:
   """
   @spec update_connectivity_info(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, update_connectivity_info_response(), any()}
@@ -7355,7 +7363,6 @@ defmodule AWS.Greengrass do
 
   ## Parameters:
   * `:connector_definition_id` (`t:string` required)
-  ## Keyword parameters:
   """
   @spec update_connector_definition(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, update_connector_definition_response(), any()}
@@ -7398,7 +7405,6 @@ defmodule AWS.Greengrass do
 
   ## Parameters:
   * `:core_definition_id` (`t:string` required)
-  ## Keyword parameters:
   """
   @spec update_core_definition(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, update_core_definition_response(), any()}
@@ -7441,7 +7447,6 @@ defmodule AWS.Greengrass do
 
   ## Parameters:
   * `:device_definition_id` (`t:string` required)
-  ## Keyword parameters:
   """
   @spec update_device_definition(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, update_device_definition_response(), any()}
@@ -7484,7 +7489,6 @@ defmodule AWS.Greengrass do
 
   ## Parameters:
   * `:function_definition_id` (`t:string` required)
-  ## Keyword parameters:
   """
   @spec update_function_definition(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, update_function_definition_response(), any()}
@@ -7527,7 +7531,6 @@ defmodule AWS.Greengrass do
 
   ## Parameters:
   * `:group_id` (`t:string` required)
-  ## Keyword parameters:
   """
   @spec update_group(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, update_group_response(), any()}
@@ -7570,7 +7573,6 @@ defmodule AWS.Greengrass do
 
   ## Parameters:
   * `:group_id` (`t:string` required)
-  ## Keyword parameters:
   """
   @spec update_group_certificate_configuration(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, update_group_certificate_configuration_response(), any()}
@@ -7614,7 +7616,6 @@ defmodule AWS.Greengrass do
 
   ## Parameters:
   * `:logger_definition_id` (`t:string` required)
-  ## Keyword parameters:
   """
   @spec update_logger_definition(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, update_logger_definition_response(), any()}
@@ -7657,7 +7658,6 @@ defmodule AWS.Greengrass do
 
   ## Parameters:
   * `:resource_definition_id` (`t:string` required)
-  ## Keyword parameters:
   """
   @spec update_resource_definition(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, update_resource_definition_response(), any()}
@@ -7700,7 +7700,6 @@ defmodule AWS.Greengrass do
 
   ## Parameters:
   * `:subscription_definition_id` (`t:string` required)
-  ## Keyword parameters:
   """
   @spec update_subscription_definition(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, update_subscription_definition_response(), any()}
@@ -7748,7 +7747,6 @@ defmodule AWS.Greengrass do
 
   ## Parameters:
   * `:thing_name` (`t:string` required)
-  ## Keyword parameters:
   """
   @spec update_thing_runtime_configuration(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, update_thing_runtime_configuration_response(), any()}

@@ -1806,10 +1806,9 @@ defmodule AWS.EntityResolution do
 
   ## Parameters:
   * `:arn` (`t:string` required) The Amazon Resource Name (ARN) of the resource
-  that will be accessed by the principal.
+    that will be accessed by the principal.
   * `:statement_id` (`t:string` required) A statement identifier that
-  differentiates the statement from others in the same policy.
-  ## Keyword parameters:
+    differentiates the statement from others in the same policy.
   """
   @spec add_policy_statement(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, add_policy_statement_output(), any()}
@@ -1853,10 +1852,11 @@ defmodule AWS.EntityResolution do
   ## Parameters:
   * `:workflow_name` (`t:string` required) The name of the workflow.
   * `:unique_ids` (`t:list[com.amazonaws.entityresolution#UniqueId]` required) The
-  unique IDs to delete.
+    unique IDs to delete.
+
   ## Keyword parameters:
   * `:input_source` (`t:string`) The input source for the batch delete unique ID
-  operation.
+    operation.
   """
   @spec batch_delete_unique_id(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, batch_delete_unique_id_output(), any()}
@@ -1922,7 +1922,6 @@ defmodule AWS.EntityResolution do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=entityresolution%20CreateIdMappingWorkflow&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec create_id_mapping_workflow(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_id_mapping_workflow_output(), any()}
@@ -1967,7 +1966,6 @@ defmodule AWS.EntityResolution do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=entityresolution%20CreateIdNamespace&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec create_id_namespace(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_id_namespace_output(), any()}
@@ -2012,7 +2010,6 @@ defmodule AWS.EntityResolution do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=entityresolution%20CreateMatchingWorkflow&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec create_matching_workflow(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_matching_workflow_output(), any()}
@@ -2057,7 +2054,6 @@ defmodule AWS.EntityResolution do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=entityresolution%20CreateSchemaMapping&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec create_schema_mapping(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_schema_mapping_output(), any()}
@@ -2101,7 +2097,6 @@ defmodule AWS.EntityResolution do
 
   ## Parameters:
   * `:workflow_name` (`t:string` required) The name of the workflow to be deleted.
-  ## Keyword parameters:
   """
   @spec delete_id_mapping_workflow(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, delete_id_mapping_workflow_output(), any()}
@@ -2154,7 +2149,6 @@ defmodule AWS.EntityResolution do
 
   ## Parameters:
   * `:id_namespace_name` (`t:string` required) The name of the ID namespace.
-  ## Keyword parameters:
   """
   @spec delete_id_namespace(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, delete_id_namespace_output(), any()}
@@ -2208,8 +2202,7 @@ defmodule AWS.EntityResolution do
 
   ## Parameters:
   * `:workflow_name` (`t:string` required) The name of the workflow to be
-  retrieved.
-  ## Keyword parameters:
+    retrieved.
   """
   @spec delete_matching_workflow(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, delete_matching_workflow_output(), any()}
@@ -2262,10 +2255,9 @@ defmodule AWS.EntityResolution do
 
   ## Parameters:
   * `:arn` (`t:string` required) The ARN of the resource for which the policy need
-  to be deleted.
+    to be deleted.
   * `:statement_id` (`t:string` required) A statement identifier that
-  differentiates the statement from others in the same policy.
-  ## Keyword parameters:
+    differentiates the statement from others in the same policy.
   """
   @spec delete_policy_statement(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, delete_policy_statement_output(), any()}
@@ -2321,7 +2313,6 @@ defmodule AWS.EntityResolution do
 
   ## Parameters:
   * `:schema_name` (`t:string` required) The name of the schema to delete.
-  ## Keyword parameters:
   """
   @spec delete_schema_mapping(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, delete_schema_mapping_output(), any()}
@@ -2376,7 +2367,6 @@ defmodule AWS.EntityResolution do
   ## Parameters:
   * `:job_id` (`t:string` required) The ID of the job.
   * `:workflow_name` (`t:string` required) The name of the workflow.
-  ## Keyword parameters:
   """
   @spec get_id_mapping_job(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_id_mapping_job_output(), any()}
@@ -2418,7 +2408,6 @@ defmodule AWS.EntityResolution do
 
   ## Parameters:
   * `:workflow_name` (`t:string` required) The name of the workflow.
-  ## Keyword parameters:
   """
   @spec get_id_mapping_workflow(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_id_mapping_workflow_output(), any()}
@@ -2459,7 +2448,6 @@ defmodule AWS.EntityResolution do
 
   ## Parameters:
   * `:id_namespace_name` (`t:string` required) The name of the ID namespace.
-  ## Keyword parameters:
   """
   @spec get_id_namespace(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_id_namespace_output(), any()}
@@ -2501,7 +2489,6 @@ defmodule AWS.EntityResolution do
 
   ## Parameters:
   * `:workflow_name` (`t:string` required) The name of the workflow.
-  ## Keyword parameters:
   """
   @spec get_match_id(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_match_id_output(), any()}
@@ -2546,7 +2533,6 @@ defmodule AWS.EntityResolution do
   ## Parameters:
   * `:job_id` (`t:string` required) The ID of the job.
   * `:workflow_name` (`t:string` required) The name of the workflow.
-  ## Keyword parameters:
   """
   @spec get_matching_job(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_matching_job_output(), any()}
@@ -2588,7 +2574,6 @@ defmodule AWS.EntityResolution do
 
   ## Parameters:
   * `:workflow_name` (`t:string` required) The name of the workflow.
-  ## Keyword parameters:
   """
   @spec get_matching_workflow(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_matching_workflow_output(), any()}
@@ -2629,8 +2614,7 @@ defmodule AWS.EntityResolution do
 
   ## Parameters:
   * `:arn` (`t:string` required) The Amazon Resource Name (ARN) of the resource
-  for which the policy need to be returned.
-  ## Keyword parameters:
+    for which the policy need to be returned.
   """
   @spec get_policy(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_policy_output(), any()}
@@ -2671,10 +2655,9 @@ defmodule AWS.EntityResolution do
 
   ## Parameters:
   * `:provider_name` (`t:string` required) The name of the provider. This name is
-  typically the company name.
+    typically the company name.
   * `:provider_service_name` (`t:string` required) The ARN (Amazon Resource Name)
-  of the product that the provider service provides.
-  ## Keyword parameters:
+    of the product that the provider service provides.
   """
   @spec get_provider_service(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_provider_service_output(), any()}
@@ -2721,7 +2704,6 @@ defmodule AWS.EntityResolution do
 
   ## Parameters:
   * `:schema_name` (`t:string` required) The name of the schema to be retrieved.
-  ## Keyword parameters:
   """
   @spec get_schema_mapping(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_schema_mapping_output(), any()}
@@ -2762,7 +2744,8 @@ defmodule AWS.EntityResolution do
 
   ## Parameters:
   * `:workflow_name` (`t:string` required) The name of the workflow to be
-  retrieved.
+    retrieved.
+
   ## Keyword parameters:
   * `:max_results` (`t:string`) The maximum number of objects returned per page.
   * `:next_token` (`t:string`) The pagination token from the previous API call.
@@ -2824,6 +2807,7 @@ defmodule AWS.EntityResolution do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=entityresolution%20ListIdMappingWorkflows&this_doc_guide=API%2520Reference)
 
   ## Parameters:
+
   ## Keyword parameters:
   * `:max_results` (`t:string`) The maximum number of objects returned per page.
   * `:next_token` (`t:string`) The pagination token from the previous API call.
@@ -2884,9 +2868,10 @@ defmodule AWS.EntityResolution do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=entityresolution%20ListIdNamespaces&this_doc_guide=API%2520Reference)
 
   ## Parameters:
+
   ## Keyword parameters:
   * `:max_results` (`t:string`) The maximum number of IdNamespace objects returned
-  per page.
+    per page.
   * `:next_token` (`t:string`) The pagination token from the previous API call.
   """
   @spec list_id_namespaces(AWS.Client.t(), Keyword.t()) ::
@@ -2946,7 +2931,8 @@ defmodule AWS.EntityResolution do
 
   ## Parameters:
   * `:workflow_name` (`t:string` required) The name of the workflow to be
-  retrieved.
+    retrieved.
+
   ## Keyword parameters:
   * `:max_results` (`t:string`) The maximum number of objects returned per page.
   * `:next_token` (`t:string`) The pagination token from the previous API call.
@@ -3008,6 +2994,7 @@ defmodule AWS.EntityResolution do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=entityresolution%20ListMatchingWorkflows&this_doc_guide=API%2520Reference)
 
   ## Parameters:
+
   ## Keyword parameters:
   * `:max_results` (`t:string`) The maximum number of objects returned per page.
   * `:next_token` (`t:string`) The pagination token from the previous API call.
@@ -3069,11 +3056,12 @@ defmodule AWS.EntityResolution do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=entityresolution%20ListProviderServices&this_doc_guide=API%2520Reference)
 
   ## Parameters:
+
   ## Keyword parameters:
   * `:max_results` (`t:string`) The maximum number of objects returned per page.
   * `:next_token` (`t:string`) The pagination token from the previous API call.
   * `:provider_name` (`t:string`) The name of the provider. This name is typically
-  the company name.
+    the company name.
   """
   @spec list_provider_services(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_provider_services_output(), any()}
@@ -3139,6 +3127,7 @@ defmodule AWS.EntityResolution do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=entityresolution%20ListSchemaMappings&this_doc_guide=API%2520Reference)
 
   ## Parameters:
+
   ## Keyword parameters:
   * `:max_results` (`t:string`) The maximum number of objects returned per page.
   * `:next_token` (`t:string`) The pagination token from the previous API call.
@@ -3201,8 +3190,7 @@ defmodule AWS.EntityResolution do
 
   ## Parameters:
   * `:resource_arn` (`t:string` required) The ARN of the resource for which you
-  want to view tags.
-  ## Keyword parameters:
+    want to view tags.
   """
   @spec list_tags_for_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_tags_for_resource_output(), any()}
@@ -3243,8 +3231,7 @@ defmodule AWS.EntityResolution do
 
   ## Parameters:
   * `:arn` (`t:string` required) The Amazon Resource Name (ARN) of the resource
-  for which the policy needs to be updated.
-  ## Keyword parameters:
+    for which the policy needs to be updated.
   """
   @spec put_policy(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, put_policy_output(), any()}
@@ -3288,8 +3275,7 @@ defmodule AWS.EntityResolution do
 
   ## Parameters:
   * `:workflow_name` (`t:string` required) The name of the ID mapping job to be
-  retrieved.
-  ## Keyword parameters:
+    retrieved.
   """
   @spec start_id_mapping_job(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, start_id_mapping_job_output(), any()}
@@ -3333,8 +3319,7 @@ defmodule AWS.EntityResolution do
 
   ## Parameters:
   * `:workflow_name` (`t:string` required) The name of the matching job to be
-  retrieved.
-  ## Keyword parameters:
+    retrieved.
   """
   @spec start_matching_job(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, start_matching_job_output(), any()}
@@ -3387,8 +3372,7 @@ defmodule AWS.EntityResolution do
 
   ## Parameters:
   * `:resource_arn` (`t:string` required) The ARN of the resource for which you
-  want to view tags.
-  ## Keyword parameters:
+    want to view tags.
   """
   @spec tag_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, tag_resource_output(), any()}
@@ -3432,10 +3416,9 @@ defmodule AWS.EntityResolution do
 
   ## Parameters:
   * `:resource_arn` (`t:string` required) The ARN of the resource for which you
-  want to untag.
+    want to untag.
   * `:tag_keys` (`t:list[com.amazonaws.entityresolution#TagKey]` required) The
-  list of tag keys to remove from the resource.
-  ## Keyword parameters:
+    list of tag keys to remove from the resource.
   """
   @spec untag_resource(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, untag_resource_output(), any()}
@@ -3492,7 +3475,6 @@ defmodule AWS.EntityResolution do
 
   ## Parameters:
   * `:workflow_name` (`t:string` required) The name of the workflow.
-  ## Keyword parameters:
   """
   @spec update_id_mapping_workflow(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, update_id_mapping_workflow_output(), any()}
@@ -3535,7 +3517,6 @@ defmodule AWS.EntityResolution do
 
   ## Parameters:
   * `:id_namespace_name` (`t:string` required) The name of the ID namespace.
-  ## Keyword parameters:
   """
   @spec update_id_namespace(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, update_id_namespace_output(), any()}
@@ -3581,8 +3562,7 @@ defmodule AWS.EntityResolution do
 
   ## Parameters:
   * `:workflow_name` (`t:string` required) The name of the workflow to be
-  retrieved.
-  ## Keyword parameters:
+    retrieved.
   """
   @spec update_matching_workflow(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, update_matching_workflow_output(), any()}
@@ -3625,8 +3605,7 @@ defmodule AWS.EntityResolution do
 
   ## Parameters:
   * `:schema_name` (`t:string` required) The name of the schema. There can't be
-  multiple SchemaMappings with the same name.
-  ## Keyword parameters:
+    multiple SchemaMappings with the same name.
   """
   @spec update_schema_mapping(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, update_schema_mapping_output(), any()}

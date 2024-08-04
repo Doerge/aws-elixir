@@ -2310,7 +2310,6 @@ defmodule AWS.DevOpsGuru do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=devopsguru%20AddNotificationChannel&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec add_notification_channel(AWS.Client.t(), Keyword.t()) ::
           {:ok, add_notification_channel_response(), any()}
@@ -2354,7 +2353,6 @@ defmodule AWS.DevOpsGuru do
 
   ## Parameters:
   * `:id` (`t:string` required) The ID of the insight.
-  ## Keyword parameters:
   """
   @spec delete_insight(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, delete_insight_response(), any()}
@@ -2409,7 +2407,6 @@ defmodule AWS.DevOpsGuru do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=devopsguru%20DescribeAccountHealth&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec describe_account_health(AWS.Client.t(), Keyword.t()) ::
           {:ok, describe_account_health_response(), any()}
@@ -2451,7 +2448,6 @@ defmodule AWS.DevOpsGuru do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=devopsguru%20DescribeAccountOverview&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec describe_account_overview(AWS.Client.t(), Keyword.t()) ::
           {:ok, describe_account_overview_response(), any()}
@@ -2494,6 +2490,7 @@ defmodule AWS.DevOpsGuru do
 
   ## Parameters:
   * `:id` (`t:string` required) The ID of the anomaly.
+
   ## Keyword parameters:
   * `:account_id` (`t:string`) The ID of the member account.
   """
@@ -2549,7 +2546,6 @@ defmodule AWS.DevOpsGuru do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=devopsguru%20DescribeEventSourcesConfig&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec describe_event_sources_config(AWS.Client.t(), Keyword.t()) ::
           {:ok, describe_event_sources_config_response(), any()}
@@ -2592,7 +2588,6 @@ defmodule AWS.DevOpsGuru do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=devopsguru%20DescribeFeedback&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec describe_feedback(AWS.Client.t(), Keyword.t()) ::
           {:ok, describe_feedback_response(), any()}
@@ -2635,6 +2630,7 @@ defmodule AWS.DevOpsGuru do
 
   ## Parameters:
   * `:id` (`t:string` required) The ID of the insight.
+
   ## Keyword parameters:
   * `:account_id` (`t:string`) The ID of the member account in the organization.
   """
@@ -2688,7 +2684,6 @@ defmodule AWS.DevOpsGuru do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=devopsguru%20DescribeOrganizationHealth&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec describe_organization_health(AWS.Client.t(), Keyword.t()) ::
           {:ok, describe_organization_health_response(), any()}
@@ -2731,7 +2726,6 @@ defmodule AWS.DevOpsGuru do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=devopsguru%20DescribeOrganizationOverview&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec describe_organization_overview(AWS.Client.t(), Keyword.t()) ::
           {:ok, describe_organization_overview_response(), any()}
@@ -2775,7 +2769,6 @@ defmodule AWS.DevOpsGuru do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=devopsguru%20DescribeOrganizationResourceCollectionHealth&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec describe_organization_resource_collection_health(AWS.Client.t(), Keyword.t()) ::
           {:ok, describe_organization_resource_collection_health_response(), any()}
@@ -2826,19 +2819,20 @@ defmodule AWS.DevOpsGuru do
 
   ## Parameters:
   * `:resource_collection_type`
-  (`t:enum["AWS_CLOUD_FORMATION|AWS_SERVICE|AWS_TAGS"]` required) An Amazon
-  Web Services resource collection type. This type specifies how analyzed
-  Amazon Web Services resources are defined. The two types of Amazon Web
-  Services resource collections supported are Amazon Web Services
-  CloudFormation stacks and Amazon Web Services resources that contain the
-  same Amazon Web Services tag. DevOps Guru can be configured to analyze the
-  Amazon Web Services resources that are defined in the stacks or that are
-  tagged using the same tag key. You can specify up to 500 Amazon Web Services
-  CloudFormation stacks.
+    (`t:enum["AWS_CLOUD_FORMATION|AWS_SERVICE|AWS_TAGS"]` required) An Amazon
+    Web Services resource collection type. This type specifies how analyzed
+    Amazon Web Services resources are defined. The two types of Amazon Web
+    Services resource collections supported are Amazon Web Services
+    CloudFormation stacks and Amazon Web Services resources that contain the
+    same Amazon Web Services tag. DevOps Guru can be configured to analyze the
+    Amazon Web Services resources that are defined in the stacks or that are
+    tagged using the same tag key. You can specify up to 500 Amazon Web Services
+    CloudFormation stacks.
+
   ## Keyword parameters:
   * `:next_token` (`t:string`) The pagination token to use to retrieve the next
-  page of results for this operation. If this value is null, it retrieves the
-  first page.
+    page of results for this operation. If this value is null, it retrieves the
+    first page.
   """
   @spec describe_resource_collection_health(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, describe_resource_collection_health_response(), any()}
@@ -2897,7 +2891,6 @@ defmodule AWS.DevOpsGuru do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=devopsguru%20DescribeServiceIntegration&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec describe_service_integration(AWS.Client.t(), Keyword.t()) ::
           {:ok, describe_service_integration_response(), any()}
@@ -2941,10 +2934,11 @@ defmodule AWS.DevOpsGuru do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=devopsguru%20GetCostEstimation&this_doc_guide=API%2520Reference)
 
   ## Parameters:
+
   ## Keyword parameters:
   * `:next_token` (`t:string`) The pagination token to use to retrieve the next
-  page of results for this operation. If this value is null, it retrieves the
-  first page.
+    page of results for this operation. If this value is null, it retrieves the
+    first page.
   """
   @spec get_cost_estimation(AWS.Client.t(), Keyword.t()) ::
           {:ok, get_cost_estimation_response(), any()}
@@ -3002,13 +2996,14 @@ defmodule AWS.DevOpsGuru do
 
   ## Parameters:
   * `:resource_collection_type`
-  (`t:enum["AWS_CLOUD_FORMATION|AWS_SERVICE|AWS_TAGS"]` required) The type of
-  Amazon Web Services resource collections to return. The one valid value is
-  CLOUD_FORMATION for Amazon Web Services CloudFormation stacks.
+    (`t:enum["AWS_CLOUD_FORMATION|AWS_SERVICE|AWS_TAGS"]` required) The type of
+    Amazon Web Services resource collections to return. The one valid value is
+    CLOUD_FORMATION for Amazon Web Services CloudFormation stacks.
+
   ## Keyword parameters:
   * `:next_token` (`t:string`) The pagination token to use to retrieve the next
-  page of results for this operation. If this value is null, it retrieves the
-  first page.
+    page of results for this operation. If this value is null, it retrieves the
+    first page.
   """
   @spec get_resource_collection(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_resource_collection_response(), any()}
@@ -3061,8 +3056,7 @@ defmodule AWS.DevOpsGuru do
 
   ## Parameters:
   * `:insight_id` (`t:string` required) The ID of the insight. The returned
-  anomalies belong to this insight.
-  ## Keyword parameters:
+    anomalies belong to this insight.
   """
   @spec list_anomalies_for_insight(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_anomalies_for_insight_response(), any()}
@@ -3104,7 +3098,6 @@ defmodule AWS.DevOpsGuru do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=devopsguru%20ListAnomalousLogGroups&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec list_anomalous_log_groups(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_anomalous_log_groups_response(), any()}
@@ -3147,7 +3140,6 @@ defmodule AWS.DevOpsGuru do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=devopsguru%20ListEvents&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec list_events(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_events_response(), any()}
@@ -3191,7 +3183,6 @@ defmodule AWS.DevOpsGuru do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=devopsguru%20ListInsights&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec list_insights(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_insights_response(), any()}
@@ -3234,7 +3225,6 @@ defmodule AWS.DevOpsGuru do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=devopsguru%20ListMonitoredResources&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec list_monitored_resources(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_monitored_resources_response(), any()}
@@ -3280,7 +3270,6 @@ defmodule AWS.DevOpsGuru do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=devopsguru%20ListNotificationChannels&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec list_notification_channels(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_notification_channels_response(), any()}
@@ -3322,7 +3311,6 @@ defmodule AWS.DevOpsGuru do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=devopsguru%20ListOrganizationInsights&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec list_organization_insights(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_organization_insights_response(), any()}
@@ -3365,7 +3353,6 @@ defmodule AWS.DevOpsGuru do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=devopsguru%20ListRecommendations&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec list_recommendations(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_recommendations_response(), any()}
@@ -3407,7 +3394,6 @@ defmodule AWS.DevOpsGuru do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=devopsguru%20PutFeedback&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec put_feedback(AWS.Client.t(), Keyword.t()) ::
           {:ok, put_feedback_response(), any()}
@@ -3452,7 +3438,6 @@ defmodule AWS.DevOpsGuru do
 
   ## Parameters:
   * `:id` (`t:string` required) The ID of the notification channel to be removed.
-  ## Keyword parameters:
   """
   @spec remove_notification_channel(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, remove_notification_channel_response(), any()}
@@ -3507,7 +3492,6 @@ defmodule AWS.DevOpsGuru do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=devopsguru%20SearchInsights&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec search_insights(AWS.Client.t(), Keyword.t()) ::
           {:ok, search_insights_response(), any()}
@@ -3552,7 +3536,6 @@ defmodule AWS.DevOpsGuru do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=devopsguru%20SearchOrganizationInsights&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec search_organization_insights(AWS.Client.t(), Keyword.t()) ::
           {:ok, search_organization_insights_response(), any()}
@@ -3595,7 +3578,6 @@ defmodule AWS.DevOpsGuru do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=devopsguru%20StartCostEstimation&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec start_cost_estimation(AWS.Client.t(), Keyword.t()) ::
           {:ok, start_cost_estimation_response(), any()}
@@ -3640,7 +3622,6 @@ defmodule AWS.DevOpsGuru do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=devopsguru%20UpdateEventSourcesConfig&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec update_event_sources_config(AWS.Client.t(), Keyword.t()) ::
           {:ok, update_event_sources_config_response(), any()}
@@ -3689,7 +3670,6 @@ defmodule AWS.DevOpsGuru do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=devopsguru%20UpdateResourceCollection&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec update_resource_collection(AWS.Client.t(), Keyword.t()) ::
           {:ok, update_resource_collection_response(), any()}
@@ -3734,7 +3714,6 @@ defmodule AWS.DevOpsGuru do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=devopsguru%20UpdateServiceIntegration&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec update_service_integration(AWS.Client.t(), Keyword.t()) ::
           {:ok, update_service_integration_response(), any()}

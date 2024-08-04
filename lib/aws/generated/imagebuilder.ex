@@ -4298,7 +4298,6 @@ defmodule AWS.Imagebuilder do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=imagebuilder%20CancelImageCreation&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec cancel_image_creation(AWS.Client.t(), Keyword.t()) ::
           {:ok, cancel_image_creation_response(), any()}
@@ -4340,7 +4339,6 @@ defmodule AWS.Imagebuilder do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=imagebuilder%20CancelLifecycleExecution&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec cancel_lifecycle_execution(AWS.Client.t(), Keyword.t()) ::
           {:ok, cancel_lifecycle_execution_response(), any()}
@@ -4384,7 +4382,6 @@ defmodule AWS.Imagebuilder do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=imagebuilder%20CreateComponent&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec create_component(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_component_response(), any()}
@@ -4427,7 +4424,6 @@ defmodule AWS.Imagebuilder do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=imagebuilder%20CreateContainerRecipe&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec create_container_recipe(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_container_recipe_response(), any()}
@@ -4470,7 +4466,6 @@ defmodule AWS.Imagebuilder do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=imagebuilder%20CreateDistributionConfiguration&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec create_distribution_configuration(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_distribution_configuration_response(), any()}
@@ -4515,7 +4510,6 @@ defmodule AWS.Imagebuilder do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=imagebuilder%20CreateImage&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec create_image(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_image_response(), any()}
@@ -4558,7 +4552,6 @@ defmodule AWS.Imagebuilder do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=imagebuilder%20CreateImagePipeline&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec create_image_pipeline(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_image_pipeline_response(), any()}
@@ -4601,7 +4594,6 @@ defmodule AWS.Imagebuilder do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=imagebuilder%20CreateImageRecipe&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec create_image_recipe(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_image_recipe_response(), any()}
@@ -4644,7 +4636,6 @@ defmodule AWS.Imagebuilder do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=imagebuilder%20CreateInfrastructureConfiguration&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec create_infrastructure_configuration(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_infrastructure_configuration_response(), any()}
@@ -4686,7 +4677,6 @@ defmodule AWS.Imagebuilder do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=imagebuilder%20CreateLifecyclePolicy&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec create_lifecycle_policy(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_lifecycle_policy_response(), any()}
@@ -4728,7 +4718,6 @@ defmodule AWS.Imagebuilder do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=imagebuilder%20CreateWorkflow&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec create_workflow(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_workflow_response(), any()}
@@ -4771,8 +4760,7 @@ defmodule AWS.Imagebuilder do
 
   ## Parameters:
   * `:component_build_version_arn` (`t:string` required) The Amazon Resource Name
-  (ARN) of the component build version to delete.
-  ## Keyword parameters:
+    (ARN) of the component build version to delete.
   """
   @spec delete_component(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, delete_component_response(), any()}
@@ -4826,8 +4814,7 @@ defmodule AWS.Imagebuilder do
 
   ## Parameters:
   * `:container_recipe_arn` (`t:string` required) The Amazon Resource Name (ARN)
-  of the container recipe to delete.
-  ## Keyword parameters:
+    of the container recipe to delete.
   """
   @spec delete_container_recipe(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, delete_container_recipe_response(), any()}
@@ -4881,8 +4868,7 @@ defmodule AWS.Imagebuilder do
 
   ## Parameters:
   * `:distribution_configuration_arn` (`t:string` required) The Amazon Resource
-  Name (ARN) of the distribution configuration to delete.
-  ## Keyword parameters:
+    Name (ARN) of the distribution configuration to delete.
   """
   @spec delete_distribution_configuration(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, delete_distribution_configuration_response(), any()}
@@ -4943,8 +4929,7 @@ defmodule AWS.Imagebuilder do
 
   ## Parameters:
   * `:image_build_version_arn` (`t:string` required) The Amazon Resource Name
-  (ARN) of the Image Builder image resource to delete.
-  ## Keyword parameters:
+    (ARN) of the Image Builder image resource to delete.
   """
   @spec delete_image(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, delete_image_response(), any()}
@@ -4998,8 +4983,7 @@ defmodule AWS.Imagebuilder do
 
   ## Parameters:
   * `:image_pipeline_arn` (`t:string` required) The Amazon Resource Name (ARN) of
-  the image pipeline to delete.
-  ## Keyword parameters:
+    the image pipeline to delete.
   """
   @spec delete_image_pipeline(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, delete_image_pipeline_response(), any()}
@@ -5053,8 +5037,7 @@ defmodule AWS.Imagebuilder do
 
   ## Parameters:
   * `:image_recipe_arn` (`t:string` required) The Amazon Resource Name (ARN) of
-  the image recipe to delete.
-  ## Keyword parameters:
+    the image recipe to delete.
   """
   @spec delete_image_recipe(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, delete_image_recipe_response(), any()}
@@ -5108,8 +5091,7 @@ defmodule AWS.Imagebuilder do
 
   ## Parameters:
   * `:infrastructure_configuration_arn` (`t:string` required) The Amazon Resource
-  Name (ARN) of the infrastructure configuration to delete.
-  ## Keyword parameters:
+    Name (ARN) of the infrastructure configuration to delete.
   """
   @spec delete_infrastructure_configuration(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, delete_infrastructure_configuration_response(), any()}
@@ -5167,8 +5149,7 @@ defmodule AWS.Imagebuilder do
 
   ## Parameters:
   * `:lifecycle_policy_arn` (`t:string` required) The Amazon Resource Name (ARN)
-  of the lifecycle policy resource to delete.
-  ## Keyword parameters:
+    of the lifecycle policy resource to delete.
   """
   @spec delete_lifecycle_policy(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, delete_lifecycle_policy_response(), any()}
@@ -5222,8 +5203,7 @@ defmodule AWS.Imagebuilder do
 
   ## Parameters:
   * `:workflow_build_version_arn` (`t:string` required) The Amazon Resource Name
-  (ARN) of the workflow resource to delete.
-  ## Keyword parameters:
+    (ARN) of the workflow resource to delete.
   """
   @spec delete_workflow(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, delete_workflow_response(), any()}
@@ -5277,9 +5257,8 @@ defmodule AWS.Imagebuilder do
 
   ## Parameters:
   * `:component_build_version_arn` (`t:string` required) The Amazon Resource Name
-  (ARN) of the component that you want to get. Regex requires the suffix
-  /\d+$.
-  ## Keyword parameters:
+    (ARN) of the component that you want to get. Regex requires the suffix
+    /\d+$.
   """
   @spec get_component(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_component_response(), any()}
@@ -5321,8 +5300,7 @@ defmodule AWS.Imagebuilder do
 
   ## Parameters:
   * `:component_arn` (`t:string` required) The Amazon Resource Name (ARN) of the
-  component whose policy you want to retrieve.
-  ## Keyword parameters:
+    component whose policy you want to retrieve.
   """
   @spec get_component_policy(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_component_policy_response(), any()}
@@ -5364,8 +5342,7 @@ defmodule AWS.Imagebuilder do
 
   ## Parameters:
   * `:container_recipe_arn` (`t:string` required) The Amazon Resource Name (ARN)
-  of the container recipe to retrieve.
-  ## Keyword parameters:
+    of the container recipe to retrieve.
   """
   @spec get_container_recipe(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_container_recipe_response(), any()}
@@ -5407,8 +5384,7 @@ defmodule AWS.Imagebuilder do
 
   ## Parameters:
   * `:container_recipe_arn` (`t:string` required) The Amazon Resource Name (ARN)
-  of the container recipe for the policy being requested.
-  ## Keyword parameters:
+    of the container recipe for the policy being requested.
   """
   @spec get_container_recipe_policy(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_container_recipe_policy_response(), any()}
@@ -5450,8 +5426,7 @@ defmodule AWS.Imagebuilder do
 
   ## Parameters:
   * `:distribution_configuration_arn` (`t:string` required) The Amazon Resource
-  Name (ARN) of the distribution configuration that you want to retrieve.
-  ## Keyword parameters:
+    Name (ARN) of the distribution configuration that you want to retrieve.
   """
   @spec get_distribution_configuration(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_distribution_configuration_response(), any()}
@@ -5497,8 +5472,7 @@ defmodule AWS.Imagebuilder do
 
   ## Parameters:
   * `:image_build_version_arn` (`t:string` required) The Amazon Resource Name
-  (ARN) of the image that you want to get.
-  ## Keyword parameters:
+    (ARN) of the image that you want to get.
   """
   @spec get_image(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_image_response(), any()}
@@ -5540,8 +5514,7 @@ defmodule AWS.Imagebuilder do
 
   ## Parameters:
   * `:image_pipeline_arn` (`t:string` required) The Amazon Resource Name (ARN) of
-  the image pipeline that you want to retrieve.
-  ## Keyword parameters:
+    the image pipeline that you want to retrieve.
   """
   @spec get_image_pipeline(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_image_pipeline_response(), any()}
@@ -5583,8 +5556,7 @@ defmodule AWS.Imagebuilder do
 
   ## Parameters:
   * `:image_arn` (`t:string` required) The Amazon Resource Name (ARN) of the image
-  whose policy you want to retrieve.
-  ## Keyword parameters:
+    whose policy you want to retrieve.
   """
   @spec get_image_policy(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_image_policy_response(), any()}
@@ -5625,8 +5597,7 @@ defmodule AWS.Imagebuilder do
 
   ## Parameters:
   * `:image_recipe_arn` (`t:string` required) The Amazon Resource Name (ARN) of
-  the image recipe that you want to retrieve.
-  ## Keyword parameters:
+    the image recipe that you want to retrieve.
   """
   @spec get_image_recipe(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_image_recipe_response(), any()}
@@ -5668,8 +5639,7 @@ defmodule AWS.Imagebuilder do
 
   ## Parameters:
   * `:image_recipe_arn` (`t:string` required) The Amazon Resource Name (ARN) of
-  the image recipe whose policy you want to retrieve.
-  ## Keyword parameters:
+    the image recipe whose policy you want to retrieve.
   """
   @spec get_image_recipe_policy(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_image_recipe_policy_response(), any()}
@@ -5711,8 +5681,7 @@ defmodule AWS.Imagebuilder do
 
   ## Parameters:
   * `:infrastructure_configuration_arn` (`t:string` required) The Amazon Resource
-  Name (ARN) of the infrastructure configuration that you want to retrieve.
-  ## Keyword parameters:
+    Name (ARN) of the infrastructure configuration that you want to retrieve.
   """
   @spec get_infrastructure_configuration(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_infrastructure_configuration_response(), any()}
@@ -5759,8 +5728,7 @@ defmodule AWS.Imagebuilder do
 
   ## Parameters:
   * `:lifecycle_execution_id` (`t:string` required) Use the unique identifier for
-  a runtime instance of the lifecycle policy to get runtime details.
-  ## Keyword parameters:
+    a runtime instance of the lifecycle policy to get runtime details.
   """
   @spec get_lifecycle_execution(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_lifecycle_execution_response(), any()}
@@ -5802,8 +5770,7 @@ defmodule AWS.Imagebuilder do
 
   ## Parameters:
   * `:lifecycle_policy_arn` (`t:string` required) Specifies the Amazon Resource
-  Name (ARN) of the image lifecycle policy resource to get.
-  ## Keyword parameters:
+    Name (ARN) of the image lifecycle policy resource to get.
   """
   @spec get_lifecycle_policy(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_lifecycle_policy_response(), any()}
@@ -5845,8 +5812,7 @@ defmodule AWS.Imagebuilder do
 
   ## Parameters:
   * `:workflow_build_version_arn` (`t:string` required) The Amazon Resource Name
-  (ARN) of the workflow resource that you want to get.
-  ## Keyword parameters:
+    (ARN) of the workflow resource that you want to get.
   """
   @spec get_workflow(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_workflow_response(), any()}
@@ -5889,8 +5855,7 @@ defmodule AWS.Imagebuilder do
 
   ## Parameters:
   * `:workflow_execution_id` (`t:string` required) Use the unique identifier for a
-  runtime instance of the workflow to get runtime details.
-  ## Keyword parameters:
+    runtime instance of the workflow to get runtime details.
   """
   @spec get_workflow_execution(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_workflow_execution_response(), any()}
@@ -5933,9 +5898,8 @@ defmodule AWS.Imagebuilder do
 
   ## Parameters:
   * `:step_execution_id` (`t:string` required) Use the unique identifier for a
-  specific runtime instance of the workflow step to get runtime details for
-  that step.
-  ## Keyword parameters:
+    specific runtime instance of the workflow step to get runtime details for
+    that step.
   """
   @spec get_workflow_step_execution(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_workflow_step_execution_response(), any()}
@@ -5976,7 +5940,6 @@ defmodule AWS.Imagebuilder do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=imagebuilder%20ImportComponent&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec import_component(AWS.Client.t(), Keyword.t()) ::
           {:ok, import_component_response(), any()}
@@ -6024,7 +5987,6 @@ defmodule AWS.Imagebuilder do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=imagebuilder%20ImportVmImage&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec import_vm_image(AWS.Client.t(), Keyword.t()) ::
           {:ok, import_vm_image_response(), any()}
@@ -6066,7 +6028,6 @@ defmodule AWS.Imagebuilder do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=imagebuilder%20ListComponentBuildVersions&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec list_component_build_versions(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_component_build_versions_response(), any()}
@@ -6110,7 +6071,6 @@ defmodule AWS.Imagebuilder do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=imagebuilder%20ListComponents&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec list_components(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_components_response(), any()}
@@ -6152,7 +6112,6 @@ defmodule AWS.Imagebuilder do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=imagebuilder%20ListContainerRecipes&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec list_container_recipes(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_container_recipes_response(), any()}
@@ -6194,7 +6153,6 @@ defmodule AWS.Imagebuilder do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=imagebuilder%20ListDistributionConfigurations&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec list_distribution_configurations(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_distribution_configurations_response(), any()}
@@ -6236,7 +6194,6 @@ defmodule AWS.Imagebuilder do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=imagebuilder%20ListImageBuildVersions&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec list_image_build_versions(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_image_build_versions_response(), any()}
@@ -6279,7 +6236,6 @@ defmodule AWS.Imagebuilder do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=imagebuilder%20ListImagePackages&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec list_image_packages(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_image_packages_response(), any()}
@@ -6321,7 +6277,6 @@ defmodule AWS.Imagebuilder do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=imagebuilder%20ListImagePipelineImages&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec list_image_pipeline_images(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_image_pipeline_images_response(), any()}
@@ -6363,7 +6318,6 @@ defmodule AWS.Imagebuilder do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=imagebuilder%20ListImagePipelines&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec list_image_pipelines(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_image_pipelines_response(), any()}
@@ -6405,7 +6359,6 @@ defmodule AWS.Imagebuilder do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=imagebuilder%20ListImageRecipes&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec list_image_recipes(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_image_recipes_response(), any()}
@@ -6452,7 +6405,6 @@ defmodule AWS.Imagebuilder do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=imagebuilder%20ListImageScanFindingAggregations&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec list_image_scan_finding_aggregations(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_image_scan_finding_aggregations_response(), any()}
@@ -6494,7 +6446,6 @@ defmodule AWS.Imagebuilder do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=imagebuilder%20ListImageScanFindings&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec list_image_scan_findings(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_image_scan_findings_response(), any()}
@@ -6537,7 +6488,6 @@ defmodule AWS.Imagebuilder do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=imagebuilder%20ListImages&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec list_images(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_images_response(), any()}
@@ -6579,7 +6529,6 @@ defmodule AWS.Imagebuilder do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=imagebuilder%20ListInfrastructureConfigurations&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec list_infrastructure_configurations(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_infrastructure_configurations_response(), any()}
@@ -6622,7 +6571,6 @@ defmodule AWS.Imagebuilder do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=imagebuilder%20ListLifecycleExecutionResources&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec list_lifecycle_execution_resources(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_lifecycle_execution_resources_response(), any()}
@@ -6664,7 +6612,6 @@ defmodule AWS.Imagebuilder do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=imagebuilder%20ListLifecycleExecutions&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec list_lifecycle_executions(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_lifecycle_executions_response(), any()}
@@ -6706,7 +6653,6 @@ defmodule AWS.Imagebuilder do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=imagebuilder%20ListLifecyclePolicies&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec list_lifecycle_policies(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_lifecycle_policies_response(), any()}
@@ -6749,8 +6695,7 @@ defmodule AWS.Imagebuilder do
 
   ## Parameters:
   * `:resource_arn` (`t:string` required) The Amazon Resource Name (ARN) of the
-  resource whose tags you want to retrieve.
-  ## Keyword parameters:
+    resource whose tags you want to retrieve.
   """
   @spec list_tags_for_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_tags_for_resource_response(), any()}
@@ -6791,7 +6736,6 @@ defmodule AWS.Imagebuilder do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=imagebuilder%20ListWaitingWorkflowSteps&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec list_waiting_workflow_steps(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_waiting_workflow_steps_response(), any()}
@@ -6833,7 +6777,6 @@ defmodule AWS.Imagebuilder do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=imagebuilder%20ListWorkflowBuildVersions&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec list_workflow_build_versions(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_workflow_build_versions_response(), any()}
@@ -6876,7 +6819,6 @@ defmodule AWS.Imagebuilder do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=imagebuilder%20ListWorkflowExecutions&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec list_workflow_executions(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_workflow_executions_response(), any()}
@@ -6919,7 +6861,6 @@ defmodule AWS.Imagebuilder do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=imagebuilder%20ListWorkflowStepExecutions&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec list_workflow_step_executions(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_workflow_step_executions_response(), any()}
@@ -6961,7 +6902,6 @@ defmodule AWS.Imagebuilder do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=imagebuilder%20ListWorkflows&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec list_workflows(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_workflows_response(), any()}
@@ -7009,7 +6949,6 @@ defmodule AWS.Imagebuilder do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=imagebuilder%20PutComponentPolicy&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec put_component_policy(AWS.Client.t(), Keyword.t()) ::
           {:ok, put_component_policy_response(), any()}
@@ -7059,7 +6998,6 @@ defmodule AWS.Imagebuilder do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=imagebuilder%20PutContainerRecipePolicy&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec put_container_recipe_policy(AWS.Client.t(), Keyword.t()) ::
           {:ok, put_container_recipe_policy_response(), any()}
@@ -7107,7 +7045,6 @@ defmodule AWS.Imagebuilder do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=imagebuilder%20PutImagePolicy&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec put_image_policy(AWS.Client.t(), Keyword.t()) ::
           {:ok, put_image_policy_response(), any()}
@@ -7155,7 +7092,6 @@ defmodule AWS.Imagebuilder do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=imagebuilder%20PutImageRecipePolicy&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec put_image_recipe_policy(AWS.Client.t(), Keyword.t()) ::
           {:ok, put_image_recipe_policy_response(), any()}
@@ -7198,7 +7134,6 @@ defmodule AWS.Imagebuilder do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=imagebuilder%20SendWorkflowStepAction&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec send_workflow_step_action(AWS.Client.t(), Keyword.t()) ::
           {:ok, send_workflow_step_action_response(), any()}
@@ -7240,7 +7175,6 @@ defmodule AWS.Imagebuilder do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=imagebuilder%20StartImagePipelineExecution&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec start_image_pipeline_execution(AWS.Client.t(), Keyword.t()) ::
           {:ok, start_image_pipeline_execution_response(), any()}
@@ -7283,7 +7217,6 @@ defmodule AWS.Imagebuilder do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=imagebuilder%20StartResourceStateUpdate&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec start_resource_state_update(AWS.Client.t(), Keyword.t()) ::
           {:ok, start_resource_state_update_response(), any()}
@@ -7326,8 +7259,7 @@ defmodule AWS.Imagebuilder do
 
   ## Parameters:
   * `:resource_arn` (`t:string` required) The Amazon Resource Name (ARN) of the
-  resource that you want to tag.
-  ## Keyword parameters:
+    resource that you want to tag.
   """
   @spec tag_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, tag_resource_response(), any()}
@@ -7370,10 +7302,9 @@ defmodule AWS.Imagebuilder do
 
   ## Parameters:
   * `:resource_arn` (`t:string` required) The Amazon Resource Name (ARN) of the
-  resource that you want to untag.
+    resource that you want to untag.
   * `:tag_keys` (`t:list[com.amazonaws.imagebuilder#TagKey]` required) The tag
-  keys to remove from the resource.
-  ## Keyword parameters:
+    keys to remove from the resource.
   """
   @spec untag_resource(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, untag_resource_response(), any()}
@@ -7427,7 +7358,6 @@ defmodule AWS.Imagebuilder do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=imagebuilder%20UpdateDistributionConfiguration&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec update_distribution_configuration(AWS.Client.t(), Keyword.t()) ::
           {:ok, update_distribution_configuration_response(), any()}
@@ -7471,7 +7401,6 @@ defmodule AWS.Imagebuilder do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=imagebuilder%20UpdateImagePipeline&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec update_image_pipeline(AWS.Client.t(), Keyword.t()) ::
           {:ok, update_image_pipeline_response(), any()}
@@ -7514,7 +7443,6 @@ defmodule AWS.Imagebuilder do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=imagebuilder%20UpdateInfrastructureConfiguration&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec update_infrastructure_configuration(AWS.Client.t(), Keyword.t()) ::
           {:ok, update_infrastructure_configuration_response(), any()}
@@ -7556,7 +7484,6 @@ defmodule AWS.Imagebuilder do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=imagebuilder%20UpdateLifecyclePolicy&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec update_lifecycle_policy(AWS.Client.t(), Keyword.t()) ::
           {:ok, update_lifecycle_policy_response(), any()}

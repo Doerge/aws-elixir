@@ -783,7 +783,6 @@ defmodule AWS.CognitoSync do
 
   ## Parameters:
   * `:identity_pool_id` (`t:string` required)
-  ## Keyword parameters:
   """
   @spec bulk_publish(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, bulk_publish_response(), any()}
@@ -831,7 +830,6 @@ defmodule AWS.CognitoSync do
   * `:dataset_name` (`t:string` required)
   * `:identity_id` (`t:string` required)
   * `:identity_pool_id` (`t:string` required)
-  ## Keyword parameters:
   """
   @spec delete_dataset(AWS.Client.t(), String.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, delete_dataset_response(), any()}
@@ -895,7 +893,6 @@ defmodule AWS.CognitoSync do
   * `:dataset_name` (`t:string` required)
   * `:identity_id` (`t:string` required)
   * `:identity_pool_id` (`t:string` required)
-  ## Keyword parameters:
   """
   @spec describe_dataset(AWS.Client.t(), String.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, describe_dataset_response(), any()}
@@ -945,7 +942,6 @@ defmodule AWS.CognitoSync do
 
   ## Parameters:
   * `:identity_pool_id` (`t:string` required)
-  ## Keyword parameters:
   """
   @spec describe_identity_pool_usage(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, describe_identity_pool_usage_response(), any()}
@@ -989,7 +985,6 @@ defmodule AWS.CognitoSync do
   ## Parameters:
   * `:identity_id` (`t:string` required)
   * `:identity_pool_id` (`t:string` required)
-  ## Keyword parameters:
   """
   @spec describe_identity_usage(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, describe_identity_usage_response(), any()}
@@ -1031,7 +1026,6 @@ defmodule AWS.CognitoSync do
 
   ## Parameters:
   * `:identity_pool_id` (`t:string` required)
-  ## Keyword parameters:
   """
   @spec get_bulk_publish_details(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_bulk_publish_details_response(), any()}
@@ -1075,8 +1069,7 @@ defmodule AWS.CognitoSync do
 
   ## Parameters:
   * `:identity_pool_id` (`t:string` required) The Cognito Identity Pool ID for the
-  request
-  ## Keyword parameters:
+    request
   """
   @spec get_cognito_events(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_cognito_events_response(), any()}
@@ -1119,9 +1112,8 @@ defmodule AWS.CognitoSync do
 
   ## Parameters:
   * `:identity_pool_id` (`t:string` required) A name-spaced GUID (for example,
-  us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito.
-  This is the ID of the pool for which to return a configuration.
-  ## Keyword parameters:
+    us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito.
+    This is the ID of the pool for which to return a configuration.
   """
   @spec get_identity_pool_configuration(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_identity_pool_configuration_response(), any()}
@@ -1168,6 +1160,7 @@ defmodule AWS.CognitoSync do
   ## Parameters:
   * `:identity_id` (`t:string` required)
   * `:identity_pool_id` (`t:string` required)
+
   ## Keyword parameters:
   * `:max_results` (`t:integer`)
   * `:next_token` (`t:string`)
@@ -1231,6 +1224,7 @@ defmodule AWS.CognitoSync do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cognitosync%20ListIdentityPoolUsage&this_doc_guide=API%2520Reference)
 
   ## Parameters:
+
   ## Keyword parameters:
   * `:max_results` (`t:integer`)
   * `:next_token` (`t:string`)
@@ -1299,6 +1293,7 @@ defmodule AWS.CognitoSync do
   * `:dataset_name` (`t:string` required)
   * `:identity_id` (`t:string` required)
   * `:identity_pool_id` (`t:string` required)
+
   ## Keyword parameters:
   * `:last_sync_count` (`t:long`)
   * `:max_results` (`t:integer`)
@@ -1385,9 +1380,8 @@ defmodule AWS.CognitoSync do
   ## Parameters:
   * `:identity_id` (`t:string` required) The unique ID for this identity.
   * `:identity_pool_id` (`t:string` required) A name-spaced GUID (for example,
-  us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito.
-  Here, the ID of the pool that the identity belongs to.
-  ## Keyword parameters:
+    us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito.
+    Here, the ID of the pool that the identity belongs to.
   """
   @spec register_device(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, register_device_response(), any()}
@@ -1434,8 +1428,7 @@ defmodule AWS.CognitoSync do
 
   ## Parameters:
   * `:identity_pool_id` (`t:string` required) The Cognito Identity Pool to use
-  when configuring Cognito Events
-  ## Keyword parameters:
+    when configuring Cognito Events
   """
   @spec set_cognito_events(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
@@ -1480,9 +1473,8 @@ defmodule AWS.CognitoSync do
 
   ## Parameters:
   * `:identity_pool_id` (`t:string` required) A name-spaced GUID (for example,
-  us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito.
-  This is the ID of the pool to modify.
-  ## Keyword parameters:
+    us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito.
+    This is the ID of the pool to modify.
   """
   @spec set_identity_pool_configuration(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, set_identity_pool_configuration_response(), any()}
@@ -1528,12 +1520,11 @@ defmodule AWS.CognitoSync do
   ## Parameters:
   * `:dataset_name` (`t:string` required) The name of the dataset to subcribe to.
   * `:device_id` (`t:string` required) The unique ID generated for this device by
-  Cognito.
+    Cognito.
   * `:identity_id` (`t:string` required) Unique ID for this identity.
   * `:identity_pool_id` (`t:string` required) A name-spaced GUID (for example,
-  us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito.
-  The ID of the pool to which the identity belongs.
-  ## Keyword parameters:
+    us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito.
+    The ID of the pool to which the identity belongs.
   """
   @spec subscribe_to_dataset(
           AWS.Client.t(),
@@ -1593,14 +1584,13 @@ defmodule AWS.CognitoSync do
 
   ## Parameters:
   * `:dataset_name` (`t:string` required) The name of the dataset from which to
-  unsubcribe.
+    unsubcribe.
   * `:device_id` (`t:string` required) The unique ID generated for this device by
-  Cognito.
+    Cognito.
   * `:identity_id` (`t:string` required) Unique ID for this identity.
   * `:identity_pool_id` (`t:string` required) A name-spaced GUID (for example,
-  us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito.
-  The ID of the pool to which this identity belongs.
-  ## Keyword parameters:
+    us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito.
+    The ID of the pool to which this identity belongs.
   """
   @spec unsubscribe_from_dataset(
           AWS.Client.t(),
@@ -1674,6 +1664,7 @@ defmodule AWS.CognitoSync do
   * `:dataset_name` (`t:string` required)
   * `:identity_id` (`t:string` required)
   * `:identity_pool_id` (`t:string` required)
+
   ## Keyword parameters:
   * `:client_context` (`t:string`)
   """

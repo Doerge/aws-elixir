@@ -563,7 +563,6 @@ defmodule AWS.Savingsplans do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=savingsplans%20CreateSavingsPlan&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec create_savings_plan(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_savings_plan_response(), any()}
@@ -605,7 +604,6 @@ defmodule AWS.Savingsplans do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=savingsplans%20DeleteQueuedSavingsPlan&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec delete_queued_savings_plan(AWS.Client.t(), Keyword.t()) ::
           {:ok, delete_queued_savings_plan_response(), any()}
@@ -647,7 +645,6 @@ defmodule AWS.Savingsplans do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=savingsplans%20DescribeSavingsPlanRates&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec describe_savings_plan_rates(AWS.Client.t(), Keyword.t()) ::
           {:ok, describe_savings_plan_rates_response(), any()}
@@ -689,7 +686,6 @@ defmodule AWS.Savingsplans do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=savingsplans%20DescribeSavingsPlans&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec describe_savings_plans(AWS.Client.t(), Keyword.t()) ::
           {:ok, describe_savings_plans_response(), any()}
@@ -731,7 +727,6 @@ defmodule AWS.Savingsplans do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=savingsplans%20DescribeSavingsPlansOfferingRates&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec describe_savings_plans_offering_rates(AWS.Client.t(), Keyword.t()) ::
           {:ok, describe_savings_plans_offering_rates_response(), any()}
@@ -773,7 +768,6 @@ defmodule AWS.Savingsplans do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=savingsplans%20DescribeSavingsPlansOfferings&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec describe_savings_plans_offerings(AWS.Client.t(), Keyword.t()) ::
           {:ok, describe_savings_plans_offerings_response(), any()}
@@ -815,7 +809,6 @@ defmodule AWS.Savingsplans do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=savingsplans%20ListTagsForResource&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec list_tags_for_resource(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_tags_for_resource_response(), any()}
@@ -857,7 +850,6 @@ defmodule AWS.Savingsplans do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=savingsplans%20ReturnSavingsPlan&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec return_savings_plan(AWS.Client.t(), Keyword.t()) ::
           {:ok, return_savings_plan_response(), any()}
@@ -899,7 +891,6 @@ defmodule AWS.Savingsplans do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=savingsplans%20TagResource&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec tag_resource(AWS.Client.t(), Keyword.t()) ::
           {:ok, tag_resource_response(), any()}
@@ -941,7 +932,6 @@ defmodule AWS.Savingsplans do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=savingsplans%20UntagResource&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec untag_resource(AWS.Client.t(), Keyword.t()) ::
           {:ok, untag_resource_response(), any()}

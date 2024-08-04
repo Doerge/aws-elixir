@@ -1108,9 +1108,8 @@ defmodule AWS.MediaPackage do
   ## Parameters:
   * `:id` (`t:string` required)
   * `:input` (`t:map | nil`):
-    * `:egress_access_logs` (`t:structure`)
-    * `:ingress_access_logs` (`t:structure`)
-  ## Keyword parameters:
+    * `"egressAccessLogs" => t:structure`
+    * `"ingressAccessLogs" => t:structure`
   """
   @spec configure_logs(AWS.Client.t(), String.t(), input :: map() | nil, Keyword.t()) ::
           {:ok, configure_logs_response(), any()}
@@ -1154,10 +1153,9 @@ defmodule AWS.MediaPackage do
 
   ## Parameters:
   * `:input` (`t:map`):
-    * `:id` (`t:string` required)
-    * `:description` (`t:string`)
-    * `:tags` (`t:map`)
-  ## Keyword parameters:
+    * `"id" => t:string` (required)
+    * `"description" => t:string`
+    * `"tags" => t:map`
   """
   @spec create_channel(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_channel_response(), any()}
@@ -1200,12 +1198,11 @@ defmodule AWS.MediaPackage do
 
   ## Parameters:
   * `:input` (`t:map`):
-    * `:end_time` (`t:string` required)
-    * `:id` (`t:string` required)
-    * `:origin_endpoint_id` (`t:string` required)
-    * `:s3_destination` (`t:structure` required)
-    * `:start_time` (`t:string` required)
-  ## Keyword parameters:
+    * `"endTime" => t:string` (required)
+    * `"id" => t:string` (required)
+    * `"originEndpointId" => t:string` (required)
+    * `"s3Destination" => t:structure` (required)
+    * `"startTime" => t:string` (required)
   """
   @spec create_harvest_job(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_harvest_job_response(), any()}
@@ -1248,21 +1245,20 @@ defmodule AWS.MediaPackage do
 
   ## Parameters:
   * `:input` (`t:map`):
-    * `:channel_id` (`t:string` required)
-    * `:id` (`t:string` required)
-    * `:authorization` (`t:structure`)
-    * `:cmaf_package` (`t:structure`)
-    * `:dash_package` (`t:structure`)
-    * `:description` (`t:string`)
-    * `:hls_package` (`t:structure`)
-    * `:manifest_name` (`t:string`)
-    * `:mss_package` (`t:structure`)
-    * `:origination` (`t:enum["ALLOW|DENY"]`)
-    * `:startover_window_seconds` (`t:integer`)
-    * `:tags` (`t:map`)
-    * `:time_delay_seconds` (`t:integer`)
-    * `:whitelist` (`t:list[com.amazonaws.mediapackage#__string]`)
-  ## Keyword parameters:
+    * `"channelId" => t:string` (required)
+    * `"id" => t:string` (required)
+    * `"authorization" => t:structure`
+    * `"cmafPackage" => t:structure`
+    * `"dashPackage" => t:structure`
+    * `"description" => t:string`
+    * `"hlsPackage" => t:structure`
+    * `"manifestName" => t:string`
+    * `"mssPackage" => t:structure`
+    * `"origination" => t:enum["ALLOW|DENY"]`
+    * `"startoverWindowSeconds" => t:integer`
+    * `"tags" => t:map`
+    * `"timeDelaySeconds" => t:integer`
+    * `"whitelist" => t:list[com.amazonaws.mediapackage#__string]`
   """
   @spec create_origin_endpoint(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_origin_endpoint_response(), any()}
@@ -1305,7 +1301,6 @@ defmodule AWS.MediaPackage do
 
   ## Parameters:
   * `:id` (`t:string` required)
-  ## Keyword parameters:
   """
   @spec delete_channel(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, delete_channel_response(), any()}
@@ -1358,7 +1353,6 @@ defmodule AWS.MediaPackage do
 
   ## Parameters:
   * `:id` (`t:string` required)
-  ## Keyword parameters:
   """
   @spec delete_origin_endpoint(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, delete_origin_endpoint_response(), any()}
@@ -1411,7 +1405,6 @@ defmodule AWS.MediaPackage do
 
   ## Parameters:
   * `:id` (`t:string` required)
-  ## Keyword parameters:
   """
   @spec describe_channel(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, describe_channel_response(), any()}
@@ -1452,7 +1445,6 @@ defmodule AWS.MediaPackage do
 
   ## Parameters:
   * `:id` (`t:string` required)
-  ## Keyword parameters:
   """
   @spec describe_harvest_job(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, describe_harvest_job_response(), any()}
@@ -1493,7 +1485,6 @@ defmodule AWS.MediaPackage do
 
   ## Parameters:
   * `:id` (`t:string` required)
-  ## Keyword parameters:
   """
   @spec describe_origin_endpoint(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, describe_origin_endpoint_response(), any()}
@@ -1533,6 +1524,7 @@ defmodule AWS.MediaPackage do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mediapackage%20ListChannels&this_doc_guide=API%2520Reference)
 
   ## Parameters:
+
   ## Keyword parameters:
   * `:max_results` (`t:integer`)
   * `:next_token` (`t:string`)
@@ -1593,6 +1585,7 @@ defmodule AWS.MediaPackage do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mediapackage%20ListHarvestJobs&this_doc_guide=API%2520Reference)
 
   ## Parameters:
+
   ## Keyword parameters:
   * `:include_channel_id` (`t:string`)
   * `:include_status` (`t:string`)
@@ -1674,6 +1667,7 @@ defmodule AWS.MediaPackage do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mediapackage%20ListOriginEndpoints&this_doc_guide=API%2520Reference)
 
   ## Parameters:
+
   ## Keyword parameters:
   * `:channel_id` (`t:string`)
   * `:max_results` (`t:integer`)
@@ -1743,7 +1737,6 @@ defmodule AWS.MediaPackage do
 
   ## Parameters:
   * `:resource_arn` (`t:string` required)
-  ## Keyword parameters:
   """
   @spec list_tags_for_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_tags_for_resource_response(), any()}
@@ -1784,7 +1777,6 @@ defmodule AWS.MediaPackage do
 
   ## Parameters:
   * `:id` (`t:string` required)
-  ## Keyword parameters:
   """
   @spec rotate_channel_credentials(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, rotate_channel_credentials_response(), any()}
@@ -1829,7 +1821,6 @@ defmodule AWS.MediaPackage do
   ## Parameters:
   * `:id` (`t:string` required)
   * `:ingest_endpoint_id` (`t:string` required)
-  ## Keyword parameters:
   """
   @spec rotate_ingest_endpoint_credentials(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, rotate_ingest_endpoint_credentials_response(), any()}
@@ -1879,8 +1870,7 @@ defmodule AWS.MediaPackage do
   ## Parameters:
   * `:resource_arn` (`t:string` required)
   * `:input` (`t:map`):
-    * `:tags` (`t:map` required)
-  ## Keyword parameters:
+    * `"tags" => t:map` (required)
   """
   @spec tag_resource(AWS.Client.t(), String.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
@@ -1923,7 +1913,6 @@ defmodule AWS.MediaPackage do
   ## Parameters:
   * `:resource_arn` (`t:string` required)
   * `:tag_keys` (`t:list[com.amazonaws.mediapackage#__string]` required)
-  ## Keyword parameters:
   """
   @spec untag_resource(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
@@ -1977,8 +1966,7 @@ defmodule AWS.MediaPackage do
   ## Parameters:
   * `:id` (`t:string` required)
   * `:input` (`t:map | nil`):
-    * `:description` (`t:string`)
-  ## Keyword parameters:
+    * `"description" => t:string`
   """
   @spec update_channel(AWS.Client.t(), String.t(), input :: map() | nil, Keyword.t()) ::
           {:ok, update_channel_response(), any()}
@@ -2023,18 +2011,17 @@ defmodule AWS.MediaPackage do
   ## Parameters:
   * `:id` (`t:string` required)
   * `:input` (`t:map | nil`):
-    * `:authorization` (`t:structure`)
-    * `:cmaf_package` (`t:structure`)
-    * `:dash_package` (`t:structure`)
-    * `:description` (`t:string`)
-    * `:hls_package` (`t:structure`)
-    * `:manifest_name` (`t:string`)
-    * `:mss_package` (`t:structure`)
-    * `:origination` (`t:enum["ALLOW|DENY"]`)
-    * `:startover_window_seconds` (`t:integer`)
-    * `:time_delay_seconds` (`t:integer`)
-    * `:whitelist` (`t:list[com.amazonaws.mediapackage#__string]`)
-  ## Keyword parameters:
+    * `"authorization" => t:structure`
+    * `"cmafPackage" => t:structure`
+    * `"dashPackage" => t:structure`
+    * `"description" => t:string`
+    * `"hlsPackage" => t:structure`
+    * `"manifestName" => t:string`
+    * `"mssPackage" => t:structure`
+    * `"origination" => t:enum["ALLOW|DENY"]`
+    * `"startoverWindowSeconds" => t:integer`
+    * `"timeDelaySeconds" => t:integer`
+    * `"whitelist" => t:list[com.amazonaws.mediapackage#__string]`
   """
   @spec update_origin_endpoint(AWS.Client.t(), String.t(), input :: map() | nil, Keyword.t()) ::
           {:ok, update_origin_endpoint_response(), any()}

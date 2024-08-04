@@ -1445,7 +1445,6 @@ defmodule AWS.CodeCatalyst do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=codecatalyst%20CreateAccessToken&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec create_access_token(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_access_token_response(), any()}
@@ -1490,7 +1489,6 @@ defmodule AWS.CodeCatalyst do
   ## Parameters:
   * `:project_name` (`t:string` required) The name of the project in the space.
   * `:space_name` (`t:string` required) The name of the space.
-  ## Keyword parameters:
   """
   @spec create_dev_environment(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, create_dev_environment_response(), any()}
@@ -1533,7 +1531,6 @@ defmodule AWS.CodeCatalyst do
 
   ## Parameters:
   * `:space_name` (`t:string` required) The name of the space.
-  ## Keyword parameters:
   """
   @spec create_project(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, create_project_response(), any()}
@@ -1577,10 +1574,9 @@ defmodule AWS.CodeCatalyst do
 
   ## Parameters:
   * `:name` (`t:string` required) The name of the source repository. For more
-  information about name requirements, see Quotas for source repositories.
+    information about name requirements, see Quotas for source repositories.
   * `:project_name` (`t:string` required) The name of the project in the space.
   * `:space_name` (`t:string` required) The name of the space.
-  ## Keyword parameters:
   """
   @spec create_source_repository(AWS.Client.t(), String.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, create_source_repository_response(), any()}
@@ -1625,9 +1621,8 @@ defmodule AWS.CodeCatalyst do
   * `:name` (`t:string` required) The name for the branch you're creating.
   * `:project_name` (`t:string` required) The name of the project in the space.
   * `:source_repository_name` (`t:string` required) The name of the repository
-  where you want to create a branch.
+    where you want to create a branch.
   * `:space_name` (`t:string` required) The name of the space.
-  ## Keyword parameters:
   """
   @spec create_source_repository_branch(
           AWS.Client.t(),
@@ -1685,9 +1680,8 @@ defmodule AWS.CodeCatalyst do
 
   ## Parameters:
   * `:id` (`t:string` required) The ID of the personal access token to delete. You
-  can find the IDs of all PATs associated with your Amazon Web Services
-  Builder ID in a space by calling ListAccessTokens.
-  ## Keyword parameters:
+    can find the IDs of all PATs associated with your Amazon Web Services
+    Builder ID in a space by calling ListAccessTokens.
   """
   @spec delete_access_token(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, delete_access_token_response(), any()}
@@ -1739,11 +1733,10 @@ defmodule AWS.CodeCatalyst do
 
   ## Parameters:
   * `:id` (`t:string` required) The system-generated unique ID of the Dev
-  Environment you want to delete. To retrieve a list of Dev Environment IDs,
-  use ListDevEnvironments.
+    Environment you want to delete. To retrieve a list of Dev Environment IDs,
+    use ListDevEnvironments.
   * `:project_name` (`t:string` required) The name of the project in the space.
   * `:space_name` (`t:string` required) The name of the space.
-  ## Keyword parameters:
   """
   @spec delete_dev_environment(AWS.Client.t(), String.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, delete_dev_environment_response(), any()}
@@ -1796,9 +1789,8 @@ defmodule AWS.CodeCatalyst do
 
   ## Parameters:
   * `:name` (`t:string` required) The name of the project in the space. To
-  retrieve a list of project names, use ListProjects.
+    retrieve a list of project names, use ListProjects.
   * `:space_name` (`t:string` required) The name of the space.
-  ## Keyword parameters:
   """
   @spec delete_project(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, delete_project_response(), any()}
@@ -1855,7 +1847,6 @@ defmodule AWS.CodeCatalyst do
   * `:name` (`t:string` required) The name of the source repository.
   * `:project_name` (`t:string` required) The name of the project in the space.
   * `:space_name` (`t:string` required) The name of the space.
-  ## Keyword parameters:
   """
   @spec delete_source_repository(AWS.Client.t(), String.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, delete_source_repository_response(), any()}
@@ -1908,8 +1899,7 @@ defmodule AWS.CodeCatalyst do
 
   ## Parameters:
   * `:name` (`t:string` required) The name of the space. To retrieve a list of
-  space names, use ListSpaces.
-  ## Keyword parameters:
+    space names, use ListSpaces.
   """
   @spec delete_space(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, delete_space_response(), any()}
@@ -1962,11 +1952,10 @@ defmodule AWS.CodeCatalyst do
 
   ## Parameters:
   * `:id` (`t:string` required) The system-generated unique ID of the Dev
-  Environment for which you want to view information. To retrieve a list of
-  Dev Environment IDs, use ListDevEnvironments.
+    Environment for which you want to view information. To retrieve a list of
+    Dev Environment IDs, use ListDevEnvironments.
   * `:project_name` (`t:string` required) The name of the project in the space.
   * `:space_name` (`t:string` required) The name of the space.
-  ## Keyword parameters:
   """
   @spec get_dev_environment(AWS.Client.t(), String.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_dev_environment_response(), any()}
@@ -2008,7 +1997,6 @@ defmodule AWS.CodeCatalyst do
   ## Parameters:
   * `:name` (`t:string` required) The name of the project in the space.
   * `:space_name` (`t:string` required) The name of the space.
-  ## Keyword parameters:
   """
   @spec get_project(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_project_response(), any()}
@@ -2051,7 +2039,6 @@ defmodule AWS.CodeCatalyst do
   * `:name` (`t:string` required) The name of the source repository.
   * `:project_name` (`t:string` required) The name of the project in the space.
   * `:space_name` (`t:string` required) The name of the space.
-  ## Keyword parameters:
   """
   @spec get_source_repository(AWS.Client.t(), String.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_source_repository_response(), any()}
@@ -2094,9 +2081,8 @@ defmodule AWS.CodeCatalyst do
   ## Parameters:
   * `:project_name` (`t:string` required) The name of the project in the space.
   * `:source_repository_name` (`t:string` required) The name of the source
-  repository.
+    repository.
   * `:space_name` (`t:string` required) The name of the space.
-  ## Keyword parameters:
   """
   @spec get_source_repository_clone_urls(
           AWS.Client.t(),
@@ -2149,7 +2135,6 @@ defmodule AWS.CodeCatalyst do
 
   ## Parameters:
   * `:name` (`t:string` required) The name of the space.
-  ## Keyword parameters:
   """
   @spec get_space(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_space_response(), any()}
@@ -2190,7 +2175,6 @@ defmodule AWS.CodeCatalyst do
 
   ## Parameters:
   * `:space_name` (`t:string` required) The name of the space.
-  ## Keyword parameters:
   """
   @spec get_subscription(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_subscription_response(), any()}
@@ -2229,10 +2213,11 @@ defmodule AWS.CodeCatalyst do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=codecatalyst%20GetUserDetails&this_doc_guide=API%2520Reference)
 
   ## Parameters:
+
   ## Keyword parameters:
   * `:id` (`t:string`) The system-generated unique ID of the user.
   * `:user_name` (`t:string`) The name of the user as displayed in Amazon
-  CodeCatalyst.
+    CodeCatalyst.
   """
   @spec get_user_details(AWS.Client.t(), Keyword.t()) ::
           {:ok, get_user_details_response(), any()}
@@ -2290,10 +2275,9 @@ defmodule AWS.CodeCatalyst do
 
   ## Parameters:
   * `:id` (`t:string` required) The ID of the workflow. To rerieve a list of
-  workflow IDs, use ListWorkflows.
+    workflow IDs, use ListWorkflows.
   * `:project_name` (`t:string` required) The name of the project in the space.
   * `:space_name` (`t:string` required) The name of the space.
-  ## Keyword parameters:
   """
   @spec get_workflow(AWS.Client.t(), String.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_workflow_response(), any()}
@@ -2334,10 +2318,9 @@ defmodule AWS.CodeCatalyst do
 
   ## Parameters:
   * `:id` (`t:string` required) The ID of the workflow run. To retrieve a list of
-  workflow run IDs, use ListWorkflowRuns.
+    workflow run IDs, use ListWorkflowRuns.
   * `:project_name` (`t:string` required) The name of the project in the space.
   * `:space_name` (`t:string` required) The name of the space.
-  ## Keyword parameters:
   """
   @spec get_workflow_run(AWS.Client.t(), String.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_workflow_run_response(), any()}
@@ -2379,7 +2362,6 @@ defmodule AWS.CodeCatalyst do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=codecatalyst%20ListAccessTokens&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec list_access_tokens(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_access_tokens_response(), any()}
@@ -2421,10 +2403,9 @@ defmodule AWS.CodeCatalyst do
 
   ## Parameters:
   * `:dev_environment_id` (`t:string` required) The system-generated unique ID of
-  the Dev Environment.
+    the Dev Environment.
   * `:project_name` (`t:string` required) The name of the project in the space.
   * `:space_name` (`t:string` required) The name of the space.
-  ## Keyword parameters:
   """
   @spec list_dev_environment_sessions(
           AWS.Client.t(),
@@ -2479,7 +2460,6 @@ defmodule AWS.CodeCatalyst do
 
   ## Parameters:
   * `:space_name` (`t:string` required) The name of the space.
-  ## Keyword parameters:
   """
   @spec list_dev_environments(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_dev_environments_response(), any()}
@@ -2533,7 +2513,6 @@ defmodule AWS.CodeCatalyst do
 
   ## Parameters:
   * `:space_name` (`t:string` required) The name of the space.
-  ## Keyword parameters:
   """
   @spec list_event_logs(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_event_logs_response(), any()}
@@ -2575,7 +2554,6 @@ defmodule AWS.CodeCatalyst do
 
   ## Parameters:
   * `:space_name` (`t:string` required) The name of the space.
-  ## Keyword parameters:
   """
   @spec list_projects(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_projects_response(), any()}
@@ -2618,7 +2596,6 @@ defmodule AWS.CodeCatalyst do
   ## Parameters:
   * `:project_name` (`t:string` required) The name of the project in the space.
   * `:space_name` (`t:string` required) The name of the space.
-  ## Keyword parameters:
   """
   @spec list_source_repositories(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, list_source_repositories_response(), any()}
@@ -2662,9 +2639,8 @@ defmodule AWS.CodeCatalyst do
   ## Parameters:
   * `:project_name` (`t:string` required) The name of the project in the space.
   * `:source_repository_name` (`t:string` required) The name of the source
-  repository.
+    repository.
   * `:space_name` (`t:string` required) The name of the space.
-  ## Keyword parameters:
   """
   @spec list_source_repository_branches(
           AWS.Client.t(),
@@ -2718,7 +2694,6 @@ defmodule AWS.CodeCatalyst do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=codecatalyst%20ListSpaces&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec list_spaces(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_spaces_response(), any()}
@@ -2761,15 +2736,16 @@ defmodule AWS.CodeCatalyst do
   ## Parameters:
   * `:project_name` (`t:string` required) The name of the project in the space.
   * `:space_name` (`t:string` required) The name of the space.
+
   ## Keyword parameters:
   * `:max_results` (`t:string`) The maximum number of results to show in a single
-  call to this API. If the number of results is larger than the number you
-  specified, the response will include a NextToken element, which you can use
-  to obtain additional results.
+    call to this API. If the number of results is larger than the number you
+    specified, the response will include a NextToken element, which you can use
+    to obtain additional results.
   * `:next_token` (`t:string`) A token returned from a call to this API to
-  indicate the next batch of results to return, if any.
+    indicate the next batch of results to return, if any.
   * `:workflow_id` (`t:string`) The ID of the workflow. To retrieve a list of
-  workflow IDs, use ListWorkflows.
+    workflow IDs, use ListWorkflows.
   """
   @spec list_workflow_runs(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, list_workflow_runs_response(), any()}
@@ -2838,13 +2814,14 @@ defmodule AWS.CodeCatalyst do
   ## Parameters:
   * `:project_name` (`t:string` required) The name of the project in the space.
   * `:space_name` (`t:string` required) The name of the space.
+
   ## Keyword parameters:
   * `:max_results` (`t:string`) The maximum number of results to show in a single
-  call to this API. If the number of results is larger than the number you
-  specified, the response will include a NextToken element, which you can use
-  to obtain additional results.
+    call to this API. If the number of results is larger than the number you
+    specified, the response will include a NextToken element, which you can use
+    to obtain additional results.
   * `:next_token` (`t:string`) A token returned from a call to this API to
-  indicate the next batch of results to return, if any.
+    indicate the next batch of results to return, if any.
   """
   @spec list_workflows(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, list_workflows_response(), any()}
@@ -2905,10 +2882,9 @@ defmodule AWS.CodeCatalyst do
 
   ## Parameters:
   * `:id` (`t:string` required) The system-generated unique ID of the Dev
-  Environment.
+    Environment.
   * `:project_name` (`t:string` required) The name of the project in the space.
   * `:space_name` (`t:string` required) The name of the space.
-  ## Keyword parameters:
   """
   @spec start_dev_environment(AWS.Client.t(), String.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, start_dev_environment_response(), any()}
@@ -2951,10 +2927,9 @@ defmodule AWS.CodeCatalyst do
 
   ## Parameters:
   * `:id` (`t:string` required) The system-generated unique ID of the Dev
-  Environment.
+    Environment.
   * `:project_name` (`t:string` required) The name of the project in the space.
   * `:space_name` (`t:string` required) The name of the space.
-  ## Keyword parameters:
   """
   @spec start_dev_environment_session(
           AWS.Client.t(),
@@ -3011,8 +2986,7 @@ defmodule AWS.CodeCatalyst do
   * `:project_name` (`t:string` required) The name of the project in the space.
   * `:space_name` (`t:string` required) The name of the space.
   * `:workflow_id` (`t:string` required) The system-generated unique ID of the
-  workflow. To retrieve a list of workflow IDs, use ListWorkflows.
-  ## Keyword parameters:
+    workflow. To retrieve a list of workflow IDs, use ListWorkflows.
   """
   @spec start_workflow_run(AWS.Client.t(), String.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, start_workflow_run_response(), any()}
@@ -3057,10 +3031,9 @@ defmodule AWS.CodeCatalyst do
 
   ## Parameters:
   * `:id` (`t:string` required) The system-generated unique ID of the Dev
-  Environment.
+    Environment.
   * `:project_name` (`t:string` required) The name of the project in the space.
   * `:space_name` (`t:string` required) The name of the space.
-  ## Keyword parameters:
   """
   @spec stop_dev_environment(AWS.Client.t(), String.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, stop_dev_environment_response(), any()}
@@ -3103,12 +3076,11 @@ defmodule AWS.CodeCatalyst do
 
   ## Parameters:
   * `:id` (`t:string` required) The system-generated unique ID of the Dev
-  Environment. To obtain this ID, use ListDevEnvironments.
+    Environment. To obtain this ID, use ListDevEnvironments.
   * `:project_name` (`t:string` required) The name of the project in the space.
   * `:session_id` (`t:string` required) The system-generated unique ID of the Dev
-  Environment session. This ID is returned by StartDevEnvironmentSession.
+    Environment session. This ID is returned by StartDevEnvironmentSession.
   * `:space_name` (`t:string` required) The name of the space.
-  ## Keyword parameters:
   """
   @spec stop_dev_environment_session(
           AWS.Client.t(),
@@ -3176,10 +3148,9 @@ defmodule AWS.CodeCatalyst do
 
   ## Parameters:
   * `:id` (`t:string` required) The system-generated unique ID of the Dev
-  Environment.
+    Environment.
   * `:project_name` (`t:string` required) The name of the project in the space.
   * `:space_name` (`t:string` required) The name of the space.
-  ## Keyword parameters:
   """
   @spec update_dev_environment(AWS.Client.t(), String.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, update_dev_environment_response(), any()}
@@ -3233,7 +3204,6 @@ defmodule AWS.CodeCatalyst do
   ## Parameters:
   * `:name` (`t:string` required) The name of the project.
   * `:space_name` (`t:string` required) The name of the space.
-  ## Keyword parameters:
   """
   @spec update_project(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, update_project_response(), any()}
@@ -3286,7 +3256,6 @@ defmodule AWS.CodeCatalyst do
 
   ## Parameters:
   * `:name` (`t:string` required) The name of the space.
-  ## Keyword parameters:
   """
   @spec update_space(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, update_space_response(), any()}
@@ -3339,7 +3308,6 @@ defmodule AWS.CodeCatalyst do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=codecatalyst%20VerifySession&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec verify_session(AWS.Client.t(), Keyword.t()) ::
           {:ok, verify_session_response(), any()}

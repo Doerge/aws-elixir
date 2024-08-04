@@ -903,10 +903,9 @@ defmodule AWS.BedrockRuntime do
 
   ## Parameters:
   * `:guardrail_identifier` (`t:string` required) The guardrail identifier used in
-  the request to apply the guardrail.
+    the request to apply the guardrail.
   * `:guardrail_version` (`t:string` required) The guardrail version used in the
-  request to apply the guardrail.
-  ## Keyword parameters:
+    request to apply the guardrail.
   """
   @spec apply_guardrail(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, apply_guardrail_response(), any()}
@@ -955,8 +954,7 @@ defmodule AWS.BedrockRuntime do
 
   ## Parameters:
   * `:model_id` (`t:string` required) The identifier for the model that you want
-  to call.
-  ## Keyword parameters:
+    to call.
   """
   @spec converse(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, converse_response(), any()}
@@ -1006,7 +1004,6 @@ defmodule AWS.BedrockRuntime do
 
   ## Parameters:
   * `:model_id` (`t:string` required) The ID for the model.
-  ## Keyword parameters:
   """
   @spec converse_stream(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, converse_stream_response(), any()}
@@ -1052,25 +1049,26 @@ defmodule AWS.BedrockRuntime do
 
   ## Parameters:
   * `:model_id` (`t:string` required) The unique identifier of the model to invoke
-  to run inference.
+    to run inference.
   * `:input` (`t:map`):
-    * `:body` (`t:blob` required) The prompt and inference parameters in the format
-  specified in the contentType in the header. You must provide the body in
-  JSON format. To see the format and content of the request and response
-  bodies for different models, refer to Inference parameters. For more
-  information, see Run inference in the Bedrock User Guide.
+    * `"body" => t:blob` (required) The prompt and inference parameters in the
+    format specified in the contentType in the header. You must provide the body
+    in JSON format. To see the format and content of the request and response
+    bodies for different models, refer to Inference parameters. For more
+    information, see Run inference in the Bedrock User Guide.
+
   ## Keyword parameters:
   * `:accept` (`t:string`) The desired MIME type of the inference body in the
-  response. The default value is application/json.
+    response. The default value is application/json.
   * `:content_type` (`t:string`) The MIME type of the input data in the request.
-  You must specify application/json.
+    You must specify application/json.
   * `:guardrail_identifier` (`t:string`) The unique identifier of the guardrail
-  that you want to use. If you don't provide a value, no guardrail is applied
-  to the invocation.
+    that you want to use. If you don't provide a value, no guardrail is applied
+    to the invocation.
   * `:guardrail_version` (`t:string`) The version number for the guardrail. The
-  value can also be DRAFT.
+    value can also be DRAFT.
   * `:trace` (`t:enum["DISABLED|ENABLED"]`) Specifies whether to enable or disable
-  the Bedrock trace. If enabled, you can see the full Bedrock trace.
+    the Bedrock trace. If enabled, you can see the full Bedrock trace.
   """
   @spec invoke_model(AWS.Client.t(), String.t(), input :: map(), Keyword.t()) ::
           {:ok, invoke_model_response(), any()}
@@ -1144,13 +1142,6 @@ defmodule AWS.BedrockRuntime do
         [{"Content-Type", "contentType"}]
       )
 
-    options =
-      Keyword.put(
-        options,
-        :response_header_parameters,
-        [{"Content-Type", "contentType"}]
-      )
-
     meta =
       metadata()
 
@@ -1175,25 +1166,26 @@ defmodule AWS.BedrockRuntime do
 
   ## Parameters:
   * `:model_id` (`t:string` required) The unique identifier of the model to invoke
-  to run inference.
+    to run inference.
   * `:input` (`t:map`):
-    * `:body` (`t:blob` required) The prompt and inference parameters in the format
-  specified in the contentType in the header. You must provide the body in
-  JSON format. To see the format and content of the request and response
-  bodies for different models, refer to Inference parameters. For more
-  information, see Run inference in the Bedrock User Guide.
+    * `"body" => t:blob` (required) The prompt and inference parameters in the
+    format specified in the contentType in the header. You must provide the body
+    in JSON format. To see the format and content of the request and response
+    bodies for different models, refer to Inference parameters. For more
+    information, see Run inference in the Bedrock User Guide.
+
   ## Keyword parameters:
   * `:accept` (`t:string`) The desired MIME type of the inference body in the
-  response. The default value is application/json.
+    response. The default value is application/json.
   * `:content_type` (`t:string`) The MIME type of the input data in the request.
-  You must specify application/json.
+    You must specify application/json.
   * `:guardrail_identifier` (`t:string`) The unique identifier of the guardrail
-  that you want to use. If you don't provide a value, no guardrail is applied
-  to the invocation.
+    that you want to use. If you don't provide a value, no guardrail is applied
+    to the invocation.
   * `:guardrail_version` (`t:string`) The version number for the guardrail. The
-  value can also be DRAFT.
+    value can also be DRAFT.
   * `:trace` (`t:enum["DISABLED|ENABLED"]`) Specifies whether to enable or disable
-  the Bedrock trace. If enabled, you can see the full Bedrock trace.
+    the Bedrock trace. If enabled, you can see the full Bedrock trace.
   """
   @spec invoke_model_with_response_stream(AWS.Client.t(), String.t(), input :: map(), Keyword.t()) ::
           {:ok, invoke_model_with_response_stream_response(), any()}
@@ -1261,13 +1253,6 @@ defmodule AWS.BedrockRuntime do
     query_params = []
 
     # Optional query params
-    options =
-      Keyword.put(
-        options,
-        :response_header_parameters,
-        [{"X-Amzn-Bedrock-Content-Type", "contentType"}]
-      )
-
     options =
       Keyword.put(
         options,

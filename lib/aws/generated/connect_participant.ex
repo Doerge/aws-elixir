@@ -539,8 +539,7 @@ defmodule AWS.ConnectParticipant do
 
   ## Parameters:
   * `:connection_token` (`t:string` required) The authentication token associated
-  with the participant's connection.
-  ## Keyword parameters:
+    with the participant's connection.
   """
   @spec complete_attachment_upload(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, complete_attachment_upload_response(), any()}
@@ -585,7 +584,6 @@ defmodule AWS.ConnectParticipant do
 
   ## Parameters:
   * `:participant_token` (`t:string` required) This is a header parameter.
-  ## Keyword parameters:
   """
   @spec create_participant_connection(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, create_participant_connection_response(), any()}
@@ -629,10 +627,9 @@ defmodule AWS.ConnectParticipant do
 
   ## Parameters:
   * `:view_token` (`t:string` required) An encrypted token originating from the
-  interactive message of a ShowView block operation. Represents the desired
-  view.
+    interactive message of a ShowView block operation. Represents the desired
+    view.
   * `:connection_token` (`t:string` required) The connection token.
-  ## Keyword parameters:
   """
   @spec describe_view(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, describe_view_response(), any()}
@@ -675,8 +672,7 @@ defmodule AWS.ConnectParticipant do
 
   ## Parameters:
   * `:connection_token` (`t:string` required) The authentication token associated
-  with the participant's connection.
-  ## Keyword parameters:
+    with the participant's connection.
   """
   @spec disconnect_participant(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, disconnect_participant_response(), any()}
@@ -722,8 +718,7 @@ defmodule AWS.ConnectParticipant do
 
   ## Parameters:
   * `:connection_token` (`t:string` required) The authentication token associated
-  with the participant's connection.
-  ## Keyword parameters:
+    with the participant's connection.
   """
   @spec get_attachment(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_attachment_response(), any()}
@@ -773,8 +768,7 @@ defmodule AWS.ConnectParticipant do
 
   ## Parameters:
   * `:connection_token` (`t:string` required) The authentication token associated
-  with the participant's connection.
-  ## Keyword parameters:
+    with the participant's connection.
   """
   @spec get_transcript(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_transcript_response(), any()}
@@ -826,8 +820,7 @@ defmodule AWS.ConnectParticipant do
 
   ## Parameters:
   * `:connection_token` (`t:string` required) The authentication token associated
-  with the participant's connection.
-  ## Keyword parameters:
+    with the participant's connection.
   """
   @spec send_event(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, send_event_response(), any()}
@@ -872,8 +865,7 @@ defmodule AWS.ConnectParticipant do
 
   ## Parameters:
   * `:connection_token` (`t:string` required) The authentication token associated
-  with the connection.
-  ## Keyword parameters:
+    with the connection.
   """
   @spec send_message(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, send_message_response(), any()}
@@ -919,8 +911,7 @@ defmodule AWS.ConnectParticipant do
 
   ## Parameters:
   * `:connection_token` (`t:string` required) The authentication token associated
-  with the participant's connection.
-  ## Keyword parameters:
+    with the participant's connection.
   """
   @spec start_attachment_upload(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, start_attachment_upload_response(), any()}

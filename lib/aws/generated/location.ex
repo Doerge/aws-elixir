@@ -2844,8 +2844,7 @@ defmodule AWS.Location do
 
   ## Parameters:
   * `:tracker_name` (`t:string` required) The name of the tracker resource to be
-  associated with a geofence collection.
-  ## Keyword parameters:
+    associated with a geofence collection.
   """
   @spec associate_tracker_consumer(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, associate_tracker_consumer_response(), any()}
@@ -2888,8 +2887,7 @@ defmodule AWS.Location do
 
   ## Parameters:
   * `:tracker_name` (`t:string` required) The name of the tracker resource to
-  delete the device position history from.
-  ## Keyword parameters:
+    delete the device position history from.
   """
   @spec batch_delete_device_position_history(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, batch_delete_device_position_history_response(), any()}
@@ -2932,8 +2930,7 @@ defmodule AWS.Location do
 
   ## Parameters:
   * `:collection_name` (`t:string` required) The geofence collection storing the
-  geofences to be deleted.
-  ## Keyword parameters:
+    geofences to be deleted.
   """
   @spec batch_delete_geofence(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, batch_delete_geofence_response(), any()}
@@ -2981,8 +2978,7 @@ defmodule AWS.Location do
 
   ## Parameters:
   * `:collection_name` (`t:string` required) The geofence collection used in
-  evaluating the position of devices against its geofences.
-  ## Keyword parameters:
+    evaluating the position of devices against its geofences.
   """
   @spec batch_evaluate_geofences(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, batch_evaluate_geofences_response(), any()}
@@ -3025,8 +3021,7 @@ defmodule AWS.Location do
 
   ## Parameters:
   * `:tracker_name` (`t:string` required) The tracker resource retrieving the
-  device position.
-  ## Keyword parameters:
+    device position.
   """
   @spec batch_get_device_position(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, batch_get_device_position_response(), any()}
@@ -3071,8 +3066,7 @@ defmodule AWS.Location do
 
   ## Parameters:
   * `:collection_name` (`t:string` required) The geofence collection storing the
-  geofences.
-  ## Keyword parameters:
+    geofences.
   """
   @spec batch_put_geofence(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, batch_put_geofence_response(), any()}
@@ -3118,8 +3112,7 @@ defmodule AWS.Location do
 
   ## Parameters:
   * `:tracker_name` (`t:string` required) The name of the tracker resource to
-  update.
-  ## Keyword parameters:
+    update.
   """
   @spec batch_update_device_position(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, batch_update_device_position_response(), any()}
@@ -3169,7 +3162,8 @@ defmodule AWS.Location do
 
   ## Parameters:
   * `:calculator_name` (`t:string` required) The name of the route calculator
-  resource that you want to use to calculate the route.
+    resource that you want to use to calculate the route.
+
   ## Keyword parameters:
   * `:key` (`t:string`) The optional API key to authorize the request.
   """
@@ -3237,7 +3231,8 @@ defmodule AWS.Location do
 
   ## Parameters:
   * `:calculator_name` (`t:string` required) The name of the route calculator
-  resource that you want to use to calculate the route matrix.
+    resource that you want to use to calculate the route matrix.
+
   ## Keyword parameters:
   * `:key` (`t:string`) The optional API key to authorize the request.
   """
@@ -3293,7 +3288,6 @@ defmodule AWS.Location do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=location%20CreateGeofenceCollection&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec create_geofence_collection(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_geofence_collection_response(), any()}
@@ -3336,7 +3330,6 @@ defmodule AWS.Location do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=location%20CreateKey&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec create_key(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_key_response(), any()}
@@ -3379,7 +3372,6 @@ defmodule AWS.Location do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=location%20CreateMap&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec create_map(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_map_response(), any()}
@@ -3425,7 +3417,6 @@ defmodule AWS.Location do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=location%20CreatePlaceIndex&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec create_place_index(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_place_index_response(), any()}
@@ -3470,7 +3461,6 @@ defmodule AWS.Location do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=location%20CreateRouteCalculator&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec create_route_calculator(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_route_calculator_response(), any()}
@@ -3513,7 +3503,6 @@ defmodule AWS.Location do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=location%20CreateTracker&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec create_tracker(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_tracker_response(), any()}
@@ -3556,8 +3545,7 @@ defmodule AWS.Location do
 
   ## Parameters:
   * `:collection_name` (`t:string` required) The name of the geofence collection
-  to be deleted.
-  ## Keyword parameters:
+    to be deleted.
   """
   @spec delete_geofence_collection(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, delete_geofence_collection_response(), any()}
@@ -3611,10 +3599,11 @@ defmodule AWS.Location do
 
   ## Parameters:
   * `:key_name` (`t:string` required) The name of the API key to delete.
+
   ## Keyword parameters:
   * `:force_delete` (`t:string`) ForceDelete bypasses an API key's expiry
-  conditions and deletes the key. Set the parameter true to delete the key or
-  to false to not preemptively delete the API key.
+    conditions and deletes the key. Set the parameter true to delete the key or
+    to false to not preemptively delete the API key.
   """
   @spec delete_key(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, delete_key_response(), any()}
@@ -3678,7 +3667,6 @@ defmodule AWS.Location do
 
   ## Parameters:
   * `:map_name` (`t:string` required) The name of the map resource to be deleted.
-  ## Keyword parameters:
   """
   @spec delete_map(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, delete_map_response(), any()}
@@ -3731,8 +3719,7 @@ defmodule AWS.Location do
 
   ## Parameters:
   * `:index_name` (`t:string` required) The name of the place index resource to be
-  deleted.
-  ## Keyword parameters:
+    deleted.
   """
   @spec delete_place_index(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, delete_place_index_response(), any()}
@@ -3785,8 +3772,7 @@ defmodule AWS.Location do
 
   ## Parameters:
   * `:calculator_name` (`t:string` required) The name of the route calculator
-  resource to be deleted.
-  ## Keyword parameters:
+    resource to be deleted.
   """
   @spec delete_route_calculator(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, delete_route_calculator_response(), any()}
@@ -3839,8 +3825,7 @@ defmodule AWS.Location do
 
   ## Parameters:
   * `:tracker_name` (`t:string` required) The name of the tracker resource to be
-  deleted.
-  ## Keyword parameters:
+    deleted.
   """
   @spec delete_tracker(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, delete_tracker_response(), any()}
@@ -3893,7 +3878,6 @@ defmodule AWS.Location do
 
   ## Parameters:
   * `:collection_name` (`t:string` required) The name of the geofence collection.
-  ## Keyword parameters:
   """
   @spec describe_geofence_collection(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, describe_geofence_collection_response(), any()}
@@ -3934,7 +3918,6 @@ defmodule AWS.Location do
 
   ## Parameters:
   * `:key_name` (`t:string` required) The name of the API key resource.
-  ## Keyword parameters:
   """
   @spec describe_key(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, describe_key_response(), any()}
@@ -3975,7 +3958,6 @@ defmodule AWS.Location do
 
   ## Parameters:
   * `:map_name` (`t:string` required) The name of the map resource.
-  ## Keyword parameters:
   """
   @spec describe_map(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, describe_map_response(), any()}
@@ -4016,7 +3998,6 @@ defmodule AWS.Location do
 
   ## Parameters:
   * `:index_name` (`t:string` required) The name of the place index resource.
-  ## Keyword parameters:
   """
   @spec describe_place_index(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, describe_place_index_response(), any()}
@@ -4057,8 +4038,7 @@ defmodule AWS.Location do
 
   ## Parameters:
   * `:calculator_name` (`t:string` required) The name of the route calculator
-  resource.
-  ## Keyword parameters:
+    resource.
   """
   @spec describe_route_calculator(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, describe_route_calculator_response(), any()}
@@ -4099,7 +4079,6 @@ defmodule AWS.Location do
 
   ## Parameters:
   * `:tracker_name` (`t:string` required) The name of the tracker resource.
-  ## Keyword parameters:
   """
   @spec describe_tracker(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, describe_tracker_response(), any()}
@@ -4140,11 +4119,10 @@ defmodule AWS.Location do
 
   ## Parameters:
   * `:consumer_arn` (`t:string` required) The Amazon Resource Name (ARN) for the
-  geofence collection to be disassociated from the tracker resource. Used when
-  you need to specify a resource across all Amazon Web Services.
+    geofence collection to be disassociated from the tracker resource. Used when
+    you need to specify a resource across all Amazon Web Services.
   * `:tracker_name` (`t:string` required) The name of the tracker resource to be
-  dissociated from the consumer.
-  ## Keyword parameters:
+    dissociated from the consumer.
   """
   @spec disassociate_tracker_consumer(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, disassociate_tracker_consumer_response(), any()}
@@ -4202,7 +4180,6 @@ defmodule AWS.Location do
 
   ## Parameters:
   * `:collection_name` (`t:string` required) The name of the geofence collection.
-  ## Keyword parameters:
   """
   @spec forecast_geofence_events(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, forecast_geofence_events_response(), any()}
@@ -4246,10 +4223,9 @@ defmodule AWS.Location do
 
   ## Parameters:
   * `:device_id` (`t:string` required) The device whose position you want to
-  retrieve.
+    retrieve.
   * `:tracker_name` (`t:string` required) The tracker resource receiving the
-  position update.
-  ## Keyword parameters:
+    position update.
   """
   @spec get_device_position(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_device_position_response(), any()}
@@ -4292,10 +4268,9 @@ defmodule AWS.Location do
 
   ## Parameters:
   * `:device_id` (`t:string` required) The device whose position history you want
-  to retrieve.
+    to retrieve.
   * `:tracker_name` (`t:string` required) The tracker resource receiving the
-  request for the device position history.
-  ## Keyword parameters:
+    request for the device position history.
   """
   @spec get_device_position_history(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_device_position_history_response(), any()}
@@ -4339,10 +4314,9 @@ defmodule AWS.Location do
 
   ## Parameters:
   * `:collection_name` (`t:string` required) The geofence collection storing the
-  target geofence.
+    target geofence.
   * `:geofence_id` (`t:string` required) The geofence you're retrieving details
-  for.
-  ## Keyword parameters:
+    for.
   """
   @spec get_geofence(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_geofence_response(), any()}
@@ -4384,14 +4358,15 @@ defmodule AWS.Location do
 
   ## Parameters:
   * `:font_stack` (`t:string` required) A comma-separated list of fonts to load
-  glyphs from in order of preference. For example, Noto Sans Regular, Arial
-  Unicode.
+    glyphs from in order of preference. For example, Noto Sans Regular, Arial
+    Unicode.
   * `:font_unicode_range` (`t:string` required) A Unicode range of characters to
-  download glyphs for. Each response will contain 256 characters. For example,
-  0–255 includes all characters from range U+0000 to 00FF. Must be aligned to
-  multiples of 256.
+    download glyphs for. Each response will contain 256 characters. For example,
+    0–255 includes all characters from range U+0000 to 00FF. Must be aligned to
+    multiples of 256.
   * `:map_name` (`t:string` required) The map resource associated with the glyph
-  ﬁle.
+    ﬁle.
+
   ## Keyword parameters:
   * `:key` (`t:string`) The optional API key to authorize the request.
   """
@@ -4455,9 +4430,10 @@ defmodule AWS.Location do
 
   ## Parameters:
   * `:file_name` (`t:string` required) The name of the sprite ﬁle. Use the
-  following ﬁle names for the sprite sheet:
+    following ﬁle names for the sprite sheet:
   * `:map_name` (`t:string` required) The map resource associated with the sprite
-  ﬁle.
+    ﬁle.
+
   ## Keyword parameters:
   * `:key` (`t:string`) The optional API key to authorize the request.
   """
@@ -4519,7 +4495,8 @@ defmodule AWS.Location do
 
   ## Parameters:
   * `:map_name` (`t:string` required) The map resource to retrieve the style
-  descriptor from.
+    descriptor from.
+
   ## Keyword parameters:
   * `:key` (`t:string`) The optional API key to authorize the request.
   """
@@ -4582,10 +4559,11 @@ defmodule AWS.Location do
 
   ## Parameters:
   * `:map_name` (`t:string` required) The map resource to retrieve the map tiles
-  from.
+    from.
   * `:x` (`t:string` required) The X axis value for the map tile.
   * `:y` (`t:string` required) The Y axis value for the map tile.
   * `:z` (`t:string` required) The zoom value for the map tile.
+
   ## Keyword parameters:
   * `:key` (`t:string`) The optional API key to authorize the request.
   """
@@ -4648,12 +4626,13 @@ defmodule AWS.Location do
 
   ## Parameters:
   * `:index_name` (`t:string` required) The name of the place index resource that
-  you want to use for the search.
+    you want to use for the search.
   * `:place_id` (`t:string` required) The identifier of the place to find.
+
   ## Keyword parameters:
   * `:key` (`t:string`) The optional API key to authorize the request.
   * `:language` (`t:string`) The preferred language used to return results. The
-  value must be a valid BCP 47 language tag, for example, en for English.
+    value must be a valid BCP 47 language tag, for example, en for English.
   """
   @spec get_place(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_place_response(), any()}
@@ -4713,8 +4692,7 @@ defmodule AWS.Location do
 
   ## Parameters:
   * `:tracker_name` (`t:string` required) The tracker resource containing the
-  requested devices.
-  ## Keyword parameters:
+    requested devices.
   """
   @spec list_device_positions(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_device_positions_response(), any()}
@@ -4756,7 +4734,6 @@ defmodule AWS.Location do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=location%20ListGeofenceCollections&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec list_geofence_collections(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_geofence_collections_response(), any()}
@@ -4799,8 +4776,7 @@ defmodule AWS.Location do
 
   ## Parameters:
   * `:collection_name` (`t:string` required) The name of the geofence collection
-  storing the list of geofences.
-  ## Keyword parameters:
+    storing the list of geofences.
   """
   @spec list_geofences(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_geofences_response(), any()}
@@ -4842,7 +4818,6 @@ defmodule AWS.Location do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=location%20ListKeys&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec list_keys(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_keys_response(), any()}
@@ -4884,7 +4859,6 @@ defmodule AWS.Location do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=location%20ListMaps&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec list_maps(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_maps_response(), any()}
@@ -4926,7 +4900,6 @@ defmodule AWS.Location do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=location%20ListPlaceIndexes&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec list_place_indexes(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_place_indexes_response(), any()}
@@ -4968,7 +4941,6 @@ defmodule AWS.Location do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=location%20ListRouteCalculators&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec list_route_calculators(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_route_calculators_response(), any()}
@@ -5012,8 +4984,7 @@ defmodule AWS.Location do
 
   ## Parameters:
   * `:resource_arn` (`t:string` required) The Amazon Resource Name (ARN) of the
-  resource whose tags you want to retrieve.
-  ## Keyword parameters:
+    resource whose tags you want to retrieve.
   """
   @spec list_tags_for_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_tags_for_resource_response(), any()}
@@ -5054,8 +5025,7 @@ defmodule AWS.Location do
 
   ## Parameters:
   * `:tracker_name` (`t:string` required) The tracker resource whose associated
-  geofence collections you want to list.
-  ## Keyword parameters:
+    geofence collections you want to list.
   """
   @spec list_tracker_consumers(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_tracker_consumers_response(), any()}
@@ -5097,7 +5067,6 @@ defmodule AWS.Location do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=location%20ListTrackers&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec list_trackers(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_trackers_response(), any()}
@@ -5141,10 +5110,9 @@ defmodule AWS.Location do
 
   ## Parameters:
   * `:collection_name` (`t:string` required) The geofence collection to store the
-  geofence in.
+    geofence in.
   * `:geofence_id` (`t:string` required) An identifier for the geofence. For
-  example, ExampleGeofence-1.
-  ## Keyword parameters:
+    example, ExampleGeofence-1.
   """
   @spec put_geofence(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, put_geofence_response(), any()}
@@ -5189,7 +5157,8 @@ defmodule AWS.Location do
 
   ## Parameters:
   * `:index_name` (`t:string` required) The name of the place index resource you
-  want to use for the search.
+    want to use for the search.
+
   ## Keyword parameters:
   * `:key` (`t:string`) The optional API key to authorize the request.
   """
@@ -5249,7 +5218,8 @@ defmodule AWS.Location do
 
   ## Parameters:
   * `:index_name` (`t:string` required) The name of the place index resource you
-  want to use for the search.
+    want to use for the search.
+
   ## Keyword parameters:
   * `:key` (`t:string`) The optional API key to authorize the request.
   """
@@ -5308,7 +5278,8 @@ defmodule AWS.Location do
 
   ## Parameters:
   * `:index_name` (`t:string` required) The name of the place index resource you
-  want to use for the search.
+    want to use for the search.
+
   ## Keyword parameters:
   * `:key` (`t:string`) The optional API key to authorize the request.
   """
@@ -5367,8 +5338,7 @@ defmodule AWS.Location do
 
   ## Parameters:
   * `:resource_arn` (`t:string` required) The Amazon Resource Name (ARN) of the
-  resource whose tags you want to update.
-  ## Keyword parameters:
+    resource whose tags you want to update.
   """
   @spec tag_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, tag_resource_response(), any()}
@@ -5411,10 +5381,9 @@ defmodule AWS.Location do
 
   ## Parameters:
   * `:resource_arn` (`t:string` required) The Amazon Resource Name (ARN) of the
-  resource from which you want to remove tags.
+    resource from which you want to remove tags.
   * `:tag_keys` (`t:list[smithy.api#String]` required) The list of tag keys to
-  remove from the specified resource.
-  ## Keyword parameters:
+    remove from the specified resource.
   """
   @spec untag_resource(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, untag_resource_response(), any()}
@@ -5468,8 +5437,7 @@ defmodule AWS.Location do
 
   ## Parameters:
   * `:collection_name` (`t:string` required) The name of the geofence collection
-  to update.
-  ## Keyword parameters:
+    to update.
   """
   @spec update_geofence_collection(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, update_geofence_collection_response(), any()}
@@ -5522,7 +5490,6 @@ defmodule AWS.Location do
 
   ## Parameters:
   * `:key_name` (`t:string` required) The name of the API key resource to update.
-  ## Keyword parameters:
   """
   @spec update_key(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, update_key_response(), any()}
@@ -5575,7 +5542,6 @@ defmodule AWS.Location do
 
   ## Parameters:
   * `:map_name` (`t:string` required) The name of the map resource to update.
-  ## Keyword parameters:
   """
   @spec update_map(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, update_map_response(), any()}
@@ -5628,8 +5594,7 @@ defmodule AWS.Location do
 
   ## Parameters:
   * `:index_name` (`t:string` required) The name of the place index resource to
-  update.
-  ## Keyword parameters:
+    update.
   """
   @spec update_place_index(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, update_place_index_response(), any()}
@@ -5682,8 +5647,7 @@ defmodule AWS.Location do
 
   ## Parameters:
   * `:calculator_name` (`t:string` required) The name of the route calculator
-  resource to update.
-  ## Keyword parameters:
+    resource to update.
   """
   @spec update_route_calculator(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, update_route_calculator_response(), any()}
@@ -5736,8 +5700,7 @@ defmodule AWS.Location do
 
   ## Parameters:
   * `:tracker_name` (`t:string` required) The name of the tracker resource to
-  update.
-  ## Keyword parameters:
+    update.
   """
   @spec update_tracker(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, update_tracker_response(), any()}
@@ -5792,8 +5755,7 @@ defmodule AWS.Location do
 
   ## Parameters:
   * `:tracker_name` (`t:string` required) The name of the tracker resource to be
-  associated with verification request.
-  ## Keyword parameters:
+    associated with verification request.
   """
   @spec verify_device_position(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, verify_device_position_response(), any()}

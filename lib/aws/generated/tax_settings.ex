@@ -731,7 +731,6 @@ defmodule AWS.TaxSettings do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=taxsettings%20BatchDeleteTaxRegistration&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec batch_delete_tax_registration(AWS.Client.t(), Keyword.t()) ::
           {:ok, batch_delete_tax_registration_response(), any()}
@@ -777,7 +776,6 @@ defmodule AWS.TaxSettings do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=taxsettings%20BatchPutTaxRegistration&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec batch_put_tax_registration(AWS.Client.t(), Keyword.t()) ::
           {:ok, batch_put_tax_registration_response(), any()}
@@ -819,7 +817,6 @@ defmodule AWS.TaxSettings do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=taxsettings%20DeleteTaxRegistration&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec delete_tax_registration(AWS.Client.t(), Keyword.t()) ::
           {:ok, delete_tax_registration_response(), any()}
@@ -861,7 +858,6 @@ defmodule AWS.TaxSettings do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=taxsettings%20GetTaxRegistration&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec get_tax_registration(AWS.Client.t(), Keyword.t()) ::
           {:ok, get_tax_registration_response(), any()}
@@ -904,7 +900,6 @@ defmodule AWS.TaxSettings do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=taxsettings%20GetTaxRegistrationDocument&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec get_tax_registration_document(AWS.Client.t(), Keyword.t()) ::
           {:ok, get_tax_registration_document_response(), any()}
@@ -948,7 +943,6 @@ defmodule AWS.TaxSettings do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=taxsettings%20ListTaxRegistrations&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec list_tax_registrations(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_tax_registrations_response(), any()}
@@ -993,7 +987,6 @@ defmodule AWS.TaxSettings do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=taxsettings%20PutTaxRegistration&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec put_tax_registration(AWS.Client.t(), Keyword.t()) ::
           {:ok, put_tax_registration_response(), any()}

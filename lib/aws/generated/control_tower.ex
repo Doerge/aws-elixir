@@ -1260,7 +1260,6 @@ defmodule AWS.ControlTower do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=controltower%20CreateLandingZone&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec create_landing_zone(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_landing_zone_output(), any()}
@@ -1304,7 +1303,6 @@ defmodule AWS.ControlTower do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=controltower%20DeleteLandingZone&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec delete_landing_zone(AWS.Client.t(), Keyword.t()) ::
           {:ok, delete_landing_zone_output(), any()}
@@ -1350,7 +1348,6 @@ defmodule AWS.ControlTower do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=controltower%20DisableBaseline&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec disable_baseline(AWS.Client.t(), Keyword.t()) ::
           {:ok, disable_baseline_output(), any()}
@@ -1396,7 +1393,6 @@ defmodule AWS.ControlTower do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=controltower%20DisableControl&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec disable_control(AWS.Client.t(), Keyword.t()) ::
           {:ok, disable_control_output(), any()}
@@ -1442,7 +1438,6 @@ defmodule AWS.ControlTower do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=controltower%20EnableBaseline&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec enable_baseline(AWS.Client.t(), Keyword.t()) ::
           {:ok, enable_baseline_output(), any()}
@@ -1489,7 +1484,6 @@ defmodule AWS.ControlTower do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=controltower%20EnableControl&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec enable_control(AWS.Client.t(), Keyword.t()) ::
           {:ok, enable_control_output(), any()}
@@ -1534,7 +1528,6 @@ defmodule AWS.ControlTower do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=controltower%20GetBaseline&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec get_baseline(AWS.Client.t(), Keyword.t()) ::
           {:ok, get_baseline_output(), any()}
@@ -1581,7 +1574,6 @@ defmodule AWS.ControlTower do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=controltower%20GetBaselineOperation&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec get_baseline_operation(AWS.Client.t(), Keyword.t()) ::
           {:ok, get_baseline_operation_output(), any()}
@@ -1627,7 +1619,6 @@ defmodule AWS.ControlTower do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=controltower%20GetControlOperation&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec get_control_operation(AWS.Client.t(), Keyword.t()) ::
           {:ok, get_control_operation_output(), any()}
@@ -1669,7 +1660,6 @@ defmodule AWS.ControlTower do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=controltower%20GetEnabledBaseline&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec get_enabled_baseline(AWS.Client.t(), Keyword.t()) ::
           {:ok, get_enabled_baseline_output(), any()}
@@ -1713,7 +1703,6 @@ defmodule AWS.ControlTower do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=controltower%20GetEnabledControl&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec get_enabled_control(AWS.Client.t(), Keyword.t()) ::
           {:ok, get_enabled_control_output(), any()}
@@ -1755,7 +1744,6 @@ defmodule AWS.ControlTower do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=controltower%20GetLandingZone&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec get_landing_zone(AWS.Client.t(), Keyword.t()) ::
           {:ok, get_landing_zone_output(), any()}
@@ -1798,7 +1786,6 @@ defmodule AWS.ControlTower do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=controltower%20GetLandingZoneOperation&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec get_landing_zone_operation(AWS.Client.t(), Keyword.t()) ::
           {:ok, get_landing_zone_operation_output(), any()}
@@ -1842,7 +1829,6 @@ defmodule AWS.ControlTower do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=controltower%20ListBaselines&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec list_baselines(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_baselines_output(), any()}
@@ -1886,7 +1872,6 @@ defmodule AWS.ControlTower do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=controltower%20ListControlOperations&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec list_control_operations(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_control_operations_output(), any()}
@@ -1932,7 +1917,6 @@ defmodule AWS.ControlTower do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=controltower%20ListEnabledBaselines&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec list_enabled_baselines(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_enabled_baselines_output(), any()}
@@ -1977,7 +1961,6 @@ defmodule AWS.ControlTower do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=controltower%20ListEnabledControls&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec list_enabled_controls(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_enabled_controls_output(), any()}
@@ -2020,7 +2003,6 @@ defmodule AWS.ControlTower do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=controltower%20ListLandingZoneOperations&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec list_landing_zone_operations(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_landing_zone_operations_output(), any()}
@@ -2064,7 +2046,6 @@ defmodule AWS.ControlTower do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=controltower%20ListLandingZones&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec list_landing_zones(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_landing_zones_output(), any()}
@@ -2109,7 +2090,6 @@ defmodule AWS.ControlTower do
 
   ## Parameters:
   * `:resource_arn` (`t:string` required) The ARN of the resource.
-  ## Keyword parameters:
   """
   @spec list_tags_for_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_tags_for_resource_output(), any()}
@@ -2152,7 +2132,6 @@ defmodule AWS.ControlTower do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=controltower%20ResetEnabledBaseline&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec reset_enabled_baseline(AWS.Client.t(), Keyword.t()) ::
           {:ok, reset_enabled_baseline_output(), any()}
@@ -2199,7 +2178,6 @@ defmodule AWS.ControlTower do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=controltower%20ResetLandingZone&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec reset_landing_zone(AWS.Client.t(), Keyword.t()) ::
           {:ok, reset_landing_zone_output(), any()}
@@ -2244,7 +2222,6 @@ defmodule AWS.ControlTower do
 
   ## Parameters:
   * `:resource_arn` (`t:string` required) The ARN of the resource to be tagged.
-  ## Keyword parameters:
   """
   @spec tag_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, tag_resource_output(), any()}
@@ -2290,8 +2267,7 @@ defmodule AWS.ControlTower do
   ## Parameters:
   * `:resource_arn` (`t:string` required) The ARN of the resource.
   * `:tag_keys` (`t:list[com.amazonaws.controltower#TagKey]` required) Tag keys to
-  be removed from the resource.
-  ## Keyword parameters:
+    be removed from the resource.
   """
   @spec untag_resource(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, untag_resource_output(), any()}
@@ -2346,7 +2322,6 @@ defmodule AWS.ControlTower do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=controltower%20UpdateEnabledBaseline&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec update_enabled_baseline(AWS.Client.t(), Keyword.t()) ::
           {:ok, update_enabled_baseline_output(), any()}
@@ -2391,7 +2366,6 @@ defmodule AWS.ControlTower do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=controltower%20UpdateEnabledControl&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec update_enabled_control(AWS.Client.t(), Keyword.t()) ::
           {:ok, update_enabled_control_output(), any()}
@@ -2435,7 +2409,6 @@ defmodule AWS.ControlTower do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=controltower%20UpdateLandingZone&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec update_landing_zone(AWS.Client.t(), Keyword.t()) ::
           {:ok, update_landing_zone_output(), any()}

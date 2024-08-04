@@ -2469,7 +2469,6 @@ defmodule AWS.Drs do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=drs%20AssociateSourceNetworkStack&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec associate_source_network_stack(AWS.Client.t(), Keyword.t()) ::
           {:ok, associate_source_network_stack_response(), any()}
@@ -2512,7 +2511,6 @@ defmodule AWS.Drs do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=drs%20CreateExtendedSourceServer&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec create_extended_source_server(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_extended_source_server_response(), any()}
@@ -2554,7 +2552,6 @@ defmodule AWS.Drs do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=drs%20CreateLaunchConfigurationTemplate&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec create_launch_configuration_template(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_launch_configuration_template_response(), any()}
@@ -2596,7 +2593,6 @@ defmodule AWS.Drs do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=drs%20CreateReplicationConfigurationTemplate&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec create_replication_configuration_template(AWS.Client.t(), Keyword.t()) ::
           {:ok, replication_configuration_template(), any()}
@@ -2638,7 +2634,6 @@ defmodule AWS.Drs do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=drs%20CreateSourceNetwork&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec create_source_network(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_source_network_response(), any()}
@@ -2680,7 +2675,6 @@ defmodule AWS.Drs do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=drs%20DeleteJob&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec delete_job(AWS.Client.t(), Keyword.t()) ::
           {:ok, delete_job_response(), any()}
@@ -2722,7 +2716,6 @@ defmodule AWS.Drs do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=drs%20DeleteLaunchAction&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec delete_launch_action(AWS.Client.t(), Keyword.t()) ::
           {:ok, delete_launch_action_response(), any()}
@@ -2764,7 +2757,6 @@ defmodule AWS.Drs do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=drs%20DeleteLaunchConfigurationTemplate&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec delete_launch_configuration_template(AWS.Client.t(), Keyword.t()) ::
           {:ok, delete_launch_configuration_template_response(), any()}
@@ -2808,7 +2800,6 @@ defmodule AWS.Drs do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=drs%20DeleteRecoveryInstance&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec delete_recovery_instance(AWS.Client.t(), Keyword.t()) ::
           {:ok, nil, any()}
@@ -2850,7 +2841,6 @@ defmodule AWS.Drs do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=drs%20DeleteReplicationConfigurationTemplate&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec delete_replication_configuration_template(AWS.Client.t(), Keyword.t()) ::
           {:ok, delete_replication_configuration_template_response(), any()}
@@ -2892,7 +2882,6 @@ defmodule AWS.Drs do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=drs%20DeleteSourceNetwork&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec delete_source_network(AWS.Client.t(), Keyword.t()) ::
           {:ok, delete_source_network_response(), any()}
@@ -2935,7 +2924,6 @@ defmodule AWS.Drs do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=drs%20DeleteSourceServer&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec delete_source_server(AWS.Client.t(), Keyword.t()) ::
           {:ok, delete_source_server_response(), any()}
@@ -2977,7 +2965,6 @@ defmodule AWS.Drs do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=drs%20DescribeJobLogItems&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec describe_job_log_items(AWS.Client.t(), Keyword.t()) ::
           {:ok, describe_job_log_items_response(), any()}
@@ -3024,7 +3011,6 @@ defmodule AWS.Drs do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=drs%20DescribeJobs&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec describe_jobs(AWS.Client.t(), Keyword.t()) ::
           {:ok, describe_jobs_response(), any()}
@@ -3067,7 +3053,6 @@ defmodule AWS.Drs do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=drs%20DescribeLaunchConfigurationTemplates&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec describe_launch_configuration_templates(AWS.Client.t(), Keyword.t()) ::
           {:ok, describe_launch_configuration_templates_response(), any()}
@@ -3109,7 +3094,6 @@ defmodule AWS.Drs do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=drs%20DescribeRecoveryInstances&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec describe_recovery_instances(AWS.Client.t(), Keyword.t()) ::
           {:ok, describe_recovery_instances_response(), any()}
@@ -3151,7 +3135,6 @@ defmodule AWS.Drs do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=drs%20DescribeRecoverySnapshots&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec describe_recovery_snapshots(AWS.Client.t(), Keyword.t()) ::
           {:ok, describe_recovery_snapshots_response(), any()}
@@ -3193,7 +3176,6 @@ defmodule AWS.Drs do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=drs%20DescribeReplicationConfigurationTemplates&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec describe_replication_configuration_templates(AWS.Client.t(), Keyword.t()) ::
           {:ok, describe_replication_configuration_templates_response(), any()}
@@ -3235,7 +3217,6 @@ defmodule AWS.Drs do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=drs%20DescribeSourceNetworks&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec describe_source_networks(AWS.Client.t(), Keyword.t()) ::
           {:ok, describe_source_networks_response(), any()}
@@ -3277,7 +3258,6 @@ defmodule AWS.Drs do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=drs%20DescribeSourceServers&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec describe_source_servers(AWS.Client.t(), Keyword.t()) ::
           {:ok, describe_source_servers_response(), any()}
@@ -3330,7 +3310,6 @@ defmodule AWS.Drs do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=drs%20DisconnectRecoveryInstance&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec disconnect_recovery_instance(AWS.Client.t(), Keyword.t()) ::
           {:ok, nil, any()}
@@ -3384,7 +3363,6 @@ defmodule AWS.Drs do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=drs%20DisconnectSourceServer&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec disconnect_source_server(AWS.Client.t(), Keyword.t()) ::
           {:ok, source_server(), any()}
@@ -3426,7 +3404,6 @@ defmodule AWS.Drs do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=drs%20ExportSourceNetworkCfnTemplate&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec export_source_network_cfn_template(AWS.Client.t(), Keyword.t()) ::
           {:ok, export_source_network_cfn_template_response(), any()}
@@ -3468,7 +3445,6 @@ defmodule AWS.Drs do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=drs%20GetFailbackReplicationConfiguration&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec get_failback_replication_configuration(AWS.Client.t(), Keyword.t()) ::
           {:ok, get_failback_replication_configuration_response(), any()}
@@ -3510,7 +3486,6 @@ defmodule AWS.Drs do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=drs%20GetLaunchConfiguration&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec get_launch_configuration(AWS.Client.t(), Keyword.t()) ::
           {:ok, launch_configuration(), any()}
@@ -3552,7 +3527,6 @@ defmodule AWS.Drs do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=drs%20GetReplicationConfiguration&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec get_replication_configuration(AWS.Client.t(), Keyword.t()) ::
           {:ok, replication_configuration(), any()}
@@ -3594,7 +3568,6 @@ defmodule AWS.Drs do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=drs%20InitializeService&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec initialize_service(AWS.Client.t(), Keyword.t()) ::
           {:ok, initialize_service_response(), any()}
@@ -3639,7 +3612,6 @@ defmodule AWS.Drs do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=drs%20ListExtensibleSourceServers&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec list_extensible_source_servers(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_extensible_source_servers_response(), any()}
@@ -3681,7 +3653,6 @@ defmodule AWS.Drs do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=drs%20ListLaunchActions&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec list_launch_actions(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_launch_actions_response(), any()}
@@ -3723,9 +3694,10 @@ defmodule AWS.Drs do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=drs%20ListStagingAccounts&this_doc_guide=API%2520Reference)
 
   ## Parameters:
+
   ## Keyword parameters:
   * `:max_results` (`t:string`) The maximum number of staging Accounts to
-  retrieve.
+    retrieve.
   * `:next_token` (`t:string`) The token of the next staging Account to retrieve.
   """
   @spec list_staging_accounts(AWS.Client.t(), Keyword.t()) ::
@@ -3785,8 +3757,7 @@ defmodule AWS.Drs do
 
   ## Parameters:
   * `:resource_arn` (`t:string` required) The ARN of the resource whose tags
-  should be returned.
-  ## Keyword parameters:
+    should be returned.
   """
   @spec list_tags_for_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_tags_for_resource_response(), any()}
@@ -3826,7 +3797,6 @@ defmodule AWS.Drs do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=drs%20PutLaunchAction&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec put_launch_action(AWS.Client.t(), Keyword.t()) ::
           {:ok, put_launch_action_response(), any()}
@@ -3872,7 +3842,6 @@ defmodule AWS.Drs do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=drs%20RetryDataReplication&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec retry_data_replication(AWS.Client.t(), Keyword.t()) ::
           {:ok, source_server(), any()}
@@ -3917,7 +3886,6 @@ defmodule AWS.Drs do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=drs%20ReverseReplication&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec reverse_replication(AWS.Client.t(), Keyword.t()) ::
           {:ok, reverse_replication_response(), any()}
@@ -3961,7 +3929,6 @@ defmodule AWS.Drs do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=drs%20StartFailbackLaunch&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec start_failback_launch(AWS.Client.t(), Keyword.t()) ::
           {:ok, start_failback_launch_response(), any()}
@@ -4005,7 +3972,6 @@ defmodule AWS.Drs do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=drs%20StartRecovery&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec start_recovery(AWS.Client.t(), Keyword.t()) ::
           {:ok, start_recovery_response(), any()}
@@ -4048,7 +4014,6 @@ defmodule AWS.Drs do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=drs%20StartReplication&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec start_replication(AWS.Client.t(), Keyword.t()) ::
           {:ok, start_replication_response(), any()}
@@ -4091,7 +4056,6 @@ defmodule AWS.Drs do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=drs%20StartSourceNetworkRecovery&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec start_source_network_recovery(AWS.Client.t(), Keyword.t()) ::
           {:ok, start_source_network_recovery_response(), any()}
@@ -4134,7 +4098,6 @@ defmodule AWS.Drs do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=drs%20StartSourceNetworkReplication&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec start_source_network_replication(AWS.Client.t(), Keyword.t()) ::
           {:ok, start_source_network_replication_response(), any()}
@@ -4177,7 +4140,6 @@ defmodule AWS.Drs do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=drs%20StopFailback&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec stop_failback(AWS.Client.t(), Keyword.t()) ::
           {:ok, nil, any()}
@@ -4220,7 +4182,6 @@ defmodule AWS.Drs do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=drs%20StopReplication&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec stop_replication(AWS.Client.t(), Keyword.t()) ::
           {:ok, stop_replication_response(), any()}
@@ -4263,7 +4224,6 @@ defmodule AWS.Drs do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=drs%20StopSourceNetworkReplication&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec stop_source_network_replication(AWS.Client.t(), Keyword.t()) ::
           {:ok, stop_source_network_replication_response(), any()}
@@ -4309,8 +4269,7 @@ defmodule AWS.Drs do
 
   ## Parameters:
   * `:resource_arn` (`t:string` required) ARN of the resource for which tags are
-  to be added or updated.
-  ## Keyword parameters:
+    to be added or updated.
   """
   @spec tag_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
@@ -4354,7 +4313,6 @@ defmodule AWS.Drs do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=drs%20TerminateRecoveryInstances&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec terminate_recovery_instances(AWS.Client.t(), Keyword.t()) ::
           {:ok, terminate_recovery_instances_response(), any()}
@@ -4398,10 +4356,9 @@ defmodule AWS.Drs do
 
   ## Parameters:
   * `:resource_arn` (`t:string` required) ARN of the resource for which tags are
-  to be removed.
+    to be removed.
   * `:tag_keys` (`t:list[com.amazonaws.drs#TagKey]` required) Array of tags to be
-  removed.
-  ## Keyword parameters:
+    removed.
   """
   @spec untag_resource(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
@@ -4455,7 +4412,6 @@ defmodule AWS.Drs do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=drs%20UpdateFailbackReplicationConfiguration&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec update_failback_replication_configuration(AWS.Client.t(), Keyword.t()) ::
           {:ok, nil, any()}
@@ -4497,7 +4453,6 @@ defmodule AWS.Drs do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=drs%20UpdateLaunchConfiguration&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec update_launch_configuration(AWS.Client.t(), Keyword.t()) ::
           {:ok, launch_configuration(), any()}
@@ -4539,7 +4494,6 @@ defmodule AWS.Drs do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=drs%20UpdateLaunchConfigurationTemplate&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec update_launch_configuration_template(AWS.Client.t(), Keyword.t()) ::
           {:ok, update_launch_configuration_template_response(), any()}
@@ -4581,7 +4535,6 @@ defmodule AWS.Drs do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=drs%20UpdateReplicationConfiguration&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec update_replication_configuration(AWS.Client.t(), Keyword.t()) ::
           {:ok, replication_configuration(), any()}
@@ -4623,7 +4576,6 @@ defmodule AWS.Drs do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=drs%20UpdateReplicationConfigurationTemplate&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec update_replication_configuration_template(AWS.Client.t(), Keyword.t()) ::
           {:ok, replication_configuration_template(), any()}

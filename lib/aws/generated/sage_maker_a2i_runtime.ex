@@ -305,8 +305,7 @@ defmodule AWS.SageMakerA2IRuntime do
 
   ## Parameters:
   * `:human_loop_name` (`t:string` required) The name of the human loop that you
-  want to delete.
-  ## Keyword parameters:
+    want to delete.
   """
   @spec delete_human_loop(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, delete_human_loop_response(), any()}
@@ -360,8 +359,7 @@ defmodule AWS.SageMakerA2IRuntime do
 
   ## Parameters:
   * `:human_loop_name` (`t:string` required) The name of the human loop that you
-  want information about.
-  ## Keyword parameters:
+    want information about.
   """
   @spec describe_human_loop(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, describe_human_loop_response(), any()}
@@ -403,21 +401,22 @@ defmodule AWS.SageMakerA2IRuntime do
 
   ## Parameters:
   * `:flow_definition_arn` (`t:string` required) The Amazon Resource Name (ARN) of
-  a flow definition.
+    a flow definition.
+
   ## Keyword parameters:
   * `:creation_time_after` (`t:timestamp[date-time]`) (Optional) The timestamp of
-  the date when you want the human loops to begin in ISO 8601 format. For
-  example, 2020-02-24.
+    the date when you want the human loops to begin in ISO 8601 format. For
+    example, 2020-02-24.
   * `:creation_time_before` (`t:timestamp[date-time]`) (Optional) The timestamp of
-  the date before which you want the human loops to begin in ISO 8601 format.
-  For example, 2020-02-24.
+    the date before which you want the human loops to begin in ISO 8601 format.
+    For example, 2020-02-24.
   * `:max_results` (`t:integer`) The total number of items to return. If the total
-  number of available items is more than the value specified in MaxResults,
-  then a NextToken is returned in the output. You can use this token to
-  display the next page of results.
+    number of available items is more than the value specified in MaxResults,
+    then a NextToken is returned in the output. You can use this token to
+    display the next page of results.
   * `:next_token` (`t:string`) A token to display the next page of results.
   * `:sort_order` (`t:enum["ASCENDING|DESCENDING"]`) Optional. The order for
-  displaying results. Valid values: Ascending and Descending.
+    displaying results. Valid values: Ascending and Descending.
   """
   @spec list_human_loops(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_human_loops_response(), any()}
@@ -509,7 +508,6 @@ defmodule AWS.SageMakerA2IRuntime do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sagemakera2iruntime%20StartHumanLoop&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec start_human_loop(AWS.Client.t(), Keyword.t()) ::
           {:ok, start_human_loop_response(), any()}
@@ -551,7 +549,6 @@ defmodule AWS.SageMakerA2IRuntime do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sagemakera2iruntime%20StopHumanLoop&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec stop_human_loop(AWS.Client.t(), Keyword.t()) ::
           {:ok, stop_human_loop_response(), any()}

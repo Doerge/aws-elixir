@@ -885,7 +885,6 @@ defmodule AWS.ResourceExplorer2 do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=resourceexplorer2%20AssociateDefaultView&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec associate_default_view(AWS.Client.t(), Keyword.t()) ::
           {:ok, associate_default_view_output(), any()}
@@ -927,7 +926,6 @@ defmodule AWS.ResourceExplorer2 do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=resourceexplorer2%20BatchGetView&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec batch_get_view(AWS.Client.t(), Keyword.t()) ::
           {:ok, batch_get_view_output(), any()}
@@ -984,7 +982,6 @@ defmodule AWS.ResourceExplorer2 do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=resourceexplorer2%20CreateIndex&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec create_index(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_index_output(), any()}
@@ -1035,7 +1032,6 @@ defmodule AWS.ResourceExplorer2 do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=resourceexplorer2%20CreateView&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec create_view(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_view_output(), any()}
@@ -1083,7 +1079,6 @@ defmodule AWS.ResourceExplorer2 do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=resourceexplorer2%20DeleteIndex&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec delete_index(AWS.Client.t(), Keyword.t()) ::
           {:ok, delete_index_output(), any()}
@@ -1125,7 +1120,6 @@ defmodule AWS.ResourceExplorer2 do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=resourceexplorer2%20DeleteView&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec delete_view(AWS.Client.t(), Keyword.t()) ::
           {:ok, delete_view_output(), any()}
@@ -1170,7 +1164,6 @@ defmodule AWS.ResourceExplorer2 do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=resourceexplorer2%20DisassociateDefaultView&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec disassociate_default_view(AWS.Client.t(), Keyword.t()) ::
           {:ok, nil, any()}
@@ -1215,7 +1208,6 @@ defmodule AWS.ResourceExplorer2 do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=resourceexplorer2%20GetAccountLevelServiceConfiguration&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec get_account_level_service_configuration(AWS.Client.t(), Keyword.t()) ::
           {:ok, get_account_level_service_configuration_output(), any()}
@@ -1259,7 +1251,6 @@ defmodule AWS.ResourceExplorer2 do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=resourceexplorer2%20GetDefaultView&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec get_default_view(AWS.Client.t(), Keyword.t()) ::
           {:ok, get_default_view_output(), any()}
@@ -1302,7 +1293,6 @@ defmodule AWS.ResourceExplorer2 do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=resourceexplorer2%20GetIndex&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec get_index(AWS.Client.t(), Keyword.t()) ::
           {:ok, get_index_output(), any()}
@@ -1344,7 +1334,6 @@ defmodule AWS.ResourceExplorer2 do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=resourceexplorer2%20GetView&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec get_view(AWS.Client.t(), Keyword.t()) ::
           {:ok, get_view_output(), any()}
@@ -1388,7 +1377,6 @@ defmodule AWS.ResourceExplorer2 do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=resourceexplorer2%20ListIndexes&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec list_indexes(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_indexes_output(), any()}
@@ -1433,7 +1421,6 @@ defmodule AWS.ResourceExplorer2 do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=resourceexplorer2%20ListIndexesForMembers&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec list_indexes_for_members(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_indexes_for_members_output(), any()}
@@ -1476,7 +1463,6 @@ defmodule AWS.ResourceExplorer2 do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=resourceexplorer2%20ListSupportedResourceTypes&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec list_supported_resource_types(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_supported_resource_types_output(), any()}
@@ -1519,8 +1505,7 @@ defmodule AWS.ResourceExplorer2 do
 
   ## Parameters:
   * `:resource_arn` (`t:string` required) The Amazon resource name (ARN) of the
-  view or index that you want to attach tags to.
-  ## Keyword parameters:
+    view or index that you want to attach tags to.
   """
   @spec list_tags_for_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_tags_for_resource_output(), any()}
@@ -1563,7 +1548,6 @@ defmodule AWS.ResourceExplorer2 do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=resourceexplorer2%20ListViews&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec list_views(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_views_output(), any()}
@@ -1611,7 +1595,6 @@ defmodule AWS.ResourceExplorer2 do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=resourceexplorer2%20Search&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec search(AWS.Client.t(), Keyword.t()) ::
           {:ok, search_output(), any()}
@@ -1655,8 +1638,7 @@ defmodule AWS.ResourceExplorer2 do
 
   ## Parameters:
   * `:resource_arn` (`t:string` required) The Amazon Resource Name (ARN) of the
-  view or index that you want to attach tags to.
-  ## Keyword parameters:
+    view or index that you want to attach tags to.
   """
   @spec tag_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, tag_resource_output(), any()}
@@ -1700,10 +1682,9 @@ defmodule AWS.ResourceExplorer2 do
 
   ## Parameters:
   * `:resource_arn` (`t:string` required) The Amazon Resource Name (ARN) of the
-  view or index that you want to remove tags from.
+    view or index that you want to remove tags from.
   * `:tag_keys` (`t:list[smithy.api#String]` required) A list of the keys for the
-  tags that you want to remove from the specified view or index.
-  ## Keyword parameters:
+    tags that you want to remove from the specified view or index.
   """
   @spec untag_resource(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, untag_resource_output(), any()}
@@ -1761,7 +1742,6 @@ defmodule AWS.ResourceExplorer2 do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=resourceexplorer2%20UpdateIndexType&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec update_index_type(AWS.Client.t(), Keyword.t()) ::
           {:ok, update_index_type_output(), any()}
@@ -1804,7 +1784,6 @@ defmodule AWS.ResourceExplorer2 do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=resourceexplorer2%20UpdateView&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec update_view(AWS.Client.t(), Keyword.t()) ::
           {:ok, update_view_output(), any()}

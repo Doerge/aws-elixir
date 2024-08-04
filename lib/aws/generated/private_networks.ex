@@ -1040,7 +1040,6 @@ defmodule AWS.PrivateNetworks do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=privatenetworks%20AcknowledgeOrderReceipt&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec acknowledge_order_receipt(AWS.Client.t(), Keyword.t()) ::
           {:ok, acknowledge_order_receipt_response(), any()}
@@ -1082,7 +1081,6 @@ defmodule AWS.PrivateNetworks do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=privatenetworks%20ActivateDeviceIdentifier&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec activate_device_identifier(AWS.Client.t(), Keyword.t()) ::
           {:ok, activate_device_identifier_response(), any()}
@@ -1124,7 +1122,6 @@ defmodule AWS.PrivateNetworks do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=privatenetworks%20ActivateNetworkSite&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec activate_network_site(AWS.Client.t(), Keyword.t()) ::
           {:ok, activate_network_site_response(), any()}
@@ -1166,7 +1163,6 @@ defmodule AWS.PrivateNetworks do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=privatenetworks%20ConfigureAccessPoint&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec configure_access_point(AWS.Client.t(), Keyword.t()) ::
           {:ok, configure_access_point_response(), any()}
@@ -1208,7 +1204,6 @@ defmodule AWS.PrivateNetworks do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=privatenetworks%20CreateNetwork&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec create_network(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_network_response(), any()}
@@ -1250,7 +1245,6 @@ defmodule AWS.PrivateNetworks do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=privatenetworks%20CreateNetworkSite&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec create_network_site(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_network_site_response(), any()}
@@ -1292,7 +1286,6 @@ defmodule AWS.PrivateNetworks do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=privatenetworks%20DeactivateDeviceIdentifier&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec deactivate_device_identifier(AWS.Client.t(), Keyword.t()) ::
           {:ok, deactivate_device_identifier_response(), any()}
@@ -1338,11 +1331,12 @@ defmodule AWS.PrivateNetworks do
 
   ## Parameters:
   * `:network_arn` (`t:string` required) The Amazon Resource Name (ARN) of the
-  network.
+    network.
+
   ## Keyword parameters:
   * `:client_token` (`t:string`) Unique, case-sensitive identifier that you
-  provide to ensure the idempotency of the request. For more information, see
-  How to ensure idempotency.
+    provide to ensure the idempotency of the request. For more information, see
+    How to ensure idempotency.
   """
   @spec delete_network(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, delete_network_response(), any()}
@@ -1410,11 +1404,12 @@ defmodule AWS.PrivateNetworks do
 
   ## Parameters:
   * `:network_site_arn` (`t:string` required) The Amazon Resource Name (ARN) of
-  the network site.
+    the network site.
+
   ## Keyword parameters:
   * `:client_token` (`t:string`) Unique, case-sensitive identifier that you
-  provide to ensure the idempotency of the request. For more information, see
-  How to ensure idempotency.
+    provide to ensure the idempotency of the request. For more information, see
+    How to ensure idempotency.
   """
   @spec delete_network_site(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, delete_network_site_response(), any()}
@@ -1478,8 +1473,7 @@ defmodule AWS.PrivateNetworks do
 
   ## Parameters:
   * `:device_identifier_arn` (`t:string` required) The Amazon Resource Name (ARN)
-  of the device identifier.
-  ## Keyword parameters:
+    of the device identifier.
   """
   @spec get_device_identifier(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_device_identifier_response(), any()}
@@ -1520,8 +1514,7 @@ defmodule AWS.PrivateNetworks do
 
   ## Parameters:
   * `:network_arn` (`t:string` required) The Amazon Resource Name (ARN) of the
-  network.
-  ## Keyword parameters:
+    network.
   """
   @spec get_network(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_network_response(), any()}
@@ -1562,8 +1555,7 @@ defmodule AWS.PrivateNetworks do
 
   ## Parameters:
   * `:network_resource_arn` (`t:string` required) The Amazon Resource Name (ARN)
-  of the network resource.
-  ## Keyword parameters:
+    of the network resource.
   """
   @spec get_network_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_network_resource_response(), any()}
@@ -1604,8 +1596,7 @@ defmodule AWS.PrivateNetworks do
 
   ## Parameters:
   * `:network_site_arn` (`t:string` required) The Amazon Resource Name (ARN) of
-  the network site.
-  ## Keyword parameters:
+    the network site.
   """
   @spec get_network_site(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_network_site_response(), any()}
@@ -1646,8 +1637,7 @@ defmodule AWS.PrivateNetworks do
 
   ## Parameters:
   * `:order_arn` (`t:string` required) The Amazon Resource Name (ARN) of the
-  order.
-  ## Keyword parameters:
+    order.
   """
   @spec get_order(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_order_response(), any()}
@@ -1689,7 +1679,6 @@ defmodule AWS.PrivateNetworks do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=privatenetworks%20ListDeviceIdentifiers&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec list_device_identifiers(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_device_identifiers_response(), any()}
@@ -1733,7 +1722,6 @@ defmodule AWS.PrivateNetworks do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=privatenetworks%20ListNetworkResources&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec list_network_resources(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_network_resources_response(), any()}
@@ -1776,7 +1764,6 @@ defmodule AWS.PrivateNetworks do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=privatenetworks%20ListNetworkSites&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec list_network_sites(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_network_sites_response(), any()}
@@ -1819,7 +1806,6 @@ defmodule AWS.PrivateNetworks do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=privatenetworks%20ListNetworks&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec list_networks(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_networks_response(), any()}
@@ -1863,7 +1849,6 @@ defmodule AWS.PrivateNetworks do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=privatenetworks%20ListOrders&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec list_orders(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_orders_response(), any()}
@@ -1906,8 +1891,7 @@ defmodule AWS.PrivateNetworks do
 
   ## Parameters:
   * `:resource_arn` (`t:string` required) The Amazon Resource Name (ARN) of the
-  resource.
-  ## Keyword parameters:
+    resource.
   """
   @spec list_tags_for_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_tags_for_resource_response(), any()}
@@ -1947,7 +1931,6 @@ defmodule AWS.PrivateNetworks do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=privatenetworks%20Ping&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec ping(AWS.Client.t(), Keyword.t()) ::
           {:ok, ping_response(), any()}
@@ -1987,7 +1970,6 @@ defmodule AWS.PrivateNetworks do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=privatenetworks%20StartNetworkResourceUpdate&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec start_network_resource_update(AWS.Client.t(), Keyword.t()) ::
           {:ok, start_network_resource_update_response(), any()}
@@ -2030,8 +2012,7 @@ defmodule AWS.PrivateNetworks do
 
   ## Parameters:
   * `:resource_arn` (`t:string` required) The Amazon Resource Name (ARN) of the
-  resource.
-  ## Keyword parameters:
+    resource.
   """
   @spec tag_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, tag_resource_response(), any()}
@@ -2074,10 +2055,9 @@ defmodule AWS.PrivateNetworks do
 
   ## Parameters:
   * `:resource_arn` (`t:string` required) The Amazon Resource Name (ARN) of the
-  resource.
+    resource.
   * `:tag_keys` (`t:list[com.amazonaws.privatenetworks#TagKey]` required) The tag
-  keys.
-  ## Keyword parameters:
+    keys.
   """
   @spec untag_resource(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, untag_resource_response(), any()}
@@ -2130,7 +2110,6 @@ defmodule AWS.PrivateNetworks do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=privatenetworks%20UpdateNetworkSite&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec update_network_site(AWS.Client.t(), Keyword.t()) ::
           {:ok, update_network_site_response(), any()}
@@ -2172,7 +2151,6 @@ defmodule AWS.PrivateNetworks do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=privatenetworks%20UpdateNetworkSitePlan&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec update_network_site_plan(AWS.Client.t(), Keyword.t()) ::
           {:ok, update_network_site_response(), any()}

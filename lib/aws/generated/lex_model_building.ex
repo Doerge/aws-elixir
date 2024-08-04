@@ -1902,8 +1902,7 @@ defmodule AWS.LexModelBuilding do
 
   ## Parameters:
   * `:name` (`t:string` required) The name of the bot that you want to create a
-  new version of. The name is case sensitive.
-  ## Keyword parameters:
+    new version of. The name is case sensitive.
   """
   @spec create_bot_version(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, create_bot_version_response(), any()}
@@ -1951,8 +1950,7 @@ defmodule AWS.LexModelBuilding do
 
   ## Parameters:
   * `:name` (`t:string` required) The name of the intent that you want to create a
-  new version of. The name is case sensitive.
-  ## Keyword parameters:
+    new version of. The name is case sensitive.
   """
   @spec create_intent_version(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, create_intent_version_response(), any()}
@@ -2000,8 +1998,7 @@ defmodule AWS.LexModelBuilding do
 
   ## Parameters:
   * `:name` (`t:string` required) The name of the slot type that you want to
-  create a new version for. The name is case sensitive.
-  ## Keyword parameters:
+    create a new version for. The name is case sensitive.
   """
   @spec create_slot_type_version(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, create_slot_type_version_response(), any()}
@@ -2050,7 +2047,6 @@ defmodule AWS.LexModelBuilding do
 
   ## Parameters:
   * `:name` (`t:string` required) The name of the bot. The name is case sensitive.
-  ## Keyword parameters:
   """
   @spec delete_bot(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
@@ -2103,10 +2099,9 @@ defmodule AWS.LexModelBuilding do
 
   ## Parameters:
   * `:bot_name` (`t:string` required) The name of the bot that the alias points
-  to.
+    to.
   * `:name` (`t:string` required) The name of the alias to delete. The name is
-  case sensitive.
-  ## Keyword parameters:
+    case sensitive.
   """
   @spec delete_bot_alias(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
@@ -2159,11 +2154,10 @@ defmodule AWS.LexModelBuilding do
 
   ## Parameters:
   * `:bot_alias` (`t:string` required) An alias that points to the specific
-  version of the Amazon Lex bot to which this association is being made.
+    version of the Amazon Lex bot to which this association is being made.
   * `:bot_name` (`t:string` required) The name of the Amazon Lex bot.
   * `:name` (`t:string` required) The name of the association. The name is case
-  sensitive.
-  ## Keyword parameters:
+    sensitive.
   """
   @spec delete_bot_channel_association(
           AWS.Client.t(),
@@ -2225,9 +2219,8 @@ defmodule AWS.LexModelBuilding do
   ## Parameters:
   * `:name` (`t:string` required) The name of the bot.
   * `:version` (`t:string` required) The version of the bot to delete. You cannot
-  delete the $LATEST version of the bot. To delete the $LATEST version, use
-  the DeleteBot operation.
-  ## Keyword parameters:
+    delete the $LATEST version of the bot. To delete the $LATEST version, use
+    the DeleteBot operation.
   """
   @spec delete_bot_version(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
@@ -2284,8 +2277,7 @@ defmodule AWS.LexModelBuilding do
 
   ## Parameters:
   * `:name` (`t:string` required) The name of the intent. The name is case
-  sensitive.
-  ## Keyword parameters:
+    sensitive.
   """
   @spec delete_intent(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
@@ -2340,9 +2332,8 @@ defmodule AWS.LexModelBuilding do
   ## Parameters:
   * `:name` (`t:string` required) The name of the intent.
   * `:version` (`t:string` required) The version of the intent to delete. You
-  cannot delete the $LATEST version of the intent. To delete the $LATEST
-  version, use the DeleteIntent operation.
-  ## Keyword parameters:
+    cannot delete the $LATEST version of the intent. To delete the $LATEST
+    version, use the DeleteIntent operation.
   """
   @spec delete_intent_version(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
@@ -2399,8 +2390,7 @@ defmodule AWS.LexModelBuilding do
 
   ## Parameters:
   * `:name` (`t:string` required) The name of the slot type. The name is case
-  sensitive.
-  ## Keyword parameters:
+    sensitive.
   """
   @spec delete_slot_type(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
@@ -2455,9 +2445,8 @@ defmodule AWS.LexModelBuilding do
   ## Parameters:
   * `:name` (`t:string` required) The name of the slot type.
   * `:version` (`t:string` required) The version of the slot type to delete. You
-  cannot delete the $LATEST version of the slot type. To delete the $LATEST
-  version, use the DeleteSlotType operation.
-  ## Keyword parameters:
+    cannot delete the $LATEST version of the slot type. To delete the $LATEST
+    version, use the DeleteSlotType operation.
   """
   @spec delete_slot_type_version(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
@@ -2513,11 +2502,10 @@ defmodule AWS.LexModelBuilding do
 
   ## Parameters:
   * `:bot_name` (`t:string` required) The name of the bot that stored the
-  utterances.
+    utterances.
   * `:user_id` (`t:string` required) The unique identifier for the user that made
-  the utterances. This is the user ID that was sent in the PostContent or
-  PostText operation request that contained the utterance.
-  ## Keyword parameters:
+    the utterances. This is the user ID that was sent in the PostContent or
+    PostText operation request that contained the utterance.
   """
   @spec delete_utterances(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
@@ -2572,7 +2560,6 @@ defmodule AWS.LexModelBuilding do
   ## Parameters:
   * `:name` (`t:string` required) The name of the bot. The name is case sensitive.
   * `:version_or_alias` (`t:string` required) The version or alias of the bot.
-  ## Keyword parameters:
   """
   @spec get_bot(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_bot_response(), any()}
@@ -2616,8 +2603,7 @@ defmodule AWS.LexModelBuilding do
   ## Parameters:
   * `:bot_name` (`t:string` required) The name of the bot.
   * `:name` (`t:string` required) The name of the bot alias. The name is case
-  sensitive.
-  ## Keyword parameters:
+    sensitive.
   """
   @spec get_bot_alias(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_bot_alias_response(), any()}
@@ -2658,16 +2644,17 @@ defmodule AWS.LexModelBuilding do
 
   ## Parameters:
   * `:bot_name` (`t:string` required) The name of the bot.
+
   ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of aliases to return in the
-  response. The default is 50. .
+    response. The default is 50. .
   * `:name_contains` (`t:string`) Substring to match in bot alias names. An alias
-  will be returned if any part of its name matches the substring. For example,
-  "xyz" matches both "xyzabc" and "abcxyz."
+    will be returned if any part of its name matches the substring. For example,
+    "xyz" matches both "xyzabc" and "abcxyz."
   * `:next_token` (`t:string`) A pagination token for fetching the next page of
-  aliases. If the response to this call is truncated, Amazon Lex returns a
-  pagination token in the response. To fetch the next page of aliases, specify
-  the pagination token in the next request.
+    aliases. If the response to this call is truncated, Amazon Lex returns a
+    pagination token in the response. To fetch the next page of aliases, specify
+    the pagination token in the next request.
   """
   @spec get_bot_aliases(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_bot_aliases_response(), any()}
@@ -2734,11 +2721,10 @@ defmodule AWS.LexModelBuilding do
 
   ## Parameters:
   * `:bot_alias` (`t:string` required) An alias pointing to the specific version
-  of the Amazon Lex bot to which this association is being made.
+    of the Amazon Lex bot to which this association is being made.
   * `:bot_name` (`t:string` required) The name of the Amazon Lex bot.
   * `:name` (`t:string` required) The name of the association between the bot and
-  the channel. The name is case sensitive.
-  ## Keyword parameters:
+    the channel. The name is case sensitive.
   """
   @spec get_bot_channel_association(
           AWS.Client.t(),
@@ -2786,21 +2772,22 @@ defmodule AWS.LexModelBuilding do
 
   ## Parameters:
   * `:bot_alias` (`t:string` required) An alias pointing to the specific version
-  of the Amazon Lex bot to which this association is being made.
+    of the Amazon Lex bot to which this association is being made.
   * `:bot_name` (`t:string` required) The name of the Amazon Lex bot in the
-  association.
+    association.
+
   ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of associations to return in
-  the response. The default is 50.
+    the response. The default is 50.
   * `:name_contains` (`t:string`) Substring to match in channel association names.
-  An association will be returned if any part of its name matches the
-  substring. For example, "xyz" matches both "xyzabc" and "abcxyz." To return
-  all bot channel associations, use a hyphen ("-") as the nameContains
-  parameter.
+    An association will be returned if any part of its name matches the
+    substring. For example, "xyz" matches both "xyzabc" and "abcxyz." To return
+    all bot channel associations, use a hyphen ("-") as the nameContains
+    parameter.
   * `:next_token` (`t:string`) A pagination token for fetching the next page of
-  associations. If the response to this call is truncated, Amazon Lex returns
-  a pagination token in the response. To fetch the next page of associations,
-  specify the pagination token in the next request.
+    associations. If the response to this call is truncated, Amazon Lex returns
+    a pagination token in the response. To fetch the next page of associations,
+    specify the pagination token in the next request.
   """
   @spec get_bot_channel_associations(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_bot_channel_associations_response(), any()}
@@ -2871,14 +2858,15 @@ defmodule AWS.LexModelBuilding do
 
   ## Parameters:
   * `:name` (`t:string` required) The name of the bot for which versions should be
-  returned.
+    returned.
+
   ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of bot versions to return in
-  the response. The default is 10.
+    the response. The default is 10.
   * `:next_token` (`t:string`) A pagination token for fetching the next page of
-  bot versions. If the response to this call is truncated, Amazon Lex returns
-  a pagination token in the response. To fetch the next page of versions,
-  specify the pagination token in the next request.
+    bot versions. If the response to this call is truncated, Amazon Lex returns
+    a pagination token in the response. To fetch the next page of versions,
+    specify the pagination token in the next request.
   """
   @spec get_bot_versions(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_bot_versions_response(), any()}
@@ -2936,16 +2924,17 @@ defmodule AWS.LexModelBuilding do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lexmodelbuildingservice%20GetBots&this_doc_guide=API%2520Reference)
 
   ## Parameters:
+
   ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of bots to return in the
-  response that the request will return. The default is 10.
+    response that the request will return. The default is 10.
   * `:name_contains` (`t:string`) Substring to match in bot names. A bot will be
-  returned if any part of its name matches the substring. For example, "xyz"
-  matches both "xyzabc" and "abcxyz."
+    returned if any part of its name matches the substring. For example, "xyz"
+    matches both "xyzabc" and "abcxyz."
   * `:next_token` (`t:string`) A pagination token that fetches the next page of
-  bots. If the response to this call is truncated, Amazon Lex returns a
-  pagination token in the response. To fetch the next page of bots, specify
-  the pagination token in the next request.
+    bots. If the response to this call is truncated, Amazon Lex returns a
+    pagination token in the response. To fetch the next page of bots, specify
+    the pagination token in the next request.
   """
   @spec get_bots(AWS.Client.t(), Keyword.t()) ::
           {:ok, get_bots_response(), any()}
@@ -3011,9 +3000,8 @@ defmodule AWS.LexModelBuilding do
 
   ## Parameters:
   * `:signature` (`t:string` required) The unique identifier for a built-in
-  intent. To find the signature for an intent, see Standard Built-in Intents
-  in the Alexa Skills Kit.
-  ## Keyword parameters:
+    intent. To find the signature for an intent, see Standard Built-in Intents
+    in the Alexa Skills Kit.
   """
   @spec get_builtin_intent(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_builtin_intent_response(), any()}
@@ -3053,21 +3041,22 @@ defmodule AWS.LexModelBuilding do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lexmodelbuildingservice%20GetBuiltinIntents&this_doc_guide=API%2520Reference)
 
   ## Parameters:
+
   ## Keyword parameters:
   * `:locale`
-  (`t:enum["DE_DE|EN_AU|EN_GB|EN_IN|EN_US|ES_419|ES_ES|ES_US|FR_CA|FR_FR|IT_IT|JA_JP|KO_KR"]`)
-  A list of locales that the intent supports.
+    (`t:enum["DE_DE|EN_AU|EN_GB|EN_IN|EN_US|ES_419|ES_ES|ES_US|FR_CA|FR_FR|IT_IT|JA_JP|KO_KR"]`)
+    A list of locales that the intent supports.
   * `:max_results` (`t:integer`) The maximum number of intents to return in the
-  response. The default is 10.
+    response. The default is 10.
   * `:next_token` (`t:string`) A pagination token that fetches the next page of
-  intents. If this API call is truncated, Amazon Lex returns a pagination
-  token in the response. To fetch the next page of intents, use the pagination
-  token in the next request.
+    intents. If this API call is truncated, Amazon Lex returns a pagination
+    token in the response. To fetch the next page of intents, use the pagination
+    token in the next request.
   * `:signature_contains` (`t:string`) Substring to match in built-in intent
-  signatures. An intent will be returned if any part of its signature matches
-  the substring. For example, "xyz" matches both "xyzabc" and "abcxyz." To
-  find the signature for an intent, see Standard Built-in Intents in the Alexa
-  Skills Kit.
+    signatures. An intent will be returned if any part of its signature matches
+    the substring. For example, "xyz" matches both "xyzabc" and "abcxyz." To
+    find the signature for an intent, see Standard Built-in Intents in the Alexa
+    Skills Kit.
   """
   @spec get_builtin_intents(AWS.Client.t(), Keyword.t()) ::
           {:ok, get_builtin_intents_response(), any()}
@@ -3142,20 +3131,21 @@ defmodule AWS.LexModelBuilding do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lexmodelbuildingservice%20GetBuiltinSlotTypes&this_doc_guide=API%2520Reference)
 
   ## Parameters:
+
   ## Keyword parameters:
   * `:locale`
-  (`t:enum["DE_DE|EN_AU|EN_GB|EN_IN|EN_US|ES_419|ES_ES|ES_US|FR_CA|FR_FR|IT_IT|JA_JP|KO_KR"]`)
-  A list of locales that the slot type supports.
+    (`t:enum["DE_DE|EN_AU|EN_GB|EN_IN|EN_US|ES_419|ES_ES|ES_US|FR_CA|FR_FR|IT_IT|JA_JP|KO_KR"]`)
+    A list of locales that the slot type supports.
   * `:max_results` (`t:integer`) The maximum number of slot types to return in the
-  response. The default is 10.
+    response. The default is 10.
   * `:next_token` (`t:string`) A pagination token that fetches the next page of
-  slot types. If the response to this API call is truncated, Amazon Lex
-  returns a pagination token in the response. To fetch the next page of slot
-  types, specify the pagination token in the next request.
+    slot types. If the response to this API call is truncated, Amazon Lex
+    returns a pagination token in the response. To fetch the next page of slot
+    types, specify the pagination token in the next request.
   * `:signature_contains` (`t:string`) Substring to match in built-in slot type
-  signatures. A slot type will be returned if any part of its signature
-  matches the substring. For example, "xyz" matches both "xyzabc" and
-  "abcxyz."
+    signatures. A slot type will be returned if any part of its signature
+    matches the substring. For example, "xyz" matches both "xyzabc" and
+    "abcxyz."
   """
   @spec get_builtin_slot_types(AWS.Client.t(), Keyword.t()) ::
           {:ok, get_builtin_slot_types_response(), any()}
@@ -3228,12 +3218,11 @@ defmodule AWS.LexModelBuilding do
 
   ## Parameters:
   * `:export_type` (`t:enum["ALEXA_SKILLS_KIT|LEX"]` required) The format of the
-  exported data.
+    exported data.
   * `:name` (`t:string` required) The name of the bot to export.
   * `:resource_type` (`t:enum["BOT|INTENT|SLOT_TYPE"]` required) The type of
-  resource to export.
+    resource to export.
   * `:version` (`t:string` required) The version of the bot to export.
-  ## Keyword parameters:
   """
   @spec get_export(AWS.Client.t(), String.t(), String.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_export_response(), any()}
@@ -3281,8 +3270,7 @@ defmodule AWS.LexModelBuilding do
 
   ## Parameters:
   * `:import_id` (`t:string` required) The identifier of the import job
-  information to return.
-  ## Keyword parameters:
+    information to return.
   """
   @spec get_import(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_import_response(), any()}
@@ -3324,9 +3312,8 @@ defmodule AWS.LexModelBuilding do
 
   ## Parameters:
   * `:name` (`t:string` required) The name of the intent. The name is case
-  sensitive.
+    sensitive.
   * `:version` (`t:string` required) The version of the intent.
-  ## Keyword parameters:
   """
   @spec get_intent(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_intent_response(), any()}
@@ -3371,14 +3358,15 @@ defmodule AWS.LexModelBuilding do
 
   ## Parameters:
   * `:name` (`t:string` required) The name of the intent for which versions should
-  be returned.
+    be returned.
+
   ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of intent versions to return
-  in the response. The default is 10.
+    in the response. The default is 10.
   * `:next_token` (`t:string`) A pagination token for fetching the next page of
-  intent versions. If the response to this call is truncated, Amazon Lex
-  returns a pagination token in the response. To fetch the next page of
-  versions, specify the pagination token in the next request.
+    intent versions. If the response to this call is truncated, Amazon Lex
+    returns a pagination token in the response. To fetch the next page of
+    versions, specify the pagination token in the next request.
   """
   @spec get_intent_versions(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_intent_versions_response(), any()}
@@ -3436,16 +3424,17 @@ defmodule AWS.LexModelBuilding do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lexmodelbuildingservice%20GetIntents&this_doc_guide=API%2520Reference)
 
   ## Parameters:
+
   ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of intents to return in the
-  response. The default is 10.
+    response. The default is 10.
   * `:name_contains` (`t:string`) Substring to match in intent names. An intent
-  will be returned if any part of its name matches the substring. For example,
-  "xyz" matches both "xyzabc" and "abcxyz."
+    will be returned if any part of its name matches the substring. For example,
+    "xyz" matches both "xyzabc" and "abcxyz."
   * `:next_token` (`t:string`) A pagination token that fetches the next page of
-  intents. If the response to this API call is truncated, Amazon Lex returns a
-  pagination token in the response. To fetch the next page of intents, specify
-  the pagination token in the next request.
+    intents. If the response to this API call is truncated, Amazon Lex returns a
+    pagination token in the response. To fetch the next page of intents, specify
+    the pagination token in the next request.
   """
   @spec get_intents(AWS.Client.t(), Keyword.t()) ::
           {:ok, get_intents_response(), any()}
@@ -3513,8 +3502,7 @@ defmodule AWS.LexModelBuilding do
 
   ## Parameters:
   * `:migration_id` (`t:string` required) The unique identifier of the migration
-  to view. The migrationID is returned by the operation.
-  ## Keyword parameters:
+    to view. The migrationID is returned by the operation.
   """
   @spec get_migration(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_migration_response(), any()}
@@ -3554,23 +3542,24 @@ defmodule AWS.LexModelBuilding do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lexmodelbuildingservice%20GetMigrations&this_doc_guide=API%2520Reference)
 
   ## Parameters:
+
   ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of migrations to return in the
-  response. The default is 10.
+    response. The default is 10.
   * `:migration_status_equals` (`t:enum["COMPLETED|FAILED|IN_PROGRESS"]`) Filters
-  the list to contain only migrations in the specified state.
+    the list to contain only migrations in the specified state.
   * `:next_token` (`t:string`) A pagination token that fetches the next page of
-  migrations. If the response to this operation is truncated, Amazon Lex
-  returns a pagination token in the response. To fetch the next page of
-  migrations, specify the pagination token in the request.
+    migrations. If the response to this operation is truncated, Amazon Lex
+    returns a pagination token in the response. To fetch the next page of
+    migrations, specify the pagination token in the request.
   * `:sort_by_attribute` (`t:enum["MIGRATION_DATE_TIME|V1_BOT_NAME"]`) The field
-  to sort the list of migrations by. You can sort by the Amazon Lex V1 bot
-  name or the date and time that the migration was started.
+    to sort the list of migrations by. You can sort by the Amazon Lex V1 bot
+    name or the date and time that the migration was started.
   * `:sort_by_order` (`t:enum["ASCENDING|DESCENDING"]`) The order so sort the
-  list.
+    list.
   * `:v1_bot_name_contains` (`t:string`) Filters the list to contain only bots
-  whose name contains the specified string. The string is matched anywhere in
-  bot name.
+    whose name contains the specified string. The string is matched anywhere in
+    bot name.
   """
   @spec get_migrations(AWS.Client.t(), Keyword.t()) ::
           {:ok, get_migrations_response(), any()}
@@ -3672,9 +3661,8 @@ defmodule AWS.LexModelBuilding do
 
   ## Parameters:
   * `:name` (`t:string` required) The name of the slot type. The name is case
-  sensitive.
+    sensitive.
   * `:version` (`t:string` required) The version of the slot type.
-  ## Keyword parameters:
   """
   @spec get_slot_type(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_slot_type_response(), any()}
@@ -3719,14 +3707,15 @@ defmodule AWS.LexModelBuilding do
 
   ## Parameters:
   * `:name` (`t:string` required) The name of the slot type for which versions
-  should be returned.
+    should be returned.
+
   ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of slot type versions to
-  return in the response. The default is 10.
+    return in the response. The default is 10.
   * `:next_token` (`t:string`) A pagination token for fetching the next page of
-  slot type versions. If the response to this call is truncated, Amazon Lex
-  returns a pagination token in the response. To fetch the next page of
-  versions, specify the pagination token in the next request.
+    slot type versions. If the response to this call is truncated, Amazon Lex
+    returns a pagination token in the response. To fetch the next page of
+    versions, specify the pagination token in the next request.
   """
   @spec get_slot_type_versions(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_slot_type_versions_response(), any()}
@@ -3784,16 +3773,17 @@ defmodule AWS.LexModelBuilding do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lexmodelbuildingservice%20GetSlotTypes&this_doc_guide=API%2520Reference)
 
   ## Parameters:
+
   ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of slot types to return in the
-  response. The default is 10.
+    response. The default is 10.
   * `:name_contains` (`t:string`) Substring to match in slot type names. A slot
-  type will be returned if any part of its name matches the substring. For
-  example, "xyz" matches both "xyzabc" and "abcxyz."
+    type will be returned if any part of its name matches the substring. For
+    example, "xyz" matches both "xyzabc" and "abcxyz."
   * `:next_token` (`t:string`) A pagination token that fetches the next page of
-  slot types. If the response to this API call is truncated, Amazon Lex
-  returns a pagination token in the response. To fetch next page of slot
-  types, specify the pagination token in the next request.
+    slot types. If the response to this API call is truncated, Amazon Lex
+    returns a pagination token in the response. To fetch next page of slot
+    types, specify the pagination token in the next request.
   """
   @spec get_slot_types(AWS.Client.t(), Keyword.t()) ::
           {:ok, get_slot_types_response(), any()}
@@ -3866,14 +3856,13 @@ defmodule AWS.LexModelBuilding do
 
   ## Parameters:
   * `:bot_name` (`t:string` required) The name of the bot for which utterance
-  information should be returned.
+    information should be returned.
   * `:bot_versions` (`t:list[com.amazonaws.lexmodelbuildingservice#Version]`
-  required) An array of bot versions for which utterance information should be
-  returned. The limit is 5 versions per request.
+    required) An array of bot versions for which utterance information should be
+    returned. The limit is 5 versions per request.
   * `:status_type` (`t:enum["DETECTED|MISSED"]` required) To return utterances
-  that were recognized and handled, use Detected. To return utterances that
-  were not recognized, use Missed.
-  ## Keyword parameters:
+    that were recognized and handled, use Detected. To return utterances that
+    were not recognized, use Missed.
   """
   @spec get_utterances_view(AWS.Client.t(), String.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_utterances_view_response(), any()}
@@ -3916,8 +3905,7 @@ defmodule AWS.LexModelBuilding do
 
   ## Parameters:
   * `:resource_arn` (`t:string` required) The Amazon Resource Name (ARN) of the
-  resource to get a list of tags for.
-  ## Keyword parameters:
+    resource to get a list of tags for.
   """
   @spec list_tags_for_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_tags_for_resource_response(), any()}
@@ -3970,8 +3958,7 @@ defmodule AWS.LexModelBuilding do
 
   ## Parameters:
   * `:name` (`t:string` required) The name of the bot. The name is not case
-  sensitive.
-  ## Keyword parameters:
+    sensitive.
   """
   @spec put_bot(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, put_bot_response(), any()}
@@ -4018,8 +4005,7 @@ defmodule AWS.LexModelBuilding do
   ## Parameters:
   * `:bot_name` (`t:string` required) The name of the bot.
   * `:name` (`t:string` required) The name of the alias. The name is not case
-  sensitive.
-  ## Keyword parameters:
+    sensitive.
   """
   @spec put_bot_alias(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, put_bot_alias_response(), any()}
@@ -4064,8 +4050,7 @@ defmodule AWS.LexModelBuilding do
 
   ## Parameters:
   * `:name` (`t:string` required) The name of the intent. The name is not case
-  sensitive.
-  ## Keyword parameters:
+    sensitive.
   """
   @spec put_intent(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, put_intent_response(), any()}
@@ -4111,8 +4096,7 @@ defmodule AWS.LexModelBuilding do
 
   ## Parameters:
   * `:name` (`t:string` required) The name of the slot type. The name is not case
-  sensitive.
-  ## Keyword parameters:
+    sensitive.
   """
   @spec put_slot_type(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, put_slot_type_response(), any()}
@@ -4154,7 +4138,6 @@ defmodule AWS.LexModelBuilding do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lexmodelbuildingservice%20StartImport&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec start_import(AWS.Client.t(), Keyword.t()) ::
           {:ok, start_import_response(), any()}
@@ -4197,7 +4180,6 @@ defmodule AWS.LexModelBuilding do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lexmodelbuildingservice%20StartMigration&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec start_migration(AWS.Client.t(), Keyword.t()) ::
           {:ok, start_migration_response(), any()}
@@ -4241,8 +4223,7 @@ defmodule AWS.LexModelBuilding do
 
   ## Parameters:
   * `:resource_arn` (`t:string` required) The Amazon Resource Name (ARN) of the
-  bot, bot alias, or bot channel to tag.
-  ## Keyword parameters:
+    bot, bot alias, or bot channel to tag.
   """
   @spec tag_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, tag_resource_response(), any()}
@@ -4285,11 +4266,10 @@ defmodule AWS.LexModelBuilding do
 
   ## Parameters:
   * `:resource_arn` (`t:string` required) The Amazon Resource Name (ARN) of the
-  resource to remove the tags from.
+    resource to remove the tags from.
   * `:tag_keys` (`t:list[com.amazonaws.lexmodelbuildingservice#TagKey]` required)
-  A list of tag keys to remove from the resource. If a tag key does not exist
-  on the resource, it is ignored.
-  ## Keyword parameters:
+    A list of tag keys to remove from the resource. If a tag key does not exist
+    on the resource, it is ignored.
   """
   @spec untag_resource(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, untag_resource_response(), any()}

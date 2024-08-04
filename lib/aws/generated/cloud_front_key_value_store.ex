@@ -327,11 +327,10 @@ defmodule AWS.CloudFrontKeyValueStore do
   ## Parameters:
   * `:key` (`t:string` required) The key to delete.
   * `:kvs_arn` (`t:string` required) The Amazon Resource Name (ARN) of the Key
-  Value Store.
+    Value Store.
   * `:if_match` (`t:string` required) The current version (ETag) of the Key Value
-  Store that you are deleting keys from, which you can get using
-  DescribeKeyValueStore.
-  ## Keyword parameters:
+    Store that you are deleting keys from, which you can get using
+    DescribeKeyValueStore.
   """
   @spec delete_key(AWS.Client.t(), String.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, delete_key_response(), any()}
@@ -367,13 +366,6 @@ defmodule AWS.CloudFrontKeyValueStore do
         [{"ETag", "ETag"}]
       )
 
-    options =
-      Keyword.put(
-        options,
-        :response_header_parameters,
-        [{"ETag", "ETag"}]
-      )
-
     meta =
       metadata()
 
@@ -399,8 +391,7 @@ defmodule AWS.CloudFrontKeyValueStore do
 
   ## Parameters:
   * `:kvs_arn` (`t:string` required) The Amazon Resource Name (ARN) of the Key
-  Value Store.
-  ## Keyword parameters:
+    Value Store.
   """
   @spec describe_key_value_store(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, describe_key_value_store_response(), any()}
@@ -448,8 +439,7 @@ defmodule AWS.CloudFrontKeyValueStore do
   ## Parameters:
   * `:key` (`t:string` required) The key to get.
   * `:kvs_arn` (`t:string` required) The Amazon Resource Name (ARN) of the Key
-  Value Store.
-  ## Keyword parameters:
+    Value Store.
   """
   @spec get_key(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_key_response(), any()}
@@ -491,13 +481,14 @@ defmodule AWS.CloudFrontKeyValueStore do
 
   ## Parameters:
   * `:kvs_arn` (`t:string` required) The Amazon Resource Name (ARN) of the Key
-  Value Store.
+    Value Store.
+
   ## Keyword parameters:
   * `:max_results` (`t:string`) Maximum number of results that are returned per
-  call. The default is 10 and maximum allowed page is 50.
+    call. The default is 10 and maximum allowed page is 50.
   * `:next_token` (`t:string`) If nextToken is returned in the response, there are
-  more results available. Make the next call using the returned token to
-  retrieve the next page.
+    more results available. Make the next call using the returned token to
+    retrieve the next page.
   """
   @spec list_keys(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_keys_response(), any()}
@@ -557,11 +548,10 @@ defmodule AWS.CloudFrontKeyValueStore do
   ## Parameters:
   * `:key` (`t:string` required) The key to put.
   * `:kvs_arn` (`t:string` required) The Amazon Resource Name (ARN) of the Key
-  Value Store.
+    Value Store.
   * `:if_match` (`t:string` required) The current version (ETag) of the Key Value
-  Store that you are putting keys into, which you can get using
-  DescribeKeyValueStore.
-  ## Keyword parameters:
+    Store that you are putting keys into, which you can get using
+    DescribeKeyValueStore.
   """
   @spec put_key(AWS.Client.t(), String.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, put_key_response(), any()}
@@ -597,13 +587,6 @@ defmodule AWS.CloudFrontKeyValueStore do
         [{"ETag", "ETag"}]
       )
 
-    options =
-      Keyword.put(
-        options,
-        :response_header_parameters,
-        [{"ETag", "ETag"}]
-      )
-
     meta =
       metadata()
 
@@ -619,11 +602,10 @@ defmodule AWS.CloudFrontKeyValueStore do
 
   ## Parameters:
   * `:kvs_arn` (`t:string` required) The Amazon Resource Name (ARN) of the Key
-  Value Store.
+    Value Store.
   * `:if_match` (`t:string` required) The current version (ETag) of the Key Value
-  Store that you are updating keys of, which you can get using
-  DescribeKeyValueStore.
-  ## Keyword parameters:
+    Store that you are updating keys of, which you can get using
+    DescribeKeyValueStore.
   """
   @spec update_keys(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, update_keys_response(), any()}
@@ -651,13 +633,6 @@ defmodule AWS.CloudFrontKeyValueStore do
     query_params = []
 
     # Optional query params
-    options =
-      Keyword.put(
-        options,
-        :response_header_parameters,
-        [{"ETag", "ETag"}]
-      )
-
     options =
       Keyword.put(
         options,

@@ -1806,7 +1806,6 @@ defmodule AWS.Billingconductor do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=billingconductor%20AssociateAccounts&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec associate_accounts(AWS.Client.t(), Keyword.t()) ::
           {:ok, associate_accounts_output(), any()}
@@ -1849,7 +1848,6 @@ defmodule AWS.Billingconductor do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=billingconductor%20AssociatePricingRules&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec associate_pricing_rules(AWS.Client.t(), Keyword.t()) ::
           {:ok, associate_pricing_rules_output(), any()}
@@ -1891,7 +1889,6 @@ defmodule AWS.Billingconductor do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=billingconductor%20BatchAssociateResourcesToCustomLineItem&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec batch_associate_resources_to_custom_line_item(AWS.Client.t(), Keyword.t()) ::
           {:ok, batch_associate_resources_to_custom_line_item_output(), any()}
@@ -1933,7 +1930,6 @@ defmodule AWS.Billingconductor do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=billingconductor%20BatchDisassociateResourcesFromCustomLineItem&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec batch_disassociate_resources_from_custom_line_item(AWS.Client.t(), Keyword.t()) ::
           {:ok, batch_disassociate_resources_from_custom_line_item_output(), any()}
@@ -1976,10 +1972,11 @@ defmodule AWS.Billingconductor do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=billingconductor%20CreateBillingGroup&this_doc_guide=API%2520Reference)
 
   ## Parameters:
+
   ## Keyword parameters:
   * `:client_token` (`t:string`) The token that is needed to support idempotency.
-  Idempotency isn't currently supported, but will be implemented in a future
-  update.
+    Idempotency isn't currently supported, but will be implemented in a future
+    update.
   """
   @spec create_billing_group(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_billing_group_output(), any()}
@@ -2034,10 +2031,11 @@ defmodule AWS.Billingconductor do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=billingconductor%20CreateCustomLineItem&this_doc_guide=API%2520Reference)
 
   ## Parameters:
+
   ## Keyword parameters:
   * `:client_token` (`t:string`) The token that is needed to support idempotency.
-  Idempotency isn't currently supported, but will be implemented in a future
-  update.
+    Idempotency isn't currently supported, but will be implemented in a future
+    update.
   """
   @spec create_custom_line_item(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_custom_line_item_output(), any()}
@@ -2091,10 +2089,11 @@ defmodule AWS.Billingconductor do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=billingconductor%20CreatePricingPlan&this_doc_guide=API%2520Reference)
 
   ## Parameters:
+
   ## Keyword parameters:
   * `:client_token` (`t:string`) The token that is needed to support idempotency.
-  Idempotency isn't currently supported, but will be implemented in a future
-  update.
+    Idempotency isn't currently supported, but will be implemented in a future
+    update.
   """
   @spec create_pricing_plan(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_pricing_plan_output(), any()}
@@ -2148,10 +2147,11 @@ defmodule AWS.Billingconductor do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=billingconductor%20CreatePricingRule&this_doc_guide=API%2520Reference)
 
   ## Parameters:
+
   ## Keyword parameters:
   * `:client_token` (`t:string`) The token that's needed to support idempotency.
-  Idempotency isn't currently supported, but will be implemented in a future
-  update.
+    Idempotency isn't currently supported, but will be implemented in a future
+    update.
   """
   @spec create_pricing_rule(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_pricing_rule_output(), any()}
@@ -2204,7 +2204,6 @@ defmodule AWS.Billingconductor do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=billingconductor%20DeleteBillingGroup&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec delete_billing_group(AWS.Client.t(), Keyword.t()) ::
           {:ok, delete_billing_group_output(), any()}
@@ -2247,7 +2246,6 @@ defmodule AWS.Billingconductor do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=billingconductor%20DeleteCustomLineItem&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec delete_custom_line_item(AWS.Client.t(), Keyword.t()) ::
           {:ok, delete_custom_line_item_output(), any()}
@@ -2290,7 +2288,6 @@ defmodule AWS.Billingconductor do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=billingconductor%20DeletePricingPlan&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec delete_pricing_plan(AWS.Client.t(), Keyword.t()) ::
           {:ok, delete_pricing_plan_output(), any()}
@@ -2333,7 +2330,6 @@ defmodule AWS.Billingconductor do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=billingconductor%20DeletePricingRule&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec delete_pricing_rule(AWS.Client.t(), Keyword.t()) ::
           {:ok, delete_pricing_rule_output(), any()}
@@ -2375,7 +2371,6 @@ defmodule AWS.Billingconductor do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=billingconductor%20DisassociateAccounts&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec disassociate_accounts(AWS.Client.t(), Keyword.t()) ::
           {:ok, disassociate_accounts_output(), any()}
@@ -2417,7 +2412,6 @@ defmodule AWS.Billingconductor do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=billingconductor%20DisassociatePricingRules&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec disassociate_pricing_rules(AWS.Client.t(), Keyword.t()) ::
           {:ok, disassociate_pricing_rules_output(), any()}
@@ -2461,7 +2455,6 @@ defmodule AWS.Billingconductor do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=billingconductor%20GetBillingGroupCostReport&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec get_billing_group_cost_report(AWS.Client.t(), Keyword.t()) ::
           {:ok, get_billing_group_cost_report_output(), any()}
@@ -2506,7 +2499,6 @@ defmodule AWS.Billingconductor do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=billingconductor%20ListAccountAssociations&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec list_account_associations(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_account_associations_output(), any()}
@@ -2550,7 +2542,6 @@ defmodule AWS.Billingconductor do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=billingconductor%20ListBillingGroupCostReports&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec list_billing_group_cost_reports(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_billing_group_cost_reports_output(), any()}
@@ -2594,7 +2585,6 @@ defmodule AWS.Billingconductor do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=billingconductor%20ListBillingGroups&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec list_billing_groups(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_billing_groups_output(), any()}
@@ -2636,7 +2626,6 @@ defmodule AWS.Billingconductor do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=billingconductor%20ListCustomLineItemVersions&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec list_custom_line_item_versions(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_custom_line_item_versions_output(), any()}
@@ -2680,7 +2669,6 @@ defmodule AWS.Billingconductor do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=billingconductor%20ListCustomLineItems&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec list_custom_line_items(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_custom_line_items_output(), any()}
@@ -2723,7 +2711,6 @@ defmodule AWS.Billingconductor do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=billingconductor%20ListPricingPlans&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec list_pricing_plans(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_pricing_plans_output(), any()}
@@ -2765,7 +2752,6 @@ defmodule AWS.Billingconductor do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=billingconductor%20ListPricingPlansAssociatedWithPricingRule&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec list_pricing_plans_associated_with_pricing_rule(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_pricing_plans_associated_with_pricing_rule_output(), any()}
@@ -2808,7 +2794,6 @@ defmodule AWS.Billingconductor do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=billingconductor%20ListPricingRules&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec list_pricing_rules(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_pricing_rules_output(), any()}
@@ -2850,7 +2835,6 @@ defmodule AWS.Billingconductor do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=billingconductor%20ListPricingRulesAssociatedToPricingPlan&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec list_pricing_rules_associated_to_pricing_plan(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_pricing_rules_associated_to_pricing_plan_output(), any()}
@@ -2892,7 +2876,6 @@ defmodule AWS.Billingconductor do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=billingconductor%20ListResourcesAssociatedToCustomLineItem&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec list_resources_associated_to_custom_line_item(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_resources_associated_to_custom_line_item_output(), any()}
@@ -2935,8 +2918,7 @@ defmodule AWS.Billingconductor do
 
   ## Parameters:
   * `:resource_arn` (`t:string` required) The Amazon Resource Name (ARN) that
-  identifies the resource to list the tags.
-  ## Keyword parameters:
+    identifies the resource to list the tags.
   """
   @spec list_tags_for_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_tags_for_resource_response(), any()}
@@ -2979,8 +2961,7 @@ defmodule AWS.Billingconductor do
 
   ## Parameters:
   * `:resource_arn` (`t:string` required) The Amazon Resource Name (ARN) of the
-  resource to which to add tags.
-  ## Keyword parameters:
+    resource to which to add tags.
   """
   @spec tag_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, tag_resource_response(), any()}
@@ -3023,10 +3004,9 @@ defmodule AWS.Billingconductor do
 
   ## Parameters:
   * `:resource_arn` (`t:string` required) The Amazon Resource Name (ARN) of the
-  resource to which to delete tags.
+    resource to which to delete tags.
   * `:tag_keys` (`t:list[com.amazonaws.billingconductor#TagKey]` required) The
-  tags to delete from the resource as a list of key-value pairs.
-  ## Keyword parameters:
+    tags to delete from the resource as a list of key-value pairs.
   """
   @spec untag_resource(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, untag_resource_response(), any()}
@@ -3079,7 +3059,6 @@ defmodule AWS.Billingconductor do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=billingconductor%20UpdateBillingGroup&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec update_billing_group(AWS.Client.t(), Keyword.t()) ::
           {:ok, update_billing_group_output(), any()}
@@ -3121,7 +3100,6 @@ defmodule AWS.Billingconductor do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=billingconductor%20UpdateCustomLineItem&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec update_custom_line_item(AWS.Client.t(), Keyword.t()) ::
           {:ok, update_custom_line_item_output(), any()}
@@ -3163,7 +3141,6 @@ defmodule AWS.Billingconductor do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=billingconductor%20UpdatePricingPlan&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec update_pricing_plan(AWS.Client.t(), Keyword.t()) ::
           {:ok, update_pricing_plan_output(), any()}
@@ -3205,7 +3182,6 @@ defmodule AWS.Billingconductor do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=billingconductor%20UpdatePricingRule&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec update_pricing_rule(AWS.Client.t(), Keyword.t()) ::
           {:ok, update_pricing_rule_output(), any()}

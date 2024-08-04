@@ -1384,7 +1384,6 @@ defmodule AWS.SecurityLake do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=securitylake%20CreateAwsLogSource&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec create_aws_log_source(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_aws_log_source_response(), any()}
@@ -1433,7 +1432,6 @@ defmodule AWS.SecurityLake do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=securitylake%20CreateCustomLogSource&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec create_custom_log_source(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_custom_log_source_response(), any()}
@@ -1483,7 +1481,6 @@ defmodule AWS.SecurityLake do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=securitylake%20CreateDataLake&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec create_data_lake(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_data_lake_response(), any()}
@@ -1526,7 +1523,6 @@ defmodule AWS.SecurityLake do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=securitylake%20CreateDataLakeExceptionSubscription&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec create_data_lake_exception_subscription(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_data_lake_exception_subscription_response(), any()}
@@ -1570,7 +1566,6 @@ defmodule AWS.SecurityLake do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=securitylake%20CreateDataLakeOrganizationConfiguration&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec create_data_lake_organization_configuration(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_data_lake_organization_configuration_response(), any()}
@@ -1614,7 +1609,6 @@ defmodule AWS.SecurityLake do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=securitylake%20CreateSubscriber&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec create_subscriber(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_subscriber_response(), any()}
@@ -1659,8 +1653,7 @@ defmodule AWS.SecurityLake do
 
   ## Parameters:
   * `:subscriber_id` (`t:string` required) The subscriber ID for the notification
-  subscription.
-  ## Keyword parameters:
+    subscription.
   """
   @spec create_subscriber_notification(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, create_subscriber_notification_response(), any()}
@@ -1707,7 +1700,6 @@ defmodule AWS.SecurityLake do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=securitylake%20DeleteAwsLogSource&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec delete_aws_log_source(AWS.Client.t(), Keyword.t()) ::
           {:ok, delete_aws_log_source_response(), any()}
@@ -1751,11 +1743,12 @@ defmodule AWS.SecurityLake do
 
   ## Parameters:
   * `:source_name` (`t:string` required) The source name of custom log source that
-  you want to delete.
+    you want to delete.
+
   ## Keyword parameters:
   * `:source_version` (`t:string`) The source version for the third-party custom
-  source. You can limit the custom source removal to the specified source
-  version.
+    source. You can limit the custom source removal to the specified source
+    version.
   """
   @spec delete_custom_log_source(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, delete_custom_log_source_response(), any()}
@@ -1823,7 +1816,6 @@ defmodule AWS.SecurityLake do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=securitylake%20DeleteDataLake&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec delete_data_lake(AWS.Client.t(), Keyword.t()) ::
           {:ok, delete_data_lake_response(), any()}
@@ -1866,7 +1858,6 @@ defmodule AWS.SecurityLake do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=securitylake%20DeleteDataLakeExceptionSubscription&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec delete_data_lake_exception_subscription(AWS.Client.t(), Keyword.t()) ::
           {:ok, delete_data_lake_exception_subscription_response(), any()}
@@ -1922,7 +1913,6 @@ defmodule AWS.SecurityLake do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=securitylake%20DeleteDataLakeOrganizationConfiguration&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec delete_data_lake_organization_configuration(AWS.Client.t(), Keyword.t()) ::
           {:ok, delete_data_lake_organization_configuration_response(), any()}
@@ -1969,8 +1959,7 @@ defmodule AWS.SecurityLake do
 
   ## Parameters:
   * `:subscriber_id` (`t:string` required) A value created by Security Lake that
-  uniquely identifies your DeleteSubscriber API request.
-  ## Keyword parameters:
+    uniquely identifies your DeleteSubscriber API request.
   """
   @spec delete_subscriber(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, delete_subscriber_response(), any()}
@@ -2024,8 +2013,7 @@ defmodule AWS.SecurityLake do
 
   ## Parameters:
   * `:subscriber_id` (`t:string` required) The ID of the Security Lake subscriber
-  account.
-  ## Keyword parameters:
+    account.
   """
   @spec delete_subscriber_notification(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, delete_subscriber_notification_response(), any()}
@@ -2080,7 +2068,6 @@ defmodule AWS.SecurityLake do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=securitylake%20DeregisterDataLakeDelegatedAdministrator&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec deregister_data_lake_delegated_administrator(AWS.Client.t(), Keyword.t()) ::
           {:ok, deregister_data_lake_delegated_administrator_response(), any()}
@@ -2133,7 +2120,6 @@ defmodule AWS.SecurityLake do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=securitylake%20GetDataLakeExceptionSubscription&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec get_data_lake_exception_subscription(AWS.Client.t(), Keyword.t()) ::
           {:ok, get_data_lake_exception_subscription_response(), any()}
@@ -2175,7 +2161,6 @@ defmodule AWS.SecurityLake do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=securitylake%20GetDataLakeOrganizationConfiguration&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec get_data_lake_organization_configuration(AWS.Client.t(), Keyword.t()) ::
           {:ok, get_data_lake_organization_configuration_response(), any()}
@@ -2217,7 +2202,6 @@ defmodule AWS.SecurityLake do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=securitylake%20GetDataLakeSources&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec get_data_lake_sources(AWS.Client.t(), Keyword.t()) ::
           {:ok, get_data_lake_sources_response(), any()}
@@ -2261,8 +2245,7 @@ defmodule AWS.SecurityLake do
 
   ## Parameters:
   * `:subscriber_id` (`t:string` required) A value created by Amazon Security Lake
-  that uniquely identifies your GetSubscriber API request.
-  ## Keyword parameters:
+    that uniquely identifies your GetSubscriber API request.
   """
   @spec get_subscriber(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_subscriber_response(), any()}
@@ -2303,7 +2286,6 @@ defmodule AWS.SecurityLake do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=securitylake%20ListDataLakeExceptions&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec list_data_lake_exceptions(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_data_lake_exceptions_response(), any()}
@@ -2347,9 +2329,10 @@ defmodule AWS.SecurityLake do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=securitylake%20ListDataLakes&this_doc_guide=API%2520Reference)
 
   ## Parameters:
+
   ## Keyword parameters:
   * `:regions` (`t:list[com.amazonaws.securitylake#Region]`) The list of Regions
-  where Security Lake is enabled.
+    where Security Lake is enabled.
   """
   @spec list_data_lakes(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_data_lakes_response(), any()}
@@ -2400,7 +2383,6 @@ defmodule AWS.SecurityLake do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=securitylake%20ListLogSources&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec list_log_sources(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_log_sources_response(), any()}
@@ -2444,12 +2426,13 @@ defmodule AWS.SecurityLake do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=securitylake%20ListSubscribers&this_doc_guide=API%2520Reference)
 
   ## Parameters:
+
   ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of accounts for which the
-  configuration is displayed.
+    configuration is displayed.
   * `:next_token` (`t:string`) If nextToken is returned, there are more results
-  available. You can repeat the call using the returned token to retrieve the
-  next page.
+    available. You can repeat the call using the returned token to retrieve the
+    next page.
   """
   @spec list_subscribers(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_subscribers_response(), any()}
@@ -2510,8 +2493,7 @@ defmodule AWS.SecurityLake do
 
   ## Parameters:
   * `:resource_arn` (`t:string` required) The Amazon Resource Name (ARN) of the
-  Amazon Security Lake resource for which you want to retrieve the tags.
-  ## Keyword parameters:
+    Amazon Security Lake resource for which you want to retrieve the tags.
   """
   @spec list_tags_for_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_tags_for_resource_response(), any()}
@@ -2554,7 +2536,6 @@ defmodule AWS.SecurityLake do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=securitylake%20RegisterDataLakeDelegatedAdministrator&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec register_data_lake_delegated_administrator(AWS.Client.t(), Keyword.t()) ::
           {:ok, register_data_lake_delegated_administrator_response(), any()}
@@ -2608,8 +2589,7 @@ defmodule AWS.SecurityLake do
 
   ## Parameters:
   * `:resource_arn` (`t:string` required) The Amazon Resource Name (ARN) of the
-  Amazon Security Lake resource to add or update the tags for.
-  ## Keyword parameters:
+    Amazon Security Lake resource to add or update the tags for.
   """
   @spec tag_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, tag_resource_response(), any()}
@@ -2654,11 +2634,10 @@ defmodule AWS.SecurityLake do
 
   ## Parameters:
   * `:resource_arn` (`t:string` required) The Amazon Resource Name (ARN) of the
-  Amazon Security Lake resource to remove one or more tags from.
+    Amazon Security Lake resource to remove one or more tags from.
   * `:tag_keys` (`t:list[com.amazonaws.securitylake#TagKey]` required) A list of
-  one or more tag keys. For each value in the list, specify the tag key for a
-  tag to remove from the Amazon Security Lake resource.
-  ## Keyword parameters:
+    one or more tag keys. For each value in the list, specify the tag key for a
+    tag to remove from the Amazon Security Lake resource.
   """
   @spec untag_resource(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, untag_resource_response(), any()}
@@ -2712,7 +2691,6 @@ defmodule AWS.SecurityLake do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=securitylake%20UpdateDataLake&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec update_data_lake(AWS.Client.t(), Keyword.t()) ::
           {:ok, update_data_lake_response(), any()}
@@ -2755,7 +2733,6 @@ defmodule AWS.SecurityLake do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=securitylake%20UpdateDataLakeExceptionSubscription&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec update_data_lake_exception_subscription(AWS.Client.t(), Keyword.t()) ::
           {:ok, update_data_lake_exception_subscription_response(), any()}
@@ -2800,8 +2777,7 @@ defmodule AWS.SecurityLake do
 
   ## Parameters:
   * `:subscriber_id` (`t:string` required) A value created by Security Lake that
-  uniquely identifies your subscription.
-  ## Keyword parameters:
+    uniquely identifies your subscription.
   """
   @spec update_subscriber(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, update_subscriber_response(), any()}
@@ -2845,8 +2821,7 @@ defmodule AWS.SecurityLake do
 
   ## Parameters:
   * `:subscriber_id` (`t:string` required) The subscription ID for which the
-  subscription notification is specified.
-  ## Keyword parameters:
+    subscription notification is specified.
   """
   @spec update_subscriber_notification(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, update_subscriber_notification_response(), any()}

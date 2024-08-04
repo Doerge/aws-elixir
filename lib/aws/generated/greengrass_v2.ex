@@ -1530,10 +1530,9 @@ defmodule AWS.GreengrassV2 do
 
   ## Parameters:
   * `:input` (`t:map`):
-    * `:role_arn` (`t:string` required) The Amazon Resource Name (ARN) of the
-  service role to associate with IoT Greengrass for your Amazon Web Services
-  account in this Amazon Web Services Region.
-  ## Keyword parameters:
+    * `"RoleArn" => t:string` (required) The Amazon Resource Name (ARN) of the
+    service role to associate with IoT Greengrass for your Amazon Web Services
+    account in this Amazon Web Services Region.
   """
   @spec associate_service_role_to_account(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, associate_service_role_to_account_response(), any()}
@@ -1590,8 +1589,7 @@ defmodule AWS.GreengrassV2 do
 
   ## Parameters:
   * `:core_device_thing_name` (`t:string` required) The name of the core device.
-  This is also the name of the IoT thing.
-  ## Keyword parameters:
+    This is also the name of the IoT thing.
   """
   @spec batch_associate_client_device_with_core_device(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, batch_associate_client_device_with_core_device_response(), any()}
@@ -1642,8 +1640,7 @@ defmodule AWS.GreengrassV2 do
 
   ## Parameters:
   * `:core_device_thing_name` (`t:string` required) The name of the core device.
-  This is also the name of the IoT thing.
-  ## Keyword parameters:
+    This is also the name of the IoT thing.
   """
   @spec batch_disassociate_client_device_from_core_device(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, batch_disassociate_client_device_from_core_device_response(), any()}
@@ -1693,7 +1690,6 @@ defmodule AWS.GreengrassV2 do
 
   ## Parameters:
   * `:deployment_id` (`t:string` required) The ID of the deployment.
-  ## Keyword parameters:
   """
   @spec cancel_deployment(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, cancel_deployment_response(), any()}
@@ -1739,7 +1735,6 @@ defmodule AWS.GreengrassV2 do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=greengrassv2%20CreateComponentVersion&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec create_component_version(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_component_version_response(), any()}
@@ -1787,7 +1782,6 @@ defmodule AWS.GreengrassV2 do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=greengrassv2%20CreateDeployment&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec create_deployment(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_deployment_response(), any()}
@@ -1830,7 +1824,6 @@ defmodule AWS.GreengrassV2 do
 
   ## Parameters:
   * `:arn` (`t:string` required) The ARN of the component version.
-  ## Keyword parameters:
   """
   @spec delete_component(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
@@ -1887,8 +1880,7 @@ defmodule AWS.GreengrassV2 do
 
   ## Parameters:
   * `:core_device_thing_name` (`t:string` required) The name of the core device.
-  This is also the name of the IoT thing.
-  ## Keyword parameters:
+    This is also the name of the IoT thing.
   """
   @spec delete_core_device(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
@@ -1943,7 +1935,6 @@ defmodule AWS.GreengrassV2 do
 
   ## Parameters:
   * `:deployment_id` (`t:string` required) The ID of the deployment.
-  ## Keyword parameters:
   """
   @spec delete_deployment(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
@@ -1996,7 +1987,6 @@ defmodule AWS.GreengrassV2 do
 
   ## Parameters:
   * `:arn` (`t:string` required) The ARN of the component version.
-  ## Keyword parameters:
   """
   @spec describe_component(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, describe_component_response(), any()}
@@ -2042,7 +2032,6 @@ defmodule AWS.GreengrassV2 do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=greengrassv2%20DisassociateServiceRoleFromAccount&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec disassociate_service_role_from_account(AWS.Client.t(), Keyword.t()) ::
           {:ok, disassociate_service_role_from_account_response(), any()}
@@ -2095,6 +2084,7 @@ defmodule AWS.GreengrassV2 do
 
   ## Parameters:
   * `:arn` (`t:string` required) The ARN of the component version.
+
   ## Keyword parameters:
   * `:recipe_output_format` (`t:enum["JSON|YAML"]`) The format of the recipe.
   """
@@ -2150,15 +2140,16 @@ defmodule AWS.GreengrassV2 do
 
   ## Parameters:
   * `:arn` (`t:string` required) The ARN of the component version. Specify the ARN
-  of a public or a Lambda component version.
+    of a public or a Lambda component version.
   * `:artifact_name` (`t:string` required) The name of the artifact.
+
   ## Keyword parameters:
   * `:s3_endpoint_type` (`t:enum["GLOBAL|REGIONAL"]`) Specifies the endpoint to
-  use when getting Amazon S3 pre-signed URLs.
+    use when getting Amazon S3 pre-signed URLs.
   * `:iot_endpoint_type` (`t:enum["fips|standard"]`) Determines if the Amazon S3
-  URL returned is a FIPS pre-signed URL endpoint. Specify fips if you want the
-  returned Amazon S3 pre-signed URL to point to an Amazon S3 FIPS endpoint. If
-  you don't specify a value, the default is standard.
+    URL returned is a FIPS pre-signed URL endpoint. Specify fips if you want the
+    returned Amazon S3 pre-signed URL to point to an Amazon S3 FIPS endpoint. If
+    you don't specify a value, the default is standard.
   """
   @spec get_component_version_artifact(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_component_version_artifact_response(), any()}
@@ -2217,8 +2208,7 @@ defmodule AWS.GreengrassV2 do
 
   ## Parameters:
   * `:thing_name` (`t:string` required) The name of the core device. This is also
-  the name of the IoT thing.
-  ## Keyword parameters:
+    the name of the IoT thing.
   """
   @spec get_connectivity_info(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_connectivity_info_response(), any()}
@@ -2259,8 +2249,7 @@ defmodule AWS.GreengrassV2 do
 
   ## Parameters:
   * `:core_device_thing_name` (`t:string` required) The name of the core device.
-  This is also the name of the IoT thing.
-  ## Keyword parameters:
+    This is also the name of the IoT thing.
   """
   @spec get_core_device(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_core_device_response(), any()}
@@ -2302,7 +2291,6 @@ defmodule AWS.GreengrassV2 do
 
   ## Parameters:
   * `:deployment_id` (`t:string` required) The ID of the deployment.
-  ## Keyword parameters:
   """
   @spec get_deployment(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_deployment_response(), any()}
@@ -2347,7 +2335,6 @@ defmodule AWS.GreengrassV2 do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=greengrassv2%20GetServiceRoleForAccount&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec get_service_role_for_account(AWS.Client.t(), Keyword.t()) ::
           {:ok, get_service_role_for_account_response(), any()}
@@ -2389,12 +2376,13 @@ defmodule AWS.GreengrassV2 do
 
   ## Parameters:
   * `:core_device_thing_name` (`t:string` required) The name of the core device.
-  This is also the name of the IoT thing.
+    This is also the name of the IoT thing.
+
   ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of results to be returned per
-  paginated request.
+    paginated request.
   * `:next_token` (`t:string`) The token to be used for the next set of paginated
-  results.
+    results.
   """
   @spec list_client_devices_associated_with_core_device(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_client_devices_associated_with_core_device_response(), any()}
@@ -2459,11 +2447,12 @@ defmodule AWS.GreengrassV2 do
 
   ## Parameters:
   * `:arn` (`t:string` required) The ARN of the component.
+
   ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of results to be returned per
-  paginated request.
+    paginated request.
   * `:next_token` (`t:string`) The token to be used for the next set of paginated
-  results.
+    results.
   """
   @spec list_component_versions(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_component_versions_response(), any()}
@@ -2522,11 +2511,12 @@ defmodule AWS.GreengrassV2 do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=greengrassv2%20ListComponents&this_doc_guide=API%2520Reference)
 
   ## Parameters:
+
   ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of results to be returned per
-  paginated request.
+    paginated request.
   * `:next_token` (`t:string`) The token to be used for the next set of paginated
-  results.
+    results.
   * `:scope` (`t:enum["PRIVATE|PUBLIC"]`) The scope of the components to list.
   """
   @spec list_components(AWS.Client.t(), Keyword.t()) ::
@@ -2592,19 +2582,20 @@ defmodule AWS.GreengrassV2 do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=greengrassv2%20ListCoreDevices&this_doc_guide=API%2520Reference)
 
   ## Parameters:
+
   ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of results to be returned per
-  paginated request.
+    paginated request.
   * `:next_token` (`t:string`) The token to be used for the next set of paginated
-  results.
+    results.
   * `:status` (`t:enum["HEALTHY|UNHEALTHY"]`) The core device status by which to
-  filter. If you specify this parameter, the list includes only core devices
-  that have this status. Choose one of the following options:
+    filter. If you specify this parameter, the list includes only core devices
+    that have this status. Choose one of the following options:
   * `:thing_group_arn` (`t:string`) The ARN of the IoT thing group by which to
-  filter. If you specify this parameter, the list includes only core devices
-  that have successfully deployed a deployment that targets the thing group.
-  When you remove a core device from a thing group, the list continues to
-  include that core device.
+    filter. If you specify this parameter, the list includes only core devices
+    that have successfully deployed a deployment that targets the thing group.
+    When you remove a core device from a thing group, the list continues to
+    include that core device.
   """
   @spec list_core_devices(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_core_devices_response(), any()}
@@ -2676,15 +2667,16 @@ defmodule AWS.GreengrassV2 do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=greengrassv2%20ListDeployments&this_doc_guide=API%2520Reference)
 
   ## Parameters:
+
   ## Keyword parameters:
   * `:history_filter` (`t:enum["ALL|LATEST_ONLY"]`) The filter for the list of
-  deployments. Choose one of the following options:
+    deployments. Choose one of the following options:
   * `:max_results` (`t:integer`) The maximum number of results to be returned per
-  paginated request.
+    paginated request.
   * `:next_token` (`t:string`) The token to be used for the next set of paginated
-  results.
+    results.
   * `:parent_target_arn` (`t:string`) The parent deployment's target ARN within a
-  subdeployment.
+    subdeployment.
   * `:target_arn` (`t:string`) The ARN of the target IoT thing or thing group.
   """
   @spec list_deployments(AWS.Client.t(), Keyword.t()) ::
@@ -2778,12 +2770,13 @@ defmodule AWS.GreengrassV2 do
 
   ## Parameters:
   * `:core_device_thing_name` (`t:string` required) The name of the core device.
-  This is also the name of the IoT thing.
+    This is also the name of the IoT thing.
+
   ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of results to be returned per
-  paginated request.
+    paginated request.
   * `:next_token` (`t:string`) The token to be used for the next set of paginated
-  results.
+    results.
   """
   @spec list_effective_deployments(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_effective_deployments_response(), any()}
@@ -2846,14 +2839,15 @@ defmodule AWS.GreengrassV2 do
 
   ## Parameters:
   * `:core_device_thing_name` (`t:string` required) The name of the core device.
-  This is also the name of the IoT thing.
+    This is also the name of the IoT thing.
+
   ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of results to be returned per
-  paginated request.
+    paginated request.
   * `:next_token` (`t:string`) The token to be used for the next set of paginated
-  results.
+    results.
   * `:topology_filter` (`t:enum["ALL|ROOT"]`) The filter for the list of
-  components. Choose from the following options:
+    components. Choose from the following options:
   """
   @spec list_installed_components(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_installed_components_response(), any()}
@@ -2920,7 +2914,6 @@ defmodule AWS.GreengrassV2 do
 
   ## Parameters:
   * `:resource_arn` (`t:string` required) The ARN of the resource.
-  ## Keyword parameters:
   """
   @spec list_tags_for_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_tags_for_resource_response(), any()}
@@ -2967,7 +2960,6 @@ defmodule AWS.GreengrassV2 do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=greengrassv2%20ResolveComponentCandidates&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec resolve_component_candidates(AWS.Client.t(), Keyword.t()) ::
           {:ok, resolve_component_candidates_response(), any()}
@@ -3011,7 +3003,6 @@ defmodule AWS.GreengrassV2 do
 
   ## Parameters:
   * `:resource_arn` (`t:string` required) The ARN of the resource to tag.
-  ## Keyword parameters:
   """
   @spec tag_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, tag_resource_response(), any()}
@@ -3055,8 +3046,7 @@ defmodule AWS.GreengrassV2 do
   ## Parameters:
   * `:resource_arn` (`t:string` required) The ARN of the resource to untag.
   * `:tag_keys` (`t:list[com.amazonaws.greengrassv2#TagKey]` required) A list of
-  keys for tags to remove from the resource.
-  ## Keyword parameters:
+    keys for tags to remove from the resource.
   """
   @spec untag_resource(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, untag_resource_response(), any()}
@@ -3110,13 +3100,12 @@ defmodule AWS.GreengrassV2 do
 
   ## Parameters:
   * `:thing_name` (`t:string` required) The name of the core device. This is also
-  the name of the IoT thing.
+    the name of the IoT thing.
   * `:input` (`t:map`):
-    * `:connectivity_info` (`t:list[com.amazonaws.greengrassv2#ConnectivityInfo]`
-  required) The connectivity information for the core device.
-    * `:thing_name` (`t:string` required) The name of the core device. This is also
-  the name of the IoT thing.
-  ## Keyword parameters:
+    * `"ConnectivityInfo" => t:list[com.amazonaws.greengrassv2#ConnectivityInfo]`
+    (required) The connectivity information for the core device.
+    * `"ThingName" => t:string` (required) The name of the core device. This is also
+    the name of the IoT thing.
   """
   @spec update_connectivity_info(AWS.Client.t(), String.t(), input :: map(), Keyword.t()) ::
           {:ok, update_connectivity_info_response(), any()}
@@ -3124,7 +3113,7 @@ defmodule AWS.GreengrassV2 do
           | {:error, update_connectivity_info_errors()}
   def update_connectivity_info(%Client{} = client, thing_name, input, options \\ [])
       when is_map(input) do
-    url_path = "/greengrass/things/#{AWS.Util.encode_uri(thing_name)}/connectivityInfo"
+    url_path = "/greengrass/things/{thingName}/connectivityInfo"
 
     # Validate optional parameters
     optional_params = []

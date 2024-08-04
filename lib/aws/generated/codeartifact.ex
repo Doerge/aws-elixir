@@ -2201,14 +2201,15 @@ defmodule AWS.Codeartifact do
 
   ## Parameters:
   * `:domain` (`t:string` required) The name of the domain that contains the
-  repository.
+    repository.
   * `:external_connection` (`t:string` required) The name of the external
-  connection to add to the repository. The following values are supported:
+    connection to add to the repository. The following values are supported:
   * `:repository` (`t:string` required) The name of the repository to which the
-  external connection is added.
+    external connection is added.
+
   ## Keyword parameters:
   * `:domain_owner` (`t:string`) The 12-digit account number of the Amazon Web
-  Services account that owns the domain. It does not include dashes or spaces.
+    Services account that owns the domain. It does not include dashes or spaces.
   """
   @spec associate_external_connection(
           AWS.Client.t(),
@@ -2280,21 +2281,22 @@ defmodule AWS.Codeartifact do
 
   ## Parameters:
   * `:destination_repository` (`t:string` required) The name of the repository
-  into which package versions are copied.
+    into which package versions are copied.
   * `:domain` (`t:string` required) The name of the domain that contains the
-  source and destination repositories.
+    source and destination repositories.
   * `:format` (`t:enum["CARGO|GENERIC|MAVEN|NPM|NUGET|PYPI|RUBY|SWIFT"]` required)
-  The format of the package versions to be copied.
+    The format of the package versions to be copied.
   * `:package` (`t:string` required) The name of the package that contains the
-  versions to be copied.
+    versions to be copied.
   * `:source_repository` (`t:string` required) The name of the repository that
-  contains the package versions to be copied.
+    contains the package versions to be copied.
+
   ## Keyword parameters:
   * `:domain_owner` (`t:string`) The 12-digit account number of the Amazon Web
-  Services account that owns the domain. It does not include dashes or spaces.
+    Services account that owns the domain. It does not include dashes or spaces.
   * `:namespace` (`t:string`) The namespace of the package versions to be copied.
-  The package component that specifies its namespace depends on its type. For
-  example:
+    The package component that specifies its namespace depends on its type. For
+    example:
   """
   @spec copy_package_versions(
           AWS.Client.t(),
@@ -2382,11 +2384,10 @@ defmodule AWS.Codeartifact do
 
   ## Parameters:
   * `:domain` (`t:string` required) The name of the domain to create. All domain
-  names in an Amazon Web Services Region that are in the same Amazon Web
-  Services account must be unique. The domain name is used as the prefix in
-  DNS hostnames. Do not use sensitive information in a domain name because it
-  is publicly discoverable.
-  ## Keyword parameters:
+    names in an Amazon Web Services Region that are in the same Amazon Web
+    Services account must be unique. The domain name is used as the prefix in
+    DNS hostnames. Do not use sensitive information in a domain name because it
+    is publicly discoverable.
   """
   @spec create_domain(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, create_domain_result(), any()}
@@ -2432,10 +2433,11 @@ defmodule AWS.Codeartifact do
 
   ## Parameters:
   * `:domain` (`t:string` required) The name of the domain in which you want to
-  create a package group.
+    create a package group.
+
   ## Keyword parameters:
   * `:domain_owner` (`t:string`) The 12-digit account number of the Amazon Web
-  Services account that owns the domain. It does not include dashes or spaces.
+    Services account that owns the domain. It does not include dashes or spaces.
   """
   @spec create_package_group(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, create_package_group_result(), any()}
@@ -2489,11 +2491,12 @@ defmodule AWS.Codeartifact do
 
   ## Parameters:
   * `:domain` (`t:string` required) The name of the domain that contains the
-  created repository.
+    created repository.
   * `:repository` (`t:string` required) The name of the repository to create.
+
   ## Keyword parameters:
   * `:domain_owner` (`t:string`) The 12-digit account number of the Amazon Web
-  Services account that owns the domain. It does not include dashes or spaces.
+    Services account that owns the domain. It does not include dashes or spaces.
   """
   @spec create_repository(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, create_repository_result(), any()}
@@ -2549,9 +2552,10 @@ defmodule AWS.Codeartifact do
 
   ## Parameters:
   * `:domain` (`t:string` required) The name of the domain to delete.
+
   ## Keyword parameters:
   * `:domain_owner` (`t:string`) The 12-digit account number of the Amazon Web
-  Services account that owns the domain. It does not include dashes or spaces.
+    Services account that owns the domain. It does not include dashes or spaces.
   """
   @spec delete_domain(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, delete_domain_result(), any()}
@@ -2615,13 +2619,14 @@ defmodule AWS.Codeartifact do
 
   ## Parameters:
   * `:domain` (`t:string` required) The name of the domain associated with the
-  resource policy to be deleted.
+    resource policy to be deleted.
+
   ## Keyword parameters:
   * `:domain_owner` (`t:string`) The 12-digit account number of the Amazon Web
-  Services account that owns the domain. It does not include dashes or spaces.
+    Services account that owns the domain. It does not include dashes or spaces.
   * `:policy_revision` (`t:string`) The current revision of the resource policy to
-  be deleted. This revision is used for optimistic locking, which prevents
-  others from overwriting your changes to the domain's resource policy.
+    be deleted. This revision is used for optimistic locking, which prevents
+    others from overwriting your changes to the domain's resource policy.
   """
   @spec delete_domain_permissions_policy(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, delete_domain_permissions_policy_result(), any()}
@@ -2696,17 +2701,18 @@ defmodule AWS.Codeartifact do
 
   ## Parameters:
   * `:domain` (`t:string` required) The name of the domain that contains the
-  package to delete.
+    package to delete.
   * `:format` (`t:enum["CARGO|GENERIC|MAVEN|NPM|NUGET|PYPI|RUBY|SWIFT"]` required)
-  The format of the requested package to delete.
+    The format of the requested package to delete.
   * `:package` (`t:string` required) The name of the package to delete.
   * `:repository` (`t:string` required) The name of the repository that contains
-  the package to delete.
+    the package to delete.
+
   ## Keyword parameters:
   * `:domain_owner` (`t:string`) The 12-digit account number of the Amazon Web
-  Services account that owns the domain. It does not include dashes or spaces.
+    Services account that owns the domain. It does not include dashes or spaces.
   * `:namespace` (`t:string`) The namespace of the package to delete. The package
-  component that specifies its namespace depends on its type. For example:
+    component that specifies its namespace depends on its type. For example:
   """
   @spec delete_package(
           AWS.Client.t(),
@@ -2795,12 +2801,13 @@ defmodule AWS.Codeartifact do
 
   ## Parameters:
   * `:domain` (`t:string` required) The domain that contains the package group to
-  be deleted.
+    be deleted.
   * `:package_group` (`t:string` required) The pattern of the package group to be
-  deleted.
+    deleted.
+
   ## Keyword parameters:
   * `:domain_owner` (`t:string`) The 12-digit account number of the Amazon Web
-  Services account that owns the domain. It does not include dashes or spaces.
+    Services account that owns the domain. It does not include dashes or spaces.
   """
   @spec delete_package_group(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, delete_package_group_result(), any()}
@@ -2872,19 +2879,20 @@ defmodule AWS.Codeartifact do
 
   ## Parameters:
   * `:domain` (`t:string` required) The name of the domain that contains the
-  package to delete.
+    package to delete.
   * `:format` (`t:enum["CARGO|GENERIC|MAVEN|NPM|NUGET|PYPI|RUBY|SWIFT"]` required)
-  The format of the package versions to delete.
+    The format of the package versions to delete.
   * `:package` (`t:string` required) The name of the package with the versions to
-  delete.
+    delete.
   * `:repository` (`t:string` required) The name of the repository that contains
-  the package versions to delete.
+    the package versions to delete.
+
   ## Keyword parameters:
   * `:domain_owner` (`t:string`) The 12-digit account number of the Amazon Web
-  Services account that owns the domain. It does not include dashes or spaces.
+    Services account that owns the domain. It does not include dashes or spaces.
   * `:namespace` (`t:string`) The namespace of the package versions to be deleted.
-  The package component that specifies its namespace depends on its type. For
-  example:
+    The package component that specifies its namespace depends on its type. For
+    example:
   """
   @spec delete_package_versions(
           AWS.Client.t(),
@@ -2966,11 +2974,12 @@ defmodule AWS.Codeartifact do
 
   ## Parameters:
   * `:domain` (`t:string` required) The name of the domain that contains the
-  repository to delete.
+    repository to delete.
   * `:repository` (`t:string` required) The name of the repository to delete.
+
   ## Keyword parameters:
   * `:domain_owner` (`t:string`) The 12-digit account number of the Amazon Web
-  Services account that owns the domain. It does not include dashes or spaces.
+    Services account that owns the domain. It does not include dashes or spaces.
   """
   @spec delete_repository(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, delete_repository_result(), any()}
@@ -3037,16 +3046,17 @@ defmodule AWS.Codeartifact do
 
   ## Parameters:
   * `:domain` (`t:string` required) The name of the domain that contains the
-  repository associated with the resource policy to be deleted.
+    repository associated with the resource policy to be deleted.
   * `:repository` (`t:string` required) The name of the repository that is
-  associated with the resource policy to be deleted
+    associated with the resource policy to be deleted
+
   ## Keyword parameters:
   * `:domain_owner` (`t:string`) The 12-digit account number of the Amazon Web
-  Services account that owns the domain. It does not include dashes or spaces.
+    Services account that owns the domain. It does not include dashes or spaces.
   * `:policy_revision` (`t:string`) The revision of the repository's resource
-  policy to be deleted. This revision is used for optimistic locking, which
-  prevents others from accidentally overwriting your changes to the
-  repository's resource policy.
+    policy to be deleted. This revision is used for optimistic locking, which
+    prevents others from accidentally overwriting your changes to the
+    repository's resource policy.
   """
   @spec delete_repository_permissions_policy(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, delete_repository_permissions_policy_result(), any()}
@@ -3120,10 +3130,11 @@ defmodule AWS.Codeartifact do
 
   ## Parameters:
   * `:domain` (`t:string` required) A string that specifies the name of the
-  requested domain.
+    requested domain.
+
   ## Keyword parameters:
   * `:domain_owner` (`t:string`) The 12-digit account number of the Amazon Web
-  Services account that owns the domain. It does not include dashes or spaces.
+    Services account that owns the domain. It does not include dashes or spaces.
   """
   @spec describe_domain(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, describe_domain_result(), any()}
@@ -3177,17 +3188,18 @@ defmodule AWS.Codeartifact do
 
   ## Parameters:
   * `:domain` (`t:string` required) The name of the domain that contains the
-  repository that contains the package.
+    repository that contains the package.
   * `:format` (`t:enum["CARGO|GENERIC|MAVEN|NPM|NUGET|PYPI|RUBY|SWIFT"]` required)
-  A format that specifies the type of the requested package.
+    A format that specifies the type of the requested package.
   * `:package` (`t:string` required) The name of the requested package.
   * `:repository` (`t:string` required) The name of the repository that contains
-  the requested package.
+    the requested package.
+
   ## Keyword parameters:
   * `:domain_owner` (`t:string`) The 12-digit account number of the Amazon Web
-  Services account that owns the domain. It does not include dashes or spaces.
+    Services account that owns the domain. It does not include dashes or spaces.
   * `:namespace` (`t:string`) The namespace of the requested package. The package
-  component that specifies its namespace depends on its type. For example:
+    component that specifies its namespace depends on its type. For example:
   """
   @spec describe_package(
           AWS.Client.t(),
@@ -3262,12 +3274,13 @@ defmodule AWS.Codeartifact do
 
   ## Parameters:
   * `:domain` (`t:string` required) The name of the domain that contains the
-  package group.
+    package group.
   * `:package_group` (`t:string` required) The pattern of the requested package
-  group.
+    group.
+
   ## Keyword parameters:
   * `:domain_owner` (`t:string`) The 12-digit account number of the Amazon Web
-  Services account that owns the domain. It does not include dashes or spaces.
+    Services account that owns the domain. It does not include dashes or spaces.
   """
   @spec describe_package_group(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, describe_package_group_result(), any()}
@@ -3322,20 +3335,21 @@ defmodule AWS.Codeartifact do
 
   ## Parameters:
   * `:domain` (`t:string` required) The name of the domain that contains the
-  repository that contains the package version.
+    repository that contains the package version.
   * `:format` (`t:enum["CARGO|GENERIC|MAVEN|NPM|NUGET|PYPI|RUBY|SWIFT"]` required)
-  A format that specifies the type of the requested package version.
+    A format that specifies the type of the requested package version.
   * `:package` (`t:string` required) The name of the requested package version.
   * `:package_version` (`t:string` required) A string that contains the package
-  version (for example, 3.5.2).
+    version (for example, 3.5.2).
   * `:repository` (`t:string` required) The name of the repository that contains
-  the package version.
+    the package version.
+
   ## Keyword parameters:
   * `:domain_owner` (`t:string`) The 12-digit account number of the Amazon Web
-  Services account that owns the domain. It does not include dashes or spaces.
+    Services account that owns the domain. It does not include dashes or spaces.
   * `:namespace` (`t:string`) The namespace of the requested package version. The
-  package component that specifies its namespace depends on its type. For
-  example:
+    package component that specifies its namespace depends on its type. For
+    example:
   """
   @spec describe_package_version(
           AWS.Client.t(),
@@ -3419,12 +3433,13 @@ defmodule AWS.Codeartifact do
 
   ## Parameters:
   * `:domain` (`t:string` required) The name of the domain that contains the
-  repository to describe.
+    repository to describe.
   * `:repository` (`t:string` required) A string that specifies the name of the
-  requested repository.
+    requested repository.
+
   ## Keyword parameters:
   * `:domain_owner` (`t:string`) The 12-digit account number of the Amazon Web
-  Services account that owns the domain. It does not include dashes or spaces.
+    Services account that owns the domain. It does not include dashes or spaces.
   """
   @spec describe_repository(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, describe_repository_result(), any()}
@@ -3477,14 +3492,15 @@ defmodule AWS.Codeartifact do
 
   ## Parameters:
   * `:domain` (`t:string` required) The name of the domain that contains the
-  repository from which to remove the external repository.
+    repository from which to remove the external repository.
   * `:external_connection` (`t:string` required) The name of the external
-  connection to be removed from the repository.
+    connection to be removed from the repository.
   * `:repository` (`t:string` required) The name of the repository from which the
-  external connection will be removed.
+    external connection will be removed.
+
   ## Keyword parameters:
   * `:domain_owner` (`t:string`) The 12-digit account number of the Amazon Web
-  Services account that owns the domain. It does not include dashes or spaces.
+    Services account that owns the domain. It does not include dashes or spaces.
   """
   @spec disassociate_external_connection(
           AWS.Client.t(),
@@ -3567,19 +3583,20 @@ defmodule AWS.Codeartifact do
 
   ## Parameters:
   * `:domain` (`t:string` required) The name of the domain that contains the
-  repository you want to dispose.
+    repository you want to dispose.
   * `:format` (`t:enum["CARGO|GENERIC|MAVEN|NPM|NUGET|PYPI|RUBY|SWIFT"]` required)
-  A format that specifies the type of package versions you want to dispose.
+    A format that specifies the type of package versions you want to dispose.
   * `:package` (`t:string` required) The name of the package with the versions you
-  want to dispose.
+    want to dispose.
   * `:repository` (`t:string` required) The name of the repository that contains
-  the package versions you want to dispose.
+    the package versions you want to dispose.
+
   ## Keyword parameters:
   * `:domain_owner` (`t:string`) The 12-digit account number of the Amazon Web
-  Services account that owns the domain. It does not include dashes or spaces.
+    Services account that owns the domain. It does not include dashes or spaces.
   * `:namespace` (`t:string`) The namespace of the package versions to be
-  disposed. The package component that specifies its namespace depends on its
-  type. For example:
+    disposed. The package component that specifies its namespace depends on its
+    type. For example:
   """
   @spec dispose_package_versions(
           AWS.Client.t(),
@@ -3666,17 +3683,18 @@ defmodule AWS.Codeartifact do
 
   ## Parameters:
   * `:domain` (`t:string` required) The name of the domain that contains the
-  package from which to get the associated package group.
+    package from which to get the associated package group.
   * `:format` (`t:enum["CARGO|GENERIC|MAVEN|NPM|NUGET|PYPI|RUBY|SWIFT"]` required)
-  The format of the package from which to get the associated package group.
+    The format of the package from which to get the associated package group.
   * `:package` (`t:string` required) The package from which to get the associated
-  package group.
+    package group.
+
   ## Keyword parameters:
   * `:domain_owner` (`t:string`) The 12-digit account number of the Amazon Web
-  Services account that owns the domain. It does not include dashes or spaces.
+    Services account that owns the domain. It does not include dashes or spaces.
   * `:namespace` (`t:string`) The namespace of the package from which to get the
-  associated package group. The package component that specifies its namespace
-  depends on its type. For example:
+    associated package group. The package component that specifies its namespace
+    depends on its type. For example:
   """
   @spec get_associated_package_group(
           AWS.Client.t(),
@@ -3760,15 +3778,16 @@ defmodule AWS.Codeartifact do
 
   ## Parameters:
   * `:domain` (`t:string` required) The name of the domain that is in scope for
-  the generated authorization token.
+    the generated authorization token.
+
   ## Keyword parameters:
   * `:domain_owner` (`t:string`) The 12-digit account number of the Amazon Web
-  Services account that owns the domain. It does not include dashes or spaces.
+    Services account that owns the domain. It does not include dashes or spaces.
   * `:duration_seconds` (`t:long`) The time, in seconds, that the generated
-  authorization token is valid. Valid values are 0 and any number between 900
-  (15 minutes) and 43200 (12 hours). A value of 0 will set the expiration of
-  the authorization token to the same expiration of the user's role's
-  temporary credentials.
+    authorization token is valid. Valid values are 0 and any number between 900
+    (15 minutes) and 43200 (12 hours). A value of 0 will set the expiration of
+    the authorization token to the same expiration of the user's role's
+    temporary credentials.
   """
   @spec get_authorization_token(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_authorization_token_result(), any()}
@@ -3829,10 +3848,11 @@ defmodule AWS.Codeartifact do
 
   ## Parameters:
   * `:domain` (`t:string` required) The name of the domain to which the resource
-  policy is attached.
+    policy is attached.
+
   ## Keyword parameters:
   * `:domain_owner` (`t:string`) The 12-digit account number of the Amazon Web
-  Services account that owns the domain. It does not include dashes or spaces.
+    Services account that owns the domain. It does not include dashes or spaces.
   """
   @spec get_domain_permissions_policy(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_domain_permissions_policy_result(), any()}
@@ -3888,24 +3908,25 @@ defmodule AWS.Codeartifact do
   ## Parameters:
   * `:asset` (`t:string` required) The name of the requested asset.
   * `:domain` (`t:string` required) The name of the domain that contains the
-  repository that contains the package version with the requested asset.
+    repository that contains the package version with the requested asset.
   * `:format` (`t:enum["CARGO|GENERIC|MAVEN|NPM|NUGET|PYPI|RUBY|SWIFT"]` required)
-  A format that specifies the type of the package version with the requested
-  asset file.
+    A format that specifies the type of the package version with the requested
+    asset file.
   * `:package` (`t:string` required) The name of the package that contains the
-  requested asset.
+    requested asset.
   * `:package_version` (`t:string` required) A string that contains the package
-  version (for example, 3.5.2).
+    version (for example, 3.5.2).
   * `:repository` (`t:string` required) The repository that contains the package
-  version with the requested asset.
+    version with the requested asset.
+
   ## Keyword parameters:
   * `:domain_owner` (`t:string`) The 12-digit account number of the Amazon Web
-  Services account that owns the domain. It does not include dashes or spaces.
+    Services account that owns the domain. It does not include dashes or spaces.
   * `:namespace` (`t:string`) The namespace of the package version with the
-  requested asset file. The package component that specifies its namespace
-  depends on its type. For example:
+    requested asset file. The package component that specifies its namespace
+    depends on its type. For example:
   * `:package_version_revision` (`t:string`) The name of the package version
-  revision that contains the requested asset.
+    revision that contains the requested asset.
   """
   @spec get_package_version_asset(
           AWS.Client.t(),
@@ -4009,22 +4030,23 @@ defmodule AWS.Codeartifact do
 
   ## Parameters:
   * `:domain` (`t:string` required) The name of the domain that contains the
-  repository that contains the package version with the requested readme file.
+    repository that contains the package version with the requested readme file.
   * `:format` (`t:enum["CARGO|GENERIC|MAVEN|NPM|NUGET|PYPI|RUBY|SWIFT"]` required)
-  A format that specifies the type of the package version with the requested
-  readme file.
+    A format that specifies the type of the package version with the requested
+    readme file.
   * `:package` (`t:string` required) The name of the package version that contains
-  the requested readme file.
+    the requested readme file.
   * `:package_version` (`t:string` required) A string that contains the package
-  version (for example, 3.5.2).
+    version (for example, 3.5.2).
   * `:repository` (`t:string` required) The repository that contains the package
-  with the requested readme file.
+    with the requested readme file.
+
   ## Keyword parameters:
   * `:domain_owner` (`t:string`) The 12-digit account number of the Amazon Web
-  Services account that owns the domain. It does not include dashes or spaces.
+    Services account that owns the domain. It does not include dashes or spaces.
   * `:namespace` (`t:string`) The namespace of the package version with the
-  requested readme file. The package component that specifies its namespace
-  depends on its type. For example:
+    requested readme file. The package component that specifies its namespace
+    depends on its type. For example:
   """
   @spec get_package_version_readme(
           AWS.Client.t(),
@@ -4108,15 +4130,16 @@ defmodule AWS.Codeartifact do
 
   ## Parameters:
   * `:domain` (`t:string` required) The name of the domain that contains the
-  repository.
+    repository.
   * `:format` (`t:enum["CARGO|GENERIC|MAVEN|NPM|NUGET|PYPI|RUBY|SWIFT"]` required)
-  Returns which endpoint of a repository to return. A repository has one
-  endpoint for each package format.
+    Returns which endpoint of a repository to return. A repository has one
+    endpoint for each package format.
   * `:repository` (`t:string` required) The name of the repository.
+
   ## Keyword parameters:
   * `:domain_owner` (`t:string`) The 12-digit account number of the Amazon Web
-  Services account that owns the domain that contains the repository. It does
-  not include dashes or spaces.
+    Services account that owns the domain that contains the repository. It does
+    not include dashes or spaces.
   """
   @spec get_repository_endpoint(AWS.Client.t(), String.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_repository_endpoint_result(), any()}
@@ -4169,12 +4192,13 @@ defmodule AWS.Codeartifact do
 
   ## Parameters:
   * `:domain` (`t:string` required) The name of the domain containing the
-  repository whose associated resource policy is to be retrieved.
+    repository whose associated resource policy is to be retrieved.
   * `:repository` (`t:string` required) The name of the repository whose
-  associated resource policy is to be retrieved.
+    associated resource policy is to be retrieved.
+
   ## Keyword parameters:
   * `:domain_owner` (`t:string`) The 12-digit account number of the Amazon Web
-  Services account that owns the domain. It does not include dashes or spaces.
+    Services account that owns the domain. It does not include dashes or spaces.
   """
   @spec get_repository_permissions_policy(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_repository_permissions_policy_result(), any()}
@@ -4231,19 +4255,20 @@ defmodule AWS.Codeartifact do
 
   ## Parameters:
   * `:domain` (`t:string` required) The name of the domain that contains the
-  package group from which to list allowed repositories.
+    package group from which to list allowed repositories.
   * `:origin_restriction_type`
-  (`t:enum["EXTERNAL_UPSTREAM|INTERNAL_UPSTREAM|PUBLISH"]` required) The
-  origin configuration restriction type of which to list allowed repositories.
+    (`t:enum["EXTERNAL_UPSTREAM|INTERNAL_UPSTREAM|PUBLISH"]` required) The
+    origin configuration restriction type of which to list allowed repositories.
   * `:package_group` (`t:string` required) The pattern of the package group from
-  which to list allowed repositories.
+    which to list allowed repositories.
+
   ## Keyword parameters:
   * `:domain_owner` (`t:string`) The 12-digit account number of the Amazon Web
-  Services account that owns the domain. It does not include dashes or spaces.
+    Services account that owns the domain. It does not include dashes or spaces.
   * `:max_results` (`t:integer`) The maximum number of results to return per page.
   * `:next_token` (`t:string`) The token for the next set of results. Use the
-  value returned in the previous response in the next request to retrieve the
-  next set of results.
+    value returned in the previous response in the next request to retrieve the
+    next set of results.
   """
   @spec list_allowed_repositories_for_group(
           AWS.Client.t(),
@@ -4330,19 +4355,20 @@ defmodule AWS.Codeartifact do
 
   ## Parameters:
   * `:domain` (`t:string` required) The name of the domain that contains the
-  package group from which to list associated packages.
+    package group from which to list associated packages.
   * `:package_group` (`t:string` required) The pattern of the package group from
-  which to list associated packages.
+    which to list associated packages.
+
   ## Keyword parameters:
   * `:domain_owner` (`t:string`) The 12-digit account number of the Amazon Web
-  Services account that owns the domain. It does not include dashes or spaces.
+    Services account that owns the domain. It does not include dashes or spaces.
   * `:max_results` (`t:integer`) The maximum number of results to return per page.
   * `:next_token` (`t:string`) The token for the next set of results. Use the
-  value returned in the previous response in the next request to retrieve the
-  next set of results.
+    value returned in the previous response in the next request to retrieve the
+    next set of results.
   * `:preview` (`t:boolean`) When this flag is included, ListAssociatedPackages
-  will return a list of packages that would be associated with a package
-  group, even if it does not exist.
+    will return a list of packages that would be associated with a package
+    group, even if it does not exist.
   """
   @spec list_associated_packages(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, list_associated_packages_result(), any()}
@@ -4419,7 +4445,6 @@ defmodule AWS.Codeartifact do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=codeartifact%20ListDomains&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec list_domains(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_domains_result(), any()}
@@ -4462,17 +4487,18 @@ defmodule AWS.Codeartifact do
 
   ## Parameters:
   * `:domain` (`t:string` required) The domain for which you want to list package
-  groups.
+    groups.
+
   ## Keyword parameters:
   * `:domain_owner` (`t:string`) The 12-digit account number of the Amazon Web
-  Services account that owns the domain. It does not include dashes or spaces.
+    Services account that owns the domain. It does not include dashes or spaces.
   * `:max_results` (`t:integer`) The maximum number of results to return per page.
   * `:next_token` (`t:string`) The token for the next set of results. Use the
-  value returned in the previous response in the next request to retrieve the
-  next set of results.
+    value returned in the previous response in the next request to retrieve the
+    next set of results.
   * `:prefix` (`t:string`) A prefix for which to search package groups. When
-  included, ListPackageGroups will return only package groups with patterns
-  that match the prefix.
+    included, ListPackageGroups will return only package groups with patterns
+    that match the prefix.
   """
   @spec list_package_groups(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_package_groups_result(), any()}
@@ -4549,26 +4575,27 @@ defmodule AWS.Codeartifact do
 
   ## Parameters:
   * `:domain` (`t:string` required) The name of the domain that contains the
-  repository associated with the package version assets.
+    repository associated with the package version assets.
   * `:format` (`t:enum["CARGO|GENERIC|MAVEN|NPM|NUGET|PYPI|RUBY|SWIFT"]` required)
-  The format of the package that contains the requested package version
-  assets.
+    The format of the package that contains the requested package version
+    assets.
   * `:package` (`t:string` required) The name of the package that contains the
-  requested package version assets.
+    requested package version assets.
   * `:package_version` (`t:string` required) A string that contains the package
-  version (for example, 3.5.2).
+    version (for example, 3.5.2).
   * `:repository` (`t:string` required) The name of the repository that contains
-  the package that contains the requested package version assets.
+    the package that contains the requested package version assets.
+
   ## Keyword parameters:
   * `:domain_owner` (`t:string`) The 12-digit account number of the Amazon Web
-  Services account that owns the domain. It does not include dashes or spaces.
+    Services account that owns the domain. It does not include dashes or spaces.
   * `:max_results` (`t:integer`) The maximum number of results to return per page.
   * `:namespace` (`t:string`) The namespace of the package version that contains
-  the requested package version assets. The package component that specifies
-  its namespace depends on its type. For example:
+    the requested package version assets. The package component that specifies
+    its namespace depends on its type. For example:
   * `:next_token` (`t:string`) The token for the next set of results. Use the
-  value returned in the previous response in the next request to retrieve the
-  next set of results.
+    value returned in the previous response in the next request to retrieve the
+    next set of results.
   """
   @spec list_package_version_assets(
           AWS.Client.t(),
@@ -4673,23 +4700,24 @@ defmodule AWS.Codeartifact do
 
   ## Parameters:
   * `:domain` (`t:string` required) The name of the domain that contains the
-  repository that contains the requested package version dependencies.
+    repository that contains the requested package version dependencies.
   * `:format` (`t:enum["CARGO|GENERIC|MAVEN|NPM|NUGET|PYPI|RUBY|SWIFT"]` required)
-  The format of the package with the requested dependencies.
+    The format of the package with the requested dependencies.
   * `:package` (`t:string` required) The name of the package versions' package.
   * `:package_version` (`t:string` required) A string that contains the package
-  version (for example, 3.5.2).
+    version (for example, 3.5.2).
   * `:repository` (`t:string` required) The name of the repository that contains
-  the requested package version.
+    the requested package version.
+
   ## Keyword parameters:
   * `:domain_owner` (`t:string`) The 12-digit account number of the Amazon Web
-  Services account that owns the domain. It does not include dashes or spaces.
+    Services account that owns the domain. It does not include dashes or spaces.
   * `:namespace` (`t:string`) The namespace of the package version with the
-  requested dependencies. The package component that specifies its namespace
-  depends on its type. For example:
+    requested dependencies. The package component that specifies its namespace
+    depends on its type. For example:
   * `:next_token` (`t:string`) The token for the next set of results. Use the
-  value returned in the previous response in the next request to retrieve the
-  next set of results.
+    value returned in the previous response in the next request to retrieve the
+    next set of results.
   """
   @spec list_package_version_dependencies(
           AWS.Client.t(),
@@ -4785,31 +4813,32 @@ defmodule AWS.Codeartifact do
 
   ## Parameters:
   * `:domain` (`t:string` required) The name of the domain that contains the
-  repository that contains the requested package versions.
+    repository that contains the requested package versions.
   * `:format` (`t:enum["CARGO|GENERIC|MAVEN|NPM|NUGET|PYPI|RUBY|SWIFT"]` required)
-  The format of the package versions you want to list.
+    The format of the package versions you want to list.
   * `:package` (`t:string` required) The name of the package for which you want to
-  request package versions.
+    request package versions.
   * `:repository` (`t:string` required) The name of the repository that contains
-  the requested package versions.
+    the requested package versions.
+
   ## Keyword parameters:
   * `:domain_owner` (`t:string`) The 12-digit account number of the Amazon Web
-  Services account that owns the domain. It does not include dashes or spaces.
+    Services account that owns the domain. It does not include dashes or spaces.
   * `:max_results` (`t:integer`) The maximum number of results to return per page.
   * `:namespace` (`t:string`) The namespace of the package that contains the
-  requested package versions. The package component that specifies its
-  namespace depends on its type. For example:
+    requested package versions. The package component that specifies its
+    namespace depends on its type. For example:
   * `:next_token` (`t:string`) The token for the next set of results. Use the
-  value returned in the previous response in the next request to retrieve the
-  next set of results.
+    value returned in the previous response in the next request to retrieve the
+    next set of results.
   * `:origin_type` (`t:enum["EXTERNAL|INTERNAL|UNKNOWN"]`) The originType used to
-  filter package versions. Only package versions with the provided originType
-  will be returned.
+    filter package versions. Only package versions with the provided originType
+    will be returned.
   * `:sort_by` (`t:enum["PUBLISHED_TIME"]`) How to sort the requested list of
-  package versions.
+    package versions.
   * `:status`
-  (`t:enum["ARCHIVED|DELETED|DISPOSED|PUBLISHED|UNFINISHED|UNLISTED"]`) A
-  string that filters the requested package versions by status.
+    (`t:enum["ARCHIVED|DELETED|DISPOSED|PUBLISHED|UNFINISHED|UNLISTED"]`) A
+    string that filters the requested package versions by status.
   """
   @spec list_package_versions(
           AWS.Client.t(),
@@ -4944,33 +4973,34 @@ defmodule AWS.Codeartifact do
 
   ## Parameters:
   * `:domain` (`t:string` required) The name of the domain that contains the
-  repository that contains the requested packages.
+    repository that contains the requested packages.
   * `:repository` (`t:string` required) The name of the repository that contains
-  the requested packages.
+    the requested packages.
+
   ## Keyword parameters:
   * `:domain_owner` (`t:string`) The 12-digit account number of the Amazon Web
-  Services account that owns the domain. It does not include dashes or spaces.
+    Services account that owns the domain. It does not include dashes or spaces.
   * `:format` (`t:enum["CARGO|GENERIC|MAVEN|NPM|NUGET|PYPI|RUBY|SWIFT"]`) The
-  format used to filter requested packages. Only packages from the provided
-  format will be returned.
+    format used to filter requested packages. Only packages from the provided
+    format will be returned.
   * `:max_results` (`t:integer`) The maximum number of results to return per page.
   * `:namespace` (`t:string`) The namespace prefix used to filter requested
-  packages. Only packages with a namespace that starts with the provided
-  string value are returned. Note that although this option is called
-  --namespace and not --namespace-prefix, it has prefix-matching behavior.
+    packages. Only packages with a namespace that starts with the provided
+    string value are returned. Note that although this option is called
+    --namespace and not --namespace-prefix, it has prefix-matching behavior.
   * `:next_token` (`t:string`) The token for the next set of results. Use the
-  value returned in the previous response in the next request to retrieve the
-  next set of results.
+    value returned in the previous response in the next request to retrieve the
+    next set of results.
   * `:package_prefix` (`t:string`) A prefix used to filter requested packages.
-  Only packages with names that start with packagePrefix are returned.
+    Only packages with names that start with packagePrefix are returned.
   * `:publish` (`t:enum["ALLOW|BLOCK"]`) The value of the Publish package origin
-  control restriction used to filter requested packages. Only packages with
-  the provided restriction are returned. For more information, see
-  PackageOriginRestrictions.
+    control restriction used to filter requested packages. Only packages with
+    the provided restriction are returned. For more information, see
+    PackageOriginRestrictions.
   * `:upstream` (`t:enum["ALLOW|BLOCK"]`) The value of the Upstream package origin
-  control restriction used to filter requested packages. Only packages with
-  the provided restriction are returned. For more information, see
-  PackageOriginRestrictions.
+    control restriction used to filter requested packages. Only packages with
+    the provided restriction are returned. For more information, see
+    PackageOriginRestrictions.
   """
   @spec list_packages(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, list_packages_result(), any()}
@@ -5095,14 +5125,15 @@ defmodule AWS.Codeartifact do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=codeartifact%20ListRepositories&this_doc_guide=API%2520Reference)
 
   ## Parameters:
+
   ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of results to return per page.
   * `:next_token` (`t:string`) The token for the next set of results. Use the
-  value returned in the previous response in the next request to retrieve the
-  next set of results.
+    value returned in the previous response in the next request to retrieve the
+    next set of results.
   * `:repository_prefix` (`t:string`) A prefix used to filter returned
-  repositories. Only repositories with names that start with repositoryPrefix
-  are returned.
+    repositories. Only repositories with names that start with repositoryPrefix
+    are returned.
   """
   @spec list_repositories(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_repositories_result(), any()}
@@ -5173,19 +5204,20 @@ defmodule AWS.Codeartifact do
 
   ## Parameters:
   * `:domain` (`t:string` required) The name of the domain that contains the
-  returned list of repositories.
+    returned list of repositories.
+
   ## Keyword parameters:
   * `:administrator_account` (`t:string`) Filter the list of repositories to only
-  include those that are managed by the Amazon Web Services account ID.
+    include those that are managed by the Amazon Web Services account ID.
   * `:domain_owner` (`t:string`) The 12-digit account number of the Amazon Web
-  Services account that owns the domain. It does not include dashes or spaces.
+    Services account that owns the domain. It does not include dashes or spaces.
   * `:max_results` (`t:integer`) The maximum number of results to return per page.
   * `:next_token` (`t:string`) The token for the next set of results. Use the
-  value returned in the previous response in the next request to retrieve the
-  next set of results.
+    value returned in the previous response in the next request to retrieve the
+    next set of results.
   * `:repository_prefix` (`t:string`) A prefix used to filter returned
-  repositories. Only repositories with names that start with repositoryPrefix
-  are returned.
+    repositories. Only repositories with names that start with repositoryPrefix
+    are returned.
   """
   @spec list_repositories_in_domain(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_repositories_in_domain_result(), any()}
@@ -5280,16 +5312,17 @@ defmodule AWS.Codeartifact do
 
   ## Parameters:
   * `:domain` (`t:string` required) The name of the domain which contains the
-  package group from which to list sub package groups.
+    package group from which to list sub package groups.
   * `:package_group` (`t:string` required) The pattern of the package group from
-  which to list sub package groups.
+    which to list sub package groups.
+
   ## Keyword parameters:
   * `:domain_owner` (`t:string`) The 12-digit account number of the Amazon Web
-  Services account that owns the domain. It does not include dashes or spaces.
+    Services account that owns the domain. It does not include dashes or spaces.
   * `:max_results` (`t:integer`) The maximum number of results to return per page.
   * `:next_token` (`t:string`) The token for the next set of results. Use the
-  value returned in the previous response in the next request to retrieve the
-  next set of results.
+    value returned in the previous response in the next request to retrieve the
+    next set of results.
   """
   @spec list_sub_package_groups(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, list_sub_package_groups_result(), any()}
@@ -5359,8 +5392,7 @@ defmodule AWS.Codeartifact do
 
   ## Parameters:
   * `:resource_arn` (`t:string` required) The Amazon Resource Name (ARN) of the
-  resource to get tags for.
-  ## Keyword parameters:
+    resource to get tags for.
   """
   @spec list_tags_for_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_tags_for_resource_result(), any()}
@@ -5404,31 +5436,32 @@ defmodule AWS.Codeartifact do
 
   ## Parameters:
   * `:asset_name` (`t:string` required) The name of the asset to publish. Asset
-  names can include Unicode letters and numbers, and the following special
-  characters: ~ ! @ ^ & ( ) - ` _ + [ ] { } ; , . `
+    names can include Unicode letters and numbers, and the following special
+    characters: ~ ! @ ^ & ( ) - ` _ + [ ] { } ; , . `
   * `:domain` (`t:string` required) The name of the domain that contains the
-  repository that contains the package version to publish.
+    repository that contains the package version to publish.
   * `:format` (`t:enum["CARGO|GENERIC|MAVEN|NPM|NUGET|PYPI|RUBY|SWIFT"]` required)
-  A format that specifies the type of the package version with the requested
-  asset file.
+    A format that specifies the type of the package version with the requested
+    asset file.
   * `:package` (`t:string` required) The name of the package version to publish.
   * `:package_version` (`t:string` required) The package version to publish (for
-  example, 3.5.2).
+    example, 3.5.2).
   * `:repository` (`t:string` required) The name of the repository that the
-  package version will be published to.
+    package version will be published to.
   * `:asset_s_h_a256` (`t:string` required) The SHA256 hash of the assetContent to
-  publish. This value must be calculated by the caller and provided with the
-  request (see Publishing a generic package in the CodeArtifact User Guide).
+    publish. This value must be calculated by the caller and provided with the
+    request (see Publishing a generic package in the CodeArtifact User Guide).
   * `:input` (`t:map`):
-    * `:asset_content` (`t:blob` required) The content of the asset to publish.
+    * `"assetContent" => t:blob` (required) The content of the asset to publish.
+
   ## Keyword parameters:
   * `:domain_owner` (`t:string`) The 12-digit account number of the AWS account
-  that owns the domain. It does not include dashes or spaces.
+    that owns the domain. It does not include dashes or spaces.
   * `:namespace` (`t:string`) The namespace of the package version to publish.
   * `:unfinished` (`t:boolean`) Specifies whether the package version should
-  remain in the unfinished state. If omitted, the package version status will
-  be set to Published (see Package version status in the CodeArtifact User
-  Guide).
+    remain in the unfinished state. If omitted, the package version status will
+    be set to Published (see Package version status in the CodeArtifact User
+    Guide).
   """
   @spec publish_package_version(
           AWS.Client.t(),
@@ -5527,7 +5560,6 @@ defmodule AWS.Codeartifact do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=codeartifact%20PutDomainPermissionsPolicy&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec put_domain_permissions_policy(AWS.Client.t(), Keyword.t()) ::
           {:ok, put_domain_permissions_policy_result(), any()}
@@ -5577,18 +5609,19 @@ defmodule AWS.Codeartifact do
 
   ## Parameters:
   * `:domain` (`t:string` required) The name of the domain that contains the
-  repository that contains the package.
+    repository that contains the package.
   * `:format` (`t:enum["CARGO|GENERIC|MAVEN|NPM|NUGET|PYPI|RUBY|SWIFT"]` required)
-  A format that specifies the type of the package to be updated.
+    A format that specifies the type of the package to be updated.
   * `:package` (`t:string` required) The name of the package to be updated.
   * `:repository` (`t:string` required) The name of the repository that contains
-  the package.
+    the package.
+
   ## Keyword parameters:
   * `:domain_owner` (`t:string`) The 12-digit account number of the Amazon Web
-  Services account that owns the domain. It does not include dashes or spaces.
+    Services account that owns the domain. It does not include dashes or spaces.
   * `:namespace` (`t:string`) The namespace of the package to be updated. The
-  package component that specifies its namespace depends on its type. For
-  example:
+    package component that specifies its namespace depends on its type. For
+    example:
   """
   @spec put_package_origin_configuration(
           AWS.Client.t(),
@@ -5671,12 +5704,13 @@ defmodule AWS.Codeartifact do
 
   ## Parameters:
   * `:domain` (`t:string` required) The name of the domain containing the
-  repository to set the resource policy on.
+    repository to set the resource policy on.
   * `:repository` (`t:string` required) The name of the repository to set the
-  resource policy on.
+    resource policy on.
+
   ## Keyword parameters:
   * `:domain_owner` (`t:string`) The 12-digit account number of the Amazon Web
-  Services account that owns the domain. It does not include dashes or spaces.
+    Services account that owns the domain. It does not include dashes or spaces.
   """
   @spec put_repository_permissions_policy(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, put_repository_permissions_policy_result(), any()}
@@ -5731,8 +5765,7 @@ defmodule AWS.Codeartifact do
 
   ## Parameters:
   * `:resource_arn` (`t:string` required) The Amazon Resource Name (ARN) of the
-  resource that you want to add or update tags for.
-  ## Keyword parameters:
+    resource that you want to add or update tags for.
   """
   @spec tag_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, tag_resource_result(), any()}
@@ -5776,8 +5809,7 @@ defmodule AWS.Codeartifact do
 
   ## Parameters:
   * `:resource_arn` (`t:string` required) The Amazon Resource Name (ARN) of the
-  resource that you want to remove tags from.
-  ## Keyword parameters:
+    resource that you want to remove tags from.
   """
   @spec untag_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, untag_resource_result(), any()}
@@ -5824,10 +5856,11 @@ defmodule AWS.Codeartifact do
 
   ## Parameters:
   * `:domain` (`t:string` required) The name of the domain which contains the
-  package group to be updated.
+    package group to be updated.
+
   ## Keyword parameters:
   * `:domain_owner` (`t:string`) The 12-digit account number of the Amazon Web
-  Services account that owns the domain. It does not include dashes or spaces.
+    Services account that owns the domain. It does not include dashes or spaces.
   """
   @spec update_package_group(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, update_package_group_result(), any()}
@@ -5881,12 +5914,13 @@ defmodule AWS.Codeartifact do
 
   ## Parameters:
   * `:domain` (`t:string` required) The name of the domain which contains the
-  package group for which to update the origin configuration.
+    package group for which to update the origin configuration.
   * `:package_group` (`t:string` required) The pattern of the package group for
-  which to update the origin configuration.
+    which to update the origin configuration.
+
   ## Keyword parameters:
   * `:domain_owner` (`t:string`) The 12-digit account number of the Amazon Web
-  Services account that owns the domain. It does not include dashes or spaces.
+    Services account that owns the domain. It does not include dashes or spaces.
   """
   @spec update_package_group_origin_configuration(
           AWS.Client.t(),
@@ -5955,19 +5989,20 @@ defmodule AWS.Codeartifact do
 
   ## Parameters:
   * `:domain` (`t:string` required) The name of the domain that contains the
-  repository that contains the package versions with a status to be updated.
+    repository that contains the package versions with a status to be updated.
   * `:format` (`t:enum["CARGO|GENERIC|MAVEN|NPM|NUGET|PYPI|RUBY|SWIFT"]` required)
-  A format that specifies the type of the package with the statuses to update.
+    A format that specifies the type of the package with the statuses to update.
   * `:package` (`t:string` required) The name of the package with the version
-  statuses to update.
+    statuses to update.
   * `:repository` (`t:string` required) The repository that contains the package
-  versions with the status you want to update.
+    versions with the status you want to update.
+
   ## Keyword parameters:
   * `:domain_owner` (`t:string`) The 12-digit account number of the Amazon Web
-  Services account that owns the domain. It does not include dashes or spaces.
+    Services account that owns the domain. It does not include dashes or spaces.
   * `:namespace` (`t:string`) The namespace of the package version to be updated.
-  The package component that specifies its namespace depends on its type. For
-  example:
+    The package component that specifies its namespace depends on its type. For
+    example:
   """
   @spec update_package_versions_status(
           AWS.Client.t(),
@@ -6049,11 +6084,12 @@ defmodule AWS.Codeartifact do
 
   ## Parameters:
   * `:domain` (`t:string` required) The name of the domain associated with the
-  repository to update.
+    repository to update.
   * `:repository` (`t:string` required) The name of the repository to update.
+
   ## Keyword parameters:
   * `:domain_owner` (`t:string`) The 12-digit account number of the Amazon Web
-  Services account that owns the domain. It does not include dashes or spaces.
+    Services account that owns the domain. It does not include dashes or spaces.
   """
   @spec update_repository(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, update_repository_result(), any()}

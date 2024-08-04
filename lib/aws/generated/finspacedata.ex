@@ -1409,9 +1409,8 @@ defmodule AWS.Finspacedata do
 
   ## Parameters:
   * `:permission_group_id` (`t:string` required) The unique identifier for the
-  permission group.
+    permission group.
   * `:user_id` (`t:string` required) The unique identifier for the user.
-  ## Keyword parameters:
   """
   @spec associate_user_to_permission_group(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, associate_user_to_permission_group_response(), any()}
@@ -1460,8 +1459,7 @@ defmodule AWS.Finspacedata do
 
   ## Parameters:
   * `:dataset_id` (`t:string` required) The unique identifier for the FinSpace
-  Dataset where the Changeset will be created.
-  ## Keyword parameters:
+    Dataset where the Changeset will be created.
   """
   @spec create_changeset(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, create_changeset_response(), any()}
@@ -1504,8 +1502,7 @@ defmodule AWS.Finspacedata do
 
   ## Parameters:
   * `:dataset_id` (`t:string` required) The unique Dataset identifier that is used
-  to create a Dataview.
-  ## Keyword parameters:
+    to create a Dataview.
   """
   @spec create_data_view(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, create_data_view_response(), any()}
@@ -1547,7 +1544,6 @@ defmodule AWS.Finspacedata do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=finspacedata%20CreateDataset&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec create_dataset(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_dataset_response(), any()}
@@ -1590,7 +1586,6 @@ defmodule AWS.Finspacedata do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=finspacedata%20CreatePermissionGroup&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec create_permission_group(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_permission_group_response(), any()}
@@ -1632,7 +1627,6 @@ defmodule AWS.Finspacedata do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=finspacedata%20CreateUser&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec create_user(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_user_response(), any()}
@@ -1675,10 +1669,11 @@ defmodule AWS.Finspacedata do
 
   ## Parameters:
   * `:dataset_id` (`t:string` required) The unique identifier of the Dataset to be
-  deleted.
+    deleted.
+
   ## Keyword parameters:
   * `:client_token` (`t:string`) A token that ensures idempotency. This token
-  expires in 10 minutes.
+    expires in 10 minutes.
   """
   @spec delete_dataset(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, delete_dataset_response(), any()}
@@ -1742,10 +1737,11 @@ defmodule AWS.Finspacedata do
 
   ## Parameters:
   * `:permission_group_id` (`t:string` required) The unique identifier for the
-  permission group that you want to delete.
+    permission group that you want to delete.
+
   ## Keyword parameters:
   * `:client_token` (`t:string`) A token that ensures idempotency. This token
-  expires in 10 minutes.
+    expires in 10 minutes.
   """
   @spec delete_permission_group(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, delete_permission_group_response(), any()}
@@ -1809,8 +1805,7 @@ defmodule AWS.Finspacedata do
 
   ## Parameters:
   * `:user_id` (`t:string` required) The unique identifier for the user that you
-  want to deactivate.
-  ## Keyword parameters:
+    want to deactivate.
   """
   @spec disable_user(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, disable_user_response(), any()}
@@ -1853,11 +1848,12 @@ defmodule AWS.Finspacedata do
 
   ## Parameters:
   * `:permission_group_id` (`t:string` required) The unique identifier for the
-  permission group.
+    permission group.
   * `:user_id` (`t:string` required) The unique identifier for the user.
+
   ## Keyword parameters:
   * `:client_token` (`t:string`) A token that ensures idempotency. This token
-  expires in 10 minutes.
+    expires in 10 minutes.
   """
   @spec disassociate_user_from_permission_group(
           AWS.Client.t(),
@@ -1932,8 +1928,7 @@ defmodule AWS.Finspacedata do
 
   ## Parameters:
   * `:user_id` (`t:string` required) The unique identifier for the user that you
-  want to activate.
-  ## Keyword parameters:
+    want to activate.
   """
   @spec enable_user(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, enable_user_response(), any()}
@@ -1976,10 +1971,9 @@ defmodule AWS.Finspacedata do
 
   ## Parameters:
   * `:changeset_id` (`t:string` required) The unique identifier of the Changeset
-  for which to get data.
+    for which to get data.
   * `:dataset_id` (`t:string` required) The unique identifier for the FinSpace
-  Dataset where the Changeset is created.
-  ## Keyword parameters:
+    Dataset where the Changeset is created.
   """
   @spec get_changeset(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_changeset_response(), any()}
@@ -2022,8 +2016,7 @@ defmodule AWS.Finspacedata do
   ## Parameters:
   * `:data_view_id` (`t:string` required) The unique identifier for the Dataview.
   * `:dataset_id` (`t:string` required) The unique identifier for the Dataset used
-  in the Dataview.
-  ## Keyword parameters:
+    in the Dataview.
   """
   @spec get_data_view(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_data_view_response(), any()}
@@ -2065,7 +2058,6 @@ defmodule AWS.Finspacedata do
 
   ## Parameters:
   * `:dataset_id` (`t:string` required) The unique identifier for a Dataset.
-  ## Keyword parameters:
   """
   @spec get_dataset(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_dataset_response(), any()}
@@ -2107,9 +2099,8 @@ defmodule AWS.Finspacedata do
 
   ## Parameters:
   * `:data_view_id` (`t:string` required) The unique identifier for the Dataview
-  that you want to access.
+    that you want to access.
   * `:dataset_id` (`t:string` required) The unique identifier for the Dataset.
-  ## Keyword parameters:
   """
   @spec get_external_data_view_access_details(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_external_data_view_access_details_response(), any()}
@@ -2158,8 +2149,7 @@ defmodule AWS.Finspacedata do
 
   ## Parameters:
   * `:permission_group_id` (`t:string` required) The unique identifier for the
-  permission group.
-  ## Keyword parameters:
+    permission group.
   """
   @spec get_permission_group(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_permission_group_response(), any()}
@@ -2203,9 +2193,10 @@ defmodule AWS.Finspacedata do
 
   ## Parameters:
   * `:environment_id` (`t:string` required) The FinSpace environment identifier.
+
   ## Keyword parameters:
   * `:duration_in_minutes` (`t:long`) The time duration in which the credentials
-  remain valid.
+    remain valid.
   """
   @spec get_programmatic_access_credentials(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_programmatic_access_credentials_response(), any()}
@@ -2258,8 +2249,7 @@ defmodule AWS.Finspacedata do
 
   ## Parameters:
   * `:user_id` (`t:string` required) The unique identifier of the user to get data
-  for.
-  ## Keyword parameters:
+    for.
   """
   @spec get_user(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_user_response(), any()}
@@ -2300,7 +2290,6 @@ defmodule AWS.Finspacedata do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=finspacedata%20GetWorkingLocation&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec get_working_location(AWS.Client.t(), Keyword.t()) ::
           {:ok, get_working_location_response(), any()}
@@ -2343,11 +2332,12 @@ defmodule AWS.Finspacedata do
 
   ## Parameters:
   * `:dataset_id` (`t:string` required) The unique identifier for the FinSpace
-  Dataset to which the Changeset belongs.
+    Dataset to which the Changeset belongs.
+
   ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of results per page.
   * `:next_token` (`t:string`) A token that indicates where a results page should
-  begin.
+    begin.
   """
   @spec list_changesets(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_changesets_response(), any()}
@@ -2406,11 +2396,12 @@ defmodule AWS.Finspacedata do
 
   ## Parameters:
   * `:dataset_id` (`t:string` required) The unique identifier of the Dataset for
-  which to retrieve Dataviews.
+    which to retrieve Dataviews.
+
   ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of results per page.
   * `:next_token` (`t:string`) A token that indicates where a results page should
-  begin.
+    begin.
   """
   @spec list_data_views(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_data_views_response(), any()}
@@ -2468,10 +2459,11 @@ defmodule AWS.Finspacedata do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=finspacedata%20ListDatasets&this_doc_guide=API%2520Reference)
 
   ## Parameters:
+
   ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of results per page.
   * `:next_token` (`t:string`) A token that indicates where a results page should
-  begin.
+    begin.
   """
   @spec list_datasets(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_datasets_response(), any()}
@@ -2530,9 +2522,10 @@ defmodule AWS.Finspacedata do
 
   ## Parameters:
   * `:max_results` (`t:integer` required) The maximum number of results per page.
+
   ## Keyword parameters:
   * `:next_token` (`t:string`) A token that indicates where a results page should
-  begin.
+    begin.
   """
   @spec list_permission_groups(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_permission_groups_response(), any()}
@@ -2586,9 +2579,10 @@ defmodule AWS.Finspacedata do
   ## Parameters:
   * `:user_id` (`t:string` required) The unique identifier for the user.
   * `:max_results` (`t:integer` required) The maximum number of results per page.
+
   ## Keyword parameters:
   * `:next_token` (`t:string`) A token that indicates where a results page should
-  begin.
+    begin.
   """
   @spec list_permission_groups_by_user(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, list_permission_groups_by_user_response(), any()}
@@ -2641,9 +2635,10 @@ defmodule AWS.Finspacedata do
 
   ## Parameters:
   * `:max_results` (`t:integer` required) The maximum number of results per page.
+
   ## Keyword parameters:
   * `:next_token` (`t:string`) A token that indicates where a results page should
-  begin.
+    begin.
   """
   @spec list_users(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_users_response(), any()}
@@ -2695,11 +2690,12 @@ defmodule AWS.Finspacedata do
 
   ## Parameters:
   * `:permission_group_id` (`t:string` required) The unique identifier for the
-  permission group.
+    permission group.
   * `:max_results` (`t:integer` required) The maximum number of results per page.
+
   ## Keyword parameters:
   * `:next_token` (`t:string`) A token that indicates where a results page should
-  begin.
+    begin.
   """
   @spec list_users_by_permission_group(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, list_users_by_permission_group_response(), any()}
@@ -2759,8 +2755,7 @@ defmodule AWS.Finspacedata do
 
   ## Parameters:
   * `:user_id` (`t:string` required) The unique identifier of the user that a
-  temporary password is requested for.
-  ## Keyword parameters:
+    temporary password is requested for.
   """
   @spec reset_user_password(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, reset_user_password_response(), any()}
@@ -2803,10 +2798,9 @@ defmodule AWS.Finspacedata do
 
   ## Parameters:
   * `:changeset_id` (`t:string` required) The unique identifier for the Changeset
-  to update.
+    to update.
   * `:dataset_id` (`t:string` required) The unique identifier for the FinSpace
-  Dataset in which the Changeset is created.
-  ## Keyword parameters:
+    Dataset in which the Changeset is created.
   """
   @spec update_changeset(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, update_changeset_response(), any()}
@@ -2850,8 +2844,7 @@ defmodule AWS.Finspacedata do
 
   ## Parameters:
   * `:dataset_id` (`t:string` required) The unique identifier for the Dataset to
-  update.
-  ## Keyword parameters:
+    update.
   """
   @spec update_dataset(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, update_dataset_response(), any()}
@@ -2895,8 +2888,7 @@ defmodule AWS.Finspacedata do
 
   ## Parameters:
   * `:permission_group_id` (`t:string` required) The unique identifier for the
-  permission group to update.
-  ## Keyword parameters:
+    permission group to update.
   """
   @spec update_permission_group(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, update_permission_group_response(), any()}
@@ -2940,8 +2932,7 @@ defmodule AWS.Finspacedata do
 
   ## Parameters:
   * `:user_id` (`t:string` required) The unique identifier for the user that you
-  want to update.
-  ## Keyword parameters:
+    want to update.
   """
   @spec update_user(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, update_user_response(), any()}

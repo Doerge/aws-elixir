@@ -616,8 +616,7 @@ defmodule AWS.Polly do
 
   ## Parameters:
   * `:name` (`t:string` required) The name of the lexicon to delete. Must be an
-  existing lexicon in the region.
-  ## Keyword parameters:
+    existing lexicon in the region.
   """
   @spec delete_lexicon(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, delete_lexicon_output(), any()}
@@ -673,24 +672,25 @@ defmodule AWS.Polly do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=polly%20DescribeVoices&this_doc_guide=API%2520Reference)
 
   ## Parameters:
+
   ## Keyword parameters:
   * `:engine` (`t:enum["GENERATIVE|LONG_FORM|NEURAL|STANDARD"]`) Specifies the
-  engine (standard, neural, long-form or generative) used by Amazon Polly when
-  processing input text for speech synthesis.
+    engine (standard, neural, long-form or generative) used by Amazon Polly when
+    processing input text for speech synthesis.
   * `:include_additional_language_codes` (`t:boolean`) Boolean value indicating
-  whether to return any bilingual voices that use the specified language as an
-  additional language. For instance, if you request all languages that use US
-  English (es-US), and there is an Italian voice that speaks both Italian
-  (it-IT) and US English, that voice will be included if you specify yes but
-  not if you specify no.
+    whether to return any bilingual voices that use the specified language as an
+    additional language. For instance, if you request all languages that use US
+    English (es-US), and there is an Italian voice that speaks both Italian
+    (it-IT) and US English, that voice will be included if you specify yes but
+    not if you specify no.
   * `:language_code`
-  (`t:enum["ar_AE|fr_BE|ru_RU|hi_IN|en_GB|nb_NO|pt_PT|tr_TR|de_AT|en_ZA|en_NZ|fi_FI|is_IS|ca_ES|es_US|nl_BE|en_US|en_IN|yue_CN|cmn_CN|ja_JP|pl_PL|es_ES|da_DK|fr_FR|sv_SE|cy_GB|en_IE|it_IT|ko_KR|en_AU|de_DE|en_GB_WLS|es_MX|pt_BR|nl_NL|ro_RO|arb|fr_CA"]`)
-  The language identification tag (ISO 639 code for the language name-ISO 3166
-  country code) for filtering the list of voices returned. If you don't
-  specify this optional parameter, all available voices are returned.
+    (`t:enum["ar_AE|fr_BE|ru_RU|hi_IN|en_GB|nb_NO|pt_PT|tr_TR|de_AT|en_ZA|en_NZ|fi_FI|is_IS|ca_ES|es_US|nl_BE|en_US|en_IN|yue_CN|cmn_CN|ja_JP|pl_PL|es_ES|da_DK|fr_FR|sv_SE|cy_GB|en_IE|it_IT|ko_KR|en_AU|de_DE|en_GB_WLS|es_MX|pt_BR|nl_NL|ro_RO|arb|fr_CA"]`)
+    The language identification tag (ISO 639 code for the language name-ISO 3166
+    country code) for filtering the list of voices returned. If you don't
+    specify this optional parameter, all available voices are returned.
   * `:next_token` (`t:string`) An opaque pagination token returned from the
-  previous DescribeVoices operation. If present, this indicates where to
-  continue the listing.
+    previous DescribeVoices operation. If present, this indicates where to
+    continue the listing.
   """
   @spec describe_voices(AWS.Client.t(), Keyword.t()) ::
           {:ok, describe_voices_output(), any()}
@@ -770,7 +770,6 @@ defmodule AWS.Polly do
 
   ## Parameters:
   * `:name` (`t:string` required) Name of the lexicon.
-  ## Keyword parameters:
   """
   @spec get_lexicon(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_lexicon_output(), any()}
@@ -814,8 +813,7 @@ defmodule AWS.Polly do
 
   ## Parameters:
   * `:task_id` (`t:string` required) The Amazon Polly generated identifier for a
-  speech synthesis task.
-  ## Keyword parameters:
+    speech synthesis task.
   """
   @spec get_speech_synthesis_task(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_speech_synthesis_task_output(), any()}
@@ -857,10 +855,11 @@ defmodule AWS.Polly do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=polly%20ListLexicons&this_doc_guide=API%2520Reference)
 
   ## Parameters:
+
   ## Keyword parameters:
   * `:next_token` (`t:string`) An opaque pagination token returned from previous
-  ListLexicons operation. If present, indicates where to continue the list of
-  lexicons.
+    ListLexicons operation. If present, indicates where to continue the list of
+    lexicons.
   """
   @spec list_lexicons(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_lexicons_output(), any()}
@@ -913,13 +912,14 @@ defmodule AWS.Polly do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=polly%20ListSpeechSynthesisTasks&this_doc_guide=API%2520Reference)
 
   ## Parameters:
+
   ## Keyword parameters:
   * `:max_results` (`t:integer`) Maximum number of speech synthesis tasks returned
-  in a List operation.
+    in a List operation.
   * `:next_token` (`t:string`) The pagination token to use in the next request to
-  continue the listing of speech synthesis tasks.
+    continue the listing of speech synthesis tasks.
   * `:status` (`t:enum["COMPLETED|FAILED|IN_PROGRESS|SCHEDULED"]`) Status of the
-  speech synthesis tasks returned in a List operation
+    speech synthesis tasks returned in a List operation
   """
   @spec list_speech_synthesis_tasks(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_speech_synthesis_tasks_output(), any()}
@@ -989,9 +989,8 @@ defmodule AWS.Polly do
 
   ## Parameters:
   * `:name` (`t:string` required) Name of the lexicon. The name must follow the
-  regular express format [0-9A-Za-z]{1,20}. That is, the name is a
-  case-sensitive alphanumeric string up to 20 characters long.
-  ## Keyword parameters:
+    regular express format [0-9A-Za-z]{1,20}. That is, the name is a
+    case-sensitive alphanumeric string up to 20 characters long.
   """
   @spec put_lexicon(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, put_lexicon_output(), any()}
@@ -1041,7 +1040,6 @@ defmodule AWS.Polly do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=polly%20StartSpeechSynthesisTask&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec start_speech_synthesis_task(AWS.Client.t(), Keyword.t()) ::
           {:ok, start_speech_synthesis_task_output(), any()}
@@ -1087,7 +1085,6 @@ defmodule AWS.Polly do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=polly%20SynthesizeSpeech&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec synthesize_speech(AWS.Client.t(), Keyword.t()) ::
           {:ok, synthesize_speech_output(), any()}
@@ -1114,16 +1111,6 @@ defmodule AWS.Polly do
     query_params = []
 
     # Optional query params
-    options =
-      Keyword.put(
-        options,
-        :response_header_parameters,
-        [
-          {"Content-Type", "ContentType"},
-          {"x-amzn-RequestCharacters", "RequestCharacters"}
-        ]
-      )
-
     options =
       Keyword.put(
         options,

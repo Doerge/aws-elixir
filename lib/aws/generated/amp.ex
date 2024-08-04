@@ -1100,8 +1100,7 @@ defmodule AWS.Amp do
 
   ## Parameters:
   * `:workspace_id` (`t:string` required) The ID of the workspace to add the alert
-  manager definition to.
-  ## Keyword parameters:
+    manager definition to.
   """
   @spec create_alert_manager_definition(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, create_alert_manager_definition_response(), any()}
@@ -1146,8 +1145,7 @@ defmodule AWS.Amp do
 
   ## Parameters:
   * `:workspace_id` (`t:string` required) The ID of the workspace to create the
-  logging configuration for.
-  ## Keyword parameters:
+    logging configuration for.
   """
   @spec create_logging_configuration(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, create_logging_configuration_response(), any()}
@@ -1192,8 +1190,7 @@ defmodule AWS.Amp do
 
   ## Parameters:
   * `:workspace_id` (`t:string` required) The ID of the workspace to add the rule
-  groups namespace.
-  ## Keyword parameters:
+    groups namespace.
   """
   @spec create_rule_groups_namespace(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, create_rule_groups_namespace_response(), any()}
@@ -1246,7 +1243,6 @@ defmodule AWS.Amp do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=amp%20CreateScraper&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec create_scraper(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_scraper_response(), any()}
@@ -1290,7 +1286,6 @@ defmodule AWS.Amp do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=amp%20CreateWorkspace&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec create_workspace(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_workspace_response(), any()}
@@ -1333,10 +1328,11 @@ defmodule AWS.Amp do
 
   ## Parameters:
   * `:workspace_id` (`t:string` required) The ID of the workspace to delete the
-  alert manager definition from.
+    alert manager definition from.
+
   ## Keyword parameters:
   * `:client_token` (`t:string`) A unique identifier that you can provide to
-  ensure the idempotency of the request. Case-sensitive.
+    ensure the idempotency of the request. Case-sensitive.
   """
   @spec delete_alert_manager_definition(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
@@ -1400,10 +1396,11 @@ defmodule AWS.Amp do
 
   ## Parameters:
   * `:workspace_id` (`t:string` required) The ID of the workspace containing the
-  logging configuration to delete.
+    logging configuration to delete.
+
   ## Keyword parameters:
   * `:client_token` (`t:string`) A unique identifier that you can provide to
-  ensure the idempotency of the request. Case-sensitive.
+    ensure the idempotency of the request. Case-sensitive.
   """
   @spec delete_logging_configuration(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
@@ -1468,10 +1465,11 @@ defmodule AWS.Amp do
   ## Parameters:
   * `:name` (`t:string` required) The name of the rule groups namespace to delete.
   * `:workspace_id` (`t:string` required) The ID of the workspace containing the
-  rule groups namespace and definition to delete.
+    rule groups namespace and definition to delete.
+
   ## Keyword parameters:
   * `:client_token` (`t:string`) A unique identifier that you can provide to
-  ensure the idempotency of the request. Case-sensitive.
+    ensure the idempotency of the request. Case-sensitive.
   """
   @spec delete_rule_groups_namespace(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
@@ -1537,9 +1535,10 @@ defmodule AWS.Amp do
 
   ## Parameters:
   * `:scraper_id` (`t:string` required) The ID of the scraper to delete.
+
   ## Keyword parameters:
   * `:client_token` (`t:string`) (Optional) A unique, case-sensitive identifier
-  that you can provide to ensure the idempotency of the request.
+    that you can provide to ensure the idempotency of the request.
   """
   @spec delete_scraper(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, delete_scraper_response(), any()}
@@ -1603,9 +1602,10 @@ defmodule AWS.Amp do
 
   ## Parameters:
   * `:workspace_id` (`t:string` required) The ID of the workspace to delete.
+
   ## Keyword parameters:
   * `:client_token` (`t:string`) A unique identifier that you can provide to
-  ensure the idempotency of the request. Case-sensitive.
+    ensure the idempotency of the request. Case-sensitive.
   """
   @spec delete_workspace(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
@@ -1670,8 +1670,7 @@ defmodule AWS.Amp do
 
   ## Parameters:
   * `:workspace_id` (`t:string` required) The ID of the workspace to retrieve the
-  alert manager definition from.
-  ## Keyword parameters:
+    alert manager definition from.
   """
   @spec describe_alert_manager_definition(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, describe_alert_manager_definition_response(), any()}
@@ -1713,8 +1712,7 @@ defmodule AWS.Amp do
 
   ## Parameters:
   * `:workspace_id` (`t:string` required) The ID of the workspace to describe the
-  logging configuration for.
-  ## Keyword parameters:
+    logging configuration for.
   """
   @spec describe_logging_configuration(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, describe_logging_configuration_response(), any()}
@@ -1756,10 +1754,9 @@ defmodule AWS.Amp do
 
   ## Parameters:
   * `:name` (`t:string` required) The name of the rule groups namespace that you
-  want information for.
+    want information for.
   * `:workspace_id` (`t:string` required) The ID of the workspace containing the
-  rule groups namespace.
-  ## Keyword parameters:
+    rule groups namespace.
   """
   @spec describe_rule_groups_namespace(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, describe_rule_groups_namespace_response(), any()}
@@ -1801,7 +1798,6 @@ defmodule AWS.Amp do
 
   ## Parameters:
   * `:scraper_id` (`t:string` required) The ID of the scraper to describe.
-  ## Keyword parameters:
   """
   @spec describe_scraper(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, describe_scraper_response(), any()}
@@ -1842,7 +1838,6 @@ defmodule AWS.Amp do
 
   ## Parameters:
   * `:workspace_id` (`t:string` required) The ID of the workspace to describe.
-  ## Keyword parameters:
   """
   @spec describe_workspace(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, describe_workspace_response(), any()}
@@ -1883,7 +1878,6 @@ defmodule AWS.Amp do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=amp%20GetDefaultScraperConfiguration&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec get_default_scraper_configuration(AWS.Client.t(), Keyword.t()) ::
           {:ok, get_default_scraper_configuration_response(), any()}
@@ -1924,16 +1918,17 @@ defmodule AWS.Amp do
 
   ## Parameters:
   * `:workspace_id` (`t:string` required) The ID of the workspace containing the
-  rule groups namespaces.
+    rule groups namespaces.
+
   ## Keyword parameters:
   * `:max_results` (`t:string`) The maximum number of results to return. The
-  default is 100.
+    default is 100.
   * `:name` (`t:string`) Use this parameter to filter the rule groups namespaces
-  that are returned. Only the namespaces with names that begin with the value
-  that you specify are returned.
+    that are returned. Only the namespaces with names that begin with the value
+    that you specify are returned.
   * `:next_token` (`t:string`) The token for the next set of items to return. You
-  receive this token from a previous call, and use it to get the next page of
-  results. The other parameters must be the same as the initial call.
+    receive this token from a previous call, and use it to get the next page of
+    results. The other parameters must be the same as the initial call.
   """
   @spec list_rule_groups_namespaces(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_rule_groups_namespaces_response(), any()}
@@ -2000,14 +1995,15 @@ defmodule AWS.Amp do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=amp%20ListScrapers&this_doc_guide=API%2520Reference)
 
   ## Parameters:
+
   ## Keyword parameters:
   * `:filters` (`t:map`) (Optional) A list of key-value pairs to filter the list
-  of scrapers returned. Keys include status, sourceArn, destinationArn, and
-  alias.
+    of scrapers returned. Keys include status, sourceArn, destinationArn, and
+    alias.
   * `:max_results` (`t:string`) Optional) The maximum number of scrapers to return
-  in one ListScrapers operation. The range is 1-1000.
+    in one ListScrapers operation. The range is 1-1000.
   * `:next_token` (`t:string`) (Optional) The token for the next set of items to
-  return. (You received this token from a previous call.)
+    return. (You received this token from a previous call.)
   """
   @spec list_scrapers(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_scrapers_response(), any()}
@@ -2075,8 +2071,7 @@ defmodule AWS.Amp do
 
   ## Parameters:
   * `:resource_arn` (`t:string` required) The ARN of the resource to list tages
-  for. Must be a workspace or rule groups namespace resource.
-  ## Keyword parameters:
+    for. Must be a workspace or rule groups namespace resource.
   """
   @spec list_tags_for_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_tags_for_resource_response(), any()}
@@ -2117,14 +2112,15 @@ defmodule AWS.Amp do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=amp%20ListWorkspaces&this_doc_guide=API%2520Reference)
 
   ## Parameters:
+
   ## Keyword parameters:
   * `:alias` (`t:string`) If this is included, it filters the results to only the
-  workspaces with names that start with the value that you specify here.
+    workspaces with names that start with the value that you specify here.
   * `:max_results` (`t:string`) The maximum number of workspaces to return per
-  request. The default is 100.
+    request. The default is 100.
   * `:next_token` (`t:string`) The token for the next set of items to return. You
-  receive this token from a previous call, and use it to get the next page of
-  results. The other parameters must be the same as the initial call.
+    receive this token from a previous call, and use it to get the next page of
+    results. The other parameters must be the same as the initial call.
   """
   @spec list_workspaces(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_workspaces_response(), any()}
@@ -2192,8 +2188,7 @@ defmodule AWS.Amp do
 
   ## Parameters:
   * `:workspace_id` (`t:string` required) The ID of the workspace to update the
-  alert manager definition in.
-  ## Keyword parameters:
+    alert manager definition in.
   """
   @spec put_alert_manager_definition(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, put_alert_manager_definition_response(), any()}
@@ -2240,10 +2235,9 @@ defmodule AWS.Amp do
 
   ## Parameters:
   * `:name` (`t:string` required) The name of the rule groups namespace that you
-  are updating.
+    are updating.
   * `:workspace_id` (`t:string` required) The ID of the workspace where you are
-  updating the rule groups namespace.
-  ## Keyword parameters:
+    updating the rule groups namespace.
   """
   @spec put_rule_groups_namespace(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, put_rule_groups_namespace_response(), any()}
@@ -2289,8 +2283,7 @@ defmodule AWS.Amp do
 
   ## Parameters:
   * `:resource_arn` (`t:string` required) The ARN of the workspace or rule groups
-  namespace to apply tags to.
-  ## Keyword parameters:
+    namespace to apply tags to.
   """
   @spec tag_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, tag_resource_response(), any()}
@@ -2335,10 +2328,9 @@ defmodule AWS.Amp do
 
   ## Parameters:
   * `:resource_arn` (`t:string` required) The ARN of the workspace or rule groups
-  namespace.
+    namespace.
   * `:tag_keys` (`t:list[com.amazonaws.amp#TagKey]` required) The keys of the tags
-  to remove.
-  ## Keyword parameters:
+    to remove.
   """
   @spec untag_resource(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, untag_resource_response(), any()}
@@ -2393,8 +2385,7 @@ defmodule AWS.Amp do
 
   ## Parameters:
   * `:workspace_id` (`t:string` required) The ID of the workspace to update the
-  logging configuration for.
-  ## Keyword parameters:
+    logging configuration for.
   """
   @spec update_logging_configuration(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, update_logging_configuration_response(), any()}
@@ -2437,7 +2428,6 @@ defmodule AWS.Amp do
 
   ## Parameters:
   * `:workspace_id` (`t:string` required) The ID of the workspace to update.
-  ## Keyword parameters:
   """
   @spec update_workspace_alias(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}

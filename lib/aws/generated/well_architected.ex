@@ -3253,7 +3253,6 @@ defmodule AWS.WellArchitected do
 
   ## Parameters:
   * `:workload_id` (`t:string` required)
-  ## Keyword parameters:
   """
   @spec associate_lenses(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
@@ -3306,7 +3305,6 @@ defmodule AWS.WellArchitected do
 
   ## Parameters:
   * `:workload_id` (`t:string` required)
-  ## Keyword parameters:
   """
   @spec associate_profiles(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
@@ -3362,7 +3360,6 @@ defmodule AWS.WellArchitected do
 
   ## Parameters:
   * `:lens_alias` (`t:string` required)
-  ## Keyword parameters:
   """
   @spec create_lens_share(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, create_lens_share_output(), any()}
@@ -3405,7 +3402,6 @@ defmodule AWS.WellArchitected do
 
   ## Parameters:
   * `:lens_alias` (`t:string` required)
-  ## Keyword parameters:
   """
   @spec create_lens_version(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, create_lens_version_output(), any()}
@@ -3448,7 +3444,6 @@ defmodule AWS.WellArchitected do
 
   ## Parameters:
   * `:workload_id` (`t:string` required)
-  ## Keyword parameters:
   """
   @spec create_milestone(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, create_milestone_output(), any()}
@@ -3490,7 +3485,6 @@ defmodule AWS.WellArchitected do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=wellarchitected%20CreateProfile&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec create_profile(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_profile_output(), any()}
@@ -3533,7 +3527,6 @@ defmodule AWS.WellArchitected do
 
   ## Parameters:
   * `:profile_arn` (`t:string` required) The profile ARN.
-  ## Keyword parameters:
   """
   @spec create_profile_share(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, create_profile_share_output(), any()}
@@ -3575,7 +3568,6 @@ defmodule AWS.WellArchitected do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=wellarchitected%20CreateReviewTemplate&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec create_review_template(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_review_template_output(), any()}
@@ -3620,7 +3612,6 @@ defmodule AWS.WellArchitected do
 
   ## Parameters:
   * `:template_arn` (`t:string` required) The review template ARN.
-  ## Keyword parameters:
   """
   @spec create_template_share(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, create_template_share_output(), any()}
@@ -3665,7 +3656,6 @@ defmodule AWS.WellArchitected do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=wellarchitected%20CreateWorkload&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec create_workload(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_workload_output(), any()}
@@ -3710,7 +3700,6 @@ defmodule AWS.WellArchitected do
 
   ## Parameters:
   * `:workload_id` (`t:string` required)
-  ## Keyword parameters:
   """
   @spec create_workload_share(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, create_workload_share_output(), any()}
@@ -3758,8 +3747,7 @@ defmodule AWS.WellArchitected do
   * `:lens_alias` (`t:string` required)
   * `:client_request_token` (`t:string` required)
   * `:lens_status` (`t:enum["ALL|DRAFT|PUBLISHED"]` required) The status of the
-  lens to be deleted.
-  ## Keyword parameters:
+    lens to be deleted.
   """
   @spec delete_lens(AWS.Client.t(), String.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
@@ -3824,7 +3812,6 @@ defmodule AWS.WellArchitected do
   * `:lens_alias` (`t:string` required)
   * `:share_id` (`t:string` required)
   * `:client_request_token` (`t:string` required)
-  ## Keyword parameters:
   """
   @spec delete_lens_share(AWS.Client.t(), String.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
@@ -3886,7 +3873,6 @@ defmodule AWS.WellArchitected do
   ## Parameters:
   * `:profile_arn` (`t:string` required) The profile ARN.
   * `:client_request_token` (`t:string` required)
-  ## Keyword parameters:
   """
   @spec delete_profile(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
@@ -3942,7 +3928,6 @@ defmodule AWS.WellArchitected do
   * `:profile_arn` (`t:string` required) The profile ARN.
   * `:share_id` (`t:string` required)
   * `:client_request_token` (`t:string` required)
-  ## Keyword parameters:
   """
   @spec delete_profile_share(AWS.Client.t(), String.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
@@ -4004,7 +3989,6 @@ defmodule AWS.WellArchitected do
   ## Parameters:
   * `:template_arn` (`t:string` required) The review template ARN.
   * `:client_request_token` (`t:string` required)
-  ## Keyword parameters:
   """
   @spec delete_review_template(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
@@ -4065,7 +4049,6 @@ defmodule AWS.WellArchitected do
   * `:share_id` (`t:string` required)
   * `:template_arn` (`t:string` required) The review template ARN.
   * `:client_request_token` (`t:string` required)
-  ## Keyword parameters:
   """
   @spec delete_template_share(AWS.Client.t(), String.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
@@ -4127,7 +4110,6 @@ defmodule AWS.WellArchitected do
   ## Parameters:
   * `:workload_id` (`t:string` required)
   * `:client_request_token` (`t:string` required)
-  ## Keyword parameters:
   """
   @spec delete_workload(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
@@ -4183,7 +4165,6 @@ defmodule AWS.WellArchitected do
   * `:share_id` (`t:string` required)
   * `:workload_id` (`t:string` required)
   * `:client_request_token` (`t:string` required)
-  ## Keyword parameters:
   """
   @spec delete_workload_share(AWS.Client.t(), String.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
@@ -4245,7 +4226,6 @@ defmodule AWS.WellArchitected do
 
   ## Parameters:
   * `:workload_id` (`t:string` required)
-  ## Keyword parameters:
   """
   @spec disassociate_lenses(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
@@ -4298,7 +4278,6 @@ defmodule AWS.WellArchitected do
 
   ## Parameters:
   * `:workload_id` (`t:string` required)
-  ## Keyword parameters:
   """
   @spec disassociate_profiles(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
@@ -4353,6 +4332,7 @@ defmodule AWS.WellArchitected do
 
   ## Parameters:
   * `:lens_alias` (`t:string` required)
+
   ## Keyword parameters:
   * `:lens_version` (`t:string`) The lens version to be exported.
   """
@@ -4408,6 +4388,7 @@ defmodule AWS.WellArchitected do
   * `:lens_alias` (`t:string` required)
   * `:question_id` (`t:string` required)
   * `:workload_id` (`t:string` required)
+
   ## Keyword parameters:
   * `:milestone_number` (`t:integer`)
   """
@@ -4462,12 +4443,13 @@ defmodule AWS.WellArchitected do
 
   ## Parameters:
   * `:format` (`t:enum["JSON|PDF"]` required) The format of the consolidated
-  report.
+    report.
+
   ## Keyword parameters:
   * `:include_shared_resources` (`t:boolean`) Set to true to have shared resources
-  included in the report.
+    included in the report.
   * `:max_results` (`t:integer`) The maximum number of results to return for this
-  request.
+    request.
   * `:next_token` (`t:string`)
   """
   @spec get_consolidated_report(AWS.Client.t(), String.t(), Keyword.t()) ::
@@ -4533,7 +4515,6 @@ defmodule AWS.WellArchitected do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=wellarchitected%20GetGlobalSettings&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec get_global_settings(AWS.Client.t(), Keyword.t()) ::
           {:ok, get_global_settings_output(), any()}
@@ -4574,6 +4555,7 @@ defmodule AWS.WellArchitected do
 
   ## Parameters:
   * `:lens_alias` (`t:string` required)
+
   ## Keyword parameters:
   * `:lens_version` (`t:string`) The lens version to be retrieved.
   """
@@ -4628,6 +4610,7 @@ defmodule AWS.WellArchitected do
   ## Parameters:
   * `:lens_alias` (`t:string` required)
   * `:workload_id` (`t:string` required)
+
   ## Keyword parameters:
   * `:milestone_number` (`t:integer`)
   """
@@ -4683,6 +4666,7 @@ defmodule AWS.WellArchitected do
   ## Parameters:
   * `:lens_alias` (`t:string` required)
   * `:workload_id` (`t:string` required)
+
   ## Keyword parameters:
   * `:milestone_number` (`t:integer`)
   """
@@ -4737,10 +4721,11 @@ defmodule AWS.WellArchitected do
 
   ## Parameters:
   * `:lens_alias` (`t:string` required)
+
   ## Keyword parameters:
   * `:base_lens_version` (`t:string`) The base version of the lens.
   * `:target_lens_version` (`t:string`) The lens version to target a difference
-  for.
+    for.
   """
   @spec get_lens_version_difference(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_lens_version_difference_output(), any()}
@@ -4800,7 +4785,6 @@ defmodule AWS.WellArchitected do
   ## Parameters:
   * `:milestone_number` (`t:integer` required)
   * `:workload_id` (`t:string` required)
-  ## Keyword parameters:
   """
   @spec get_milestone(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_milestone_output(), any()}
@@ -4842,6 +4826,7 @@ defmodule AWS.WellArchitected do
 
   ## Parameters:
   * `:profile_arn` (`t:string` required) The profile ARN.
+
   ## Keyword parameters:
   * `:profile_version` (`t:string`) The profile version.
   """
@@ -4894,7 +4879,6 @@ defmodule AWS.WellArchitected do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=wellarchitected%20GetProfileTemplate&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec get_profile_template(AWS.Client.t(), Keyword.t()) ::
           {:ok, get_profile_template_output(), any()}
@@ -4935,7 +4919,6 @@ defmodule AWS.WellArchitected do
 
   ## Parameters:
   * `:template_arn` (`t:string` required) The review template ARN.
-  ## Keyword parameters:
   """
   @spec get_review_template(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_review_template_output(), any()}
@@ -4978,7 +4961,6 @@ defmodule AWS.WellArchitected do
   * `:lens_alias` (`t:string` required)
   * `:question_id` (`t:string` required)
   * `:template_arn` (`t:string` required) The review template ARN.
-  ## Keyword parameters:
   """
   @spec get_review_template_answer(
           AWS.Client.t(),
@@ -5033,7 +5015,6 @@ defmodule AWS.WellArchitected do
   ## Parameters:
   * `:lens_alias` (`t:string` required)
   * `:template_arn` (`t:string` required) The review template ARN.
-  ## Keyword parameters:
   """
   @spec get_review_template_lens_review(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_review_template_lens_review_output(), any()}
@@ -5075,7 +5056,6 @@ defmodule AWS.WellArchitected do
 
   ## Parameters:
   * `:workload_id` (`t:string` required)
-  ## Keyword parameters:
   """
   @spec get_workload(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_workload_output(), any()}
@@ -5117,7 +5097,6 @@ defmodule AWS.WellArchitected do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=wellarchitected%20ImportLens&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec import_lens(AWS.Client.t(), Keyword.t()) ::
           {:ok, import_lens_output(), any()}
@@ -5161,14 +5140,15 @@ defmodule AWS.WellArchitected do
   ## Parameters:
   * `:lens_alias` (`t:string` required)
   * `:workload_id` (`t:string` required)
+
   ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of results to return for this
-  request.
+    request.
   * `:milestone_number` (`t:integer`)
   * `:next_token` (`t:string`)
   * `:pillar_id` (`t:string`)
   * `:question_priority` (`t:enum["NONE|PRIORITIZED"]`) The priority of the
-  question.
+    question.
   """
   @spec list_answers(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, list_answers_output(), any()}
@@ -5261,7 +5241,6 @@ defmodule AWS.WellArchitected do
 
   ## Parameters:
   * `:workload_id` (`t:string` required)
-  ## Keyword parameters:
   """
   @spec list_check_details(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_check_details_output(), any()}
@@ -5305,7 +5284,6 @@ defmodule AWS.WellArchitected do
 
   ## Parameters:
   * `:workload_id` (`t:string` required)
-  ## Keyword parameters:
   """
   @spec list_check_summaries(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_check_summaries_output(), any()}
@@ -5349,14 +5327,15 @@ defmodule AWS.WellArchitected do
   ## Parameters:
   * `:lens_alias` (`t:string` required)
   * `:workload_id` (`t:string` required)
+
   ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of results to return for this
-  request.
+    request.
   * `:milestone_number` (`t:integer`)
   * `:next_token` (`t:string`)
   * `:pillar_id` (`t:string`)
   * `:question_priority` (`t:enum["NONE|PRIORITIZED"]`) The priority of the
-  question.
+    question.
   """
   @spec list_lens_review_improvements(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, list_lens_review_improvements_output(), any()}
@@ -5449,6 +5428,7 @@ defmodule AWS.WellArchitected do
 
   ## Parameters:
   * `:workload_id` (`t:string` required)
+
   ## Keyword parameters:
   * `:max_results` (`t:integer`)
   * `:milestone_number` (`t:integer`)
@@ -5518,15 +5498,16 @@ defmodule AWS.WellArchitected do
 
   ## Parameters:
   * `:lens_alias` (`t:string` required)
+
   ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of results to return for this
-  request.
+    request.
   * `:next_token` (`t:string`)
   * `:shared_with_prefix` (`t:string`) The Amazon Web Services account ID,
-  organization ID, or organizational unit (OU) ID with which the lens is
-  shared.
+    organization ID, or organizational unit (OU) ID with which the lens is
+    shared.
   * `:status`
-  (`t:enum["ACCEPTED|ASSOCIATED|ASSOCIATING|EXPIRED|FAILED|PENDING|REJECTED|REVOKED"]`)
+    (`t:enum["ACCEPTED|ASSOCIATED|ASSOCIATING|EXPIRED|FAILED|PENDING|REJECTED|REVOKED"]`)
   """
   @spec list_lens_shares(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_lens_shares_output(), any()}
@@ -5598,12 +5579,13 @@ defmodule AWS.WellArchitected do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=wellarchitected%20ListLenses&this_doc_guide=API%2520Reference)
 
   ## Parameters:
+
   ## Keyword parameters:
   * `:lens_name` (`t:string`)
   * `:lens_status` (`t:enum["ALL|DRAFT|PUBLISHED"]`) The status of lenses to be
-  returned.
+    returned.
   * `:lens_type` (`t:enum["AWS_OFFICIAL|CUSTOM_SELF|CUSTOM_SHARED"]`) The type of
-  lenses to be returned.
+    lenses to be returned.
   * `:max_results` (`t:integer`)
   * `:next_token` (`t:string`)
   """
@@ -5691,7 +5673,6 @@ defmodule AWS.WellArchitected do
 
   ## Parameters:
   * `:workload_id` (`t:string` required)
-  ## Keyword parameters:
   """
   @spec list_milestones(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_milestones_output(), any()}
@@ -5733,7 +5714,6 @@ defmodule AWS.WellArchitected do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=wellarchitected%20ListNotifications&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec list_notifications(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_notifications_output(), any()}
@@ -5775,6 +5755,7 @@ defmodule AWS.WellArchitected do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=wellarchitected%20ListProfileNotifications&this_doc_guide=API%2520Reference)
 
   ## Parameters:
+
   ## Keyword parameters:
   * `:max_results` (`t:integer`)
   * `:next_token` (`t:string`)
@@ -5844,15 +5825,16 @@ defmodule AWS.WellArchitected do
 
   ## Parameters:
   * `:profile_arn` (`t:string` required) The profile ARN.
+
   ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of results to return for this
-  request.
+    request.
   * `:next_token` (`t:string`)
   * `:shared_with_prefix` (`t:string`) The Amazon Web Services account ID,
-  organization ID, or organizational unit (OU) ID with which the profile is
-  shared.
+    organization ID, or organizational unit (OU) ID with which the profile is
+    shared.
   * `:status`
-  (`t:enum["ACCEPTED|ASSOCIATED|ASSOCIATING|EXPIRED|FAILED|PENDING|REJECTED|REVOKED"]`)
+    (`t:enum["ACCEPTED|ASSOCIATED|ASSOCIATING|EXPIRED|FAILED|PENDING|REJECTED|REVOKED"]`)
   """
   @spec list_profile_shares(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_profile_shares_output(), any()}
@@ -5924,11 +5906,12 @@ defmodule AWS.WellArchitected do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=wellarchitected%20ListProfiles&this_doc_guide=API%2520Reference)
 
   ## Parameters:
+
   ## Keyword parameters:
   * `:max_results` (`t:integer`)
   * `:next_token` (`t:string`)
   * `:profile_name_prefix` (`t:string`) An optional string added to the beginning
-  of each profile name returned in the results.
+    of each profile name returned in the results.
   * `:profile_owner_type` (`t:enum["SELF|SHARED"]`) Profile owner type.
   """
   @spec list_profiles(AWS.Client.t(), Keyword.t()) ::
@@ -6008,9 +5991,10 @@ defmodule AWS.WellArchitected do
   ## Parameters:
   * `:lens_alias` (`t:string` required)
   * `:template_arn` (`t:string` required) The ARN of the review template.
+
   ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of results to return for this
-  request.
+    request.
   * `:next_token` (`t:string`)
   * `:pillar_id` (`t:string`)
   """
@@ -6078,6 +6062,7 @@ defmodule AWS.WellArchitected do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=wellarchitected%20ListReviewTemplates&this_doc_guide=API%2520Reference)
 
   ## Parameters:
+
   ## Keyword parameters:
   * `:max_results` (`t:integer`)
   * `:next_token` (`t:string`)
@@ -6138,18 +6123,19 @@ defmodule AWS.WellArchitected do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=wellarchitected%20ListShareInvitations&this_doc_guide=API%2520Reference)
 
   ## Parameters:
+
   ## Keyword parameters:
   * `:lens_name_prefix` (`t:string`) An optional string added to the beginning of
-  each lens name returned in the results.
+    each lens name returned in the results.
   * `:max_results` (`t:integer`) The maximum number of results to return for this
-  request.
+    request.
   * `:next_token` (`t:string`)
   * `:profile_name_prefix` (`t:string`) An optional string added to the beginning
-  of each profile name returned in the results.
+    of each profile name returned in the results.
   * `:share_resource_type` (`t:enum["LENS|PROFILE|TEMPLATE|WORKLOAD"]`) The type
-  of share invitations to be returned.
+    of share invitations to be returned.
   * `:template_name_prefix` (`t:string`) An optional string added to the beginning
-  of each review template name returned in the results.
+    of each review template name returned in the results.
   * `:workload_name_prefix` (`t:string`)
   """
   @spec list_share_invitations(AWS.Client.t(), Keyword.t()) ::
@@ -6260,7 +6246,6 @@ defmodule AWS.WellArchitected do
 
   ## Parameters:
   * `:workload_arn` (`t:string` required)
-  ## Keyword parameters:
   """
   @spec list_tags_for_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_tags_for_resource_output(), any()}
@@ -6301,15 +6286,16 @@ defmodule AWS.WellArchitected do
 
   ## Parameters:
   * `:template_arn` (`t:string` required) The review template ARN.
+
   ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of results to return for this
-  request.
+    request.
   * `:next_token` (`t:string`)
   * `:shared_with_prefix` (`t:string`) The Amazon Web Services account ID,
-  organization ID, or organizational unit (OU) ID with which the profile is
-  shared.
+    organization ID, or organizational unit (OU) ID with which the profile is
+    shared.
   * `:status`
-  (`t:enum["ACCEPTED|ASSOCIATED|ASSOCIATING|EXPIRED|FAILED|PENDING|REJECTED|REVOKED"]`)
+    (`t:enum["ACCEPTED|ASSOCIATED|ASSOCIATING|EXPIRED|FAILED|PENDING|REJECTED|REVOKED"]`)
   """
   @spec list_template_shares(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_template_shares_output(), any()}
@@ -6382,15 +6368,16 @@ defmodule AWS.WellArchitected do
 
   ## Parameters:
   * `:workload_id` (`t:string` required)
+
   ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of results to return for this
-  request.
+    request.
   * `:next_token` (`t:string`)
   * `:shared_with_prefix` (`t:string`) The Amazon Web Services account ID,
-  organization ID, or organizational unit (OU) ID with which the workload is
-  shared.
+    organization ID, or organizational unit (OU) ID with which the workload is
+    shared.
   * `:status`
-  (`t:enum["ACCEPTED|ASSOCIATED|ASSOCIATING|EXPIRED|FAILED|PENDING|REJECTED|REVOKED"]`)
+    (`t:enum["ACCEPTED|ASSOCIATED|ASSOCIATING|EXPIRED|FAILED|PENDING|REJECTED|REVOKED"]`)
   """
   @spec list_workload_shares(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_workload_shares_output(), any()}
@@ -6462,7 +6449,6 @@ defmodule AWS.WellArchitected do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=wellarchitected%20ListWorkloads&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec list_workloads(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_workloads_output(), any()}
@@ -6505,7 +6491,6 @@ defmodule AWS.WellArchitected do
 
   ## Parameters:
   * `:workload_arn` (`t:string` required)
-  ## Keyword parameters:
   """
   @spec tag_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, tag_resource_output(), any()}
@@ -6550,9 +6535,8 @@ defmodule AWS.WellArchitected do
   ## Parameters:
   * `:workload_arn` (`t:string` required)
   * `:tag_keys` (`t:list[com.amazonaws.wellarchitected#TagKey]` required) A list
-  of tag keys. Existing tags of the resource whose keys are members of this
-  list are removed from the resource.
-  ## Keyword parameters:
+    of tag keys. Existing tags of the resource whose keys are members of this
+    list are removed from the resource.
   """
   @spec untag_resource(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, untag_resource_output(), any()}
@@ -6608,7 +6592,6 @@ defmodule AWS.WellArchitected do
   * `:lens_alias` (`t:string` required)
   * `:question_id` (`t:string` required)
   * `:workload_id` (`t:string` required)
-  ## Keyword parameters:
   """
   @spec update_answer(AWS.Client.t(), String.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, update_answer_output(), any()}
@@ -6662,7 +6645,6 @@ defmodule AWS.WellArchitected do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=wellarchitected%20UpdateGlobalSettings&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec update_global_settings(AWS.Client.t(), Keyword.t()) ::
           {:ok, nil, any()}
@@ -6715,7 +6697,6 @@ defmodule AWS.WellArchitected do
 
   ## Parameters:
   * `:workload_id` (`t:string` required)
-  ## Keyword parameters:
   """
   @spec update_integration(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
@@ -6759,7 +6740,6 @@ defmodule AWS.WellArchitected do
   ## Parameters:
   * `:lens_alias` (`t:string` required)
   * `:workload_id` (`t:string` required)
-  ## Keyword parameters:
   """
   @spec update_lens_review(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, update_lens_review_output(), any()}
@@ -6813,7 +6793,6 @@ defmodule AWS.WellArchitected do
 
   ## Parameters:
   * `:profile_arn` (`t:string` required) The profile ARN.
-  ## Keyword parameters:
   """
   @spec update_profile(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, update_profile_output(), any()}
@@ -6866,7 +6845,6 @@ defmodule AWS.WellArchitected do
 
   ## Parameters:
   * `:template_arn` (`t:string` required) The review template ARN.
-  ## Keyword parameters:
   """
   @spec update_review_template(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, update_review_template_output(), any()}
@@ -6921,7 +6899,6 @@ defmodule AWS.WellArchitected do
   * `:lens_alias` (`t:string` required)
   * `:question_id` (`t:string` required)
   * `:template_arn` (`t:string` required) The review template ARN.
-  ## Keyword parameters:
   """
   @spec update_review_template_answer(
           AWS.Client.t(),
@@ -6988,7 +6965,6 @@ defmodule AWS.WellArchitected do
   ## Parameters:
   * `:lens_alias` (`t:string` required)
   * `:template_arn` (`t:string` required) The review template ARN.
-  ## Keyword parameters:
   """
   @spec update_review_template_lens_review(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, update_review_template_lens_review_output(), any()}
@@ -7047,8 +7023,7 @@ defmodule AWS.WellArchitected do
 
   ## Parameters:
   * `:share_invitation_id` (`t:string` required) The ID assigned to the share
-  invitation.
-  ## Keyword parameters:
+    invitation.
   """
   @spec update_share_invitation(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, update_share_invitation_output(), any()}
@@ -7101,7 +7076,6 @@ defmodule AWS.WellArchitected do
 
   ## Parameters:
   * `:workload_id` (`t:string` required)
-  ## Keyword parameters:
   """
   @spec update_workload(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, update_workload_output(), any()}
@@ -7155,7 +7129,6 @@ defmodule AWS.WellArchitected do
   ## Parameters:
   * `:share_id` (`t:string` required)
   * `:workload_id` (`t:string` required)
-  ## Keyword parameters:
   """
   @spec update_workload_share(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, update_workload_share_output(), any()}
@@ -7210,7 +7183,6 @@ defmodule AWS.WellArchitected do
   ## Parameters:
   * `:lens_alias` (`t:string` required)
   * `:workload_id` (`t:string` required)
-  ## Keyword parameters:
   """
   @spec upgrade_lens_review(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
@@ -7255,7 +7227,6 @@ defmodule AWS.WellArchitected do
   ## Parameters:
   * `:profile_arn` (`t:string` required) The profile ARN.
   * `:workload_id` (`t:string` required)
-  ## Keyword parameters:
   """
   @spec upgrade_profile_version(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
@@ -7300,7 +7271,6 @@ defmodule AWS.WellArchitected do
   ## Parameters:
   * `:lens_alias` (`t:string` required)
   * `:template_arn` (`t:string` required) The ARN of the review template.
-  ## Keyword parameters:
   """
   @spec upgrade_review_template_lens_review(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}

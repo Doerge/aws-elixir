@@ -741,12 +741,11 @@ defmodule AWS.LexRuntimeV2 do
 
   ## Parameters:
   * `:bot_alias_id` (`t:string` required) The alias identifier in use for the bot
-  that contains the session data.
+    that contains the session data.
   * `:bot_id` (`t:string` required) The identifier of the bot that contains the
-  session data.
+    session data.
   * `:locale_id` (`t:string` required) The locale where the session is in use.
   * `:session_id` (`t:string` required) The identifier of the session to delete.
-  ## Keyword parameters:
   """
   @spec delete_session(
           AWS.Client.t(),
@@ -816,12 +815,11 @@ defmodule AWS.LexRuntimeV2 do
 
   ## Parameters:
   * `:bot_alias_id` (`t:string` required) The alias identifier in use for the bot
-  that contains the session data.
+    that contains the session data.
   * `:bot_id` (`t:string` required) The identifier of the bot that contains the
-  session data.
+    session data.
   * `:locale_id` (`t:string` required) The locale where the session is in use.
   * `:session_id` (`t:string` required) The identifier of the session to return.
-  ## Keyword parameters:
   """
   @spec get_session(AWS.Client.t(), String.t(), String.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_session_response(), any()}
@@ -864,16 +862,17 @@ defmodule AWS.LexRuntimeV2 do
 
   ## Parameters:
   * `:bot_alias_id` (`t:string` required) The alias identifier of the bot that
-  receives the session data.
+    receives the session data.
   * `:bot_id` (`t:string` required) The identifier of the bot that receives the
-  session data.
+    session data.
   * `:locale_id` (`t:string` required) The locale where the session is in use.
   * `:session_id` (`t:string` required) The identifier of the session that
-  receives the session data.
+    receives the session data.
+
   ## Keyword parameters:
   * `:response_content_type` (`t:string`) The message that Amazon Lex V2 returns
-  in the response can be either text or speech depending on the value of this
-  parameter.
+    in the response can be either text or speech depending on the value of this
+    parameter.
   """
   @spec put_session(AWS.Client.t(), String.t(), String.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, put_session_response(), any()}
@@ -920,19 +919,6 @@ defmodule AWS.LexRuntimeV2 do
         ]
       )
 
-    options =
-      Keyword.put(
-        options,
-        :response_header_parameters,
-        [
-          {"Content-Type", "contentType"},
-          {"x-amz-lex-messages", "messages"},
-          {"x-amz-lex-request-attributes", "requestAttributes"},
-          {"x-amz-lex-session-id", "sessionId"},
-          {"x-amz-lex-session-state", "sessionState"}
-        ]
-      )
-
     meta =
       metadata()
 
@@ -957,13 +943,12 @@ defmodule AWS.LexRuntimeV2 do
 
   ## Parameters:
   * `:bot_alias_id` (`t:string` required) The alias identifier in use for the bot
-  that processes the request.
+    that processes the request.
   * `:bot_id` (`t:string` required) The identifier of the bot that processes the
-  request.
+    request.
   * `:locale_id` (`t:string` required) The locale where the session is in use.
   * `:session_id` (`t:string` required) The identifier of the user session that is
-  having the conversation.
-  ## Keyword parameters:
+    having the conversation.
   """
   @spec recognize_text(
           AWS.Client.t(),
@@ -1025,27 +1010,28 @@ defmodule AWS.LexRuntimeV2 do
 
   ## Parameters:
   * `:bot_alias_id` (`t:string` required) The alias identifier in use for the bot
-  that should receive the request.
+    that should receive the request.
   * `:bot_id` (`t:string` required) The identifier of the bot that should receive
-  the request.
+    the request.
   * `:locale_id` (`t:string` required) The locale where the session is in use.
   * `:session_id` (`t:string` required) The identifier of the session in use.
   * `:request_content_type` (`t:string` required) Indicates the format for audio
-  input or that the content is text. The header must start with one of the
-  following prefixes:
+    input or that the content is text. The header must start with one of the
+    following prefixes:
   * `:input` (`t:map`):
-    * `:input_stream` (`t:blob`) User input in PCM or Opus audio format or text
-  format as described in the requestContentType parameter.
+    * `"inputStream" => t:blob` User input in PCM or Opus audio format or text
+    format as described in the requestContentType parameter.
+
   ## Keyword parameters:
   * `:request_attributes` (`t:string`) Request-specific information passed between
-  the client application and Amazon Lex V2
+    the client application and Amazon Lex V2
   * `:response_content_type` (`t:string`) The message that Amazon Lex V2 returns
-  in the response can be either text or speech based on the
-  responseContentType value.
+    in the response can be either text or speech based on the
+    responseContentType value.
   * `:session_state` (`t:string`) Sets the state of the session with the user. You
-  can use this to set the current intent, attributes, context, and dialog
-  action. Use the dialog action to determine the next step that Amazon Lex V2
-  should use in the conversation with the user.
+    can use this to set the current intent, attributes, context, and dialog
+    action. Use the dialog action to determine the next step that Amazon Lex V2
+    should use in the conversation with the user.
   """
   @spec recognize_utterance(
           AWS.Client.t(),
@@ -1129,23 +1115,6 @@ defmodule AWS.LexRuntimeV2 do
         ]
       )
 
-    options =
-      Keyword.put(
-        options,
-        :response_header_parameters,
-        [
-          {"Content-Type", "contentType"},
-          {"x-amz-lex-input-mode", "inputMode"},
-          {"x-amz-lex-input-transcript", "inputTranscript"},
-          {"x-amz-lex-interpretations", "interpretations"},
-          {"x-amz-lex-messages", "messages"},
-          {"x-amz-lex-recognized-bot-member", "recognizedBotMember"},
-          {"x-amz-lex-request-attributes", "requestAttributes"},
-          {"x-amz-lex-session-id", "sessionId"},
-          {"x-amz-lex-session-state", "sessionState"}
-        ]
-      )
-
     meta =
       metadata()
 
@@ -1172,20 +1141,21 @@ defmodule AWS.LexRuntimeV2 do
 
   ## Parameters:
   * `:bot_alias_id` (`t:string` required) The alias identifier in use for the bot
-  that processes the request.
+    that processes the request.
   * `:bot_id` (`t:string` required) The identifier of the bot to process the
-  request.
+    request.
   * `:locale_id` (`t:string` required) The locale where the session is in use.
   * `:session_id` (`t:string` required) The identifier of the user session that is
-  having the conversation.
+    having the conversation.
   * `:input` (`t:map`):
-    * `:request_event_stream` (`t:union` required) Represents the stream of events
-  to Amazon Lex V2 from your application. The events are encoded as HTTP/2
-  data frames.
+    * `"requestEventStream" => t:union` (required) Represents the stream of events
+    to Amazon Lex V2 from your application. The events are encoded as HTTP/2
+    data frames.
+
   ## Keyword parameters:
   * `:conversation_mode` (`t:enum["AUDIO|TEXT"]`) The conversation type that you
-  are using the Amazon Lex V2. If the conversation mode is AUDIO you can send
-  both audio and DTMF information. If the mode is TEXT you can only send text.
+    are using the Amazon Lex V2. If the conversation mode is AUDIO you can send
+    both audio and DTMF information. If the mode is TEXT you can only send text.
   """
   @spec start_conversation(
           AWS.Client.t(),

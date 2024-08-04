@@ -679,7 +679,6 @@ defmodule AWS.TrustedAdvisor do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=trustedadvisor%20BatchUpdateRecommendationResourceExclusion&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec batch_update_recommendation_resource_exclusion(AWS.Client.t(), Keyword.t()) ::
           {:ok, batch_update_recommendation_resource_exclusion_response(), any()}
@@ -723,8 +722,7 @@ defmodule AWS.TrustedAdvisor do
 
   ## Parameters:
   * `:organization_recommendation_identifier` (`t:string` required) The
-  Recommendation identifier
-  ## Keyword parameters:
+    Recommendation identifier
   """
   @spec get_organization_recommendation(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_organization_recommendation_response(), any()}
@@ -770,8 +768,7 @@ defmodule AWS.TrustedAdvisor do
 
   ## Parameters:
   * `:recommendation_identifier` (`t:string` required) The Recommendation
-  identifier
-  ## Keyword parameters:
+    identifier
   """
   @spec get_recommendation(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_recommendation_response(), any()}
@@ -811,21 +808,22 @@ defmodule AWS.TrustedAdvisor do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=trustedadvisor%20ListChecks&this_doc_guide=API%2520Reference)
 
   ## Parameters:
+
   ## Keyword parameters:
   * `:aws_service` (`t:string`) The aws service associated with the check
   * `:language`
-  (`t:enum["BAHASA_INDONESIA|BRAZILIAN_PORTUGUESE|CHINESE|ENGLISH|FRENCH|GERMAN|ITALIAN|JAPANESE|KOREAN|SPANISH|TRADITIONAL_CHINESE"]`)
-  The ISO 639-1 code for the language that you want your checks to appear in.
+    (`t:enum["BAHASA_INDONESIA|BRAZILIAN_PORTUGUESE|CHINESE|ENGLISH|FRENCH|GERMAN|ITALIAN|JAPANESE|KOREAN|SPANISH|TRADITIONAL_CHINESE"]`)
+    The ISO 639-1 code for the language that you want your checks to appear in.
   * `:max_results` (`t:string`) The maximum number of results to return per page.
   * `:next_token` (`t:string`) The token for the next set of results. Use the
-  value returned in the previous response in the next request to retrieve the
-  next set of results.
+    value returned in the previous response in the next request to retrieve the
+    next set of results.
   * `:pillar`
-  (`t:enum["COST_OPTIMIZING|FAULT_TOLERANCE|OPERATIONAL_EXCELLENCE|PERFORMANCE|SECURITY|SERVICE_LIMITS"]`)
-  The pillar of the check
+    (`t:enum["COST_OPTIMIZING|FAULT_TOLERANCE|OPERATIONAL_EXCELLENCE|PERFORMANCE|SECURITY|SERVICE_LIMITS"]`)
+    The pillar of the check
   * `:source`
-  (`t:enum["AWS_CONFIG|COMPUTE_OPTIMIZER|COST_EXPLORER|LSE|MANUAL|PSE|RDS|RESILIENCE|RESILIENCE_HUB|SECURITY_HUB|STIR|TA_CHECK|WELL_ARCHITECTED"]`)
-  The source of the check
+    (`t:enum["AWS_CONFIG|COMPUTE_OPTIMIZER|COST_EXPLORER|LSE|MANUAL|PSE|RDS|RESILIENCE|RESILIENCE_HUB|SECURITY_HUB|STIR|TA_CHECK|WELL_ARCHITECTED"]`)
+    The source of the check
   """
   @spec list_checks(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_checks_response(), any()}
@@ -920,14 +918,15 @@ defmodule AWS.TrustedAdvisor do
 
   ## Parameters:
   * `:organization_recommendation_identifier` (`t:string` required) The
-  Recommendation identifier
+    Recommendation identifier
+
   ## Keyword parameters:
   * `:affected_account_id` (`t:string`) An account affected by this organization
-  recommendation
+    recommendation
   * `:max_results` (`t:string`) The maximum number of results to return per page.
   * `:next_token` (`t:string`) The token for the next set of results. Use the
-  value returned in the previous response in the next request to retrieve the
-  next set of results.
+    value returned in the previous response in the next request to retrieve the
+    next set of results.
   """
   @spec list_organization_recommendation_accounts(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_organization_recommendation_accounts_response(), any()}
@@ -999,16 +998,17 @@ defmodule AWS.TrustedAdvisor do
 
   ## Parameters:
   * `:organization_recommendation_identifier` (`t:string` required) The AWS
-  Organization organization's Recommendation identifier
+    Organization organization's Recommendation identifier
+
   ## Keyword parameters:
   * `:affected_account_id` (`t:string`) An account affected by this organization
-  recommendation
+    recommendation
   * `:exclusion_status` (`t:enum["EXCLUDED|INCLUDED"]`) The exclusion status of
-  the resource
+    the resource
   * `:max_results` (`t:string`) The maximum number of results to return per page.
   * `:next_token` (`t:string`) The token for the next set of results. Use the
-  value returned in the previous response in the next request to retrieve the
-  next set of results.
+    value returned in the previous response in the next request to retrieve the
+    next set of results.
   * `:region_code` (`t:string`) The AWS Region code of the resource
   * `:status` (`t:enum["ERROR|OK|WARNING"]`) The status of the resource
   """
@@ -1116,23 +1116,24 @@ defmodule AWS.TrustedAdvisor do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=trustedadvisor%20ListOrganizationRecommendations&this_doc_guide=API%2520Reference)
 
   ## Parameters:
+
   ## Keyword parameters:
   * `:after_last_updated_at` (`t:string`) After the last update of the
-  Recommendation
+    Recommendation
   * `:aws_service` (`t:string`) The aws service associated with the Recommendation
   * `:before_last_updated_at` (`t:string`) Before the last update of the
-  Recommendation
+    Recommendation
   * `:check_identifier` (`t:string`) The check identifier of the Recommendation
   * `:max_results` (`t:string`) The maximum number of results to return per page.
   * `:next_token` (`t:string`) The token for the next set of results. Use the
-  value returned in the previous response in the next request to retrieve the
-  next set of results.
+    value returned in the previous response in the next request to retrieve the
+    next set of results.
   * `:pillar`
-  (`t:enum["COST_OPTIMIZING|FAULT_TOLERANCE|OPERATIONAL_EXCELLENCE|PERFORMANCE|SECURITY|SERVICE_LIMITS"]`)
-  The pillar of the Recommendation
+    (`t:enum["COST_OPTIMIZING|FAULT_TOLERANCE|OPERATIONAL_EXCELLENCE|PERFORMANCE|SECURITY|SERVICE_LIMITS"]`)
+    The pillar of the Recommendation
   * `:source`
-  (`t:enum["AWS_CONFIG|COMPUTE_OPTIMIZER|COST_EXPLORER|LSE|MANUAL|PSE|RDS|RESILIENCE|RESILIENCE_HUB|SECURITY_HUB|STIR|TA_CHECK|WELL_ARCHITECTED"]`)
-  The source of the Recommendation
+    (`t:enum["AWS_CONFIG|COMPUTE_OPTIMIZER|COST_EXPLORER|LSE|MANUAL|PSE|RDS|RESILIENCE|RESILIENCE_HUB|SECURITY_HUB|STIR|TA_CHECK|WELL_ARCHITECTED"]`)
+    The source of the Recommendation
   * `:status` (`t:enum["ERROR|OK|WARNING"]`) The status of the Recommendation
   * `:type` (`t:enum["PRIORITY|STANDARD"]`) The type of the Recommendation
   """
@@ -1271,14 +1272,15 @@ defmodule AWS.TrustedAdvisor do
 
   ## Parameters:
   * `:recommendation_identifier` (`t:string` required) The Recommendation
-  identifier
+    identifier
+
   ## Keyword parameters:
   * `:exclusion_status` (`t:enum["EXCLUDED|INCLUDED"]`) The exclusion status of
-  the resource
+    the resource
   * `:max_results` (`t:string`) The maximum number of results to return per page.
   * `:next_token` (`t:string`) The token for the next set of results. Use the
-  value returned in the previous response in the next request to retrieve the
-  next set of results.
+    value returned in the previous response in the next request to retrieve the
+    next set of results.
   * `:region_code` (`t:string`) The AWS Region code of the resource
   * `:status` (`t:enum["ERROR|OK|WARNING"]`) The status of the resource
   """
@@ -1365,23 +1367,24 @@ defmodule AWS.TrustedAdvisor do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=trustedadvisor%20ListRecommendations&this_doc_guide=API%2520Reference)
 
   ## Parameters:
+
   ## Keyword parameters:
   * `:after_last_updated_at` (`t:string`) After the last update of the
-  Recommendation
+    Recommendation
   * `:aws_service` (`t:string`) The aws service associated with the Recommendation
   * `:before_last_updated_at` (`t:string`) Before the last update of the
-  Recommendation
+    Recommendation
   * `:check_identifier` (`t:string`) The check identifier of the Recommendation
   * `:max_results` (`t:string`) The maximum number of results to return per page.
   * `:next_token` (`t:string`) The token for the next set of results. Use the
-  value returned in the previous response in the next request to retrieve the
-  next set of results.
+    value returned in the previous response in the next request to retrieve the
+    next set of results.
   * `:pillar`
-  (`t:enum["COST_OPTIMIZING|FAULT_TOLERANCE|OPERATIONAL_EXCELLENCE|PERFORMANCE|SECURITY|SERVICE_LIMITS"]`)
-  The pillar of the Recommendation
+    (`t:enum["COST_OPTIMIZING|FAULT_TOLERANCE|OPERATIONAL_EXCELLENCE|PERFORMANCE|SECURITY|SERVICE_LIMITS"]`)
+    The pillar of the Recommendation
   * `:source`
-  (`t:enum["AWS_CONFIG|COMPUTE_OPTIMIZER|COST_EXPLORER|LSE|MANUAL|PSE|RDS|RESILIENCE|RESILIENCE_HUB|SECURITY_HUB|STIR|TA_CHECK|WELL_ARCHITECTED"]`)
-  The source of the Recommendation
+    (`t:enum["AWS_CONFIG|COMPUTE_OPTIMIZER|COST_EXPLORER|LSE|MANUAL|PSE|RDS|RESILIENCE|RESILIENCE_HUB|SECURITY_HUB|STIR|TA_CHECK|WELL_ARCHITECTED"]`)
+    The source of the Recommendation
   * `:status` (`t:enum["ERROR|OK|WARNING"]`) The status of the Recommendation
   * `:type` (`t:enum["PRIORITY|STANDARD"]`) The type of the Recommendation
   """
@@ -1521,8 +1524,7 @@ defmodule AWS.TrustedAdvisor do
 
   ## Parameters:
   * `:organization_recommendation_identifier` (`t:string` required) The
-  Recommendation identifier for AWS Trusted Advisor Priority recommendations
-  ## Keyword parameters:
+    Recommendation identifier for AWS Trusted Advisor Priority recommendations
   """
   @spec update_organization_recommendation_lifecycle(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
@@ -1571,8 +1573,7 @@ defmodule AWS.TrustedAdvisor do
 
   ## Parameters:
   * `:recommendation_identifier` (`t:string` required) The Recommendation
-  identifier for AWS Trusted Advisor Priority recommendations
-  ## Keyword parameters:
+    identifier for AWS Trusted Advisor Priority recommendations
   """
   @spec update_recommendation_lifecycle(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}

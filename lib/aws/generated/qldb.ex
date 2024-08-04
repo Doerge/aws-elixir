@@ -748,8 +748,7 @@ defmodule AWS.QLDB do
   ## Parameters:
   * `:ledger_name` (`t:string` required) The name of the ledger.
   * `:stream_id` (`t:string` required) The UUID (represented in Base62-encoded
-  text) of the QLDB journal stream to be canceled.
-  ## Keyword parameters:
+    text) of the QLDB journal stream to be canceled.
   """
   @spec cancel_journal_kinesis_stream(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, cancel_journal_kinesis_stream_response(), any()}
@@ -802,7 +801,6 @@ defmodule AWS.QLDB do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=qldb%20CreateLedger&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec create_ledger(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_ledger_response(), any()}
@@ -845,7 +843,6 @@ defmodule AWS.QLDB do
 
   ## Parameters:
   * `:name` (`t:string` required) The name of the ledger that you want to delete.
-  ## Keyword parameters:
   """
   @spec delete_ledger(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
@@ -901,8 +898,7 @@ defmodule AWS.QLDB do
   ## Parameters:
   * `:ledger_name` (`t:string` required) The name of the ledger.
   * `:stream_id` (`t:string` required) The UUID (represented in Base62-encoded
-  text) of the QLDB journal stream to describe.
-  ## Keyword parameters:
+    text) of the QLDB journal stream to describe.
   """
   @spec describe_journal_kinesis_stream(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, describe_journal_kinesis_stream_response(), any()}
@@ -949,9 +945,8 @@ defmodule AWS.QLDB do
 
   ## Parameters:
   * `:export_id` (`t:string` required) The UUID (represented in Base62-encoded
-  text) of the journal export job to describe.
+    text) of the journal export job to describe.
   * `:name` (`t:string` required) The name of the ledger.
-  ## Keyword parameters:
   """
   @spec describe_journal_s3_export(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, describe_journal_s3_export_response(), any()}
@@ -994,8 +989,7 @@ defmodule AWS.QLDB do
 
   ## Parameters:
   * `:name` (`t:string` required) The name of the ledger that you want to
-  describe.
-  ## Keyword parameters:
+    describe.
   """
   @spec describe_ledger(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, describe_ledger_response(), any()}
@@ -1040,7 +1034,6 @@ defmodule AWS.QLDB do
 
   ## Parameters:
   * `:name` (`t:string` required) The name of the ledger.
-  ## Keyword parameters:
   """
   @spec export_journal_to_s3(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, export_journal_to_s3_response(), any()}
@@ -1087,7 +1080,6 @@ defmodule AWS.QLDB do
 
   ## Parameters:
   * `:name` (`t:string` required) The name of the ledger.
-  ## Keyword parameters:
   """
   @spec get_block(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_block_response(), any()}
@@ -1131,7 +1123,6 @@ defmodule AWS.QLDB do
 
   ## Parameters:
   * `:name` (`t:string` required) The name of the ledger.
-  ## Keyword parameters:
   """
   @spec get_digest(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_digest_response(), any()}
@@ -1176,7 +1167,6 @@ defmodule AWS.QLDB do
 
   ## Parameters:
   * `:name` (`t:string` required) The name of the ledger.
-  ## Keyword parameters:
   """
   @spec get_revision(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_revision_response(), any()}
@@ -1223,14 +1213,15 @@ defmodule AWS.QLDB do
 
   ## Parameters:
   * `:ledger_name` (`t:string` required) The name of the ledger.
+
   ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of results to return in a
-  single ListJournalKinesisStreamsForLedger request. (The actual number of
-  results returned might be fewer.)
+    single ListJournalKinesisStreamsForLedger request. (The actual number of
+    results returned might be fewer.)
   * `:next_token` (`t:string`) A pagination token, indicating that you want to
-  retrieve the next page of results. If you received a value for NextToken in
-  the response from a previous ListJournalKinesisStreamsForLedger call, you
-  should use that value as input here.
+    retrieve the next page of results. If you received a value for NextToken in
+    the response from a previous ListJournalKinesisStreamsForLedger call, you
+    should use that value as input here.
   """
   @spec list_journal_kinesis_streams_for_ledger(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_journal_kinesis_streams_for_ledger_response(), any()}
@@ -1291,14 +1282,15 @@ defmodule AWS.QLDB do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=qldb%20ListJournalS3Exports&this_doc_guide=API%2520Reference)
 
   ## Parameters:
+
   ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of results to return in a
-  single ListJournalS3Exports request. (The actual number of results returned
-  might be fewer.)
+    single ListJournalS3Exports request. (The actual number of results returned
+    might be fewer.)
   * `:next_token` (`t:string`) A pagination token, indicating that you want to
-  retrieve the next page of results. If you received a value for NextToken in
-  the response from a previous ListJournalS3Exports call, then you should use
-  that value as input here.
+    retrieve the next page of results. If you received a value for NextToken in
+    the response from a previous ListJournalS3Exports call, then you should use
+    that value as input here.
   """
   @spec list_journal_s3_exports(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_journal_s3_exports_response(), any()}
@@ -1358,14 +1350,15 @@ defmodule AWS.QLDB do
 
   ## Parameters:
   * `:name` (`t:string` required) The name of the ledger.
+
   ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of results to return in a
-  single ListJournalS3ExportsForLedger request. (The actual number of results
-  returned might be fewer.)
+    single ListJournalS3ExportsForLedger request. (The actual number of results
+    returned might be fewer.)
   * `:next_token` (`t:string`) A pagination token, indicating that you want to
-  retrieve the next page of results. If you received a value for NextToken in
-  the response from a previous ListJournalS3ExportsForLedger call, then you
-  should use that value as input here.
+    retrieve the next page of results. If you received a value for NextToken in
+    the response from a previous ListJournalS3ExportsForLedger call, then you
+    should use that value as input here.
   """
   @spec list_journal_s3_exports_for_ledger(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_journal_s3_exports_for_ledger_response(), any()}
@@ -1423,14 +1416,15 @@ defmodule AWS.QLDB do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=qldb%20ListLedgers&this_doc_guide=API%2520Reference)
 
   ## Parameters:
+
   ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of results to return in a
-  single ListLedgers request. (The actual number of results returned might be
-  fewer.)
+    single ListLedgers request. (The actual number of results returned might be
+    fewer.)
   * `:next_token` (`t:string`) A pagination token, indicating that you want to
-  retrieve the next page of results. If you received a value for NextToken in
-  the response from a previous ListLedgers call, then you should use that
-  value as input here.
+    retrieve the next page of results. If you received a value for NextToken in
+    the response from a previous ListLedgers call, then you should use that
+    value as input here.
   """
   @spec list_ledgers(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_ledgers_response(), any()}
@@ -1488,8 +1482,7 @@ defmodule AWS.QLDB do
 
   ## Parameters:
   * `:resource_arn` (`t:string` required) The Amazon Resource Name (ARN) for which
-  to list the tags. For example:
-  ## Keyword parameters:
+    to list the tags. For example:
   """
   @spec list_tags_for_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_tags_for_resource_response(), any()}
@@ -1532,7 +1525,6 @@ defmodule AWS.QLDB do
 
   ## Parameters:
   * `:ledger_name` (`t:string` required) The name of the ledger.
-  ## Keyword parameters:
   """
   @spec stream_journal_to_kinesis(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, stream_journal_to_kinesis_response(), any()}
@@ -1575,8 +1567,7 @@ defmodule AWS.QLDB do
 
   ## Parameters:
   * `:resource_arn` (`t:string` required) The Amazon Resource Name (ARN) to which
-  you want to add the tags. For example:
-  ## Keyword parameters:
+    you want to add the tags. For example:
   """
   @spec tag_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, tag_resource_response(), any()}
@@ -1620,10 +1611,9 @@ defmodule AWS.QLDB do
 
   ## Parameters:
   * `:resource_arn` (`t:string` required) The Amazon Resource Name (ARN) from
-  which to remove the tags. For example:
+    which to remove the tags. For example:
   * `:tag_keys` (`t:list[com.amazonaws.qldb#TagKey]` required) The list of tag
-  keys to remove.
-  ## Keyword parameters:
+    keys to remove.
   """
   @spec untag_resource(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, untag_resource_response(), any()}
@@ -1677,7 +1667,6 @@ defmodule AWS.QLDB do
 
   ## Parameters:
   * `:name` (`t:string` required) The name of the ledger.
-  ## Keyword parameters:
   """
   @spec update_ledger(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, update_ledger_response(), any()}
@@ -1730,7 +1719,6 @@ defmodule AWS.QLDB do
 
   ## Parameters:
   * `:name` (`t:string` required) The name of the ledger.
-  ## Keyword parameters:
   """
   @spec update_ledger_permissions_mode(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, update_ledger_permissions_mode_response(), any()}

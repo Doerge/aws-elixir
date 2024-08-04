@@ -1170,70 +1170,69 @@ defmodule AWS.Mq do
 
   ## Parameters:
   * `:input` (`t:map`):
-    * `:broker_name` (`t:string` required) Required. The broker's name. This value
-  must be unique in your Amazon Web Services account, 1-50 characters long,
-  must contain only letters, numbers, dashes, and underscores, and must not
-  contain white spaces, brackets, wildcard characters, or special characters.
-    * `:deployment_mode`
-  (`t:enum["ACTIVE_STANDBY_MULTI_AZ|CLUSTER_MULTI_AZ|SINGLE_INSTANCE"]`
-  required) Required. The broker's deployment mode.
-    * `:engine_type` (`t:enum["ACTIVEMQ|RABBITMQ"]` required) Required. The type of
-  broker engine. Currently, Amazon MQ supports ACTIVEMQ and RABBITMQ.
-    * `:host_instance_type` (`t:string` required) Required. The broker's instance
-  type.
-    * `:publicly_accessible` (`t:boolean` required) Enables connections from
-  applications outside of the VPC that hosts the broker's subnets. Set to
-  false by default, if no value is provided.
-    * `:users` (`t:list[com.amazonaws.mq#User]` required) The list of broker users
-  (persons or applications) who can access queues and topics. For Amazon MQ
-  for RabbitMQ brokers, one and only one administrative user is accepted and
-  created when a broker is first provisioned. All subsequent broker users are
-  created by making RabbitMQ API calls directly to brokers or via the RabbitMQ
-  web console.
-    * `:authentication_strategy` (`t:enum["LDAP|SIMPLE"]`) Optional. The
-  authentication strategy used to secure the broker. The default is SIMPLE.
-    * `:auto_minor_version_upgrade` (`t:boolean`) Enables automatic upgrades to new
-  patch versions for brokers as new versions are released and supported by
-  Amazon MQ. Automatic upgrades occur during the scheduled maintenance window
-  or after a manual broker reboot. Set to true by default, if no value is
-  specified.
-    * `:configuration` (`t:structure`) A list of information about the
-  configuration.
-    * `:creator_request_id` (`t:string`) The unique ID that the requester receives
-  for the created broker. Amazon MQ passes your ID with the API action.
-    * `:data_replication_mode` (`t:enum["CRDR|NONE"]`) Defines whether this broker
-  is a part of a data replication pair.
-    * `:data_replication_primary_broker_arn` (`t:string`) The Amazon Resource Name
-  (ARN) of the primary broker that is used to replicate data from in a data
-  replication pair, and is applied to the replica broker. Must be set when
-  dataReplicationMode is set to CRDR.
-    * `:encryption_options` (`t:structure`) Encryption options for the broker.
-    * `:engine_version` (`t:string`) The broker engine version. Defaults to the
-  latest available version for the specified broker engine type. For more
-  information, see the ActiveMQ version management and the RabbitMQ version
-  management sections in the Amazon MQ Developer Guide.
-    * `:ldap_server_metadata` (`t:structure`) Optional. The metadata of the LDAP
-  server used to authenticate and authorize connections to the broker. Does
-  not apply to RabbitMQ brokers.
-    * `:logs` (`t:structure`) Enables Amazon CloudWatch logging for brokers.
-    * `:maintenance_window_start_time` (`t:structure`) The parameters that determine
-  the WeeklyStartTime.
-    * `:security_groups` (`t:list[com.amazonaws.mq#__string]`) The list of rules (1
-  minimum, 125 maximum) that authorize connections to brokers.
-    * `:storage_type` (`t:enum["EBS|EFS"]`) The broker's storage type.
-    * `:subnet_ids` (`t:list[com.amazonaws.mq#__string]`) The list of groups that
-  define which subnets and IP ranges the broker can use from different
-  Availability Zones. If you specify more than one subnet, the subnets must be
-  in different Availability Zones. Amazon MQ will not be able to create VPC
-  endpoints for your broker with multiple subnets in the same Availability
-  Zone. A SINGLE_INSTANCE deployment requires one subnet (for example, the
-  default subnet). An ACTIVE_STANDBY_MULTI_AZ Amazon MQ for ActiveMQ
-  deployment requires two subnets. A CLUSTER_MULTI_AZ Amazon MQ for RabbitMQ
-  deployment has no subnet requirements when deployed with public
-  accessibility. Deployment without public accessibility requires at least one
-  subnet.
-    * `:tags` (`t:map`) Create tags when creating the broker.
-  ## Keyword parameters:
+    * `"brokerName" => t:string` (required) Required. The broker's name. This value
+    must be unique in your Amazon Web Services account, 1-50 characters long,
+    must contain only letters, numbers, dashes, and underscores, and must not
+    contain white spaces, brackets, wildcard characters, or special characters.
+    * `"deploymentMode" =>
+    t:enum["ACTIVE_STANDBY_MULTI_AZ|CLUSTER_MULTI_AZ|SINGLE_INSTANCE"]`
+    (required) Required. The broker's deployment mode.
+    * `"engineType" => t:enum["ACTIVEMQ|RABBITMQ"]` (required) Required. The type of
+    broker engine. Currently, Amazon MQ supports ACTIVEMQ and RABBITMQ.
+    * `"hostInstanceType" => t:string` (required) Required. The broker's instance
+    type.
+    * `"publiclyAccessible" => t:boolean` (required) Enables connections from
+    applications outside of the VPC that hosts the broker's subnets. Set to
+    false by default, if no value is provided.
+    * `"users" => t:list[com.amazonaws.mq#User]` (required) The list of broker users
+    (persons or applications) who can access queues and topics. For Amazon MQ
+    for RabbitMQ brokers, one and only one administrative user is accepted and
+    created when a broker is first provisioned. All subsequent broker users are
+    created by making RabbitMQ API calls directly to brokers or via the RabbitMQ
+    web console.
+    * `"authenticationStrategy" => t:enum["LDAP|SIMPLE"]` Optional. The
+    authentication strategy used to secure the broker. The default is SIMPLE.
+    * `"autoMinorVersionUpgrade" => t:boolean` Enables automatic upgrades to new
+    patch versions for brokers as new versions are released and supported by
+    Amazon MQ. Automatic upgrades occur during the scheduled maintenance window
+    or after a manual broker reboot. Set to true by default, if no value is
+    specified.
+    * `"configuration" => t:structure` A list of information about the
+    configuration.
+    * `"creatorRequestId" => t:string` The unique ID that the requester receives for
+    the created broker. Amazon MQ passes your ID with the API action.
+    * `"dataReplicationMode" => t:enum["CRDR|NONE"]` Defines whether this broker is
+    a part of a data replication pair.
+    * `"dataReplicationPrimaryBrokerArn" => t:string` The Amazon Resource Name (ARN)
+    of the primary broker that is used to replicate data from in a data
+    replication pair, and is applied to the replica broker. Must be set when
+    dataReplicationMode is set to CRDR.
+    * `"encryptionOptions" => t:structure` Encryption options for the broker.
+    * `"engineVersion" => t:string` The broker engine version. Defaults to the
+    latest available version for the specified broker engine type. For more
+    information, see the ActiveMQ version management and the RabbitMQ version
+    management sections in the Amazon MQ Developer Guide.
+    * `"ldapServerMetadata" => t:structure` Optional. The metadata of the LDAP
+    server used to authenticate and authorize connections to the broker. Does
+    not apply to RabbitMQ brokers.
+    * `"logs" => t:structure` Enables Amazon CloudWatch logging for brokers.
+    * `"maintenanceWindowStartTime" => t:structure` The parameters that determine
+    the WeeklyStartTime.
+    * `"securityGroups" => t:list[com.amazonaws.mq#__string]` The list of rules (1
+    minimum, 125 maximum) that authorize connections to brokers.
+    * `"storageType" => t:enum["EBS|EFS"]` The broker's storage type.
+    * `"subnetIds" => t:list[com.amazonaws.mq#__string]` The list of groups that
+    define which subnets and IP ranges the broker can use from different
+    Availability Zones. If you specify more than one subnet, the subnets must be
+    in different Availability Zones. Amazon MQ will not be able to create VPC
+    endpoints for your broker with multiple subnets in the same Availability
+    Zone. A SINGLE_INSTANCE deployment requires one subnet (for example, the
+    default subnet). An ACTIVE_STANDBY_MULTI_AZ Amazon MQ for ActiveMQ
+    deployment requires two subnets. A CLUSTER_MULTI_AZ Amazon MQ for RabbitMQ
+    deployment has no subnet requirements when deployed with public
+    accessibility. Deployment without public accessibility requires at least one
+    subnet.
+    * `"tags" => t:map` Create tags when creating the broker.
   """
   @spec create_broker(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_broker_response(), any()}
@@ -1277,20 +1276,19 @@ defmodule AWS.Mq do
 
   ## Parameters:
   * `:input` (`t:map`):
-    * `:engine_type` (`t:enum["ACTIVEMQ|RABBITMQ"]` required) Required. The type of
-  broker engine. Currently, Amazon MQ supports ACTIVEMQ and RABBITMQ.
-    * `:name` (`t:string` required) Required. The name of the configuration. This
-  value can contain only alphanumeric characters, dashes, periods,
-  underscores, and tildes (- . _ ~). This value must be 1-150 characters long.
-    * `:authentication_strategy` (`t:enum["LDAP|SIMPLE"]`) Optional. The
-  authentication strategy associated with the configuration. The default is
-  SIMPLE.
-    * `:engine_version` (`t:string`) The broker engine version. Defaults to the
-  latest available version for the specified broker engine type. For more
-  information, see the ActiveMQ version management and the RabbitMQ version
-  management sections in the Amazon MQ Developer Guide.
-    * `:tags` (`t:map`) Create tags when creating the configuration.
-  ## Keyword parameters:
+    * `"engineType" => t:enum["ACTIVEMQ|RABBITMQ"]` (required) Required. The type of
+    broker engine. Currently, Amazon MQ supports ACTIVEMQ and RABBITMQ.
+    * `"name" => t:string` (required) Required. The name of the configuration. This
+    value can contain only alphanumeric characters, dashes, periods,
+    underscores, and tildes (- . _ ~). This value must be 1-150 characters long.
+    * `"authenticationStrategy" => t:enum["LDAP|SIMPLE"]` Optional. The
+    authentication strategy associated with the configuration. The default is
+    SIMPLE.
+    * `"engineVersion" => t:string` The broker engine version. Defaults to the
+    latest available version for the specified broker engine type. For more
+    information, see the ActiveMQ version management and the RabbitMQ version
+    management sections in the Amazon MQ Developer Guide.
+    * `"tags" => t:map` Create tags when creating the configuration.
   """
   @spec create_configuration(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_configuration_response(), any()}
@@ -1333,10 +1331,9 @@ defmodule AWS.Mq do
 
   ## Parameters:
   * `:resource_arn` (`t:string` required) The Amazon Resource Name (ARN) of the
-  resource tag.
+    resource tag.
   * `:input` (`t:map | nil`):
-    * `:tags` (`t:map`) The key-value pair for the resource tag.
-  ## Keyword parameters:
+    * `"tags" => t:map` The key-value pair for the resource tag.
   """
   @spec create_tags(AWS.Client.t(), String.t(), input :: map() | nil, Keyword.t()) ::
           {:ok, nil, any()}
@@ -1380,23 +1377,22 @@ defmodule AWS.Mq do
 
   ## Parameters:
   * `:broker_id` (`t:string` required) The unique ID that Amazon MQ generates for
-  the broker.
+    the broker.
   * `:username` (`t:string` required) The username of the ActiveMQ user. This
-  value can contain only alphanumeric characters, dashes, periods,
-  underscores, and tildes (- . _ ~). This value must be 2-100 characters long.
+    value can contain only alphanumeric characters, dashes, periods,
+    underscores, and tildes (- . _ ~). This value must be 2-100 characters long.
   * `:input` (`t:map`):
-    * `:password` (`t:string` required) Required. The password of the user. This
-  value must be at least 12 characters long, must contain at least 4 unique
-  characters, and must not contain commas, colons, or equal signs (,:=).
-    * `:console_access` (`t:boolean`) Enables access to the ActiveMQ Web Console for
-  the ActiveMQ user.
-    * `:groups` (`t:list[com.amazonaws.mq#__string]`) The list of groups (20
-  maximum) to which the ActiveMQ user belongs. This value can contain only
-  alphanumeric characters, dashes, periods, underscores, and tildes (- . _ ~).
-  This value must be 2-100 characters long.
-    * `:replication_user` (`t:boolean`) Defines if this user is intended for CRDR
-  replication purposes.
-  ## Keyword parameters:
+    * `"password" => t:string` (required) Required. The password of the user. This
+    value must be at least 12 characters long, must contain at least 4 unique
+    characters, and must not contain commas, colons, or equal signs (,:=).
+    * `"consoleAccess" => t:boolean` Enables access to the ActiveMQ Web Console for
+    the ActiveMQ user.
+    * `"groups" => t:list[com.amazonaws.mq#__string]` The list of groups (20
+    maximum) to which the ActiveMQ user belongs. This value can contain only
+    alphanumeric characters, dashes, periods, underscores, and tildes (- . _ ~).
+    This value must be 2-100 characters long.
+    * `"replicationUser" => t:boolean` Defines if this user is intended for CRDR
+    replication purposes.
   """
   @spec create_user(AWS.Client.t(), String.t(), String.t(), input :: map(), Keyword.t()) ::
           {:ok, create_user_response(), any()}
@@ -1441,8 +1437,7 @@ defmodule AWS.Mq do
 
   ## Parameters:
   * `:broker_id` (`t:string` required) The unique ID that Amazon MQ generates for
-  the broker.
-  ## Keyword parameters:
+    the broker.
   """
   @spec delete_broker(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, delete_broker_response(), any()}
@@ -1495,10 +1490,9 @@ defmodule AWS.Mq do
 
   ## Parameters:
   * `:resource_arn` (`t:string` required) The Amazon Resource Name (ARN) of the
-  resource tag.
+    resource tag.
   * `:tag_keys` (`t:list[com.amazonaws.mq#__string]` required) An array of tag
-  keys to delete
-  ## Keyword parameters:
+    keys to delete
   """
   @spec delete_tags(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
@@ -1552,11 +1546,10 @@ defmodule AWS.Mq do
 
   ## Parameters:
   * `:broker_id` (`t:string` required) The unique ID that Amazon MQ generates for
-  the broker.
+    the broker.
   * `:username` (`t:string` required) The username of the ActiveMQ user. This
-  value can contain only alphanumeric characters, dashes, periods,
-  underscores, and tildes (- . _ ~). This value must be 2-100 characters long.
-  ## Keyword parameters:
+    value can contain only alphanumeric characters, dashes, periods,
+    underscores, and tildes (- . _ ~). This value must be 2-100 characters long.
   """
   @spec delete_user(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, delete_user_response(), any()}
@@ -1610,8 +1603,7 @@ defmodule AWS.Mq do
 
   ## Parameters:
   * `:broker_id` (`t:string` required) The unique ID that Amazon MQ generates for
-  the broker.
-  ## Keyword parameters:
+    the broker.
   """
   @spec describe_broker(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, describe_broker_response(), any()}
@@ -1651,13 +1643,14 @@ defmodule AWS.Mq do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mq%20DescribeBrokerEngineTypes&this_doc_guide=API%2520Reference)
 
   ## Parameters:
+
   ## Keyword parameters:
   * `:engine_type` (`t:string`) Filter response by engine type.
   * `:max_results` (`t:integer`) The maximum number of brokers that Amazon MQ can
-  return per page (20 by default). This value must be an integer from 5 to
-  100.
+    return per page (20 by default). This value must be an integer from 5 to
+    100.
   * `:next_token` (`t:string`) The token that specifies the next page of results
-  Amazon MQ should return. To request the first page, leave nextToken empty.
+    Amazon MQ should return. To request the first page, leave nextToken empty.
   """
   @spec describe_broker_engine_types(AWS.Client.t(), Keyword.t()) ::
           {:ok, describe_broker_engine_types_response(), any()}
@@ -1722,14 +1715,15 @@ defmodule AWS.Mq do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mq%20DescribeBrokerInstanceOptions&this_doc_guide=API%2520Reference)
 
   ## Parameters:
+
   ## Keyword parameters:
   * `:engine_type` (`t:string`) Filter response by engine type.
   * `:host_instance_type` (`t:string`) Filter response by host instance type.
   * `:max_results` (`t:integer`) The maximum number of brokers that Amazon MQ can
-  return per page (20 by default). This value must be an integer from 5 to
-  100.
+    return per page (20 by default). This value must be an integer from 5 to
+    100.
   * `:next_token` (`t:string`) The token that specifies the next page of results
-  Amazon MQ should return. To request the first page, leave nextToken empty.
+    Amazon MQ should return. To request the first page, leave nextToken empty.
   * `:storage_type` (`t:string`) Filter response by storage type.
   """
   @spec describe_broker_instance_options(AWS.Client.t(), Keyword.t()) ::
@@ -1822,8 +1816,7 @@ defmodule AWS.Mq do
 
   ## Parameters:
   * `:configuration_id` (`t:string` required) The unique ID that Amazon MQ
-  generates for the configuration.
-  ## Keyword parameters:
+    generates for the configuration.
   """
   @spec describe_configuration(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, describe_configuration_response(), any()}
@@ -1864,10 +1857,9 @@ defmodule AWS.Mq do
 
   ## Parameters:
   * `:configuration_id` (`t:string` required) The unique ID that Amazon MQ
-  generates for the configuration.
+    generates for the configuration.
   * `:configuration_revision` (`t:string` required) The revision of the
-  configuration.
-  ## Keyword parameters:
+    configuration.
   """
   @spec describe_configuration_revision(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, describe_configuration_revision_response(), any()}
@@ -1914,11 +1906,10 @@ defmodule AWS.Mq do
 
   ## Parameters:
   * `:broker_id` (`t:string` required) The unique ID that Amazon MQ generates for
-  the broker.
+    the broker.
   * `:username` (`t:string` required) The username of the ActiveMQ user. This
-  value can contain only alphanumeric characters, dashes, periods,
-  underscores, and tildes (- . _ ~). This value must be 2-100 characters long.
-  ## Keyword parameters:
+    value can contain only alphanumeric characters, dashes, periods,
+    underscores, and tildes (- . _ ~). This value must be 2-100 characters long.
   """
   @spec describe_user(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, describe_user_response(), any()}
@@ -1959,12 +1950,13 @@ defmodule AWS.Mq do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mq%20ListBrokers&this_doc_guide=API%2520Reference)
 
   ## Parameters:
+
   ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of brokers that Amazon MQ can
-  return per page (20 by default). This value must be an integer from 5 to
-  100.
+    return per page (20 by default). This value must be an integer from 5 to
+    100.
   * `:next_token` (`t:string`) The token that specifies the next page of results
-  Amazon MQ should return. To request the first page, leave nextToken empty.
+    Amazon MQ should return. To request the first page, leave nextToken empty.
   """
   @spec list_brokers(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_brokers_response(), any()}
@@ -2023,13 +2015,14 @@ defmodule AWS.Mq do
 
   ## Parameters:
   * `:configuration_id` (`t:string` required) The unique ID that Amazon MQ
-  generates for the configuration.
+    generates for the configuration.
+
   ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of brokers that Amazon MQ can
-  return per page (20 by default). This value must be an integer from 5 to
-  100.
+    return per page (20 by default). This value must be an integer from 5 to
+    100.
   * `:next_token` (`t:string`) The token that specifies the next page of results
-  Amazon MQ should return. To request the first page, leave nextToken empty.
+    Amazon MQ should return. To request the first page, leave nextToken empty.
   """
   @spec list_configuration_revisions(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_configuration_revisions_response(), any()}
@@ -2087,12 +2080,13 @@ defmodule AWS.Mq do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mq%20ListConfigurations&this_doc_guide=API%2520Reference)
 
   ## Parameters:
+
   ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of brokers that Amazon MQ can
-  return per page (20 by default). This value must be an integer from 5 to
-  100.
+    return per page (20 by default). This value must be an integer from 5 to
+    100.
   * `:next_token` (`t:string`) The token that specifies the next page of results
-  Amazon MQ should return. To request the first page, leave nextToken empty.
+    Amazon MQ should return. To request the first page, leave nextToken empty.
   """
   @spec list_configurations(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_configurations_response(), any()}
@@ -2151,8 +2145,7 @@ defmodule AWS.Mq do
 
   ## Parameters:
   * `:resource_arn` (`t:string` required) The Amazon Resource Name (ARN) of the
-  resource tag.
-  ## Keyword parameters:
+    resource tag.
   """
   @spec list_tags(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_tags_response(), any()}
@@ -2193,13 +2186,14 @@ defmodule AWS.Mq do
 
   ## Parameters:
   * `:broker_id` (`t:string` required) The unique ID that Amazon MQ generates for
-  the broker.
+    the broker.
+
   ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of brokers that Amazon MQ can
-  return per page (20 by default). This value must be an integer from 5 to
-  100.
+    return per page (20 by default). This value must be an integer from 5 to
+    100.
   * `:next_token` (`t:string`) The token that specifies the next page of results
-  Amazon MQ should return. To request the first page, leave nextToken empty.
+    Amazon MQ should return. To request the first page, leave nextToken empty.
   """
   @spec list_users(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_users_response(), any()}
@@ -2258,11 +2252,10 @@ defmodule AWS.Mq do
 
   ## Parameters:
   * `:broker_id` (`t:string` required) The unique ID that Amazon MQ generates for
-  the broker.
+    the broker.
   * `:input` (`t:map`):
-    * `:mode` (`t:enum["FAILOVER|SWITCHOVER"]` required) The Promote mode requested.
-  Note: Valid values for the parameter are SWITCHOVER, FAILOVER.
-  ## Keyword parameters:
+    * `"mode" => t:enum["FAILOVER|SWITCHOVER"]` (required) The Promote mode
+    requested. Note: Valid values for the parameter are SWITCHOVER, FAILOVER.
   """
   @spec promote(AWS.Client.t(), String.t(), input :: map(), Keyword.t()) ::
           {:ok, promote_response(), any()}
@@ -2305,8 +2298,7 @@ defmodule AWS.Mq do
 
   ## Parameters:
   * `:broker_id` (`t:string` required) The unique ID that Amazon MQ generates for
-  the broker.
-  ## Keyword parameters:
+    the broker.
   """
   @spec reboot_broker(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, reboot_broker_response(), any()}
@@ -2349,32 +2341,31 @@ defmodule AWS.Mq do
 
   ## Parameters:
   * `:broker_id` (`t:string` required) The unique ID that Amazon MQ generates for
-  the broker.
+    the broker.
   * `:input` (`t:map | nil`):
-    * `:authentication_strategy` (`t:enum["LDAP|SIMPLE"]`) Optional. The
-  authentication strategy used to secure the broker. The default is SIMPLE.
-    * `:auto_minor_version_upgrade` (`t:boolean`) Enables automatic upgrades to new
-  patch versions for brokers as new versions are released and supported by
-  Amazon MQ. Automatic upgrades occur during the scheduled maintenance window
-  or after a manual broker reboot.
-    * `:configuration` (`t:structure`) A list of information about the
-  configuration.
-    * `:data_replication_mode` (`t:enum["CRDR|NONE"]`) Defines whether this broker
-  is a part of a data replication pair.
-    * `:engine_version` (`t:string`) The broker engine version. For more
-  information, see the ActiveMQ version management and the RabbitMQ version
-  management sections in the Amazon MQ Developer Guide.
-    * `:host_instance_type` (`t:string`) The broker's host instance type to upgrade
-  to. For a list of supported instance types, see Broker instance types.
-    * `:ldap_server_metadata` (`t:structure`) Optional. The metadata of the LDAP
-  server used to authenticate and authorize connections to the broker. Does
-  not apply to RabbitMQ brokers.
-    * `:logs` (`t:structure`) Enables Amazon CloudWatch logging for brokers.
-    * `:maintenance_window_start_time` (`t:structure`) The parameters that determine
-  the WeeklyStartTime.
-    * `:security_groups` (`t:list[com.amazonaws.mq#__string]`) The list of security
-  groups (1 minimum, 5 maximum) that authorizes connections to brokers.
-  ## Keyword parameters:
+    * `"authenticationStrategy" => t:enum["LDAP|SIMPLE"]` Optional. The
+    authentication strategy used to secure the broker. The default is SIMPLE.
+    * `"autoMinorVersionUpgrade" => t:boolean` Enables automatic upgrades to new
+    patch versions for brokers as new versions are released and supported by
+    Amazon MQ. Automatic upgrades occur during the scheduled maintenance window
+    or after a manual broker reboot.
+    * `"configuration" => t:structure` A list of information about the
+    configuration.
+    * `"dataReplicationMode" => t:enum["CRDR|NONE"]` Defines whether this broker is
+    a part of a data replication pair.
+    * `"engineVersion" => t:string` The broker engine version. For more information,
+    see the ActiveMQ version management and the RabbitMQ version management
+    sections in the Amazon MQ Developer Guide.
+    * `"hostInstanceType" => t:string` The broker's host instance type to upgrade
+    to. For a list of supported instance types, see Broker instance types.
+    * `"ldapServerMetadata" => t:structure` Optional. The metadata of the LDAP
+    server used to authenticate and authorize connections to the broker. Does
+    not apply to RabbitMQ brokers.
+    * `"logs" => t:structure` Enables Amazon CloudWatch logging for brokers.
+    * `"maintenanceWindowStartTime" => t:structure` The parameters that determine
+    the WeeklyStartTime.
+    * `"securityGroups" => t:list[com.amazonaws.mq#__string]` The list of security
+    groups (1 minimum, 5 maximum) that authorizes connections to brokers.
   """
   @spec update_broker(AWS.Client.t(), String.t(), input :: map() | nil, Keyword.t()) ::
           {:ok, update_broker_response(), any()}
@@ -2418,13 +2409,12 @@ defmodule AWS.Mq do
 
   ## Parameters:
   * `:configuration_id` (`t:string` required) The unique ID that Amazon MQ
-  generates for the configuration.
+    generates for the configuration.
   * `:input` (`t:map`):
-    * `:data` (`t:string` required) Amazon MQ for Active MQ: The base64-encoded XML
-  configuration. Amazon MQ for RabbitMQ: the base64-encoded Cuttlefish
-  configuration.
-    * `:description` (`t:string`) The description of the configuration.
-  ## Keyword parameters:
+    * `"data" => t:string` (required) Amazon MQ for Active MQ: The base64-encoded
+    XML configuration. Amazon MQ for RabbitMQ: the base64-encoded Cuttlefish
+    configuration.
+    * `"description" => t:string` The description of the configuration.
   """
   @spec update_configuration(AWS.Client.t(), String.t(), input :: map(), Keyword.t()) ::
           {:ok, update_configuration_response(), any()}
@@ -2468,23 +2458,22 @@ defmodule AWS.Mq do
 
   ## Parameters:
   * `:broker_id` (`t:string` required) The unique ID that Amazon MQ generates for
-  the broker.
+    the broker.
   * `:username` (`t:string` required) The username of the ActiveMQ user. This
-  value can contain only alphanumeric characters, dashes, periods,
-  underscores, and tildes (- . _ ~). This value must be 2-100 characters long.
+    value can contain only alphanumeric characters, dashes, periods,
+    underscores, and tildes (- . _ ~). This value must be 2-100 characters long.
   * `:input` (`t:map | nil`):
-    * `:console_access` (`t:boolean`) Enables access to the the ActiveMQ Web Console
-  for the ActiveMQ user.
-    * `:groups` (`t:list[com.amazonaws.mq#__string]`) The list of groups (20
-  maximum) to which the ActiveMQ user belongs. This value can contain only
-  alphanumeric characters, dashes, periods, underscores, and tildes (- . _ ~).
-  This value must be 2-100 characters long.
-    * `:password` (`t:string`) The password of the user. This value must be at least
-  12 characters long, must contain at least 4 unique characters, and must not
-  contain commas, colons, or equal signs (,:=).
-    * `:replication_user` (`t:boolean`) Defines whether the user is intended for
-  data replication.
-  ## Keyword parameters:
+    * `"consoleAccess" => t:boolean` Enables access to the the ActiveMQ Web Console
+    for the ActiveMQ user.
+    * `"groups" => t:list[com.amazonaws.mq#__string]` The list of groups (20
+    maximum) to which the ActiveMQ user belongs. This value can contain only
+    alphanumeric characters, dashes, periods, underscores, and tildes (- . _ ~).
+    This value must be 2-100 characters long.
+    * `"password" => t:string` The password of the user. This value must be at least
+    12 characters long, must contain at least 4 unique characters, and must not
+    contain commas, colons, or equal signs (,:=).
+    * `"replicationUser" => t:boolean` Defines whether the user is intended for data
+    replication.
   """
   @spec update_user(AWS.Client.t(), String.t(), String.t(), input :: map() | nil, Keyword.t()) ::
           {:ok, update_user_response(), any()}

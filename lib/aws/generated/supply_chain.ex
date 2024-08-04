@@ -223,7 +223,6 @@ defmodule AWS.SupplyChain do
 
   ## Parameters:
   * `:instance_id` (`t:string` required) The AWS Supply Chain instance identifier.
-  ## Keyword parameters:
   """
   @spec create_bill_of_materials_import_job(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, create_bill_of_materials_import_job_response(), any()}
@@ -268,7 +267,6 @@ defmodule AWS.SupplyChain do
   ## Parameters:
   * `:instance_id` (`t:string` required) The AWS Supply Chain instance identifier.
   * `:job_id` (`t:string` required) The BillOfMaterialsImportJob identifier.
-  ## Keyword parameters:
   """
   @spec get_bill_of_materials_import_job(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_bill_of_materials_import_job_response(), any()}
@@ -310,7 +308,6 @@ defmodule AWS.SupplyChain do
 
   ## Parameters:
   * `:instance_id` (`t:string` required) The AWS Supply Chain instance identifier.
-  ## Keyword parameters:
   """
   @spec send_data_integration_event(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, send_data_integration_event_response(), any()}

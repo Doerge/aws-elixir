@@ -1252,7 +1252,6 @@ defmodule AWS.AppConfig do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=appconfig%20CreateApplication&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec create_application(AWS.Client.t(), Keyword.t()) ::
           {:ok, application(), any()}
@@ -1297,7 +1296,6 @@ defmodule AWS.AppConfig do
 
   ## Parameters:
   * `:application_id` (`t:string` required) The application ID.
-  ## Keyword parameters:
   """
   @spec create_configuration_profile(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, configuration_profile(), any()}
@@ -1343,7 +1341,6 @@ defmodule AWS.AppConfig do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=appconfig%20CreateDeploymentStrategy&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec create_deployment_strategy(AWS.Client.t(), Keyword.t()) ::
           {:ok, deployment_strategy(), any()}
@@ -1393,7 +1390,6 @@ defmodule AWS.AppConfig do
 
   ## Parameters:
   * `:application_id` (`t:string` required) The application ID.
-  ## Keyword parameters:
   """
   @spec create_environment(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, environment(), any()}
@@ -1443,10 +1439,11 @@ defmodule AWS.AppConfig do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=appconfig%20CreateExtension&this_doc_guide=API%2520Reference)
 
   ## Parameters:
+
   ## Keyword parameters:
   * `:latest_version_number` (`t:integer`) You can omit this field when you create
-  an extension. When you create a new version, specify the most recent current
-  version number. For example, you create version 3, enter 2 for this field.
+    an extension. When you create a new version, specify the most recent current
+    version number. For example, you create version 3, enter 2 for this field.
   """
   @spec create_extension(AWS.Client.t(), Keyword.t()) ::
           {:ok, extension(), any()}
@@ -1511,7 +1508,6 @@ defmodule AWS.AppConfig do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=appconfig%20CreateExtensionAssociation&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec create_extension_association(AWS.Client.t(), Keyword.t()) ::
           {:ok, extension_association(), any()}
@@ -1555,22 +1551,23 @@ defmodule AWS.AppConfig do
   ## Parameters:
   * `:application_id` (`t:string` required) The application ID.
   * `:configuration_profile_id` (`t:string` required) The configuration profile
-  ID.
+    ID.
   * `:content_type` (`t:string` required) A standard MIME type describing the
-  format of the configuration content. For more information, see Content-Type.
+    format of the configuration content. For more information, see Content-Type.
   * `:input` (`t:map`):
-    * `:content` (`t:blob` required) The content of the configuration or the
-  configuration data.
+    * `"Content" => t:blob` (required) The content of the configuration or the
+    configuration data.
+
   ## Keyword parameters:
   * `:description` (`t:string`) A description of the configuration.
   * `:latest_version_number` (`t:integer`) An optional locking token used to
-  prevent race conditions from overwriting configuration updates when creating
-  a new version. To ensure your data is not overwritten when creating multiple
-  hosted configuration versions in rapid succession, specify the version
-  number of the latest hosted configuration version.
+    prevent race conditions from overwriting configuration updates when creating
+    a new version. To ensure your data is not overwritten when creating multiple
+    hosted configuration versions in rapid succession, specify the version
+    number of the latest hosted configuration version.
   * `:version_label` (`t:string`) An optional, user-defined label for the
-  AppConfig hosted configuration version. This value must contain at least one
-  non-numeric character. For example, "v2.2.0".
+    AppConfig hosted configuration version. This value must contain at least one
+    non-numeric character. For example, "v2.2.0".
   """
   @spec create_hosted_configuration_version(
           AWS.Client.t(),
@@ -1648,21 +1645,6 @@ defmodule AWS.AppConfig do
         ]
       )
 
-    options =
-      Keyword.put(
-        options,
-        :response_header_parameters,
-        [
-          {"Application-Id", "ApplicationId"},
-          {"Configuration-Profile-Id", "ConfigurationProfileId"},
-          {"Content-Type", "ContentType"},
-          {"Description", "Description"},
-          {"KmsKeyArn", "KmsKeyArn"},
-          {"VersionLabel", "VersionLabel"},
-          {"Version-Number", "VersionNumber"}
-        ]
-      )
-
     meta =
       metadata()
 
@@ -1684,7 +1666,6 @@ defmodule AWS.AppConfig do
 
   ## Parameters:
   * `:application_id` (`t:string` required) The ID of the application to delete.
-  ## Keyword parameters:
   """
   @spec delete_application(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
@@ -1738,10 +1719,9 @@ defmodule AWS.AppConfig do
 
   ## Parameters:
   * `:application_id` (`t:string` required) The application ID that includes the
-  configuration profile you want to delete.
+    configuration profile you want to delete.
   * `:configuration_profile_id` (`t:string` required) The ID of the configuration
-  profile you want to delete.
-  ## Keyword parameters:
+    profile you want to delete.
   """
   @spec delete_configuration_profile(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
@@ -1801,8 +1781,7 @@ defmodule AWS.AppConfig do
 
   ## Parameters:
   * `:deployment_strategy_id` (`t:string` required) The ID of the deployment
-  strategy you want to delete.
-  ## Keyword parameters:
+    strategy you want to delete.
   """
   @spec delete_deployment_strategy(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
@@ -1856,10 +1835,9 @@ defmodule AWS.AppConfig do
 
   ## Parameters:
   * `:application_id` (`t:string` required) The application ID that includes the
-  environment that you want to delete.
+    environment that you want to delete.
   * `:environment_id` (`t:string` required) The ID of the environment that you
-  want to delete.
-  ## Keyword parameters:
+    want to delete.
   """
   @spec delete_environment(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
@@ -1914,10 +1892,11 @@ defmodule AWS.AppConfig do
 
   ## Parameters:
   * `:extension_identifier` (`t:string` required) The name, ID, or Amazon Resource
-  Name (ARN) of the extension you want to delete.
+    Name (ARN) of the extension you want to delete.
+
   ## Keyword parameters:
   * `:version_number` (`t:integer`) A specific version of an extension to delete.
-  If omitted, the highest version is deleted.
+    If omitted, the highest version is deleted.
   """
   @spec delete_extension(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
@@ -1982,8 +1961,7 @@ defmodule AWS.AppConfig do
 
   ## Parameters:
   * `:extension_association_id` (`t:string` required) The ID of the extension
-  association to delete.
-  ## Keyword parameters:
+    association to delete.
   """
   @spec delete_extension_association(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
@@ -2038,9 +2016,8 @@ defmodule AWS.AppConfig do
   ## Parameters:
   * `:application_id` (`t:string` required) The application ID.
   * `:configuration_profile_id` (`t:string` required) The configuration profile
-  ID.
+    ID.
   * `:version_number` (`t:integer` required) The versions number to delete.
-  ## Keyword parameters:
   """
   @spec delete_hosted_configuration_version(
           AWS.Client.t(),
@@ -2106,8 +2083,7 @@ defmodule AWS.AppConfig do
 
   ## Parameters:
   * `:application_id` (`t:string` required) The ID of the application you want to
-  get.
-  ## Keyword parameters:
+    get.
   """
   @spec get_application(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, application(), any()}
@@ -2148,18 +2124,19 @@ defmodule AWS.AppConfig do
 
   ## Parameters:
   * `:application` (`t:string` required) The application to get. Specify either
-  the application name or the application ID.
+    the application name or the application ID.
   * `:configuration` (`t:string` required) The configuration to get. Specify
-  either the configuration name or the configuration ID.
+    either the configuration name or the configuration ID.
   * `:environment` (`t:string` required) The environment to get. Specify either
-  the environment name or the environment ID.
+    the environment name or the environment ID.
   * `:client_id` (`t:string` required) The clientId parameter in the following
-  command is a unique, user-specified ID to identify the client for the
-  configuration. This ID enables AppConfig to deploy the configuration in
-  intervals, as defined in the deployment strategy.
+    command is a unique, user-specified ID to identify the client for the
+    configuration. This ID enables AppConfig to deploy the configuration in
+    intervals, as defined in the deployment strategy.
+
   ## Keyword parameters:
   * `:client_configuration_version` (`t:string`) The configuration version
-  returned in the most recent GetConfiguration response.
+    returned in the most recent GetConfiguration response.
   """
   @spec get_configuration(
           AWS.Client.t(),
@@ -2237,10 +2214,9 @@ defmodule AWS.AppConfig do
 
   ## Parameters:
   * `:application_id` (`t:string` required) The ID of the application that
-  includes the configuration profile you want to get.
+    includes the configuration profile you want to get.
   * `:configuration_profile_id` (`t:string` required) The ID of the configuration
-  profile that you want to get.
-  ## Keyword parameters:
+    profile that you want to get.
   """
   @spec get_configuration_profile(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, configuration_profile(), any()}
@@ -2287,12 +2263,11 @@ defmodule AWS.AppConfig do
 
   ## Parameters:
   * `:application_id` (`t:string` required) The ID of the application that
-  includes the deployment you want to get.
+    includes the deployment you want to get.
   * `:deployment_number` (`t:integer` required) The sequence number of the
-  deployment.
+    deployment.
   * `:environment_id` (`t:string` required) The ID of the environment that
-  includes the deployment you want to get.
-  ## Keyword parameters:
+    includes the deployment you want to get.
   """
   @spec get_deployment(AWS.Client.t(), String.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, deployment(), any()}
@@ -2344,8 +2319,7 @@ defmodule AWS.AppConfig do
 
   ## Parameters:
   * `:deployment_strategy_id` (`t:string` required) The ID of the deployment
-  strategy to get.
-  ## Keyword parameters:
+    strategy to get.
   """
   @spec get_deployment_strategy(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, deployment_strategy(), any()}
@@ -2391,10 +2365,9 @@ defmodule AWS.AppConfig do
 
   ## Parameters:
   * `:application_id` (`t:string` required) The ID of the application that
-  includes the environment you want to get.
+    includes the environment you want to get.
   * `:environment_id` (`t:string` required) The ID of the environment that you
-  want to get.
-  ## Keyword parameters:
+    want to get.
   """
   @spec get_environment(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, environment(), any()}
@@ -2436,10 +2409,11 @@ defmodule AWS.AppConfig do
 
   ## Parameters:
   * `:extension_identifier` (`t:string` required) The name, the ID, or the Amazon
-  Resource Name (ARN) of the extension.
+    Resource Name (ARN) of the extension.
+
   ## Keyword parameters:
   * `:version_number` (`t:integer`) The extension version number. If no version
-  number was defined, AppConfig uses the highest version.
+    number was defined, AppConfig uses the highest version.
   """
   @spec get_extension(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, extension(), any()}
@@ -2494,8 +2468,7 @@ defmodule AWS.AppConfig do
 
   ## Parameters:
   * `:extension_association_id` (`t:string` required) The extension association ID
-  to get.
-  ## Keyword parameters:
+    to get.
   """
   @spec get_extension_association(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, extension_association(), any()}
@@ -2537,9 +2510,8 @@ defmodule AWS.AppConfig do
   ## Parameters:
   * `:application_id` (`t:string` required) The application ID.
   * `:configuration_profile_id` (`t:string` required) The configuration profile
-  ID.
+    ID.
   * `:version_number` (`t:integer` required) The version.
-  ## Keyword parameters:
   """
   @spec get_hosted_configuration_version(
           AWS.Client.t(),
@@ -2606,16 +2578,17 @@ defmodule AWS.AppConfig do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=appconfig%20ListApplications&this_doc_guide=API%2520Reference)
 
   ## Parameters:
+
   ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of items to return for this
-  call. The call also returns a token that you can specify in a subsequent
-  call to get the next set of results.
+    call. The call also returns a token that you can specify in a subsequent
+    call to get the next set of results.
   * `:next_token` (`t:string`) A token to start the list. Next token is a
-  pagination token generated by AppConfig to describe what page the previous
-  List call ended on. For the first List request, the nextToken should not be
-  set. On subsequent calls, the nextToken parameter should be set to the
-  previous responses nextToken value. Use this token to get the next set of
-  results.
+    pagination token generated by AppConfig to describe what page the previous
+    List call ended on. For the first List request, the nextToken should not be
+    set. On subsequent calls, the nextToken parameter should be set to the
+    previous responses nextToken value. Use this token to get the next set of
+    results.
   """
   @spec list_applications(AWS.Client.t(), Keyword.t()) ::
           {:ok, applications(), any()}
@@ -2674,15 +2647,16 @@ defmodule AWS.AppConfig do
 
   ## Parameters:
   * `:application_id` (`t:string` required) The application ID.
+
   ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of items to return for this
-  call. The call also returns a token that you can specify in a subsequent
-  call to get the next set of results.
+    call. The call also returns a token that you can specify in a subsequent
+    call to get the next set of results.
   * `:next_token` (`t:string`) A token to start the list. Use this token to get
-  the next set of results.
+    the next set of results.
   * `:type` (`t:string`) A filter based on the type of configurations that the
-  configuration profile contains. A configuration can be a feature flag or a
-  freeform configuration.
+    configuration profile contains. A configuration can be a feature flag or a
+    freeform configuration.
   """
   @spec list_configuration_profiles(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, configuration_profiles(), any()}
@@ -2747,12 +2721,13 @@ defmodule AWS.AppConfig do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=appconfig%20ListDeploymentStrategies&this_doc_guide=API%2520Reference)
 
   ## Parameters:
+
   ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of items to return for this
-  call. The call also returns a token that you can specify in a subsequent
-  call to get the next set of results.
+    call. The call also returns a token that you can specify in a subsequent
+    call to get the next set of results.
   * `:next_token` (`t:string`) A token to start the list. Use this token to get
-  the next set of results.
+    the next set of results.
   """
   @spec list_deployment_strategies(AWS.Client.t(), Keyword.t()) ::
           {:ok, deployment_strategies(), any()}
@@ -2812,14 +2787,15 @@ defmodule AWS.AppConfig do
   ## Parameters:
   * `:application_id` (`t:string` required) The application ID.
   * `:environment_id` (`t:string` required) The environment ID.
+
   ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of items that may be returned
-  for this call. If there are items that have not yet been returned, the
-  response will include a non-null NextToken that you can provide in a
-  subsequent call to get the next set of results.
+    for this call. If there are items that have not yet been returned, the
+    response will include a non-null NextToken that you can provide in a
+    subsequent call to get the next set of results.
   * `:next_token` (`t:string`) The token returned by a prior call to this
-  operation indicating the next set of results to be returned. If not
-  specified, the operation will return the first set of results.
+    operation indicating the next set of results to be returned. If not
+    specified, the operation will return the first set of results.
   """
   @spec list_deployments(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, deployments(), any()}
@@ -2879,12 +2855,13 @@ defmodule AWS.AppConfig do
 
   ## Parameters:
   * `:application_id` (`t:string` required) The application ID.
+
   ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of items to return for this
-  call. The call also returns a token that you can specify in a subsequent
-  call to get the next set of results.
+    call. The call also returns a token that you can specify in a subsequent
+    call to get the next set of results.
   * `:next_token` (`t:string`) A token to start the list. Use this token to get
-  the next set of results.
+    the next set of results.
   """
   @spec list_environments(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, environments(), any()}
@@ -2945,18 +2922,19 @@ defmodule AWS.AppConfig do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=appconfig%20ListExtensionAssociations&this_doc_guide=API%2520Reference)
 
   ## Parameters:
+
   ## Keyword parameters:
   * `:extension_identifier` (`t:string`) The name, the ID, or the Amazon Resource
-  Name (ARN) of the extension.
+    Name (ARN) of the extension.
   * `:extension_version_number` (`t:integer`) The version number for the extension
-  defined in the association.
+    defined in the association.
   * `:max_results` (`t:integer`) The maximum number of items to return for this
-  call. The call also returns a token that you can specify in a subsequent
-  call to get the next set of results.
+    call. The call also returns a token that you can specify in a subsequent
+    call to get the next set of results.
   * `:next_token` (`t:string`) A token to start the list. Use this token to get
-  the next set of results or pass null to get the first set of results.
+    the next set of results or pass null to get the first set of results.
   * `:resource_identifier` (`t:string`) The ARN of an application, configuration
-  profile, or environment.
+    profile, or environment.
   """
   @spec list_extension_associations(AWS.Client.t(), Keyword.t()) ::
           {:ok, extension_associations(), any()}
@@ -3050,13 +3028,14 @@ defmodule AWS.AppConfig do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=appconfig%20ListExtensions&this_doc_guide=API%2520Reference)
 
   ## Parameters:
+
   ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of items to return for this
-  call. The call also returns a token that you can specify in a subsequent
-  call to get the next set of results.
+    call. The call also returns a token that you can specify in a subsequent
+    call to get the next set of results.
   * `:name` (`t:string`) The extension name.
   * `:next_token` (`t:string`) A token to start the list. Use this token to get
-  the next set of results.
+    the next set of results.
   """
   @spec list_extensions(AWS.Client.t(), Keyword.t()) ::
           {:ok, extensions(), any()}
@@ -3124,18 +3103,19 @@ defmodule AWS.AppConfig do
   ## Parameters:
   * `:application_id` (`t:string` required) The application ID.
   * `:configuration_profile_id` (`t:string` required) The configuration profile
-  ID.
+    ID.
+
   ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of items to return for this
-  call. The call also returns a token that you can specify in a subsequent
-  call to get the next set of results.
+    call. The call also returns a token that you can specify in a subsequent
+    call to get the next set of results.
   * `:next_token` (`t:string`) A token to start the list. Use this token to get
-  the next set of results.
+    the next set of results.
   * `:version_label` (`t:string`) An optional filter that can be used to specify
-  the version label of an AppConfig hosted configuration version. This
-  parameter supports filtering by prefix using a wildcard, for example "v2*".
-  If you don't specify an asterisk at the end of the value, only an exact
-  match is returned.
+    the version label of an AppConfig hosted configuration version. This
+    parameter supports filtering by prefix using a wildcard, for example "v2*".
+    If you don't specify an asterisk at the end of the value, only an exact
+    match is returned.
   """
   @spec list_hosted_configuration_versions(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, hosted_configuration_versions(), any()}
@@ -3207,7 +3187,6 @@ defmodule AWS.AppConfig do
 
   ## Parameters:
   * `:resource_arn` (`t:string` required) The resource ARN.
-  ## Keyword parameters:
   """
   @spec list_tags_for_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, resource_tags(), any()}
@@ -3249,7 +3228,6 @@ defmodule AWS.AppConfig do
   ## Parameters:
   * `:application_id` (`t:string` required) The application ID.
   * `:environment_id` (`t:string` required) The environment ID.
-  ## Keyword parameters:
   """
   @spec start_deployment(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, deployment(), any()}
@@ -3295,9 +3273,8 @@ defmodule AWS.AppConfig do
   ## Parameters:
   * `:application_id` (`t:string` required) The application ID.
   * `:deployment_number` (`t:integer` required) The sequence number of the
-  deployment.
+    deployment.
   * `:environment_id` (`t:string` required) The environment ID.
-  ## Keyword parameters:
   """
   @spec stop_deployment(AWS.Client.t(), String.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, deployment(), any()}
@@ -3359,8 +3336,7 @@ defmodule AWS.AppConfig do
 
   ## Parameters:
   * `:resource_arn` (`t:string` required) The ARN of the resource for which to
-  retrieve tags.
-  ## Keyword parameters:
+    retrieve tags.
   """
   @spec tag_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
@@ -3403,10 +3379,9 @@ defmodule AWS.AppConfig do
 
   ## Parameters:
   * `:resource_arn` (`t:string` required) The ARN of the resource for which to
-  remove tags.
+    remove tags.
   * `:tag_keys` (`t:list[com.amazonaws.appconfig#TagKey]` required) The tag keys
-  to delete.
-  ## Keyword parameters:
+    to delete.
   """
   @spec untag_resource(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
@@ -3460,7 +3435,6 @@ defmodule AWS.AppConfig do
 
   ## Parameters:
   * `:application_id` (`t:string` required) The application ID.
-  ## Keyword parameters:
   """
   @spec update_application(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, application(), any()}
@@ -3514,8 +3488,7 @@ defmodule AWS.AppConfig do
   ## Parameters:
   * `:application_id` (`t:string` required) The application ID.
   * `:configuration_profile_id` (`t:string` required) The ID of the configuration
-  profile.
-  ## Keyword parameters:
+    profile.
   """
   @spec update_configuration_profile(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, configuration_profile(), any()}
@@ -3574,7 +3547,6 @@ defmodule AWS.AppConfig do
 
   ## Parameters:
   * `:deployment_strategy_id` (`t:string` required) The deployment strategy ID.
-  ## Keyword parameters:
   """
   @spec update_deployment_strategy(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, deployment_strategy(), any()}
@@ -3628,7 +3600,6 @@ defmodule AWS.AppConfig do
   ## Parameters:
   * `:application_id` (`t:string` required) The application ID.
   * `:environment_id` (`t:string` required) The environment ID.
-  ## Keyword parameters:
   """
   @spec update_environment(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, environment(), any()}
@@ -3685,8 +3656,7 @@ defmodule AWS.AppConfig do
 
   ## Parameters:
   * `:extension_identifier` (`t:string` required) The name, the ID, or the Amazon
-  Resource Name (ARN) of the extension.
-  ## Keyword parameters:
+    Resource Name (ARN) of the extension.
   """
   @spec update_extension(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, extension(), any()}
@@ -3742,8 +3712,7 @@ defmodule AWS.AppConfig do
 
   ## Parameters:
   * `:extension_association_id` (`t:string` required) The system-generated ID for
-  the association.
-  ## Keyword parameters:
+    the association.
   """
   @spec update_extension_association(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, extension_association(), any()}
@@ -3797,10 +3766,9 @@ defmodule AWS.AppConfig do
   ## Parameters:
   * `:application_id` (`t:string` required) The application ID.
   * `:configuration_profile_id` (`t:string` required) The configuration profile
-  ID.
+    ID.
   * `:configuration_version` (`t:string` required) The version of the
-  configuration to validate.
-  ## Keyword parameters:
+    configuration to validate.
   """
   @spec validate_configuration(AWS.Client.t(), String.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}

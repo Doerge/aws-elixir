@@ -7220,7 +7220,6 @@ defmodule AWS.MediaLive do
 
   ## Parameters:
   * `:input_device_id` (`t:string` required)
-  ## Keyword parameters:
   """
   @spec accept_input_device_transfer(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, accept_input_device_transfer_response(), any()}
@@ -7263,11 +7262,10 @@ defmodule AWS.MediaLive do
 
   ## Parameters:
   * `:input` (`t:map | nil`):
-    * `:channel_ids` (`t:list[com.amazonaws.medialive#__string]`)
-    * `:input_ids` (`t:list[com.amazonaws.medialive#__string]`)
-    * `:input_security_group_ids` (`t:list[com.amazonaws.medialive#__string]`)
-    * `:multiplex_ids` (`t:list[com.amazonaws.medialive#__string]`)
-  ## Keyword parameters:
+    * `"channelIds" => t:list[com.amazonaws.medialive#__string]`
+    * `"inputIds" => t:list[com.amazonaws.medialive#__string]`
+    * `"inputSecurityGroupIds" => t:list[com.amazonaws.medialive#__string]`
+    * `"multiplexIds" => t:list[com.amazonaws.medialive#__string]`
   """
   @spec batch_delete(AWS.Client.t(), input :: map() | nil, Keyword.t()) ::
           {:ok, batch_delete_response(), any()}
@@ -7311,9 +7309,8 @@ defmodule AWS.MediaLive do
 
   ## Parameters:
   * `:input` (`t:map | nil`):
-    * `:channel_ids` (`t:list[com.amazonaws.medialive#__string]`)
-    * `:multiplex_ids` (`t:list[com.amazonaws.medialive#__string]`)
-  ## Keyword parameters:
+    * `"channelIds" => t:list[com.amazonaws.medialive#__string]`
+    * `"multiplexIds" => t:list[com.amazonaws.medialive#__string]`
   """
   @spec batch_start(AWS.Client.t(), input :: map() | nil, Keyword.t()) ::
           {:ok, batch_start_response(), any()}
@@ -7356,9 +7353,8 @@ defmodule AWS.MediaLive do
 
   ## Parameters:
   * `:input` (`t:map | nil`):
-    * `:channel_ids` (`t:list[com.amazonaws.medialive#__string]`)
-    * `:multiplex_ids` (`t:list[com.amazonaws.medialive#__string]`)
-  ## Keyword parameters:
+    * `"channelIds" => t:list[com.amazonaws.medialive#__string]`
+    * `"multiplexIds" => t:list[com.amazonaws.medialive#__string]`
   """
   @spec batch_stop(AWS.Client.t(), input :: map() | nil, Keyword.t()) ::
           {:ok, batch_stop_response(), any()}
@@ -7402,9 +7398,8 @@ defmodule AWS.MediaLive do
   ## Parameters:
   * `:channel_id` (`t:string` required)
   * `:input` (`t:map | nil`):
-    * `:creates` (`t:structure`)
-    * `:deletes` (`t:structure`)
-  ## Keyword parameters:
+    * `"creates" => t:structure`
+    * `"deletes" => t:structure`
   """
   @spec batch_update_schedule(AWS.Client.t(), String.t(), input :: map() | nil, Keyword.t()) ::
           {:ok, batch_update_schedule_response(), any()}
@@ -7448,7 +7443,6 @@ defmodule AWS.MediaLive do
 
   ## Parameters:
   * `:input_device_id` (`t:string` required)
-  ## Keyword parameters:
   """
   @spec cancel_input_device_transfer(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, cancel_input_device_transfer_response(), any()}
@@ -7492,8 +7486,7 @@ defmodule AWS.MediaLive do
 
   ## Parameters:
   * `:input` (`t:map | nil`):
-    * `:id` (`t:string`)
-  ## Keyword parameters:
+    * `"id" => t:string`
   """
   @spec claim_device(AWS.Client.t(), input :: map() | nil, Keyword.t()) ::
           {:ok, claim_device_response(), any()}
@@ -7537,21 +7530,20 @@ defmodule AWS.MediaLive do
 
   ## Parameters:
   * `:input` (`t:map | nil`):
-    * `:cdi_input_specification` (`t:structure`)
-    * `:channel_class` (`t:enum["SINGLE_PIPELINE|STANDARD"]`)
-    * `:destinations` (`t:list[com.amazonaws.medialive#OutputDestination]`)
-    * `:encoder_settings` (`t:structure`)
-    * `:input_attachments` (`t:list[com.amazonaws.medialive#InputAttachment]`)
-    * `:input_specification` (`t:structure`)
-    * `:log_level` (`t:enum["DEBUG|DISABLED|ERROR|INFO|WARNING"]`)
-    * `:maintenance` (`t:structure`)
-    * `:name` (`t:string`)
-    * `:request_id` (`t:string`)
-    * `:reserved` (`t:string`)
-    * `:role_arn` (`t:string`)
-    * `:tags` (`t:map`)
-    * `:vpc` (`t:structure`)
-  ## Keyword parameters:
+    * `"cdiInputSpecification" => t:structure`
+    * `"channelClass" => t:enum["SINGLE_PIPELINE|STANDARD"]`
+    * `"destinations" => t:list[com.amazonaws.medialive#OutputDestination]`
+    * `"encoderSettings" => t:structure`
+    * `"inputAttachments" => t:list[com.amazonaws.medialive#InputAttachment]`
+    * `"inputSpecification" => t:structure`
+    * `"logLevel" => t:enum["DEBUG|DISABLED|ERROR|INFO|WARNING"]`
+    * `"maintenance" => t:structure`
+    * `"name" => t:string`
+    * `"requestId" => t:string`
+    * `"reserved" => t:string`
+    * `"roleArn" => t:string`
+    * `"tags" => t:map`
+    * `"vpc" => t:structure`
   """
   @spec create_channel(AWS.Client.t(), input :: map() | nil, Keyword.t()) ::
           {:ok, create_channel_response(), any()}
@@ -7596,25 +7588,24 @@ defmodule AWS.MediaLive do
 
   ## Parameters:
   * `:input` (`t:map`):
-    * `:comparison_operator`
-  (`t:enum["GreaterThanOrEqualToThreshold|GreaterThanThreshold|LessThanOrEqualToThreshold|LessThanThreshold"]`
-  required)
-    * `:evaluation_periods` (`t:integer` required)
-    * `:group_identifier` (`t:string` required)
-    * `:metric_name` (`t:string` required)
-    * `:name` (`t:string` required)
-    * `:period` (`t:integer` required)
-    * `:statistic` (`t:enum["Average|Maximum|Minimum|SampleCount|Sum"]` required)
-    * `:target_resource_type`
-  (`t:enum["CLOUDFRONT_DISTRIBUTION|MEDIACONNECT_FLOW|MEDIALIVE_CHANNEL|MEDIALIVE_INPUT_DEVICE|MEDIALIVE_MULTIPLEX|MEDIAPACKAGE_CHANNEL|MEDIAPACKAGE_ORIGIN_ENDPOINT|S3_BUCKET"]`
-  required)
-    * `:threshold` (`t:double` required)
-    * `:treat_missing_data` (`t:enum["breaching|ignore|missing|notBreaching"]`
-  required)
-    * `:datapoints_to_alarm` (`t:integer`)
-    * `:description` (`t:string`)
-    * `:tags` (`t:map`)
-  ## Keyword parameters:
+    * `"comparisonOperator" =>
+    t:enum["GreaterThanOrEqualToThreshold|GreaterThanThreshold|LessThanOrEqualToThreshold|LessThanThreshold"]`
+    (required)
+    * `"evaluationPeriods" => t:integer` (required)
+    * `"groupIdentifier" => t:string` (required)
+    * `"metricName" => t:string` (required)
+    * `"name" => t:string` (required)
+    * `"period" => t:integer` (required)
+    * `"statistic" => t:enum["Average|Maximum|Minimum|SampleCount|Sum"]` (required)
+    * `"targetResourceType" =>
+    t:enum["CLOUDFRONT_DISTRIBUTION|MEDIACONNECT_FLOW|MEDIALIVE_CHANNEL|MEDIALIVE_INPUT_DEVICE|MEDIALIVE_MULTIPLEX|MEDIAPACKAGE_CHANNEL|MEDIAPACKAGE_ORIGIN_ENDPOINT|S3_BUCKET"]`
+    (required)
+    * `"threshold" => t:double` (required)
+    * `"treatMissingData" => t:enum["breaching|ignore|missing|notBreaching"]`
+    (required)
+    * `"datapointsToAlarm" => t:integer`
+    * `"description" => t:string`
+    * `"tags" => t:map`
   """
   @spec create_cloud_watch_alarm_template(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_cloud_watch_alarm_template_response(), any()}
@@ -7659,10 +7650,9 @@ defmodule AWS.MediaLive do
 
   ## Parameters:
   * `:input` (`t:map`):
-    * `:name` (`t:string` required)
-    * `:description` (`t:string`)
-    * `:tags` (`t:map`)
-  ## Keyword parameters:
+    * `"name" => t:string` (required)
+    * `"description" => t:string`
+    * `"tags" => t:map`
   """
   @spec create_cloud_watch_alarm_template_group(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_cloud_watch_alarm_template_group_response(), any()}
@@ -7707,16 +7697,15 @@ defmodule AWS.MediaLive do
 
   ## Parameters:
   * `:input` (`t:map`):
-    * `:event_type`
-  (`t:enum["MEDIACONNECT_ALERT|MEDIACONNECT_FLOW_STATUS_CHANGE|MEDIACONNECT_OUTPUT_HEALTH|MEDIACONNECT_SOURCE_HEALTH|MEDIALIVE_CHANNEL_ALERT|MEDIALIVE_CHANNEL_INPUT_CHANGE|MEDIALIVE_CHANNEL_STATE_CHANGE|MEDIALIVE_MULTIPLEX_ALERT|MEDIALIVE_MULTIPLEX_STATE_CHANGE|MEDIAPACKAGE_HARVEST_JOB_NOTIFICATION|MEDIAPACKAGE_INPUT_NOTIFICATION|MEDIAPACKAGE_KEY_PROVIDER_NOTIFICATION|SIGNAL_MAP_ACTIVE_ALARM"]`
-  required)
-    * `:group_identifier` (`t:string` required)
-    * `:name` (`t:string` required)
-    * `:description` (`t:string`)
-    * `:event_targets`
-  (`t:list[com.amazonaws.medialive#EventBridgeRuleTemplateTarget]`)
-    * `:tags` (`t:map`)
-  ## Keyword parameters:
+    * `"eventType" =>
+    t:enum["MEDIACONNECT_ALERT|MEDIACONNECT_FLOW_STATUS_CHANGE|MEDIACONNECT_OUTPUT_HEALTH|MEDIACONNECT_SOURCE_HEALTH|MEDIALIVE_CHANNEL_ALERT|MEDIALIVE_CHANNEL_INPUT_CHANGE|MEDIALIVE_CHANNEL_STATE_CHANGE|MEDIALIVE_MULTIPLEX_ALERT|MEDIALIVE_MULTIPLEX_STATE_CHANGE|MEDIAPACKAGE_HARVEST_JOB_NOTIFICATION|MEDIAPACKAGE_INPUT_NOTIFICATION|MEDIAPACKAGE_KEY_PROVIDER_NOTIFICATION|SIGNAL_MAP_ACTIVE_ALARM"]`
+    (required)
+    * `"groupIdentifier" => t:string` (required)
+    * `"name" => t:string` (required)
+    * `"description" => t:string`
+    * `"eventTargets" =>
+    t:list[com.amazonaws.medialive#EventBridgeRuleTemplateTarget]`
+    * `"tags" => t:map`
   """
   @spec create_event_bridge_rule_template(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_event_bridge_rule_template_response(), any()}
@@ -7762,10 +7751,9 @@ defmodule AWS.MediaLive do
 
   ## Parameters:
   * `:input` (`t:map`):
-    * `:name` (`t:string` required)
-    * `:description` (`t:string`)
-    * `:tags` (`t:map`)
-  ## Keyword parameters:
+    * `"name" => t:string` (required)
+    * `"description" => t:string`
+    * `"tags" => t:map`
   """
   @spec create_event_bridge_rule_template_group(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_event_bridge_rule_template_group_response(), any()}
@@ -7809,21 +7797,20 @@ defmodule AWS.MediaLive do
 
   ## Parameters:
   * `:input` (`t:map | nil`):
-    * `:destinations` (`t:list[com.amazonaws.medialive#InputDestinationRequest]`)
-    * `:input_devices` (`t:list[com.amazonaws.medialive#InputDeviceSettings]`)
-    * `:input_security_groups` (`t:list[com.amazonaws.medialive#__string]`)
-    * `:media_connect_flows`
-  (`t:list[com.amazonaws.medialive#MediaConnectFlowRequest]`)
-    * `:name` (`t:string`)
-    * `:request_id` (`t:string`)
-    * `:role_arn` (`t:string`)
-    * `:sources` (`t:list[com.amazonaws.medialive#InputSourceRequest]`)
-    * `:srt_settings` (`t:structure`)
-    * `:tags` (`t:map`)
-    * `:type`
-  (`t:enum["AWS_CDI|INPUT_DEVICE|MEDIACONNECT|MP4_FILE|RTMP_PULL|RTMP_PUSH|RTP_PUSH|SRT_CALLER|TS_FILE|UDP_PUSH|URL_PULL"]`)
-    * `:vpc` (`t:structure`)
-  ## Keyword parameters:
+    * `"destinations" => t:list[com.amazonaws.medialive#InputDestinationRequest]`
+    * `"inputDevices" => t:list[com.amazonaws.medialive#InputDeviceSettings]`
+    * `"inputSecurityGroups" => t:list[com.amazonaws.medialive#__string]`
+    * `"mediaConnectFlows" =>
+    t:list[com.amazonaws.medialive#MediaConnectFlowRequest]`
+    * `"name" => t:string`
+    * `"requestId" => t:string`
+    * `"roleArn" => t:string`
+    * `"sources" => t:list[com.amazonaws.medialive#InputSourceRequest]`
+    * `"srtSettings" => t:structure`
+    * `"tags" => t:map`
+    * `"type" =>
+    t:enum["AWS_CDI|INPUT_DEVICE|MEDIACONNECT|MP4_FILE|RTMP_PULL|RTMP_PUSH|RTP_PUSH|SRT_CALLER|TS_FILE|UDP_PUSH|URL_PULL"]`
+    * `"vpc" => t:structure`
   """
   @spec create_input(AWS.Client.t(), input :: map() | nil, Keyword.t()) ::
           {:ok, create_input_response(), any()}
@@ -7867,9 +7854,8 @@ defmodule AWS.MediaLive do
 
   ## Parameters:
   * `:input` (`t:map | nil`):
-    * `:tags` (`t:map`)
-    * `:whitelist_rules` (`t:list[com.amazonaws.medialive#InputWhitelistRuleCidr]`)
-  ## Keyword parameters:
+    * `"tags" => t:map`
+    * `"whitelistRules" => t:list[com.amazonaws.medialive#InputWhitelistRuleCidr]`
   """
   @spec create_input_security_group(AWS.Client.t(), input :: map() | nil, Keyword.t()) ::
           {:ok, create_input_security_group_response(), any()}
@@ -7913,12 +7899,11 @@ defmodule AWS.MediaLive do
 
   ## Parameters:
   * `:input` (`t:map`):
-    * `:availability_zones` (`t:list[com.amazonaws.medialive#__string]` required)
-    * `:multiplex_settings` (`t:structure` required)
-    * `:name` (`t:string` required)
-    * `:request_id` (`t:string` required)
-    * `:tags` (`t:map`)
-  ## Keyword parameters:
+    * `"availabilityZones" => t:list[com.amazonaws.medialive#__string]` (required)
+    * `"multiplexSettings" => t:structure` (required)
+    * `"name" => t:string` (required)
+    * `"requestId" => t:string` (required)
+    * `"tags" => t:map`
   """
   @spec create_multiplex(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_multiplex_response(), any()}
@@ -7962,10 +7947,9 @@ defmodule AWS.MediaLive do
   ## Parameters:
   * `:multiplex_id` (`t:string` required)
   * `:input` (`t:map`):
-    * `:multiplex_program_settings` (`t:structure` required)
-    * `:program_name` (`t:string` required)
-    * `:request_id` (`t:string` required)
-  ## Keyword parameters:
+    * `"multiplexProgramSettings" => t:structure` (required)
+    * `"programName" => t:string` (required)
+    * `"requestId" => t:string` (required)
   """
   @spec create_multiplex_program(AWS.Client.t(), String.t(), input :: map(), Keyword.t()) ::
           {:ok, create_multiplex_program_response(), any()}
@@ -8010,9 +7994,8 @@ defmodule AWS.MediaLive do
   ## Parameters:
   * `:input_id` (`t:string` required)
   * `:input` (`t:map | nil`):
-    * `:request_id` (`t:string`)
-    * `:tags` (`t:map`)
-  ## Keyword parameters:
+    * `"requestId" => t:string`
+    * `"tags" => t:map`
   """
   @spec create_partner_input(AWS.Client.t(), String.t(), input :: map() | nil, Keyword.t()) ::
           {:ok, create_partner_input_response(), any()}
@@ -8057,15 +8040,14 @@ defmodule AWS.MediaLive do
 
   ## Parameters:
   * `:input` (`t:map`):
-    * `:discovery_entry_point_arn` (`t:string` required)
-    * `:name` (`t:string` required)
-    * `:cloud_watch_alarm_template_group_identifiers`
-  (`t:list[com.amazonaws.medialive#__stringPatternS]`)
-    * `:description` (`t:string`)
-    * `:event_bridge_rule_template_group_identifiers`
-  (`t:list[com.amazonaws.medialive#__stringPatternS]`)
-    * `:tags` (`t:map`)
-  ## Keyword parameters:
+    * `"discoveryEntryPointArn" => t:string` (required)
+    * `"name" => t:string` (required)
+    * `"cloudWatchAlarmTemplateGroupIdentifiers" =>
+    t:list[com.amazonaws.medialive#__stringPatternS]`
+    * `"description" => t:string`
+    * `"eventBridgeRuleTemplateGroupIdentifiers" =>
+    t:list[com.amazonaws.medialive#__stringPatternS]`
+    * `"tags" => t:map`
   """
   @spec create_signal_map(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_signal_map_response(), any()}
@@ -8109,8 +8091,7 @@ defmodule AWS.MediaLive do
   ## Parameters:
   * `:resource_arn` (`t:string` required)
   * `:input` (`t:map | nil`):
-    * `:tags` (`t:map`)
-  ## Keyword parameters:
+    * `"tags" => t:map`
   """
   @spec create_tags(AWS.Client.t(), String.t(), input :: map() | nil, Keyword.t()) ::
           {:ok, nil, any()}
@@ -8154,7 +8135,6 @@ defmodule AWS.MediaLive do
 
   ## Parameters:
   * `:channel_id` (`t:string` required)
-  ## Keyword parameters:
   """
   @spec delete_channel(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, delete_channel_response(), any()}
@@ -8207,7 +8187,6 @@ defmodule AWS.MediaLive do
 
   ## Parameters:
   * `:identifier` (`t:string` required)
-  ## Keyword parameters:
   """
   @spec delete_cloud_watch_alarm_template(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
@@ -8262,7 +8241,6 @@ defmodule AWS.MediaLive do
 
   ## Parameters:
   * `:identifier` (`t:string` required)
-  ## Keyword parameters:
   """
   @spec delete_cloud_watch_alarm_template_group(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
@@ -8315,7 +8293,6 @@ defmodule AWS.MediaLive do
 
   ## Parameters:
   * `:identifier` (`t:string` required)
-  ## Keyword parameters:
   """
   @spec delete_event_bridge_rule_template(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
@@ -8370,7 +8347,6 @@ defmodule AWS.MediaLive do
 
   ## Parameters:
   * `:identifier` (`t:string` required)
-  ## Keyword parameters:
   """
   @spec delete_event_bridge_rule_template_group(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
@@ -8423,7 +8399,6 @@ defmodule AWS.MediaLive do
 
   ## Parameters:
   * `:input_id` (`t:string` required)
-  ## Keyword parameters:
   """
   @spec delete_input(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, delete_input_response(), any()}
@@ -8476,7 +8451,6 @@ defmodule AWS.MediaLive do
 
   ## Parameters:
   * `:input_security_group_id` (`t:string` required)
-  ## Keyword parameters:
   """
   @spec delete_input_security_group(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, delete_input_security_group_response(), any()}
@@ -8529,7 +8503,6 @@ defmodule AWS.MediaLive do
 
   ## Parameters:
   * `:multiplex_id` (`t:string` required)
-  ## Keyword parameters:
   """
   @spec delete_multiplex(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, delete_multiplex_response(), any()}
@@ -8583,7 +8556,6 @@ defmodule AWS.MediaLive do
   ## Parameters:
   * `:multiplex_id` (`t:string` required)
   * `:program_name` (`t:string` required)
-  ## Keyword parameters:
   """
   @spec delete_multiplex_program(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, delete_multiplex_program_response(), any()}
@@ -8637,7 +8609,6 @@ defmodule AWS.MediaLive do
 
   ## Parameters:
   * `:reservation_id` (`t:string` required)
-  ## Keyword parameters:
   """
   @spec delete_reservation(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, delete_reservation_response(), any()}
@@ -8690,7 +8661,6 @@ defmodule AWS.MediaLive do
 
   ## Parameters:
   * `:channel_id` (`t:string` required)
-  ## Keyword parameters:
   """
   @spec delete_schedule(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, delete_schedule_response(), any()}
@@ -8743,7 +8713,6 @@ defmodule AWS.MediaLive do
 
   ## Parameters:
   * `:identifier` (`t:string` required)
-  ## Keyword parameters:
   """
   @spec delete_signal_map(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
@@ -8797,7 +8766,6 @@ defmodule AWS.MediaLive do
   ## Parameters:
   * `:resource_arn` (`t:string` required)
   * `:tag_keys` (`t:list[com.amazonaws.medialive#__string]` required)
-  ## Keyword parameters:
   """
   @spec delete_tags(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
@@ -8850,7 +8818,6 @@ defmodule AWS.MediaLive do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=medialive%20DescribeAccountConfiguration&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec describe_account_configuration(AWS.Client.t(), Keyword.t()) ::
           {:ok, describe_account_configuration_response(), any()}
@@ -8891,7 +8858,6 @@ defmodule AWS.MediaLive do
 
   ## Parameters:
   * `:channel_id` (`t:string` required)
-  ## Keyword parameters:
   """
   @spec describe_channel(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, describe_channel_response(), any()}
@@ -8932,7 +8898,6 @@ defmodule AWS.MediaLive do
 
   ## Parameters:
   * `:input_id` (`t:string` required)
-  ## Keyword parameters:
   """
   @spec describe_input(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, describe_input_response(), any()}
@@ -8973,7 +8938,6 @@ defmodule AWS.MediaLive do
 
   ## Parameters:
   * `:input_device_id` (`t:string` required)
-  ## Keyword parameters:
   """
   @spec describe_input_device(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, describe_input_device_response(), any()}
@@ -9015,7 +8979,6 @@ defmodule AWS.MediaLive do
   ## Parameters:
   * `:input_device_id` (`t:string` required)
   * `:accept` (`t:enum["image_jpeg"]` required)
-  ## Keyword parameters:
   """
   @spec describe_input_device_thumbnail(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, describe_input_device_thumbnail_response(), any()}
@@ -9068,7 +9031,6 @@ defmodule AWS.MediaLive do
 
   ## Parameters:
   * `:input_security_group_id` (`t:string` required)
-  ## Keyword parameters:
   """
   @spec describe_input_security_group(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, describe_input_security_group_response(), any()}
@@ -9109,7 +9071,6 @@ defmodule AWS.MediaLive do
 
   ## Parameters:
   * `:multiplex_id` (`t:string` required)
-  ## Keyword parameters:
   """
   @spec describe_multiplex(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, describe_multiplex_response(), any()}
@@ -9151,7 +9112,6 @@ defmodule AWS.MediaLive do
   ## Parameters:
   * `:multiplex_id` (`t:string` required)
   * `:program_name` (`t:string` required)
-  ## Keyword parameters:
   """
   @spec describe_multiplex_program(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, describe_multiplex_program_response(), any()}
@@ -9193,7 +9153,6 @@ defmodule AWS.MediaLive do
 
   ## Parameters:
   * `:offering_id` (`t:string` required)
-  ## Keyword parameters:
   """
   @spec describe_offering(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, describe_offering_response(), any()}
@@ -9234,7 +9193,6 @@ defmodule AWS.MediaLive do
 
   ## Parameters:
   * `:reservation_id` (`t:string` required)
-  ## Keyword parameters:
   """
   @spec describe_reservation(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, describe_reservation_response(), any()}
@@ -9275,6 +9233,7 @@ defmodule AWS.MediaLive do
 
   ## Parameters:
   * `:channel_id` (`t:string` required)
+
   ## Keyword parameters:
   * `:max_results` (`t:integer`)
   * `:next_token` (`t:string`)
@@ -9338,7 +9297,6 @@ defmodule AWS.MediaLive do
   * `:channel_id` (`t:string` required)
   * `:pipeline_id` (`t:string` required)
   * `:thumbnail_type` (`t:string` required)
-  ## Keyword parameters:
   """
   @spec describe_thumbnails(AWS.Client.t(), String.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, describe_thumbnails_response(), any()}
@@ -9386,7 +9344,6 @@ defmodule AWS.MediaLive do
 
   ## Parameters:
   * `:identifier` (`t:string` required)
-  ## Keyword parameters:
   """
   @spec get_cloud_watch_alarm_template(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_cloud_watch_alarm_template_response(), any()}
@@ -9427,7 +9384,6 @@ defmodule AWS.MediaLive do
 
   ## Parameters:
   * `:identifier` (`t:string` required)
-  ## Keyword parameters:
   """
   @spec get_cloud_watch_alarm_template_group(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_cloud_watch_alarm_template_group_response(), any()}
@@ -9468,7 +9424,6 @@ defmodule AWS.MediaLive do
 
   ## Parameters:
   * `:identifier` (`t:string` required)
-  ## Keyword parameters:
   """
   @spec get_event_bridge_rule_template(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_event_bridge_rule_template_response(), any()}
@@ -9509,7 +9464,6 @@ defmodule AWS.MediaLive do
 
   ## Parameters:
   * `:identifier` (`t:string` required)
-  ## Keyword parameters:
   """
   @spec get_event_bridge_rule_template_group(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_event_bridge_rule_template_group_response(), any()}
@@ -9550,7 +9504,6 @@ defmodule AWS.MediaLive do
 
   ## Parameters:
   * `:identifier` (`t:string` required)
-  ## Keyword parameters:
   """
   @spec get_signal_map(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_signal_map_response(), any()}
@@ -9590,6 +9543,7 @@ defmodule AWS.MediaLive do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=medialive%20ListChannels&this_doc_guide=API%2520Reference)
 
   ## Parameters:
+
   ## Keyword parameters:
   * `:max_results` (`t:integer`)
   * `:next_token` (`t:string`)
@@ -9650,6 +9604,7 @@ defmodule AWS.MediaLive do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=medialive%20ListCloudWatchAlarmTemplateGroups&this_doc_guide=API%2520Reference)
 
   ## Parameters:
+
   ## Keyword parameters:
   * `:max_results` (`t:integer`)
   * `:next_token` (`t:string`)
@@ -9726,6 +9681,7 @@ defmodule AWS.MediaLive do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=medialive%20ListCloudWatchAlarmTemplates&this_doc_guide=API%2520Reference)
 
   ## Parameters:
+
   ## Keyword parameters:
   * `:group_identifier` (`t:string`)
   * `:max_results` (`t:integer`)
@@ -9822,6 +9778,7 @@ defmodule AWS.MediaLive do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=medialive%20ListEventBridgeRuleTemplateGroups&this_doc_guide=API%2520Reference)
 
   ## Parameters:
+
   ## Keyword parameters:
   * `:max_results` (`t:integer`)
   * `:next_token` (`t:string`)
@@ -9890,6 +9847,7 @@ defmodule AWS.MediaLive do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=medialive%20ListEventBridgeRuleTemplates&this_doc_guide=API%2520Reference)
 
   ## Parameters:
+
   ## Keyword parameters:
   * `:group_identifier` (`t:string`)
   * `:max_results` (`t:integer`)
@@ -9974,6 +9932,7 @@ defmodule AWS.MediaLive do
 
   ## Parameters:
   * `:transfer_type` (`t:string` required)
+
   ## Keyword parameters:
   * `:max_results` (`t:integer`)
   * `:next_token` (`t:string`)
@@ -10035,6 +9994,7 @@ defmodule AWS.MediaLive do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=medialive%20ListInputDevices&this_doc_guide=API%2520Reference)
 
   ## Parameters:
+
   ## Keyword parameters:
   * `:max_results` (`t:integer`)
   * `:next_token` (`t:string`)
@@ -10095,6 +10055,7 @@ defmodule AWS.MediaLive do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=medialive%20ListInputSecurityGroups&this_doc_guide=API%2520Reference)
 
   ## Parameters:
+
   ## Keyword parameters:
   * `:max_results` (`t:integer`)
   * `:next_token` (`t:string`)
@@ -10155,6 +10116,7 @@ defmodule AWS.MediaLive do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=medialive%20ListInputs&this_doc_guide=API%2520Reference)
 
   ## Parameters:
+
   ## Keyword parameters:
   * `:max_results` (`t:integer`)
   * `:next_token` (`t:string`)
@@ -10216,6 +10178,7 @@ defmodule AWS.MediaLive do
 
   ## Parameters:
   * `:multiplex_id` (`t:string` required)
+
   ## Keyword parameters:
   * `:max_results` (`t:integer`)
   * `:next_token` (`t:string`)
@@ -10276,6 +10239,7 @@ defmodule AWS.MediaLive do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=medialive%20ListMultiplexes&this_doc_guide=API%2520Reference)
 
   ## Parameters:
+
   ## Keyword parameters:
   * `:max_results` (`t:integer`)
   * `:next_token` (`t:string`)
@@ -10336,6 +10300,7 @@ defmodule AWS.MediaLive do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=medialive%20ListOfferings&this_doc_guide=API%2520Reference)
 
   ## Parameters:
+
   ## Keyword parameters:
   * `:channel_class` (`t:string`)
   * `:channel_configuration` (`t:string`)
@@ -10502,6 +10467,7 @@ defmodule AWS.MediaLive do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=medialive%20ListReservations&this_doc_guide=API%2520Reference)
 
   ## Parameters:
+
   ## Keyword parameters:
   * `:channel_class` (`t:string`)
   * `:codec` (`t:string`)
@@ -10648,6 +10614,7 @@ defmodule AWS.MediaLive do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=medialive%20ListSignalMaps&this_doc_guide=API%2520Reference)
 
   ## Parameters:
+
   ## Keyword parameters:
   * `:cloud_watch_alarm_template_group_identifier` (`t:string`)
   * `:event_bridge_rule_template_group_identifier` (`t:string`)
@@ -10735,7 +10702,6 @@ defmodule AWS.MediaLive do
 
   ## Parameters:
   * `:resource_arn` (`t:string` required)
-  ## Keyword parameters:
   """
   @spec list_tags_for_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_tags_for_resource_response(), any()}
@@ -10777,13 +10743,12 @@ defmodule AWS.MediaLive do
   ## Parameters:
   * `:offering_id` (`t:string` required)
   * `:input` (`t:map`):
-    * `:count` (`t:integer` required)
-    * `:name` (`t:string`)
-    * `:renewal_settings` (`t:structure`)
-    * `:request_id` (`t:string`)
-    * `:start` (`t:string`)
-    * `:tags` (`t:map`)
-  ## Keyword parameters:
+    * `"count" => t:integer` (required)
+    * `"name" => t:string`
+    * `"renewalSettings" => t:structure`
+    * `"requestId" => t:string`
+    * `"start" => t:string`
+    * `"tags" => t:map`
   """
   @spec purchase_offering(AWS.Client.t(), String.t(), input :: map(), Keyword.t()) ::
           {:ok, purchase_offering_response(), any()}
@@ -10830,8 +10795,7 @@ defmodule AWS.MediaLive do
   ## Parameters:
   * `:input_device_id` (`t:string` required)
   * `:input` (`t:map | nil`):
-    * `:force` (`t:enum["NO|YES"]`)
-  ## Keyword parameters:
+    * `"force" => t:enum["NO|YES"]`
   """
   @spec reboot_input_device(AWS.Client.t(), String.t(), input :: map() | nil, Keyword.t()) ::
           {:ok, reboot_input_device_response(), any()}
@@ -10875,7 +10839,6 @@ defmodule AWS.MediaLive do
 
   ## Parameters:
   * `:input_device_id` (`t:string` required)
-  ## Keyword parameters:
   """
   @spec reject_input_device_transfer(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, reject_input_device_transfer_response(), any()}
@@ -10919,8 +10882,7 @@ defmodule AWS.MediaLive do
   ## Parameters:
   * `:channel_id` (`t:string` required)
   * `:input` (`t:map | nil`):
-    * `:pipeline_ids` (`t:list[com.amazonaws.medialive#ChannelPipelineIdToRestart]`)
-  ## Keyword parameters:
+    * `"pipelineIds" => t:list[com.amazonaws.medialive#ChannelPipelineIdToRestart]`
   """
   @spec restart_channel_pipelines(AWS.Client.t(), String.t(), input :: map() | nil, Keyword.t()) ::
           {:ok, restart_channel_pipelines_response(), any()}
@@ -10964,7 +10926,6 @@ defmodule AWS.MediaLive do
 
   ## Parameters:
   * `:channel_id` (`t:string` required)
-  ## Keyword parameters:
   """
   @spec start_channel(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, start_channel_response(), any()}
@@ -11007,7 +10968,6 @@ defmodule AWS.MediaLive do
 
   ## Parameters:
   * `:identifier` (`t:string` required)
-  ## Keyword parameters:
   """
   @spec start_delete_monitor_deployment(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, start_delete_monitor_deployment_response(), any()}
@@ -11062,7 +11022,6 @@ defmodule AWS.MediaLive do
 
   ## Parameters:
   * `:input_device_id` (`t:string` required)
-  ## Keyword parameters:
   """
   @spec start_input_device(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, start_input_device_response(), any()}
@@ -11112,7 +11071,6 @@ defmodule AWS.MediaLive do
 
   ## Parameters:
   * `:input_device_id` (`t:string` required)
-  ## Keyword parameters:
   """
   @spec start_input_device_maintenance_window(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, start_input_device_maintenance_window_response(), any()}
@@ -11157,8 +11115,7 @@ defmodule AWS.MediaLive do
   ## Parameters:
   * `:identifier` (`t:string` required)
   * `:input` (`t:map | nil`):
-    * `:dry_run` (`t:boolean`)
-  ## Keyword parameters:
+    * `"dryRun" => t:boolean`
   """
   @spec start_monitor_deployment(AWS.Client.t(), String.t(), input :: map() | nil, Keyword.t()) ::
           {:ok, start_monitor_deployment_response(), any()}
@@ -11203,7 +11160,6 @@ defmodule AWS.MediaLive do
 
   ## Parameters:
   * `:multiplex_id` (`t:string` required)
-  ## Keyword parameters:
   """
   @spec start_multiplex(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, start_multiplex_response(), any()}
@@ -11248,15 +11204,14 @@ defmodule AWS.MediaLive do
   ## Parameters:
   * `:identifier` (`t:string` required)
   * `:input` (`t:map | nil`):
-    * `:cloud_watch_alarm_template_group_identifiers`
-  (`t:list[com.amazonaws.medialive#__stringPatternS]`)
-    * `:description` (`t:string`)
-    * `:discovery_entry_point_arn` (`t:string`)
-    * `:event_bridge_rule_template_group_identifiers`
-  (`t:list[com.amazonaws.medialive#__stringPatternS]`)
-    * `:force_rediscovery` (`t:boolean`)
-    * `:name` (`t:string`)
-  ## Keyword parameters:
+    * `"cloudWatchAlarmTemplateGroupIdentifiers" =>
+    t:list[com.amazonaws.medialive#__stringPatternS]`
+    * `"description" => t:string`
+    * `"discoveryEntryPointArn" => t:string`
+    * `"eventBridgeRuleTemplateGroupIdentifiers" =>
+    t:list[com.amazonaws.medialive#__stringPatternS]`
+    * `"forceRediscovery" => t:boolean`
+    * `"name" => t:string`
   """
   @spec start_update_signal_map(AWS.Client.t(), String.t(), input :: map() | nil, Keyword.t()) ::
           {:ok, start_update_signal_map_response(), any()}
@@ -11310,7 +11265,6 @@ defmodule AWS.MediaLive do
 
   ## Parameters:
   * `:channel_id` (`t:string` required)
-  ## Keyword parameters:
   """
   @spec stop_channel(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, stop_channel_response(), any()}
@@ -11355,7 +11309,6 @@ defmodule AWS.MediaLive do
 
   ## Parameters:
   * `:input_device_id` (`t:string` required)
-  ## Keyword parameters:
   """
   @spec stop_input_device(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, stop_input_device_response(), any()}
@@ -11399,7 +11352,6 @@ defmodule AWS.MediaLive do
 
   ## Parameters:
   * `:multiplex_id` (`t:string` required)
-  ## Keyword parameters:
   """
   @spec stop_multiplex(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, stop_multiplex_response(), any()}
@@ -11444,10 +11396,9 @@ defmodule AWS.MediaLive do
   ## Parameters:
   * `:input_device_id` (`t:string` required)
   * `:input` (`t:map | nil`):
-    * `:target_customer_id` (`t:string`)
-    * `:target_region` (`t:string`)
-    * `:transfer_message` (`t:string`)
-  ## Keyword parameters:
+    * `"targetCustomerId" => t:string`
+    * `"targetRegion" => t:string`
+    * `"transferMessage" => t:string`
   """
   @spec transfer_input_device(AWS.Client.t(), String.t(), input :: map() | nil, Keyword.t()) ::
           {:ok, transfer_input_device_response(), any()}
@@ -11491,8 +11442,7 @@ defmodule AWS.MediaLive do
 
   ## Parameters:
   * `:input` (`t:map | nil`):
-    * `:account_configuration` (`t:structure`)
-  ## Keyword parameters:
+    * `"accountConfiguration" => t:structure`
   """
   @spec update_account_configuration(AWS.Client.t(), input :: map() | nil, Keyword.t()) ::
           {:ok, update_account_configuration_response(), any()}
@@ -11537,16 +11487,15 @@ defmodule AWS.MediaLive do
   ## Parameters:
   * `:channel_id` (`t:string` required)
   * `:input` (`t:map | nil`):
-    * `:cdi_input_specification` (`t:structure`)
-    * `:destinations` (`t:list[com.amazonaws.medialive#OutputDestination]`)
-    * `:encoder_settings` (`t:structure`)
-    * `:input_attachments` (`t:list[com.amazonaws.medialive#InputAttachment]`)
-    * `:input_specification` (`t:structure`)
-    * `:log_level` (`t:enum["DEBUG|DISABLED|ERROR|INFO|WARNING"]`)
-    * `:maintenance` (`t:structure`)
-    * `:name` (`t:string`)
-    * `:role_arn` (`t:string`)
-  ## Keyword parameters:
+    * `"cdiInputSpecification" => t:structure`
+    * `"destinations" => t:list[com.amazonaws.medialive#OutputDestination]`
+    * `"encoderSettings" => t:structure`
+    * `"inputAttachments" => t:list[com.amazonaws.medialive#InputAttachment]`
+    * `"inputSpecification" => t:structure`
+    * `"logLevel" => t:enum["DEBUG|DISABLED|ERROR|INFO|WARNING"]`
+    * `"maintenance" => t:structure`
+    * `"name" => t:string`
+    * `"roleArn" => t:string`
   """
   @spec update_channel(AWS.Client.t(), String.t(), input :: map() | nil, Keyword.t()) ::
           {:ok, update_channel_response(), any()}
@@ -11591,9 +11540,8 @@ defmodule AWS.MediaLive do
   ## Parameters:
   * `:channel_id` (`t:string` required)
   * `:input` (`t:map`):
-    * `:channel_class` (`t:enum["SINGLE_PIPELINE|STANDARD"]` required)
-    * `:destinations` (`t:list[com.amazonaws.medialive#OutputDestination]`)
-  ## Keyword parameters:
+    * `"channelClass" => t:enum["SINGLE_PIPELINE|STANDARD"]` (required)
+    * `"destinations" => t:list[com.amazonaws.medialive#OutputDestination]`
   """
   @spec update_channel_class(AWS.Client.t(), String.t(), input :: map(), Keyword.t()) ::
           {:ok, update_channel_class_response(), any()}
@@ -11638,21 +11586,20 @@ defmodule AWS.MediaLive do
   ## Parameters:
   * `:identifier` (`t:string` required)
   * `:input` (`t:map | nil`):
-    * `:comparison_operator`
-  (`t:enum["GreaterThanOrEqualToThreshold|GreaterThanThreshold|LessThanOrEqualToThreshold|LessThanThreshold"]`)
-    * `:datapoints_to_alarm` (`t:integer`)
-    * `:description` (`t:string`)
-    * `:evaluation_periods` (`t:integer`)
-    * `:group_identifier` (`t:string`)
-    * `:metric_name` (`t:string`)
-    * `:name` (`t:string`)
-    * `:period` (`t:integer`)
-    * `:statistic` (`t:enum["Average|Maximum|Minimum|SampleCount|Sum"]`)
-    * `:target_resource_type`
-  (`t:enum["CLOUDFRONT_DISTRIBUTION|MEDIACONNECT_FLOW|MEDIALIVE_CHANNEL|MEDIALIVE_INPUT_DEVICE|MEDIALIVE_MULTIPLEX|MEDIAPACKAGE_CHANNEL|MEDIAPACKAGE_ORIGIN_ENDPOINT|S3_BUCKET"]`)
-    * `:threshold` (`t:double`)
-    * `:treat_missing_data` (`t:enum["breaching|ignore|missing|notBreaching"]`)
-  ## Keyword parameters:
+    * `"comparisonOperator" =>
+    t:enum["GreaterThanOrEqualToThreshold|GreaterThanThreshold|LessThanOrEqualToThreshold|LessThanThreshold"]`
+    * `"datapointsToAlarm" => t:integer`
+    * `"description" => t:string`
+    * `"evaluationPeriods" => t:integer`
+    * `"groupIdentifier" => t:string`
+    * `"metricName" => t:string`
+    * `"name" => t:string`
+    * `"period" => t:integer`
+    * `"statistic" => t:enum["Average|Maximum|Minimum|SampleCount|Sum"]`
+    * `"targetResourceType" =>
+    t:enum["CLOUDFRONT_DISTRIBUTION|MEDIACONNECT_FLOW|MEDIALIVE_CHANNEL|MEDIALIVE_INPUT_DEVICE|MEDIALIVE_MULTIPLEX|MEDIAPACKAGE_CHANNEL|MEDIAPACKAGE_ORIGIN_ENDPOINT|S3_BUCKET"]`
+    * `"threshold" => t:double`
+    * `"treatMissingData" => t:enum["breaching|ignore|missing|notBreaching"]`
   """
   @spec update_cloud_watch_alarm_template(
           AWS.Client.t(),
@@ -11712,8 +11659,7 @@ defmodule AWS.MediaLive do
   ## Parameters:
   * `:identifier` (`t:string` required)
   * `:input` (`t:map | nil`):
-    * `:description` (`t:string`)
-  ## Keyword parameters:
+    * `"description" => t:string`
   """
   @spec update_cloud_watch_alarm_template_group(
           AWS.Client.t(),
@@ -11778,14 +11724,13 @@ defmodule AWS.MediaLive do
   ## Parameters:
   * `:identifier` (`t:string` required)
   * `:input` (`t:map | nil`):
-    * `:description` (`t:string`)
-    * `:event_targets`
-  (`t:list[com.amazonaws.medialive#EventBridgeRuleTemplateTarget]`)
-    * `:event_type`
-  (`t:enum["MEDIACONNECT_ALERT|MEDIACONNECT_FLOW_STATUS_CHANGE|MEDIACONNECT_OUTPUT_HEALTH|MEDIACONNECT_SOURCE_HEALTH|MEDIALIVE_CHANNEL_ALERT|MEDIALIVE_CHANNEL_INPUT_CHANGE|MEDIALIVE_CHANNEL_STATE_CHANGE|MEDIALIVE_MULTIPLEX_ALERT|MEDIALIVE_MULTIPLEX_STATE_CHANGE|MEDIAPACKAGE_HARVEST_JOB_NOTIFICATION|MEDIAPACKAGE_INPUT_NOTIFICATION|MEDIAPACKAGE_KEY_PROVIDER_NOTIFICATION|SIGNAL_MAP_ACTIVE_ALARM"]`)
-    * `:group_identifier` (`t:string`)
-    * `:name` (`t:string`)
-  ## Keyword parameters:
+    * `"description" => t:string`
+    * `"eventTargets" =>
+    t:list[com.amazonaws.medialive#EventBridgeRuleTemplateTarget]`
+    * `"eventType" =>
+    t:enum["MEDIACONNECT_ALERT|MEDIACONNECT_FLOW_STATUS_CHANGE|MEDIACONNECT_OUTPUT_HEALTH|MEDIACONNECT_SOURCE_HEALTH|MEDIALIVE_CHANNEL_ALERT|MEDIALIVE_CHANNEL_INPUT_CHANGE|MEDIALIVE_CHANNEL_STATE_CHANGE|MEDIALIVE_MULTIPLEX_ALERT|MEDIALIVE_MULTIPLEX_STATE_CHANGE|MEDIAPACKAGE_HARVEST_JOB_NOTIFICATION|MEDIAPACKAGE_INPUT_NOTIFICATION|MEDIAPACKAGE_KEY_PROVIDER_NOTIFICATION|SIGNAL_MAP_ACTIVE_ALARM"]`
+    * `"groupIdentifier" => t:string`
+    * `"name" => t:string`
   """
   @spec update_event_bridge_rule_template(
           AWS.Client.t(),
@@ -11845,8 +11790,7 @@ defmodule AWS.MediaLive do
   ## Parameters:
   * `:identifier` (`t:string` required)
   * `:input` (`t:map | nil`):
-    * `:description` (`t:string`)
-  ## Keyword parameters:
+    * `"description" => t:string`
   """
   @spec update_event_bridge_rule_template_group(
           AWS.Client.t(),
@@ -11911,16 +11855,15 @@ defmodule AWS.MediaLive do
   ## Parameters:
   * `:input_id` (`t:string` required)
   * `:input` (`t:map | nil`):
-    * `:destinations` (`t:list[com.amazonaws.medialive#InputDestinationRequest]`)
-    * `:input_devices` (`t:list[com.amazonaws.medialive#InputDeviceRequest]`)
-    * `:input_security_groups` (`t:list[com.amazonaws.medialive#__string]`)
-    * `:media_connect_flows`
-  (`t:list[com.amazonaws.medialive#MediaConnectFlowRequest]`)
-    * `:name` (`t:string`)
-    * `:role_arn` (`t:string`)
-    * `:sources` (`t:list[com.amazonaws.medialive#InputSourceRequest]`)
-    * `:srt_settings` (`t:structure`)
-  ## Keyword parameters:
+    * `"destinations" => t:list[com.amazonaws.medialive#InputDestinationRequest]`
+    * `"inputDevices" => t:list[com.amazonaws.medialive#InputDeviceRequest]`
+    * `"inputSecurityGroups" => t:list[com.amazonaws.medialive#__string]`
+    * `"mediaConnectFlows" =>
+    t:list[com.amazonaws.medialive#MediaConnectFlowRequest]`
+    * `"name" => t:string`
+    * `"roleArn" => t:string`
+    * `"sources" => t:list[com.amazonaws.medialive#InputSourceRequest]`
+    * `"srtSettings" => t:structure`
   """
   @spec update_input(AWS.Client.t(), String.t(), input :: map() | nil, Keyword.t()) ::
           {:ok, update_input_response(), any()}
@@ -11965,11 +11908,10 @@ defmodule AWS.MediaLive do
   ## Parameters:
   * `:input_device_id` (`t:string` required)
   * `:input` (`t:map | nil`):
-    * `:availability_zone` (`t:string`)
-    * `:hd_device_settings` (`t:structure`)
-    * `:name` (`t:string`)
-    * `:uhd_device_settings` (`t:structure`)
-  ## Keyword parameters:
+    * `"availabilityZone" => t:string`
+    * `"hdDeviceSettings" => t:structure`
+    * `"name" => t:string`
+    * `"uhdDeviceSettings" => t:structure`
   """
   @spec update_input_device(AWS.Client.t(), String.t(), input :: map() | nil, Keyword.t()) ::
           {:ok, update_input_device_response(), any()}
@@ -12014,9 +11956,8 @@ defmodule AWS.MediaLive do
   ## Parameters:
   * `:input_security_group_id` (`t:string` required)
   * `:input` (`t:map | nil`):
-    * `:tags` (`t:map`)
-    * `:whitelist_rules` (`t:list[com.amazonaws.medialive#InputWhitelistRuleCidr]`)
-  ## Keyword parameters:
+    * `"tags" => t:map`
+    * `"whitelistRules" => t:list[com.amazonaws.medialive#InputWhitelistRuleCidr]`
   """
   @spec update_input_security_group(AWS.Client.t(), String.t(), input :: map() | nil, Keyword.t()) ::
           {:ok, update_input_security_group_response(), any()}
@@ -12066,9 +12007,8 @@ defmodule AWS.MediaLive do
   ## Parameters:
   * `:multiplex_id` (`t:string` required)
   * `:input` (`t:map | nil`):
-    * `:multiplex_settings` (`t:structure`)
-    * `:name` (`t:string`)
-  ## Keyword parameters:
+    * `"multiplexSettings" => t:structure`
+    * `"name" => t:string`
   """
   @spec update_multiplex(AWS.Client.t(), String.t(), input :: map() | nil, Keyword.t()) ::
           {:ok, update_multiplex_response(), any()}
@@ -12114,8 +12054,7 @@ defmodule AWS.MediaLive do
   * `:multiplex_id` (`t:string` required)
   * `:program_name` (`t:string` required)
   * `:input` (`t:map | nil`):
-    * `:multiplex_program_settings` (`t:structure`)
-  ## Keyword parameters:
+    * `"multiplexProgramSettings" => t:structure`
   """
   @spec update_multiplex_program(
           AWS.Client.t(),
@@ -12173,9 +12112,8 @@ defmodule AWS.MediaLive do
   ## Parameters:
   * `:reservation_id` (`t:string` required)
   * `:input` (`t:map | nil`):
-    * `:name` (`t:string`)
-    * `:renewal_settings` (`t:structure`)
-  ## Keyword parameters:
+    * `"name" => t:string`
+    * `"renewalSettings" => t:structure`
   """
   @spec update_reservation(AWS.Client.t(), String.t(), input :: map() | nil, Keyword.t()) ::
           {:ok, update_reservation_response(), any()}

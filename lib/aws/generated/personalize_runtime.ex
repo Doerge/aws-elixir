@@ -189,7 +189,6 @@ defmodule AWS.PersonalizeRuntime do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=personalizeruntime%20GetActionRecommendations&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec get_action_recommendations(AWS.Client.t(), Keyword.t()) ::
           {:ok, get_action_recommendations_response(), any()}
@@ -232,7 +231,6 @@ defmodule AWS.PersonalizeRuntime do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=personalizeruntime%20GetPersonalizedRanking&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec get_personalized_ranking(AWS.Client.t(), Keyword.t()) ::
           {:ok, get_personalized_ranking_response(), any()}
@@ -277,7 +275,6 @@ defmodule AWS.PersonalizeRuntime do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=personalizeruntime%20GetRecommendations&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec get_recommendations(AWS.Client.t(), Keyword.t()) ::
           {:ok, get_recommendations_response(), any()}

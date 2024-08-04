@@ -1155,7 +1155,6 @@ defmodule AWS.WorkLink do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=worklink%20AssociateDomain&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec associate_domain(AWS.Client.t(), Keyword.t()) ::
           {:ok, associate_domain_response(), any()}
@@ -1198,7 +1197,6 @@ defmodule AWS.WorkLink do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=worklink%20AssociateWebsiteAuthorizationProvider&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec associate_website_authorization_provider(AWS.Client.t(), Keyword.t()) ::
           {:ok, associate_website_authorization_provider_response(), any()}
@@ -1241,7 +1239,6 @@ defmodule AWS.WorkLink do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=worklink%20AssociateWebsiteCertificateAuthority&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec associate_website_certificate_authority(AWS.Client.t(), Keyword.t()) ::
           {:ok, associate_website_certificate_authority_response(), any()}
@@ -1285,7 +1282,6 @@ defmodule AWS.WorkLink do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=worklink%20CreateFleet&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec create_fleet(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_fleet_response(), any()}
@@ -1327,7 +1323,6 @@ defmodule AWS.WorkLink do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=worklink%20DeleteFleet&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec delete_fleet(AWS.Client.t(), Keyword.t()) ::
           {:ok, delete_fleet_response(), any()}
@@ -1370,7 +1365,6 @@ defmodule AWS.WorkLink do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=worklink%20DescribeAuditStreamConfiguration&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec describe_audit_stream_configuration(AWS.Client.t(), Keyword.t()) ::
           {:ok, describe_audit_stream_configuration_response(), any()}
@@ -1413,7 +1407,6 @@ defmodule AWS.WorkLink do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=worklink%20DescribeCompanyNetworkConfiguration&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec describe_company_network_configuration(AWS.Client.t(), Keyword.t()) ::
           {:ok, describe_company_network_configuration_response(), any()}
@@ -1455,7 +1448,6 @@ defmodule AWS.WorkLink do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=worklink%20DescribeDevice&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec describe_device(AWS.Client.t(), Keyword.t()) ::
           {:ok, describe_device_response(), any()}
@@ -1497,7 +1489,6 @@ defmodule AWS.WorkLink do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=worklink%20DescribeDevicePolicyConfiguration&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec describe_device_policy_configuration(AWS.Client.t(), Keyword.t()) ::
           {:ok, describe_device_policy_configuration_response(), any()}
@@ -1539,7 +1530,6 @@ defmodule AWS.WorkLink do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=worklink%20DescribeDomain&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec describe_domain(AWS.Client.t(), Keyword.t()) ::
           {:ok, describe_domain_response(), any()}
@@ -1582,7 +1572,6 @@ defmodule AWS.WorkLink do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=worklink%20DescribeFleetMetadata&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec describe_fleet_metadata(AWS.Client.t(), Keyword.t()) ::
           {:ok, describe_fleet_metadata_response(), any()}
@@ -1624,7 +1613,6 @@ defmodule AWS.WorkLink do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=worklink%20DescribeIdentityProviderConfiguration&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec describe_identity_provider_configuration(AWS.Client.t(), Keyword.t()) ::
           {:ok, describe_identity_provider_configuration_response(), any()}
@@ -1666,7 +1654,6 @@ defmodule AWS.WorkLink do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=worklink%20DescribeWebsiteCertificateAuthority&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec describe_website_certificate_authority(AWS.Client.t(), Keyword.t()) ::
           {:ok, describe_website_certificate_authority_response(), any()}
@@ -1709,7 +1696,6 @@ defmodule AWS.WorkLink do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=worklink%20DisassociateDomain&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec disassociate_domain(AWS.Client.t(), Keyword.t()) ::
           {:ok, disassociate_domain_response(), any()}
@@ -1753,7 +1739,6 @@ defmodule AWS.WorkLink do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=worklink%20DisassociateWebsiteAuthorizationProvider&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec disassociate_website_authorization_provider(AWS.Client.t(), Keyword.t()) ::
           {:ok, disassociate_website_authorization_provider_response(), any()}
@@ -1795,7 +1780,6 @@ defmodule AWS.WorkLink do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=worklink%20DisassociateWebsiteCertificateAuthority&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec disassociate_website_certificate_authority(AWS.Client.t(), Keyword.t()) ::
           {:ok, disassociate_website_certificate_authority_response(), any()}
@@ -1837,7 +1821,6 @@ defmodule AWS.WorkLink do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=worklink%20ListDevices&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec list_devices(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_devices_response(), any()}
@@ -1879,7 +1862,6 @@ defmodule AWS.WorkLink do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=worklink%20ListDomains&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec list_domains(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_domains_response(), any()}
@@ -1921,7 +1903,6 @@ defmodule AWS.WorkLink do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=worklink%20ListFleets&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec list_fleets(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_fleets_response(), any()}
@@ -1964,8 +1945,7 @@ defmodule AWS.WorkLink do
 
   ## Parameters:
   * `:resource_arn` (`t:string` required) The Amazon Resource Name (ARN) of the
-  fleet.
-  ## Keyword parameters:
+    fleet.
   """
   @spec list_tags_for_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_tags_for_resource_response(), any()}
@@ -2006,7 +1986,6 @@ defmodule AWS.WorkLink do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=worklink%20ListWebsiteAuthorizationProviders&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec list_website_authorization_providers(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_website_authorization_providers_response(), any()}
@@ -2049,7 +2028,6 @@ defmodule AWS.WorkLink do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=worklink%20ListWebsiteCertificateAuthorities&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec list_website_certificate_authorities(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_website_certificate_authorities_response(), any()}
@@ -2091,7 +2069,6 @@ defmodule AWS.WorkLink do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=worklink%20RestoreDomainAccess&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec restore_domain_access(AWS.Client.t(), Keyword.t()) ::
           {:ok, restore_domain_access_response(), any()}
@@ -2133,7 +2110,6 @@ defmodule AWS.WorkLink do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=worklink%20RevokeDomainAccess&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec revoke_domain_access(AWS.Client.t(), Keyword.t()) ::
           {:ok, revoke_domain_access_response(), any()}
@@ -2176,7 +2152,6 @@ defmodule AWS.WorkLink do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=worklink%20SignOutUser&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec sign_out_user(AWS.Client.t(), Keyword.t()) ::
           {:ok, sign_out_user_response(), any()}
@@ -2221,8 +2196,7 @@ defmodule AWS.WorkLink do
 
   ## Parameters:
   * `:resource_arn` (`t:string` required) The Amazon Resource Name (ARN) of the
-  fleet.
-  ## Keyword parameters:
+    fleet.
   """
   @spec tag_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, tag_resource_response(), any()}
@@ -2265,10 +2239,9 @@ defmodule AWS.WorkLink do
 
   ## Parameters:
   * `:resource_arn` (`t:string` required) The Amazon Resource Name (ARN) of the
-  fleet.
+    fleet.
   * `:tag_keys` (`t:list[com.amazonaws.worklink#TagKey]` required) The list of tag
-  keys to remove from the resource.
-  ## Keyword parameters:
+    keys to remove from the resource.
   """
   @spec untag_resource(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, untag_resource_response(), any()}
@@ -2321,7 +2294,6 @@ defmodule AWS.WorkLink do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=worklink%20UpdateAuditStreamConfiguration&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec update_audit_stream_configuration(AWS.Client.t(), Keyword.t()) ::
           {:ok, update_audit_stream_configuration_response(), any()}
@@ -2363,7 +2335,6 @@ defmodule AWS.WorkLink do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=worklink%20UpdateCompanyNetworkConfiguration&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec update_company_network_configuration(AWS.Client.t(), Keyword.t()) ::
           {:ok, update_company_network_configuration_response(), any()}
@@ -2405,7 +2376,6 @@ defmodule AWS.WorkLink do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=worklink%20UpdateDevicePolicyConfiguration&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec update_device_policy_configuration(AWS.Client.t(), Keyword.t()) ::
           {:ok, update_device_policy_configuration_response(), any()}
@@ -2447,7 +2417,6 @@ defmodule AWS.WorkLink do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=worklink%20UpdateDomainMetadata&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec update_domain_metadata(AWS.Client.t(), Keyword.t()) ::
           {:ok, update_domain_metadata_response(), any()}
@@ -2489,7 +2458,6 @@ defmodule AWS.WorkLink do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=worklink%20UpdateFleetMetadata&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec update_fleet_metadata(AWS.Client.t(), Keyword.t()) ::
           {:ok, update_fleet_metadata_response(), any()}
@@ -2531,7 +2499,6 @@ defmodule AWS.WorkLink do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=worklink%20UpdateIdentityProviderConfiguration&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec update_identity_provider_configuration(AWS.Client.t(), Keyword.t()) ::
           {:ok, update_identity_provider_configuration_response(), any()}

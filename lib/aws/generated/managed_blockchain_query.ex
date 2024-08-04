@@ -744,7 +744,6 @@ defmodule AWS.ManagedBlockchainQuery do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=managedblockchainquery%20BatchGetTokenBalance&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec batch_get_token_balance(AWS.Client.t(), Keyword.t()) ::
           {:ok, batch_get_token_balance_output(), any()}
@@ -786,7 +785,6 @@ defmodule AWS.ManagedBlockchainQuery do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=managedblockchainquery%20GetAssetContract&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec get_asset_contract(AWS.Client.t(), Keyword.t()) ::
           {:ok, get_asset_contract_output(), any()}
@@ -829,7 +827,6 @@ defmodule AWS.ManagedBlockchainQuery do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=managedblockchainquery%20GetTokenBalance&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec get_token_balance(AWS.Client.t(), Keyword.t()) ::
           {:ok, get_token_balance_output(), any()}
@@ -871,7 +868,6 @@ defmodule AWS.ManagedBlockchainQuery do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=managedblockchainquery%20GetTransaction&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec get_transaction(AWS.Client.t(), Keyword.t()) ::
           {:ok, get_transaction_output(), any()}
@@ -914,7 +910,6 @@ defmodule AWS.ManagedBlockchainQuery do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=managedblockchainquery%20ListAssetContracts&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec list_asset_contracts(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_asset_contracts_output(), any()}
@@ -956,7 +951,6 @@ defmodule AWS.ManagedBlockchainQuery do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=managedblockchainquery%20ListFilteredTransactionEvents&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec list_filtered_transaction_events(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_filtered_transaction_events_output(), any()}
@@ -998,7 +992,6 @@ defmodule AWS.ManagedBlockchainQuery do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=managedblockchainquery%20ListTokenBalances&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec list_token_balances(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_token_balances_output(), any()}
@@ -1040,7 +1033,6 @@ defmodule AWS.ManagedBlockchainQuery do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=managedblockchainquery%20ListTransactionEvents&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec list_transaction_events(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_transaction_events_output(), any()}
@@ -1082,7 +1074,6 @@ defmodule AWS.ManagedBlockchainQuery do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=managedblockchainquery%20ListTransactions&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec list_transactions(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_transactions_output(), any()}

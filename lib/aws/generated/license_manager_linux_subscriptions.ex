@@ -454,7 +454,6 @@ defmodule AWS.LicenseManagerLinuxSubscriptions do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=licensemanagerlinuxsubscriptions%20DeregisterSubscriptionProvider&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec deregister_subscription_provider(AWS.Client.t(), Keyword.t()) ::
           {:ok, deregister_subscription_provider_response(), any()}
@@ -497,7 +496,6 @@ defmodule AWS.LicenseManagerLinuxSubscriptions do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=licensemanagerlinuxsubscriptions%20GetRegisteredSubscriptionProvider&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec get_registered_subscription_provider(AWS.Client.t(), Keyword.t()) ::
           {:ok, get_registered_subscription_provider_response(), any()}
@@ -539,7 +537,6 @@ defmodule AWS.LicenseManagerLinuxSubscriptions do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=licensemanagerlinuxsubscriptions%20GetServiceSettings&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec get_service_settings(AWS.Client.t(), Keyword.t()) ::
           {:ok, get_service_settings_response(), any()}
@@ -582,7 +579,6 @@ defmodule AWS.LicenseManagerLinuxSubscriptions do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=licensemanagerlinuxsubscriptions%20ListLinuxSubscriptionInstances&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec list_linux_subscription_instances(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_linux_subscription_instances_response(), any()}
@@ -626,7 +622,6 @@ defmodule AWS.LicenseManagerLinuxSubscriptions do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=licensemanagerlinuxsubscriptions%20ListLinuxSubscriptions&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec list_linux_subscriptions(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_linux_subscriptions_response(), any()}
@@ -669,7 +664,6 @@ defmodule AWS.LicenseManagerLinuxSubscriptions do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=licensemanagerlinuxsubscriptions%20ListRegisteredSubscriptionProviders&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec list_registered_subscription_providers(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_registered_subscription_providers_response(), any()}
@@ -713,8 +707,7 @@ defmodule AWS.LicenseManagerLinuxSubscriptions do
 
   ## Parameters:
   * `:resource_arn` (`t:string` required) The Amazon Resource Name (ARN) of the
-  resource for which to list metadata tags.
-  ## Keyword parameters:
+    resource for which to list metadata tags.
   """
   @spec list_tags_for_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_tags_for_resource_response(), any()}
@@ -755,7 +748,6 @@ defmodule AWS.LicenseManagerLinuxSubscriptions do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=licensemanagerlinuxsubscriptions%20RegisterSubscriptionProvider&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec register_subscription_provider(AWS.Client.t(), Keyword.t()) ::
           {:ok, register_subscription_provider_response(), any()}
@@ -798,8 +790,7 @@ defmodule AWS.LicenseManagerLinuxSubscriptions do
 
   ## Parameters:
   * `:resource_arn` (`t:string` required) The Amazon Resource Name (ARN) of the
-  Amazon Web Services resource to which to add the specified metadata tags.
-  ## Keyword parameters:
+    Amazon Web Services resource to which to add the specified metadata tags.
   """
   @spec tag_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, tag_resource_response(), any()}
@@ -842,10 +833,9 @@ defmodule AWS.LicenseManagerLinuxSubscriptions do
 
   ## Parameters:
   * `:resource_arn` (`t:string` required) The Amazon Resource Name (ARN) of the
-  Amazon Web Services resource to remove the metadata tags from.
+    Amazon Web Services resource to remove the metadata tags from.
   * `:tag_keys` (`t:list[smithy.api#String]` required) A list of metadata tag keys
-  to remove from the requested resource.
-  ## Keyword parameters:
+    to remove from the requested resource.
   """
   @spec untag_resource(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, untag_resource_response(), any()}
@@ -898,7 +888,6 @@ defmodule AWS.LicenseManagerLinuxSubscriptions do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=licensemanagerlinuxsubscriptions%20UpdateServiceSettings&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec update_service_settings(AWS.Client.t(), Keyword.t()) ::
           {:ok, update_service_settings_response(), any()}

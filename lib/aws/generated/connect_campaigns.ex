@@ -859,7 +859,6 @@ defmodule AWS.ConnectCampaigns do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=connectcampaigns%20CreateCampaign&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec create_campaign(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_campaign_response(), any()}
@@ -902,7 +901,6 @@ defmodule AWS.ConnectCampaigns do
 
   ## Parameters:
   * `:id` (`t:string` required)
-  ## Keyword parameters:
   """
   @spec delete_campaign(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
@@ -955,7 +953,6 @@ defmodule AWS.ConnectCampaigns do
 
   ## Parameters:
   * `:connect_instance_id` (`t:string` required)
-  ## Keyword parameters:
   """
   @spec delete_connect_instance_config(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
@@ -1009,7 +1006,6 @@ defmodule AWS.ConnectCampaigns do
 
   ## Parameters:
   * `:connect_instance_id` (`t:string` required)
-  ## Keyword parameters:
   """
   @spec delete_instance_onboarding_job(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
@@ -1062,7 +1058,6 @@ defmodule AWS.ConnectCampaigns do
 
   ## Parameters:
   * `:id` (`t:string` required)
-  ## Keyword parameters:
   """
   @spec describe_campaign(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, describe_campaign_response(), any()}
@@ -1103,7 +1098,6 @@ defmodule AWS.ConnectCampaigns do
 
   ## Parameters:
   * `:id` (`t:string` required)
-  ## Keyword parameters:
   """
   @spec get_campaign_state(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_campaign_state_response(), any()}
@@ -1143,7 +1137,6 @@ defmodule AWS.ConnectCampaigns do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=connectcampaigns%20GetCampaignStateBatch&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec get_campaign_state_batch(AWS.Client.t(), Keyword.t()) ::
           {:ok, get_campaign_state_batch_response(), any()}
@@ -1186,7 +1179,6 @@ defmodule AWS.ConnectCampaigns do
 
   ## Parameters:
   * `:connect_instance_id` (`t:string` required)
-  ## Keyword parameters:
   """
   @spec get_connect_instance_config(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_connect_instance_config_response(), any()}
@@ -1227,7 +1219,6 @@ defmodule AWS.ConnectCampaigns do
 
   ## Parameters:
   * `:connect_instance_id` (`t:string` required)
-  ## Keyword parameters:
   """
   @spec get_instance_onboarding_job_status(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_instance_onboarding_job_status_response(), any()}
@@ -1268,7 +1259,6 @@ defmodule AWS.ConnectCampaigns do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=connectcampaigns%20ListCampaigns&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec list_campaigns(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_campaigns_response(), any()}
@@ -1311,7 +1301,6 @@ defmodule AWS.ConnectCampaigns do
 
   ## Parameters:
   * `:arn` (`t:string` required)
-  ## Keyword parameters:
   """
   @spec list_tags_for_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_tags_for_resource_response(), any()}
@@ -1352,7 +1341,6 @@ defmodule AWS.ConnectCampaigns do
 
   ## Parameters:
   * `:id` (`t:string` required)
-  ## Keyword parameters:
   """
   @spec pause_campaign(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
@@ -1396,7 +1384,6 @@ defmodule AWS.ConnectCampaigns do
 
   ## Parameters:
   * `:id` (`t:string` required)
-  ## Keyword parameters:
   """
   @spec put_dial_request_batch(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, put_dial_request_batch_response(), any()}
@@ -1439,7 +1426,6 @@ defmodule AWS.ConnectCampaigns do
 
   ## Parameters:
   * `:id` (`t:string` required)
-  ## Keyword parameters:
   """
   @spec resume_campaign(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
@@ -1482,7 +1468,6 @@ defmodule AWS.ConnectCampaigns do
 
   ## Parameters:
   * `:id` (`t:string` required)
-  ## Keyword parameters:
   """
   @spec start_campaign(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
@@ -1525,7 +1510,6 @@ defmodule AWS.ConnectCampaigns do
 
   ## Parameters:
   * `:connect_instance_id` (`t:string` required)
-  ## Keyword parameters:
   """
   @spec start_instance_onboarding_job(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, start_instance_onboarding_job_response(), any()}
@@ -1568,7 +1552,6 @@ defmodule AWS.ConnectCampaigns do
 
   ## Parameters:
   * `:id` (`t:string` required)
-  ## Keyword parameters:
   """
   @spec stop_campaign(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
@@ -1611,7 +1594,6 @@ defmodule AWS.ConnectCampaigns do
 
   ## Parameters:
   * `:arn` (`t:string` required)
-  ## Keyword parameters:
   """
   @spec tag_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
@@ -1655,7 +1637,6 @@ defmodule AWS.ConnectCampaigns do
   ## Parameters:
   * `:arn` (`t:string` required)
   * `:tag_keys` (`t:list[com.amazonaws.connectcampaigns#TagKey]` required)
-  ## Keyword parameters:
   """
   @spec untag_resource(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
@@ -1708,7 +1689,6 @@ defmodule AWS.ConnectCampaigns do
 
   ## Parameters:
   * `:id` (`t:string` required)
-  ## Keyword parameters:
   """
   @spec update_campaign_dialer_config(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
@@ -1751,7 +1731,6 @@ defmodule AWS.ConnectCampaigns do
 
   ## Parameters:
   * `:id` (`t:string` required)
-  ## Keyword parameters:
   """
   @spec update_campaign_name(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
@@ -1794,7 +1773,6 @@ defmodule AWS.ConnectCampaigns do
 
   ## Parameters:
   * `:id` (`t:string` required)
-  ## Keyword parameters:
   """
   @spec update_campaign_outbound_call_config(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}

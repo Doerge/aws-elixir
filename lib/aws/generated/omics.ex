@@ -3936,9 +3936,8 @@ defmodule AWS.Omics do
 
   ## Parameters:
   * `:sequence_store_id` (`t:string` required) The sequence store ID for the store
-  involved in the multipart upload.
+    involved in the multipart upload.
   * `:upload_id` (`t:string` required) The ID for the multipart upload.
-  ## Keyword parameters:
   """
   @spec abort_multipart_read_set_upload(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, abort_multipart_read_set_upload_response(), any()}
@@ -3997,7 +3996,6 @@ defmodule AWS.Omics do
 
   ## Parameters:
   * `:share_id` (`t:string` required) The ID of the resource share.
-  ## Keyword parameters:
   """
   @spec accept_share(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, accept_share_response(), any()}
@@ -4040,7 +4038,6 @@ defmodule AWS.Omics do
 
   ## Parameters:
   * `:sequence_store_id` (`t:string` required) The read sets' sequence store ID.
-  ## Keyword parameters:
   """
   @spec batch_delete_read_set(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, batch_delete_read_set_response(), any()}
@@ -4083,7 +4080,6 @@ defmodule AWS.Omics do
 
   ## Parameters:
   * `:job_id` (`t:string` required) The job's ID.
-  ## Keyword parameters:
   """
   @spec cancel_annotation_import_job(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, cancel_annotation_import_response(), any()}
@@ -4136,7 +4132,6 @@ defmodule AWS.Omics do
 
   ## Parameters:
   * `:id` (`t:string` required) The run's ID.
-  ## Keyword parameters:
   """
   @spec cancel_run(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
@@ -4179,7 +4174,6 @@ defmodule AWS.Omics do
 
   ## Parameters:
   * `:job_id` (`t:string` required) The job's ID.
-  ## Keyword parameters:
   """
   @spec cancel_variant_import_job(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, cancel_variant_import_response(), any()}
@@ -4232,9 +4226,8 @@ defmodule AWS.Omics do
 
   ## Parameters:
   * `:sequence_store_id` (`t:string` required) The sequence store ID for the store
-  involved in the multipart upload.
+    involved in the multipart upload.
   * `:upload_id` (`t:string` required) The ID for the multipart upload.
-  ## Keyword parameters:
   """
   @spec complete_multipart_read_set_upload(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, complete_multipart_read_set_upload_response(), any()}
@@ -4282,7 +4275,6 @@ defmodule AWS.Omics do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=omics%20CreateAnnotationStore&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec create_annotation_store(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_annotation_store_response(), any()}
@@ -4325,8 +4317,7 @@ defmodule AWS.Omics do
 
   ## Parameters:
   * `:name` (`t:string` required) The name of an annotation store version from
-  which versions are being created.
-  ## Keyword parameters:
+    which versions are being created.
   """
   @spec create_annotation_store_version(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, create_annotation_store_version_response(), any()}
@@ -4369,8 +4360,7 @@ defmodule AWS.Omics do
 
   ## Parameters:
   * `:sequence_store_id` (`t:string` required) The sequence store ID for the store
-  that is the destination of the multipart uploads.
-  ## Keyword parameters:
+    that is the destination of the multipart uploads.
   """
   @spec create_multipart_read_set_upload(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, create_multipart_read_set_upload_response(), any()}
@@ -4412,7 +4402,6 @@ defmodule AWS.Omics do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=omics%20CreateReferenceStore&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec create_reference_store(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_reference_store_response(), any()}
@@ -4454,7 +4443,6 @@ defmodule AWS.Omics do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=omics%20CreateRunGroup&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec create_run_group(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_run_group_response(), any()}
@@ -4496,7 +4484,6 @@ defmodule AWS.Omics do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=omics%20CreateSequenceStore&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec create_sequence_store(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_sequence_store_response(), any()}
@@ -4541,7 +4528,6 @@ defmodule AWS.Omics do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=omics%20CreateShare&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec create_share(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_share_response(), any()}
@@ -4583,7 +4569,6 @@ defmodule AWS.Omics do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=omics%20CreateVariantStore&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec create_variant_store(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_variant_store_response(), any()}
@@ -4625,7 +4610,6 @@ defmodule AWS.Omics do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=omics%20CreateWorkflow&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec create_workflow(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_workflow_response(), any()}
@@ -4668,6 +4652,7 @@ defmodule AWS.Omics do
 
   ## Parameters:
   * `:name` (`t:string` required) The store's name.
+
   ## Keyword parameters:
   * `:force` (`t:string`) Whether to force deletion.
   """
@@ -4733,10 +4718,11 @@ defmodule AWS.Omics do
 
   ## Parameters:
   * `:name` (`t:string` required) The name of the annotation store from which
-  versions are being deleted.
+    versions are being deleted.
+
   ## Keyword parameters:
   * `:force` (`t:string`) Forces the deletion of an annotation store version when
-  imports are in-progress..
+    imports are in-progress..
   """
   @spec delete_annotation_store_versions(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, delete_annotation_store_versions_response(), any()}
@@ -4791,7 +4777,6 @@ defmodule AWS.Omics do
   ## Parameters:
   * `:id` (`t:string` required) The reference's ID.
   * `:reference_store_id` (`t:string` required) The reference's store ID.
-  ## Keyword parameters:
   """
   @spec delete_reference(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, delete_reference_response(), any()}
@@ -4845,7 +4830,6 @@ defmodule AWS.Omics do
 
   ## Parameters:
   * `:id` (`t:string` required) The store's ID.
-  ## Keyword parameters:
   """
   @spec delete_reference_store(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, delete_reference_store_response(), any()}
@@ -4898,7 +4882,6 @@ defmodule AWS.Omics do
 
   ## Parameters:
   * `:id` (`t:string` required) The run's ID.
-  ## Keyword parameters:
   """
   @spec delete_run(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
@@ -4951,7 +4934,6 @@ defmodule AWS.Omics do
 
   ## Parameters:
   * `:id` (`t:string` required) The run group's ID.
-  ## Keyword parameters:
   """
   @spec delete_run_group(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
@@ -5004,7 +4986,6 @@ defmodule AWS.Omics do
 
   ## Parameters:
   * `:id` (`t:string` required) The sequence store's ID.
-  ## Keyword parameters:
   """
   @spec delete_sequence_store(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, delete_sequence_store_response(), any()}
@@ -5059,7 +5040,6 @@ defmodule AWS.Omics do
 
   ## Parameters:
   * `:share_id` (`t:string` required) The ID for the resource share to be deleted.
-  ## Keyword parameters:
   """
   @spec delete_share(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, delete_share_response(), any()}
@@ -5112,6 +5092,7 @@ defmodule AWS.Omics do
 
   ## Parameters:
   * `:name` (`t:string` required) The store's name.
+
   ## Keyword parameters:
   * `:force` (`t:string`) Whether to force deletion.
   """
@@ -5177,7 +5158,6 @@ defmodule AWS.Omics do
 
   ## Parameters:
   * `:id` (`t:string` required) The workflow's ID.
-  ## Keyword parameters:
   """
   @spec delete_workflow(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
@@ -5230,7 +5210,6 @@ defmodule AWS.Omics do
 
   ## Parameters:
   * `:job_id` (`t:string` required) The job's ID.
-  ## Keyword parameters:
   """
   @spec get_annotation_import_job(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_annotation_import_response(), any()}
@@ -5271,7 +5250,6 @@ defmodule AWS.Omics do
 
   ## Parameters:
   * `:name` (`t:string` required) The store's name.
-  ## Keyword parameters:
   """
   @spec get_annotation_store(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_annotation_store_response(), any()}
@@ -5312,10 +5290,9 @@ defmodule AWS.Omics do
 
   ## Parameters:
   * `:name` (`t:string` required) The name given to an annotation store version to
-  distinguish it from others.
+    distinguish it from others.
   * `:version_name` (`t:string` required) The name given to an annotation store
-  version to distinguish it from others.
-  ## Keyword parameters:
+    version to distinguish it from others.
   """
   @spec get_annotation_store_version(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_annotation_store_version_response(), any()}
@@ -5359,6 +5336,7 @@ defmodule AWS.Omics do
   * `:id` (`t:string` required) The read set's ID.
   * `:sequence_store_id` (`t:string` required) The read set's sequence store ID.
   * `:part_number` (`t:string` required) The part number to retrieve.
+
   ## Keyword parameters:
   * `:file` (`t:string`) The file to retrieve.
   """
@@ -5415,7 +5393,6 @@ defmodule AWS.Omics do
   ## Parameters:
   * `:id` (`t:string` required) The job's ID.
   * `:sequence_store_id` (`t:string` required) The job's sequence store ID.
-  ## Keyword parameters:
   """
   @spec get_read_set_activation_job(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_read_set_activation_job_response(), any()}
@@ -5458,7 +5435,6 @@ defmodule AWS.Omics do
   ## Parameters:
   * `:id` (`t:string` required) The job's ID.
   * `:sequence_store_id` (`t:string` required) The job's sequence store ID.
-  ## Keyword parameters:
   """
   @spec get_read_set_export_job(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_read_set_export_job_response(), any()}
@@ -5501,7 +5477,6 @@ defmodule AWS.Omics do
   ## Parameters:
   * `:id` (`t:string` required) The job's ID.
   * `:sequence_store_id` (`t:string` required) The job's sequence store ID.
-  ## Keyword parameters:
   """
   @spec get_read_set_import_job(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_read_set_import_job_response(), any()}
@@ -5544,7 +5519,6 @@ defmodule AWS.Omics do
   ## Parameters:
   * `:id` (`t:string` required) The read set's ID.
   * `:sequence_store_id` (`t:string` required) The read set's sequence store ID.
-  ## Keyword parameters:
   """
   @spec get_read_set_metadata(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_read_set_metadata_response(), any()}
@@ -5588,6 +5562,7 @@ defmodule AWS.Omics do
   * `:id` (`t:string` required) The reference's ID.
   * `:reference_store_id` (`t:string` required) The reference's store ID.
   * `:part_number` (`t:string` required) The part number to retrieve.
+
   ## Keyword parameters:
   * `:file` (`t:string`) The file to retrieve.
   * `:range` (`t:string`) The range to retrieve.
@@ -5651,7 +5626,6 @@ defmodule AWS.Omics do
   ## Parameters:
   * `:id` (`t:string` required) The job's ID.
   * `:reference_store_id` (`t:string` required) The job's reference store ID.
-  ## Keyword parameters:
   """
   @spec get_reference_import_job(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_reference_import_job_response(), any()}
@@ -5694,8 +5668,7 @@ defmodule AWS.Omics do
   ## Parameters:
   * `:id` (`t:string` required) The reference's ID.
   * `:reference_store_id` (`t:string` required) The reference's reference store
-  ID.
-  ## Keyword parameters:
+    ID.
   """
   @spec get_reference_metadata(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_reference_metadata_response(), any()}
@@ -5737,7 +5710,6 @@ defmodule AWS.Omics do
 
   ## Parameters:
   * `:id` (`t:string` required) The store's ID.
-  ## Keyword parameters:
   """
   @spec get_reference_store(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_reference_store_response(), any()}
@@ -5778,6 +5750,7 @@ defmodule AWS.Omics do
 
   ## Parameters:
   * `:id` (`t:string` required) The run's ID.
+
   ## Keyword parameters:
   * `:export` (`t:list[com.amazonaws.omics#RunExport]`) The run's export format.
   """
@@ -5831,7 +5804,6 @@ defmodule AWS.Omics do
 
   ## Parameters:
   * `:id` (`t:string` required) The group's ID.
-  ## Keyword parameters:
   """
   @spec get_run_group(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_run_group_response(), any()}
@@ -5873,7 +5845,6 @@ defmodule AWS.Omics do
   ## Parameters:
   * `:id` (`t:string` required) The workflow run ID.
   * `:task_id` (`t:string` required) The task's ID.
-  ## Keyword parameters:
   """
   @spec get_run_task(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_run_task_response(), any()}
@@ -5914,7 +5885,6 @@ defmodule AWS.Omics do
 
   ## Parameters:
   * `:id` (`t:string` required) The store's ID.
-  ## Keyword parameters:
   """
   @spec get_sequence_store(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_sequence_store_response(), any()}
@@ -5955,7 +5925,6 @@ defmodule AWS.Omics do
 
   ## Parameters:
   * `:share_id` (`t:string` required) The ID of the share.
-  ## Keyword parameters:
   """
   @spec get_share(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_share_response(), any()}
@@ -5996,7 +5965,6 @@ defmodule AWS.Omics do
 
   ## Parameters:
   * `:job_id` (`t:string` required) The job's ID.
-  ## Keyword parameters:
   """
   @spec get_variant_import_job(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_variant_import_response(), any()}
@@ -6037,7 +6005,6 @@ defmodule AWS.Omics do
 
   ## Parameters:
   * `:name` (`t:string` required) The store's name.
-  ## Keyword parameters:
   """
   @spec get_variant_store(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_variant_store_response(), any()}
@@ -6078,9 +6045,10 @@ defmodule AWS.Omics do
 
   ## Parameters:
   * `:id` (`t:string` required) The workflow's ID.
+
   ## Keyword parameters:
   * `:export` (`t:list[com.amazonaws.omics#WorkflowExport]`) The export format for
-  the workflow.
+    the workflow.
   * `:type` (`t:string`) The workflow's type.
   * `:workflow_owner_id` (`t:string`) The ID of the workflow owner.
   """
@@ -6147,11 +6115,12 @@ defmodule AWS.Omics do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=omics%20ListAnnotationImportJobs&this_doc_guide=API%2520Reference)
 
   ## Parameters:
+
   ## Keyword parameters:
   * `:max_results` (`t:string`) The maximum number of jobs to return in one page
-  of results.
+    of results.
   * `:next_token` (`t:string`) Specifies the pagination token from a previous
-  request to retrieve the next page of results.
+    request to retrieve the next page of results.
   """
   @spec list_annotation_import_jobs(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_annotation_import_jobs_response(), any()}
@@ -6212,11 +6181,12 @@ defmodule AWS.Omics do
 
   ## Parameters:
   * `:name` (`t:string` required) The name of an annotation store.
+
   ## Keyword parameters:
   * `:max_results` (`t:string`) The maximum number of annotation store versions to
-  return in one page of results.
+    return in one page of results.
   * `:next_token` (`t:string`) Specifies the pagination token from a previous
-  request to retrieve the next page of results.
+    request to retrieve the next page of results.
   """
   @spec list_annotation_store_versions(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_annotation_store_versions_response(), any()}
@@ -6276,11 +6246,12 @@ defmodule AWS.Omics do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=omics%20ListAnnotationStores&this_doc_guide=API%2520Reference)
 
   ## Parameters:
+
   ## Keyword parameters:
   * `:max_results` (`t:string`) The maximum number of stores to return in one page
-  of results.
+    of results.
   * `:next_token` (`t:string`) Specify the pagination token from a previous
-  request to retrieve the next page of results.
+    request to retrieve the next page of results.
   """
   @spec list_annotation_stores(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_annotation_stores_response(), any()}
@@ -6343,12 +6314,13 @@ defmodule AWS.Omics do
 
   ## Parameters:
   * `:sequence_store_id` (`t:string` required) The Sequence Store ID used for the
-  multipart uploads.
+    multipart uploads.
+
   ## Keyword parameters:
   * `:max_results` (`t:string`) The maximum number of multipart uploads returned
-  in a page.
+    in a page.
   * `:next_token` (`t:string`) Next token returned in the response of a previous
-  ListMultipartReadSetUploads call. Used to get the next page of results.
+    ListMultipartReadSetUploads call. Used to get the next page of results.
   """
   @spec list_multipart_read_set_uploads(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_multipart_read_set_uploads_response(), any()}
@@ -6409,11 +6381,12 @@ defmodule AWS.Omics do
 
   ## Parameters:
   * `:sequence_store_id` (`t:string` required) The read set's sequence store ID.
+
   ## Keyword parameters:
   * `:max_results` (`t:string`) The maximum number of read set activation jobs to
-  return in one page of results.
+    return in one page of results.
   * `:next_token` (`t:string`) Specify the pagination token from a previous
-  request to retrieve the next page of results.
+    request to retrieve the next page of results.
   """
   @spec list_read_set_activation_jobs(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_read_set_activation_jobs_response(), any()}
@@ -6474,11 +6447,12 @@ defmodule AWS.Omics do
 
   ## Parameters:
   * `:sequence_store_id` (`t:string` required) The jobs' sequence store ID.
+
   ## Keyword parameters:
   * `:max_results` (`t:string`) The maximum number of jobs to return in one page
-  of results.
+    of results.
   * `:next_token` (`t:string`) Specify the pagination token from a previous
-  request to retrieve the next page of results.
+    request to retrieve the next page of results.
   """
   @spec list_read_set_export_jobs(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_read_set_export_jobs_response(), any()}
@@ -6539,11 +6513,12 @@ defmodule AWS.Omics do
 
   ## Parameters:
   * `:sequence_store_id` (`t:string` required) The jobs' sequence store ID.
+
   ## Keyword parameters:
   * `:max_results` (`t:string`) The maximum number of jobs to return in one page
-  of results.
+    of results.
   * `:next_token` (`t:string`) Specify the pagination token from a previous
-  request to retrieve the next page of results.
+    request to retrieve the next page of results.
   """
   @spec list_read_set_import_jobs(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_read_set_import_jobs_response(), any()}
@@ -6605,13 +6580,14 @@ defmodule AWS.Omics do
 
   ## Parameters:
   * `:sequence_store_id` (`t:string` required) The Sequence Store ID used for the
-  multipart uploads.
+    multipart uploads.
   * `:upload_id` (`t:string` required) The ID for the initiated multipart upload.
+
   ## Keyword parameters:
   * `:max_results` (`t:string`) The maximum number of read set upload parts
-  returned in a page.
+    returned in a page.
   * `:next_token` (`t:string`) Next token returned in the response of a previous
-  ListReadSetUploadPartsRequest call. Used to get the next page of results.
+    ListReadSetUploadPartsRequest call. Used to get the next page of results.
   """
   @spec list_read_set_upload_parts(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, list_read_set_upload_parts_response(), any()}
@@ -6673,11 +6649,12 @@ defmodule AWS.Omics do
 
   ## Parameters:
   * `:sequence_store_id` (`t:string` required) The jobs' sequence store ID.
+
   ## Keyword parameters:
   * `:max_results` (`t:string`) The maximum number of read sets to return in one
-  page of results.
+    page of results.
   * `:next_token` (`t:string`) Specify the pagination token from a previous
-  request to retrieve the next page of results.
+    request to retrieve the next page of results.
   """
   @spec list_read_sets(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_read_sets_response(), any()}
@@ -6738,11 +6715,12 @@ defmodule AWS.Omics do
 
   ## Parameters:
   * `:reference_store_id` (`t:string` required) The job's reference store ID.
+
   ## Keyword parameters:
   * `:max_results` (`t:string`) The maximum number of jobs to return in one page
-  of results.
+    of results.
   * `:next_token` (`t:string`) Specify the pagination token from a previous
-  request to retrieve the next page of results.
+    request to retrieve the next page of results.
   """
   @spec list_reference_import_jobs(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_reference_import_jobs_response(), any()}
@@ -6802,11 +6780,12 @@ defmodule AWS.Omics do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=omics%20ListReferenceStores&this_doc_guide=API%2520Reference)
 
   ## Parameters:
+
   ## Keyword parameters:
   * `:max_results` (`t:string`) The maximum number of stores to return in one page
-  of results.
+    of results.
   * `:next_token` (`t:string`) Specify the pagination token from a previous
-  request to retrieve the next page of results.
+    request to retrieve the next page of results.
   """
   @spec list_reference_stores(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_reference_stores_response(), any()}
@@ -6867,12 +6846,13 @@ defmodule AWS.Omics do
 
   ## Parameters:
   * `:reference_store_id` (`t:string` required) The references' reference store
-  ID.
+    ID.
+
   ## Keyword parameters:
   * `:max_results` (`t:string`) The maximum number of references to return in one
-  page of results.
+    page of results.
   * `:next_token` (`t:string`) Specify the pagination token from a previous
-  request to retrieve the next page of results.
+    request to retrieve the next page of results.
   """
   @spec list_references(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_references_response(), any()}
@@ -6932,12 +6912,13 @@ defmodule AWS.Omics do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=omics%20ListRunGroups&this_doc_guide=API%2520Reference)
 
   ## Parameters:
+
   ## Keyword parameters:
   * `:max_results` (`t:string`) The maximum number of run groups to return in one
-  page of results.
+    page of results.
   * `:name` (`t:string`) The run groups' name.
   * `:starting_token` (`t:string`) Specify the pagination token from a previous
-  request to retrieve the next page of results.
+    request to retrieve the next page of results.
   """
   @spec list_run_groups(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_run_groups_response(), any()}
@@ -7003,11 +6984,12 @@ defmodule AWS.Omics do
 
   ## Parameters:
   * `:id` (`t:string` required) The run's ID.
+
   ## Keyword parameters:
   * `:max_results` (`t:string`) The maximum number of run tasks to return in one
-  page of results.
+    page of results.
   * `:starting_token` (`t:string`) Specify the pagination token from a previous
-  request to retrieve the next page of results.
+    request to retrieve the next page of results.
   * `:status` (`t:string`) Filter the list by status.
   """
   @spec list_run_tasks(AWS.Client.t(), String.t(), Keyword.t()) ::
@@ -7073,13 +7055,14 @@ defmodule AWS.Omics do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=omics%20ListRuns&this_doc_guide=API%2520Reference)
 
   ## Parameters:
+
   ## Keyword parameters:
   * `:max_results` (`t:string`) The maximum number of runs to return in one page
-  of results.
+    of results.
   * `:name` (`t:string`) Filter the list by run name.
   * `:run_group_id` (`t:string`) Filter the list by run group ID.
   * `:starting_token` (`t:string`) Specify the pagination token from a previous
-  request to retrieve the next page of results.
+    request to retrieve the next page of results.
   * `:status` (`t:string`) The status of a run.
   """
   @spec list_runs(AWS.Client.t(), Keyword.t()) ::
@@ -7165,11 +7148,12 @@ defmodule AWS.Omics do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=omics%20ListSequenceStores&this_doc_guide=API%2520Reference)
 
   ## Parameters:
+
   ## Keyword parameters:
   * `:max_results` (`t:string`) The maximum number of stores to return in one page
-  of results.
+    of results.
   * `:next_token` (`t:string`) Specify the pagination token from a previous
-  request to retrieve the next page of results.
+    request to retrieve the next page of results.
   """
   @spec list_sequence_stores(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_sequence_stores_response(), any()}
@@ -7230,11 +7214,12 @@ defmodule AWS.Omics do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=omics%20ListShares&this_doc_guide=API%2520Reference)
 
   ## Parameters:
+
   ## Keyword parameters:
   * `:max_results` (`t:string`) The maximum number of shares to return in one page
-  of results.
+    of results.
   * `:next_token` (`t:string`) Next token returned in the response of a previous
-  ListReadSetUploadPartsRequest call. Used to get the next page of results.
+    ListReadSetUploadPartsRequest call. Used to get the next page of results.
   """
   @spec list_shares(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_shares_response(), any()}
@@ -7295,7 +7280,6 @@ defmodule AWS.Omics do
 
   ## Parameters:
   * `:resource_arn` (`t:string` required) The resource's ARN.
-  ## Keyword parameters:
   """
   @spec list_tags_for_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_tags_for_resource_response(), any()}
@@ -7335,11 +7319,12 @@ defmodule AWS.Omics do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=omics%20ListVariantImportJobs&this_doc_guide=API%2520Reference)
 
   ## Parameters:
+
   ## Keyword parameters:
   * `:max_results` (`t:string`) The maximum number of import jobs to return in one
-  page of results.
+    page of results.
   * `:next_token` (`t:string`) Specify the pagination token from a previous
-  request to retrieve the next page of results.
+    request to retrieve the next page of results.
   """
   @spec list_variant_import_jobs(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_variant_import_jobs_response(), any()}
@@ -7399,11 +7384,12 @@ defmodule AWS.Omics do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=omics%20ListVariantStores&this_doc_guide=API%2520Reference)
 
   ## Parameters:
+
   ## Keyword parameters:
   * `:max_results` (`t:string`) The maximum number of stores to return in one page
-  of results.
+    of results.
   * `:next_token` (`t:string`) Specify the pagination token from a previous
-  request to retrieve the next page of results.
+    request to retrieve the next page of results.
   """
   @spec list_variant_stores(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_variant_stores_response(), any()}
@@ -7463,12 +7449,13 @@ defmodule AWS.Omics do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=omics%20ListWorkflows&this_doc_guide=API%2520Reference)
 
   ## Parameters:
+
   ## Keyword parameters:
   * `:max_results` (`t:string`) The maximum number of workflows to return in one
-  page of results.
+    page of results.
   * `:name` (`t:string`) Filter the list by workflow name.
   * `:starting_token` (`t:string`) Specify the pagination token from a previous
-  request to retrieve the next page of results.
+    request to retrieve the next page of results.
   * `:type` (`t:string`) Filter the list by workflow type.
   """
   @spec list_workflows(AWS.Client.t(), Keyword.t()) ::
@@ -7541,7 +7528,6 @@ defmodule AWS.Omics do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=omics%20StartAnnotationImportJob&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec start_annotation_import_job(AWS.Client.t(), Keyword.t()) ::
           {:ok, start_annotation_import_response(), any()}
@@ -7585,7 +7571,6 @@ defmodule AWS.Omics do
 
   ## Parameters:
   * `:sequence_store_id` (`t:string` required) The read set's sequence store ID.
-  ## Keyword parameters:
   """
   @spec start_read_set_activation_job(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, start_read_set_activation_job_response(), any()}
@@ -7628,7 +7613,6 @@ defmodule AWS.Omics do
 
   ## Parameters:
   * `:sequence_store_id` (`t:string` required) The read set's sequence store ID.
-  ## Keyword parameters:
   """
   @spec start_read_set_export_job(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, start_read_set_export_job_response(), any()}
@@ -7671,7 +7655,6 @@ defmodule AWS.Omics do
 
   ## Parameters:
   * `:sequence_store_id` (`t:string` required) The read set's sequence store ID.
-  ## Keyword parameters:
   """
   @spec start_read_set_import_job(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, start_read_set_import_job_response(), any()}
@@ -7714,7 +7697,6 @@ defmodule AWS.Omics do
 
   ## Parameters:
   * `:reference_store_id` (`t:string` required) The job's reference store ID.
-  ## Keyword parameters:
   """
   @spec start_reference_import_job(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, start_reference_import_job_response(), any()}
@@ -7758,7 +7740,6 @@ defmodule AWS.Omics do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=omics%20StartRun&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec start_run(AWS.Client.t(), Keyword.t()) ::
           {:ok, start_run_response(), any()}
@@ -7800,7 +7781,6 @@ defmodule AWS.Omics do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=omics%20StartVariantImportJob&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec start_variant_import_job(AWS.Client.t(), Keyword.t()) ::
           {:ok, start_variant_import_response(), any()}
@@ -7843,7 +7823,6 @@ defmodule AWS.Omics do
 
   ## Parameters:
   * `:resource_arn` (`t:string` required) The resource's ARN.
-  ## Keyword parameters:
   """
   @spec tag_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, tag_resource_response(), any()}
@@ -7887,8 +7866,7 @@ defmodule AWS.Omics do
   ## Parameters:
   * `:resource_arn` (`t:string` required) The resource's ARN.
   * `:tag_keys` (`t:list[com.amazonaws.omics#TagKey]` required) Keys of tags to
-  remove.
-  ## Keyword parameters:
+    remove.
   """
   @spec untag_resource(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, untag_resource_response(), any()}
@@ -7942,7 +7920,6 @@ defmodule AWS.Omics do
 
   ## Parameters:
   * `:name` (`t:string` required) A name for the store.
-  ## Keyword parameters:
   """
   @spec update_annotation_store(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, update_annotation_store_response(), any()}
@@ -7986,7 +7963,6 @@ defmodule AWS.Omics do
   ## Parameters:
   * `:name` (`t:string` required) The name of an annotation store.
   * `:version_name` (`t:string` required) The name of an annotation store version.
-  ## Keyword parameters:
   """
   @spec update_annotation_store_version(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, update_annotation_store_version_response(), any()}
@@ -8030,7 +8006,6 @@ defmodule AWS.Omics do
 
   ## Parameters:
   * `:id` (`t:string` required) The group's ID.
-  ## Keyword parameters:
   """
   @spec update_run_group(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
@@ -8073,7 +8048,6 @@ defmodule AWS.Omics do
 
   ## Parameters:
   * `:name` (`t:string` required) A name for the store.
-  ## Keyword parameters:
   """
   @spec update_variant_store(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, update_variant_store_response(), any()}
@@ -8116,7 +8090,6 @@ defmodule AWS.Omics do
 
   ## Parameters:
   * `:id` (`t:string` required) The workflow's ID.
-  ## Keyword parameters:
   """
   @spec update_workflow(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
@@ -8161,13 +8134,12 @@ defmodule AWS.Omics do
 
   ## Parameters:
   * `:sequence_store_id` (`t:string` required) The Sequence Store ID used for the
-  multipart upload.
+    multipart upload.
   * `:upload_id` (`t:string` required) The ID for the initiated multipart upload.
   * `:part_number` (`t:string` required) The number of the part being uploaded.
   * `:part_source` (`t:string` required) The source file for an upload part.
   * `:input` (`t:map`):
-    * `:payload` (`t:blob` required) The read set data to upload for a part.
-  ## Keyword parameters:
+    * `"payload" => t:blob` (required) The read set data to upload for a part.
   """
   @spec upload_read_set_part(
           AWS.Client.t(),

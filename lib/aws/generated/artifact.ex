@@ -389,7 +389,6 @@ defmodule AWS.Artifact do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=artifact%20GetAccountSettings&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec get_account_settings(AWS.Client.t(), Keyword.t()) ::
           {:ok, get_account_settings_response(), any()}
@@ -431,7 +430,8 @@ defmodule AWS.Artifact do
   ## Parameters:
   * `:report_id` (`t:string` required) Unique resource ID for the report resource.
   * `:term_token` (`t:string` required) Unique download token provided by
-  GetTermForReport API.
+    GetTermForReport API.
+
   ## Keyword parameters:
   * `:report_version` (`t:long`) Version for the report resource.
   """
@@ -486,6 +486,7 @@ defmodule AWS.Artifact do
 
   ## Parameters:
   * `:report_id` (`t:string` required) Unique resource ID for the report resource.
+
   ## Keyword parameters:
   * `:report_version` (`t:long`) Version for the report resource.
   """
@@ -540,6 +541,7 @@ defmodule AWS.Artifact do
 
   ## Parameters:
   * `:report_id` (`t:string` required) Unique resource ID for the report resource.
+
   ## Keyword parameters:
   * `:report_version` (`t:long`) Version for the report resource.
   """
@@ -593,11 +595,12 @@ defmodule AWS.Artifact do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=artifact%20ListReports&this_doc_guide=API%2520Reference)
 
   ## Parameters:
+
   ## Keyword parameters:
   * `:max_results` (`t:integer`) Maximum number of resources to return in the
-  paginated response.
+    paginated response.
   * `:next_token` (`t:string`) Pagination token to request the next page of
-  resources.
+    resources.
   """
   @spec list_reports(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_reports_response(), any()}
@@ -655,7 +658,6 @@ defmodule AWS.Artifact do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=artifact%20PutAccountSettings&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec put_account_settings(AWS.Client.t(), Keyword.t()) ::
           {:ok, put_account_settings_response(), any()}

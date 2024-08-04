@@ -940,7 +940,6 @@ defmodule AWS.SsmSap do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ssmsap%20DeleteResourcePermission&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec delete_resource_permission(AWS.Client.t(), Keyword.t()) ::
           {:ok, delete_resource_permission_output(), any()}
@@ -983,7 +982,6 @@ defmodule AWS.SsmSap do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ssmsap%20DeregisterApplication&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec deregister_application(AWS.Client.t(), Keyword.t()) ::
           {:ok, deregister_application_output(), any()}
@@ -1026,7 +1024,6 @@ defmodule AWS.SsmSap do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ssmsap%20GetApplication&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec get_application(AWS.Client.t(), Keyword.t()) ::
           {:ok, get_application_output(), any()}
@@ -1069,7 +1066,6 @@ defmodule AWS.SsmSap do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ssmsap%20GetComponent&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec get_component(AWS.Client.t(), Keyword.t()) ::
           {:ok, get_component_output(), any()}
@@ -1112,7 +1108,6 @@ defmodule AWS.SsmSap do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ssmsap%20GetDatabase&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec get_database(AWS.Client.t(), Keyword.t()) ::
           {:ok, get_database_output(), any()}
@@ -1154,7 +1149,6 @@ defmodule AWS.SsmSap do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ssmsap%20GetOperation&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec get_operation(AWS.Client.t(), Keyword.t()) ::
           {:ok, get_operation_output(), any()}
@@ -1196,7 +1190,6 @@ defmodule AWS.SsmSap do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ssmsap%20GetResourcePermission&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec get_resource_permission(AWS.Client.t(), Keyword.t()) ::
           {:ok, get_resource_permission_output(), any()}
@@ -1238,7 +1231,6 @@ defmodule AWS.SsmSap do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ssmsap%20ListApplications&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec list_applications(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_applications_output(), any()}
@@ -1280,7 +1272,6 @@ defmodule AWS.SsmSap do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ssmsap%20ListComponents&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec list_components(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_components_output(), any()}
@@ -1323,7 +1314,6 @@ defmodule AWS.SsmSap do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ssmsap%20ListDatabases&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec list_databases(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_databases_output(), any()}
@@ -1365,7 +1355,6 @@ defmodule AWS.SsmSap do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ssmsap%20ListOperationEvents&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec list_operation_events(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_operation_events_output(), any()}
@@ -1407,7 +1396,6 @@ defmodule AWS.SsmSap do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ssmsap%20ListOperations&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec list_operations(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_operations_output(), any()}
@@ -1451,8 +1439,7 @@ defmodule AWS.SsmSap do
 
   ## Parameters:
   * `:resource_arn` (`t:string` required) The Amazon Resource Name (ARN) of the
-  resource.
-  ## Keyword parameters:
+    resource.
   """
   @spec list_tags_for_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_tags_for_resource_response(), any()}
@@ -1492,7 +1479,6 @@ defmodule AWS.SsmSap do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ssmsap%20PutResourcePermission&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec put_resource_permission(AWS.Client.t(), Keyword.t()) ::
           {:ok, put_resource_permission_output(), any()}
@@ -1536,7 +1522,6 @@ defmodule AWS.SsmSap do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ssmsap%20RegisterApplication&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec register_application(AWS.Client.t(), Keyword.t()) ::
           {:ok, register_application_output(), any()}
@@ -1578,7 +1563,6 @@ defmodule AWS.SsmSap do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ssmsap%20StartApplication&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec start_application(AWS.Client.t(), Keyword.t()) ::
           {:ok, start_application_output(), any()}
@@ -1620,7 +1604,6 @@ defmodule AWS.SsmSap do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ssmsap%20StartApplicationRefresh&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec start_application_refresh(AWS.Client.t(), Keyword.t()) ::
           {:ok, start_application_refresh_output(), any()}
@@ -1662,7 +1645,6 @@ defmodule AWS.SsmSap do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ssmsap%20StopApplication&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec stop_application(AWS.Client.t(), Keyword.t()) ::
           {:ok, stop_application_output(), any()}
@@ -1705,8 +1687,7 @@ defmodule AWS.SsmSap do
 
   ## Parameters:
   * `:resource_arn` (`t:string` required) The Amazon Resource Name (ARN) of the
-  resource.
-  ## Keyword parameters:
+    resource.
   """
   @spec tag_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, tag_resource_response(), any()}
@@ -1749,11 +1730,10 @@ defmodule AWS.SsmSap do
 
   ## Parameters:
   * `:resource_arn` (`t:string` required) The Amazon Resource Name (ARN) of the
-  resource.
+    resource.
   * `:tag_keys` (`t:list[com.amazonaws.ssmsap#TagKey]` required) Adds/updates or
-  removes credentials for applications registered with AWS Systems Manager for
-  SAP.
-  ## Keyword parameters:
+    removes credentials for applications registered with AWS Systems Manager for
+    SAP.
   """
   @spec untag_resource(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, untag_resource_response(), any()}
@@ -1807,7 +1787,6 @@ defmodule AWS.SsmSap do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ssmsap%20UpdateApplicationSettings&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec update_application_settings(AWS.Client.t(), Keyword.t()) ::
           {:ok, update_application_settings_output(), any()}

@@ -384,6 +384,7 @@ defmodule AWS.IoTDataPlane do
 
   ## Parameters:
   * `:thing_name` (`t:string` required) The name of the thing.
+
   ## Keyword parameters:
   * `:shadow_name` (`t:string`) The name of the shadow.
   """
@@ -455,8 +456,7 @@ defmodule AWS.IoTDataPlane do
 
   ## Parameters:
   * `:topic` (`t:string` required) The topic name of the retained message to
-  retrieve.
-  ## Keyword parameters:
+    retrieve.
   """
   @spec get_retained_message(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_retained_message_response(), any()}
@@ -497,6 +497,7 @@ defmodule AWS.IoTDataPlane do
 
   ## Parameters:
   * `:thing_name` (`t:string` required) The name of the thing.
+
   ## Keyword parameters:
   * `:shadow_name` (`t:string`) The name of the shadow.
   """
@@ -550,6 +551,7 @@ defmodule AWS.IoTDataPlane do
 
   ## Parameters:
   * `:thing_name` (`t:string` required) The name of the thing.
+
   ## Keyword parameters:
   * `:next_token` (`t:string`) The token to retrieve the next set of results.
   * `:page_size` (`t:integer`) The result page size.
@@ -613,12 +615,13 @@ defmodule AWS.IoTDataPlane do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotdataplane%20ListRetainedMessages&this_doc_guide=API%2520Reference)
 
   ## Parameters:
+
   ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of results to return at one
-  time.
+    time.
   * `:next_token` (`t:string`) To retrieve the next set of results, the nextToken
-  value from a previous response; otherwise null to receive the first set of
-  results.
+    value from a previous response; otherwise null to receive the first set of
+    results.
   """
   @spec list_retained_messages(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_retained_messages_response(), any()}
@@ -682,35 +685,36 @@ defmodule AWS.IoTDataPlane do
   ## Parameters:
   * `:topic` (`t:string` required) The name of the MQTT topic.
   * `:input` (`t:map | nil`):
-    * `:payload` (`t:blob`) The message body. MQTT accepts text, binary, and empty
-  (null) message payloads.
+    * `"payload" => t:blob` The message body. MQTT accepts text, binary, and empty
+    (null) message payloads.
+
   ## Keyword parameters:
   * `:content_type` (`t:string`) A UTF-8 encoded string that describes the content
-  of the publishing message.
+    of the publishing message.
   * `:message_expiry` (`t:long`) A user-defined integer value that represents the
-  message expiry interval in seconds. If absent, the message doesn't expire.
-  For more information about the limits of messageExpiry, see Amazon Web
-  Services IoT Core message broker and protocol limits and quotas from the
-  Amazon Web Services Reference Guide.
+    message expiry interval in seconds. If absent, the message doesn't expire.
+    For more information about the limits of messageExpiry, see Amazon Web
+    Services IoT Core message broker and protocol limits and quotas from the
+    Amazon Web Services Reference Guide.
   * `:qos` (`t:integer`) The Quality of Service (QoS) level. The default QoS level
-  is 0.
+    is 0.
   * `:response_topic` (`t:string`) A UTF-8 encoded string that's used as the topic
-  name for a response message. The response topic is used to describe the
-  topic which the receiver should publish to as part of the request-response
-  flow. The topic must not contain wildcard characters.
+    name for a response message. The response topic is used to describe the
+    topic which the receiver should publish to as part of the request-response
+    flow. The topic must not contain wildcard characters.
   * `:retain` (`t:boolean`) A Boolean value that determines whether to set the
-  RETAIN flag when the message is published.
+    RETAIN flag when the message is published.
   * `:correlation_data` (`t:string`) The base64-encoded binary data used by the
-  sender of the request message to identify which request the response message
-  is for when it's received. correlationData is an HTTP header value in the
-  API.
+    sender of the request message to identify which request the response message
+    is for when it's received. correlationData is an HTTP header value in the
+    API.
   * `:payload_format_indicator` (`t:enum["UNSPECIFIED_BYTES|UTF8_DATA"]`) An Enum
-  string value that indicates whether the payload is formatted as UTF-8.
-  payloadFormatIndicator is an HTTP header value in the API.
+    string value that indicates whether the payload is formatted as UTF-8.
+    payloadFormatIndicator is an HTTP header value in the API.
   * `:user_properties` (`t:string`) A JSON string that contains an array of JSON
-  objects. If you don’t use Amazon Web Services SDK or CLI, you must encode
-  the JSON string to base64 format before adding it to the HTTP header.
-  userProperties is an HTTP header value in the API.
+    objects. If you don’t use Amazon Web Services SDK or CLI, you must encode
+    the JSON string to base64 format before adding it to the HTTP header.
+    userProperties is an HTTP header value in the API.
   """
   @spec publish(AWS.Client.t(), String.t(), input :: map() | nil, Keyword.t()) ::
           {:ok, nil, any()}
@@ -832,7 +836,8 @@ defmodule AWS.IoTDataPlane do
   ## Parameters:
   * `:thing_name` (`t:string` required) The name of the thing.
   * `:input` (`t:map`):
-    * `:payload` (`t:blob` required) The state information, in JSON format.
+    * `"payload" => t:blob` (required) The state information, in JSON format.
+
   ## Keyword parameters:
   * `:shadow_name` (`t:string`) The name of the shadow.
   """

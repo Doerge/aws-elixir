@@ -740,37 +740,35 @@ defmodule AWS.ServerlessApplicationRepository do
 
   ## Parameters:
   * `:input` (`t:map`):
-    * `:author` (`t:string` required) The name of the author publishing the app.
-    * `:description` (`t:string` required) The description of the application.
-    * `:name` (`t:string` required) The name of the application that you want to
-  publish.
-    * `:home_page_url` (`t:string`) A URL with more information about the
-  application, for example the location of your GitHub repository for the
-  application.
-    * `:labels` (`t:list[com.amazonaws.serverlessapplicationrepository#__string]`)
-  Labels to improve discovery of apps in search results.
-    * `:license_body` (`t:string`) A local text file that contains the license of
-  the app that matches the spdxLicenseID value of your application. The file
-  has the format file://<path>/<filename>.
-    * `:license_url` (`t:string`) A link to the S3 object that contains the license
-  of the app that matches the spdxLicenseID value of your application.
-    * `:readme_body` (`t:string`) A local text readme file in Markdown language that
-  contains a more detailed description of the application and how it works.
-  The file has the format file://<path>/<filename>.
-    * `:readme_url` (`t:string`) A link to the S3 object in Markdown language that
-  contains a more detailed description of the application and how it works.
-    * `:semantic_version` (`t:string`) The semantic version of the application:
-    * `:source_code_archive_url` (`t:string`) A link to the S3 object that contains
-  the ZIP archive of the source code for this version of your application.
-    * `:source_code_url` (`t:string`) A link to a public repository for the source
-  code of your application, for example the URL of a specific GitHub commit.
-    * `:spdx_license_id` (`t:string`) A valid identifier from
-  https://spdx.org/licenses/.
-    * `:template_body` (`t:string`) The local raw packaged AWS SAM template file of
-  your application. The file has the format file://<path>/<filename>.
-    * `:template_url` (`t:string`) A link to the S3 object containing the packaged
-  AWS SAM template of your application.
-  ## Keyword parameters:
+    * `"author" => t:string` (required) The name of the author publishing the app.
+    * `"description" => t:string` (required) The description of the application.
+    * `"name" => t:string` (required) The name of the application that you want to
+    publish.
+    * `"homePageUrl" => t:string` A URL with more information about the application,
+    for example the location of your GitHub repository for the application.
+    * `"labels" => t:list[com.amazonaws.serverlessapplicationrepository#__string]`
+    Labels to improve discovery of apps in search results.
+    * `"licenseBody" => t:string` A local text file that contains the license of the
+    app that matches the spdxLicenseID value of your application. The file has
+    the format file://<path>/<filename>.
+    * `"licenseUrl" => t:string` A link to the S3 object that contains the license
+    of the app that matches the spdxLicenseID value of your application.
+    * `"readmeBody" => t:string` A local text readme file in Markdown language that
+    contains a more detailed description of the application and how it works.
+    The file has the format file://<path>/<filename>.
+    * `"readmeUrl" => t:string` A link to the S3 object in Markdown language that
+    contains a more detailed description of the application and how it works.
+    * `"semanticVersion" => t:string` The semantic version of the application:
+    * `"sourceCodeArchiveUrl" => t:string` A link to the S3 object that contains the
+    ZIP archive of the source code for this version of your application.
+    * `"sourceCodeUrl" => t:string` A link to a public repository for the source
+    code of your application, for example the URL of a specific GitHub commit.
+    * `"spdxLicenseId" => t:string` A valid identifier from
+    https://spdx.org/licenses/.
+    * `"templateBody" => t:string` The local raw packaged AWS SAM template file of
+    your application. The file has the format file://<path>/<filename>.
+    * `"templateUrl" => t:string` A link to the S3 object containing the packaged
+    AWS SAM template of your application.
   """
   @spec create_application(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_application_response(), any()}
@@ -813,19 +811,18 @@ defmodule AWS.ServerlessApplicationRepository do
 
   ## Parameters:
   * `:application_id` (`t:string` required) The Amazon Resource Name (ARN) of the
-  application.
+    application.
   * `:semantic_version` (`t:string` required) The semantic version of the new
-  version.
+    version.
   * `:input` (`t:map | nil`):
-    * `:source_code_archive_url` (`t:string`) A link to the S3 object that contains
-  the ZIP archive of the source code for this version of your application.
-    * `:source_code_url` (`t:string`) A link to a public repository for the source
-  code of your application, for example the URL of a specific GitHub commit.
-    * `:template_body` (`t:string`) The raw packaged AWS SAM template of your
-  application.
-    * `:template_url` (`t:string`) A link to the packaged AWS SAM template of your
-  application.
-  ## Keyword parameters:
+    * `"sourceCodeArchiveUrl" => t:string` A link to the S3 object that contains the
+    ZIP archive of the source code for this version of your application.
+    * `"sourceCodeUrl" => t:string` A link to a public repository for the source
+    code of your application, for example the URL of a specific GitHub commit.
+    * `"templateBody" => t:string` The raw packaged AWS SAM template of your
+    application.
+    * `"templateUrl" => t:string` A link to the packaged AWS SAM template of your
+    application.
   """
   @spec create_application_version(
           AWS.Client.t(),
@@ -882,42 +879,41 @@ defmodule AWS.ServerlessApplicationRepository do
 
   ## Parameters:
   * `:application_id` (`t:string` required) The Amazon Resource Name (ARN) of the
-  application.
+    application.
   * `:input` (`t:map`):
-    * `:stack_name` (`t:string` required) This property corresponds to the parameter
-  of the same name for the AWS CloudFormation CreateChangeSet API.
-    * `:capabilities`
-  (`t:list[com.amazonaws.serverlessapplicationrepository#__string]`) A list of
-  values that you must specify before you can deploy certain applications.
-  Some applications might include resources that can affect permissions in
-  your AWS account, for example, by creating new AWS Identity and Access
-  Management (IAM) users. For those applications, you must explicitly
-  acknowledge their capabilities by specifying this parameter.
-    * `:change_set_name` (`t:string`) This property corresponds to the parameter of
-  the same name for the AWS CloudFormation CreateChangeSet API.
-    * `:client_token` (`t:string`) This property corresponds to the parameter of the
-  same name for the AWS CloudFormation CreateChangeSet API.
-    * `:description` (`t:string`) This property corresponds to the parameter of the
-  same name for the AWS CloudFormation CreateChangeSet API.
-    * `:notification_arns`
-  (`t:list[com.amazonaws.serverlessapplicationrepository#__string]`) This
-  property corresponds to the parameter of the same name for the AWS
-  CloudFormation CreateChangeSet API.
-    * `:parameter_overrides`
-  (`t:list[com.amazonaws.serverlessapplicationrepository#ParameterValue]`) A
-  list of parameter values for the parameters of the application.
-    * `:resource_types`
-  (`t:list[com.amazonaws.serverlessapplicationrepository#__string]`) This
-  property corresponds to the parameter of the same name for the AWS
-  CloudFormation CreateChangeSet API.
-    * `:rollback_configuration` (`t:structure`) This property corresponds to the
-  parameter of the same name for the AWS CloudFormation CreateChangeSet API.
-    * `:semantic_version` (`t:string`) The semantic version of the application:
-    * `:tags` (`t:list[com.amazonaws.serverlessapplicationrepository#Tag]`) This
-  property corresponds to the parameter of the same name for the AWS
-  CloudFormation CreateChangeSet API.
-    * `:template_id` (`t:string`) The UUID returned by CreateCloudFormationTemplate.
-  ## Keyword parameters:
+    * `"stackName" => t:string` (required) This property corresponds to the
+    parameter of the same name for the AWS CloudFormation CreateChangeSet API.
+    * `"capabilities" =>
+    t:list[com.amazonaws.serverlessapplicationrepository#__string]` A list of
+    values that you must specify before you can deploy certain applications.
+    Some applications might include resources that can affect permissions in
+    your AWS account, for example, by creating new AWS Identity and Access
+    Management (IAM) users. For those applications, you must explicitly
+    acknowledge their capabilities by specifying this parameter.
+    * `"changeSetName" => t:string` This property corresponds to the parameter of
+    the same name for the AWS CloudFormation CreateChangeSet API.
+    * `"clientToken" => t:string` This property corresponds to the parameter of the
+    same name for the AWS CloudFormation CreateChangeSet API.
+    * `"description" => t:string` This property corresponds to the parameter of the
+    same name for the AWS CloudFormation CreateChangeSet API.
+    * `"notificationArns" =>
+    t:list[com.amazonaws.serverlessapplicationrepository#__string]` This
+    property corresponds to the parameter of the same name for the AWS
+    CloudFormation CreateChangeSet API.
+    * `"parameterOverrides" =>
+    t:list[com.amazonaws.serverlessapplicationrepository#ParameterValue]` A list
+    of parameter values for the parameters of the application.
+    * `"resourceTypes" =>
+    t:list[com.amazonaws.serverlessapplicationrepository#__string]` This
+    property corresponds to the parameter of the same name for the AWS
+    CloudFormation CreateChangeSet API.
+    * `"rollbackConfiguration" => t:structure` This property corresponds to the
+    parameter of the same name for the AWS CloudFormation CreateChangeSet API.
+    * `"semanticVersion" => t:string` The semantic version of the application:
+    * `"tags" => t:list[com.amazonaws.serverlessapplicationrepository#Tag]` This
+    property corresponds to the parameter of the same name for the AWS
+    CloudFormation CreateChangeSet API.
+    * `"templateId" => t:string` The UUID returned by CreateCloudFormationTemplate.
   """
   @spec create_cloud_formation_change_set(AWS.Client.t(), String.t(), input :: map(), Keyword.t()) ::
           {:ok, create_cloud_formation_change_set_response(), any()}
@@ -961,10 +957,9 @@ defmodule AWS.ServerlessApplicationRepository do
 
   ## Parameters:
   * `:application_id` (`t:string` required) The Amazon Resource Name (ARN) of the
-  application.
+    application.
   * `:input` (`t:map | nil`):
-    * `:semantic_version` (`t:string`) The semantic version of the application:
-  ## Keyword parameters:
+    * `"semanticVersion" => t:string` The semantic version of the application:
   """
   @spec create_cloud_formation_template(
           AWS.Client.t(),
@@ -1013,8 +1008,7 @@ defmodule AWS.ServerlessApplicationRepository do
 
   ## Parameters:
   * `:application_id` (`t:string` required) The Amazon Resource Name (ARN) of the
-  application.
-  ## Keyword parameters:
+    application.
   """
   @spec delete_application(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
@@ -1067,10 +1061,11 @@ defmodule AWS.ServerlessApplicationRepository do
 
   ## Parameters:
   * `:application_id` (`t:string` required) The Amazon Resource Name (ARN) of the
-  application.
+    application.
+
   ## Keyword parameters:
   * `:semantic_version` (`t:string`) The semantic version of the application to
-  get.
+    get.
   """
   @spec get_application(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_application_response(), any()}
@@ -1122,8 +1117,7 @@ defmodule AWS.ServerlessApplicationRepository do
 
   ## Parameters:
   * `:application_id` (`t:string` required) The Amazon Resource Name (ARN) of the
-  application.
-  ## Keyword parameters:
+    application.
   """
   @spec get_application_policy(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_application_policy_response(), any()}
@@ -1164,10 +1158,9 @@ defmodule AWS.ServerlessApplicationRepository do
 
   ## Parameters:
   * `:application_id` (`t:string` required) The Amazon Resource Name (ARN) of the
-  application.
+    application.
   * `:template_id` (`t:string` required) The UUID returned by
-  CreateCloudFormationTemplate.
-  ## Keyword parameters:
+    CreateCloudFormationTemplate.
   """
   @spec get_cloud_formation_template(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_cloud_formation_template_response(), any()}
@@ -1209,12 +1202,13 @@ defmodule AWS.ServerlessApplicationRepository do
 
   ## Parameters:
   * `:application_id` (`t:string` required) The Amazon Resource Name (ARN) of the
-  application.
+    application.
+
   ## Keyword parameters:
   * `:max_items` (`t:integer`) The total number of items to return.
   * `:next_token` (`t:string`) A token to specify where to start paginating.
   * `:semantic_version` (`t:string`) The semantic version of the application to
-  get.
+    get.
   """
   @spec list_application_dependencies(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_application_dependencies_response(), any()}
@@ -1280,7 +1274,8 @@ defmodule AWS.ServerlessApplicationRepository do
 
   ## Parameters:
   * `:application_id` (`t:string` required) The Amazon Resource Name (ARN) of the
-  application.
+    application.
+
   ## Keyword parameters:
   * `:max_items` (`t:integer`) The total number of items to return.
   * `:next_token` (`t:string`) A token to specify where to start paginating.
@@ -1341,6 +1336,7 @@ defmodule AWS.ServerlessApplicationRepository do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=serverlessapplicationrepository%20ListApplications&this_doc_guide=API%2520Reference)
 
   ## Parameters:
+
   ## Keyword parameters:
   * `:max_items` (`t:integer`) The total number of items to return.
   * `:next_token` (`t:string`) A token to specify where to start paginating.
@@ -1405,12 +1401,11 @@ defmodule AWS.ServerlessApplicationRepository do
 
   ## Parameters:
   * `:application_id` (`t:string` required) The Amazon Resource Name (ARN) of the
-  application.
+    application.
   * `:input` (`t:map`):
-    * `:statements`
-  (`t:list[com.amazonaws.serverlessapplicationrepository#ApplicationPolicyStatement]`
-  required) An array of policy statements applied to the application.
-  ## Keyword parameters:
+    * `"statements" =>
+    t:list[com.amazonaws.serverlessapplicationrepository#ApplicationPolicyStatement]`
+    (required) An array of policy statements applied to the application.
   """
   @spec put_application_policy(AWS.Client.t(), String.t(), input :: map(), Keyword.t()) ::
           {:ok, put_application_policy_response(), any()}
@@ -1454,11 +1449,10 @@ defmodule AWS.ServerlessApplicationRepository do
 
   ## Parameters:
   * `:application_id` (`t:string` required) The Amazon Resource Name (ARN) of the
-  application.
+    application.
   * `:input` (`t:map`):
-    * `:organization_id` (`t:string` required) The AWS Organization ID to unshare
-  the application from.
-  ## Keyword parameters:
+    * `"organizationId" => t:string` (required) The AWS Organization ID to unshare
+    the application from.
   """
   @spec unshare_application(AWS.Client.t(), String.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
@@ -1502,20 +1496,18 @@ defmodule AWS.ServerlessApplicationRepository do
 
   ## Parameters:
   * `:application_id` (`t:string` required) The Amazon Resource Name (ARN) of the
-  application.
+    application.
   * `:input` (`t:map | nil`):
-    * `:author` (`t:string`) The name of the author publishing the app.
-    * `:description` (`t:string`) The description of the application.
-    * `:home_page_url` (`t:string`) A URL with more information about the
-  application, for example the location of your GitHub repository for the
-  application.
-    * `:labels` (`t:list[com.amazonaws.serverlessapplicationrepository#__string]`)
-  Labels to improve discovery of apps in search results.
-    * `:readme_body` (`t:string`) A text readme file in Markdown language that
-  contains a more detailed description of the application and how it works.
-    * `:readme_url` (`t:string`) A link to the readme file in Markdown language that
-  contains a more detailed description of the application and how it works.
-  ## Keyword parameters:
+    * `"author" => t:string` The name of the author publishing the app.
+    * `"description" => t:string` The description of the application.
+    * `"homePageUrl" => t:string` A URL with more information about the application,
+    for example the location of your GitHub repository for the application.
+    * `"labels" => t:list[com.amazonaws.serverlessapplicationrepository#__string]`
+    Labels to improve discovery of apps in search results.
+    * `"readmeBody" => t:string` A text readme file in Markdown language that
+    contains a more detailed description of the application and how it works.
+    * `"readmeUrl" => t:string` A link to the readme file in Markdown language that
+    contains a more detailed description of the application and how it works.
   """
   @spec update_application(AWS.Client.t(), String.t(), input :: map() | nil, Keyword.t()) ::
           {:ok, update_application_response(), any()}

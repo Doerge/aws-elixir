@@ -591,7 +591,6 @@ defmodule AWS.IotDeviceAdvisor do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotdeviceadvisor%20CreateSuiteDefinition&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec create_suite_definition(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_suite_definition_response(), any()}
@@ -634,8 +633,7 @@ defmodule AWS.IotDeviceAdvisor do
 
   ## Parameters:
   * `:suite_definition_id` (`t:string` required) Suite definition ID of the test
-  suite to be deleted.
-  ## Keyword parameters:
+    suite to be deleted.
   """
   @spec delete_suite_definition(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, delete_suite_definition_response(), any()}
@@ -687,15 +685,16 @@ defmodule AWS.IotDeviceAdvisor do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotdeviceadvisor%20GetEndpoint&this_doc_guide=API%2520Reference)
 
   ## Parameters:
+
   ## Keyword parameters:
   * `:authentication_method` (`t:enum["SignatureVersion4|X509ClientCertificate"]`)
-  The authentication method used during the device connection.
+    The authentication method used during the device connection.
   * `:certificate_arn` (`t:string`) The certificate ARN of the device. This is an
-  optional parameter.
+    optional parameter.
   * `:device_role_arn` (`t:string`) The device role ARN of the device. This is an
-  optional parameter.
+    optional parameter.
   * `:thing_arn` (`t:string`) The thing ARN of the device. This is an optional
-  parameter.
+    parameter.
   """
   @spec get_endpoint(AWS.Client.t(), Keyword.t()) ::
           {:ok, get_endpoint_response(), any()}
@@ -773,10 +772,11 @@ defmodule AWS.IotDeviceAdvisor do
 
   ## Parameters:
   * `:suite_definition_id` (`t:string` required) Suite definition ID of the test
-  suite to get.
+    suite to get.
+
   ## Keyword parameters:
   * `:suite_definition_version` (`t:string`) Suite definition version of the test
-  suite to get.
+    suite to get.
   """
   @spec get_suite_definition(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_suite_definition_response(), any()}
@@ -828,9 +828,8 @@ defmodule AWS.IotDeviceAdvisor do
 
   ## Parameters:
   * `:suite_definition_id` (`t:string` required) Suite definition ID for the test
-  suite run.
+    suite run.
   * `:suite_run_id` (`t:string` required) Suite run ID for the test suite run.
-  ## Keyword parameters:
   """
   @spec get_suite_run(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_suite_run_response(), any()}
@@ -873,9 +872,8 @@ defmodule AWS.IotDeviceAdvisor do
 
   ## Parameters:
   * `:suite_definition_id` (`t:string` required) Suite definition ID of the test
-  suite.
+    suite.
   * `:suite_run_id` (`t:string` required) Suite run ID of the test suite run.
-  ## Keyword parameters:
   """
   @spec get_suite_run_report(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_suite_run_report_response(), any()}
@@ -916,6 +914,7 @@ defmodule AWS.IotDeviceAdvisor do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotdeviceadvisor%20ListSuiteDefinitions&this_doc_guide=API%2520Reference)
 
   ## Parameters:
+
   ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of results to return at once.
   * `:next_token` (`t:string`) A token used to get the next set of results.
@@ -977,14 +976,15 @@ defmodule AWS.IotDeviceAdvisor do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotdeviceadvisor%20ListSuiteRuns&this_doc_guide=API%2520Reference)
 
   ## Parameters:
+
   ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of results to return at once.
   * `:next_token` (`t:string`) A token to retrieve the next set of results.
   * `:suite_definition_id` (`t:string`) Lists the test suite runs of the specified
-  test suite based on suite definition ID.
+    test suite based on suite definition ID.
   * `:suite_definition_version` (`t:string`) Must be passed along with
-  suiteDefinitionId. Lists the test suite runs of the specified test suite
-  based on suite definition version.
+    suiteDefinitionId. Lists the test suite runs of the specified test suite
+    based on suite definition version.
   """
   @spec list_suite_runs(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_suite_runs_response(), any()}
@@ -1062,8 +1062,7 @@ defmodule AWS.IotDeviceAdvisor do
 
   ## Parameters:
   * `:resource_arn` (`t:string` required) The resource ARN of the IoT Device
-  Advisor resource. This can be SuiteDefinition ARN or SuiteRun ARN.
-  ## Keyword parameters:
+    Advisor resource. This can be SuiteDefinition ARN or SuiteRun ARN.
   """
   @spec list_tags_for_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_tags_for_resource_response(), any()}
@@ -1104,8 +1103,7 @@ defmodule AWS.IotDeviceAdvisor do
 
   ## Parameters:
   * `:suite_definition_id` (`t:string` required) Suite definition ID of the test
-  suite.
-  ## Keyword parameters:
+    suite.
   """
   @spec start_suite_run(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, start_suite_run_response(), any()}
@@ -1148,10 +1146,9 @@ defmodule AWS.IotDeviceAdvisor do
 
   ## Parameters:
   * `:suite_definition_id` (`t:string` required) Suite definition ID of the test
-  suite run to be stopped.
+    suite run to be stopped.
   * `:suite_run_id` (`t:string` required) Suite run ID of the test suite run to be
-  stopped.
-  ## Keyword parameters:
+    stopped.
   """
   @spec stop_suite_run(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, stop_suite_run_response(), any()}
@@ -1195,8 +1192,7 @@ defmodule AWS.IotDeviceAdvisor do
 
   ## Parameters:
   * `:resource_arn` (`t:string` required) The resource ARN of an IoT Device
-  Advisor resource. This can be SuiteDefinition ARN or SuiteRun ARN.
-  ## Keyword parameters:
+    Advisor resource. This can be SuiteDefinition ARN or SuiteRun ARN.
   """
   @spec tag_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, tag_resource_response(), any()}
@@ -1239,10 +1235,9 @@ defmodule AWS.IotDeviceAdvisor do
 
   ## Parameters:
   * `:resource_arn` (`t:string` required) The resource ARN of an IoT Device
-  Advisor resource. This can be SuiteDefinition ARN or SuiteRun ARN.
+    Advisor resource. This can be SuiteDefinition ARN or SuiteRun ARN.
   * `:tag_keys` (`t:list[com.amazonaws.iotdeviceadvisor#String128]` required) List
-  of tag keys to remove from the IoT Device Advisor resource.
-  ## Keyword parameters:
+    of tag keys to remove from the IoT Device Advisor resource.
   """
   @spec untag_resource(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, untag_resource_response(), any()}
@@ -1296,8 +1291,7 @@ defmodule AWS.IotDeviceAdvisor do
 
   ## Parameters:
   * `:suite_definition_id` (`t:string` required) Suite definition ID of the test
-  suite to be updated.
-  ## Keyword parameters:
+    suite to be updated.
   """
   @spec update_suite_definition(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, update_suite_definition_response(), any()}

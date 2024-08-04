@@ -1542,7 +1542,6 @@ defmodule AWS.GroundStation do
 
   ## Parameters:
   * `:contact_id` (`t:string` required) UUID of a contact.
-  ## Keyword parameters:
   """
   @spec cancel_contact(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, contact_id_response(), any()}
@@ -1594,7 +1593,6 @@ defmodule AWS.GroundStation do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=groundstation%20CreateConfig&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec create_config(AWS.Client.t(), Keyword.t()) ::
           {:ok, config_id_response(), any()}
@@ -1639,7 +1637,6 @@ defmodule AWS.GroundStation do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=groundstation%20CreateDataflowEndpointGroup&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec create_dataflow_endpoint_group(AWS.Client.t(), Keyword.t()) ::
           {:ok, dataflow_endpoint_group_id_response(), any()}
@@ -1681,7 +1678,6 @@ defmodule AWS.GroundStation do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=groundstation%20CreateEphemeris&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec create_ephemeris(AWS.Client.t(), Keyword.t()) ::
           {:ok, ephemeris_id_response(), any()}
@@ -1723,7 +1719,6 @@ defmodule AWS.GroundStation do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=groundstation%20CreateMissionProfile&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec create_mission_profile(AWS.Client.t(), Keyword.t()) ::
           {:ok, mission_profile_id_response(), any()}
@@ -1767,7 +1762,6 @@ defmodule AWS.GroundStation do
   ## Parameters:
   * `:config_id` (`t:string` required) UUID of a Config.
   * `:config_type` (`t:string` required) Type of a Config.
-  ## Keyword parameters:
   """
   @spec delete_config(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, config_id_response(), any()}
@@ -1820,8 +1814,7 @@ defmodule AWS.GroundStation do
 
   ## Parameters:
   * `:dataflow_endpoint_group_id` (`t:string` required) UUID of a dataflow
-  endpoint group.
-  ## Keyword parameters:
+    endpoint group.
   """
   @spec delete_dataflow_endpoint_group(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, dataflow_endpoint_group_id_response(), any()}
@@ -1878,7 +1871,6 @@ defmodule AWS.GroundStation do
 
   ## Parameters:
   * `:ephemeris_id` (`t:string` required) The AWS Ground Station ephemeris ID.
-  ## Keyword parameters:
   """
   @spec delete_ephemeris(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, ephemeris_id_response(), any()}
@@ -1931,7 +1923,6 @@ defmodule AWS.GroundStation do
 
   ## Parameters:
   * `:mission_profile_id` (`t:string` required) UUID of a mission profile.
-  ## Keyword parameters:
   """
   @spec delete_mission_profile(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, mission_profile_id_response(), any()}
@@ -1984,7 +1975,6 @@ defmodule AWS.GroundStation do
 
   ## Parameters:
   * `:contact_id` (`t:string` required) UUID of a contact.
-  ## Keyword parameters:
   """
   @spec describe_contact(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, describe_contact_response(), any()}
@@ -2025,7 +2015,6 @@ defmodule AWS.GroundStation do
 
   ## Parameters:
   * `:ephemeris_id` (`t:string` required) The AWS Ground Station ephemeris ID.
-  ## Keyword parameters:
   """
   @spec describe_ephemeris(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, describe_ephemeris_response(), any()}
@@ -2066,8 +2055,7 @@ defmodule AWS.GroundStation do
 
   ## Parameters:
   * `:agent_id` (`t:string` required) UUID of agent to get configuration
-  information for.
-  ## Keyword parameters:
+    information for.
   """
   @spec get_agent_configuration(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_agent_configuration_response(), any()}
@@ -2109,7 +2097,6 @@ defmodule AWS.GroundStation do
   ## Parameters:
   * `:config_id` (`t:string` required) UUID of a Config.
   * `:config_type` (`t:string` required) Type of a Config.
-  ## Keyword parameters:
   """
   @spec get_config(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_config_response(), any()}
@@ -2150,8 +2137,7 @@ defmodule AWS.GroundStation do
 
   ## Parameters:
   * `:dataflow_endpoint_group_id` (`t:string` required) UUID of a dataflow
-  endpoint group.
-  ## Keyword parameters:
+    endpoint group.
   """
   @spec get_dataflow_endpoint_group(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_dataflow_endpoint_group_response(), any()}
@@ -2191,7 +2177,6 @@ defmodule AWS.GroundStation do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=groundstation%20GetMinuteUsage&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec get_minute_usage(AWS.Client.t(), Keyword.t()) ::
           {:ok, get_minute_usage_response(), any()}
@@ -2234,7 +2219,6 @@ defmodule AWS.GroundStation do
 
   ## Parameters:
   * `:mission_profile_id` (`t:string` required) UUID of a mission profile.
-  ## Keyword parameters:
   """
   @spec get_mission_profile(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_mission_profile_response(), any()}
@@ -2275,7 +2259,6 @@ defmodule AWS.GroundStation do
 
   ## Parameters:
   * `:satellite_id` (`t:string` required) UUID of a satellite.
-  ## Keyword parameters:
   """
   @spec get_satellite(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_satellite_response(), any()}
@@ -2315,10 +2298,11 @@ defmodule AWS.GroundStation do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=groundstation%20ListConfigs&this_doc_guide=API%2520Reference)
 
   ## Parameters:
+
   ## Keyword parameters:
   * `:max_results` (`t:integer`) Maximum number of Configs returned.
   * `:next_token` (`t:string`) Next token returned in the request of a previous
-  ListConfigs call. Used to get the next page of results.
+    ListConfigs call. Used to get the next page of results.
   """
   @spec list_configs(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_configs_response(), any()}
@@ -2376,7 +2360,6 @@ defmodule AWS.GroundStation do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=groundstation%20ListContacts&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec list_contacts(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_contacts_response(), any()}
@@ -2418,11 +2401,12 @@ defmodule AWS.GroundStation do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=groundstation%20ListDataflowEndpointGroups&this_doc_guide=API%2520Reference)
 
   ## Parameters:
+
   ## Keyword parameters:
   * `:max_results` (`t:integer`) Maximum number of dataflow endpoint groups
-  returned.
+    returned.
   * `:next_token` (`t:string`) Next token returned in the request of a previous
-  ListDataflowEndpointGroups call. Used to get the next page of results.
+    ListDataflowEndpointGroups call. Used to get the next page of results.
   """
   @spec list_dataflow_endpoint_groups(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_dataflow_endpoint_groups_response(), any()}
@@ -2480,6 +2464,7 @@ defmodule AWS.GroundStation do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=groundstation%20ListEphemerides&this_doc_guide=API%2520Reference)
 
   ## Parameters:
+
   ## Keyword parameters:
   * `:max_results` (`t:integer`) Maximum number of ephemerides to return.
   * `:next_token` (`t:string`) Pagination token.
@@ -2542,12 +2527,13 @@ defmodule AWS.GroundStation do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=groundstation%20ListGroundStations&this_doc_guide=API%2520Reference)
 
   ## Parameters:
+
   ## Keyword parameters:
   * `:max_results` (`t:integer`) Maximum number of ground stations returned.
   * `:next_token` (`t:string`) Next token that can be supplied in the next call to
-  get the next page of ground stations.
+    get the next page of ground stations.
   * `:satellite_id` (`t:string`) Satellite ID to retrieve on-boarded ground
-  stations.
+    stations.
   """
   @spec list_ground_stations(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_ground_stations_response(), any()}
@@ -2612,10 +2598,11 @@ defmodule AWS.GroundStation do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=groundstation%20ListMissionProfiles&this_doc_guide=API%2520Reference)
 
   ## Parameters:
+
   ## Keyword parameters:
   * `:max_results` (`t:integer`) Maximum number of mission profiles returned.
   * `:next_token` (`t:string`) Next token returned in the request of a previous
-  ListMissionProfiles call. Used to get the next page of results.
+    ListMissionProfiles call. Used to get the next page of results.
   """
   @spec list_mission_profiles(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_mission_profiles_response(), any()}
@@ -2673,10 +2660,11 @@ defmodule AWS.GroundStation do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=groundstation%20ListSatellites&this_doc_guide=API%2520Reference)
 
   ## Parameters:
+
   ## Keyword parameters:
   * `:max_results` (`t:integer`) Maximum number of satellites returned.
   * `:next_token` (`t:string`) Next token that can be supplied in the next call to
-  get the next page of satellites.
+    get the next page of satellites.
   """
   @spec list_satellites(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_satellites_response(), any()}
@@ -2735,7 +2723,6 @@ defmodule AWS.GroundStation do
 
   ## Parameters:
   * `:resource_arn` (`t:string` required) ARN of a resource.
-  ## Keyword parameters:
   """
   @spec list_tags_for_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_tags_for_resource_response(), any()}
@@ -2775,7 +2762,6 @@ defmodule AWS.GroundStation do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=groundstation%20RegisterAgent&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec register_agent(AWS.Client.t(), Keyword.t()) ::
           {:ok, register_agent_response(), any()}
@@ -2817,7 +2803,6 @@ defmodule AWS.GroundStation do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=groundstation%20ReserveContact&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec reserve_contact(AWS.Client.t(), Keyword.t()) ::
           {:ok, contact_id_response(), any()}
@@ -2860,7 +2845,6 @@ defmodule AWS.GroundStation do
 
   ## Parameters:
   * `:resource_arn` (`t:string` required) ARN of a resource tag.
-  ## Keyword parameters:
   """
   @spec tag_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, tag_resource_response(), any()}
@@ -2904,8 +2888,7 @@ defmodule AWS.GroundStation do
   ## Parameters:
   * `:resource_arn` (`t:string` required) ARN of a resource.
   * `:tag_keys` (`t:list[com.amazonaws.groundstation#UnboundedString]` required)
-  Keys of a resource tag.
-  ## Keyword parameters:
+    Keys of a resource tag.
   """
   @spec untag_resource(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, untag_resource_response(), any()}
@@ -2959,7 +2942,6 @@ defmodule AWS.GroundStation do
 
   ## Parameters:
   * `:agent_id` (`t:string` required) UUID of agent to update.
-  ## Keyword parameters:
   """
   @spec update_agent_status(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, update_agent_status_response(), any()}
@@ -3003,7 +2985,6 @@ defmodule AWS.GroundStation do
   ## Parameters:
   * `:config_id` (`t:string` required) UUID of a Config.
   * `:config_type` (`t:string` required) Type of a Config.
-  ## Keyword parameters:
   """
   @spec update_config(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, config_id_response(), any()}
@@ -3046,7 +3027,6 @@ defmodule AWS.GroundStation do
 
   ## Parameters:
   * `:ephemeris_id` (`t:string` required) The AWS Ground Station ephemeris ID.
-  ## Keyword parameters:
   """
   @spec update_ephemeris(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, ephemeris_id_response(), any()}
@@ -3089,7 +3069,6 @@ defmodule AWS.GroundStation do
 
   ## Parameters:
   * `:mission_profile_id` (`t:string` required) UUID of a mission profile.
-  ## Keyword parameters:
   """
   @spec update_mission_profile(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, mission_profile_id_response(), any()}

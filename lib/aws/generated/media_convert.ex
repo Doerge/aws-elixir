@@ -4013,7 +4013,7 @@ defmodule AWS.MediaConvert do
 
   ## Parameters:
   * `:input` (`t:map`):
-    * `:arn` (`t:string` required)
+    * `"arn" => t:string` (required)
   """
   @spec associate_certificate(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, associate_certificate_response(), any()}
@@ -4111,20 +4111,20 @@ defmodule AWS.MediaConvert do
 
   ## Parameters:
   * `:input` (`t:map`):
-    * `:role` (`t:string` required)
-    * `:settings` (`t:structure` required)
-    * `:acceleration_settings` (`t:structure`)
-    * `:billing_tags_source` (`t:enum["JOB|JOB_TEMPLATE|PRESET|QUEUE"]`)
-    * `:client_request_token` (`t:string`)
-    * `:hop_destinations` (`t:list[com.amazonaws.mediaconvert#HopDestination]`)
-    * `:job_template` (`t:string`)
-    * `:priority` (`t:integer`)
-    * `:queue` (`t:string`)
-    * `:simulate_reserved_queue` (`t:enum["DISABLED|ENABLED"]`)
-    * `:status_update_interval`
-    (`t:enum["SECONDS_10|SECONDS_12|SECONDS_120|SECONDS_15|SECONDS_180|SECONDS_20|SECONDS_240|SECONDS_30|SECONDS_300|SECONDS_360|SECONDS_420|SECONDS_480|SECONDS_540|SECONDS_60|SECONDS_600"]`)
-    * `:tags` (`t:map`)
-    * `:user_metadata` (`t:map`)
+    * `"role" => t:string` (required)
+    * `"settings" => t:structure` (required)
+    * `"accelerationSettings" => t:structure`
+    * `"billingTagsSource" => t:enum["JOB|JOB_TEMPLATE|PRESET|QUEUE"]`
+    * `"clientRequestToken" => t:string`
+    * `"hopDestinations" => t:list[com.amazonaws.mediaconvert#HopDestination]`
+    * `"jobTemplate" => t:string`
+    * `"priority" => t:integer`
+    * `"queue" => t:string`
+    * `"simulateReservedQueue" => t:enum["DISABLED|ENABLED"]`
+    * `"statusUpdateInterval" =>
+    t:enum["SECONDS_10|SECONDS_12|SECONDS_120|SECONDS_15|SECONDS_180|SECONDS_20|SECONDS_240|SECONDS_30|SECONDS_300|SECONDS_360|SECONDS_420|SECONDS_480|SECONDS_540|SECONDS_60|SECONDS_600"]`
+    * `"tags" => t:map`
+    * `"userMetadata" => t:map`
   """
   @spec create_job(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_job_response(), any()}
@@ -4168,17 +4168,17 @@ defmodule AWS.MediaConvert do
 
   ## Parameters:
   * `:input` (`t:map`):
-    * `:name` (`t:string` required)
-    * `:settings` (`t:structure` required)
-    * `:acceleration_settings` (`t:structure`)
-    * `:category` (`t:string`)
-    * `:description` (`t:string`)
-    * `:hop_destinations` (`t:list[com.amazonaws.mediaconvert#HopDestination]`)
-    * `:priority` (`t:integer`)
-    * `:queue` (`t:string`)
-    * `:status_update_interval`
-    (`t:enum["SECONDS_10|SECONDS_12|SECONDS_120|SECONDS_15|SECONDS_180|SECONDS_20|SECONDS_240|SECONDS_30|SECONDS_300|SECONDS_360|SECONDS_420|SECONDS_480|SECONDS_540|SECONDS_60|SECONDS_600"]`)
-    * `:tags` (`t:map`)
+    * `"name" => t:string` (required)
+    * `"settings" => t:structure` (required)
+    * `"accelerationSettings" => t:structure`
+    * `"category" => t:string`
+    * `"description" => t:string`
+    * `"hopDestinations" => t:list[com.amazonaws.mediaconvert#HopDestination]`
+    * `"priority" => t:integer`
+    * `"queue" => t:string`
+    * `"statusUpdateInterval" =>
+    t:enum["SECONDS_10|SECONDS_12|SECONDS_120|SECONDS_15|SECONDS_180|SECONDS_20|SECONDS_240|SECONDS_30|SECONDS_300|SECONDS_360|SECONDS_420|SECONDS_480|SECONDS_540|SECONDS_60|SECONDS_600"]`
+    * `"tags" => t:map`
   """
   @spec create_job_template(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_job_template_response(), any()}
@@ -4222,11 +4222,11 @@ defmodule AWS.MediaConvert do
 
   ## Parameters:
   * `:input` (`t:map`):
-    * `:name` (`t:string` required)
-    * `:settings` (`t:structure` required)
-    * `:category` (`t:string`)
-    * `:description` (`t:string`)
-    * `:tags` (`t:map`)
+    * `"name" => t:string` (required)
+    * `"settings" => t:structure` (required)
+    * `"category" => t:string`
+    * `"description" => t:string`
+    * `"tags" => t:map`
   """
   @spec create_preset(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_preset_response(), any()}
@@ -4271,12 +4271,12 @@ defmodule AWS.MediaConvert do
 
   ## Parameters:
   * `:input` (`t:map`):
-    * `:name` (`t:string` required)
-    * `:description` (`t:string`)
-    * `:pricing_plan` (`t:enum["ON_DEMAND|RESERVED"]`)
-    * `:reservation_plan_settings` (`t:structure`)
-    * `:status` (`t:enum["ACTIVE|PAUSED"]`)
-    * `:tags` (`t:map`)
+    * `"name" => t:string` (required)
+    * `"description" => t:string`
+    * `"pricingPlan" => t:enum["ON_DEMAND|RESERVED"]`
+    * `"reservationPlanSettings" => t:structure`
+    * `"status" => t:enum["ACTIVE|PAUSED"]`
+    * `"tags" => t:map`
   """
   @spec create_queue(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_queue_response(), any()}
@@ -4529,9 +4529,9 @@ defmodule AWS.MediaConvert do
 
   ## Parameters:
   * `:input` (`t:map | nil`):
-    * `:max_results` (`t:integer`)
-    * `:mode` (`t:enum["DEFAULT|GET_ONLY"]`)
-    * `:next_token` (`t:string`)
+    * `"maxResults" => t:integer`
+    * `"mode" => t:enum["DEFAULT|GET_ONLY"]`
+    * `"nextToken" => t:string`
   """
   @spec describe_endpoints(AWS.Client.t(), input :: map() | nil, Keyword.t()) ::
           {:ok, describe_endpoints_response(), any()}
@@ -5210,7 +5210,7 @@ defmodule AWS.MediaConvert do
 
   ## Parameters:
   * `:input` (`t:map`):
-    * `:policy` (`t:structure` required)
+    * `"policy" => t:structure` (required)
   """
   @spec put_policy(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, put_policy_response(), any()}
@@ -5358,8 +5358,8 @@ defmodule AWS.MediaConvert do
 
   ## Parameters:
   * `:input` (`t:map`):
-    * `:arn` (`t:string` required)
-    * `:tags` (`t:map` required)
+    * `"arn" => t:string` (required)
+    * `"tags" => t:map` (required)
   """
   @spec tag_resource(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, tag_resource_response(), any()}
@@ -5405,7 +5405,7 @@ defmodule AWS.MediaConvert do
   ## Parameters:
   * `:arn` (`t:string` required)
   * `:input` (`t:map | nil`):
-    * `:tag_keys` (`t:list[com.amazonaws.mediaconvert#__string]`)
+    * `"tagKeys" => t:list[com.amazonaws.mediaconvert#__string]`
   """
   @spec untag_resource(AWS.Client.t(), String.t(), input :: map() | nil, Keyword.t()) ::
           {:ok, untag_resource_response(), any()}
@@ -5450,15 +5450,15 @@ defmodule AWS.MediaConvert do
   ## Parameters:
   * `:name` (`t:string` required)
   * `:input` (`t:map | nil`):
-    * `:acceleration_settings` (`t:structure`)
-    * `:category` (`t:string`)
-    * `:description` (`t:string`)
-    * `:hop_destinations` (`t:list[com.amazonaws.mediaconvert#HopDestination]`)
-    * `:priority` (`t:integer`)
-    * `:queue` (`t:string`)
-    * `:settings` (`t:structure`)
-    * `:status_update_interval`
-    (`t:enum["SECONDS_10|SECONDS_12|SECONDS_120|SECONDS_15|SECONDS_180|SECONDS_20|SECONDS_240|SECONDS_30|SECONDS_300|SECONDS_360|SECONDS_420|SECONDS_480|SECONDS_540|SECONDS_60|SECONDS_600"]`)
+    * `"accelerationSettings" => t:structure`
+    * `"category" => t:string`
+    * `"description" => t:string`
+    * `"hopDestinations" => t:list[com.amazonaws.mediaconvert#HopDestination]`
+    * `"priority" => t:integer`
+    * `"queue" => t:string`
+    * `"settings" => t:structure`
+    * `"statusUpdateInterval" =>
+    t:enum["SECONDS_10|SECONDS_12|SECONDS_120|SECONDS_15|SECONDS_180|SECONDS_20|SECONDS_240|SECONDS_30|SECONDS_300|SECONDS_360|SECONDS_420|SECONDS_480|SECONDS_540|SECONDS_60|SECONDS_600"]`
   """
   @spec update_job_template(AWS.Client.t(), String.t(), input :: map() | nil, Keyword.t()) ::
           {:ok, update_job_template_response(), any()}
@@ -5503,9 +5503,9 @@ defmodule AWS.MediaConvert do
   ## Parameters:
   * `:name` (`t:string` required)
   * `:input` (`t:map | nil`):
-    * `:category` (`t:string`)
-    * `:description` (`t:string`)
-    * `:settings` (`t:structure`)
+    * `"category" => t:string`
+    * `"description" => t:string`
+    * `"settings" => t:structure`
   """
   @spec update_preset(AWS.Client.t(), String.t(), input :: map() | nil, Keyword.t()) ::
           {:ok, update_preset_response(), any()}
@@ -5550,9 +5550,9 @@ defmodule AWS.MediaConvert do
   ## Parameters:
   * `:name` (`t:string` required)
   * `:input` (`t:map | nil`):
-    * `:description` (`t:string`)
-    * `:reservation_plan_settings` (`t:structure`)
-    * `:status` (`t:enum["ACTIVE|PAUSED"]`)
+    * `"description" => t:string`
+    * `"reservationPlanSettings" => t:structure`
+    * `"status" => t:enum["ACTIVE|PAUSED"]`
   """
   @spec update_queue(AWS.Client.t(), String.t(), input :: map() | nil, Keyword.t()) ::
           {:ok, update_queue_response(), any()}

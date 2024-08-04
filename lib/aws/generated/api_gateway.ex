@@ -3279,7 +3279,6 @@ defmodule AWS.APIGateway do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=apigateway%20CreateApiKey&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec create_api_key(AWS.Client.t(), Keyword.t()) ::
           {:ok, api_key(), any()}
@@ -3322,8 +3321,7 @@ defmodule AWS.APIGateway do
 
   ## Parameters:
   * `:rest_api_id` (`t:string` required) The string identifier of the associated
-  RestApi.
-  ## Keyword parameters:
+    RestApi.
   """
   @spec create_authorizer(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, authorizer(), any()}
@@ -3366,8 +3364,7 @@ defmodule AWS.APIGateway do
 
   ## Parameters:
   * `:domain_name` (`t:string` required) The domain name of the BasePathMapping
-  resource to create.
-  ## Keyword parameters:
+    resource to create.
   """
   @spec create_base_path_mapping(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, base_path_mapping(), any()}
@@ -3411,8 +3408,7 @@ defmodule AWS.APIGateway do
 
   ## Parameters:
   * `:rest_api_id` (`t:string` required) The string identifier of the associated
-  RestApi.
-  ## Keyword parameters:
+    RestApi.
   """
   @spec create_deployment(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, deployment(), any()}
@@ -3455,8 +3451,7 @@ defmodule AWS.APIGateway do
 
   ## Parameters:
   * `:rest_api_id` (`t:string` required) The string identifier of the associated
-  RestApi.
-  ## Keyword parameters:
+    RestApi.
   """
   @spec create_documentation_part(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, documentation_part(), any()}
@@ -3499,8 +3494,7 @@ defmodule AWS.APIGateway do
 
   ## Parameters:
   * `:rest_api_id` (`t:string` required) The string identifier of the associated
-  RestApi.
-  ## Keyword parameters:
+    RestApi.
   """
   @spec create_documentation_version(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, documentation_version(), any()}
@@ -3542,7 +3536,6 @@ defmodule AWS.APIGateway do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=apigateway%20CreateDomainName&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec create_domain_name(AWS.Client.t(), Keyword.t()) ::
           {:ok, domain_name(), any()}
@@ -3585,8 +3578,7 @@ defmodule AWS.APIGateway do
 
   ## Parameters:
   * `:rest_api_id` (`t:string` required) The RestApi identifier under which the
-  Model will be created.
-  ## Keyword parameters:
+    Model will be created.
   """
   @spec create_model(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, model(), any()}
@@ -3629,8 +3621,7 @@ defmodule AWS.APIGateway do
 
   ## Parameters:
   * `:rest_api_id` (`t:string` required) The string identifier of the associated
-  RestApi.
-  ## Keyword parameters:
+    RestApi.
   """
   @spec create_request_validator(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, request_validator(), any()}
@@ -3674,8 +3665,7 @@ defmodule AWS.APIGateway do
   ## Parameters:
   * `:parent_id` (`t:string` required) The parent resource's identifier.
   * `:rest_api_id` (`t:string` required) The string identifier of the associated
-  RestApi.
-  ## Keyword parameters:
+    RestApi.
   """
   @spec create_resource(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, resource(), any()}
@@ -3718,7 +3708,6 @@ defmodule AWS.APIGateway do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=apigateway%20CreateRestApi&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec create_rest_api(AWS.Client.t(), Keyword.t()) ::
           {:ok, rest_api(), any()}
@@ -3762,8 +3751,7 @@ defmodule AWS.APIGateway do
 
   ## Parameters:
   * `:rest_api_id` (`t:string` required) The string identifier of the associated
-  RestApi.
-  ## Keyword parameters:
+    RestApi.
   """
   @spec create_stage(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, stage(), any()}
@@ -3806,7 +3794,6 @@ defmodule AWS.APIGateway do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=apigateway%20CreateUsagePlan&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec create_usage_plan(AWS.Client.t(), Keyword.t()) ::
           {:ok, usage_plan(), any()}
@@ -3849,9 +3836,8 @@ defmodule AWS.APIGateway do
 
   ## Parameters:
   * `:usage_plan_id` (`t:string` required) The Id of the UsagePlan resource
-  representing the usage plan containing the to-be-created UsagePlanKey
-  resource representing a plan customer.
-  ## Keyword parameters:
+    representing the usage plan containing the to-be-created UsagePlanKey
+    resource representing a plan customer.
   """
   @spec create_usage_plan_key(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, usage_plan_key(), any()}
@@ -3896,7 +3882,6 @@ defmodule AWS.APIGateway do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=apigateway%20CreateVpcLink&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec create_vpc_link(AWS.Client.t(), Keyword.t()) ::
           {:ok, vpc_link(), any()}
@@ -3939,8 +3924,7 @@ defmodule AWS.APIGateway do
 
   ## Parameters:
   * `:api_key` (`t:string` required) The identifier of the ApiKey resource to be
-  deleted.
-  ## Keyword parameters:
+    deleted.
   """
   @spec delete_api_key(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
@@ -3993,10 +3977,9 @@ defmodule AWS.APIGateway do
 
   ## Parameters:
   * `:authorizer_id` (`t:string` required) The identifier of the Authorizer
-  resource.
+    resource.
   * `:rest_api_id` (`t:string` required) The string identifier of the associated
-  RestApi.
-  ## Keyword parameters:
+    RestApi.
   """
   @spec delete_authorizer(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
@@ -4050,10 +4033,9 @@ defmodule AWS.APIGateway do
 
   ## Parameters:
   * `:base_path` (`t:string` required) The base path name of the BasePathMapping
-  resource to delete.
+    resource to delete.
   * `:domain_name` (`t:string` required) The domain name of the BasePathMapping
-  resource to delete.
-  ## Keyword parameters:
+    resource to delete.
   """
   @spec delete_base_path_mapping(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
@@ -4107,8 +4089,7 @@ defmodule AWS.APIGateway do
 
   ## Parameters:
   * `:client_certificate_id` (`t:string` required) The identifier of the
-  ClientCertificate resource to be deleted.
-  ## Keyword parameters:
+    ClientCertificate resource to be deleted.
   """
   @spec delete_client_certificate(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
@@ -4162,10 +4143,9 @@ defmodule AWS.APIGateway do
 
   ## Parameters:
   * `:deployment_id` (`t:string` required) The identifier of the Deployment
-  resource to delete.
+    resource to delete.
   * `:rest_api_id` (`t:string` required) The string identifier of the associated
-  RestApi.
-  ## Keyword parameters:
+    RestApi.
   """
   @spec delete_deployment(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
@@ -4219,10 +4199,9 @@ defmodule AWS.APIGateway do
 
   ## Parameters:
   * `:documentation_part_id` (`t:string` required) The identifier of the
-  to-be-deleted documentation part.
+    to-be-deleted documentation part.
   * `:rest_api_id` (`t:string` required) The string identifier of the associated
-  RestApi.
-  ## Keyword parameters:
+    RestApi.
   """
   @spec delete_documentation_part(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
@@ -4281,10 +4260,9 @@ defmodule AWS.APIGateway do
 
   ## Parameters:
   * `:documentation_version` (`t:string` required) The version identifier of a
-  to-be-deleted documentation snapshot.
+    to-be-deleted documentation snapshot.
   * `:rest_api_id` (`t:string` required) The string identifier of the associated
-  RestApi.
-  ## Keyword parameters:
+    RestApi.
   """
   @spec delete_documentation_version(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
@@ -4343,8 +4321,7 @@ defmodule AWS.APIGateway do
 
   ## Parameters:
   * `:domain_name` (`t:string` required) The name of the DomainName resource to be
-  deleted.
-  ## Keyword parameters:
+    deleted.
   """
   @spec delete_domain_name(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
@@ -4398,11 +4375,10 @@ defmodule AWS.APIGateway do
 
   ## Parameters:
   * `:response_type`
-  (`t:enum["ACCESS_DENIED|API_CONFIGURATION_ERROR|AUTHORIZER_CONFIGURATION_ERROR|AUTHORIZER_FAILURE|BAD_REQUEST_BODY|BAD_REQUEST_PARAMETERS|DEFAULT_4XX|DEFAULT_5XX|EXPIRED_TOKEN|INTEGRATION_FAILURE|INTEGRATION_TIMEOUT|INVALID_API_KEY|INVALID_SIGNATURE|MISSING_AUTHENTICATION_TOKEN|QUOTA_EXCEEDED|REQUEST_TOO_LARGE|RESOURCE_NOT_FOUND|THROTTLED|UNAUTHORIZED|UNSUPPORTED_MEDIA_TYPE|WAF_FILTERED"]`
-  required) The response type of the associated GatewayResponse.
+    (`t:enum["ACCESS_DENIED|API_CONFIGURATION_ERROR|AUTHORIZER_CONFIGURATION_ERROR|AUTHORIZER_FAILURE|BAD_REQUEST_BODY|BAD_REQUEST_PARAMETERS|DEFAULT_4XX|DEFAULT_5XX|EXPIRED_TOKEN|INTEGRATION_FAILURE|INTEGRATION_TIMEOUT|INVALID_API_KEY|INVALID_SIGNATURE|MISSING_AUTHENTICATION_TOKEN|QUOTA_EXCEEDED|REQUEST_TOO_LARGE|RESOURCE_NOT_FOUND|THROTTLED|UNAUTHORIZED|UNSUPPORTED_MEDIA_TYPE|WAF_FILTERED"]`
+    required) The response type of the associated GatewayResponse.
   * `:rest_api_id` (`t:string` required) The string identifier of the associated
-  RestApi.
-  ## Keyword parameters:
+    RestApi.
   """
   @spec delete_gateway_response(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
@@ -4456,12 +4432,11 @@ defmodule AWS.APIGateway do
 
   ## Parameters:
   * `:http_method` (`t:string` required) Specifies a delete integration request's
-  HTTP method.
+    HTTP method.
   * `:resource_id` (`t:string` required) Specifies a delete integration request's
-  resource identifier.
+    resource identifier.
   * `:rest_api_id` (`t:string` required) The string identifier of the associated
-  RestApi.
-  ## Keyword parameters:
+    RestApi.
   """
   @spec delete_integration(AWS.Client.t(), String.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
@@ -4515,14 +4490,13 @@ defmodule AWS.APIGateway do
 
   ## Parameters:
   * `:http_method` (`t:string` required) Specifies a delete integration response
-  request's HTTP method.
+    request's HTTP method.
   * `:resource_id` (`t:string` required) Specifies a delete integration response
-  request's resource identifier.
+    request's resource identifier.
   * `:rest_api_id` (`t:string` required) The string identifier of the associated
-  RestApi.
+    RestApi.
   * `:status_code` (`t:string` required) Specifies a delete integration response
-  request's status code.
-  ## Keyword parameters:
+    request's status code.
   """
   @spec delete_integration_response(
           AWS.Client.t(),
@@ -4591,10 +4565,9 @@ defmodule AWS.APIGateway do
   ## Parameters:
   * `:http_method` (`t:string` required) The HTTP verb of the Method resource.
   * `:resource_id` (`t:string` required) The Resource identifier for the Method
-  resource.
+    resource.
   * `:rest_api_id` (`t:string` required) The string identifier of the associated
-  RestApi.
-  ## Keyword parameters:
+    RestApi.
   """
   @spec delete_method(AWS.Client.t(), String.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
@@ -4649,12 +4622,11 @@ defmodule AWS.APIGateway do
   ## Parameters:
   * `:http_method` (`t:string` required) The HTTP verb of the Method resource.
   * `:resource_id` (`t:string` required) The Resource identifier for the
-  MethodResponse resource.
+    MethodResponse resource.
   * `:rest_api_id` (`t:string` required) The string identifier of the associated
-  RestApi.
+    RestApi.
   * `:status_code` (`t:string` required) The status code identifier for the
-  MethodResponse resource.
-  ## Keyword parameters:
+    MethodResponse resource.
   """
   @spec delete_method_response(
           AWS.Client.t(),
@@ -4723,8 +4695,7 @@ defmodule AWS.APIGateway do
   ## Parameters:
   * `:model_name` (`t:string` required) The name of the model to delete.
   * `:rest_api_id` (`t:string` required) The string identifier of the associated
-  RestApi.
-  ## Keyword parameters:
+    RestApi.
   """
   @spec delete_model(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
@@ -4778,10 +4749,9 @@ defmodule AWS.APIGateway do
 
   ## Parameters:
   * `:request_validator_id` (`t:string` required) The identifier of the
-  RequestValidator to be deleted.
+    RequestValidator to be deleted.
   * `:rest_api_id` (`t:string` required) The string identifier of the associated
-  RestApi.
-  ## Keyword parameters:
+    RestApi.
   """
   @spec delete_request_validator(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
@@ -4841,8 +4811,7 @@ defmodule AWS.APIGateway do
   ## Parameters:
   * `:resource_id` (`t:string` required) The identifier of the Resource resource.
   * `:rest_api_id` (`t:string` required) The string identifier of the associated
-  RestApi.
-  ## Keyword parameters:
+    RestApi.
   """
   @spec delete_resource(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
@@ -4896,8 +4865,7 @@ defmodule AWS.APIGateway do
 
   ## Parameters:
   * `:rest_api_id` (`t:string` required) The string identifier of the associated
-  RestApi.
-  ## Keyword parameters:
+    RestApi.
   """
   @spec delete_rest_api(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
@@ -4950,9 +4918,8 @@ defmodule AWS.APIGateway do
 
   ## Parameters:
   * `:rest_api_id` (`t:string` required) The string identifier of the associated
-  RestApi.
+    RestApi.
   * `:stage_name` (`t:string` required) The name of the Stage resource to delete.
-  ## Keyword parameters:
   """
   @spec delete_stage(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
@@ -5006,7 +4973,6 @@ defmodule AWS.APIGateway do
 
   ## Parameters:
   * `:usage_plan_id` (`t:string` required) The Id of the to-be-deleted usage plan.
-  ## Keyword parameters:
   """
   @spec delete_usage_plan(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
@@ -5060,11 +5026,10 @@ defmodule AWS.APIGateway do
 
   ## Parameters:
   * `:key_id` (`t:string` required) The Id of the UsagePlanKey resource to be
-  deleted.
+    deleted.
   * `:usage_plan_id` (`t:string` required) The Id of the UsagePlan resource
-  representing the usage plan containing the to-be-deleted UsagePlanKey
-  resource representing a plan customer.
-  ## Keyword parameters:
+    representing the usage plan containing the to-be-deleted UsagePlanKey
+    resource representing a plan customer.
   """
   @spec delete_usage_plan_key(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
@@ -5118,8 +5083,7 @@ defmodule AWS.APIGateway do
 
   ## Parameters:
   * `:vpc_link_id` (`t:string` required) The identifier of the VpcLink. It is used
-  in an Integration to reference this VpcLink.
-  ## Keyword parameters:
+    in an Integration to reference this VpcLink.
   """
   @spec delete_vpc_link(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
@@ -5172,9 +5136,8 @@ defmodule AWS.APIGateway do
 
   ## Parameters:
   * `:rest_api_id` (`t:string` required) The string identifier of the associated
-  RestApi.
+    RestApi.
   * `:stage_name` (`t:string` required) The name of the stage to flush.
-  ## Keyword parameters:
   """
   @spec flush_stage_authorizers_cache(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
@@ -5228,9 +5191,8 @@ defmodule AWS.APIGateway do
 
   ## Parameters:
   * `:rest_api_id` (`t:string` required) The string identifier of the associated
-  RestApi.
+    RestApi.
   * `:stage_name` (`t:string` required) The name of the stage to flush its cache.
-  ## Keyword parameters:
   """
   @spec flush_stage_cache(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
@@ -5283,7 +5245,6 @@ defmodule AWS.APIGateway do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=apigateway%20GenerateClientCertificate&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec generate_client_certificate(AWS.Client.t(), Keyword.t()) ::
           {:ok, client_certificate(), any()}
@@ -5325,7 +5286,6 @@ defmodule AWS.APIGateway do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=apigateway%20GetAccount&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec get_account(AWS.Client.t(), Keyword.t()) ::
           {:ok, account(), any()}
@@ -5366,9 +5326,10 @@ defmodule AWS.APIGateway do
 
   ## Parameters:
   * `:api_key` (`t:string` required) The identifier of the ApiKey resource.
+
   ## Keyword parameters:
   * `:include_value` (`t:boolean`) A boolean flag to specify whether (true) or not
-  (false) the result contains the key value.
+    (false) the result contains the key value.
   """
   @spec get_api_key(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, api_key(), any()}
@@ -5419,16 +5380,17 @@ defmodule AWS.APIGateway do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=apigateway%20GetApiKeys&this_doc_guide=API%2520Reference)
 
   ## Parameters:
+
   ## Keyword parameters:
   * `:customer_id` (`t:string`) The identifier of a customer in Amazon Web
-  Services Marketplace or an external system, such as a developer portal.
+    Services Marketplace or an external system, such as a developer portal.
   * `:include_values` (`t:boolean`) A boolean flag to specify whether (true) or
-  not (false) the result contains key values.
+    not (false) the result contains key values.
   * `:limit` (`t:integer`) The maximum number of returned results per page. The
-  default value is 25 and the maximum value is 500.
+    default value is 25 and the maximum value is 500.
   * `:name_query` (`t:string`) The name of queried API keys.
   * `:position` (`t:string`) The current pagination position in the paged result
-  set.
+    set.
   """
   @spec get_api_keys(AWS.Client.t(), Keyword.t()) ::
           {:ok, api_keys(), any()}
@@ -5514,10 +5476,9 @@ defmodule AWS.APIGateway do
 
   ## Parameters:
   * `:authorizer_id` (`t:string` required) The identifier of the Authorizer
-  resource.
+    resource.
   * `:rest_api_id` (`t:string` required) The string identifier of the associated
-  RestApi.
-  ## Keyword parameters:
+    RestApi.
   """
   @spec get_authorizer(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, authorizer(), any()}
@@ -5559,12 +5520,13 @@ defmodule AWS.APIGateway do
 
   ## Parameters:
   * `:rest_api_id` (`t:string` required) The string identifier of the associated
-  RestApi.
+    RestApi.
+
   ## Keyword parameters:
   * `:limit` (`t:integer`) The maximum number of returned results per page. The
-  default value is 25 and the maximum value is 500.
+    default value is 25 and the maximum value is 500.
   * `:position` (`t:string`) The current pagination position in the paged result
-  set.
+    set.
   """
   @spec get_authorizers(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, authorizers(), any()}
@@ -5623,12 +5585,11 @@ defmodule AWS.APIGateway do
 
   ## Parameters:
   * `:base_path` (`t:string` required) The base path name that callers of the API
-  must provide as part of the URL after the domain name. This value must be
-  unique for all of the mappings across a single API. Specify '(none)' if you
-  do not want callers to specify any base path name after the domain name.
+    must provide as part of the URL after the domain name. This value must be
+    unique for all of the mappings across a single API. Specify '(none)' if you
+    do not want callers to specify any base path name after the domain name.
   * `:domain_name` (`t:string` required) The domain name of the BasePathMapping
-  resource to be described.
-  ## Keyword parameters:
+    resource to be described.
   """
   @spec get_base_path_mapping(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, base_path_mapping(), any()}
@@ -5670,12 +5631,13 @@ defmodule AWS.APIGateway do
 
   ## Parameters:
   * `:domain_name` (`t:string` required) The domain name of a BasePathMapping
-  resource.
+    resource.
+
   ## Keyword parameters:
   * `:limit` (`t:integer`) The maximum number of returned results per page. The
-  default value is 25 and the maximum value is 500.
+    default value is 25 and the maximum value is 500.
   * `:position` (`t:string`) The current pagination position in the paged result
-  set.
+    set.
   """
   @spec get_base_path_mappings(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, base_path_mappings(), any()}
@@ -5734,8 +5696,7 @@ defmodule AWS.APIGateway do
 
   ## Parameters:
   * `:client_certificate_id` (`t:string` required) The identifier of the
-  ClientCertificate resource to be described.
-  ## Keyword parameters:
+    ClientCertificate resource to be described.
   """
   @spec get_client_certificate(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, client_certificate(), any()}
@@ -5775,11 +5736,12 @@ defmodule AWS.APIGateway do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=apigateway%20GetClientCertificates&this_doc_guide=API%2520Reference)
 
   ## Parameters:
+
   ## Keyword parameters:
   * `:limit` (`t:integer`) The maximum number of returned results per page. The
-  default value is 25 and the maximum value is 500.
+    default value is 25 and the maximum value is 500.
   * `:position` (`t:string`) The current pagination position in the paged result
-  set.
+    set.
   """
   @spec get_client_certificates(AWS.Client.t(), Keyword.t()) ::
           {:ok, client_certificates(), any()}
@@ -5838,20 +5800,21 @@ defmodule AWS.APIGateway do
 
   ## Parameters:
   * `:deployment_id` (`t:string` required) The identifier of the Deployment
-  resource to get information about.
+    resource to get information about.
   * `:rest_api_id` (`t:string` required) The string identifier of the associated
-  RestApi.
+    RestApi.
+
   ## Keyword parameters:
   * `:embed` (`t:list[com.amazonaws.apigateway#String]`) A query parameter to
-  retrieve the specified embedded resources of the returned Deployment
-  resource in the response. In a REST API call, this embed parameter value is
-  a list of comma-separated strings, as in GET
-  /restapis/{restapi_id}/deployments/{deployment_id}?embed=var1,var2. The SDK
-  and other platform-dependent libraries might use a different format for the
-  list. Currently, this request supports only retrieval of the embedded API
-  summary this way. Hence, the parameter value must be a single-valued list
-  containing only the "apisummary" string. For example, GET
-  /restapis/{restapi_id}/deployments/{deployment_id}?embed=apisummary.
+    retrieve the specified embedded resources of the returned Deployment
+    resource in the response. In a REST API call, this embed parameter value is
+    a list of comma-separated strings, as in GET
+    /restapis/{restapi_id}/deployments/{deployment_id}?embed=var1,var2. The SDK
+    and other platform-dependent libraries might use a different format for the
+    list. Currently, this request supports only retrieval of the embedded API
+    summary this way. Hence, the parameter value must be a single-valued list
+    containing only the "apisummary" string. For example, GET
+    /restapis/{restapi_id}/deployments/{deployment_id}?embed=apisummary.
   """
   @spec get_deployment(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, deployment(), any()}
@@ -5904,12 +5867,13 @@ defmodule AWS.APIGateway do
 
   ## Parameters:
   * `:rest_api_id` (`t:string` required) The string identifier of the associated
-  RestApi.
+    RestApi.
+
   ## Keyword parameters:
   * `:limit` (`t:integer`) The maximum number of returned results per page. The
-  default value is 25 and the maximum value is 500.
+    default value is 25 and the maximum value is 500.
   * `:position` (`t:string`) The current pagination position in the paged result
-  set.
+    set.
   """
   @spec get_deployments(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, deployments(), any()}
@@ -5968,10 +5932,9 @@ defmodule AWS.APIGateway do
 
   ## Parameters:
   * `:documentation_part_id` (`t:string` required) The string identifier of the
-  associated RestApi.
+    associated RestApi.
   * `:rest_api_id` (`t:string` required) The string identifier of the associated
-  RestApi.
-  ## Keyword parameters:
+    RestApi.
   """
   @spec get_documentation_part(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, documentation_part(), any()}
@@ -6018,23 +5981,24 @@ defmodule AWS.APIGateway do
 
   ## Parameters:
   * `:rest_api_id` (`t:string` required) The string identifier of the associated
-  RestApi.
+    RestApi.
+
   ## Keyword parameters:
   * `:limit` (`t:integer`) The maximum number of returned results per page. The
-  default value is 25 and the maximum value is 500.
+    default value is 25 and the maximum value is 500.
   * `:location_status` (`t:enum["DOCUMENTED|UNDOCUMENTED"]`) The status of the API
-  documentation parts to retrieve. Valid values are DOCUMENTED for retrieving
-  DocumentationPart resources with content and UNDOCUMENTED for
-  DocumentationPart resources without content.
+    documentation parts to retrieve. Valid values are DOCUMENTED for retrieving
+    DocumentationPart resources with content and UNDOCUMENTED for
+    DocumentationPart resources without content.
   * `:name_query` (`t:string`) The name of API entities of the to-be-retrieved
-  documentation parts.
+    documentation parts.
   * `:path` (`t:string`) The path of API entities of the to-be-retrieved
-  documentation parts.
+    documentation parts.
   * `:position` (`t:string`) The current pagination position in the paged result
-  set.
+    set.
   * `:type`
-  (`t:enum["API|AUTHORIZER|METHOD|MODEL|PATH_PARAMETER|QUERY_PARAMETER|REQUEST_BODY|REQUEST_HEADER|RESOURCE|RESPONSE|RESPONSE_BODY|RESPONSE_HEADER"]`)
-  The type of API entities of the to-be-retrieved documentation parts.
+    (`t:enum["API|AUTHORIZER|METHOD|MODEL|PATH_PARAMETER|QUERY_PARAMETER|REQUEST_BODY|REQUEST_HEADER|RESOURCE|RESPONSE|RESPONSE_BODY|RESPONSE_HEADER"]`)
+    The type of API entities of the to-be-retrieved documentation parts.
   """
   @spec get_documentation_parts(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, documentation_parts(), any()}
@@ -6128,10 +6092,9 @@ defmodule AWS.APIGateway do
 
   ## Parameters:
   * `:documentation_version` (`t:string` required) The version identifier of the
-  to-be-retrieved documentation snapshot.
+    to-be-retrieved documentation snapshot.
   * `:rest_api_id` (`t:string` required) The string identifier of the associated
-  RestApi.
-  ## Keyword parameters:
+    RestApi.
   """
   @spec get_documentation_version(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, documentation_version(), any()}
@@ -6178,12 +6141,13 @@ defmodule AWS.APIGateway do
 
   ## Parameters:
   * `:rest_api_id` (`t:string` required) The string identifier of the associated
-  RestApi.
+    RestApi.
+
   ## Keyword parameters:
   * `:limit` (`t:integer`) The maximum number of returned results per page. The
-  default value is 25 and the maximum value is 500.
+    default value is 25 and the maximum value is 500.
   * `:position` (`t:string`) The current pagination position in the paged result
-  set.
+    set.
   """
   @spec get_documentation_versions(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, documentation_versions(), any()}
@@ -6243,7 +6207,6 @@ defmodule AWS.APIGateway do
 
   ## Parameters:
   * `:domain_name` (`t:string` required) The name of the DomainName resource.
-  ## Keyword parameters:
   """
   @spec get_domain_name(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, domain_name(), any()}
@@ -6283,11 +6246,12 @@ defmodule AWS.APIGateway do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=apigateway%20GetDomainNames&this_doc_guide=API%2520Reference)
 
   ## Parameters:
+
   ## Keyword parameters:
   * `:limit` (`t:integer`) The maximum number of returned results per page. The
-  default value is 25 and the maximum value is 500.
+    default value is 25 and the maximum value is 500.
   * `:position` (`t:string`) The current pagination position in the paged result
-  set.
+    set.
   """
   @spec get_domain_names(AWS.Client.t(), Keyword.t()) ::
           {:ok, domain_names(), any()}
@@ -6346,24 +6310,25 @@ defmodule AWS.APIGateway do
 
   ## Parameters:
   * `:export_type` (`t:string` required) The type of export. Acceptable values are
-  'oas30' for OpenAPI 3.0.x and 'swagger' for Swagger/OpenAPI 2.0.
+    'oas30' for OpenAPI 3.0.x and 'swagger' for Swagger/OpenAPI 2.0.
   * `:rest_api_id` (`t:string` required) The string identifier of the associated
-  RestApi.
+    RestApi.
   * `:stage_name` (`t:string` required) The name of the Stage that will be
-  exported.
+    exported.
+
   ## Keyword parameters:
   * `:parameters` (`t:map`) A key-value map of query string parameters that
-  specify properties of the export, depending on the requested exportType. For
-  exportType oas30 and swagger, any combination of the following parameters
-  are supported: extensions='integrations' or extensions='apigateway' will
-  export the API with x-amazon-apigateway-integration extensions.
-  extensions='authorizers' will export the API with
-  x-amazon-apigateway-authorizer extensions. postman will export the API with
-  Postman extensions, allowing for import to the Postman tool
+    specify properties of the export, depending on the requested exportType. For
+    exportType oas30 and swagger, any combination of the following parameters
+    are supported: extensions='integrations' or extensions='apigateway' will
+    export the API with x-amazon-apigateway-integration extensions.
+    extensions='authorizers' will export the API with
+    x-amazon-apigateway-authorizer extensions. postman will export the API with
+    Postman extensions, allowing for import to the Postman tool
   * `:accepts` (`t:string`) The content-type of the export, for example
-  application/json. Currently application/json and application/yaml are
-  supported for exportType ofoas30 and swagger. This should be specified in
-  the Accept header for direct API requests.
+    application/json. Currently application/json and application/yaml are
+    supported for exportType ofoas30 and swagger. This should be specified in
+    the Accept header for direct API requests.
   """
   @spec get_export(AWS.Client.t(), String.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, export_response(), any()}
@@ -6429,11 +6394,10 @@ defmodule AWS.APIGateway do
 
   ## Parameters:
   * `:response_type`
-  (`t:enum["ACCESS_DENIED|API_CONFIGURATION_ERROR|AUTHORIZER_CONFIGURATION_ERROR|AUTHORIZER_FAILURE|BAD_REQUEST_BODY|BAD_REQUEST_PARAMETERS|DEFAULT_4XX|DEFAULT_5XX|EXPIRED_TOKEN|INTEGRATION_FAILURE|INTEGRATION_TIMEOUT|INVALID_API_KEY|INVALID_SIGNATURE|MISSING_AUTHENTICATION_TOKEN|QUOTA_EXCEEDED|REQUEST_TOO_LARGE|RESOURCE_NOT_FOUND|THROTTLED|UNAUTHORIZED|UNSUPPORTED_MEDIA_TYPE|WAF_FILTERED"]`
-  required) The response type of the associated GatewayResponse.
+    (`t:enum["ACCESS_DENIED|API_CONFIGURATION_ERROR|AUTHORIZER_CONFIGURATION_ERROR|AUTHORIZER_FAILURE|BAD_REQUEST_BODY|BAD_REQUEST_PARAMETERS|DEFAULT_4XX|DEFAULT_5XX|EXPIRED_TOKEN|INTEGRATION_FAILURE|INTEGRATION_TIMEOUT|INVALID_API_KEY|INVALID_SIGNATURE|MISSING_AUTHENTICATION_TOKEN|QUOTA_EXCEEDED|REQUEST_TOO_LARGE|RESOURCE_NOT_FOUND|THROTTLED|UNAUTHORIZED|UNSUPPORTED_MEDIA_TYPE|WAF_FILTERED"]`
+    required) The response type of the associated GatewayResponse.
   * `:rest_api_id` (`t:string` required) The string identifier of the associated
-  RestApi.
-  ## Keyword parameters:
+    RestApi.
   """
   @spec get_gateway_response(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, gateway_response(), any()}
@@ -6478,14 +6442,15 @@ defmodule AWS.APIGateway do
 
   ## Parameters:
   * `:rest_api_id` (`t:string` required) The string identifier of the associated
-  RestApi.
+    RestApi.
+
   ## Keyword parameters:
   * `:limit` (`t:integer`) The maximum number of returned results per page. The
-  default value is 25 and the maximum value is 500. The GatewayResponses
-  collection does not support pagination and the limit does not apply here.
+    default value is 25 and the maximum value is 500. The GatewayResponses
+    collection does not support pagination and the limit does not apply here.
   * `:position` (`t:string`) The current pagination position in the paged result
-  set. The GatewayResponse collection does not support pagination and the
-  position does not apply here.
+    set. The GatewayResponse collection does not support pagination and the
+    position does not apply here.
   """
   @spec get_gateway_responses(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, gateway_responses(), any()}
@@ -6544,12 +6509,11 @@ defmodule AWS.APIGateway do
 
   ## Parameters:
   * `:http_method` (`t:string` required) Specifies a get integration request's
-  HTTP method.
+    HTTP method.
   * `:resource_id` (`t:string` required) Specifies a get integration request's
-  resource identifier
+    resource identifier
   * `:rest_api_id` (`t:string` required) The string identifier of the associated
-  RestApi.
-  ## Keyword parameters:
+    RestApi.
   """
   @spec get_integration(AWS.Client.t(), String.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, integration(), any()}
@@ -6591,14 +6555,13 @@ defmodule AWS.APIGateway do
 
   ## Parameters:
   * `:http_method` (`t:string` required) Specifies a get integration response
-  request's HTTP method.
+    request's HTTP method.
   * `:resource_id` (`t:string` required) Specifies a get integration response
-  request's resource identifier.
+    request's resource identifier.
   * `:rest_api_id` (`t:string` required) The string identifier of the associated
-  RestApi.
+    RestApi.
   * `:status_code` (`t:string` required) Specifies a get integration response
-  request's status code.
-  ## Keyword parameters:
+    request's status code.
   """
   @spec get_integration_response(
           AWS.Client.t(),
@@ -6654,12 +6617,11 @@ defmodule AWS.APIGateway do
 
   ## Parameters:
   * `:http_method` (`t:string` required) Specifies the method request's HTTP
-  method type.
+    method type.
   * `:resource_id` (`t:string` required) The Resource identifier for the Method
-  resource.
+    resource.
   * `:rest_api_id` (`t:string` required) The string identifier of the associated
-  RestApi.
-  ## Keyword parameters:
+    RestApi.
   """
   @spec get_method(AWS.Client.t(), String.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, method(), any()}
@@ -6702,12 +6664,11 @@ defmodule AWS.APIGateway do
   ## Parameters:
   * `:http_method` (`t:string` required) The HTTP verb of the Method resource.
   * `:resource_id` (`t:string` required) The Resource identifier for the
-  MethodResponse resource.
+    MethodResponse resource.
   * `:rest_api_id` (`t:string` required) The string identifier of the associated
-  RestApi.
+    RestApi.
   * `:status_code` (`t:string` required) The status code for the MethodResponse
-  resource.
-  ## Keyword parameters:
+    resource.
   """
   @spec get_method_response(
           AWS.Client.t(),
@@ -6764,11 +6725,12 @@ defmodule AWS.APIGateway do
   ## Parameters:
   * `:model_name` (`t:string` required) The name of the model as an identifier.
   * `:rest_api_id` (`t:string` required) The RestApi identifier under which the
-  Model exists.
+    Model exists.
+
   ## Keyword parameters:
   * `:flatten` (`t:boolean`) A query parameter of a Boolean value to resolve
-  (true) all external model references and returns a flattened model schema or
-  not (false) The default is false.
+    (true) all external model references and returns a flattened model schema or
+    not (false) The default is false.
   """
   @spec get_model(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, model(), any()}
@@ -6822,10 +6784,9 @@ defmodule AWS.APIGateway do
 
   ## Parameters:
   * `:model_name` (`t:string` required) The name of the model for which to
-  generate a template.
+    generate a template.
   * `:rest_api_id` (`t:string` required) The string identifier of the associated
-  RestApi.
-  ## Keyword parameters:
+    RestApi.
   """
   @spec get_model_template(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, template(), any()}
@@ -6867,12 +6828,13 @@ defmodule AWS.APIGateway do
 
   ## Parameters:
   * `:rest_api_id` (`t:string` required) The string identifier of the associated
-  RestApi.
+    RestApi.
+
   ## Keyword parameters:
   * `:limit` (`t:integer`) The maximum number of returned results per page. The
-  default value is 25 and the maximum value is 500.
+    default value is 25 and the maximum value is 500.
   * `:position` (`t:string`) The current pagination position in the paged result
-  set.
+    set.
   """
   @spec get_models(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, models(), any()}
@@ -6931,10 +6893,9 @@ defmodule AWS.APIGateway do
 
   ## Parameters:
   * `:request_validator_id` (`t:string` required) The identifier of the
-  RequestValidator to be retrieved.
+    RequestValidator to be retrieved.
   * `:rest_api_id` (`t:string` required) The string identifier of the associated
-  RestApi.
-  ## Keyword parameters:
+    RestApi.
   """
   @spec get_request_validator(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, request_validator(), any()}
@@ -6976,12 +6937,13 @@ defmodule AWS.APIGateway do
 
   ## Parameters:
   * `:rest_api_id` (`t:string` required) The string identifier of the associated
-  RestApi.
+    RestApi.
+
   ## Keyword parameters:
   * `:limit` (`t:integer`) The maximum number of returned results per page. The
-  default value is 25 and the maximum value is 500.
+    default value is 25 and the maximum value is 500.
   * `:position` (`t:string`) The current pagination position in the paged result
-  set.
+    set.
   """
   @spec get_request_validators(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, request_validators(), any()}
@@ -7041,15 +7003,16 @@ defmodule AWS.APIGateway do
   ## Parameters:
   * `:resource_id` (`t:string` required) The identifier for the Resource resource.
   * `:rest_api_id` (`t:string` required) The string identifier of the associated
-  RestApi.
+    RestApi.
+
   ## Keyword parameters:
   * `:embed` (`t:list[com.amazonaws.apigateway#String]`) A query parameter to
-  retrieve the specified resources embedded in the returned Resource
-  representation in the response. This embed parameter value is a list of
-  comma-separated strings. Currently, the request supports only retrieval of
-  the embedded Method resources this way. The query parameter value must be a
-  single-valued list and contain the "methods" string. For example, GET
-  /restapis/{restapi_id}/resources/{resource_id}?embed=methods.
+    retrieve the specified resources embedded in the returned Resource
+    representation in the response. This embed parameter value is a list of
+    comma-separated strings. Currently, the request supports only retrieval of
+    the embedded Method resources this way. The query parameter value must be a
+    single-valued list and contain the "methods" string. For example, GET
+    /restapis/{restapi_id}/resources/{resource_id}?embed=methods.
   """
   @spec get_resource(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, resource(), any()}
@@ -7102,19 +7065,20 @@ defmodule AWS.APIGateway do
 
   ## Parameters:
   * `:rest_api_id` (`t:string` required) The string identifier of the associated
-  RestApi.
+    RestApi.
+
   ## Keyword parameters:
   * `:embed` (`t:list[com.amazonaws.apigateway#String]`) A query parameter used to
-  retrieve the specified resources embedded in the returned Resources resource
-  in the response. This embed parameter value is a list of comma-separated
-  strings. Currently, the request supports only retrieval of the embedded
-  Method resources this way. The query parameter value must be a single-valued
-  list and contain the "methods" string. For example, GET
-  /restapis/{restapi_id}/resources?embed=methods.
+    retrieve the specified resources embedded in the returned Resources resource
+    in the response. This embed parameter value is a list of comma-separated
+    strings. Currently, the request supports only retrieval of the embedded
+    Method resources this way. The query parameter value must be a single-valued
+    list and contain the "methods" string. For example, GET
+    /restapis/{restapi_id}/resources?embed=methods.
   * `:limit` (`t:integer`) The maximum number of returned results per page. The
-  default value is 25 and the maximum value is 500.
+    default value is 25 and the maximum value is 500.
   * `:position` (`t:string`) The current pagination position in the paged result
-  set.
+    set.
   """
   @spec get_resources(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, resources(), any()}
@@ -7180,8 +7144,7 @@ defmodule AWS.APIGateway do
 
   ## Parameters:
   * `:rest_api_id` (`t:string` required) The string identifier of the associated
-  RestApi.
-  ## Keyword parameters:
+    RestApi.
   """
   @spec get_rest_api(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, rest_api(), any()}
@@ -7221,11 +7184,12 @@ defmodule AWS.APIGateway do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=apigateway%20GetRestApis&this_doc_guide=API%2520Reference)
 
   ## Parameters:
+
   ## Keyword parameters:
   * `:limit` (`t:integer`) The maximum number of returned results per page. The
-  default value is 25 and the maximum value is 500.
+    default value is 25 and the maximum value is 500.
   * `:position` (`t:string`) The current pagination position in the paged result
-  set.
+    set.
   """
   @spec get_rest_apis(AWS.Client.t(), Keyword.t()) ::
           {:ok, rest_apis(), any()}
@@ -7284,19 +7248,20 @@ defmodule AWS.APIGateway do
 
   ## Parameters:
   * `:rest_api_id` (`t:string` required) The string identifier of the associated
-  RestApi.
+    RestApi.
   * `:sdk_type` (`t:string` required) The language for the generated SDK.
-  Currently java, javascript, android, objectivec (for iOS), swift (for iOS),
-  and ruby are supported.
+    Currently java, javascript, android, objectivec (for iOS), swift (for iOS),
+    and ruby are supported.
   * `:stage_name` (`t:string` required) The name of the Stage that the SDK will
-  use.
+    use.
+
   ## Keyword parameters:
   * `:parameters` (`t:map`) A string-to-string key-value map of query parameters
-  sdkType-dependent properties of the SDK. For sdkType of objectivec or swift,
-  a parameter named classPrefix is required. For sdkType of android,
-  parameters named groupId, artifactId, artifactVersion, and invokerPackage
-  are required. For sdkType of java, parameters named serviceName and
-  javaPackageName are required.
+    sdkType-dependent properties of the SDK. For sdkType of objectivec or swift,
+    a parameter named classPrefix is required. For sdkType of android,
+    parameters named groupId, artifactId, artifactVersion, and invokerPackage
+    are required. For sdkType of java, parameters named serviceName and
+    javaPackageName are required.
   """
   @spec get_sdk(AWS.Client.t(), String.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, sdk_response(), any()}
@@ -7356,7 +7321,6 @@ defmodule AWS.APIGateway do
 
   ## Parameters:
   * `:id` (`t:string` required) The identifier of the queried SdkType instance.
-  ## Keyword parameters:
   """
   @spec get_sdk_type(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, sdk_type(), any()}
@@ -7396,11 +7360,12 @@ defmodule AWS.APIGateway do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=apigateway%20GetSdkTypes&this_doc_guide=API%2520Reference)
 
   ## Parameters:
+
   ## Keyword parameters:
   * `:limit` (`t:integer`) The maximum number of returned results per page. The
-  default value is 25 and the maximum value is 500.
+    default value is 25 and the maximum value is 500.
   * `:position` (`t:string`) The current pagination position in the paged result
-  set.
+    set.
   """
   @spec get_sdk_types(AWS.Client.t(), Keyword.t()) ::
           {:ok, sdk_types(), any()}
@@ -7459,10 +7424,9 @@ defmodule AWS.APIGateway do
 
   ## Parameters:
   * `:rest_api_id` (`t:string` required) The string identifier of the associated
-  RestApi.
+    RestApi.
   * `:stage_name` (`t:string` required) The name of the Stage resource to get
-  information about.
-  ## Keyword parameters:
+    information about.
   """
   @spec get_stage(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, stage(), any()}
@@ -7504,7 +7468,8 @@ defmodule AWS.APIGateway do
 
   ## Parameters:
   * `:rest_api_id` (`t:string` required) The string identifier of the associated
-  RestApi.
+    RestApi.
+
   ## Keyword parameters:
   * `:deployment_id` (`t:string`) The stages' deployment identifiers.
   """
@@ -7558,13 +7523,14 @@ defmodule AWS.APIGateway do
 
   ## Parameters:
   * `:resource_arn` (`t:string` required) The ARN of a resource that can be
-  tagged.
+    tagged.
+
   ## Keyword parameters:
   * `:limit` (`t:integer`) (Not currently supported) The maximum number of
-  returned results per page. The default value is 25 and the maximum value is
-  500.
+    returned results per page. The default value is 25 and the maximum value is
+    500.
   * `:position` (`t:string`) (Not currently supported) The current pagination
-  position in the paged result set.
+    position in the paged result set.
   """
   @spec get_tags(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, tags(), any()}
@@ -7623,18 +7589,19 @@ defmodule AWS.APIGateway do
 
   ## Parameters:
   * `:usage_plan_id` (`t:string` required) The Id of the usage plan associated
-  with the usage data.
+    with the usage data.
   * `:end_date` (`t:string` required) The ending date (e.g., 2016-12-31) of the
-  usage data.
+    usage data.
   * `:start_date` (`t:string` required) The starting date (e.g., 2016-01-01) of
-  the usage data.
+    the usage data.
+
   ## Keyword parameters:
   * `:key_id` (`t:string`) The Id of the API key associated with the resultant
-  usage data.
+    usage data.
   * `:limit` (`t:integer`) The maximum number of returned results per page. The
-  default value is 25 and the maximum value is 500.
+    default value is 25 and the maximum value is 500.
   * `:position` (`t:string`) The current pagination position in the paged result
-  set.
+    set.
   """
   @spec get_usage(AWS.Client.t(), String.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, usage(), any()}
@@ -7701,8 +7668,7 @@ defmodule AWS.APIGateway do
 
   ## Parameters:
   * `:usage_plan_id` (`t:string` required) The identifier of the UsagePlan
-  resource to be retrieved.
-  ## Keyword parameters:
+    resource to be retrieved.
   """
   @spec get_usage_plan(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, usage_plan(), any()}
@@ -7743,11 +7709,10 @@ defmodule AWS.APIGateway do
 
   ## Parameters:
   * `:key_id` (`t:string` required) The key Id of the to-be-retrieved UsagePlanKey
-  resource representing a plan customer.
+    resource representing a plan customer.
   * `:usage_plan_id` (`t:string` required) The Id of the UsagePlan resource
-  representing the usage plan containing the to-be-retrieved UsagePlanKey
-  resource representing a plan customer.
-  ## Keyword parameters:
+    representing the usage plan containing the to-be-retrieved UsagePlanKey
+    resource representing a plan customer.
   """
   @spec get_usage_plan_key(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, usage_plan_key(), any()}
@@ -7790,15 +7755,16 @@ defmodule AWS.APIGateway do
 
   ## Parameters:
   * `:usage_plan_id` (`t:string` required) The Id of the UsagePlan resource
-  representing the usage plan containing the to-be-retrieved UsagePlanKey
-  resource representing a plan customer.
+    representing the usage plan containing the to-be-retrieved UsagePlanKey
+    resource representing a plan customer.
+
   ## Keyword parameters:
   * `:limit` (`t:integer`) The maximum number of returned results per page. The
-  default value is 25 and the maximum value is 500.
+    default value is 25 and the maximum value is 500.
   * `:name_query` (`t:string`) A query parameter specifying the name of the
-  to-be-returned usage plan keys.
+    to-be-returned usage plan keys.
   * `:position` (`t:string`) The current pagination position in the paged result
-  set.
+    set.
   """
   @spec get_usage_plan_keys(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, usage_plan_keys(), any()}
@@ -7863,13 +7829,14 @@ defmodule AWS.APIGateway do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=apigateway%20GetUsagePlans&this_doc_guide=API%2520Reference)
 
   ## Parameters:
+
   ## Keyword parameters:
   * `:key_id` (`t:string`) The identifier of the API key associated with the usage
-  plans.
+    plans.
   * `:limit` (`t:integer`) The maximum number of returned results per page. The
-  default value is 25 and the maximum value is 500.
+    default value is 25 and the maximum value is 500.
   * `:position` (`t:string`) The current pagination position in the paged result
-  set.
+    set.
   """
   @spec get_usage_plans(AWS.Client.t(), Keyword.t()) ::
           {:ok, usage_plans(), any()}
@@ -7935,8 +7902,7 @@ defmodule AWS.APIGateway do
 
   ## Parameters:
   * `:vpc_link_id` (`t:string` required) The identifier of the VpcLink. It is used
-  in an Integration to reference this VpcLink.
-  ## Keyword parameters:
+    in an Integration to reference this VpcLink.
   """
   @spec get_vpc_link(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, vpc_link(), any()}
@@ -7976,11 +7942,12 @@ defmodule AWS.APIGateway do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=apigateway%20GetVpcLinks&this_doc_guide=API%2520Reference)
 
   ## Parameters:
+
   ## Keyword parameters:
   * `:limit` (`t:integer`) The maximum number of returned results per page. The
-  default value is 25 and the maximum value is 500.
+    default value is 25 and the maximum value is 500.
   * `:position` (`t:string`) The current pagination position in the paged result
-  set.
+    set.
   """
   @spec get_vpc_links(AWS.Client.t(), Keyword.t()) ::
           {:ok, vpc_links(), any()}
@@ -8039,13 +8006,14 @@ defmodule AWS.APIGateway do
 
   ## Parameters:
   * `:format` (`t:enum["csv"]` required) A query parameter to specify the input
-  format to imported API keys. Currently, only the csv format is supported.
+    format to imported API keys. Currently, only the csv format is supported.
   * `:input` (`t:map`):
-    * `:body` (`t:blob` required) The payload of the POST request to import API
-  keys. For the payload format, see API Key File Format.
+    * `"body" => t:blob` (required) The payload of the POST request to import API
+    keys. For the payload format, see API Key File Format.
+
   ## Keyword parameters:
   * `:fail_on_warnings` (`t:boolean`) A query parameter to indicate whether to
-  rollback ApiKey importation (true) or not (false) when error is encountered.
+    rollback ApiKey importation (true) or not (false) when error is encountered.
   """
   @spec import_api_keys(AWS.Client.t(), String.t(), input :: map(), Keyword.t()) ::
           {:ok, api_key_ids(), any()}
@@ -8100,18 +8068,19 @@ defmodule AWS.APIGateway do
 
   ## Parameters:
   * `:rest_api_id` (`t:string` required) The string identifier of the associated
-  RestApi.
+    RestApi.
   * `:input` (`t:map`):
-    * `:body` (`t:blob` required) Raw byte array representing the to-be-imported
-  documentation parts. To import from an OpenAPI file, this is a JSON object.
+    * `"body" => t:blob` (required) Raw byte array representing the to-be-imported
+    documentation parts. To import from an OpenAPI file, this is a JSON object.
+
   ## Keyword parameters:
   * `:fail_on_warnings` (`t:boolean`) A query parameter to specify whether to
-  rollback the documentation importation (true) or not (false) when a warning
-  is encountered. The default value is false.
+    rollback the documentation importation (true) or not (false) when a warning
+    is encountered. The default value is false.
   * `:mode` (`t:enum["Merge|Overwrite"]`) A query parameter to indicate whether to
-  overwrite (overwrite) any existing DocumentationParts definition or to merge
-  (merge) the new definition into the existing one. The default value is
-  merge.
+    overwrite (overwrite) any existing DocumentationParts definition or to merge
+    (merge) the new definition into the existing one. The default value is
+    merge.
   """
   @spec import_documentation_parts(AWS.Client.t(), String.t(), input :: map(), Keyword.t()) ::
           {:ok, documentation_part_ids(), any()}
@@ -8174,17 +8143,18 @@ defmodule AWS.APIGateway do
 
   ## Parameters:
   * `:input` (`t:map`):
-    * `:body` (`t:blob` required) The POST request body containing external API
-  definitions. Currently, only OpenAPI definition JSON/YAML files are
-  supported. The maximum size of the API definition file is 6MB.
+    * `"body" => t:blob` (required) The POST request body containing external API
+    definitions. Currently, only OpenAPI definition JSON/YAML files are
+    supported. The maximum size of the API definition file is 6MB.
+
   ## Keyword parameters:
   * `:parameters` (`t:map`) A key-value map of context-specific query string
-  parameters specifying the behavior of different API importing operations.
-  The following shows operation-specific parameters and their supported
-  values.
+    parameters specifying the behavior of different API importing operations.
+    The following shows operation-specific parameters and their supported
+    values.
   * `:fail_on_warnings` (`t:boolean`) A query parameter to indicate whether to
-  rollback the API creation (true) or not (false) when a warning is
-  encountered. The default value is false.
+    rollback the API creation (true) or not (false) when a warning is
+    encountered. The default value is false.
   """
   @spec import_rest_api(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, rest_api(), any()}
@@ -8246,11 +8216,10 @@ defmodule AWS.APIGateway do
 
   ## Parameters:
   * `:response_type`
-  (`t:enum["ACCESS_DENIED|API_CONFIGURATION_ERROR|AUTHORIZER_CONFIGURATION_ERROR|AUTHORIZER_FAILURE|BAD_REQUEST_BODY|BAD_REQUEST_PARAMETERS|DEFAULT_4XX|DEFAULT_5XX|EXPIRED_TOKEN|INTEGRATION_FAILURE|INTEGRATION_TIMEOUT|INVALID_API_KEY|INVALID_SIGNATURE|MISSING_AUTHENTICATION_TOKEN|QUOTA_EXCEEDED|REQUEST_TOO_LARGE|RESOURCE_NOT_FOUND|THROTTLED|UNAUTHORIZED|UNSUPPORTED_MEDIA_TYPE|WAF_FILTERED"]`
-  required) The response type of the associated GatewayResponse
+    (`t:enum["ACCESS_DENIED|API_CONFIGURATION_ERROR|AUTHORIZER_CONFIGURATION_ERROR|AUTHORIZER_FAILURE|BAD_REQUEST_BODY|BAD_REQUEST_PARAMETERS|DEFAULT_4XX|DEFAULT_5XX|EXPIRED_TOKEN|INTEGRATION_FAILURE|INTEGRATION_TIMEOUT|INVALID_API_KEY|INVALID_SIGNATURE|MISSING_AUTHENTICATION_TOKEN|QUOTA_EXCEEDED|REQUEST_TOO_LARGE|RESOURCE_NOT_FOUND|THROTTLED|UNAUTHORIZED|UNSUPPORTED_MEDIA_TYPE|WAF_FILTERED"]`
+    required) The response type of the associated GatewayResponse
   * `:rest_api_id` (`t:string` required) The string identifier of the associated
-  RestApi.
-  ## Keyword parameters:
+    RestApi.
   """
   @spec put_gateway_response(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, gateway_response(), any()}
@@ -8294,16 +8263,15 @@ defmodule AWS.APIGateway do
 
   ## Parameters:
   * `:http_method` (`t:string` required) Specifies the HTTP method for the
-  integration.
+    integration.
   * `:resource_id` (`t:string` required) Specifies a put integration request's
-  resource ID.
+    resource ID.
   * `:rest_api_id` (`t:string` required) The string identifier of the associated
-  RestApi.
+    RestApi.
   * `:input` (`t:map`):
-    * `:http_method` (`t:string` required) Specifies the HTTP method for the
-  integration.
-    * `:integration_http_method` (`t:string`) The HTTP method for the integration.
-  ## Keyword parameters:
+    * `"requestHttpMethod" => t:string` (required) Specifies the HTTP method for the
+    integration.
+    * `"httpMethod" => t:string` The HTTP method for the integration.
   """
   @spec put_integration(
           AWS.Client.t(),
@@ -8326,7 +8294,7 @@ defmodule AWS.APIGateway do
       )
       when is_map(input) do
     url_path =
-      "/restapis/#{AWS.Util.encode_uri(rest_api_id)}/resources/#{AWS.Util.encode_uri(resource_id)}/methods/#{AWS.Util.encode_uri(http_method)}/integration"
+      "/restapis/#{AWS.Util.encode_uri(rest_api_id)}/resources/#{AWS.Util.encode_uri(resource_id)}/methods/{httpMethod}/integration"
 
     # Validate optional parameters
     optional_params = []
@@ -8362,14 +8330,13 @@ defmodule AWS.APIGateway do
 
   ## Parameters:
   * `:http_method` (`t:string` required) Specifies a put integration response
-  request's HTTP method.
+    request's HTTP method.
   * `:resource_id` (`t:string` required) Specifies a put integration response
-  request's resource identifier.
+    request's resource identifier.
   * `:rest_api_id` (`t:string` required) The string identifier of the associated
-  RestApi.
+    RestApi.
   * `:status_code` (`t:string` required) Specifies the status code that is used to
-  map the integration response to an existing MethodResponse.
-  ## Keyword parameters:
+    map the integration response to an existing MethodResponse.
   """
   @spec put_integration_response(
           AWS.Client.t(),
@@ -8427,12 +8394,11 @@ defmodule AWS.APIGateway do
 
   ## Parameters:
   * `:http_method` (`t:string` required) Specifies the method request's HTTP
-  method type.
+    method type.
   * `:resource_id` (`t:string` required) The Resource identifier for the new
-  Method resource.
+    Method resource.
   * `:rest_api_id` (`t:string` required) The string identifier of the associated
-  RestApi.
-  ## Keyword parameters:
+    RestApi.
   """
   @spec put_method(AWS.Client.t(), String.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, method(), any()}
@@ -8477,11 +8443,10 @@ defmodule AWS.APIGateway do
   ## Parameters:
   * `:http_method` (`t:string` required) The HTTP verb of the Method resource.
   * `:resource_id` (`t:string` required) The Resource identifier for the Method
-  resource.
+    resource.
   * `:rest_api_id` (`t:string` required) The string identifier of the associated
-  RestApi.
+    RestApi.
   * `:status_code` (`t:string` required) The method response's status code.
-  ## Keyword parameters:
   """
   @spec put_method_response(
           AWS.Client.t(),
@@ -8541,23 +8506,24 @@ defmodule AWS.APIGateway do
 
   ## Parameters:
   * `:rest_api_id` (`t:string` required) The string identifier of the associated
-  RestApi.
+    RestApi.
   * `:input` (`t:map`):
-    * `:body` (`t:blob` required) The PUT request body containing external API
-  definitions. Currently, only OpenAPI definition JSON/YAML files are
-  supported. The maximum size of the API definition file is 6MB.
+    * `"body" => t:blob` (required) The PUT request body containing external API
+    definitions. Currently, only OpenAPI definition JSON/YAML files are
+    supported. The maximum size of the API definition file is 6MB.
+
   ## Keyword parameters:
   * `:parameters` (`t:map`) Custom header parameters as part of the request. For
-  example, to exclude DocumentationParts from an imported API, set
-  ignore=documentation as a parameters value, as in the AWS CLI command of aws
-  apigateway import-rest-api --parameters ignore=documentation --body
-  'file:///path/to/imported-api-body.json'.
+    example, to exclude DocumentationParts from an imported API, set
+    ignore=documentation as a parameters value, as in the AWS CLI command of aws
+    apigateway import-rest-api --parameters ignore=documentation --body
+    'file:///path/to/imported-api-body.json'.
   * `:fail_on_warnings` (`t:boolean`) A query parameter to indicate whether to
-  rollback the API update (true) or not (false) when a warning is encountered.
-  The default value is false.
+    rollback the API update (true) or not (false) when a warning is encountered.
+    The default value is false.
   * `:mode` (`t:enum["Merge|Overwrite"]`) The mode query parameter to specify the
-  update mode. Valid values are "merge" and "overwrite". By default, the
-  update mode is "merge".
+    update mode. Valid values are "merge" and "overwrite". By default, the
+    update mode is "merge".
   """
   @spec put_rest_api(AWS.Client.t(), String.t(), input :: map(), Keyword.t()) ::
           {:ok, rest_api(), any()}
@@ -8625,8 +8591,7 @@ defmodule AWS.APIGateway do
 
   ## Parameters:
   * `:resource_arn` (`t:string` required) The ARN of a resource that can be
-  tagged.
-  ## Keyword parameters:
+    tagged.
   """
   @spec tag_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
@@ -8670,10 +8635,9 @@ defmodule AWS.APIGateway do
 
   ## Parameters:
   * `:authorizer_id` (`t:string` required) Specifies a test invoke authorizer
-  request's Authorizer ID.
+    request's Authorizer ID.
   * `:rest_api_id` (`t:string` required) The string identifier of the associated
-  RestApi.
-  ## Keyword parameters:
+    RestApi.
   """
   @spec test_invoke_authorizer(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, test_invoke_authorizer_response(), any()}
@@ -8718,12 +8682,11 @@ defmodule AWS.APIGateway do
 
   ## Parameters:
   * `:http_method` (`t:string` required) Specifies a test invoke method request's
-  HTTP method.
+    HTTP method.
   * `:resource_id` (`t:string` required) Specifies a test invoke method request's
-  resource ID.
+    resource ID.
   * `:rest_api_id` (`t:string` required) The string identifier of the associated
-  RestApi.
-  ## Keyword parameters:
+    RestApi.
   """
   @spec test_invoke_method(AWS.Client.t(), String.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, test_invoke_method_response(), any()}
@@ -8767,10 +8730,9 @@ defmodule AWS.APIGateway do
 
   ## Parameters:
   * `:resource_arn` (`t:string` required) The ARN of a resource that can be
-  tagged.
+    tagged.
   * `:tag_keys` (`t:list[com.amazonaws.apigateway#String]` required) The Tag keys
-  to delete.
-  ## Keyword parameters:
+    to delete.
   """
   @spec untag_resource(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
@@ -8823,7 +8785,6 @@ defmodule AWS.APIGateway do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=apigateway%20UpdateAccount&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec update_account(AWS.Client.t(), Keyword.t()) ::
           {:ok, account(), any()}
@@ -8876,8 +8837,7 @@ defmodule AWS.APIGateway do
 
   ## Parameters:
   * `:api_key` (`t:string` required) The identifier of the ApiKey resource to be
-  updated.
-  ## Keyword parameters:
+    updated.
   """
   @spec update_api_key(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, api_key(), any()}
@@ -8930,10 +8890,9 @@ defmodule AWS.APIGateway do
 
   ## Parameters:
   * `:authorizer_id` (`t:string` required) The identifier of the Authorizer
-  resource.
+    resource.
   * `:rest_api_id` (`t:string` required) The string identifier of the associated
-  RestApi.
-  ## Keyword parameters:
+    RestApi.
   """
   @spec update_authorizer(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, authorizer(), any()}
@@ -8987,10 +8946,9 @@ defmodule AWS.APIGateway do
 
   ## Parameters:
   * `:base_path` (`t:string` required) The base path of the BasePathMapping
-  resource to change.
+    resource to change.
   * `:domain_name` (`t:string` required) The domain name of the BasePathMapping
-  resource to change.
-  ## Keyword parameters:
+    resource to change.
   """
   @spec update_base_path_mapping(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, base_path_mapping(), any()}
@@ -9044,8 +9002,7 @@ defmodule AWS.APIGateway do
 
   ## Parameters:
   * `:client_certificate_id` (`t:string` required) The identifier of the
-  ClientCertificate resource to be updated.
-  ## Keyword parameters:
+    ClientCertificate resource to be updated.
   """
   @spec update_client_certificate(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, client_certificate(), any()}
@@ -9098,10 +9055,9 @@ defmodule AWS.APIGateway do
 
   ## Parameters:
   * `:deployment_id` (`t:string` required) The replacement identifier for the
-  Deployment resource to change information about.
+    Deployment resource to change information about.
   * `:rest_api_id` (`t:string` required) The string identifier of the associated
-  RestApi.
-  ## Keyword parameters:
+    RestApi.
   """
   @spec update_deployment(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, deployment(), any()}
@@ -9155,10 +9111,9 @@ defmodule AWS.APIGateway do
 
   ## Parameters:
   * `:documentation_part_id` (`t:string` required) The identifier of the
-  to-be-updated documentation part.
+    to-be-updated documentation part.
   * `:rest_api_id` (`t:string` required) The string identifier of the associated
-  RestApi.
-  ## Keyword parameters:
+    RestApi.
   """
   @spec update_documentation_part(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, documentation_part(), any()}
@@ -9217,10 +9172,9 @@ defmodule AWS.APIGateway do
 
   ## Parameters:
   * `:documentation_version` (`t:string` required) The version identifier of the
-  to-be-updated documentation version.
+    to-be-updated documentation version.
   * `:rest_api_id` (`t:string` required) The string identifier of the associated
-  RestApi.
-  ## Keyword parameters:
+    RestApi.
   """
   @spec update_documentation_version(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, documentation_version(), any()}
@@ -9279,8 +9233,7 @@ defmodule AWS.APIGateway do
 
   ## Parameters:
   * `:domain_name` (`t:string` required) The name of the DomainName resource to be
-  changed.
-  ## Keyword parameters:
+    changed.
   """
   @spec update_domain_name(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, domain_name(), any()}
@@ -9333,11 +9286,10 @@ defmodule AWS.APIGateway do
 
   ## Parameters:
   * `:response_type`
-  (`t:enum["ACCESS_DENIED|API_CONFIGURATION_ERROR|AUTHORIZER_CONFIGURATION_ERROR|AUTHORIZER_FAILURE|BAD_REQUEST_BODY|BAD_REQUEST_PARAMETERS|DEFAULT_4XX|DEFAULT_5XX|EXPIRED_TOKEN|INTEGRATION_FAILURE|INTEGRATION_TIMEOUT|INVALID_API_KEY|INVALID_SIGNATURE|MISSING_AUTHENTICATION_TOKEN|QUOTA_EXCEEDED|REQUEST_TOO_LARGE|RESOURCE_NOT_FOUND|THROTTLED|UNAUTHORIZED|UNSUPPORTED_MEDIA_TYPE|WAF_FILTERED"]`
-  required) The response type of the associated GatewayResponse.
+    (`t:enum["ACCESS_DENIED|API_CONFIGURATION_ERROR|AUTHORIZER_CONFIGURATION_ERROR|AUTHORIZER_FAILURE|BAD_REQUEST_BODY|BAD_REQUEST_PARAMETERS|DEFAULT_4XX|DEFAULT_5XX|EXPIRED_TOKEN|INTEGRATION_FAILURE|INTEGRATION_TIMEOUT|INVALID_API_KEY|INVALID_SIGNATURE|MISSING_AUTHENTICATION_TOKEN|QUOTA_EXCEEDED|REQUEST_TOO_LARGE|RESOURCE_NOT_FOUND|THROTTLED|UNAUTHORIZED|UNSUPPORTED_MEDIA_TYPE|WAF_FILTERED"]`
+    required) The response type of the associated GatewayResponse.
   * `:rest_api_id` (`t:string` required) The string identifier of the associated
-  RestApi.
-  ## Keyword parameters:
+    RestApi.
   """
   @spec update_gateway_response(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, gateway_response(), any()}
@@ -9391,12 +9343,11 @@ defmodule AWS.APIGateway do
 
   ## Parameters:
   * `:http_method` (`t:string` required) Represents an update integration
-  request's HTTP method.
+    request's HTTP method.
   * `:resource_id` (`t:string` required) Represents an update integration
-  request's resource identifier.
+    request's resource identifier.
   * `:rest_api_id` (`t:string` required) The string identifier of the associated
-  RestApi.
-  ## Keyword parameters:
+    RestApi.
   """
   @spec update_integration(AWS.Client.t(), String.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, integration(), any()}
@@ -9450,14 +9401,13 @@ defmodule AWS.APIGateway do
 
   ## Parameters:
   * `:http_method` (`t:string` required) Specifies an update integration response
-  request's HTTP method.
+    request's HTTP method.
   * `:resource_id` (`t:string` required) Specifies an update integration response
-  request's resource identifier.
+    request's resource identifier.
   * `:rest_api_id` (`t:string` required) The string identifier of the associated
-  RestApi.
+    RestApi.
   * `:status_code` (`t:string` required) Specifies an update integration response
-  request's status code.
-  ## Keyword parameters:
+    request's status code.
   """
   @spec update_integration_response(
           AWS.Client.t(),
@@ -9526,10 +9476,9 @@ defmodule AWS.APIGateway do
   ## Parameters:
   * `:http_method` (`t:string` required) The HTTP verb of the Method resource.
   * `:resource_id` (`t:string` required) The Resource identifier for the Method
-  resource.
+    resource.
   * `:rest_api_id` (`t:string` required) The string identifier of the associated
-  RestApi.
-  ## Keyword parameters:
+    RestApi.
   """
   @spec update_method(AWS.Client.t(), String.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, method(), any()}
@@ -9584,12 +9533,11 @@ defmodule AWS.APIGateway do
   ## Parameters:
   * `:http_method` (`t:string` required) The HTTP verb of the Method resource.
   * `:resource_id` (`t:string` required) The Resource identifier for the
-  MethodResponse resource.
+    MethodResponse resource.
   * `:rest_api_id` (`t:string` required) The string identifier of the associated
-  RestApi.
+    RestApi.
   * `:status_code` (`t:string` required) The status code for the MethodResponse
-  resource.
-  ## Keyword parameters:
+    resource.
   """
   @spec update_method_response(
           AWS.Client.t(),
@@ -9658,8 +9606,7 @@ defmodule AWS.APIGateway do
   ## Parameters:
   * `:model_name` (`t:string` required) The name of the model to update.
   * `:rest_api_id` (`t:string` required) The string identifier of the associated
-  RestApi.
-  ## Keyword parameters:
+    RestApi.
   """
   @spec update_model(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, model(), any()}
@@ -9713,10 +9660,9 @@ defmodule AWS.APIGateway do
 
   ## Parameters:
   * `:request_validator_id` (`t:string` required) The identifier of
-  RequestValidator to be updated.
+    RequestValidator to be updated.
   * `:rest_api_id` (`t:string` required) The string identifier of the associated
-  RestApi.
-  ## Keyword parameters:
+    RestApi.
   """
   @spec update_request_validator(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, request_validator(), any()}
@@ -9776,8 +9722,7 @@ defmodule AWS.APIGateway do
   ## Parameters:
   * `:resource_id` (`t:string` required) The identifier of the Resource resource.
   * `:rest_api_id` (`t:string` required) The string identifier of the associated
-  RestApi.
-  ## Keyword parameters:
+    RestApi.
   """
   @spec update_resource(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, resource(), any()}
@@ -9831,8 +9776,7 @@ defmodule AWS.APIGateway do
 
   ## Parameters:
   * `:rest_api_id` (`t:string` required) The string identifier of the associated
-  RestApi.
-  ## Keyword parameters:
+    RestApi.
   """
   @spec update_rest_api(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, rest_api(), any()}
@@ -9885,10 +9829,9 @@ defmodule AWS.APIGateway do
 
   ## Parameters:
   * `:rest_api_id` (`t:string` required) The string identifier of the associated
-  RestApi.
+    RestApi.
   * `:stage_name` (`t:string` required) The name of the Stage resource to change
-  information about.
-  ## Keyword parameters:
+    information about.
   """
   @spec update_stage(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, stage(), any()}
@@ -9943,11 +9886,10 @@ defmodule AWS.APIGateway do
 
   ## Parameters:
   * `:key_id` (`t:string` required) The identifier of the API key associated with
-  the usage plan in which a temporary extension is granted to the remaining
-  quota.
+    the usage plan in which a temporary extension is granted to the remaining
+    quota.
   * `:usage_plan_id` (`t:string` required) The Id of the usage plan associated
-  with the usage data.
-  ## Keyword parameters:
+    with the usage data.
   """
   @spec update_usage(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, usage(), any()}
@@ -10001,7 +9943,6 @@ defmodule AWS.APIGateway do
 
   ## Parameters:
   * `:usage_plan_id` (`t:string` required) The Id of the to-be-updated usage plan.
-  ## Keyword parameters:
   """
   @spec update_usage_plan(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, usage_plan(), any()}
@@ -10054,8 +9995,7 @@ defmodule AWS.APIGateway do
 
   ## Parameters:
   * `:vpc_link_id` (`t:string` required) The identifier of the VpcLink. It is used
-  in an Integration to reference this VpcLink.
-  ## Keyword parameters:
+    in an Integration to reference this VpcLink.
   """
   @spec update_vpc_link(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, vpc_link(), any()}

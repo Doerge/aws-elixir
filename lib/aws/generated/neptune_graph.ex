@@ -1270,8 +1270,7 @@ defmodule AWS.NeptuneGraph do
 
   ## Parameters:
   * `:task_identifier` (`t:string` required) The unique identifier of the import
-  task.
-  ## Keyword parameters:
+    task.
   """
   @spec cancel_import_task(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, cancel_import_task_output(), any()}
@@ -1324,10 +1323,9 @@ defmodule AWS.NeptuneGraph do
 
   ## Parameters:
   * `:query_id` (`t:string` required) The unique identifier of the query to
-  cancel.
+    cancel.
   * `:graph_identifier` (`t:string` required) The unique identifier of the Neptune
-  Analytics graph.
-  ## Keyword parameters:
+    Analytics graph.
   """
   @spec cancel_query(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
@@ -1380,7 +1378,6 @@ defmodule AWS.NeptuneGraph do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=neptunegraph%20CreateGraph&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec create_graph(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_graph_output(), any()}
@@ -1422,7 +1419,6 @@ defmodule AWS.NeptuneGraph do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=neptunegraph%20CreateGraphSnapshot&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec create_graph_snapshot(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_graph_snapshot_output(), any()}
@@ -1466,7 +1462,6 @@ defmodule AWS.NeptuneGraph do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=neptunegraph%20CreateGraphUsingImportTask&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec create_graph_using_import_task(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_graph_using_import_task_output(), any()}
@@ -1510,8 +1505,7 @@ defmodule AWS.NeptuneGraph do
 
   ## Parameters:
   * `:graph_identifier` (`t:string` required) The unique identifier of the Neptune
-  Analytics graph.
-  ## Keyword parameters:
+    Analytics graph.
   """
   @spec create_private_graph_endpoint(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, create_private_graph_endpoint_output(), any()}
@@ -1555,12 +1549,11 @@ defmodule AWS.NeptuneGraph do
 
   ## Parameters:
   * `:graph_identifier` (`t:string` required) The unique identifier of the Neptune
-  Analytics graph.
+    Analytics graph.
   * `:skip_snapshot` (`t:string` required) Determines whether a final graph
-  snapshot is created before the graph is deleted. If true is specified, no
-  graph snapshot is created. If false is specified, a graph snapshot is
-  created before the graph is deleted.
-  ## Keyword parameters:
+    snapshot is created before the graph is deleted. If true is specified, no
+    graph snapshot is created. If false is specified, a graph snapshot is
+    created before the graph is deleted.
   """
   @spec delete_graph(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, delete_graph_output(), any()}
@@ -1614,8 +1607,7 @@ defmodule AWS.NeptuneGraph do
 
   ## Parameters:
   * `:snapshot_identifier` (`t:string` required) ID of the graph snapshot to be
-  deleted.
-  ## Keyword parameters:
+    deleted.
   """
   @spec delete_graph_snapshot(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, delete_graph_snapshot_output(), any()}
@@ -1668,10 +1660,9 @@ defmodule AWS.NeptuneGraph do
 
   ## Parameters:
   * `:graph_identifier` (`t:string` required) The unique identifier of the Neptune
-  Analytics graph.
+    Analytics graph.
   * `:vpc_id` (`t:string` required) The ID of the VPC where the private endpoint
-  is located.
-  ## Keyword parameters:
+    is located.
   """
   @spec delete_private_graph_endpoint(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, delete_private_graph_endpoint_output(), any()}
@@ -1728,14 +1719,13 @@ defmodule AWS.NeptuneGraph do
 
   ## Parameters:
   * `:graph_identifier` (`t:string` required) The unique identifier of the Neptune
-  Analytics graph.
+    Analytics graph.
   * `:input` (`t:map`):
-    * `:query_string` (`t:string` required) The query string to be executed.
-    * `:explain_mode` (`t:enum["DETAILS|STATIC"]`) The explain mode parameter
-  returns a query explain instead of the actual query results. A query explain
-  can be used to gather insights about the query execution such as planning
-  decisions, time spent on each operator, solutions flowing etc.
-  ## Keyword parameters:
+    * `"query" => t:string` (required) The query string to be executed.
+    * `"explain" => t:enum["DETAILS|STATIC"]` The explain mode parameter returns a
+    query explain instead of the actual query results. A query explain can be
+    used to gather insights about the query execution such as planning
+    decisions, time spent on each operator, solutions flowing etc.
   """
   @spec execute_query(AWS.Client.t(), String.t(), input :: map(), Keyword.t()) ::
           {:ok, execute_query_output(), any()}
@@ -1779,8 +1769,7 @@ defmodule AWS.NeptuneGraph do
 
   ## Parameters:
   * `:graph_identifier` (`t:string` required) The unique identifier of the Neptune
-  Analytics graph.
-  ## Keyword parameters:
+    Analytics graph.
   """
   @spec get_graph(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_graph_output(), any()}
@@ -1821,8 +1810,7 @@ defmodule AWS.NeptuneGraph do
 
   ## Parameters:
   * `:snapshot_identifier` (`t:string` required) The ID of the snapshot to
-  retrieve.
-  ## Keyword parameters:
+    retrieve.
   """
   @spec get_graph_snapshot(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_graph_snapshot_output(), any()}
@@ -1863,10 +1851,11 @@ defmodule AWS.NeptuneGraph do
 
   ## Parameters:
   * `:graph_identifier` (`t:string` required) The unique identifier of the Neptune
-  Analytics graph.
+    Analytics graph.
+
   ## Keyword parameters:
   * `:mode` (`t:enum["BASIC|DETAILED"]`) The summary mode can take one of two
-  values: basic (the default), and detailed.
+    values: basic (the default), and detailed.
   """
   @spec get_graph_summary(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_graph_summary_output(), any()}
@@ -1919,8 +1908,7 @@ defmodule AWS.NeptuneGraph do
 
   ## Parameters:
   * `:task_identifier` (`t:string` required) The unique identifier of the import
-  task.
-  ## Keyword parameters:
+    task.
   """
   @spec get_import_task(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_import_task_output(), any()}
@@ -1961,10 +1949,9 @@ defmodule AWS.NeptuneGraph do
 
   ## Parameters:
   * `:graph_identifier` (`t:string` required) The unique identifier of the Neptune
-  Analytics graph.
+    Analytics graph.
   * `:vpc_id` (`t:string` required) The ID of the VPC where the private endpoint
-  is located.
-  ## Keyword parameters:
+    is located.
   """
   @spec get_private_graph_endpoint(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_private_graph_endpoint_output(), any()}
@@ -2007,8 +1994,7 @@ defmodule AWS.NeptuneGraph do
   ## Parameters:
   * `:query_id` (`t:string` required) The ID of the query in question.
   * `:graph_identifier` (`t:string` required) The unique identifier of the Neptune
-  Analytics graph.
-  ## Keyword parameters:
+    Analytics graph.
   """
   @spec get_query(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_query_output(), any()}
@@ -2049,11 +2035,12 @@ defmodule AWS.NeptuneGraph do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=neptunegraph%20ListGraphSnapshots&this_doc_guide=API%2520Reference)
 
   ## Parameters:
+
   ## Keyword parameters:
   * `:graph_identifier` (`t:string`) The unique identifier of the Neptune
-  Analytics graph.
+    Analytics graph.
   * `:max_results` (`t:integer`) The total number of records to return in the
-  command's output.
+    command's output.
   * `:next_token` (`t:string`) Pagination token used to paginate output.
   """
   @spec list_graph_snapshots(AWS.Client.t(), Keyword.t()) ::
@@ -2119,9 +2106,10 @@ defmodule AWS.NeptuneGraph do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=neptunegraph%20ListGraphs&this_doc_guide=API%2520Reference)
 
   ## Parameters:
+
   ## Keyword parameters:
   * `:max_results` (`t:integer`) The total number of records to return in the
-  command's output.
+    command's output.
   * `:next_token` (`t:string`) Pagination token used to paginate output.
   """
   @spec list_graphs(AWS.Client.t(), Keyword.t()) ::
@@ -2180,9 +2168,10 @@ defmodule AWS.NeptuneGraph do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=neptunegraph%20ListImportTasks&this_doc_guide=API%2520Reference)
 
   ## Parameters:
+
   ## Keyword parameters:
   * `:max_results` (`t:integer`) The total number of records to return in the
-  command's output.
+    command's output.
   * `:next_token` (`t:string`) Pagination token used to paginate output.
   """
   @spec list_import_tasks(AWS.Client.t(), Keyword.t()) ::
@@ -2242,10 +2231,11 @@ defmodule AWS.NeptuneGraph do
 
   ## Parameters:
   * `:graph_identifier` (`t:string` required) The unique identifier of the Neptune
-  Analytics graph.
+    Analytics graph.
+
   ## Keyword parameters:
   * `:max_results` (`t:integer`) The total number of records to return in the
-  command's output.
+    command's output.
   * `:next_token` (`t:string`) Pagination token used to paginate output.
   """
   @spec list_private_graph_endpoints(AWS.Client.t(), String.t(), Keyword.t()) ::
@@ -2305,12 +2295,13 @@ defmodule AWS.NeptuneGraph do
 
   ## Parameters:
   * `:max_results` (`t:string` required) The maximum number of results to be
-  fetched by the API.
+    fetched by the API.
   * `:graph_identifier` (`t:string` required) The unique identifier of the Neptune
-  Analytics graph.
+    Analytics graph.
+
   ## Keyword parameters:
   * `:state` (`t:enum["ALL|CANCELLING|RUNNING|WAITING"]`) Filtered list of queries
-  based on state.
+    based on state.
   """
   @spec list_queries(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, list_queries_output(), any()}
@@ -2363,7 +2354,6 @@ defmodule AWS.NeptuneGraph do
 
   ## Parameters:
   * `:resource_arn` (`t:string` required) The ARN of the resource.
-  ## Keyword parameters:
   """
   @spec list_tags_for_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_tags_for_resource_output(), any()}
@@ -2404,7 +2394,6 @@ defmodule AWS.NeptuneGraph do
 
   ## Parameters:
   * `:graph_identifier` (`t:string` required) ID of the graph to reset.
-  ## Keyword parameters:
   """
   @spec reset_graph(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, reset_graph_output(), any()}
@@ -2447,8 +2436,7 @@ defmodule AWS.NeptuneGraph do
 
   ## Parameters:
   * `:snapshot_identifier` (`t:string` required) The ID of the snapshot in
-  question.
-  ## Keyword parameters:
+    question.
   """
   @spec restore_graph_from_snapshot(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, restore_graph_from_snapshot_output(), any()}
@@ -2492,8 +2480,7 @@ defmodule AWS.NeptuneGraph do
 
   ## Parameters:
   * `:graph_identifier` (`t:string` required) The unique identifier of the Neptune
-  Analytics graph.
-  ## Keyword parameters:
+    Analytics graph.
   """
   @spec start_import_task(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, start_import_task_output(), any()}
@@ -2536,8 +2523,7 @@ defmodule AWS.NeptuneGraph do
 
   ## Parameters:
   * `:resource_arn` (`t:string` required) ARN of the resource for which tags need
-  to be added.
-  ## Keyword parameters:
+    to be added.
   """
   @spec tag_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, tag_resource_output(), any()}
@@ -2580,10 +2566,9 @@ defmodule AWS.NeptuneGraph do
 
   ## Parameters:
   * `:resource_arn` (`t:string` required) ARN of the resource whose tag needs to
-  be removed.
+    be removed.
   * `:tag_keys` (`t:list[com.amazonaws.neptunegraph#TagKey]` required) Tag keys
-  for the tags to be removed.
-  ## Keyword parameters:
+    for the tags to be removed.
   """
   @spec untag_resource(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, untag_resource_output(), any()}
@@ -2637,8 +2622,7 @@ defmodule AWS.NeptuneGraph do
 
   ## Parameters:
   * `:graph_identifier` (`t:string` required) The unique identifier of the Neptune
-  Analytics graph.
-  ## Keyword parameters:
+    Analytics graph.
   """
   @spec update_graph(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, update_graph_output(), any()}

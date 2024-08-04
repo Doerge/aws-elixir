@@ -473,7 +473,6 @@ defmodule AWS.KinesisVideoArchivedMedia do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=kinesisvideoarchivedmedia%20GetClip&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec get_clip(AWS.Client.t(), Keyword.t()) ::
           {:ok, get_clip_output(), any()}
@@ -507,13 +506,6 @@ defmodule AWS.KinesisVideoArchivedMedia do
         [{"Content-Type", "ContentType"}]
       )
 
-    options =
-      Keyword.put(
-        options,
-        :response_header_parameters,
-        [{"Content-Type", "ContentType"}]
-      )
-
     meta =
       metadata()
 
@@ -532,7 +524,6 @@ defmodule AWS.KinesisVideoArchivedMedia do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=kinesisvideoarchivedmedia%20GetDASHStreamingSessionURL&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec get_dash_streaming_session_url(AWS.Client.t(), Keyword.t()) ::
           {:ok, get_dash_streaming_session_url_output(), any()}
@@ -577,7 +568,6 @@ defmodule AWS.KinesisVideoArchivedMedia do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=kinesisvideoarchivedmedia%20GetHLSStreamingSessionURL&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec get_hls_streaming_session_url(AWS.Client.t(), Keyword.t()) ::
           {:ok, get_hls_streaming_session_url_output(), any()}
@@ -620,7 +610,6 @@ defmodule AWS.KinesisVideoArchivedMedia do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=kinesisvideoarchivedmedia%20GetImages&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec get_images(AWS.Client.t(), Keyword.t()) ::
           {:ok, get_images_output(), any()}
@@ -668,7 +657,6 @@ defmodule AWS.KinesisVideoArchivedMedia do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=kinesisvideoarchivedmedia%20GetMediaForFragmentList&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec get_media_for_fragment_list(AWS.Client.t(), Keyword.t()) ::
           {:ok, get_media_for_fragment_list_output(), any()}
@@ -702,13 +690,6 @@ defmodule AWS.KinesisVideoArchivedMedia do
         [{"Content-Type", "ContentType"}]
       )
 
-    options =
-      Keyword.put(
-        options,
-        :response_header_parameters,
-        [{"Content-Type", "ContentType"}]
-      )
-
     meta =
       metadata()
 
@@ -728,7 +709,6 @@ defmodule AWS.KinesisVideoArchivedMedia do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=kinesisvideoarchivedmedia%20ListFragments&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec list_fragments(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_fragments_output(), any()}

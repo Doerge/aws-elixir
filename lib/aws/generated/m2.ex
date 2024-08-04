@@ -1750,10 +1750,9 @@ defmodule AWS.M2 do
 
   ## Parameters:
   * `:application_id` (`t:string` required) The unique identifier of the
-  application.
+    application.
   * `:execution_id` (`t:string` required) The unique identifier of the batch job
-  execution.
-  ## Keyword parameters:
+    execution.
   """
   @spec cancel_batch_job_execution(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, cancel_batch_job_execution_response(), any()}
@@ -1797,7 +1796,6 @@ defmodule AWS.M2 do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=m2%20CreateApplication&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec create_application(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_application_response(), any()}
@@ -1840,8 +1838,7 @@ defmodule AWS.M2 do
 
   ## Parameters:
   * `:application_id` (`t:string` required) The unique identifier of the
-  application for which you want to import data sets.
-  ## Keyword parameters:
+    application for which you want to import data sets.
   """
   @spec create_data_set_import_task(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, create_data_set_import_task_response(), any()}
@@ -1885,7 +1882,6 @@ defmodule AWS.M2 do
 
   ## Parameters:
   * `:application_id` (`t:string` required) The application identifier.
-  ## Keyword parameters:
   """
   @spec create_deployment(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, create_deployment_response(), any()}
@@ -1927,7 +1923,6 @@ defmodule AWS.M2 do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=m2%20CreateEnvironment&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec create_environment(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_environment_response(), any()}
@@ -1970,8 +1965,7 @@ defmodule AWS.M2 do
 
   ## Parameters:
   * `:application_id` (`t:string` required) The unique identifier of the
-  application you want to delete.
-  ## Keyword parameters:
+    application you want to delete.
   """
   @spec delete_application(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, delete_application_response(), any()}
@@ -2028,10 +2022,9 @@ defmodule AWS.M2 do
 
   ## Parameters:
   * `:application_id` (`t:string` required) The unique identifier of the
-  application you want to delete.
+    application you want to delete.
   * `:environment_id` (`t:string` required) The unique identifier of the runtime
-  environment where the application was previously deployed.
-  ## Keyword parameters:
+    environment where the application was previously deployed.
   """
   @spec delete_application_from_environment(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, delete_application_from_environment_response(), any()}
@@ -2092,8 +2085,7 @@ defmodule AWS.M2 do
 
   ## Parameters:
   * `:environment_id` (`t:string` required) The unique identifier of the runtime
-  environment you want to delete.
-  ## Keyword parameters:
+    environment you want to delete.
   """
   @spec delete_environment(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, delete_environment_response(), any()}
@@ -2146,7 +2138,6 @@ defmodule AWS.M2 do
 
   ## Parameters:
   * `:application_id` (`t:string` required) The identifier of the application.
-  ## Keyword parameters:
   """
   @spec get_application(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_application_response(), any()}
@@ -2187,10 +2178,9 @@ defmodule AWS.M2 do
 
   ## Parameters:
   * `:application_id` (`t:string` required) The unique identifier of the
-  application.
+    application.
   * `:application_version` (`t:integer` required) The specific version of the
-  application.
-  ## Keyword parameters:
+    application.
   """
   @spec get_application_version(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_application_version_response(), any()}
@@ -2238,8 +2228,7 @@ defmodule AWS.M2 do
   ## Parameters:
   * `:application_id` (`t:string` required) The identifier of the application.
   * `:execution_id` (`t:string` required) The unique identifier of the batch job
-  execution.
-  ## Keyword parameters:
+    execution.
   """
   @spec get_batch_job_execution(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_batch_job_execution_response(), any()}
@@ -2281,9 +2270,8 @@ defmodule AWS.M2 do
 
   ## Parameters:
   * `:application_id` (`t:string` required) The unique identifier of the
-  application that this data set is associated with.
+    application that this data set is associated with.
   * `:data_set_name` (`t:string` required) The name of the data set.
-  ## Keyword parameters:
   """
   @spec get_data_set_details(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_data_set_details_response(), any()}
@@ -2327,8 +2315,7 @@ defmodule AWS.M2 do
   ## Parameters:
   * `:application_id` (`t:string` required) The application identifier.
   * `:task_id` (`t:string` required) The task identifier returned by the
-  CreateDataSetImportTask operation.
-  ## Keyword parameters:
+    CreateDataSetImportTask operation.
   """
   @spec get_data_set_import_task(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_data_set_import_task_response(), any()}
@@ -2370,10 +2357,9 @@ defmodule AWS.M2 do
 
   ## Parameters:
   * `:application_id` (`t:string` required) The unique identifier of the
-  application.
+    application.
   * `:deployment_id` (`t:string` required) The unique identifier for the
-  deployment.
-  ## Keyword parameters:
+    deployment.
   """
   @spec get_deployment(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_deployment_response(), any()}
@@ -2415,8 +2401,7 @@ defmodule AWS.M2 do
 
   ## Parameters:
   * `:environment_id` (`t:string` required) The unique identifier of the runtime
-  environment.
-  ## Keyword parameters:
+    environment.
   """
   @spec get_environment(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_environment_response(), any()}
@@ -2456,7 +2441,6 @@ defmodule AWS.M2 do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=m2%20GetSignedBluinsightsUrl&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec get_signed_bluinsights_url(AWS.Client.t(), Keyword.t()) ::
           {:ok, get_signed_bluinsights_url_response(), any()}
@@ -2497,13 +2481,14 @@ defmodule AWS.M2 do
 
   ## Parameters:
   * `:application_id` (`t:string` required) The unique identifier of the
-  application.
+    application.
+
   ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of application versions to
-  return.
+    return.
   * `:next_token` (`t:string`) A pagination token returned from a previous call to
-  this operation. This specifies the next item to return. To return to the
-  beginning of the list, exclude this parameter.
+    this operation. This specifies the next item to return. To return to the
+    beginning of the list, exclude this parameter.
   """
   @spec list_application_versions(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_application_versions_response(), any()}
@@ -2563,14 +2548,15 @@ defmodule AWS.M2 do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=m2%20ListApplications&this_doc_guide=API%2520Reference)
 
   ## Parameters:
+
   ## Keyword parameters:
   * `:environment_id` (`t:string`) The unique identifier of the runtime
-  environment where the applications are deployed.
+    environment where the applications are deployed.
   * `:max_results` (`t:integer`) The maximum number of applications to return.
   * `:names` (`t:list[com.amazonaws.m2#EntityName]`) The names of the
-  applications.
+    applications.
   * `:next_token` (`t:string`) A pagination token to control the number of
-  applications displayed in the list.
+    applications displayed in the list.
   """
   @spec list_applications(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_applications_response(), any()}
@@ -2645,15 +2631,16 @@ defmodule AWS.M2 do
 
   ## Parameters:
   * `:application_id` (`t:string` required) The identifier of the application.
+
   ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of batch job definitions to
-  return.
+    return.
   * `:next_token` (`t:string`) A pagination token returned from a previous call to
-  this operation. This specifies the next item to return. To return to the
-  beginning of the list, exclude this parameter.
+    this operation. This specifies the next item to return. To return to the
+    beginning of the list, exclude this parameter.
   * `:prefix` (`t:string`) If the batch job definition is a
-  FileBatchJobDefinition, the prefix allows you to search on the file names of
-  FileBatchJobDefinitions.
+    FileBatchJobDefinition, the prefix allows you to search on the file names of
+    FileBatchJobDefinitions.
   """
   @spec list_batch_job_definitions(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_batch_job_definitions_response(), any()}
@@ -2720,19 +2707,20 @@ defmodule AWS.M2 do
 
   ## Parameters:
   * `:application_id` (`t:string` required) The unique identifier of the
-  application.
+    application.
+
   ## Keyword parameters:
   * `:execution_ids` (`t:list[com.amazonaws.m2#Identifier]`) The unique identifier
-  of each batch job execution.
+    of each batch job execution.
   * `:job_name` (`t:string`) The name of each batch job execution.
   * `:max_results` (`t:integer`) The maximum number of batch job executions to
-  return.
+    return.
   * `:next_token` (`t:string`) A pagination token to control the number of batch
-  job executions displayed in the list.
+    job executions displayed in the list.
   * `:started_after` (`t:timestamp`) The time after which the batch job executions
-  started.
+    started.
   * `:started_before` (`t:timestamp`) The time before the batch job executions
-  started.
+    started.
   * `:status` (`t:string`) The status of the batch job executions.
   """
   @spec list_batch_job_executions(AWS.Client.t(), String.t(), Keyword.t()) ::
@@ -2844,10 +2832,9 @@ defmodule AWS.M2 do
 
   ## Parameters:
   * `:application_id` (`t:string` required) The unique identifier of the
-  application.
+    application.
   * `:execution_id` (`t:string` required) The unique identifier of each batch job
-  execution.
-  ## Keyword parameters:
+    execution.
   """
   @spec list_batch_job_restart_points(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, list_batch_job_restart_points_response(), any()}
@@ -2894,12 +2881,13 @@ defmodule AWS.M2 do
 
   ## Parameters:
   * `:application_id` (`t:string` required) The unique identifier of the
-  application.
+    application.
+
   ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of objects to return.
   * `:next_token` (`t:string`) A pagination token returned from a previous call to
-  this operation. This specifies the next item to return. To return to the
-  beginning of the list, exclude this parameter.
+    this operation. This specifies the next item to return. To return to the
+    beginning of the list, exclude this parameter.
   """
   @spec list_data_set_import_history(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_data_set_import_history_response(), any()}
@@ -2963,16 +2951,17 @@ defmodule AWS.M2 do
 
   ## Parameters:
   * `:application_id` (`t:string` required) The unique identifier of the
-  application for which you want to list the associated data sets.
+    application for which you want to list the associated data sets.
+
   ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of objects to return.
   * `:name_filter` (`t:string`) Filter dataset name matching the specified
-  pattern. Can use * and % as wild cards.
+    pattern. Can use * and % as wild cards.
   * `:next_token` (`t:string`) A pagination token returned from a previous call to
-  this operation. This specifies the next item to return. To return to the
-  beginning of the list, exclude this parameter.
+    this operation. This specifies the next item to return. To return to the
+    beginning of the list, exclude this parameter.
   * `:prefix` (`t:string`) The prefix of the data set name, which you can use to
-  filter the list of data sets.
+    filter the list of data sets.
   """
   @spec list_data_sets(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_data_sets_response(), any()}
@@ -3047,11 +3036,12 @@ defmodule AWS.M2 do
 
   ## Parameters:
   * `:application_id` (`t:string` required) The application identifier.
+
   ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of objects to return.
   * `:next_token` (`t:string`) A pagination token returned from a previous call to
-  this operation. This specifies the next item to return. To return to the
-  beginning of the list, exclude this parameter.
+    this operation. This specifies the next item to return. To return to the
+    beginning of the list, exclude this parameter.
   """
   @spec list_deployments(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_deployments_response(), any()}
@@ -3109,12 +3099,13 @@ defmodule AWS.M2 do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=m2%20ListEngineVersions&this_doc_guide=API%2520Reference)
 
   ## Parameters:
+
   ## Keyword parameters:
   * `:engine_type` (`t:string`) The type of target platform.
   * `:max_results` (`t:integer`) The maximum number of objects to return.
   * `:next_token` (`t:string`) A pagination token returned from a previous call to
-  this operation. This specifies the next item to return. To return to the
-  beginning of the list, exclude this parameter.
+    this operation. This specifies the next item to return. To return to the
+    beginning of the list, exclude this parameter.
   """
   @spec list_engine_versions(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_engine_versions_response(), any()}
@@ -3179,14 +3170,15 @@ defmodule AWS.M2 do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=m2%20ListEnvironments&this_doc_guide=API%2520Reference)
 
   ## Parameters:
+
   ## Keyword parameters:
   * `:engine_type` (`t:string`) The engine type for the runtime environment.
   * `:max_results` (`t:integer`) The maximum number of runtime environments to
-  return.
+    return.
   * `:names` (`t:list[com.amazonaws.m2#EntityName]`) The names of the runtime
-  environments. Must be unique within the account.
+    environments. Must be unique within the account.
   * `:next_token` (`t:string`) A pagination token to control the number of runtime
-  environments displayed in the list.
+    environments displayed in the list.
   """
   @spec list_environments(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_environments_response(), any()}
@@ -3259,8 +3251,7 @@ defmodule AWS.M2 do
 
   ## Parameters:
   * `:resource_arn` (`t:string` required) The Amazon Resource Name (ARN) of the
-  resource.
-  ## Keyword parameters:
+    resource.
   """
   @spec list_tags_for_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_tags_for_resource_response(), any()}
@@ -3301,8 +3292,7 @@ defmodule AWS.M2 do
 
   ## Parameters:
   * `:application_id` (`t:string` required) The unique identifier of the
-  application you want to start.
-  ## Keyword parameters:
+    application you want to start.
   """
   @spec start_application(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, start_application_response(), any()}
@@ -3347,8 +3337,7 @@ defmodule AWS.M2 do
 
   ## Parameters:
   * `:application_id` (`t:string` required) The unique identifier of the
-  application associated with this batch job.
-  ## Keyword parameters:
+    application associated with this batch job.
   """
   @spec start_batch_job(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, start_batch_job_response(), any()}
@@ -3391,8 +3380,7 @@ defmodule AWS.M2 do
 
   ## Parameters:
   * `:application_id` (`t:string` required) The unique identifier of the
-  application you want to stop.
-  ## Keyword parameters:
+    application you want to stop.
   """
   @spec stop_application(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, stop_application_response(), any()}
@@ -3435,8 +3423,7 @@ defmodule AWS.M2 do
 
   ## Parameters:
   * `:resource_arn` (`t:string` required) The Amazon Resource Name (ARN) of the
-  resource.
-  ## Keyword parameters:
+    resource.
   """
   @spec tag_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, tag_resource_response(), any()}
@@ -3479,10 +3466,9 @@ defmodule AWS.M2 do
 
   ## Parameters:
   * `:resource_arn` (`t:string` required) The Amazon Resource Name (ARN) of the
-  resource.
+    resource.
   * `:tag_keys` (`t:list[com.amazonaws.m2#TagKey]` required) The keys of the tags
-  to remove.
-  ## Keyword parameters:
+    to remove.
   """
   @spec untag_resource(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, untag_resource_response(), any()}
@@ -3536,8 +3522,7 @@ defmodule AWS.M2 do
 
   ## Parameters:
   * `:application_id` (`t:string` required) The unique identifier of the
-  application you want to update.
-  ## Keyword parameters:
+    application you want to update.
   """
   @spec update_application(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, update_application_response(), any()}
@@ -3590,8 +3575,7 @@ defmodule AWS.M2 do
 
   ## Parameters:
   * `:environment_id` (`t:string` required) The unique identifier of the runtime
-  environment that you want to update.
-  ## Keyword parameters:
+    environment that you want to update.
   """
   @spec update_environment(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, update_environment_response(), any()}

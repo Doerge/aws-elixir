@@ -1827,7 +1827,6 @@ defmodule AWS.LookoutMetrics do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lookoutmetrics%20ActivateAnomalyDetector&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec activate_anomaly_detector(AWS.Client.t(), Keyword.t()) ::
           {:ok, activate_anomaly_detector_response(), any()}
@@ -1869,7 +1868,6 @@ defmodule AWS.LookoutMetrics do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lookoutmetrics%20BackTestAnomalyDetector&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec back_test_anomaly_detector(AWS.Client.t(), Keyword.t()) ::
           {:ok, back_test_anomaly_detector_response(), any()}
@@ -1911,7 +1909,6 @@ defmodule AWS.LookoutMetrics do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lookoutmetrics%20CreateAlert&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec create_alert(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_alert_response(), any()}
@@ -1953,7 +1950,6 @@ defmodule AWS.LookoutMetrics do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lookoutmetrics%20CreateAnomalyDetector&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec create_anomaly_detector(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_anomaly_detector_response(), any()}
@@ -1995,7 +1991,6 @@ defmodule AWS.LookoutMetrics do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lookoutmetrics%20CreateMetricSet&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec create_metric_set(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_metric_set_response(), any()}
@@ -2037,7 +2032,6 @@ defmodule AWS.LookoutMetrics do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lookoutmetrics%20DeactivateAnomalyDetector&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec deactivate_anomaly_detector(AWS.Client.t(), Keyword.t()) ::
           {:ok, deactivate_anomaly_detector_response(), any()}
@@ -2079,7 +2073,6 @@ defmodule AWS.LookoutMetrics do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lookoutmetrics%20DeleteAlert&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec delete_alert(AWS.Client.t(), Keyword.t()) ::
           {:ok, delete_alert_response(), any()}
@@ -2122,7 +2115,6 @@ defmodule AWS.LookoutMetrics do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lookoutmetrics%20DeleteAnomalyDetector&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec delete_anomaly_detector(AWS.Client.t(), Keyword.t()) ::
           {:ok, delete_anomaly_detector_response(), any()}
@@ -2164,7 +2156,6 @@ defmodule AWS.LookoutMetrics do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lookoutmetrics%20DescribeAlert&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec describe_alert(AWS.Client.t(), Keyword.t()) ::
           {:ok, describe_alert_response(), any()}
@@ -2206,7 +2197,6 @@ defmodule AWS.LookoutMetrics do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lookoutmetrics%20DescribeAnomalyDetectionExecutions&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec describe_anomaly_detection_executions(AWS.Client.t(), Keyword.t()) ::
           {:ok, describe_anomaly_detection_executions_response(), any()}
@@ -2248,7 +2238,6 @@ defmodule AWS.LookoutMetrics do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lookoutmetrics%20DescribeAnomalyDetector&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec describe_anomaly_detector(AWS.Client.t(), Keyword.t()) ::
           {:ok, describe_anomaly_detector_response(), any()}
@@ -2290,7 +2279,6 @@ defmodule AWS.LookoutMetrics do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lookoutmetrics%20DescribeMetricSet&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec describe_metric_set(AWS.Client.t(), Keyword.t()) ::
           {:ok, describe_metric_set_response(), any()}
@@ -2332,7 +2320,6 @@ defmodule AWS.LookoutMetrics do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lookoutmetrics%20DetectMetricSetConfig&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec detect_metric_set_config(AWS.Client.t(), Keyword.t()) ::
           {:ok, detect_metric_set_config_response(), any()}
@@ -2374,7 +2361,6 @@ defmodule AWS.LookoutMetrics do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lookoutmetrics%20GetAnomalyGroup&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec get_anomaly_group(AWS.Client.t(), Keyword.t()) ::
           {:ok, get_anomaly_group_response(), any()}
@@ -2416,7 +2402,6 @@ defmodule AWS.LookoutMetrics do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lookoutmetrics%20GetDataQualityMetrics&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec get_data_quality_metrics(AWS.Client.t(), Keyword.t()) ::
           {:ok, get_data_quality_metrics_response(), any()}
@@ -2458,7 +2443,6 @@ defmodule AWS.LookoutMetrics do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lookoutmetrics%20GetFeedback&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec get_feedback(AWS.Client.t(), Keyword.t()) ::
           {:ok, get_feedback_response(), any()}
@@ -2500,7 +2484,6 @@ defmodule AWS.LookoutMetrics do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lookoutmetrics%20GetSampleData&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec get_sample_data(AWS.Client.t(), Keyword.t()) ::
           {:ok, get_sample_data_response(), any()}
@@ -2542,7 +2525,6 @@ defmodule AWS.LookoutMetrics do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lookoutmetrics%20ListAlerts&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec list_alerts(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_alerts_response(), any()}
@@ -2584,7 +2566,6 @@ defmodule AWS.LookoutMetrics do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lookoutmetrics%20ListAnomalyDetectors&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec list_anomaly_detectors(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_anomaly_detectors_response(), any()}
@@ -2627,7 +2608,6 @@ defmodule AWS.LookoutMetrics do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lookoutmetrics%20ListAnomalyGroupRelatedMetrics&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec list_anomaly_group_related_metrics(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_anomaly_group_related_metrics_response(), any()}
@@ -2669,7 +2649,6 @@ defmodule AWS.LookoutMetrics do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lookoutmetrics%20ListAnomalyGroupSummaries&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec list_anomaly_group_summaries(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_anomaly_group_summaries_response(), any()}
@@ -2711,7 +2690,6 @@ defmodule AWS.LookoutMetrics do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lookoutmetrics%20ListAnomalyGroupTimeSeries&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec list_anomaly_group_time_series(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_anomaly_group_time_series_response(), any()}
@@ -2753,7 +2731,6 @@ defmodule AWS.LookoutMetrics do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lookoutmetrics%20ListMetricSets&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec list_metric_sets(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_metric_sets_response(), any()}
@@ -2798,15 +2775,14 @@ defmodule AWS.LookoutMetrics do
 
   ## Parameters:
   * `:resource_arn` (`t:string` required) The resource's Amazon Resource Name
-  (ARN).
-  ## Keyword parameters:
+    (ARN).
   """
   @spec list_tags_for_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, list_tags_for_resource_errors()}
   def list_tags_for_resource(%Client{} = client, resource_arn, options \\ []) do
-    url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
+    url_path = "/tags/{ResourceArn}"
 
     # Validate optional parameters
     optional_params = []
@@ -2839,7 +2815,6 @@ defmodule AWS.LookoutMetrics do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lookoutmetrics%20PutFeedback&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec put_feedback(AWS.Client.t(), Keyword.t()) ::
           {:ok, put_feedback_response(), any()}
@@ -2884,20 +2859,20 @@ defmodule AWS.LookoutMetrics do
 
   ## Parameters:
   * `:resource_arn` (`t:string` required) The resource's Amazon Resource Name
-  (ARN).
+    (ARN).
   * `:input` (`t:map`):
-    * `:resource_arn` (`t:string` required) The resource's Amazon Resource Name
-  (ARN).
-    * `:tags` (`t:map` required) Tags to apply to the resource. Tag keys and values
-  can contain letters, numbers, spaces, and the following symbols: _.:/=+@-
-  ## Keyword parameters:
+    * `"resourceArn" => t:string` (required) The resource's Amazon Resource Name
+    (ARN).
+    * `"tags" => t:map` (required) Tags to apply to the resource. Tag keys and
+    values can contain letters, numbers, spaces, and the following symbols:
+    _.:/=+@-
   """
   @spec tag_resource(AWS.Client.t(), String.t(), input :: map(), Keyword.t()) ::
           {:ok, tag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, tag_resource_errors()}
   def tag_resource(%Client{} = client, resource_arn, input, options \\ []) when is_map(input) do
-    url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
+    url_path = "/tags/{ResourceArn}"
 
     # Validate optional parameters
     optional_params = []
@@ -2935,15 +2910,14 @@ defmodule AWS.LookoutMetrics do
 
   ## Parameters:
   * `:resource_arn` (`t:string` required) The resource's Amazon Resource Name
-  (ARN).
+    (ARN).
   * `:tag_keys` (`t:list[com.amazonaws.lookoutmetrics#TagKey]` required) Keys to
-  remove from the resource's tags.
+    remove from the resource's tags.
   * `:input` (`t:map`):
-    * `:resource_arn` (`t:string` required) The resource's Amazon Resource Name
-  (ARN).
-    * `:tag_keys` (`t:list[com.amazonaws.lookoutmetrics#TagKey]` required) Keys to
-  remove from the resource's tags.
-  ## Keyword parameters:
+    * `"resourceArn" => t:string` (required) The resource's Amazon Resource Name
+    (ARN).
+    * `"tagKeys" => t:list[com.amazonaws.lookoutmetrics#TagKey]` (required) Keys to
+    remove from the resource's tags.
   """
   @spec untag_resource(AWS.Client.t(), String.t(), String.t(), input :: map(), Keyword.t()) ::
           {:ok, untag_resource_response(), any()}
@@ -2951,7 +2925,7 @@ defmodule AWS.LookoutMetrics do
           | {:error, untag_resource_errors()}
   def untag_resource(%Client{} = client, resource_arn, tag_keys, input, options \\ [])
       when is_map(input) and is_binary(tag_keys) do
-    url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
+    url_path = "/tags/{ResourceArn}"
 
     # Validate optional parameters
     optional_params = []
@@ -2996,7 +2970,6 @@ defmodule AWS.LookoutMetrics do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lookoutmetrics%20UpdateAlert&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec update_alert(AWS.Client.t(), Keyword.t()) ::
           {:ok, update_alert_response(), any()}
@@ -3039,7 +3012,6 @@ defmodule AWS.LookoutMetrics do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lookoutmetrics%20UpdateAnomalyDetector&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec update_anomaly_detector(AWS.Client.t(), Keyword.t()) ::
           {:ok, update_anomaly_detector_response(), any()}
@@ -3081,7 +3053,6 @@ defmodule AWS.LookoutMetrics do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=lookoutmetrics%20UpdateMetricSet&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec update_metric_set(AWS.Client.t(), Keyword.t()) ::
           {:ok, update_metric_set_response(), any()}

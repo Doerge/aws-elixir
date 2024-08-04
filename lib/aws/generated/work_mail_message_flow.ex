@@ -149,8 +149,7 @@ defmodule AWS.WorkMailMessageFlow do
 
   ## Parameters:
   * `:message_id` (`t:string` required) The identifier of the email message to
-  retrieve.
-  ## Keyword parameters:
+    retrieve.
   """
   @spec get_raw_message_content(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_raw_message_content_response(), any()}
@@ -191,8 +190,7 @@ defmodule AWS.WorkMailMessageFlow do
 
   ## Parameters:
   * `:message_id` (`t:string` required) The identifier of the email message being
-  updated.
-  ## Keyword parameters:
+    updated.
   """
   @spec put_raw_message_content(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, put_raw_message_content_response(), any()}

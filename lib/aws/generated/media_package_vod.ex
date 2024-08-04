@@ -903,8 +903,7 @@ defmodule AWS.MediaPackageVod do
   ## Parameters:
   * `:id` (`t:string` required)
   * `:input` (`t:map | nil`):
-    * `:egress_access_logs` (`t:structure`)
-  ## Keyword parameters:
+    * `"egressAccessLogs" => t:structure`
   """
   @spec configure_logs(AWS.Client.t(), String.t(), input :: map() | nil, Keyword.t()) ::
           {:ok, configure_logs_response(), any()}
@@ -948,13 +947,12 @@ defmodule AWS.MediaPackageVod do
 
   ## Parameters:
   * `:input` (`t:map`):
-    * `:id` (`t:string` required)
-    * `:packaging_group_id` (`t:string` required)
-    * `:source_arn` (`t:string` required)
-    * `:source_role_arn` (`t:string` required)
-    * `:resource_id` (`t:string`)
-    * `:tags` (`t:map`)
-  ## Keyword parameters:
+    * `"id" => t:string` (required)
+    * `"packagingGroupId" => t:string` (required)
+    * `"sourceArn" => t:string` (required)
+    * `"sourceRoleArn" => t:string` (required)
+    * `"resourceId" => t:string`
+    * `"tags" => t:map`
   """
   @spec create_asset(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_asset_response(), any()}
@@ -997,14 +995,13 @@ defmodule AWS.MediaPackageVod do
 
   ## Parameters:
   * `:input` (`t:map`):
-    * `:id` (`t:string` required)
-    * `:packaging_group_id` (`t:string` required)
-    * `:cmaf_package` (`t:structure`)
-    * `:dash_package` (`t:structure`)
-    * `:hls_package` (`t:structure`)
-    * `:mss_package` (`t:structure`)
-    * `:tags` (`t:map`)
-  ## Keyword parameters:
+    * `"id" => t:string` (required)
+    * `"packagingGroupId" => t:string` (required)
+    * `"cmafPackage" => t:structure`
+    * `"dashPackage" => t:structure`
+    * `"hlsPackage" => t:structure`
+    * `"mssPackage" => t:structure`
+    * `"tags" => t:map`
   """
   @spec create_packaging_configuration(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_packaging_configuration_response(), any()}
@@ -1048,11 +1045,10 @@ defmodule AWS.MediaPackageVod do
 
   ## Parameters:
   * `:input` (`t:map`):
-    * `:id` (`t:string` required)
-    * `:authorization` (`t:structure`)
-    * `:egress_access_logs` (`t:structure`)
-    * `:tags` (`t:map`)
-  ## Keyword parameters:
+    * `"id" => t:string` (required)
+    * `"authorization" => t:structure`
+    * `"egressAccessLogs" => t:structure`
+    * `"tags" => t:map`
   """
   @spec create_packaging_group(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_packaging_group_response(), any()}
@@ -1095,7 +1091,6 @@ defmodule AWS.MediaPackageVod do
 
   ## Parameters:
   * `:id` (`t:string` required)
-  ## Keyword parameters:
   """
   @spec delete_asset(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, delete_asset_response(), any()}
@@ -1148,7 +1143,6 @@ defmodule AWS.MediaPackageVod do
 
   ## Parameters:
   * `:id` (`t:string` required)
-  ## Keyword parameters:
   """
   @spec delete_packaging_configuration(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, delete_packaging_configuration_response(), any()}
@@ -1201,7 +1195,6 @@ defmodule AWS.MediaPackageVod do
 
   ## Parameters:
   * `:id` (`t:string` required)
-  ## Keyword parameters:
   """
   @spec delete_packaging_group(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, delete_packaging_group_response(), any()}
@@ -1254,7 +1247,6 @@ defmodule AWS.MediaPackageVod do
 
   ## Parameters:
   * `:id` (`t:string` required)
-  ## Keyword parameters:
   """
   @spec describe_asset(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, describe_asset_response(), any()}
@@ -1295,7 +1287,6 @@ defmodule AWS.MediaPackageVod do
 
   ## Parameters:
   * `:id` (`t:string` required)
-  ## Keyword parameters:
   """
   @spec describe_packaging_configuration(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, describe_packaging_configuration_response(), any()}
@@ -1336,7 +1327,6 @@ defmodule AWS.MediaPackageVod do
 
   ## Parameters:
   * `:id` (`t:string` required)
-  ## Keyword parameters:
   """
   @spec describe_packaging_group(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, describe_packaging_group_response(), any()}
@@ -1376,6 +1366,7 @@ defmodule AWS.MediaPackageVod do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mediapackagevod%20ListAssets&this_doc_guide=API%2520Reference)
 
   ## Parameters:
+
   ## Keyword parameters:
   * `:max_results` (`t:integer`)
   * `:next_token` (`t:string`)
@@ -1444,6 +1435,7 @@ defmodule AWS.MediaPackageVod do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mediapackagevod%20ListPackagingConfigurations&this_doc_guide=API%2520Reference)
 
   ## Parameters:
+
   ## Keyword parameters:
   * `:max_results` (`t:integer`)
   * `:next_token` (`t:string`)
@@ -1512,6 +1504,7 @@ defmodule AWS.MediaPackageVod do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mediapackagevod%20ListPackagingGroups&this_doc_guide=API%2520Reference)
 
   ## Parameters:
+
   ## Keyword parameters:
   * `:max_results` (`t:integer`)
   * `:next_token` (`t:string`)
@@ -1573,7 +1566,6 @@ defmodule AWS.MediaPackageVod do
 
   ## Parameters:
   * `:resource_arn` (`t:string` required)
-  ## Keyword parameters:
   """
   @spec list_tags_for_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_tags_for_resource_response(), any()}
@@ -1614,8 +1606,7 @@ defmodule AWS.MediaPackageVod do
   ## Parameters:
   * `:resource_arn` (`t:string` required)
   * `:input` (`t:map`):
-    * `:tags` (`t:map` required)
-  ## Keyword parameters:
+    * `"tags" => t:map` (required)
   """
   @spec tag_resource(AWS.Client.t(), String.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
@@ -1659,7 +1650,6 @@ defmodule AWS.MediaPackageVod do
   ## Parameters:
   * `:resource_arn` (`t:string` required)
   * `:tag_keys` (`t:list[com.amazonaws.mediapackagevod#__string]` required)
-  ## Keyword parameters:
   """
   @spec untag_resource(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
@@ -1714,8 +1704,7 @@ defmodule AWS.MediaPackageVod do
   ## Parameters:
   * `:id` (`t:string` required)
   * `:input` (`t:map | nil`):
-    * `:authorization` (`t:structure`)
-  ## Keyword parameters:
+    * `"authorization" => t:structure`
   """
   @spec update_packaging_group(AWS.Client.t(), String.t(), input :: map() | nil, Keyword.t()) ::
           {:ok, update_packaging_group_response(), any()}

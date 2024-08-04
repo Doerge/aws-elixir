@@ -124,7 +124,6 @@ defmodule AWS.InspectorScan do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=inspectorscan%20ScanSbom&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec scan_sbom(AWS.Client.t(), Keyword.t()) ::
           {:ok, scan_sbom_response(), any()}

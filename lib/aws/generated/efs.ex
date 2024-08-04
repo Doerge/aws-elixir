@@ -1341,7 +1341,6 @@ defmodule AWS.EFS do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=efs%20CreateAccessPoint&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec create_access_point(AWS.Client.t(), Keyword.t()) ::
           {:ok, access_point_description(), any()}
@@ -1387,7 +1386,6 @@ defmodule AWS.EFS do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=efs%20CreateFileSystem&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec create_file_system(AWS.Client.t(), Keyword.t()) ::
           {:ok, file_system_description(), any()}
@@ -1435,7 +1433,6 @@ defmodule AWS.EFS do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=efs%20CreateMountTarget&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec create_mount_target(AWS.Client.t(), Keyword.t()) ::
           {:ok, mount_target_description(), any()}
@@ -1482,9 +1479,8 @@ defmodule AWS.EFS do
 
   ## Parameters:
   * `:source_file_system_id` (`t:string` required) Specifies the Amazon EFS file
-  system that you want to replicate. This file system cannot already be a
-  source or destination file system in another replication configuration.
-  ## Keyword parameters:
+    system that you want to replicate. This file system cannot already be a
+    source or destination file system in another replication configuration.
   """
   @spec create_replication_configuration(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, replication_configuration_description(), any()}
@@ -1534,9 +1530,8 @@ defmodule AWS.EFS do
 
   ## Parameters:
   * `:file_system_id` (`t:string` required) The ID of the file system whose tags
-  you want to modify (String). This operation modifies the tags only, not the
-  file system.
-  ## Keyword parameters:
+    you want to modify (String). This operation modifies the tags only, not the
+    file system.
   """
   @spec create_tags(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
@@ -1582,8 +1577,7 @@ defmodule AWS.EFS do
 
   ## Parameters:
   * `:access_point_id` (`t:string` required) The ID of the access point that you
-  want to delete.
-  ## Keyword parameters:
+    want to delete.
   """
   @spec delete_access_point(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
@@ -1640,8 +1634,7 @@ defmodule AWS.EFS do
 
   ## Parameters:
   * `:file_system_id` (`t:string` required) The ID of the file system you want to
-  delete.
-  ## Keyword parameters:
+    delete.
   """
   @spec delete_file_system(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
@@ -1698,8 +1691,7 @@ defmodule AWS.EFS do
 
   ## Parameters:
   * `:file_system_id` (`t:string` required) Specifies the EFS file system for
-  which to delete the FileSystemPolicy.
-  ## Keyword parameters:
+    which to delete the FileSystemPolicy.
   """
   @spec delete_file_system_policy(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
@@ -1760,8 +1752,7 @@ defmodule AWS.EFS do
 
   ## Parameters:
   * `:mount_target_id` (`t:string` required) The ID of the mount target to delete
-  (String).
-  ## Keyword parameters:
+    (String).
   """
   @spec delete_mount_target(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
@@ -1818,8 +1809,7 @@ defmodule AWS.EFS do
 
   ## Parameters:
   * `:source_file_system_id` (`t:string` required) The ID of the source file
-  system in the replication configuration.
-  ## Keyword parameters:
+    system in the replication configuration.
   """
   @spec delete_replication_configuration(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
@@ -1879,8 +1869,7 @@ defmodule AWS.EFS do
 
   ## Parameters:
   * `:file_system_id` (`t:string` required) The ID of the file system whose tags
-  you want to delete (String).
-  ## Keyword parameters:
+    you want to delete (String).
   """
   @spec delete_tags(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
@@ -1925,18 +1914,19 @@ defmodule AWS.EFS do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=efs%20DescribeAccessPoints&this_doc_guide=API%2520Reference)
 
   ## Parameters:
+
   ## Keyword parameters:
   * `:access_point_id` (`t:string`) (Optional) Specifies an EFS access point to
-  describe in the response; mutually exclusive with FileSystemId.
+    describe in the response; mutually exclusive with FileSystemId.
   * `:file_system_id` (`t:string`) (Optional) If you provide a FileSystemId, EFS
-  returns all access points for that file system; mutually exclusive with
-  AccessPointId.
+    returns all access points for that file system; mutually exclusive with
+    AccessPointId.
   * `:max_results` (`t:integer`) (Optional) When retrieving all access points for
-  a file system, you can optionally specify the MaxItems parameter to limit
-  the number of objects returned in a response. The default value is 100.
+    a file system, you can optionally specify the MaxItems parameter to limit
+    the number of objects returned in a response. The default value is 100.
   * `:next_token` (`t:string`) NextToken is present if the response is paginated.
-  You can use NextMarker in the subsequent request to fetch the next page of
-  access point descriptions.
+    You can use NextMarker in the subsequent request to fetch the next page of
+    access point descriptions.
   """
   @spec describe_access_points(AWS.Client.t(), Keyword.t()) ::
           {:ok, describe_access_points_response(), any()}
@@ -2015,7 +2005,6 @@ defmodule AWS.EFS do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=efs%20DescribeAccountPreferences&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec describe_account_preferences(AWS.Client.t(), Keyword.t()) ::
           {:ok, describe_account_preferences_response(), any()}
@@ -2056,8 +2045,7 @@ defmodule AWS.EFS do
 
   ## Parameters:
   * `:file_system_id` (`t:string` required) Specifies which EFS file system for
-  which to retrieve the BackupPolicy.
-  ## Keyword parameters:
+    which to retrieve the BackupPolicy.
   """
   @spec describe_backup_policy(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, backup_policy_description(), any()}
@@ -2098,8 +2086,7 @@ defmodule AWS.EFS do
 
   ## Parameters:
   * `:file_system_id` (`t:string` required) Specifies which EFS file system to
-  retrieve the FileSystemPolicy for.
-  ## Keyword parameters:
+    retrieve the FileSystemPolicy for.
   """
   @spec describe_file_system_policy(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, file_system_policy_description(), any()}
@@ -2148,19 +2135,20 @@ defmodule AWS.EFS do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=efs%20DescribeFileSystems&this_doc_guide=API%2520Reference)
 
   ## Parameters:
+
   ## Keyword parameters:
   * `:creation_token` (`t:string`) (Optional) Restricts the list to the file
-  system with this creation token (String). You specify a creation token when
-  you create an Amazon EFS file system.
+    system with this creation token (String). You specify a creation token when
+    you create an Amazon EFS file system.
   * `:file_system_id` (`t:string`) (Optional) ID of the file system whose
-  description you want to retrieve (String).
+    description you want to retrieve (String).
   * `:marker` (`t:string`) (Optional) Opaque pagination token returned from a
-  previous DescribeFileSystems operation (String). If present, specifies to
-  continue the list from where the returning call had left off.
+    previous DescribeFileSystems operation (String). If present, specifies to
+    continue the list from where the returning call had left off.
   * `:max_items` (`t:integer`) (Optional) Specifies the maximum number of file
-  systems to return in the response (integer). This number is automatically
-  set to 100. The response is paginated at 100 per page if you have more than
-  100 file systems.
+    systems to return in the response (integer). This number is automatically
+    set to 100. The response is paginated at 100 per page if you have more than
+    100 file systems.
   """
   @spec describe_file_systems(AWS.Client.t(), Keyword.t()) ::
           {:ok, describe_file_systems_response(), any()}
@@ -2237,8 +2225,7 @@ defmodule AWS.EFS do
 
   ## Parameters:
   * `:file_system_id` (`t:string` required) The ID of the file system whose
-  LifecycleConfiguration object you want to retrieve (String).
-  ## Keyword parameters:
+    LifecycleConfiguration object you want to retrieve (String).
   """
   @spec describe_lifecycle_configuration(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, lifecycle_configuration_description(), any()}
@@ -2283,8 +2270,7 @@ defmodule AWS.EFS do
 
   ## Parameters:
   * `:mount_target_id` (`t:string` required) The ID of the mount target whose
-  security groups you want to retrieve.
-  ## Keyword parameters:
+    security groups you want to retrieve.
   """
   @spec describe_mount_target_security_groups(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, describe_mount_target_security_groups_response(), any()}
@@ -2326,26 +2312,27 @@ defmodule AWS.EFS do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=efs%20DescribeMountTargets&this_doc_guide=API%2520Reference)
 
   ## Parameters:
+
   ## Keyword parameters:
   * `:access_point_id` (`t:string`) (Optional) The ID of the access point whose
-  mount targets that you want to list. It must be included in your request if
-  a FileSystemId or MountTargetId is not included in your request. Accepts
-  either an access point ID or ARN as input.
+    mount targets that you want to list. It must be included in your request if
+    a FileSystemId or MountTargetId is not included in your request. Accepts
+    either an access point ID or ARN as input.
   * `:file_system_id` (`t:string`) (Optional) ID of the file system whose mount
-  targets you want to list (String). It must be included in your request if an
-  AccessPointId or MountTargetId is not included. Accepts either a file system
-  ID or ARN as input.
+    targets you want to list (String). It must be included in your request if an
+    AccessPointId or MountTargetId is not included. Accepts either a file system
+    ID or ARN as input.
   * `:marker` (`t:string`) (Optional) Opaque pagination token returned from a
-  previous DescribeMountTargets operation (String). If present, it specifies
-  to continue the list from where the previous returning call left off.
+    previous DescribeMountTargets operation (String). If present, it specifies
+    to continue the list from where the previous returning call left off.
   * `:max_items` (`t:integer`) (Optional) Maximum number of mount targets to
-  return in the response. Currently, this number is automatically set to 10,
-  and other values are ignored. The response is paginated at 100 per page if
-  you have more than 100 mount targets.
+    return in the response. Currently, this number is automatically set to 10,
+    and other values are ignored. The response is paginated at 100 per page if
+    you have more than 100 mount targets.
   * `:mount_target_id` (`t:string`) (Optional) ID of the mount target that you
-  want to have described (String). It must be included in your request if
-  FileSystemId is not included. Accepts either a mount target ID or ARN as
-  input.
+    want to have described (String). It must be included in your request if
+    FileSystemId is not included. Accepts either a mount target ID or ARN as
+    input.
   """
   @spec describe_mount_targets(AWS.Client.t(), Keyword.t()) ::
           {:ok, describe_mount_targets_response(), any()}
@@ -2432,15 +2419,16 @@ defmodule AWS.EFS do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=efs%20DescribeReplicationConfigurations&this_doc_guide=API%2520Reference)
 
   ## Parameters:
+
   ## Keyword parameters:
   * `:file_system_id` (`t:string`) You can retrieve the replication configuration
-  for a specific file system by providing its file system ID.
+    for a specific file system by providing its file system ID.
   * `:max_results` (`t:integer`) (Optional) To limit the number of objects
-  returned in a response, you can specify the MaxItems parameter. The default
-  value is 100.
+    returned in a response, you can specify the MaxItems parameter. The default
+    value is 100.
   * `:next_token` (`t:string`) NextToken is present if the response is paginated.
-  You can use NextToken in a subsequent request to fetch the next page of
-  output.
+    You can use NextToken in a subsequent request to fetch the next page of
+    output.
   """
   @spec describe_replication_configurations(AWS.Client.t(), Keyword.t()) ::
           {:ok, describe_replication_configurations_response(), any()}
@@ -2511,15 +2499,16 @@ defmodule AWS.EFS do
 
   ## Parameters:
   * `:file_system_id` (`t:string` required) The ID of the file system whose tag
-  set you want to retrieve.
+    set you want to retrieve.
+
   ## Keyword parameters:
   * `:marker` (`t:string`) (Optional) An opaque pagination token returned from a
-  previous DescribeTags operation (String). If present, it specifies to
-  continue the list from where the previous call left off.
+    previous DescribeTags operation (String). If present, it specifies to
+    continue the list from where the previous call left off.
   * `:max_items` (`t:integer`) (Optional) The maximum number of file system tags
-  to return in the response. Currently, this number is automatically set to
-  100, and other values are ignored. The response is paginated at 100 per page
-  if you have more than 100 tags.
+    to return in the response. Currently, this number is automatically set to
+    100, and other values are ignored. The response is paginated at 100 per page
+    if you have more than 100 tags.
   """
   @spec describe_tags(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, describe_tags_response(), any()}
@@ -2579,14 +2568,15 @@ defmodule AWS.EFS do
 
   ## Parameters:
   * `:resource_id` (`t:string` required) Specifies the EFS resource you want to
-  retrieve tags for. You can retrieve tags for EFS file systems and access
-  points using this API endpoint.
+    retrieve tags for. You can retrieve tags for EFS file systems and access
+    points using this API endpoint.
+
   ## Keyword parameters:
   * `:max_results` (`t:integer`) (Optional) Specifies the maximum number of tag
-  objects to return in the response. The default value is 100.
+    objects to return in the response. The default value is 100.
   * `:next_token` (`t:string`) (Optional) You can use NextToken in a subsequent
-  request to fetch the next page of access point descriptions if the response
-  payload was paginated.
+    request to fetch the next page of access point descriptions if the response
+    payload was paginated.
   """
   @spec list_tags_for_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_tags_for_resource_response(), any()}
@@ -2651,8 +2641,7 @@ defmodule AWS.EFS do
 
   ## Parameters:
   * `:mount_target_id` (`t:string` required) The ID of the mount target whose
-  security groups you want to modify.
-  ## Keyword parameters:
+    security groups you want to modify.
   """
   @spec modify_mount_target_security_groups(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
@@ -2700,7 +2689,6 @@ defmodule AWS.EFS do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=efs%20PutAccountPreferences&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec put_account_preferences(AWS.Client.t(), Keyword.t()) ::
           {:ok, put_account_preferences_response(), any()}
@@ -2744,8 +2732,7 @@ defmodule AWS.EFS do
 
   ## Parameters:
   * `:file_system_id` (`t:string` required) Specifies which EFS file system to
-  update the backup policy for.
-  ## Keyword parameters:
+    update the backup policy for.
   """
   @spec put_backup_policy(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, backup_policy_description(), any()}
@@ -2796,8 +2783,7 @@ defmodule AWS.EFS do
 
   ## Parameters:
   * `:file_system_id` (`t:string` required) The ID of the EFS file system that you
-  want to create or update the FileSystemPolicy for.
-  ## Keyword parameters:
+    want to create or update the FileSystemPolicy for.
   """
   @spec put_file_system_policy(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, file_system_policy_description(), any()}
@@ -2842,8 +2828,7 @@ defmodule AWS.EFS do
 
   ## Parameters:
   * `:file_system_id` (`t:string` required) The ID of the file system for which
-  you are creating the LifecycleConfiguration object (String).
-  ## Keyword parameters:
+    you are creating the LifecycleConfiguration object (String).
   """
   @spec put_lifecycle_configuration(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, lifecycle_configuration_description(), any()}
@@ -2888,8 +2873,7 @@ defmodule AWS.EFS do
 
   ## Parameters:
   * `:resource_id` (`t:string` required) The ID specifying the EFS resource that
-  you want to create a tag for.
-  ## Keyword parameters:
+    you want to create a tag for.
   """
   @spec tag_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
@@ -2933,10 +2917,9 @@ defmodule AWS.EFS do
 
   ## Parameters:
   * `:resource_id` (`t:string` required) Specifies the EFS resource that you want
-  to remove tags from.
+    to remove tags from.
   * `:tag_keys` (`t:list[com.amazonaws.efs#TagKey]` required) The keys of the
-  key-value tag pairs that you want to remove from the specified EFS resource.
-  ## Keyword parameters:
+    key-value tag pairs that you want to remove from the specified EFS resource.
   """
   @spec untag_resource(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
@@ -2991,8 +2974,7 @@ defmodule AWS.EFS do
 
   ## Parameters:
   * `:file_system_id` (`t:string` required) The ID of the file system that you
-  want to update.
-  ## Keyword parameters:
+    want to update.
   """
   @spec update_file_system(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, file_system_description(), any()}
@@ -3035,7 +3017,6 @@ defmodule AWS.EFS do
 
   ## Parameters:
   * `:file_system_id` (`t:string` required) The ID of the file system to update.
-  ## Keyword parameters:
   """
   @spec update_file_system_protection(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, file_system_protection_description(), any()}

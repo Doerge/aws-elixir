@@ -3840,7 +3840,6 @@ defmodule AWS.NetworkManager do
 
   ## Parameters:
   * `:attachment_id` (`t:string` required) The ID of the attachment.
-  ## Keyword parameters:
   """
   @spec accept_attachment(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, accept_attachment_response(), any()}
@@ -3884,7 +3883,6 @@ defmodule AWS.NetworkManager do
 
   ## Parameters:
   * `:global_network_id` (`t:string` required) The ID of your global network.
-  ## Keyword parameters:
   """
   @spec associate_connect_peer(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, associate_connect_peer_response(), any()}
@@ -3937,7 +3935,6 @@ defmodule AWS.NetworkManager do
 
   ## Parameters:
   * `:global_network_id` (`t:string` required) The ID of the global network.
-  ## Keyword parameters:
   """
   @spec associate_customer_gateway(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, associate_customer_gateway_response(), any()}
@@ -3983,7 +3980,6 @@ defmodule AWS.NetworkManager do
 
   ## Parameters:
   * `:global_network_id` (`t:string` required) The ID of the global network.
-  ## Keyword parameters:
   """
   @spec associate_link(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, associate_link_response(), any()}
@@ -4029,7 +4025,6 @@ defmodule AWS.NetworkManager do
 
   ## Parameters:
   * `:global_network_id` (`t:string` required) The ID of the global network.
-  ## Keyword parameters:
   """
   @spec associate_transit_gateway_connect_peer(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, associate_transit_gateway_connect_peer_response(), any()}
@@ -4073,7 +4068,6 @@ defmodule AWS.NetworkManager do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=networkmanager%20CreateConnectAttachment&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec create_connect_attachment(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_connect_attachment_response(), any()}
@@ -4117,7 +4111,6 @@ defmodule AWS.NetworkManager do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=networkmanager%20CreateConnectPeer&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec create_connect_peer(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_connect_peer_response(), any()}
@@ -4163,7 +4156,6 @@ defmodule AWS.NetworkManager do
 
   ## Parameters:
   * `:global_network_id` (`t:string` required) The ID of the global network.
-  ## Keyword parameters:
   """
   @spec create_connection(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, create_connection_response(), any()}
@@ -4206,7 +4198,6 @@ defmodule AWS.NetworkManager do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=networkmanager%20CreateCoreNetwork&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec create_core_network(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_core_network_response(), any()}
@@ -4251,7 +4242,6 @@ defmodule AWS.NetworkManager do
 
   ## Parameters:
   * `:global_network_id` (`t:string` required) The ID of the global network.
-  ## Keyword parameters:
   """
   @spec create_device(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, create_device_response(), any()}
@@ -4293,7 +4283,6 @@ defmodule AWS.NetworkManager do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=networkmanager%20CreateGlobalNetwork&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec create_global_network(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_global_network_response(), any()}
@@ -4336,7 +4325,6 @@ defmodule AWS.NetworkManager do
 
   ## Parameters:
   * `:global_network_id` (`t:string` required) The ID of the global network.
-  ## Keyword parameters:
   """
   @spec create_link(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, create_link_response(), any()}
@@ -4379,7 +4367,6 @@ defmodule AWS.NetworkManager do
 
   ## Parameters:
   * `:global_network_id` (`t:string` required) The ID of the global network.
-  ## Keyword parameters:
   """
   @spec create_site(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, create_site_response(), any()}
@@ -4422,7 +4409,6 @@ defmodule AWS.NetworkManager do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=networkmanager%20CreateSiteToSiteVpnAttachment&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec create_site_to_site_vpn_attachment(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_site_to_site_vpn_attachment_response(), any()}
@@ -4464,7 +4450,6 @@ defmodule AWS.NetworkManager do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=networkmanager%20CreateTransitGatewayPeering&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec create_transit_gateway_peering(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_transit_gateway_peering_response(), any()}
@@ -4506,7 +4491,6 @@ defmodule AWS.NetworkManager do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=networkmanager%20CreateTransitGatewayRouteTableAttachment&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec create_transit_gateway_route_table_attachment(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_transit_gateway_route_table_attachment_response(), any()}
@@ -4548,7 +4532,6 @@ defmodule AWS.NetworkManager do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=networkmanager%20CreateVpcAttachment&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec create_vpc_attachment(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_vpc_attachment_response(), any()}
@@ -4591,7 +4574,6 @@ defmodule AWS.NetworkManager do
 
   ## Parameters:
   * `:attachment_id` (`t:string` required) The ID of the attachment to delete.
-  ## Keyword parameters:
   """
   @spec delete_attachment(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, delete_attachment_response(), any()}
@@ -4644,7 +4626,6 @@ defmodule AWS.NetworkManager do
 
   ## Parameters:
   * `:connect_peer_id` (`t:string` required) The ID of the deleted Connect peer.
-  ## Keyword parameters:
   """
   @spec delete_connect_peer(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, delete_connect_peer_response(), any()}
@@ -4698,7 +4679,6 @@ defmodule AWS.NetworkManager do
   ## Parameters:
   * `:connection_id` (`t:string` required) The ID of the connection.
   * `:global_network_id` (`t:string` required) The ID of the global network.
-  ## Keyword parameters:
   """
   @spec delete_connection(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, delete_connection_response(), any()}
@@ -4753,8 +4733,7 @@ defmodule AWS.NetworkManager do
 
   ## Parameters:
   * `:core_network_id` (`t:string` required) The network ID of the deleted core
-  network.
-  ## Keyword parameters:
+    network.
   """
   @spec delete_core_network(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, delete_core_network_response(), any()}
@@ -4808,10 +4787,9 @@ defmodule AWS.NetworkManager do
 
   ## Parameters:
   * `:core_network_id` (`t:string` required) The ID of a core network for the
-  deleted policy.
+    deleted policy.
   * `:policy_version_id` (`t:integer` required) The version ID of the deleted
-  policy.
-  ## Keyword parameters:
+    policy.
   """
   @spec delete_core_network_policy_version(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, delete_core_network_policy_version_response(), any()}
@@ -4872,7 +4850,6 @@ defmodule AWS.NetworkManager do
   ## Parameters:
   * `:device_id` (`t:string` required) The ID of the device.
   * `:global_network_id` (`t:string` required) The ID of the global network.
-  ## Keyword parameters:
   """
   @spec delete_device(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, delete_device_response(), any()}
@@ -4928,7 +4905,6 @@ defmodule AWS.NetworkManager do
 
   ## Parameters:
   * `:global_network_id` (`t:string` required) The ID of the global network.
-  ## Keyword parameters:
   """
   @spec delete_global_network(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, delete_global_network_response(), any()}
@@ -4983,7 +4959,6 @@ defmodule AWS.NetworkManager do
   ## Parameters:
   * `:global_network_id` (`t:string` required) The ID of the global network.
   * `:link_id` (`t:string` required) The ID of the link.
-  ## Keyword parameters:
   """
   @spec delete_link(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, delete_link_response(), any()}
@@ -5037,8 +5012,7 @@ defmodule AWS.NetworkManager do
 
   ## Parameters:
   * `:peering_id` (`t:string` required) The ID of the peering connection to
-  delete.
-  ## Keyword parameters:
+    delete.
   """
   @spec delete_peering(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, delete_peering_response(), any()}
@@ -5092,7 +5066,6 @@ defmodule AWS.NetworkManager do
 
   ## Parameters:
   * `:resource_arn` (`t:string` required) The ARN of the policy to delete.
-  ## Keyword parameters:
   """
   @spec delete_resource_policy(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, delete_resource_policy_response(), any()}
@@ -5146,7 +5119,6 @@ defmodule AWS.NetworkManager do
   ## Parameters:
   * `:global_network_id` (`t:string` required) The ID of the global network.
   * `:site_id` (`t:string` required) The ID of the site.
-  ## Keyword parameters:
   """
   @spec delete_site(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, delete_site_response(), any()}
@@ -5203,8 +5175,7 @@ defmodule AWS.NetworkManager do
   ## Parameters:
   * `:global_network_id` (`t:string` required) The ID of the global network.
   * `:transit_gateway_arn` (`t:string` required) The Amazon Resource Name (ARN) of
-  the transit gateway.
-  ## Keyword parameters:
+    the transit gateway.
   """
   @spec deregister_transit_gateway(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, deregister_transit_gateway_response(), any()}
@@ -5265,9 +5236,10 @@ defmodule AWS.NetworkManager do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=networkmanager%20DescribeGlobalNetworks&this_doc_guide=API%2520Reference)
 
   ## Parameters:
+
   ## Keyword parameters:
   * `:global_network_ids` (`t:list[com.amazonaws.networkmanager#GlobalNetworkId]`)
-  The IDs of one or more global networks. The maximum is 10.
+    The IDs of one or more global networks. The maximum is 10.
   * `:max_results` (`t:integer`) The maximum number of results to return.
   * `:next_token` (`t:string`) The token for the next page of results.
   """
@@ -5335,9 +5307,8 @@ defmodule AWS.NetworkManager do
 
   ## Parameters:
   * `:connect_peer_id` (`t:string` required) The ID of the Connect peer to
-  disassociate from a device.
+    disassociate from a device.
   * `:global_network_id` (`t:string` required) The ID of the global network.
-  ## Keyword parameters:
   """
   @spec disassociate_connect_peer(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, disassociate_connect_peer_response(), any()}
@@ -5396,9 +5367,8 @@ defmodule AWS.NetworkManager do
 
   ## Parameters:
   * `:customer_gateway_arn` (`t:string` required) The Amazon Resource Name (ARN)
-  of the customer gateway.
+    of the customer gateway.
   * `:global_network_id` (`t:string` required) The ID of the global network.
-  ## Keyword parameters:
   """
   @spec disassociate_customer_gateway(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, disassociate_customer_gateway_response(), any()}
@@ -5460,7 +5430,6 @@ defmodule AWS.NetworkManager do
   * `:global_network_id` (`t:string` required) The ID of the global network.
   * `:device_id` (`t:string` required) The ID of the device.
   * `:link_id` (`t:string` required) The ID of the link.
-  ## Keyword parameters:
   """
   @spec disassociate_link(AWS.Client.t(), String.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, disassociate_link_response(), any()}
@@ -5515,8 +5484,7 @@ defmodule AWS.NetworkManager do
   ## Parameters:
   * `:global_network_id` (`t:string` required) The ID of the global network.
   * `:transit_gateway_connect_peer_arn` (`t:string` required) The Amazon Resource
-  Name (ARN) of the transit gateway Connect peer.
-  ## Keyword parameters:
+    Name (ARN) of the transit gateway Connect peer.
   """
   @spec disassociate_transit_gateway_connect_peer(
           AWS.Client.t(),
@@ -5582,7 +5550,6 @@ defmodule AWS.NetworkManager do
   ## Parameters:
   * `:core_network_id` (`t:string` required) The ID of a core network.
   * `:policy_version_id` (`t:integer` required) The ID of the policy version.
-  ## Keyword parameters:
   """
   @spec execute_core_network_change_set(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, execute_core_network_change_set_response(), any()}
@@ -5631,7 +5598,6 @@ defmodule AWS.NetworkManager do
 
   ## Parameters:
   * `:attachment_id` (`t:string` required) The ID of the attachment.
-  ## Keyword parameters:
   """
   @spec get_connect_attachment(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_connect_attachment_response(), any()}
@@ -5672,7 +5638,6 @@ defmodule AWS.NetworkManager do
 
   ## Parameters:
   * `:connect_peer_id` (`t:string` required) The ID of the Connect peer.
-  ## Keyword parameters:
   """
   @spec get_connect_peer(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_connect_peer_response(), any()}
@@ -5713,9 +5678,10 @@ defmodule AWS.NetworkManager do
 
   ## Parameters:
   * `:global_network_id` (`t:string` required) The ID of the global network.
+
   ## Keyword parameters:
   * `:connect_peer_ids` (`t:list[com.amazonaws.networkmanager#ConnectPeerId]`) The
-  IDs of the Connect peers.
+    IDs of the Connect peers.
   * `:max_results` (`t:integer`) The maximum number of results to return.
   * `:next_token` (`t:string`) The token for the next page of results.
   """
@@ -5784,9 +5750,10 @@ defmodule AWS.NetworkManager do
 
   ## Parameters:
   * `:global_network_id` (`t:string` required) The ID of the global network.
+
   ## Keyword parameters:
   * `:connection_ids` (`t:list[com.amazonaws.networkmanager#ConnectionId]`) One or
-  more connection IDs.
+    more connection IDs.
   * `:device_id` (`t:string`) The ID of the device.
   * `:max_results` (`t:integer`) The maximum number of results to return.
   * `:next_token` (`t:string`) The token for the next page of results.
@@ -5862,7 +5829,6 @@ defmodule AWS.NetworkManager do
 
   ## Parameters:
   * `:core_network_id` (`t:string` required) The ID of a core network.
-  ## Keyword parameters:
   """
   @spec get_core_network(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_core_network_response(), any()}
@@ -5904,6 +5870,7 @@ defmodule AWS.NetworkManager do
   ## Parameters:
   * `:core_network_id` (`t:string` required) The ID of a core network.
   * `:policy_version_id` (`t:integer` required) The ID of the policy version.
+
   ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of results to return.
   * `:next_token` (`t:string`) The token for the next page of results.
@@ -5973,6 +5940,7 @@ defmodule AWS.NetworkManager do
   ## Parameters:
   * `:core_network_id` (`t:string` required) The ID of a core network.
   * `:policy_version_id` (`t:integer` required) The ID of the policy version.
+
   ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of results to return.
   * `:next_token` (`t:string`) The token for the next page of results.
@@ -6041,6 +6009,7 @@ defmodule AWS.NetworkManager do
 
   ## Parameters:
   * `:core_network_id` (`t:string` required) The ID of a core network.
+
   ## Keyword parameters:
   * `:alias` (`t:enum["LATEST|LIVE"]`) The alias of a core network policy
   * `:policy_version_id` (`t:integer`) The ID of a core network policy version.
@@ -6103,10 +6072,11 @@ defmodule AWS.NetworkManager do
 
   ## Parameters:
   * `:global_network_id` (`t:string` required) The ID of the global network.
+
   ## Keyword parameters:
   * `:customer_gateway_arns`
-  (`t:list[com.amazonaws.networkmanager#CustomerGatewayArn]`) One or more
-  customer gateway Amazon Resource Names (ARNs). The maximum is 10.
+    (`t:list[com.amazonaws.networkmanager#CustomerGatewayArn]`) One or more
+    customer gateway Amazon Resource Names (ARNs). The maximum is 10.
   * `:max_results` (`t:integer`) The maximum number of results to return.
   * `:next_token` (`t:string`) The token for the next page of results.
   """
@@ -6175,9 +6145,10 @@ defmodule AWS.NetworkManager do
 
   ## Parameters:
   * `:global_network_id` (`t:string` required) The ID of the global network.
+
   ## Keyword parameters:
   * `:device_ids` (`t:list[com.amazonaws.networkmanager#DeviceId]`) One or more
-  device IDs. The maximum is 10.
+    device IDs. The maximum is 10.
   * `:max_results` (`t:integer`) The maximum number of results to return.
   * `:next_token` (`t:string`) The token for the next page of results.
   * `:site_id` (`t:string`) The ID of the site.
@@ -6254,6 +6225,7 @@ defmodule AWS.NetworkManager do
 
   ## Parameters:
   * `:global_network_id` (`t:string` required) The ID of the global network.
+
   ## Keyword parameters:
   * `:device_id` (`t:string`) The ID of the device.
   * `:link_id` (`t:string`) The ID of the link.
@@ -6331,9 +6303,10 @@ defmodule AWS.NetworkManager do
 
   ## Parameters:
   * `:global_network_id` (`t:string` required) The ID of the global network.
+
   ## Keyword parameters:
   * `:link_ids` (`t:list[com.amazonaws.networkmanager#LinkId]`) One or more link
-  IDs. The maximum is 10.
+    IDs. The maximum is 10.
   * `:max_results` (`t:integer`) The maximum number of results to return.
   * `:next_token` (`t:string`) The token for the next page of results.
   * `:provider` (`t:string`) The link provider.
@@ -6433,6 +6406,7 @@ defmodule AWS.NetworkManager do
 
   ## Parameters:
   * `:global_network_id` (`t:string` required) The ID of the global network.
+
   ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of results to return.
   * `:next_token` (`t:string`) The token for the next page of results.
@@ -6502,6 +6476,7 @@ defmodule AWS.NetworkManager do
 
   ## Parameters:
   * `:global_network_id` (`t:string` required) The ID of the global network.
+
   ## Keyword parameters:
   * `:account_id` (`t:string`) The Amazon Web Services account ID.
   * `:aws_region` (`t:string`) The Amazon Web Services Region.
@@ -6630,6 +6605,7 @@ defmodule AWS.NetworkManager do
 
   ## Parameters:
   * `:global_network_id` (`t:string` required) The ID of the global network.
+
   ## Keyword parameters:
   * `:account_id` (`t:string`) The Amazon Web Services account ID.
   * `:aws_region` (`t:string`) The Amazon Web Services Region.
@@ -6757,7 +6733,6 @@ defmodule AWS.NetworkManager do
 
   ## Parameters:
   * `:global_network_id` (`t:string` required) The ID of the global network.
-  ## Keyword parameters:
   """
   @spec get_network_routes(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_network_routes_response(), any()}
@@ -6800,6 +6775,7 @@ defmodule AWS.NetworkManager do
 
   ## Parameters:
   * `:global_network_id` (`t:string` required) The ID of the global network.
+
   ## Keyword parameters:
   * `:account_id` (`t:string`) The Amazon Web Services account ID.
   * `:aws_region` (`t:string`) The Amazon Web Services Region.
@@ -6809,7 +6785,7 @@ defmodule AWS.NetworkManager do
   * `:registered_gateway_arn` (`t:string`) The ARN of the gateway.
   * `:resource_arn` (`t:string`) The ARN of the resource.
   * `:resource_type` (`t:string`) The resource type. The following are the
-  supported resource types:
+    supported resource types:
   """
   @spec get_network_telemetry(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_network_telemetry_response(), any()}
@@ -6928,7 +6904,6 @@ defmodule AWS.NetworkManager do
 
   ## Parameters:
   * `:resource_arn` (`t:string` required) The ARN of the resource.
-  ## Keyword parameters:
   """
   @spec get_resource_policy(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_resource_policy_response(), any()}
@@ -6970,7 +6945,6 @@ defmodule AWS.NetworkManager do
   ## Parameters:
   * `:global_network_id` (`t:string` required) The ID of the global network.
   * `:route_analysis_id` (`t:string` required) The ID of the route analysis.
-  ## Keyword parameters:
   """
   @spec get_route_analysis(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_route_analysis_response(), any()}
@@ -7012,7 +6986,6 @@ defmodule AWS.NetworkManager do
 
   ## Parameters:
   * `:attachment_id` (`t:string` required) The ID of the attachment.
-  ## Keyword parameters:
   """
   @spec get_site_to_site_vpn_attachment(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_site_to_site_vpn_attachment_response(), any()}
@@ -7053,11 +7026,12 @@ defmodule AWS.NetworkManager do
 
   ## Parameters:
   * `:global_network_id` (`t:string` required) The ID of the global network.
+
   ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of results to return.
   * `:next_token` (`t:string`) The token for the next page of results.
   * `:site_ids` (`t:list[com.amazonaws.networkmanager#SiteId]`) One or more site
-  IDs. The maximum is 10.
+    IDs. The maximum is 10.
   """
   @spec get_sites(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_sites_response(), any()}
@@ -7124,12 +7098,13 @@ defmodule AWS.NetworkManager do
 
   ## Parameters:
   * `:global_network_id` (`t:string` required) The ID of the global network.
+
   ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of results to return.
   * `:next_token` (`t:string`) The token for the next page of results.
   * `:transit_gateway_connect_peer_arns`
-  (`t:list[com.amazonaws.networkmanager#TransitGatewayConnectPeerArn]`) One or
-  more transit gateway Connect peer Amazon Resource Names (ARNs).
+    (`t:list[com.amazonaws.networkmanager#TransitGatewayConnectPeerArn]`) One or
+    more transit gateway Connect peer Amazon Resource Names (ARNs).
   """
   @spec get_transit_gateway_connect_peer_associations(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_transit_gateway_connect_peer_associations_response(), any()}
@@ -7200,7 +7175,6 @@ defmodule AWS.NetworkManager do
 
   ## Parameters:
   * `:peering_id` (`t:string` required) The ID of the peering request.
-  ## Keyword parameters:
   """
   @spec get_transit_gateway_peering(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_transit_gateway_peering_response(), any()}
@@ -7242,12 +7216,13 @@ defmodule AWS.NetworkManager do
 
   ## Parameters:
   * `:global_network_id` (`t:string` required) The ID of the global network.
+
   ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of results to return.
   * `:next_token` (`t:string`) The token for the next page of results.
   * `:transit_gateway_arns`
-  (`t:list[com.amazonaws.networkmanager#TransitGatewayArn]`) The Amazon
-  Resource Names (ARNs) of one or more transit gateways. The maximum is 10.
+    (`t:list[com.amazonaws.networkmanager#TransitGatewayArn]`) The Amazon
+    Resource Names (ARNs) of one or more transit gateways. The maximum is 10.
   """
   @spec get_transit_gateway_registrations(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_transit_gateway_registrations_response(), any()}
@@ -7314,8 +7289,7 @@ defmodule AWS.NetworkManager do
 
   ## Parameters:
   * `:attachment_id` (`t:string` required) The ID of the transit gateway route
-  table attachment.
-  ## Keyword parameters:
+    table attachment.
   """
   @spec get_transit_gateway_route_table_attachment(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_transit_gateway_route_table_attachment_response(), any()}
@@ -7356,7 +7330,6 @@ defmodule AWS.NetworkManager do
 
   ## Parameters:
   * `:attachment_id` (`t:string` required) The ID of the attachment.
-  ## Keyword parameters:
   """
   @spec get_vpc_attachment(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_vpc_attachment_response(), any()}
@@ -7396,17 +7369,18 @@ defmodule AWS.NetworkManager do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=networkmanager%20ListAttachments&this_doc_guide=API%2520Reference)
 
   ## Parameters:
+
   ## Keyword parameters:
   * `:attachment_type`
-  (`t:enum["CONNECT|SITE_TO_SITE_VPN|TRANSIT_GATEWAY_ROUTE_TABLE|VPC"]`) The
-  type of attachment.
+    (`t:enum["CONNECT|SITE_TO_SITE_VPN|TRANSIT_GATEWAY_ROUTE_TABLE|VPC"]`) The
+    type of attachment.
   * `:core_network_id` (`t:string`) The ID of a core network.
   * `:edge_location` (`t:string`) The Region where the edge is located.
   * `:max_results` (`t:integer`) The maximum number of results to return.
   * `:next_token` (`t:string`) The token for the next page of results.
   * `:state`
-  (`t:enum["AVAILABLE|CREATING|DELETING|FAILED|PENDING_ATTACHMENT_ACCEPTANCE|PENDING_NETWORK_UPDATE|PENDING_TAG_ACCEPTANCE|REJECTED|UPDATING"]`)
-  The state of the attachment.
+    (`t:enum["AVAILABLE|CREATING|DELETING|FAILED|PENDING_ATTACHMENT_ACCEPTANCE|PENDING_NETWORK_UPDATE|PENDING_TAG_ACCEPTANCE|REJECTED|UPDATING"]`)
+    The state of the attachment.
   """
   @spec list_attachments(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_attachments_response(), any()}
@@ -7506,6 +7480,7 @@ defmodule AWS.NetworkManager do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=networkmanager%20ListConnectPeers&this_doc_guide=API%2520Reference)
 
   ## Parameters:
+
   ## Keyword parameters:
   * `:connect_attachment_id` (`t:string`) The ID of the attachment.
   * `:core_network_id` (`t:string`) The ID of a core network.
@@ -7588,6 +7563,7 @@ defmodule AWS.NetworkManager do
 
   ## Parameters:
   * `:core_network_id` (`t:string` required) The ID of a core network.
+
   ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of results to return.
   * `:next_token` (`t:string`) The token for the next page of results.
@@ -7649,6 +7625,7 @@ defmodule AWS.NetworkManager do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=networkmanager%20ListCoreNetworks&this_doc_guide=API%2520Reference)
 
   ## Parameters:
+
   ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of results to return.
   * `:next_token` (`t:string`) The token for the next page of results.
@@ -7710,6 +7687,7 @@ defmodule AWS.NetworkManager do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=networkmanager%20ListOrganizationServiceAccessStatus&this_doc_guide=API%2520Reference)
 
   ## Parameters:
+
   ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of results to return.
   * `:next_token` (`t:string`) The token for the next page of results.
@@ -7769,15 +7747,16 @@ defmodule AWS.NetworkManager do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=networkmanager%20ListPeerings&this_doc_guide=API%2520Reference)
 
   ## Parameters:
+
   ## Keyword parameters:
   * `:core_network_id` (`t:string`) The ID of a core network.
   * `:edge_location` (`t:string`) Returns a list edge locations for the
   * `:max_results` (`t:integer`) The maximum number of results to return.
   * `:next_token` (`t:string`) The token for the next page of results.
   * `:peering_type` (`t:enum["TRANSIT_GATEWAY"]`) Returns a list of a peering
-  requests.
+    requests.
   * `:state` (`t:enum["AVAILABLE|CREATING|DELETING|FAILED"]`) Returns a list of
-  the peering request states.
+    the peering request states.
   """
   @spec list_peerings(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_peerings_response(), any()}
@@ -7878,8 +7857,7 @@ defmodule AWS.NetworkManager do
 
   ## Parameters:
   * `:resource_arn` (`t:string` required) The Amazon Resource Name (ARN) of the
-  resource.
-  ## Keyword parameters:
+    resource.
   """
   @spec list_tags_for_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_tags_for_resource_response(), any()}
@@ -7922,7 +7900,6 @@ defmodule AWS.NetworkManager do
 
   ## Parameters:
   * `:core_network_id` (`t:string` required) The ID of a core network.
-  ## Keyword parameters:
   """
   @spec put_core_network_policy(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, put_core_network_policy_response(), any()}
@@ -7965,7 +7942,6 @@ defmodule AWS.NetworkManager do
 
   ## Parameters:
   * `:resource_arn` (`t:string` required) The ARN of the resource policy.
-  ## Keyword parameters:
   """
   @spec put_resource_policy(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, put_resource_policy_response(), any()}
@@ -8016,7 +7992,6 @@ defmodule AWS.NetworkManager do
 
   ## Parameters:
   * `:global_network_id` (`t:string` required) The ID of the global network.
-  ## Keyword parameters:
   """
   @spec register_transit_gateway(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, register_transit_gateway_response(), any()}
@@ -8060,7 +8035,6 @@ defmodule AWS.NetworkManager do
 
   ## Parameters:
   * `:attachment_id` (`t:string` required) The ID of the attachment.
-  ## Keyword parameters:
   """
   @spec reject_attachment(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, reject_attachment_response(), any()}
@@ -8106,8 +8080,7 @@ defmodule AWS.NetworkManager do
   ## Parameters:
   * `:core_network_id` (`t:string` required) The ID of a core network.
   * `:policy_version_id` (`t:integer` required) The ID of the policy version to
-  restore.
-  ## Keyword parameters:
+    restore.
   """
   @spec restore_core_network_policy_version(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, restore_core_network_policy_version_response(), any()}
@@ -8156,7 +8129,6 @@ defmodule AWS.NetworkManager do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=networkmanager%20StartOrganizationServiceAccessUpdate&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec start_organization_service_access_update(AWS.Client.t(), Keyword.t()) ::
           {:ok, start_organization_service_access_update_response(), any()}
@@ -8201,7 +8173,6 @@ defmodule AWS.NetworkManager do
 
   ## Parameters:
   * `:global_network_id` (`t:string` required) The ID of the global network.
-  ## Keyword parameters:
   """
   @spec start_route_analysis(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, start_route_analysis_response(), any()}
@@ -8244,8 +8215,7 @@ defmodule AWS.NetworkManager do
 
   ## Parameters:
   * `:resource_arn` (`t:string` required) The Amazon Resource Name (ARN) of the
-  resource.
-  ## Keyword parameters:
+    resource.
   """
   @spec tag_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, tag_resource_response(), any()}
@@ -8288,10 +8258,9 @@ defmodule AWS.NetworkManager do
 
   ## Parameters:
   * `:resource_arn` (`t:string` required) The Amazon Resource Name (ARN) of the
-  resource.
+    resource.
   * `:tag_keys` (`t:list[com.amazonaws.networkmanager#TagKey]` required) The tag
-  keys to remove from the specified resource.
-  ## Keyword parameters:
+    keys to remove from the specified resource.
   """
   @spec untag_resource(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, untag_resource_response(), any()}
@@ -8347,7 +8316,6 @@ defmodule AWS.NetworkManager do
   ## Parameters:
   * `:connection_id` (`t:string` required) The ID of the connection.
   * `:global_network_id` (`t:string` required) The ID of the global network.
-  ## Keyword parameters:
   """
   @spec update_connection(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, update_connection_response(), any()}
@@ -8401,7 +8369,6 @@ defmodule AWS.NetworkManager do
 
   ## Parameters:
   * `:core_network_id` (`t:string` required) The ID of a core network.
-  ## Keyword parameters:
   """
   @spec update_core_network(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, update_core_network_response(), any()}
@@ -8456,7 +8423,6 @@ defmodule AWS.NetworkManager do
   ## Parameters:
   * `:device_id` (`t:string` required) The ID of the device.
   * `:global_network_id` (`t:string` required) The ID of the global network.
-  ## Keyword parameters:
   """
   @spec update_device(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, update_device_response(), any()}
@@ -8511,7 +8477,6 @@ defmodule AWS.NetworkManager do
 
   ## Parameters:
   * `:global_network_id` (`t:string` required) The ID of your global network.
-  ## Keyword parameters:
   """
   @spec update_global_network(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, update_global_network_response(), any()}
@@ -8566,7 +8531,6 @@ defmodule AWS.NetworkManager do
   ## Parameters:
   * `:global_network_id` (`t:string` required) The ID of the global network.
   * `:link_id` (`t:string` required) The ID of the link.
-  ## Keyword parameters:
   """
   @spec update_link(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, update_link_response(), any()}
@@ -8621,7 +8585,6 @@ defmodule AWS.NetworkManager do
   ## Parameters:
   * `:global_network_id` (`t:string` required) The ID of the global network.
   * `:resource_arn` (`t:string` required) The ARN of the resource.
-  ## Keyword parameters:
   """
   @spec update_network_resource_metadata(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, update_network_resource_metadata_response(), any()}
@@ -8682,7 +8645,6 @@ defmodule AWS.NetworkManager do
   ## Parameters:
   * `:global_network_id` (`t:string` required) The ID of the global network.
   * `:site_id` (`t:string` required) The ID of your site.
-  ## Keyword parameters:
   """
   @spec update_site(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, update_site_response(), any()}
@@ -8736,7 +8698,6 @@ defmodule AWS.NetworkManager do
 
   ## Parameters:
   * `:attachment_id` (`t:string` required) The ID of the attachment.
-  ## Keyword parameters:
   """
   @spec update_vpc_attachment(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, update_vpc_attachment_response(), any()}

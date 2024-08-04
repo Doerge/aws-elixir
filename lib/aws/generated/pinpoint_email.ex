@@ -1714,7 +1714,6 @@ defmodule AWS.PinpointEmail do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=pinpointemail%20CreateConfigurationSet&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec create_configuration_set(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_configuration_set_response(), any()}
@@ -1762,8 +1761,7 @@ defmodule AWS.PinpointEmail do
 
   ## Parameters:
   * `:configuration_set_name` (`t:string` required) The name of the configuration
-  set that you want to add an event destination to.
-  ## Keyword parameters:
+    set that you want to add an event destination to.
   """
   @spec create_configuration_set_event_destination(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, create_configuration_set_event_destination_response(), any()}
@@ -1814,7 +1812,6 @@ defmodule AWS.PinpointEmail do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=pinpointemail%20CreateDedicatedIpPool&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec create_dedicated_ip_pool(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_dedicated_ip_pool_response(), any()}
@@ -1863,7 +1860,6 @@ defmodule AWS.PinpointEmail do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=pinpointemail%20CreateDeliverabilityTestReport&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec create_deliverability_test_report(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_deliverability_test_report_response(), any()}
@@ -1912,7 +1908,6 @@ defmodule AWS.PinpointEmail do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=pinpointemail%20CreateEmailIdentity&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec create_email_identity(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_email_identity_response(), any()}
@@ -1955,8 +1950,7 @@ defmodule AWS.PinpointEmail do
 
   ## Parameters:
   * `:configuration_set_name` (`t:string` required) The name of the configuration
-  set that you want to delete.
-  ## Keyword parameters:
+    set that you want to delete.
   """
   @spec delete_configuration_set(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, delete_configuration_set_response(), any()}
@@ -2009,10 +2003,9 @@ defmodule AWS.PinpointEmail do
 
   ## Parameters:
   * `:configuration_set_name` (`t:string` required) The name of the configuration
-  set that contains the event destination that you want to delete.
+    set that contains the event destination that you want to delete.
   * `:event_destination_name` (`t:string` required) The name of the event
-  destination that you want to delete.
-  ## Keyword parameters:
+    destination that you want to delete.
   """
   @spec delete_configuration_set_event_destination(
           AWS.Client.t(),
@@ -2076,8 +2069,7 @@ defmodule AWS.PinpointEmail do
 
   ## Parameters:
   * `:pool_name` (`t:string` required) The name of the dedicated IP pool that you
-  want to delete.
-  ## Keyword parameters:
+    want to delete.
   """
   @spec delete_dedicated_ip_pool(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, delete_dedicated_ip_pool_response(), any()}
@@ -2131,9 +2123,8 @@ defmodule AWS.PinpointEmail do
 
   ## Parameters:
   * `:email_identity` (`t:string` required) The identity (that is, the email
-  address or domain) that you want to delete from your Amazon Pinpoint
-  account.
-  ## Keyword parameters:
+    address or domain) that you want to delete from your Amazon Pinpoint
+    account.
   """
   @spec delete_email_identity(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, delete_email_identity_response(), any()}
@@ -2186,7 +2177,6 @@ defmodule AWS.PinpointEmail do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=pinpointemail%20GetAccount&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec get_account(AWS.Client.t(), Keyword.t()) ::
           {:ok, get_account_response(), any()}
@@ -2227,11 +2217,10 @@ defmodule AWS.PinpointEmail do
 
   ## Parameters:
   * `:blacklist_item_names`
-  (`t:list[com.amazonaws.pinpointemail#BlacklistItemName]` required) A list of
-  IP addresses that you want to retrieve blacklist information about. You can
-  only specify the dedicated IP addresses that you use to send email using
-  Amazon Pinpoint or Amazon SES.
-  ## Keyword parameters:
+    (`t:list[com.amazonaws.pinpointemail#BlacklistItemName]` required) A list of
+    IP addresses that you want to retrieve blacklist information about. You can
+    only specify the dedicated IP addresses that you use to send email using
+    Amazon Pinpoint or Amazon SES.
   """
   @spec get_blacklist_reports(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_blacklist_reports_response(), any()}
@@ -2275,8 +2264,7 @@ defmodule AWS.PinpointEmail do
 
   ## Parameters:
   * `:configuration_set_name` (`t:string` required) The name of the configuration
-  set that you want to obtain more information about.
-  ## Keyword parameters:
+    set that you want to obtain more information about.
   """
   @spec get_configuration_set(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_configuration_set_response(), any()}
@@ -2318,8 +2306,7 @@ defmodule AWS.PinpointEmail do
 
   ## Parameters:
   * `:configuration_set_name` (`t:string` required) The name of the configuration
-  set that contains the event destination.
-  ## Keyword parameters:
+    set that contains the event destination.
   """
   @spec get_configuration_set_event_destinations(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_configuration_set_event_destinations_response(), any()}
@@ -2367,9 +2354,8 @@ defmodule AWS.PinpointEmail do
 
   ## Parameters:
   * `:ip` (`t:string` required) The IP address that you want to obtain more
-  information about. The value you specify has to be a dedicated IP address
-  that's assocaited with your Amazon Pinpoint account.
-  ## Keyword parameters:
+    information about. The value you specify has to be a dedicated IP address
+    that's assocaited with your Amazon Pinpoint account.
   """
   @spec get_dedicated_ip(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_dedicated_ip_response(), any()}
@@ -2410,16 +2396,17 @@ defmodule AWS.PinpointEmail do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=pinpointemail%20GetDedicatedIps&this_doc_guide=API%2520Reference)
 
   ## Parameters:
+
   ## Keyword parameters:
   * `:next_token` (`t:string`) A token returned from a previous call to
-  GetDedicatedIps to indicate the position of the dedicated IP pool in the
-  list of IP pools.
+    GetDedicatedIps to indicate the position of the dedicated IP pool in the
+    list of IP pools.
   * `:page_size` (`t:integer`) The number of results to show in a single call to
-  GetDedicatedIpsRequest. If the number of results is larger than the number
-  you specified in this parameter, then the response includes a NextToken
-  element, which you can use to obtain additional results.
+    GetDedicatedIpsRequest. If the number of results is larger than the number
+    you specified in this parameter, then the response includes a NextToken
+    element, which you can use to obtain additional results.
   * `:pool_name` (`t:string`) The name of the IP pool that the dedicated IP
-  address is associated with.
+    address is associated with.
   """
   @spec get_dedicated_ips(AWS.Client.t(), Keyword.t()) ::
           {:ok, get_dedicated_ips_response(), any()}
@@ -2488,7 +2475,6 @@ defmodule AWS.PinpointEmail do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=pinpointemail%20GetDeliverabilityDashboardOptions&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec get_deliverability_dashboard_options(AWS.Client.t(), Keyword.t()) ::
           {:ok, get_deliverability_dashboard_options_response(), any()}
@@ -2529,8 +2515,7 @@ defmodule AWS.PinpointEmail do
 
   ## Parameters:
   * `:report_id` (`t:string` required) A unique string that identifies the
-  predictive inbox placement test.
-  ## Keyword parameters:
+    predictive inbox placement test.
   """
   @spec get_deliverability_test_report(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_deliverability_test_report_response(), any()}
@@ -2574,11 +2559,10 @@ defmodule AWS.PinpointEmail do
 
   ## Parameters:
   * `:campaign_id` (`t:string` required) The unique identifier for the campaign.
-  Amazon Pinpoint automatically generates and assigns this identifier to a
-  campaign. This value is not the same as the campaign identifier that Amazon
-  Pinpoint assigns to campaigns that you create and manage by using the Amazon
-  Pinpoint API or the Amazon Pinpoint console.
-  ## Keyword parameters:
+    Amazon Pinpoint automatically generates and assigns this identifier to a
+    campaign. This value is not the same as the campaign identifier that Amazon
+    Pinpoint assigns to campaigns that you create and manage by using the Amazon
+    Pinpoint API or the Amazon Pinpoint console.
   """
   @spec get_domain_deliverability_campaign(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_domain_deliverability_campaign_response(), any()}
@@ -2620,13 +2604,12 @@ defmodule AWS.PinpointEmail do
 
   ## Parameters:
   * `:domain` (`t:string` required) The domain that you want to obtain
-  deliverability metrics for.
+    deliverability metrics for.
   * `:end_date` (`t:timestamp` required) The last day (in Unix time) that you want
-  to obtain domain deliverability metrics for. The EndDate that you specify
-  has to be less than or equal to 30 days after the StartDate.
+    to obtain domain deliverability metrics for. The EndDate that you specify
+    has to be less than or equal to 30 days after the StartDate.
   * `:start_date` (`t:timestamp` required) The first day (in Unix time) that you
-  want to obtain domain deliverability metrics for.
-  ## Keyword parameters:
+    want to obtain domain deliverability metrics for.
   """
   @spec get_domain_statistics_report(
           AWS.Client.t(),
@@ -2683,8 +2666,7 @@ defmodule AWS.PinpointEmail do
 
   ## Parameters:
   * `:email_identity` (`t:string` required) The email identity that you want to
-  retrieve details for.
-  ## Keyword parameters:
+    retrieve details for.
   """
   @spec get_email_identity(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_email_identity_response(), any()}
@@ -2725,14 +2707,15 @@ defmodule AWS.PinpointEmail do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=pinpointemail%20ListConfigurationSets&this_doc_guide=API%2520Reference)
 
   ## Parameters:
+
   ## Keyword parameters:
   * `:next_token` (`t:string`) A token returned from a previous call to
-  ListConfigurationSets to indicate the position in the list of configuration
-  sets.
+    ListConfigurationSets to indicate the position in the list of configuration
+    sets.
   * `:page_size` (`t:integer`) The number of results to show in a single call to
-  ListConfigurationSets. If the number of results is larger than the number
-  you specified in this parameter, then the response includes a NextToken
-  element, which you can use to obtain additional results.
+    ListConfigurationSets. If the number of results is larger than the number
+    you specified in this parameter, then the response includes a NextToken
+    element, which you can use to obtain additional results.
   """
   @spec list_configuration_sets(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_configuration_sets_response(), any()}
@@ -2791,14 +2774,15 @@ defmodule AWS.PinpointEmail do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=pinpointemail%20ListDedicatedIpPools&this_doc_guide=API%2520Reference)
 
   ## Parameters:
+
   ## Keyword parameters:
   * `:next_token` (`t:string`) A token returned from a previous call to
-  ListDedicatedIpPools to indicate the position in the list of dedicated IP
-  pools.
+    ListDedicatedIpPools to indicate the position in the list of dedicated IP
+    pools.
   * `:page_size` (`t:integer`) The number of results to show in a single call to
-  ListDedicatedIpPools. If the number of results is larger than the number you
-  specified in this parameter, then the response includes a NextToken element,
-  which you can use to obtain additional results.
+    ListDedicatedIpPools. If the number of results is larger than the number you
+    specified in this parameter, then the response includes a NextToken element,
+    which you can use to obtain additional results.
   """
   @spec list_dedicated_ip_pools(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_dedicated_ip_pools_response(), any()}
@@ -2859,14 +2843,15 @@ defmodule AWS.PinpointEmail do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=pinpointemail%20ListDeliverabilityTestReports&this_doc_guide=API%2520Reference)
 
   ## Parameters:
+
   ## Keyword parameters:
   * `:next_token` (`t:string`) A token returned from a previous call to
-  ListDeliverabilityTestReports to indicate the position in the list of
-  predictive inbox placement tests.
+    ListDeliverabilityTestReports to indicate the position in the list of
+    predictive inbox placement tests.
   * `:page_size` (`t:integer`) The number of results to show in a single call to
-  ListDeliverabilityTestReports. If the number of results is larger than the
-  number you specified in this parameter, then the response includes a
-  NextToken element, which you can use to obtain additional results.
+    ListDeliverabilityTestReports. If the number of results is larger than the
+    number you specified in this parameter, then the response includes a
+    NextToken element, which you can use to obtain additional results.
   """
   @spec list_deliverability_test_reports(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_deliverability_test_reports_response(), any()}
@@ -2928,21 +2913,22 @@ defmodule AWS.PinpointEmail do
 
   ## Parameters:
   * `:subscribed_domain` (`t:string` required) The domain to obtain deliverability
-  data for.
+    data for.
   * `:end_date` (`t:timestamp` required) The last day, in Unix time format, that
-  you want to obtain deliverability data for. This value has to be less than
-  or equal to 30 days after the value of the StartDate parameter.
+    you want to obtain deliverability data for. This value has to be less than
+    or equal to 30 days after the value of the StartDate parameter.
   * `:start_date` (`t:timestamp` required) The first day, in Unix time format,
-  that you want to obtain deliverability data for.
+    that you want to obtain deliverability data for.
+
   ## Keyword parameters:
   * `:next_token` (`t:string`) A token that’s returned from a previous call to the
-  ListDomainDeliverabilityCampaigns operation. This token indicates the
-  position of a campaign in the list of campaigns.
+    ListDomainDeliverabilityCampaigns operation. This token indicates the
+    position of a campaign in the list of campaigns.
   * `:page_size` (`t:integer`) The maximum number of results to include in
-  response to a single call to the ListDomainDeliverabilityCampaigns
-  operation. If the number of results is larger than the number that you
-  specify in this parameter, the response includes a NextToken element, which
-  you can use to obtain additional results.
+    response to a single call to the ListDomainDeliverabilityCampaigns
+    operation. If the number of results is larger than the number that you
+    specify in this parameter, the response includes a NextToken element, which
+    you can use to obtain additional results.
   """
   @spec list_domain_deliverability_campaigns(
           AWS.Client.t(),
@@ -3017,13 +3003,14 @@ defmodule AWS.PinpointEmail do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=pinpointemail%20ListEmailIdentities&this_doc_guide=API%2520Reference)
 
   ## Parameters:
+
   ## Keyword parameters:
   * `:next_token` (`t:string`) A token returned from a previous call to
-  ListEmailIdentities to indicate the position in the list of identities.
+    ListEmailIdentities to indicate the position in the list of identities.
   * `:page_size` (`t:integer`) The number of results to show in a single call to
-  ListEmailIdentities. If the number of results is larger than the number you
-  specified in this parameter, then the response includes a NextToken element,
-  which you can use to obtain additional results.
+    ListEmailIdentities. If the number of results is larger than the number you
+    specified in this parameter, then the response includes a NextToken element,
+    which you can use to obtain additional results.
   """
   @spec list_email_identities(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_email_identities_response(), any()}
@@ -3087,8 +3074,7 @@ defmodule AWS.PinpointEmail do
 
   ## Parameters:
   * `:resource_arn` (`t:string` required) The Amazon Resource Name (ARN) of the
-  resource that you want to retrieve tag information for.
-  ## Keyword parameters:
+    resource that you want to retrieve tag information for.
   """
   @spec list_tags_for_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_tags_for_resource_response(), any()}
@@ -3129,7 +3115,6 @@ defmodule AWS.PinpointEmail do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=pinpointemail%20PutAccountDedicatedIpWarmupAttributes&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec put_account_dedicated_ip_warmup_attributes(AWS.Client.t(), Keyword.t()) ::
           {:ok, put_account_dedicated_ip_warmup_attributes_response(), any()}
@@ -3171,7 +3156,6 @@ defmodule AWS.PinpointEmail do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=pinpointemail%20PutAccountSendingAttributes&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec put_account_sending_attributes(AWS.Client.t(), Keyword.t()) ::
           {:ok, put_account_sending_attributes_response(), any()}
@@ -3216,8 +3200,7 @@ defmodule AWS.PinpointEmail do
 
   ## Parameters:
   * `:configuration_set_name` (`t:string` required) The name of the configuration
-  set that you want to associate with a dedicated IP pool.
-  ## Keyword parameters:
+    set that you want to associate with a dedicated IP pool.
   """
   @spec put_configuration_set_delivery_options(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, put_configuration_set_delivery_options_response(), any()}
@@ -3266,8 +3249,7 @@ defmodule AWS.PinpointEmail do
 
   ## Parameters:
   * `:configuration_set_name` (`t:string` required) The name of the configuration
-  set that you want to enable or disable reputation metric tracking for.
-  ## Keyword parameters:
+    set that you want to enable or disable reputation metric tracking for.
   """
   @spec put_configuration_set_reputation_options(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, put_configuration_set_reputation_options_response(), any()}
@@ -3316,8 +3298,7 @@ defmodule AWS.PinpointEmail do
 
   ## Parameters:
   * `:configuration_set_name` (`t:string` required) The name of the configuration
-  set that you want to enable or disable email sending for.
-  ## Keyword parameters:
+    set that you want to enable or disable email sending for.
   """
   @spec put_configuration_set_sending_options(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, put_configuration_set_sending_options_response(), any()}
@@ -3366,8 +3347,7 @@ defmodule AWS.PinpointEmail do
 
   ## Parameters:
   * `:configuration_set_name` (`t:string` required) The name of the configuration
-  set that you want to add a custom tracking domain to.
-  ## Keyword parameters:
+    set that you want to add a custom tracking domain to.
   """
   @spec put_configuration_set_tracking_options(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, put_configuration_set_tracking_options_response(), any()}
@@ -3415,9 +3395,8 @@ defmodule AWS.PinpointEmail do
 
   ## Parameters:
   * `:ip` (`t:string` required) The IP address that you want to move to the
-  dedicated IP pool. The value you specify has to be a dedicated IP address
-  that's associated with your Amazon Pinpoint account.
-  ## Keyword parameters:
+    dedicated IP pool. The value you specify has to be a dedicated IP address
+    that's associated with your Amazon Pinpoint account.
   """
   @spec put_dedicated_ip_in_pool(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, put_dedicated_ip_in_pool_response(), any()}
@@ -3460,8 +3439,7 @@ defmodule AWS.PinpointEmail do
 
   ## Parameters:
   * `:ip` (`t:string` required) The dedicated IP address that you want to update
-  the warm-up attributes for.
-  ## Keyword parameters:
+    the warm-up attributes for.
   """
   @spec put_dedicated_ip_warmup_attributes(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, put_dedicated_ip_warmup_attributes_response(), any()}
@@ -3507,7 +3485,6 @@ defmodule AWS.PinpointEmail do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=pinpointemail%20PutDeliverabilityDashboardOption&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec put_deliverability_dashboard_option(AWS.Client.t(), Keyword.t()) ::
           {:ok, put_deliverability_dashboard_option_response(), any()}
@@ -3550,8 +3527,7 @@ defmodule AWS.PinpointEmail do
 
   ## Parameters:
   * `:email_identity` (`t:string` required) The email identity that you want to
-  change the DKIM settings for.
-  ## Keyword parameters:
+    change the DKIM settings for.
   """
   @spec put_email_identity_dkim_attributes(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, put_email_identity_dkim_attributes_response(), any()}
@@ -3599,8 +3575,7 @@ defmodule AWS.PinpointEmail do
 
   ## Parameters:
   * `:email_identity` (`t:string` required) The email identity that you want to
-  configure bounce and complaint feedback forwarding for.
-  ## Keyword parameters:
+    configure bounce and complaint feedback forwarding for.
   """
   @spec put_email_identity_feedback_attributes(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, put_email_identity_feedback_attributes_response(), any()}
@@ -3644,8 +3619,7 @@ defmodule AWS.PinpointEmail do
 
   ## Parameters:
   * `:email_identity` (`t:string` required) The verified email identity that you
-  want to set up the custom MAIL FROM domain for.
-  ## Keyword parameters:
+    want to set up the custom MAIL FROM domain for.
   """
   @spec put_email_identity_mail_from_attributes(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, put_email_identity_mail_from_attributes_response(), any()}
@@ -3688,7 +3662,6 @@ defmodule AWS.PinpointEmail do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=pinpointemail%20SendEmail&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec send_email(AWS.Client.t(), Keyword.t()) ::
           {:ok, send_email_response(), any()}
@@ -3734,7 +3707,6 @@ defmodule AWS.PinpointEmail do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=pinpointemail%20TagResource&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec tag_resource(AWS.Client.t(), Keyword.t()) ::
           {:ok, tag_resource_response(), any()}
@@ -3777,11 +3749,10 @@ defmodule AWS.PinpointEmail do
 
   ## Parameters:
   * `:resource_arn` (`t:string` required) The Amazon Resource Name (ARN) of the
-  resource that you want to remove one or more tags from.
+    resource that you want to remove one or more tags from.
   * `:tag_keys` (`t:list[com.amazonaws.pinpointemail#TagKey]` required) The tags
-  (tag keys) that you want to remove from the resource. When you specify a tag
-  key, the action removes both that key and its associated tag value.
-  ## Keyword parameters:
+    (tag keys) that you want to remove from the resource. When you specify a tag
+    key, the action removes both that key and its associated tag value.
   """
   @spec untag_resource(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, untag_resource_response(), any()}
@@ -3835,10 +3806,9 @@ defmodule AWS.PinpointEmail do
 
   ## Parameters:
   * `:configuration_set_name` (`t:string` required) The name of the configuration
-  set that contains the event destination that you want to modify.
+    set that contains the event destination that you want to modify.
   * `:event_destination_name` (`t:string` required) The name of the event
-  destination that you want to modify.
-  ## Keyword parameters:
+    destination that you want to modify.
   """
   @spec update_configuration_set_event_destination(
           AWS.Client.t(),

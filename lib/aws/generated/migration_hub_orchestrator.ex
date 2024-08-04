@@ -1376,7 +1376,6 @@ defmodule AWS.MigrationHubOrchestrator do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=migrationhuborchestrator%20CreateTemplate&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec create_template(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_template_response(), any()}
@@ -1418,7 +1417,6 @@ defmodule AWS.MigrationHubOrchestrator do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=migrationhuborchestrator%20CreateWorkflow&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec create_workflow(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_migration_workflow_response(), any()}
@@ -1460,7 +1458,6 @@ defmodule AWS.MigrationHubOrchestrator do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=migrationhuborchestrator%20CreateWorkflowStep&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec create_workflow_step(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_workflow_step_response(), any()}
@@ -1502,7 +1499,6 @@ defmodule AWS.MigrationHubOrchestrator do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=migrationhuborchestrator%20CreateWorkflowStepGroup&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec create_workflow_step_group(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_workflow_step_group_response(), any()}
@@ -1545,8 +1541,7 @@ defmodule AWS.MigrationHubOrchestrator do
 
   ## Parameters:
   * `:id` (`t:string` required) The ID of the request to delete a migration
-  workflow template.
-  ## Keyword parameters:
+    workflow template.
   """
   @spec delete_template(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, delete_template_response(), any()}
@@ -1600,8 +1595,7 @@ defmodule AWS.MigrationHubOrchestrator do
 
   ## Parameters:
   * `:id` (`t:string` required) The ID of the migration workflow you want to
-  delete.
-  ## Keyword parameters:
+    delete.
   """
   @spec delete_workflow(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, delete_migration_workflow_response(), any()}
@@ -1656,9 +1650,8 @@ defmodule AWS.MigrationHubOrchestrator do
   ## Parameters:
   * `:id` (`t:string` required) The ID of the step you want to delete.
   * `:step_group_id` (`t:string` required) The ID of the step group that contains
-  the step you want to delete.
+    the step you want to delete.
   * `:workflow_id` (`t:string` required) The ID of the migration workflow.
-  ## Keyword parameters:
   """
   @spec delete_workflow_step(AWS.Client.t(), String.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, delete_workflow_step_response(), any()}
@@ -1713,7 +1706,6 @@ defmodule AWS.MigrationHubOrchestrator do
   ## Parameters:
   * `:id` (`t:string` required) The ID of the step group you want to delete.
   * `:workflow_id` (`t:string` required) The ID of the migration workflow.
-  ## Keyword parameters:
   """
   @spec delete_workflow_step_group(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, delete_workflow_step_group_response(), any()}
@@ -1767,7 +1759,6 @@ defmodule AWS.MigrationHubOrchestrator do
 
   ## Parameters:
   * `:id` (`t:string` required) The ID of the template.
-  ## Keyword parameters:
   """
   @spec get_template(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_migration_workflow_template_response(), any()}
@@ -1810,7 +1801,6 @@ defmodule AWS.MigrationHubOrchestrator do
   * `:id` (`t:string` required) The ID of the step.
   * `:step_group_id` (`t:string` required) The ID of the step group.
   * `:template_id` (`t:string` required) The ID of the template.
-  ## Keyword parameters:
   """
   @spec get_template_step(AWS.Client.t(), String.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_template_step_response(), any()}
@@ -1853,7 +1843,6 @@ defmodule AWS.MigrationHubOrchestrator do
   ## Parameters:
   * `:id` (`t:string` required) The ID of the step group.
   * `:template_id` (`t:string` required) The ID of the template.
-  ## Keyword parameters:
   """
   @spec get_template_step_group(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_template_step_group_response(), any()}
@@ -1895,7 +1884,6 @@ defmodule AWS.MigrationHubOrchestrator do
 
   ## Parameters:
   * `:id` (`t:string` required) The ID of the migration workflow.
-  ## Keyword parameters:
   """
   @spec get_workflow(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_migration_workflow_response(), any()}
@@ -1938,7 +1926,6 @@ defmodule AWS.MigrationHubOrchestrator do
   * `:id` (`t:string` required) The ID of the step.
   * `:step_group_id` (`t:string` required) The ID of the step group.
   * `:workflow_id` (`t:string` required) The ID of the migration workflow.
-  ## Keyword parameters:
   """
   @spec get_workflow_step(AWS.Client.t(), String.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_workflow_step_response(), any()}
@@ -1981,7 +1968,6 @@ defmodule AWS.MigrationHubOrchestrator do
   ## Parameters:
   * `:id` (`t:string` required) The ID of the step group.
   * `:workflow_id` (`t:string` required) The ID of the migration workflow.
-  ## Keyword parameters:
   """
   @spec get_workflow_step_group(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_workflow_step_group_response(), any()}
@@ -2022,9 +2008,10 @@ defmodule AWS.MigrationHubOrchestrator do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=migrationhuborchestrator%20ListPlugins&this_doc_guide=API%2520Reference)
 
   ## Parameters:
+
   ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of plugins that can be
-  returned.
+    returned.
   * `:next_token` (`t:string`) The pagination token.
   """
   @spec list_plugins(AWS.Client.t(), Keyword.t()) ::
@@ -2084,8 +2071,7 @@ defmodule AWS.MigrationHubOrchestrator do
 
   ## Parameters:
   * `:resource_arn` (`t:string` required) The Amazon Resource Name (ARN) of the
-  resource.
-  ## Keyword parameters:
+    resource.
   """
   @spec list_tags_for_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_tags_for_resource_response(), any()}
@@ -2126,9 +2112,10 @@ defmodule AWS.MigrationHubOrchestrator do
 
   ## Parameters:
   * `:template_id` (`t:string` required) The ID of the template.
+
   ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of results that can be
-  returned.
+    returned.
   * `:next_token` (`t:string`) The pagination token.
   """
   @spec list_template_step_groups(AWS.Client.t(), String.t(), Keyword.t()) ::
@@ -2189,9 +2176,10 @@ defmodule AWS.MigrationHubOrchestrator do
   ## Parameters:
   * `:step_group_id` (`t:string` required) The ID of the step group.
   * `:template_id` (`t:string` required) The ID of the template.
+
   ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of results that can be
-  returned.
+    returned.
   * `:next_token` (`t:string`) The pagination token.
   """
   @spec list_template_steps(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
@@ -2252,9 +2240,10 @@ defmodule AWS.MigrationHubOrchestrator do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=migrationhuborchestrator%20ListTemplates&this_doc_guide=API%2520Reference)
 
   ## Parameters:
+
   ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of results that can be
-  returned.
+    returned.
   * `:name` (`t:string`) The name of the template.
   * `:next_token` (`t:string`) The pagination token.
   """
@@ -2322,9 +2311,10 @@ defmodule AWS.MigrationHubOrchestrator do
 
   ## Parameters:
   * `:workflow_id` (`t:string` required) The ID of the migration workflow.
+
   ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of results that can be
-  returned.
+    returned.
   * `:next_token` (`t:string`) The pagination token.
   """
   @spec list_workflow_step_groups(AWS.Client.t(), String.t(), Keyword.t()) ::
@@ -2386,9 +2376,10 @@ defmodule AWS.MigrationHubOrchestrator do
   ## Parameters:
   * `:step_group_id` (`t:string` required) The ID of the step group.
   * `:workflow_id` (`t:string` required) The ID of the migration workflow.
+
   ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of results that can be
-  returned.
+    returned.
   * `:next_token` (`t:string`) The pagination token.
   """
   @spec list_workflow_steps(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
@@ -2448,11 +2439,12 @@ defmodule AWS.MigrationHubOrchestrator do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=migrationhuborchestrator%20ListWorkflows&this_doc_guide=API%2520Reference)
 
   ## Parameters:
+
   ## Keyword parameters:
   * `:ads_application_configuration_name` (`t:string`) The name of the application
-  configured in Application Discovery Service.
+    configured in Application Discovery Service.
   * `:max_results` (`t:integer`) The maximum number of results that can be
-  returned.
+    returned.
   * `:name` (`t:string`) The name of the migration workflow.
   * `:next_token` (`t:string`) The pagination token.
   * `:status` (`t:string`) The status of the migration workflow.
@@ -2559,7 +2551,6 @@ defmodule AWS.MigrationHubOrchestrator do
   * `:id` (`t:string` required) The ID of the step.
   * `:step_group_id` (`t:string` required) The ID of the step group.
   * `:workflow_id` (`t:string` required) The ID of the migration workflow.
-  ## Keyword parameters:
   """
   @spec retry_workflow_step(AWS.Client.t(), String.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, retry_workflow_step_response(), any()}
@@ -2603,7 +2594,6 @@ defmodule AWS.MigrationHubOrchestrator do
 
   ## Parameters:
   * `:id` (`t:string` required) The ID of the migration workflow.
-  ## Keyword parameters:
   """
   @spec start_workflow(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, start_migration_workflow_response(), any()}
@@ -2646,7 +2636,6 @@ defmodule AWS.MigrationHubOrchestrator do
 
   ## Parameters:
   * `:id` (`t:string` required) The ID of the migration workflow.
-  ## Keyword parameters:
   """
   @spec stop_workflow(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, stop_migration_workflow_response(), any()}
@@ -2689,8 +2678,7 @@ defmodule AWS.MigrationHubOrchestrator do
 
   ## Parameters:
   * `:resource_arn` (`t:string` required) The Amazon Resource Name (ARN) of the
-  resource to which you want to add tags.
-  ## Keyword parameters:
+    resource to which you want to add tags.
   """
   @spec tag_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, tag_resource_response(), any()}
@@ -2733,10 +2721,9 @@ defmodule AWS.MigrationHubOrchestrator do
 
   ## Parameters:
   * `:resource_arn` (`t:string` required) The Amazon Resource Name (ARN) of the
-  resource from which you want to remove tags.
+    resource from which you want to remove tags.
   * `:tag_keys` (`t:list[com.amazonaws.migrationhuborchestrator#TagKey]` required)
-  One or more tag keys. Specify only the tag keys, not the tag values.
-  ## Keyword parameters:
+    One or more tag keys. Specify only the tag keys, not the tag values.
   """
   @spec untag_resource(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, untag_resource_response(), any()}
@@ -2790,8 +2777,7 @@ defmodule AWS.MigrationHubOrchestrator do
 
   ## Parameters:
   * `:id` (`t:string` required) The ID of the request to update a migration
-  workflow template.
-  ## Keyword parameters:
+    workflow template.
   """
   @spec update_template(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, update_template_response(), any()}
@@ -2834,7 +2820,6 @@ defmodule AWS.MigrationHubOrchestrator do
 
   ## Parameters:
   * `:id` (`t:string` required) The ID of the migration workflow.
-  ## Keyword parameters:
   """
   @spec update_workflow(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, update_migration_workflow_response(), any()}
@@ -2877,7 +2862,6 @@ defmodule AWS.MigrationHubOrchestrator do
 
   ## Parameters:
   * `:id` (`t:string` required) The ID of the step.
-  ## Keyword parameters:
   """
   @spec update_workflow_step(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, update_workflow_step_response(), any()}
@@ -2921,7 +2905,6 @@ defmodule AWS.MigrationHubOrchestrator do
   ## Parameters:
   * `:id` (`t:string` required) The ID of the step group.
   * `:workflow_id` (`t:string` required) The ID of the migration workflow.
-  ## Keyword parameters:
   """
   @spec update_workflow_step_group(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, update_workflow_step_group_response(), any()}

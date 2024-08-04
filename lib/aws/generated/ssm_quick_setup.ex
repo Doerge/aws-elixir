@@ -499,7 +499,6 @@ defmodule AWS.SSMQuickSetup do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ssmquicksetup%20CreateConfigurationManager&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec create_configuration_manager(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_configuration_manager_output(), any()}
@@ -542,7 +541,6 @@ defmodule AWS.SSMQuickSetup do
 
   ## Parameters:
   * `:manager_arn` (`t:string` required) The ID of the configuration manager.
-  ## Keyword parameters:
   """
   @spec delete_configuration_manager(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
@@ -595,7 +593,6 @@ defmodule AWS.SSMQuickSetup do
 
   ## Parameters:
   * `:manager_arn` (`t:string` required) The ARN of the configuration manager.
-  ## Keyword parameters:
   """
   @spec get_configuration_manager(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_configuration_manager_output(), any()}
@@ -636,7 +633,6 @@ defmodule AWS.SSMQuickSetup do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ssmquicksetup%20GetServiceSettings&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec get_service_settings(AWS.Client.t(), Keyword.t()) ::
           {:ok, get_service_settings_output(), any()}
@@ -676,7 +672,6 @@ defmodule AWS.SSMQuickSetup do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ssmquicksetup%20ListConfigurationManagers&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec list_configuration_managers(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_configuration_managers_output(), any()}
@@ -718,7 +713,6 @@ defmodule AWS.SSMQuickSetup do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ssmquicksetup%20ListQuickSetupTypes&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec list_quick_setup_types(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_quick_setup_types_output(), any()}
@@ -759,8 +753,7 @@ defmodule AWS.SSMQuickSetup do
 
   ## Parameters:
   * `:resource_arn` (`t:string` required) The ARN of the resource the tag is
-  assigned to.
-  ## Keyword parameters:
+    assigned to.
   """
   @spec list_tags_for_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_tags_for_resource_response(), any()}
@@ -801,7 +794,6 @@ defmodule AWS.SSMQuickSetup do
 
   ## Parameters:
   * `:resource_arn` (`t:string` required) The ARN of the resource to tag.
-  ## Keyword parameters:
   """
   @spec tag_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
@@ -844,10 +836,9 @@ defmodule AWS.SSMQuickSetup do
 
   ## Parameters:
   * `:resource_arn` (`t:string` required) The ARN of the resource to remove tags
-  from.
+    from.
   * `:tag_keys` (`t:list[smithy.api#String]` required) The keys of the tags to
-  remove from the resource.
-  ## Keyword parameters:
+    remove from the resource.
   """
   @spec untag_resource(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
@@ -901,10 +892,9 @@ defmodule AWS.SSMQuickSetup do
 
   ## Parameters:
   * `:id` (`t:string` required) The ID of the configuration definition you want to
-  update.
+    update.
   * `:manager_arn` (`t:string` required) The ARN of the configuration manager
-  associated with the definition to update.
-  ## Keyword parameters:
+    associated with the definition to update.
   """
   @spec update_configuration_definition(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
@@ -948,7 +938,6 @@ defmodule AWS.SSMQuickSetup do
 
   ## Parameters:
   * `:manager_arn` (`t:string` required) The ARN of the configuration manager.
-  ## Keyword parameters:
   """
   @spec update_configuration_manager(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
@@ -990,7 +979,6 @@ defmodule AWS.SSMQuickSetup do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=ssmquicksetup%20UpdateServiceSettings&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec update_service_settings(AWS.Client.t(), Keyword.t()) ::
           {:ok, nil, any()}

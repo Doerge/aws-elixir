@@ -452,7 +452,6 @@ defmodule AWS.Repostspace do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=repostspace%20CreateSpace&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec create_space(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_space_output(), any()}
@@ -495,7 +494,6 @@ defmodule AWS.Repostspace do
 
   ## Parameters:
   * `:space_id` (`t:string` required) The unique ID of the private re:Post.
-  ## Keyword parameters:
   """
   @spec delete_space(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
@@ -550,8 +548,7 @@ defmodule AWS.Repostspace do
   ## Parameters:
   * `:admin_id` (`t:string` required) The ID of the admin to remove.
   * `:space_id` (`t:string` required) The ID of the private re:Post to remove the
-  admin from.
-  ## Keyword parameters:
+    admin from.
   """
   @spec deregister_admin(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
@@ -604,7 +601,6 @@ defmodule AWS.Repostspace do
 
   ## Parameters:
   * `:space_id` (`t:string` required) The ID of the private re:Post.
-  ## Keyword parameters:
   """
   @spec get_space(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_space_output(), any()}
@@ -645,11 +641,12 @@ defmodule AWS.Repostspace do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=repostspace%20ListSpaces&this_doc_guide=API%2520Reference)
 
   ## Parameters:
+
   ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of private re:Posts to include
-  in the results.
+    in the results.
   * `:next_token` (`t:string`) The token for the next set of private re:Posts to
-  return. You receive this token from a previous ListSpaces operation.
+    return. You receive this token from a previous ListSpaces operation.
   """
   @spec list_spaces(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_spaces_output(), any()}
@@ -710,8 +707,7 @@ defmodule AWS.Repostspace do
 
   ## Parameters:
   * `:resource_arn` (`t:string` required) The ARN of the resource that the tags
-  are associated with.
-  ## Keyword parameters:
+    are associated with.
   """
   @spec list_tags_for_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_tags_for_resource_response(), any()}
@@ -753,7 +749,6 @@ defmodule AWS.Repostspace do
   ## Parameters:
   * `:admin_id` (`t:string` required) The ID of the administrator.
   * `:space_id` (`t:string` required) The ID of the private re:Post.
-  ## Keyword parameters:
   """
   @spec register_admin(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
@@ -796,7 +791,6 @@ defmodule AWS.Repostspace do
 
   ## Parameters:
   * `:space_id` (`t:string` required) The ID of the private re:Post.
-  ## Keyword parameters:
   """
   @spec send_invites(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
@@ -844,8 +838,7 @@ defmodule AWS.Repostspace do
 
   ## Parameters:
   * `:resource_arn` (`t:string` required) The ARN of the resource that the tag is
-  associated with.
-  ## Keyword parameters:
+    associated with.
   """
   @spec tag_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, tag_resource_response(), any()}
@@ -889,8 +882,7 @@ defmodule AWS.Repostspace do
   ## Parameters:
   * `:resource_arn` (`t:string` required) The ARN of the resource.
   * `:tag_keys` (`t:list[com.amazonaws.repostspace#TagKey]` required) The key
-  values of the tag.
-  ## Keyword parameters:
+    values of the tag.
   """
   @spec untag_resource(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, untag_resource_response(), any()}
@@ -944,7 +936,6 @@ defmodule AWS.Repostspace do
 
   ## Parameters:
   * `:space_id` (`t:string` required) The unique ID of this private re:Post.
-  ## Keyword parameters:
   """
   @spec update_space(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}

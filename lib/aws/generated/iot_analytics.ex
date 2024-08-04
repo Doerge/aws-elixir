@@ -2024,7 +2024,6 @@ defmodule AWS.IoTAnalytics do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotanalytics%20BatchPutMessage&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec batch_put_message(AWS.Client.t(), Keyword.t()) ::
           {:ok, batch_put_message_response(), any()}
@@ -2067,10 +2066,9 @@ defmodule AWS.IoTAnalytics do
 
   ## Parameters:
   * `:pipeline_name` (`t:string` required) The name of pipeline for which data
-  reprocessing is canceled.
+    reprocessing is canceled.
   * `:reprocessing_id` (`t:string` required) The ID of the reprocessing task
-  (returned by StartPipelineReprocessing).
-  ## Keyword parameters:
+    (returned by StartPipelineReprocessing).
   """
   @spec cancel_pipeline_reprocessing(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, cancel_pipeline_reprocessing_response(), any()}
@@ -2130,7 +2128,6 @@ defmodule AWS.IoTAnalytics do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotanalytics%20CreateChannel&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec create_channel(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_channel_response(), any()}
@@ -2176,7 +2173,6 @@ defmodule AWS.IoTAnalytics do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotanalytics%20CreateDataset&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec create_dataset(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_dataset_response(), any()}
@@ -2220,7 +2216,6 @@ defmodule AWS.IoTAnalytics do
 
   ## Parameters:
   * `:dataset_name` (`t:string` required) The name of the dataset.
-  ## Keyword parameters:
   """
   @spec create_dataset_content(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, create_dataset_content_response(), any()}
@@ -2262,7 +2257,6 @@ defmodule AWS.IoTAnalytics do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotanalytics%20CreateDatastore&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec create_datastore(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_datastore_response(), any()}
@@ -2307,7 +2301,6 @@ defmodule AWS.IoTAnalytics do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotanalytics%20CreatePipeline&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec create_pipeline(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_pipeline_response(), any()}
@@ -2350,7 +2343,6 @@ defmodule AWS.IoTAnalytics do
 
   ## Parameters:
   * `:channel_name` (`t:string` required) The name of the channel to delete.
-  ## Keyword parameters:
   """
   @spec delete_channel(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
@@ -2403,7 +2395,6 @@ defmodule AWS.IoTAnalytics do
 
   ## Parameters:
   * `:dataset_name` (`t:string` required) The name of the dataset to delete.
-  ## Keyword parameters:
   """
   @spec delete_dataset(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
@@ -2456,12 +2447,13 @@ defmodule AWS.IoTAnalytics do
 
   ## Parameters:
   * `:dataset_name` (`t:string` required) The name of the dataset whose content is
-  deleted.
+    deleted.
+
   ## Keyword parameters:
   * `:version_id` (`t:string`) The version of the dataset whose content is
-  deleted. You can also use the strings "$LATEST" or "$LATEST_SUCCEEDED" to
-  delete the latest or latest successfully completed data set. If not
-  specified, "$LATEST_SUCCEEDED" is the default.
+    deleted. You can also use the strings "$LATEST" or "$LATEST_SUCCEEDED" to
+    delete the latest or latest successfully completed data set. If not
+    specified, "$LATEST_SUCCEEDED" is the default.
   """
   @spec delete_dataset_content(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
@@ -2525,7 +2517,6 @@ defmodule AWS.IoTAnalytics do
 
   ## Parameters:
   * `:datastore_name` (`t:string` required) The name of the data store to delete.
-  ## Keyword parameters:
   """
   @spec delete_datastore(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
@@ -2578,7 +2569,6 @@ defmodule AWS.IoTAnalytics do
 
   ## Parameters:
   * `:pipeline_name` (`t:string` required) The name of the pipeline to delete.
-  ## Keyword parameters:
   """
   @spec delete_pipeline(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
@@ -2631,11 +2621,12 @@ defmodule AWS.IoTAnalytics do
 
   ## Parameters:
   * `:channel_name` (`t:string` required) The name of the channel whose
-  information is retrieved.
+    information is retrieved.
+
   ## Keyword parameters:
   * `:include_statistics` (`t:boolean`) If true, additional statistical
-  information about the channel is included in the response. This feature
-  can't be used with a channel whose S3 storage is customer-managed.
+    information about the channel is included in the response. This feature
+    can't be used with a channel whose S3 storage is customer-managed.
   """
   @spec describe_channel(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, describe_channel_response(), any()}
@@ -2687,8 +2678,7 @@ defmodule AWS.IoTAnalytics do
 
   ## Parameters:
   * `:dataset_name` (`t:string` required) The name of the dataset whose
-  information is retrieved.
-  ## Keyword parameters:
+    information is retrieved.
   """
   @spec describe_dataset(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, describe_dataset_response(), any()}
@@ -2729,10 +2719,11 @@ defmodule AWS.IoTAnalytics do
 
   ## Parameters:
   * `:datastore_name` (`t:string` required) The name of the data store
+
   ## Keyword parameters:
   * `:include_statistics` (`t:boolean`) If true, additional statistical
-  information about the data store is included in the response. This feature
-  can't be used with a data store whose S3 storage is customer-managed.
+    information about the data store is included in the response. This feature
+    can't be used with a data store whose S3 storage is customer-managed.
   """
   @spec describe_datastore(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, describe_datastore_response(), any()}
@@ -2783,7 +2774,6 @@ defmodule AWS.IoTAnalytics do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotanalytics%20DescribeLoggingOptions&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec describe_logging_options(AWS.Client.t(), Keyword.t()) ::
           {:ok, describe_logging_options_response(), any()}
@@ -2824,8 +2814,7 @@ defmodule AWS.IoTAnalytics do
 
   ## Parameters:
   * `:pipeline_name` (`t:string` required) The name of the pipeline whose
-  information is retrieved.
-  ## Keyword parameters:
+    information is retrieved.
   """
   @spec describe_pipeline(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, describe_pipeline_response(), any()}
@@ -2866,12 +2855,13 @@ defmodule AWS.IoTAnalytics do
 
   ## Parameters:
   * `:dataset_name` (`t:string` required) The name of the dataset whose contents
-  are retrieved.
+    are retrieved.
+
   ## Keyword parameters:
   * `:version_id` (`t:string`) The version of the dataset whose contents are
-  retrieved. You can also use the strings "$LATEST" or "$LATEST_SUCCEEDED" to
-  retrieve the contents of the latest or latest successfully completed
-  dataset. If not specified, "$LATEST_SUCCEEDED" is the default.
+    retrieved. You can also use the strings "$LATEST" or "$LATEST_SUCCEEDED" to
+    retrieve the contents of the latest or latest successfully completed
+    dataset. If not specified, "$LATEST_SUCCEEDED" is the default.
   """
   @spec get_dataset_content(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_dataset_content_response(), any()}
@@ -2922,9 +2912,10 @@ defmodule AWS.IoTAnalytics do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotanalytics%20ListChannels&this_doc_guide=API%2520Reference)
 
   ## Parameters:
+
   ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of results to return in this
-  request.
+    request.
   * `:next_token` (`t:string`) The token for the next set of results.
   """
   @spec list_channels(AWS.Client.t(), Keyword.t()) ::
@@ -2984,17 +2975,18 @@ defmodule AWS.IoTAnalytics do
 
   ## Parameters:
   * `:dataset_name` (`t:string` required) The name of the dataset whose contents
-  information you want to list.
+    information you want to list.
+
   ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of results to return in this
-  request.
+    request.
   * `:next_token` (`t:string`) The token for the next set of results.
   * `:scheduled_before` (`t:timestamp`) A filter to limit results to those dataset
-  contents whose creation is scheduled before the given time. See the field
-  triggers.schedule in the CreateDataset request. (timestamp)
+    contents whose creation is scheduled before the given time. See the field
+    triggers.schedule in the CreateDataset request. (timestamp)
   * `:scheduled_on_or_after` (`t:timestamp`) A filter to limit results to those
-  dataset contents whose creation is scheduled on or after the given time. See
-  the field triggers.schedule in the CreateDataset request. (timestamp)
+    dataset contents whose creation is scheduled on or after the given time. See
+    the field triggers.schedule in the CreateDataset request. (timestamp)
   """
   @spec list_dataset_contents(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_dataset_contents_response(), any()}
@@ -3071,9 +3063,10 @@ defmodule AWS.IoTAnalytics do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotanalytics%20ListDatasets&this_doc_guide=API%2520Reference)
 
   ## Parameters:
+
   ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of results to return in this
-  request.
+    request.
   * `:next_token` (`t:string`) The token for the next set of results.
   """
   @spec list_datasets(AWS.Client.t(), Keyword.t()) ::
@@ -3132,9 +3125,10 @@ defmodule AWS.IoTAnalytics do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotanalytics%20ListDatastores&this_doc_guide=API%2520Reference)
 
   ## Parameters:
+
   ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of results to return in this
-  request.
+    request.
   * `:next_token` (`t:string`) The token for the next set of results.
   """
   @spec list_datastores(AWS.Client.t(), Keyword.t()) ::
@@ -3193,9 +3187,10 @@ defmodule AWS.IoTAnalytics do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotanalytics%20ListPipelines&this_doc_guide=API%2520Reference)
 
   ## Parameters:
+
   ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of results to return in this
-  request.
+    request.
   * `:next_token` (`t:string`) The token for the next set of results.
   """
   @spec list_pipelines(AWS.Client.t(), Keyword.t()) ::
@@ -3255,8 +3250,7 @@ defmodule AWS.IoTAnalytics do
 
   ## Parameters:
   * `:resource_arn` (`t:string` required) The ARN of the resource whose tags you
-  want to list.
-  ## Keyword parameters:
+    want to list.
   """
   @spec list_tags_for_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_tags_for_resource_response(), any()}
@@ -3297,7 +3291,6 @@ defmodule AWS.IoTAnalytics do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotanalytics%20PutLoggingOptions&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec put_logging_options(AWS.Client.t(), Keyword.t()) ::
           {:ok, nil, any()}
@@ -3339,7 +3332,6 @@ defmodule AWS.IoTAnalytics do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotanalytics%20RunPipelineActivity&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec run_pipeline_activity(AWS.Client.t(), Keyword.t()) ::
           {:ok, run_pipeline_activity_response(), any()}
@@ -3383,14 +3375,15 @@ defmodule AWS.IoTAnalytics do
 
   ## Parameters:
   * `:channel_name` (`t:string` required) The name of the channel whose message
-  samples are retrieved.
+    samples are retrieved.
+
   ## Keyword parameters:
   * `:end_time` (`t:timestamp`) The end of the time window from which sample
-  messages are retrieved.
+    messages are retrieved.
   * `:max_messages` (`t:integer`) The number of sample messages to be retrieved.
-  The limit is 10. The default is also 10.
+    The limit is 10. The default is also 10.
   * `:start_time` (`t:timestamp`) The start of the time window from which sample
-  messages are retrieved.
+    messages are retrieved.
   """
   @spec sample_channel_data(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, sample_channel_data_response(), any()}
@@ -3456,8 +3449,7 @@ defmodule AWS.IoTAnalytics do
 
   ## Parameters:
   * `:pipeline_name` (`t:string` required) The name of the pipeline on which to
-  start reprocessing.
-  ## Keyword parameters:
+    start reprocessing.
   """
   @spec start_pipeline_reprocessing(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, start_pipeline_reprocessing_response(), any()}
@@ -3501,8 +3493,7 @@ defmodule AWS.IoTAnalytics do
 
   ## Parameters:
   * `:resource_arn` (`t:string` required) The ARN of the resource whose tags you
-  want to modify.
-  ## Keyword parameters:
+    want to modify.
   """
   @spec tag_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, tag_resource_response(), any()}
@@ -3546,10 +3537,9 @@ defmodule AWS.IoTAnalytics do
 
   ## Parameters:
   * `:resource_arn` (`t:string` required) The ARN of the resource whose tags you
-  want to remove.
+    want to remove.
   * `:tag_keys` (`t:list[com.amazonaws.iotanalytics#TagKey]` required) The keys of
-  those tags which you want to remove.
-  ## Keyword parameters:
+    those tags which you want to remove.
   """
   @spec untag_resource(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, untag_resource_response(), any()}
@@ -3603,7 +3593,6 @@ defmodule AWS.IoTAnalytics do
 
   ## Parameters:
   * `:channel_name` (`t:string` required) The name of the channel to be updated.
-  ## Keyword parameters:
   """
   @spec update_channel(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
@@ -3646,7 +3635,6 @@ defmodule AWS.IoTAnalytics do
 
   ## Parameters:
   * `:dataset_name` (`t:string` required) The name of the dataset to update.
-  ## Keyword parameters:
   """
   @spec update_dataset(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
@@ -3689,8 +3677,7 @@ defmodule AWS.IoTAnalytics do
 
   ## Parameters:
   * `:datastore_name` (`t:string` required) The name of the data store to be
-  updated.
-  ## Keyword parameters:
+    updated.
   """
   @spec update_datastore(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
@@ -3735,7 +3722,6 @@ defmodule AWS.IoTAnalytics do
 
   ## Parameters:
   * `:pipeline_name` (`t:string` required) The name of the pipeline to update.
-  ## Keyword parameters:
   """
   @spec update_pipeline(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}

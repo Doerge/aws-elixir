@@ -317,7 +317,6 @@ defmodule AWS.S3Outposts do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=s3outposts%20CreateEndpoint&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec create_endpoint(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_endpoint_result(), any()}
@@ -361,7 +360,6 @@ defmodule AWS.S3Outposts do
   ## Parameters:
   * `:endpoint_id` (`t:string` required) The ID of the endpoint.
   * `:outpost_id` (`t:string` required) The ID of the Outposts.
-  ## Keyword parameters:
   """
   @spec delete_endpoint(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
@@ -414,12 +412,13 @@ defmodule AWS.S3Outposts do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=s3outposts%20ListEndpoints&this_doc_guide=API%2520Reference)
 
   ## Parameters:
+
   ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of endpoints that will be
-  returned in the response.
+    returned in the response.
   * `:next_token` (`t:string`) If a previous response from this operation included
-  a NextToken value, provide that value here to retrieve the next page of
-  results.
+    a NextToken value, provide that value here to retrieve the next page of
+    results.
   """
   @spec list_endpoints(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_endpoints_result(), any()}
@@ -479,13 +478,14 @@ defmodule AWS.S3Outposts do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=s3outposts%20ListOutpostsWithS3&this_doc_guide=API%2520Reference)
 
   ## Parameters:
+
   ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of Outposts to return. The
-  limit is 100.
+    limit is 100.
   * `:next_token` (`t:string`) When you can get additional results from the
-  ListOutpostsWithS3 call, a NextToken parameter is returned in the output.
-  You can then pass in a subsequent command to the NextToken parameter to
-  continue listing additional Outposts.
+    ListOutpostsWithS3 call, a NextToken parameter is returned in the output.
+    You can then pass in a subsequent command to the NextToken parameter to
+    continue listing additional Outposts.
   """
   @spec list_outposts_with_s3(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_outposts_with_s3_result(), any()}
@@ -545,12 +545,13 @@ defmodule AWS.S3Outposts do
 
   ## Parameters:
   * `:outpost_id` (`t:string` required) The ID of the Amazon Web Services Outpost.
+
   ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of endpoints that will be
-  returned in the response.
+    returned in the response.
   * `:next_token` (`t:string`) If a previous response from this operation included
-  a NextToken value, you can provide that value here to retrieve the next page
-  of results.
+    a NextToken value, you can provide that value here to retrieve the next page
+    of results.
   """
   @spec list_shared_endpoints(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_shared_endpoints_result(), any()}

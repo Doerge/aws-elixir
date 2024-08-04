@@ -2566,13 +2566,13 @@ defmodule AWS.ApiGatewayV2 do
 
   ## Parameters:
   * `:input` (`t:map`):
-    * `:name` (`t:string` required) The name of the API.
-    * `:protocol_type` (`t:enum["HTTP|WEBSOCKET"]` required) The API protocol.
-    * `:api_key_selection_expression` (`t:string`) An API key selection expression.
+    * `"name" => t:string` (required) The name of the API.
+    * `"protocolType" => t:enum["HTTP|WEBSOCKET"]` (required) The API protocol.
+    * `"apiKeySelectionExpression" => t:string` An API key selection expression.
     Supported only for WebSocket APIs. See API Key Selection Expressions.
-    * `:cors_configuration` (`t:structure`) A CORS configuration. Supported only for
+    * `"corsConfiguration" => t:structure` A CORS configuration. Supported only for
     HTTP APIs. See Configuring CORS for more information.
-    * `:credentials_arn` (`t:string`) This property is part of quick create. It
+    * `"credentialsArn" => t:string` This property is part of quick create. It
     specifies the credentials required for the integration, if any. For a Lambda
     integration, three options are available. To specify an IAM Role for API
     Gateway to assume, use the role's Amazon Resource Name (ARN). To require
@@ -2580,34 +2580,34 @@ defmodule AWS.ApiGatewayV2 do
     arn:aws:iam::*:user/*. To use resource-based permissions on supported AWS
     services, specify null. Currently, this property is not used for HTTP
     integrations. Supported only for HTTP APIs.
-    * `:description` (`t:string`) The description of the API.
-    * `:disable_execute_api_endpoint` (`t:boolean`) Specifies whether clients can
+    * `"description" => t:string` The description of the API.
+    * `"disableExecuteApiEndpoint" => t:boolean` Specifies whether clients can
     invoke your API by using the default execute-api endpoint. By default,
     clients can invoke your API with the default
     https://{api_id}.execute-api.{region}.amazonaws.com endpoint. To require
     that clients use a custom domain name to invoke your API, disable the
     default endpoint.
-    * `:disable_schema_validation` (`t:boolean`) Avoid validating models when
-    creating a deployment. Supported only for WebSocket APIs.
-    * `:route_key` (`t:string`) This property is part of quick create. If you don't
+    * `"disableSchemaValidation" => t:boolean` Avoid validating models when creating
+    a deployment. Supported only for WebSocket APIs.
+    * `"routeKey" => t:string` This property is part of quick create. If you don't
     specify a routeKey, a default route of $default is created. The $default
     route acts as a catch-all for any request made to your API, for a particular
     stage. The $default route key can't be modified. You can add routes after
     creating the API, and you can update the route keys of additional routes.
     Supported only for HTTP APIs.
-    * `:route_selection_expression` (`t:string`) The route selection expression for
+    * `"routeSelectionExpression" => t:string` The route selection expression for
     the API. For HTTP APIs, the routeSelectionExpression must be
     ${request.method} ${request.path}. If not provided, this will be the default
     for HTTP APIs. This property is required for WebSocket APIs.
-    * `:tags` (`t:map`) The collection of tags. Each tag element is associated with
+    * `"tags" => t:map` The collection of tags. Each tag element is associated with
     a given resource.
-    * `:target` (`t:string`) This property is part of quick create. Quick create
+    * `"target" => t:string` This property is part of quick create. Quick create
     produces an API with an integration, a default catch-all route, and a
     default stage which is configured to automatically deploy changes. For HTTP
     integrations, specify a fully qualified URL. For Lambda integrations,
     specify a function ARN. The type of the integration will be HTTP_PROXY or
     AWS_PROXY, respectively. Supported only for HTTP APIs.
-    * `:version` (`t:string`) A version identifier for the API.
+    * `"version" => t:string` A version identifier for the API.
   """
   @spec create_api(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_api_response(), any()}
@@ -2651,9 +2651,9 @@ defmodule AWS.ApiGatewayV2 do
   ## Parameters:
   * `:domain_name` (`t:string` required) The domain name.
   * `:input` (`t:map`):
-    * `:api_id` (`t:string` required) The API identifier.
-    * `:stage` (`t:string` required) The API stage.
-    * `:api_mapping_key` (`t:string`)
+    * `"apiId" => t:string` (required) The API identifier.
+    * `"stage" => t:string` (required) The API stage.
+    * `"apiMappingKey" => t:string`
   """
   @spec create_api_mapping(AWS.Client.t(), String.t(), input :: map(), Keyword.t()) ::
           {:ok, create_api_mapping_response(), any()}
@@ -2698,27 +2698,27 @@ defmodule AWS.ApiGatewayV2 do
   ## Parameters:
   * `:api_id` (`t:string` required) The API identifier.
   * `:input` (`t:map`):
-    * `:authorizer_type` (`t:enum["JWT|REQUEST"]` required) The authorizer type.
+    * `"authorizerType" => t:enum["JWT|REQUEST"]` (required) The authorizer type.
     Specify REQUEST for a Lambda function using incoming request parameters.
     Specify JWT to use JSON Web Tokens (supported only for HTTP APIs).
-    * `:identity_source` (`t:list[com.amazonaws.apigatewayv2#__string]` required)
+    * `"identitySource" => t:list[com.amazonaws.apigatewayv2#__string]` (required)
     The identity source for which authorization is requested.
-    * `:name` (`t:string` required) The name of the authorizer.
-    * `:authorizer_credentials_arn` (`t:string`) Specifies the required credentials
-    as an IAM role for API Gateway to invoke the authorizer. To specify an IAM
-    role for API Gateway to assume, use the role's Amazon Resource Name (ARN).
-    To use resource-based permissions on the Lambda function, don't specify this
+    * `"name" => t:string` (required) The name of the authorizer.
+    * `"authorizerCredentialsArn" => t:string` Specifies the required credentials as
+    an IAM role for API Gateway to invoke the authorizer. To specify an IAM role
+    for API Gateway to assume, use the role's Amazon Resource Name (ARN). To use
+    resource-based permissions on the Lambda function, don't specify this
     parameter. Supported only for REQUEST authorizers.
-    * `:authorizer_payload_format_version` (`t:string`) Specifies the format of the
+    * `"authorizerPayloadFormatVersion" => t:string` Specifies the format of the
     payload sent to an HTTP API Lambda authorizer. Required for HTTP API Lambda
     authorizers. Supported values are 1.0 and 2.0. To learn more, see Working
     with AWS Lambda authorizers for HTTP APIs.
-    * `:authorizer_result_ttl_in_seconds` (`t:integer`) The time to live (TTL) for
+    * `"authorizerResultTtlInSeconds" => t:integer` The time to live (TTL) for
     cached authorizer results, in seconds. If it equals 0, authorization caching
     is disabled. If it is greater than 0, API Gateway caches authorizer
     responses. The maximum value is 3600, or 1 hour. Supported only for HTTP API
     Lambda authorizers.
-    * `:authorizer_uri` (`t:string`) The authorizer's Uniform Resource Identifier
+    * `"authorizerUri" => t:string` The authorizer's Uniform Resource Identifier
     (URI). For REQUEST authorizers, this must be a well-formed Lambda function
     URI, for example,
     arn:aws:apigateway:us-west-2:lambda:path/2015-03-31/functions/arn:aws:lambda:us-west-2:{account_id}:function:{lambda_function_name}/invocations.
@@ -2729,13 +2729,13 @@ defmodule AWS.ApiGatewayV2 do
     resource, including the initial /. For Lambda functions, this is usually of
     the form /2015-03-31/functions/[FunctionARN]/invocations. Supported only for
     REQUEST authorizers.
-    * `:enable_simple_responses` (`t:boolean`) Specifies whether a Lambda authorizer
+    * `"enableSimpleResponses" => t:boolean` Specifies whether a Lambda authorizer
     returns a response in a simple format. By default, a Lambda authorizer must
     return an IAM policy. If enabled, the Lambda authorizer can return a boolean
     value instead of an IAM policy. Supported only for HTTP APIs. To learn more,
     see Working with AWS Lambda authorizers for HTTP APIs
-    * `:identity_validation_expression` (`t:string`) This parameter is not used.
-    * `:jwt_configuration` (`t:structure`) Represents the configuration of a JWT
+    * `"identityValidationExpression" => t:string` This parameter is not used.
+    * `"jwtConfiguration" => t:structure` Represents the configuration of a JWT
     authorizer. Required for the JWT authorizer type. Supported only for HTTP
     APIs.
   """
@@ -2781,8 +2781,8 @@ defmodule AWS.ApiGatewayV2 do
   ## Parameters:
   * `:api_id` (`t:string` required) The API identifier.
   * `:input` (`t:map | nil`):
-    * `:description` (`t:string`) The description for the deployment resource.
-    * `:stage_name` (`t:string`) The name of the Stage resource for the Deployment
+    * `"description" => t:string` The description for the deployment resource.
+    * `"stageName" => t:string` The name of the Stage resource for the Deployment
     resource to create.
   """
   @spec create_deployment(AWS.Client.t(), String.t(), input :: map() | nil, Keyword.t()) ::
@@ -2827,13 +2827,13 @@ defmodule AWS.ApiGatewayV2 do
 
   ## Parameters:
   * `:input` (`t:map`):
-    * `:domain_name` (`t:string` required) The domain name.
-    * `:domain_name_configurations`
-    (`t:list[com.amazonaws.apigatewayv2#DomainNameConfiguration]`) The domain
-    name configurations.
-    * `:mutual_tls_authentication` (`t:structure`) The mutual TLS authentication
+    * `"domainName" => t:string` (required) The domain name.
+    * `"domainNameConfigurations" =>
+    t:list[com.amazonaws.apigatewayv2#DomainNameConfiguration]` The domain name
+    configurations.
+    * `"mutualTlsAuthentication" => t:structure` The mutual TLS authentication
     configuration for a custom domain name.
-    * `:tags` (`t:map`) The collection of tags associated with a domain name.
+    * `"tags" => t:map` The collection of tags associated with a domain name.
   """
   @spec create_domain_name(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_domain_name_response(), any()}
@@ -2877,41 +2877,41 @@ defmodule AWS.ApiGatewayV2 do
   ## Parameters:
   * `:api_id` (`t:string` required) The API identifier.
   * `:input` (`t:map`):
-    * `:integration_type` (`t:enum["AWS|AWS_PROXY|HTTP|HTTP_PROXY|MOCK"]` required)
+    * `"integrationType" => t:enum["AWS|AWS_PROXY|HTTP|HTTP_PROXY|MOCK"]` (required)
     The integration type of an integration. One of the following:
-    * `:connection_id` (`t:string`) The ID of the VPC link for a private
-    integration. Supported only for HTTP APIs.
-    * `:connection_type` (`t:enum["INTERNET|VPC_LINK"]`) The type of the network
+    * `"connectionId" => t:string` The ID of the VPC link for a private integration.
+    Supported only for HTTP APIs.
+    * `"connectionType" => t:enum["INTERNET|VPC_LINK"]` The type of the network
     connection to the integration endpoint. Specify INTERNET for connections
     through the public routable internet or VPC_LINK for private connections
     between API Gateway and resources in a VPC. The default value is INTERNET.
-    * `:content_handling_strategy` (`t:enum["CONVERT_TO_BINARY|CONVERT_TO_TEXT"]`)
+    * `"contentHandlingStrategy" => t:enum["CONVERT_TO_BINARY|CONVERT_TO_TEXT"]`
     Supported only for WebSocket APIs. Specifies how to handle response payload
     content type conversions. Supported values are CONVERT_TO_BINARY and
     CONVERT_TO_TEXT, with the following behaviors:
-    * `:credentials_arn` (`t:string`) Specifies the credentials required for the
+    * `"credentialsArn" => t:string` Specifies the credentials required for the
     integration, if any. For AWS integrations, three options are available. To
     specify an IAM Role for API Gateway to assume, use the role's Amazon
     Resource Name (ARN). To require that the caller's identity be passed through
     from the request, specify the string arn:aws:iam::*:user/*. To use
     resource-based permissions on supported AWS services, specify null.
-    * `:description` (`t:string`) The description of the integration.
-    * `:integration_method` (`t:string`) Specifies the integration's HTTP method
+    * `"description" => t:string` The description of the integration.
+    * `"integrationMethod" => t:string` Specifies the integration's HTTP method
     type.
-    * `:integration_subtype` (`t:string`) Supported only for HTTP API AWS_PROXY
+    * `"integrationSubtype" => t:string` Supported only for HTTP API AWS_PROXY
     integrations. Specifies the AWS service action to invoke. To learn more, see
     Integration subtype reference.
-    * `:integration_uri` (`t:string`) For a Lambda integration, specify the URI of a
+    * `"integrationUri" => t:string` For a Lambda integration, specify the URI of a
     Lambda function.
-    * `:passthrough_behavior` (`t:enum["NEVER|WHEN_NO_MATCH|WHEN_NO_TEMPLATES"]`)
+    * `"passthroughBehavior" => t:enum["NEVER|WHEN_NO_MATCH|WHEN_NO_TEMPLATES"]`
     Specifies the pass-through behavior for incoming requests based on the
     Content-Type header in the request, and the available mapping templates
     specified as the requestTemplates property on the Integration resource.
     There are three valid values: WHEN_NO_MATCH, WHEN_NO_TEMPLATES, and NEVER.
     Supported only for WebSocket APIs.
-    * `:payload_format_version` (`t:string`) Specifies the format of the payload
-    sent to an integration. Required for HTTP APIs.
-    * `:request_parameters` (`t:map`) For WebSocket APIs, a key-value map specifying
+    * `"payloadFormatVersion" => t:string` Specifies the format of the payload sent
+    to an integration. Required for HTTP APIs.
+    * `"requestParameters" => t:map` For WebSocket APIs, a key-value map specifying
     request parameters that are passed from the method request to the backend.
     The key is an integration request parameter name and the associated value is
     a method request parameter value or static value that must be enclosed
@@ -2919,27 +2919,27 @@ defmodule AWS.ApiGatewayV2 do
     request parameter value must match the pattern of
     method.request.{location}.{name} , where {location} is querystring, path, or
     header; and {name} must be a valid and unique method request parameter name.
-    * `:request_templates` (`t:map`) Represents a map of Velocity templates that are
+    * `"requestTemplates" => t:map` Represents a map of Velocity templates that are
     applied on the request payload based on the value of the Content-Type header
     sent by the client. The content type value is the key in this map, and the
     template (as a String) is the value. Supported only for WebSocket APIs.
-    * `:response_parameters` (`t:map`) Supported only for HTTP APIs. You use
-    response parameters to transform the HTTP response from a backend
-    integration before returning the response to clients. Specify a key-value
-    map from a selection key to response parameters. The selection key must be a
-    valid HTTP status code within the range of 200-599. Response parameters are
-    a key-value map. The key must match pattern <action>:<header>.<location> or
+    * `"responseParameters" => t:map` Supported only for HTTP APIs. You use response
+    parameters to transform the HTTP response from a backend integration before
+    returning the response to clients. Specify a key-value map from a selection
+    key to response parameters. The selection key must be a valid HTTP status
+    code within the range of 200-599. Response parameters are a key-value map.
+    The key must match pattern <action>:<header>.<location> or
     overwrite.statuscode. The action can be append, overwrite or remove. The
     value can be a static value, or map to response data, stage variables, or
     context variables that are evaluated at runtime. To learn more, see
     Transforming API requests and responses.
-    * `:template_selection_expression` (`t:string`) The template selection
-    expression for the integration.
-    * `:timeout_in_millis` (`t:integer`) Custom timeout between 50 and 29,000
+    * `"templateSelectionExpression" => t:string` The template selection expression
+    for the integration.
+    * `"timeoutInMillis" => t:integer` Custom timeout between 50 and 29,000
     milliseconds for WebSocket APIs and between 50 and 30,000 milliseconds for
     HTTP APIs. The default timeout is 29 seconds for WebSocket APIs and 30
     seconds for HTTP APIs.
-    * `:tls_config` (`t:structure`) The TLS configuration for a private integration.
+    * `"tlsConfig" => t:structure` The TLS configuration for a private integration.
     If you specify a TLS configuration, private integration traffic uses the
     HTTPS protocol. Supported only for HTTP APIs.
   """
@@ -2986,29 +2986,29 @@ defmodule AWS.ApiGatewayV2 do
   * `:api_id` (`t:string` required) The API identifier.
   * `:integration_id` (`t:string` required) The integration ID.
   * `:input` (`t:map`):
-    * `:integration_response_key` (`t:string` required) The integration response
+    * `"integrationResponseKey" => t:string` (required) The integration response
     key.
-    * `:content_handling_strategy` (`t:enum["CONVERT_TO_BINARY|CONVERT_TO_TEXT"]`)
+    * `"contentHandlingStrategy" => t:enum["CONVERT_TO_BINARY|CONVERT_TO_TEXT"]`
     Specifies how to handle response payload content type conversions. Supported
     values are CONVERT_TO_BINARY and CONVERT_TO_TEXT, with the following
     behaviors:
-    * `:response_parameters` (`t:map`) A key-value map specifying response
-    parameters that are passed to the method response from the backend. The key
-    is a method response header parameter name and the mapped value is an
-    integration response header value, a static value enclosed within a pair of
-    single quotes, or a JSON expression from the integration response body. The
-    mapping key must match the pattern of method.response.header.{name}, where
-    {name} is a valid and unique header name. The mapped non-static value must
-    match the pattern of integration.response.header.{name} or
+    * `"responseParameters" => t:map` A key-value map specifying response parameters
+    that are passed to the method response from the backend. The key is a method
+    response header parameter name and the mapped value is an integration
+    response header value, a static value enclosed within a pair of single
+    quotes, or a JSON expression from the integration response body. The mapping
+    key must match the pattern of method.response.header.{name}, where {name} is
+    a valid and unique header name. The mapped non-static value must match the
+    pattern of integration.response.header.{name} or
     integration.response.body.{JSON-expression}, where {name} is a valid and
     unique response header name and {JSON-expression} is a valid JSON expression
     without the $ prefix.
-    * `:response_templates` (`t:map`) The collection of response templates for the
+    * `"responseTemplates" => t:map` The collection of response templates for the
     integration response as a string-to-string map of key-value pairs. Response
     templates are represented as a key/value map, with a content-type as the key
     and a template as the value.
-    * `:template_selection_expression` (`t:string`) The template selection
-    expression for the integration response. Supported only for WebSocket APIs.
+    * `"templateSelectionExpression" => t:string` The template selection expression
+    for the integration response. Supported only for WebSocket APIs.
   """
   @spec create_integration_response(
           AWS.Client.t(),
@@ -3066,12 +3066,12 @@ defmodule AWS.ApiGatewayV2 do
   ## Parameters:
   * `:api_id` (`t:string` required) The API identifier.
   * `:input` (`t:map`):
-    * `:name` (`t:string` required) The name of the model. Must be alphanumeric.
-    * `:schema` (`t:string` required) The schema for the model. For application/json
-    models, this should be JSON schema draft 4 model.
-    * `:content_type` (`t:string`) The content-type for the model, for example,
+    * `"name" => t:string` (required) The name of the model. Must be alphanumeric.
+    * `"schema" => t:string` (required) The schema for the model. For
+    application/json models, this should be JSON schema draft 4 model.
+    * `"contentType" => t:string` The content-type for the model, for example,
     "application/json".
-    * `:description` (`t:string`) The description of the model.
+    * `"description" => t:string` The description of the model.
   """
   @spec create_model(AWS.Client.t(), String.t(), input :: map(), Keyword.t()) ::
           {:ok, create_model_response(), any()}
@@ -3115,31 +3115,31 @@ defmodule AWS.ApiGatewayV2 do
   ## Parameters:
   * `:api_id` (`t:string` required) The API identifier.
   * `:input` (`t:map`):
-    * `:route_key` (`t:string` required) The route key for the route.
-    * `:api_key_required` (`t:boolean`) Specifies whether an API key is required for
+    * `"routeKey" => t:string` (required) The route key for the route.
+    * `"apiKeyRequired" => t:boolean` Specifies whether an API key is required for
     the route. Supported only for WebSocket APIs.
-    * `:authorization_scopes`
-    (`t:list[com.amazonaws.apigatewayv2#StringWithLengthBetween1And64]`) The
+    * `"authorizationScopes" =>
+    t:list[com.amazonaws.apigatewayv2#StringWithLengthBetween1And64]` The
     authorization scopes supported by this route.
-    * `:authorization_type` (`t:enum["AWS_IAM|CUSTOM|JWT|NONE"]`) The authorization
+    * `"authorizationType" => t:enum["AWS_IAM|CUSTOM|JWT|NONE"]` The authorization
     type for the route. For WebSocket APIs, valid values are NONE for open
     access, AWS_IAM for using AWS IAM permissions, and CUSTOM for using a Lambda
     authorizer For HTTP APIs, valid values are NONE for open access, JWT for
     using JSON Web Tokens, AWS_IAM for using AWS IAM permissions, and CUSTOM for
     using a Lambda authorizer.
-    * `:authorizer_id` (`t:string`) The identifier of the Authorizer resource to be
+    * `"authorizerId" => t:string` The identifier of the Authorizer resource to be
     associated with this route. The authorizer identifier is generated by API
     Gateway when you created the authorizer.
-    * `:model_selection_expression` (`t:string`) The model selection expression for
+    * `"modelSelectionExpression" => t:string` The model selection expression for
     the route. Supported only for WebSocket APIs.
-    * `:operation_name` (`t:string`) The operation name for the route.
-    * `:request_models` (`t:map`) The request models for the route. Supported only
+    * `"operationName" => t:string` The operation name for the route.
+    * `"requestModels" => t:map` The request models for the route. Supported only
     for WebSocket APIs.
-    * `:request_parameters` (`t:map`) The request parameters for the route.
-    Supported only for WebSocket APIs.
-    * `:route_response_selection_expression` (`t:string`) The route response
-    selection expression for the route. Supported only for WebSocket APIs.
-    * `:target` (`t:string`) The target for the route.
+    * `"requestParameters" => t:map` The request parameters for the route. Supported
+    only for WebSocket APIs.
+    * `"routeResponseSelectionExpression" => t:string` The route response selection
+    expression for the route. Supported only for WebSocket APIs.
+    * `"target" => t:string` The target for the route.
   """
   @spec create_route(AWS.Client.t(), String.t(), input :: map(), Keyword.t()) ::
           {:ok, create_route_result(), any()}
@@ -3184,11 +3184,11 @@ defmodule AWS.ApiGatewayV2 do
   * `:api_id` (`t:string` required) The API identifier.
   * `:route_id` (`t:string` required) The route ID.
   * `:input` (`t:map`):
-    * `:route_response_key` (`t:string` required) The route response key.
-    * `:model_selection_expression` (`t:string`) The model selection expression for
+    * `"routeResponseKey" => t:string` (required) The route response key.
+    * `"modelSelectionExpression" => t:string` The model selection expression for
     the route response. Supported only for WebSocket APIs.
-    * `:response_models` (`t:map`) The response models for the route response.
-    * `:response_parameters` (`t:map`) The route response parameters.
+    * `"responseModels" => t:map` The response models for the route response.
+    * `"responseParameters" => t:map` The route response parameters.
   """
   @spec create_route_response(AWS.Client.t(), String.t(), String.t(), input :: map(), Keyword.t()) ::
           {:ok, create_route_response_response(), any()}
@@ -3234,22 +3234,22 @@ defmodule AWS.ApiGatewayV2 do
   ## Parameters:
   * `:api_id` (`t:string` required) The API identifier.
   * `:input` (`t:map`):
-    * `:stage_name` (`t:string` required) The name of the stage.
-    * `:access_log_settings` (`t:structure`) Settings for logging access in this
+    * `"stageName" => t:string` (required) The name of the stage.
+    * `"accessLogSettings" => t:structure` Settings for logging access in this
     stage.
-    * `:auto_deploy` (`t:boolean`) Specifies whether updates to an API automatically
+    * `"autoDeploy" => t:boolean` Specifies whether updates to an API automatically
     trigger a new deployment. The default value is false.
-    * `:client_certificate_id` (`t:string`) The identifier of a client certificate
-    for a Stage. Supported only for WebSocket APIs.
-    * `:default_route_settings` (`t:structure`) The default route settings for the
+    * `"clientCertificateId" => t:string` The identifier of a client certificate for
+    a Stage. Supported only for WebSocket APIs.
+    * `"defaultRouteSettings" => t:structure` The default route settings for the
     stage.
-    * `:deployment_id` (`t:string`) The deployment identifier of the API stage.
-    * `:description` (`t:string`) The description for the API stage.
-    * `:route_settings` (`t:map`) Route settings for the stage, by routeKey.
-    * `:stage_variables` (`t:map`) A map that defines the stage variables for a
+    * `"deploymentId" => t:string` The deployment identifier of the API stage.
+    * `"description" => t:string` The description for the API stage.
+    * `"routeSettings" => t:map` Route settings for the stage, by routeKey.
+    * `"stageVariables" => t:map` A map that defines the stage variables for a
     Stage. Variable names can have alphanumeric and underscore characters, and
     the values must match [A-Za-z0-9-._~:/?#&=,]+.
-    * `:tags` (`t:map`) The collection of tags. Each tag element is associated with
+    * `"tags" => t:map` The collection of tags. Each tag element is associated with
     a given resource.
   """
   @spec create_stage(AWS.Client.t(), String.t(), input :: map(), Keyword.t()) ::
@@ -3293,12 +3293,12 @@ defmodule AWS.ApiGatewayV2 do
 
   ## Parameters:
   * `:input` (`t:map`):
-    * `:name` (`t:string` required) The name of the VPC link.
-    * `:subnet_ids` (`t:list[com.amazonaws.apigatewayv2#__string]` required) A list
+    * `"name" => t:string` (required) The name of the VPC link.
+    * `"subnetIds" => t:list[com.amazonaws.apigatewayv2#__string]` (required) A list
     of subnet IDs to include in the VPC link.
-    * `:security_group_ids` (`t:list[com.amazonaws.apigatewayv2#__string]`) A list
-    of security group IDs for the VPC link.
-    * `:tags` (`t:map`) A list of tags.
+    * `"securityGroupIds" => t:list[com.amazonaws.apigatewayv2#__string]` A list of
+    security group IDs for the VPC link.
+    * `"tags" => t:map` A list of tags.
   """
   @spec create_vpc_link(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_vpc_link_response(), any()}
@@ -5886,7 +5886,7 @@ defmodule AWS.ApiGatewayV2 do
   ## Parameters:
   * `:resource_arn` (`t:string` required) The resource ARN for the tag.
   * `:input` (`t:map | nil`):
-    * `:tags` (`t:map`) The collection of tags. Each tag element is associated with
+    * `"tags" => t:map` The collection of tags. Each tag element is associated with
     a given resource.
   """
   @spec tag_resource(AWS.Client.t(), String.t(), input :: map() | nil, Keyword.t()) ::
@@ -5987,11 +5987,11 @@ defmodule AWS.ApiGatewayV2 do
   ## Parameters:
   * `:api_id` (`t:string` required) The API identifier.
   * `:input` (`t:map | nil`):
-    * `:api_key_selection_expression` (`t:string`) An API key selection expression.
+    * `"apiKeySelectionExpression" => t:string` An API key selection expression.
     Supported only for WebSocket APIs. See API Key Selection Expressions.
-    * `:cors_configuration` (`t:structure`) A CORS configuration. Supported only for
+    * `"corsConfiguration" => t:structure` A CORS configuration. Supported only for
     HTTP APIs.
-    * `:credentials_arn` (`t:string`) This property is part of quick create. It
+    * `"credentialsArn" => t:string` This property is part of quick create. It
     specifies the credentials required for the integration, if any. For a Lambda
     integration, three options are available. To specify an IAM Role for API
     Gateway to assume, use the role's Amazon Resource Name (ARN). To require
@@ -6000,31 +6000,31 @@ defmodule AWS.ApiGatewayV2 do
     services, don't specify this parameter. Currently, this property is not used
     for HTTP integrations. If provided, this value replaces the credentials
     associated with the quick create integration. Supported only for HTTP APIs.
-    * `:description` (`t:string`) The description of the API.
-    * `:disable_execute_api_endpoint` (`t:boolean`) Specifies whether clients can
+    * `"description" => t:string` The description of the API.
+    * `"disableExecuteApiEndpoint" => t:boolean` Specifies whether clients can
     invoke your API by using the default execute-api endpoint. By default,
     clients can invoke your API with the default
     https://{api_id}.execute-api.{region}.amazonaws.com endpoint. To require
     that clients use a custom domain name to invoke your API, disable the
     default endpoint.
-    * `:disable_schema_validation` (`t:boolean`) Avoid validating models when
-    creating a deployment. Supported only for WebSocket APIs.
-    * `:name` (`t:string`) The name of the API.
-    * `:route_key` (`t:string`) This property is part of quick create. If not
+    * `"disableSchemaValidation" => t:boolean` Avoid validating models when creating
+    a deployment. Supported only for WebSocket APIs.
+    * `"name" => t:string` The name of the API.
+    * `"routeKey" => t:string` This property is part of quick create. If not
     specified, the route created using quick create is kept. Otherwise, this
     value replaces the route key of the quick create route. Additional routes
     may still be added after the API is updated. Supported only for HTTP APIs.
-    * `:route_selection_expression` (`t:string`) The route selection expression for
+    * `"routeSelectionExpression" => t:string` The route selection expression for
     the API. For HTTP APIs, the routeSelectionExpression must be
     ${request.method} ${request.path}. If not provided, this will be the default
     for HTTP APIs. This property is required for WebSocket APIs.
-    * `:target` (`t:string`) This property is part of quick create. For HTTP
+    * `"target" => t:string` This property is part of quick create. For HTTP
     integrations, specify a fully qualified URL. For Lambda integrations,
     specify a function ARN. The type of the integration will be HTTP_PROXY or
     AWS_PROXY, respectively. The value provided updates the integration URI and
     integration type. You can update a quick-created target, but you can't
     remove it from an API. Supported only for HTTP APIs.
-    * `:version` (`t:string`) A version identifier for the API.
+    * `"version" => t:string` A version identifier for the API.
   """
   @spec update_api(AWS.Client.t(), String.t(), input :: map() | nil, Keyword.t()) ::
           {:ok, update_api_response(), any()}
@@ -6080,9 +6080,9 @@ defmodule AWS.ApiGatewayV2 do
   * `:api_mapping_id` (`t:string` required) The API mapping identifier.
   * `:domain_name` (`t:string` required) The domain name.
   * `:input` (`t:map`):
-    * `:api_id` (`t:string` required) The API identifier.
-    * `:api_mapping_key` (`t:string`) The API mapping key.
-    * `:stage` (`t:string`) The API stage.
+    * `"apiId" => t:string` (required) The API identifier.
+    * `"apiMappingKey" => t:string` The API mapping key.
+    * `"stage" => t:string` The API stage.
   """
   @spec update_api_mapping(AWS.Client.t(), String.t(), String.t(), input :: map(), Keyword.t()) ::
           {:ok, update_api_mapping_response(), any()}
@@ -6139,24 +6139,24 @@ defmodule AWS.ApiGatewayV2 do
   * `:api_id` (`t:string` required) The API identifier.
   * `:authorizer_id` (`t:string` required) The authorizer identifier.
   * `:input` (`t:map | nil`):
-    * `:authorizer_credentials_arn` (`t:string`) Specifies the required credentials
-    as an IAM role for API Gateway to invoke the authorizer. To specify an IAM
-    role for API Gateway to assume, use the role's Amazon Resource Name (ARN).
-    To use resource-based permissions on the Lambda function, don't specify this
+    * `"authorizerCredentialsArn" => t:string` Specifies the required credentials as
+    an IAM role for API Gateway to invoke the authorizer. To specify an IAM role
+    for API Gateway to assume, use the role's Amazon Resource Name (ARN). To use
+    resource-based permissions on the Lambda function, don't specify this
     parameter.
-    * `:authorizer_payload_format_version` (`t:string`) Specifies the format of the
+    * `"authorizerPayloadFormatVersion" => t:string` Specifies the format of the
     payload sent to an HTTP API Lambda authorizer. Required for HTTP API Lambda
     authorizers. Supported values are 1.0 and 2.0. To learn more, see Working
     with AWS Lambda authorizers for HTTP APIs.
-    * `:authorizer_result_ttl_in_seconds` (`t:integer`) The time to live (TTL) for
+    * `"authorizerResultTtlInSeconds" => t:integer` The time to live (TTL) for
     cached authorizer results, in seconds. If it equals 0, authorization caching
     is disabled. If it is greater than 0, API Gateway caches authorizer
     responses. The maximum value is 3600, or 1 hour. Supported only for HTTP API
     Lambda authorizers.
-    * `:authorizer_type` (`t:enum["JWT|REQUEST"]`) The authorizer type. Specify
+    * `"authorizerType" => t:enum["JWT|REQUEST"]` The authorizer type. Specify
     REQUEST for a Lambda function using incoming request parameters. Specify JWT
     to use JSON Web Tokens (supported only for HTTP APIs).
-    * `:authorizer_uri` (`t:string`) The authorizer's Uniform Resource Identifier
+    * `"authorizerUri" => t:string` The authorizer's Uniform Resource Identifier
     (URI). For REQUEST authorizers, this must be a well-formed Lambda function
     URI, for example,
     arn:aws:apigateway:us-west-2:lambda:path/2015-03-31/functions/arn:aws:lambda:us-west-2:{account_id}:function:{lambda_function_name}/invocations.
@@ -6167,18 +6167,18 @@ defmodule AWS.ApiGatewayV2 do
     resource, including the initial /. For Lambda functions, this is usually of
     the form /2015-03-31/functions/[FunctionARN]/invocations. Supported only for
     REQUEST authorizers.
-    * `:enable_simple_responses` (`t:boolean`) Specifies whether a Lambda authorizer
+    * `"enableSimpleResponses" => t:boolean` Specifies whether a Lambda authorizer
     returns a response in a simple format. By default, a Lambda authorizer must
     return an IAM policy. If enabled, the Lambda authorizer can return a boolean
     value instead of an IAM policy. Supported only for HTTP APIs. To learn more,
     see Working with AWS Lambda authorizers for HTTP APIs
-    * `:identity_source` (`t:list[com.amazonaws.apigatewayv2#__string]`) The
-    identity source for which authorization is requested.
-    * `:identity_validation_expression` (`t:string`) This parameter is not used.
-    * `:jwt_configuration` (`t:structure`) Represents the configuration of a JWT
+    * `"identitySource" => t:list[com.amazonaws.apigatewayv2#__string]` The identity
+    source for which authorization is requested.
+    * `"identityValidationExpression" => t:string` This parameter is not used.
+    * `"jwtConfiguration" => t:structure` Represents the configuration of a JWT
     authorizer. Required for the JWT authorizer type. Supported only for HTTP
     APIs.
-    * `:name` (`t:string`) The name of the authorizer.
+    * `"name" => t:string` The name of the authorizer.
   """
   @spec update_authorizer(
           AWS.Client.t(),
@@ -6241,7 +6241,7 @@ defmodule AWS.ApiGatewayV2 do
   * `:api_id` (`t:string` required) The API identifier.
   * `:deployment_id` (`t:string` required) The deployment ID.
   * `:input` (`t:map | nil`):
-    * `:description` (`t:string`) The description for the deployment resource.
+    * `"description" => t:string` The description for the deployment resource.
   """
   @spec update_deployment(
           AWS.Client.t(),
@@ -6303,10 +6303,10 @@ defmodule AWS.ApiGatewayV2 do
   ## Parameters:
   * `:domain_name` (`t:string` required) The domain name.
   * `:input` (`t:map | nil`):
-    * `:domain_name_configurations`
-    (`t:list[com.amazonaws.apigatewayv2#DomainNameConfiguration]`) The domain
-    name configurations.
-    * `:mutual_tls_authentication` (`t:structure`) The mutual TLS authentication
+    * `"domainNameConfigurations" =>
+    t:list[com.amazonaws.apigatewayv2#DomainNameConfiguration]` The domain name
+    configurations.
+    * `"mutualTlsAuthentication" => t:structure` The mutual TLS authentication
     configuration for a custom domain name.
   """
   @spec update_domain_name(AWS.Client.t(), String.t(), input :: map() | nil, Keyword.t()) ::
@@ -6363,41 +6363,41 @@ defmodule AWS.ApiGatewayV2 do
   * `:api_id` (`t:string` required) The API identifier.
   * `:integration_id` (`t:string` required) The integration ID.
   * `:input` (`t:map | nil`):
-    * `:connection_id` (`t:string`) The ID of the VPC link for a private
-    integration. Supported only for HTTP APIs.
-    * `:connection_type` (`t:enum["INTERNET|VPC_LINK"]`) The type of the network
+    * `"connectionId" => t:string` The ID of the VPC link for a private integration.
+    Supported only for HTTP APIs.
+    * `"connectionType" => t:enum["INTERNET|VPC_LINK"]` The type of the network
     connection to the integration endpoint. Specify INTERNET for connections
     through the public routable internet or VPC_LINK for private connections
     between API Gateway and resources in a VPC. The default value is INTERNET.
-    * `:content_handling_strategy` (`t:enum["CONVERT_TO_BINARY|CONVERT_TO_TEXT"]`)
+    * `"contentHandlingStrategy" => t:enum["CONVERT_TO_BINARY|CONVERT_TO_TEXT"]`
     Supported only for WebSocket APIs. Specifies how to handle response payload
     content type conversions. Supported values are CONVERT_TO_BINARY and
     CONVERT_TO_TEXT, with the following behaviors:
-    * `:credentials_arn` (`t:string`) Specifies the credentials required for the
+    * `"credentialsArn" => t:string` Specifies the credentials required for the
     integration, if any. For AWS integrations, three options are available. To
     specify an IAM Role for API Gateway to assume, use the role's Amazon
     Resource Name (ARN). To require that the caller's identity be passed through
     from the request, specify the string arn:aws:iam::*:user/*. To use
     resource-based permissions on supported AWS services, specify null.
-    * `:description` (`t:string`) The description of the integration
-    * `:integration_method` (`t:string`) Specifies the integration's HTTP method
+    * `"description" => t:string` The description of the integration
+    * `"integrationMethod" => t:string` Specifies the integration's HTTP method
     type.
-    * `:integration_subtype` (`t:string`) Supported only for HTTP API AWS_PROXY
+    * `"integrationSubtype" => t:string` Supported only for HTTP API AWS_PROXY
     integrations. Specifies the AWS service action to invoke. To learn more, see
     Integration subtype reference.
-    * `:integration_type` (`t:enum["AWS|AWS_PROXY|HTTP|HTTP_PROXY|MOCK"]`) The
+    * `"integrationType" => t:enum["AWS|AWS_PROXY|HTTP|HTTP_PROXY|MOCK"]` The
     integration type of an integration. One of the following:
-    * `:integration_uri` (`t:string`) For a Lambda integration, specify the URI of a
+    * `"integrationUri" => t:string` For a Lambda integration, specify the URI of a
     Lambda function.
-    * `:passthrough_behavior` (`t:enum["NEVER|WHEN_NO_MATCH|WHEN_NO_TEMPLATES"]`)
+    * `"passthroughBehavior" => t:enum["NEVER|WHEN_NO_MATCH|WHEN_NO_TEMPLATES"]`
     Specifies the pass-through behavior for incoming requests based on the
     Content-Type header in the request, and the available mapping templates
     specified as the requestTemplates property on the Integration resource.
     There are three valid values: WHEN_NO_MATCH, WHEN_NO_TEMPLATES, and NEVER.
     Supported only for WebSocket APIs.
-    * `:payload_format_version` (`t:string`) Specifies the format of the payload
-    sent to an integration. Required for HTTP APIs.
-    * `:request_parameters` (`t:map`) For WebSocket APIs, a key-value map specifying
+    * `"payloadFormatVersion" => t:string` Specifies the format of the payload sent
+    to an integration. Required for HTTP APIs.
+    * `"requestParameters" => t:map` For WebSocket APIs, a key-value map specifying
     request parameters that are passed from the method request to the backend.
     The key is an integration request parameter name and the associated value is
     a method request parameter value or static value that must be enclosed
@@ -6405,27 +6405,27 @@ defmodule AWS.ApiGatewayV2 do
     request parameter value must match the pattern of
     method.request.{location}.{name} , where {location} is querystring, path, or
     header; and {name} must be a valid and unique method request parameter name.
-    * `:request_templates` (`t:map`) Represents a map of Velocity templates that are
+    * `"requestTemplates" => t:map` Represents a map of Velocity templates that are
     applied on the request payload based on the value of the Content-Type header
     sent by the client. The content type value is the key in this map, and the
     template (as a String) is the value. Supported only for WebSocket APIs.
-    * `:response_parameters` (`t:map`) Supported only for HTTP APIs. You use
-    response parameters to transform the HTTP response from a backend
-    integration before returning the response to clients. Specify a key-value
-    map from a selection key to response parameters. The selection key must be a
-    valid HTTP status code within the range of 200-599. Response parameters are
-    a key-value map. The key must match pattern <action>:<header>.<location> or
+    * `"responseParameters" => t:map` Supported only for HTTP APIs. You use response
+    parameters to transform the HTTP response from a backend integration before
+    returning the response to clients. Specify a key-value map from a selection
+    key to response parameters. The selection key must be a valid HTTP status
+    code within the range of 200-599. Response parameters are a key-value map.
+    The key must match pattern <action>:<header>.<location> or
     overwrite.statuscode. The action can be append, overwrite or remove. The
     value can be a static value, or map to response data, stage variables, or
     context variables that are evaluated at runtime. To learn more, see
     Transforming API requests and responses.
-    * `:template_selection_expression` (`t:string`) The template selection
-    expression for the integration.
-    * `:timeout_in_millis` (`t:integer`) Custom timeout between 50 and 29,000
+    * `"templateSelectionExpression" => t:string` The template selection expression
+    for the integration.
+    * `"timeoutInMillis" => t:integer` Custom timeout between 50 and 29,000
     milliseconds for WebSocket APIs and between 50 and 30,000 milliseconds for
     HTTP APIs. The default timeout is 29 seconds for WebSocket APIs and 30
     seconds for HTTP APIs.
-    * `:tls_config` (`t:structure`) The TLS configuration for a private integration.
+    * `"tlsConfig" => t:structure` The TLS configuration for a private integration.
     If you specify a TLS configuration, private integration traffic uses the
     HTTPS protocol. Supported only for HTTP APIs.
   """
@@ -6491,28 +6491,28 @@ defmodule AWS.ApiGatewayV2 do
   * `:integration_id` (`t:string` required) The integration ID.
   * `:integration_response_id` (`t:string` required) The integration response ID.
   * `:input` (`t:map | nil`):
-    * `:content_handling_strategy` (`t:enum["CONVERT_TO_BINARY|CONVERT_TO_TEXT"]`)
+    * `"contentHandlingStrategy" => t:enum["CONVERT_TO_BINARY|CONVERT_TO_TEXT"]`
     Supported only for WebSocket APIs. Specifies how to handle response payload
     content type conversions. Supported values are CONVERT_TO_BINARY and
     CONVERT_TO_TEXT, with the following behaviors:
-    * `:integration_response_key` (`t:string`) The integration response key.
-    * `:response_parameters` (`t:map`) A key-value map specifying response
-    parameters that are passed to the method response from the backend. The key
-    is a method response header parameter name and the mapped value is an
-    integration response header value, a static value enclosed within a pair of
-    single quotes, or a JSON expression from the integration response body. The
-    mapping key must match the pattern of method.response.header.{name} , where
-    name is a valid and unique header name. The mapped non-static value must
-    match the pattern of integration.response.header.{name} or
+    * `"integrationResponseKey" => t:string` The integration response key.
+    * `"responseParameters" => t:map` A key-value map specifying response parameters
+    that are passed to the method response from the backend. The key is a method
+    response header parameter name and the mapped value is an integration
+    response header value, a static value enclosed within a pair of single
+    quotes, or a JSON expression from the integration response body. The mapping
+    key must match the pattern of method.response.header.{name} , where name is
+    a valid and unique header name. The mapped non-static value must match the
+    pattern of integration.response.header.{name} or
     integration.response.body.{JSON-expression} , where {name} is a valid and
     unique response header name and {JSON-expression} is a valid JSON expression
     without the $ prefix.
-    * `:response_templates` (`t:map`) The collection of response templates for the
+    * `"responseTemplates" => t:map` The collection of response templates for the
     integration response as a string-to-string map of key-value pairs. Response
     templates are represented as a key/value map, with a content-type as the key
     and a template as the value.
-    * `:template_selection_expression` (`t:string`) The template selection
-    expression for the integration response. Supported only for WebSocket APIs.
+    * `"templateSelectionExpression" => t:string` The template selection expression
+    for the integration response. Supported only for WebSocket APIs.
   """
   @spec update_integration_response(
           AWS.Client.t(),
@@ -6583,11 +6583,11 @@ defmodule AWS.ApiGatewayV2 do
   * `:api_id` (`t:string` required) The API identifier.
   * `:model_id` (`t:string` required) The model ID.
   * `:input` (`t:map | nil`):
-    * `:content_type` (`t:string`) The content-type for the model, for example,
+    * `"contentType" => t:string` The content-type for the model, for example,
     "application/json".
-    * `:description` (`t:string`) The description of the model.
-    * `:name` (`t:string`) The name of the model.
-    * `:schema` (`t:string`) The schema for the model. For application/json models,
+    * `"description" => t:string` The description of the model.
+    * `"name" => t:string` The name of the model.
+    * `"schema" => t:string` The schema for the model. For application/json models,
     this should be JSON schema draft 4 model.
   """
   @spec update_model(AWS.Client.t(), String.t(), String.t(), input :: map() | nil, Keyword.t()) ::
@@ -6644,31 +6644,31 @@ defmodule AWS.ApiGatewayV2 do
   * `:api_id` (`t:string` required) The API identifier.
   * `:route_id` (`t:string` required) The route ID.
   * `:input` (`t:map | nil`):
-    * `:api_key_required` (`t:boolean`) Specifies whether an API key is required for
+    * `"apiKeyRequired" => t:boolean` Specifies whether an API key is required for
     the route. Supported only for WebSocket APIs.
-    * `:authorization_scopes`
-    (`t:list[com.amazonaws.apigatewayv2#StringWithLengthBetween1And64]`) The
+    * `"authorizationScopes" =>
+    t:list[com.amazonaws.apigatewayv2#StringWithLengthBetween1And64]` The
     authorization scopes supported by this route.
-    * `:authorization_type` (`t:enum["AWS_IAM|CUSTOM|JWT|NONE"]`) The authorization
+    * `"authorizationType" => t:enum["AWS_IAM|CUSTOM|JWT|NONE"]` The authorization
     type for the route. For WebSocket APIs, valid values are NONE for open
     access, AWS_IAM for using AWS IAM permissions, and CUSTOM for using a Lambda
     authorizer For HTTP APIs, valid values are NONE for open access, JWT for
     using JSON Web Tokens, AWS_IAM for using AWS IAM permissions, and CUSTOM for
     using a Lambda authorizer.
-    * `:authorizer_id` (`t:string`) The identifier of the Authorizer resource to be
+    * `"authorizerId" => t:string` The identifier of the Authorizer resource to be
     associated with this route. The authorizer identifier is generated by API
     Gateway when you created the authorizer.
-    * `:model_selection_expression` (`t:string`) The model selection expression for
+    * `"modelSelectionExpression" => t:string` The model selection expression for
     the route. Supported only for WebSocket APIs.
-    * `:operation_name` (`t:string`) The operation name for the route.
-    * `:request_models` (`t:map`) The request models for the route. Supported only
+    * `"operationName" => t:string` The operation name for the route.
+    * `"requestModels" => t:map` The request models for the route. Supported only
     for WebSocket APIs.
-    * `:request_parameters` (`t:map`) The request parameters for the route.
-    Supported only for WebSocket APIs.
-    * `:route_key` (`t:string`) The route key for the route.
-    * `:route_response_selection_expression` (`t:string`) The route response
-    selection expression for the route. Supported only for WebSocket APIs.
-    * `:target` (`t:string`) The target for the route.
+    * `"requestParameters" => t:map` The request parameters for the route. Supported
+    only for WebSocket APIs.
+    * `"routeKey" => t:string` The route key for the route.
+    * `"routeResponseSelectionExpression" => t:string` The route response selection
+    expression for the route. Supported only for WebSocket APIs.
+    * `"target" => t:string` The target for the route.
   """
   @spec update_route(AWS.Client.t(), String.t(), String.t(), input :: map() | nil, Keyword.t()) ::
           {:ok, update_route_result(), any()}
@@ -6725,11 +6725,11 @@ defmodule AWS.ApiGatewayV2 do
   * `:route_id` (`t:string` required) The route ID.
   * `:route_response_id` (`t:string` required) The route response ID.
   * `:input` (`t:map | nil`):
-    * `:model_selection_expression` (`t:string`) The model selection expression for
+    * `"modelSelectionExpression" => t:string` The model selection expression for
     the route response. Supported only for WebSocket APIs.
-    * `:response_models` (`t:map`) The response models for the route response.
-    * `:response_parameters` (`t:map`) The route response parameters.
-    * `:route_response_key` (`t:string`) The route response key.
+    * `"responseModels" => t:map` The response models for the route response.
+    * `"responseParameters" => t:map` The route response parameters.
+    * `"routeResponseKey" => t:string` The route response key.
   """
   @spec update_route_response(
           AWS.Client.t(),
@@ -6802,19 +6802,19 @@ defmodule AWS.ApiGatewayV2 do
     only alphanumeric characters, hyphens, and underscores, or be $default.
     Maximum length is 128 characters.
   * `:input` (`t:map | nil`):
-    * `:access_log_settings` (`t:structure`) Settings for logging access in this
+    * `"accessLogSettings" => t:structure` Settings for logging access in this
     stage.
-    * `:auto_deploy` (`t:boolean`) Specifies whether updates to an API automatically
+    * `"autoDeploy" => t:boolean` Specifies whether updates to an API automatically
     trigger a new deployment. The default value is false.
-    * `:client_certificate_id` (`t:string`) The identifier of a client certificate
-    for a Stage.
-    * `:default_route_settings` (`t:structure`) The default route settings for the
+    * `"clientCertificateId" => t:string` The identifier of a client certificate for
+    a Stage.
+    * `"defaultRouteSettings" => t:structure` The default route settings for the
     stage.
-    * `:deployment_id` (`t:string`) The deployment identifier for the API stage.
+    * `"deploymentId" => t:string` The deployment identifier for the API stage.
     Can't be updated if autoDeploy is enabled.
-    * `:description` (`t:string`) The description for the API stage.
-    * `:route_settings` (`t:map`) Route settings for the stage.
-    * `:stage_variables` (`t:map`) A map that defines the stage variables for a
+    * `"description" => t:string` The description for the API stage.
+    * `"routeSettings" => t:map` Route settings for the stage.
+    * `"stageVariables" => t:map` A map that defines the stage variables for a
     Stage. Variable names can have alphanumeric and underscore characters, and
     the values must match [A-Za-z0-9-._~:/?#&=,]+.
   """
@@ -6871,7 +6871,7 @@ defmodule AWS.ApiGatewayV2 do
   ## Parameters:
   * `:vpc_link_id` (`t:string` required) The ID of the VPC link.
   * `:input` (`t:map | nil`):
-    * `:name` (`t:string`) The name of the VPC link.
+    * `"name" => t:string` The name of the VPC link.
   """
   @spec update_vpc_link(AWS.Client.t(), String.t(), input :: map() | nil, Keyword.t()) ::
           {:ok, update_vpc_link_response(), any()}

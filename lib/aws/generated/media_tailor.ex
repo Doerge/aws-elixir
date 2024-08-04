@@ -1844,7 +1844,6 @@ defmodule AWS.MediaTailor do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mediatailor%20ConfigureLogsForChannel&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec configure_logs_for_channel(AWS.Client.t(), Keyword.t()) ::
           {:ok, configure_logs_for_channel_response(), any()}
@@ -1885,7 +1884,6 @@ defmodule AWS.MediaTailor do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mediatailor%20ConfigureLogsForPlaybackConfiguration&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec configure_logs_for_playback_configuration(AWS.Client.t(), Keyword.t()) ::
           {:ok, configure_logs_for_playback_configuration_response(), any()}
@@ -1930,11 +1928,10 @@ defmodule AWS.MediaTailor do
   ## Parameters:
   * `:channel_name` (`t:string` required) The name of the channel.
   * `:input` (`t:map | nil`):
-    * `:tags` (`t:map`) The tags to assign to the channel. Tags are key-value pairs
-  that you can associate with Amazon resources to help with organization,
-  access control, and cost tracking. For more information, see Tagging AWS
-  Elemental MediaTailor Resources.
-  ## Keyword parameters:
+    * `"tags" => t:map` The tags to assign to the channel. Tags are key-value pairs
+    that you can associate with Amazon resources to help with organization,
+    access control, and cost tracking. For more information, see Tagging AWS
+    Elemental MediaTailor Resources.
   """
   @spec create_channel(AWS.Client.t(), String.t(), input :: map() | nil, Keyword.t()) ::
           {:ok, create_channel_response(), any()}
@@ -1979,11 +1976,10 @@ defmodule AWS.MediaTailor do
   * `:live_source_name` (`t:string` required) The name of the live source.
   * `:source_location_name` (`t:string` required) The name of the source location.
   * `:input` (`t:map | nil`):
-    * `:tags` (`t:map`) The tags to assign to the live source. Tags are key-value
-  pairs that you can associate with Amazon resources to help with
-  organization, access control, and cost tracking. For more information, see
-  Tagging AWS Elemental MediaTailor Resources.
-  ## Keyword parameters:
+    * `"tags" => t:map` The tags to assign to the live source. Tags are key-value
+    pairs that you can associate with Amazon resources to help with
+    organization, access control, and cost tracking. For more information, see
+    Tagging AWS Elemental MediaTailor Resources.
   """
   @spec create_live_source(
           AWS.Client.t(),
@@ -2044,8 +2040,7 @@ defmodule AWS.MediaTailor do
   ## Parameters:
   * `:name` (`t:string` required) The name to assign to the schedule request.
   * `:playback_configuration_name` (`t:string` required) The name to assign to the
-  playback configuration.
-  ## Keyword parameters:
+    playback configuration.
   """
   @spec create_prefetch_schedule(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, create_prefetch_schedule_response(), any()}
@@ -2096,9 +2091,8 @@ defmodule AWS.MediaTailor do
 
   ## Parameters:
   * `:channel_name` (`t:string` required) The name of the channel for this
-  Program.
+    Program.
   * `:program_name` (`t:string` required) The name of the Program.
-  ## Keyword parameters:
   """
   @spec create_program(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, create_program_response(), any()}
@@ -2144,13 +2138,12 @@ defmodule AWS.MediaTailor do
 
   ## Parameters:
   * `:source_location_name` (`t:string` required) The name associated with the
-  source location.
+    source location.
   * `:input` (`t:map | nil`):
-    * `:tags` (`t:map`) The tags to assign to the source location. Tags are
-  key-value pairs that you can associate with Amazon resources to help with
-  organization, access control, and cost tracking. For more information, see
-  Tagging AWS Elemental MediaTailor Resources.
-  ## Keyword parameters:
+    * `"tags" => t:map` The tags to assign to the source location. Tags are
+    key-value pairs that you can associate with Amazon resources to help with
+    organization, access control, and cost tracking. For more information, see
+    Tagging AWS Elemental MediaTailor Resources.
   """
   @spec create_source_location(AWS.Client.t(), String.t(), input :: map() | nil, Keyword.t()) ::
           {:ok, create_source_location_response(), any()}
@@ -2193,15 +2186,14 @@ defmodule AWS.MediaTailor do
 
   ## Parameters:
   * `:source_location_name` (`t:string` required) The name of the source location
-  for this VOD source.
+    for this VOD source.
   * `:vod_source_name` (`t:string` required) The name associated with the VOD
-  source.>
+    source.>
   * `:input` (`t:map | nil`):
-    * `:tags` (`t:map`) The tags to assign to the VOD source. Tags are key-value
-  pairs that you can associate with Amazon resources to help with
-  organization, access control, and cost tracking. For more information, see
-  Tagging AWS Elemental MediaTailor Resources.
-  ## Keyword parameters:
+    * `"tags" => t:map` The tags to assign to the VOD source. Tags are key-value
+    pairs that you can associate with Amazon resources to help with
+    organization, access control, and cost tracking. For more information, see
+    Tagging AWS Elemental MediaTailor Resources.
   """
   @spec create_vod_source(
           AWS.Client.t(),
@@ -2259,7 +2251,6 @@ defmodule AWS.MediaTailor do
 
   ## Parameters:
   * `:channel_name` (`t:string` required) The name of the channel.
-  ## Keyword parameters:
   """
   @spec delete_channel(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, delete_channel_response(), any()}
@@ -2311,8 +2302,7 @@ defmodule AWS.MediaTailor do
 
   ## Parameters:
   * `:channel_name` (`t:string` required) The name of the channel associated with
-  this channel policy.
-  ## Keyword parameters:
+    this channel policy.
   """
   @spec delete_channel_policy(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, delete_channel_policy_response(), any()}
@@ -2365,8 +2355,7 @@ defmodule AWS.MediaTailor do
   ## Parameters:
   * `:live_source_name` (`t:string` required) The name of the live source.
   * `:source_location_name` (`t:string` required) The name of the source location
-  associated with this Live Source.
-  ## Keyword parameters:
+    associated with this Live Source.
   """
   @spec delete_live_source(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, delete_live_source_response(), any()}
@@ -2426,7 +2415,6 @@ defmodule AWS.MediaTailor do
 
   ## Parameters:
   * `:name` (`t:string` required) The name of the playback configuration.
-  ## Keyword parameters:
   """
   @spec delete_playback_configuration(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, delete_playback_configuration_response(), any()}
@@ -2483,11 +2471,10 @@ defmodule AWS.MediaTailor do
 
   ## Parameters:
   * `:name` (`t:string` required) The name of the prefetch schedule. If the action
-  is successful, the service sends back an HTTP 204 response with an empty
-  HTTP body.
+    is successful, the service sends back an HTTP 204 response with an empty
+    HTTP body.
   * `:playback_configuration_name` (`t:string` required) The name of the playback
-  configuration for this prefetch schedule.
-  ## Keyword parameters:
+    configuration for this prefetch schedule.
   """
   @spec delete_prefetch_schedule(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, delete_prefetch_schedule_response(), any()}
@@ -2549,7 +2536,6 @@ defmodule AWS.MediaTailor do
   ## Parameters:
   * `:channel_name` (`t:string` required) The name of the channel.
   * `:program_name` (`t:string` required) The name of the program.
-  ## Keyword parameters:
   """
   @spec delete_program(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, delete_program_response(), any()}
@@ -2605,7 +2591,6 @@ defmodule AWS.MediaTailor do
 
   ## Parameters:
   * `:source_location_name` (`t:string` required) The name of the source location.
-  ## Keyword parameters:
   """
   @spec delete_source_location(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, delete_source_location_response(), any()}
@@ -2657,9 +2642,8 @@ defmodule AWS.MediaTailor do
 
   ## Parameters:
   * `:source_location_name` (`t:string` required) The name of the source location
-  associated with this VOD Source.
+    associated with this VOD Source.
   * `:vod_source_name` (`t:string` required) The name of the VOD source.
-  ## Keyword parameters:
   """
   @spec delete_vod_source(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, delete_vod_source_response(), any()}
@@ -2715,7 +2699,6 @@ defmodule AWS.MediaTailor do
 
   ## Parameters:
   * `:channel_name` (`t:string` required) The name of the channel.
-  ## Keyword parameters:
   """
   @spec describe_channel(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, describe_channel_response(), any()}
@@ -2756,8 +2739,7 @@ defmodule AWS.MediaTailor do
   ## Parameters:
   * `:live_source_name` (`t:string` required) The name of the live source.
   * `:source_location_name` (`t:string` required) The name of the source location
-  associated with this Live Source.
-  ## Keyword parameters:
+    associated with this Live Source.
   """
   @spec describe_live_source(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, describe_live_source_response(), any()}
@@ -2806,9 +2788,8 @@ defmodule AWS.MediaTailor do
 
   ## Parameters:
   * `:channel_name` (`t:string` required) The name of the channel associated with
-  this Program.
+    this Program.
   * `:program_name` (`t:string` required) The name of the program.
-  ## Keyword parameters:
   """
   @spec describe_program(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, describe_program_response(), any()}
@@ -2852,7 +2833,6 @@ defmodule AWS.MediaTailor do
 
   ## Parameters:
   * `:source_location_name` (`t:string` required) The name of the source location.
-  ## Keyword parameters:
   """
   @spec describe_source_location(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, describe_source_location_response(), any()}
@@ -2893,9 +2873,8 @@ defmodule AWS.MediaTailor do
 
   ## Parameters:
   * `:source_location_name` (`t:string` required) The name of the source location
-  associated with this VOD Source.
+    associated with this VOD Source.
   * `:vod_source_name` (`t:string` required) The name of the VOD Source.
-  ## Keyword parameters:
   """
   @spec describe_vod_source(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, describe_vod_source_response(), any()}
@@ -2942,8 +2921,7 @@ defmodule AWS.MediaTailor do
 
   ## Parameters:
   * `:channel_name` (`t:string` required) The name of the channel associated with
-  this Channel Policy.
-  ## Keyword parameters:
+    this Channel Policy.
   """
   @spec get_channel_policy(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_channel_policy_response(), any()}
@@ -2983,18 +2961,19 @@ defmodule AWS.MediaTailor do
 
   ## Parameters:
   * `:channel_name` (`t:string` required) The name of the channel associated with
-  this Channel Schedule.
+    this Channel Schedule.
+
   ## Keyword parameters:
   * `:audience` (`t:string`) The single audience for GetChannelScheduleRequest.
   * `:duration_minutes` (`t:string`) The duration in minutes of the channel
-  schedule.
+    schedule.
   * `:max_results` (`t:integer`) The maximum number of channel schedules that you
-  want MediaTailor to return in response to the current request. If there are
-  more than MaxResults channel schedules, use the value of NextToken in the
-  response to get the next page of results.
+    want MediaTailor to return in response to the current request. If there are
+    more than MaxResults channel schedules, use the value of NextToken in the
+    response to get the next page of results.
   * `:next_token` (`t:string`) (Optional) If the playback configuration has more
-  than MaxResults channel schedules, use NextToken to get the second and
-  subsequent pages of results.
+    than MaxResults channel schedules, use NextToken to get the second and
+    subsequent pages of results.
   """
   @spec get_channel_schedule(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_channel_schedule_response(), any()}
@@ -3068,7 +3047,6 @@ defmodule AWS.MediaTailor do
 
   ## Parameters:
   * `:name` (`t:string` required) The identifier for the playback configuration.
-  ## Keyword parameters:
   """
   @spec get_playback_configuration(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_playback_configuration_response(), any()}
@@ -3112,13 +3090,12 @@ defmodule AWS.MediaTailor do
 
   ## Parameters:
   * `:name` (`t:string` required) The name of the prefetch schedule. The name must
-  be unique among all prefetch schedules that are associated with the
-  specified playback configuration.
+    be unique among all prefetch schedules that are associated with the
+    specified playback configuration.
   * `:playback_configuration_name` (`t:string` required) Returns information about
-  the prefetch schedule for a specific playback configuration. If you call
-  GetPrefetchSchedule on an expired prefetch schedule, MediaTailor returns an
-  HTTP 404 status code.
-  ## Keyword parameters:
+    the prefetch schedule for a specific playback configuration. If you call
+    GetPrefetchSchedule on an expired prefetch schedule, MediaTailor returns an
+    HTTP 404 status code.
   """
   @spec get_prefetch_schedule(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_prefetch_schedule_response(), any()}
@@ -3160,15 +3137,16 @@ defmodule AWS.MediaTailor do
 
   ## Parameters:
   * `:resource_arn` (`t:string` required) The Amazon Resource Name (ARN) of the
-  resource.
+    resource.
+
   ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of alerts that you want
-  MediaTailor to return in response to the current request. If there are more
-  than MaxResults alerts, use the value of NextToken in the response to get
-  the next page of results.
+    MediaTailor to return in response to the current request. If there are more
+    than MaxResults alerts, use the value of NextToken in the response to get
+    the next page of results.
   * `:next_token` (`t:string`) Pagination token returned by the list request when
-  results exceed the maximum allowed. Use the token to fetch the next page of
-  results.
+    results exceed the maximum allowed. Use the token to fetch the next page of
+    results.
   """
   @spec list_alerts(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_alerts_response(), any()}
@@ -3226,14 +3204,15 @@ defmodule AWS.MediaTailor do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mediatailor%20ListChannels&this_doc_guide=API%2520Reference)
 
   ## Parameters:
+
   ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of channels that you want
-  MediaTailor to return in response to the current request. If there are more
-  than MaxResults channels, use the value of NextToken in the response to get
-  the next page of results.
+    MediaTailor to return in response to the current request. If there are more
+    than MaxResults channels, use the value of NextToken in the response to get
+    the next page of results.
   * `:next_token` (`t:string`) Pagination token returned by the list request when
-  results exceed the maximum allowed. Use the token to fetch the next page of
-  results.
+    results exceed the maximum allowed. Use the token to fetch the next page of
+    results.
   """
   @spec list_channels(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_channels_response(), any()}
@@ -3292,15 +3271,16 @@ defmodule AWS.MediaTailor do
 
   ## Parameters:
   * `:source_location_name` (`t:string` required) The name of the source location
-  associated with this Live Sources list.
+    associated with this Live Sources list.
+
   ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of live sources that you want
-  MediaTailor to return in response to the current request. If there are more
-  than MaxResults live sources, use the value of NextToken in the response to
-  get the next page of results.
+    MediaTailor to return in response to the current request. If there are more
+    than MaxResults live sources, use the value of NextToken in the response to
+    get the next page of results.
   * `:next_token` (`t:string`) Pagination token returned by the list request when
-  results exceed the maximum allowed. Use the token to fetch the next page of
-  results.
+    results exceed the maximum allowed. Use the token to fetch the next page of
+    results.
   """
   @spec list_live_sources(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_live_sources_response(), any()}
@@ -3359,14 +3339,15 @@ defmodule AWS.MediaTailor do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mediatailor%20ListPlaybackConfigurations&this_doc_guide=API%2520Reference)
 
   ## Parameters:
+
   ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of playback configurations
-  that you want MediaTailor to return in response to the current request. If
-  there are more than MaxResults playback configurations, use the value of
-  NextToken in the response to get the next page of results.
+    that you want MediaTailor to return in response to the current request. If
+    there are more than MaxResults playback configurations, use the value of
+    NextToken in the response to get the next page of results.
   * `:next_token` (`t:string`) Pagination token returned by the list request when
-  results exceed the maximum allowed. Use the token to fetch the next page of
-  results.
+    results exceed the maximum allowed. Use the token to fetch the next page of
+    results.
   """
   @spec list_playback_configurations(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_playback_configurations_response(), any()}
@@ -3424,8 +3405,7 @@ defmodule AWS.MediaTailor do
 
   ## Parameters:
   * `:playback_configuration_name` (`t:string` required) Retrieves the prefetch
-  schedule(s) for a specific playback configuration.
-  ## Keyword parameters:
+    schedule(s) for a specific playback configuration.
   """
   @spec list_prefetch_schedules(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_prefetch_schedules_response(), any()}
@@ -3467,14 +3447,15 @@ defmodule AWS.MediaTailor do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=mediatailor%20ListSourceLocations&this_doc_guide=API%2520Reference)
 
   ## Parameters:
+
   ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of source locations that you
-  want MediaTailor to return in response to the current request. If there are
-  more than MaxResults source locations, use the value of NextToken in the
-  response to get the next page of results.
+    want MediaTailor to return in response to the current request. If there are
+    more than MaxResults source locations, use the value of NextToken in the
+    response to get the next page of results.
   * `:next_token` (`t:string`) Pagination token returned by the list request when
-  results exceed the maximum allowed. Use the token to fetch the next page of
-  results.
+    results exceed the maximum allowed. Use the token to fetch the next page of
+    results.
   """
   @spec list_source_locations(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_source_locations_response(), any()}
@@ -3536,8 +3517,7 @@ defmodule AWS.MediaTailor do
 
   ## Parameters:
   * `:resource_arn` (`t:string` required) The Amazon Resource Name (ARN)
-  associated with this resource.
-  ## Keyword parameters:
+    associated with this resource.
   """
   @spec list_tags_for_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_tags_for_resource_response(), any()}
@@ -3579,15 +3559,16 @@ defmodule AWS.MediaTailor do
 
   ## Parameters:
   * `:source_location_name` (`t:string` required) The name of the source location
-  associated with this VOD Source list.
+    associated with this VOD Source list.
+
   ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of VOD sources that you want
-  MediaTailor to return in response to the current request. If there are more
-  than MaxResults VOD sources, use the value of NextToken in the response to
-  get the next page of results.
+    MediaTailor to return in response to the current request. If there are more
+    than MaxResults VOD sources, use the value of NextToken in the response to
+    get the next page of results.
   * `:next_token` (`t:string`) Pagination token returned by the list request when
-  results exceed the maximum allowed. Use the token to fetch the next page of
-  results.
+    results exceed the maximum allowed. Use the token to fetch the next page of
+    results.
   """
   @spec list_vod_sources(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_vod_sources_response(), any()}
@@ -3646,8 +3627,7 @@ defmodule AWS.MediaTailor do
 
   ## Parameters:
   * `:channel_name` (`t:string` required) The channel name associated with this
-  Channel Policy.
-  ## Keyword parameters:
+    Channel Policy.
   """
   @spec put_channel_policy(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, put_channel_policy_response(), any()}
@@ -3691,11 +3671,10 @@ defmodule AWS.MediaTailor do
 
   ## Parameters:
   * `:input` (`t:map | nil`):
-    * `:tags` (`t:map`) The tags to assign to the playback configuration. Tags are
-  key-value pairs that you can associate with Amazon resources to help with
-  organization, access control, and cost tracking. For more information, see
-  Tagging AWS Elemental MediaTailor Resources.
-  ## Keyword parameters:
+    * `"tags" => t:map` The tags to assign to the playback configuration. Tags are
+    key-value pairs that you can associate with Amazon resources to help with
+    organization, access control, and cost tracking. For more information, see
+    Tagging AWS Elemental MediaTailor Resources.
   """
   @spec put_playback_configuration(AWS.Client.t(), input :: map() | nil, Keyword.t()) ::
           {:ok, put_playback_configuration_response(), any()}
@@ -3740,7 +3719,6 @@ defmodule AWS.MediaTailor do
 
   ## Parameters:
   * `:channel_name` (`t:string` required) The name of the channel.
-  ## Keyword parameters:
   """
   @spec start_channel(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, start_channel_response(), any()}
@@ -3784,7 +3762,6 @@ defmodule AWS.MediaTailor do
 
   ## Parameters:
   * `:channel_name` (`t:string` required) The name of the channel.
-  ## Keyword parameters:
   """
   @spec stop_channel(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, stop_channel_response(), any()}
@@ -3829,13 +3806,12 @@ defmodule AWS.MediaTailor do
 
   ## Parameters:
   * `:resource_arn` (`t:string` required) The Amazon Resource Name (ARN)
-  associated with the resource.
+    associated with the resource.
   * `:input` (`t:map`):
-    * `:tags` (`t:map` required) The tags to assign to the resource. Tags are
-  key-value pairs that you can associate with Amazon resources to help with
-  organization, access control, and cost tracking. For more information, see
-  Tagging AWS Elemental MediaTailor Resources.
-  ## Keyword parameters:
+    * `"tags" => t:map` (required) The tags to assign to the resource. Tags are
+    key-value pairs that you can associate with Amazon resources to help with
+    organization, access control, and cost tracking. For more information, see
+    Tagging AWS Elemental MediaTailor Resources.
   """
   @spec tag_resource(AWS.Client.t(), String.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
@@ -3878,10 +3854,9 @@ defmodule AWS.MediaTailor do
 
   ## Parameters:
   * `:resource_arn` (`t:string` required) The Amazon Resource Name (ARN) of the
-  resource to untag.
+    resource to untag.
   * `:tag_keys` (`t:list[com.amazonaws.mediatailor#__string]` required) The tag
-  keys associated with the resource.
-  ## Keyword parameters:
+    keys associated with the resource.
   """
   @spec untag_resource(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
@@ -3937,7 +3912,6 @@ defmodule AWS.MediaTailor do
 
   ## Parameters:
   * `:channel_name` (`t:string` required) The name of the channel.
-  ## Keyword parameters:
   """
   @spec update_channel(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, update_channel_response(), any()}
@@ -3980,8 +3954,7 @@ defmodule AWS.MediaTailor do
   ## Parameters:
   * `:live_source_name` (`t:string` required) The name of the live source.
   * `:source_location_name` (`t:string` required) The name of the source location
-  associated with this Live Source.
-  ## Keyword parameters:
+    associated with this Live Source.
   """
   @spec update_live_source(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, update_live_source_response(), any()}
@@ -4029,9 +4002,8 @@ defmodule AWS.MediaTailor do
 
   ## Parameters:
   * `:channel_name` (`t:string` required) The name of the channel for this
-  Program.
+    Program.
   * `:program_name` (`t:string` required) The name of the Program.
-  ## Keyword parameters:
   """
   @spec update_program(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, update_program_response(), any()}
@@ -4077,7 +4049,6 @@ defmodule AWS.MediaTailor do
 
   ## Parameters:
   * `:source_location_name` (`t:string` required) The name of the source location.
-  ## Keyword parameters:
   """
   @spec update_source_location(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, update_source_location_response(), any()}
@@ -4119,9 +4090,8 @@ defmodule AWS.MediaTailor do
 
   ## Parameters:
   * `:source_location_name` (`t:string` required) The name of the source location
-  associated with this VOD Source.
+    associated with this VOD Source.
   * `:vod_source_name` (`t:string` required) The name of the VOD source.
-  ## Keyword parameters:
   """
   @spec update_vod_source(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, update_vod_source_response(), any()}

@@ -141,7 +141,6 @@ defmodule AWS.ApiGatewayManagementApi do
 
   ## Parameters:
   * `:connection_id` (`t:string` required)
-  ## Keyword parameters:
   """
   @spec delete_connection(AWS.Client.t(), any(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
@@ -194,7 +193,6 @@ defmodule AWS.ApiGatewayManagementApi do
 
   ## Parameters:
   * `:connection_id` (`t:string` required)
-  ## Keyword parameters:
   """
   @spec get_connection(AWS.Client.t(), any(), String.t(), Keyword.t()) ::
           {:ok, get_connection_response(), any()}
@@ -235,11 +233,10 @@ defmodule AWS.ApiGatewayManagementApi do
 
   ## Parameters:
   * `:connection_id` (`t:string` required) The identifier of the connection that a
-  specific client is using.
+    specific client is using.
   * `:input` (`t:map`):
-    * `:data` (`t:blob` required) The data to be sent to the client specified by its
-  connection id.
-  ## Keyword parameters:
+    * `"Data" => t:blob` (required) The data to be sent to the client specified by
+    its connection id.
   """
   @spec post_to_connection(AWS.Client.t(), any(), String.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}

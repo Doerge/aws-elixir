@@ -574,7 +574,6 @@ defmodule AWS.Codestarnotifications do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=codestarnotifications%20CreateNotificationRule&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec create_notification_rule(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_notification_rule_result(), any()}
@@ -616,7 +615,6 @@ defmodule AWS.Codestarnotifications do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=codestarnotifications%20DeleteNotificationRule&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec delete_notification_rule(AWS.Client.t(), Keyword.t()) ::
           {:ok, delete_notification_rule_result(), any()}
@@ -658,7 +656,6 @@ defmodule AWS.Codestarnotifications do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=codestarnotifications%20DeleteTarget&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec delete_target(AWS.Client.t(), Keyword.t()) ::
           {:ok, delete_target_result(), any()}
@@ -700,7 +697,6 @@ defmodule AWS.Codestarnotifications do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=codestarnotifications%20DescribeNotificationRule&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec describe_notification_rule(AWS.Client.t(), Keyword.t()) ::
           {:ok, describe_notification_rule_result(), any()}
@@ -743,7 +739,6 @@ defmodule AWS.Codestarnotifications do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=codestarnotifications%20ListEventTypes&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec list_event_types(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_event_types_result(), any()}
@@ -785,7 +780,6 @@ defmodule AWS.Codestarnotifications do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=codestarnotifications%20ListNotificationRules&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec list_notification_rules(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_notification_rules_result(), any()}
@@ -827,7 +821,6 @@ defmodule AWS.Codestarnotifications do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=codestarnotifications%20ListTagsForResource&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec list_tags_for_resource(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_tags_for_resource_result(), any()}
@@ -870,7 +863,6 @@ defmodule AWS.Codestarnotifications do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=codestarnotifications%20ListTargets&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec list_targets(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_targets_result(), any()}
@@ -914,7 +906,6 @@ defmodule AWS.Codestarnotifications do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=codestarnotifications%20Subscribe&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec subscribe(AWS.Client.t(), Keyword.t()) ::
           {:ok, subscribe_result(), any()}
@@ -956,7 +947,6 @@ defmodule AWS.Codestarnotifications do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=codestarnotifications%20TagResource&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec tag_resource(AWS.Client.t(), Keyword.t()) ::
           {:ok, tag_resource_result(), any()}
@@ -1000,7 +990,6 @@ defmodule AWS.Codestarnotifications do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=codestarnotifications%20Unsubscribe&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec unsubscribe(AWS.Client.t(), Keyword.t()) ::
           {:ok, unsubscribe_result(), any()}
@@ -1044,10 +1033,9 @@ defmodule AWS.Codestarnotifications do
 
   ## Parameters:
   * `:arn` (`t:string` required) The Amazon Resource Name (ARN) of the
-  notification rule from which to remove the tags.
+    notification rule from which to remove the tags.
   * `:tag_keys` (`t:list[com.amazonaws.codestarnotifications#TagKey]` required)
-  The key names of the tags to remove.
-  ## Keyword parameters:
+    The key names of the tags to remove.
   """
   @spec untag_resource(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, untag_resource_result(), any()}
@@ -1091,7 +1079,6 @@ defmodule AWS.Codestarnotifications do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=codestarnotifications%20UpdateNotificationRule&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec update_notification_rule(AWS.Client.t(), Keyword.t()) ::
           {:ok, update_notification_rule_result(), any()}

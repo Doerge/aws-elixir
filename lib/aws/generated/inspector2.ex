@@ -3995,7 +3995,6 @@ defmodule AWS.Inspector2 do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=inspector2%20AssociateMember&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec associate_member(AWS.Client.t(), Keyword.t()) ::
           {:ok, associate_member_response(), any()}
@@ -4038,7 +4037,6 @@ defmodule AWS.Inspector2 do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=inspector2%20BatchGetAccountStatus&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec batch_get_account_status(AWS.Client.t(), Keyword.t()) ::
           {:ok, batch_get_account_status_response(), any()}
@@ -4081,7 +4079,6 @@ defmodule AWS.Inspector2 do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=inspector2%20BatchGetCodeSnippet&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec batch_get_code_snippet(AWS.Client.t(), Keyword.t()) ::
           {:ok, batch_get_code_snippet_response(), any()}
@@ -4123,7 +4120,6 @@ defmodule AWS.Inspector2 do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=inspector2%20BatchGetFindingDetails&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec batch_get_finding_details(AWS.Client.t(), Keyword.t()) ::
           {:ok, batch_get_finding_details_response(), any()}
@@ -4165,7 +4161,6 @@ defmodule AWS.Inspector2 do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=inspector2%20BatchGetFreeTrialInfo&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec batch_get_free_trial_info(AWS.Client.t(), Keyword.t()) ::
           {:ok, batch_get_free_trial_info_response(), any()}
@@ -4209,7 +4204,6 @@ defmodule AWS.Inspector2 do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=inspector2%20BatchGetMemberEc2DeepInspectionStatus&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec batch_get_member_ec2_deep_inspection_status(AWS.Client.t(), Keyword.t()) ::
           {:ok, batch_get_member_ec2_deep_inspection_status_response(), any()}
@@ -4253,7 +4247,6 @@ defmodule AWS.Inspector2 do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=inspector2%20BatchUpdateMemberEc2DeepInspectionStatus&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec batch_update_member_ec2_deep_inspection_status(AWS.Client.t(), Keyword.t()) ::
           {:ok, batch_update_member_ec2_deep_inspection_status_response(), any()}
@@ -4295,7 +4288,6 @@ defmodule AWS.Inspector2 do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=inspector2%20CancelFindingsReport&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec cancel_findings_report(AWS.Client.t(), Keyword.t()) ::
           {:ok, cancel_findings_report_response(), any()}
@@ -4337,7 +4329,6 @@ defmodule AWS.Inspector2 do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=inspector2%20CancelSbomExport&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec cancel_sbom_export(AWS.Client.t(), Keyword.t()) ::
           {:ok, cancel_sbom_export_response(), any()}
@@ -4379,7 +4370,6 @@ defmodule AWS.Inspector2 do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=inspector2%20CreateCisScanConfiguration&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec create_cis_scan_configuration(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_cis_scan_configuration_response(), any()}
@@ -4422,7 +4412,6 @@ defmodule AWS.Inspector2 do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=inspector2%20CreateFilter&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec create_filter(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_filter_response(), any()}
@@ -4466,7 +4455,6 @@ defmodule AWS.Inspector2 do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=inspector2%20CreateFindingsReport&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec create_findings_report(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_findings_report_response(), any()}
@@ -4508,7 +4496,6 @@ defmodule AWS.Inspector2 do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=inspector2%20CreateSbomExport&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec create_sbom_export(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_sbom_export_response(), any()}
@@ -4550,7 +4537,6 @@ defmodule AWS.Inspector2 do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=inspector2%20DeleteCisScanConfiguration&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec delete_cis_scan_configuration(AWS.Client.t(), Keyword.t()) ::
           {:ok, delete_cis_scan_configuration_response(), any()}
@@ -4592,7 +4578,6 @@ defmodule AWS.Inspector2 do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=inspector2%20DeleteFilter&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec delete_filter(AWS.Client.t(), Keyword.t()) ::
           {:ok, delete_filter_response(), any()}
@@ -4635,7 +4620,6 @@ defmodule AWS.Inspector2 do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=inspector2%20DescribeOrganizationConfiguration&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec describe_organization_configuration(AWS.Client.t(), Keyword.t()) ::
           {:ok, describe_organization_configuration_response(), any()}
@@ -4678,7 +4662,6 @@ defmodule AWS.Inspector2 do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=inspector2%20Disable&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec disable(AWS.Client.t(), Keyword.t()) ::
           {:ok, disable_response(), any()}
@@ -4720,7 +4703,6 @@ defmodule AWS.Inspector2 do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=inspector2%20DisableDelegatedAdminAccount&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec disable_delegated_admin_account(AWS.Client.t(), Keyword.t()) ::
           {:ok, disable_delegated_admin_account_response(), any()}
@@ -4762,7 +4744,6 @@ defmodule AWS.Inspector2 do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=inspector2%20DisassociateMember&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec disassociate_member(AWS.Client.t(), Keyword.t()) ::
           {:ok, disassociate_member_response(), any()}
@@ -4804,7 +4785,6 @@ defmodule AWS.Inspector2 do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=inspector2%20Enable&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec enable(AWS.Client.t(), Keyword.t()) ::
           {:ok, enable_response(), any()}
@@ -4847,7 +4827,6 @@ defmodule AWS.Inspector2 do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=inspector2%20EnableDelegatedAdminAccount&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec enable_delegated_admin_account(AWS.Client.t(), Keyword.t()) ::
           {:ok, enable_delegated_admin_account_response(), any()}
@@ -4889,7 +4868,6 @@ defmodule AWS.Inspector2 do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=inspector2%20GetCisScanReport&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec get_cis_scan_report(AWS.Client.t(), Keyword.t()) ::
           {:ok, get_cis_scan_report_response(), any()}
@@ -4931,7 +4909,6 @@ defmodule AWS.Inspector2 do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=inspector2%20GetCisScanResultDetails&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec get_cis_scan_result_details(AWS.Client.t(), Keyword.t()) ::
           {:ok, get_cis_scan_result_details_response(), any()}
@@ -4973,7 +4950,6 @@ defmodule AWS.Inspector2 do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=inspector2%20GetConfiguration&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec get_configuration(AWS.Client.t(), Keyword.t()) ::
           {:ok, get_configuration_response(), any()}
@@ -5016,7 +4992,6 @@ defmodule AWS.Inspector2 do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=inspector2%20GetDelegatedAdminAccount&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec get_delegated_admin_account(AWS.Client.t(), Keyword.t()) ::
           {:ok, get_delegated_admin_account_response(), any()}
@@ -5059,7 +5034,6 @@ defmodule AWS.Inspector2 do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=inspector2%20GetEc2DeepInspectionConfiguration&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec get_ec2_deep_inspection_configuration(AWS.Client.t(), Keyword.t()) ::
           {:ok, get_ec2_deep_inspection_configuration_response(), any()}
@@ -5103,7 +5077,6 @@ defmodule AWS.Inspector2 do
   ## Parameters:
   * `:resource_type` (`t:string` required) The resource type the key encrypts.
   * `:scan_type` (`t:string` required) The scan type the key encrypts.
-  ## Keyword parameters:
   """
   @spec get_encryption_key(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_encryption_key_response(), any()}
@@ -5144,7 +5117,6 @@ defmodule AWS.Inspector2 do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=inspector2%20GetFindingsReportStatus&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec get_findings_report_status(AWS.Client.t(), Keyword.t()) ::
           {:ok, get_findings_report_status_response(), any()}
@@ -5186,7 +5158,6 @@ defmodule AWS.Inspector2 do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=inspector2%20GetMember&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec get_member(AWS.Client.t(), Keyword.t()) ::
           {:ok, get_member_response(), any()}
@@ -5228,7 +5199,6 @@ defmodule AWS.Inspector2 do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=inspector2%20GetSbomExport&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec get_sbom_export(AWS.Client.t(), Keyword.t()) ::
           {:ok, get_sbom_export_response(), any()}
@@ -5270,7 +5240,6 @@ defmodule AWS.Inspector2 do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=inspector2%20ListAccountPermissions&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec list_account_permissions(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_account_permissions_response(), any()}
@@ -5312,7 +5281,6 @@ defmodule AWS.Inspector2 do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=inspector2%20ListCisScanConfigurations&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec list_cis_scan_configurations(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_cis_scan_configurations_response(), any()}
@@ -5354,7 +5322,6 @@ defmodule AWS.Inspector2 do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=inspector2%20ListCisScanResultsAggregatedByChecks&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec list_cis_scan_results_aggregated_by_checks(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_cis_scan_results_aggregated_by_checks_response(), any()}
@@ -5396,7 +5363,6 @@ defmodule AWS.Inspector2 do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=inspector2%20ListCisScanResultsAggregatedByTargetResource&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec list_cis_scan_results_aggregated_by_target_resource(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_cis_scan_results_aggregated_by_target_resource_response(), any()}
@@ -5438,7 +5404,6 @@ defmodule AWS.Inspector2 do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=inspector2%20ListCisScans&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec list_cis_scans(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_cis_scans_response(), any()}
@@ -5480,7 +5445,6 @@ defmodule AWS.Inspector2 do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=inspector2%20ListCoverage&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec list_coverage(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_coverage_response(), any()}
@@ -5522,7 +5486,6 @@ defmodule AWS.Inspector2 do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=inspector2%20ListCoverageStatistics&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec list_coverage_statistics(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_coverage_statistics_response(), any()}
@@ -5565,7 +5528,6 @@ defmodule AWS.Inspector2 do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=inspector2%20ListDelegatedAdminAccounts&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec list_delegated_admin_accounts(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_delegated_admin_accounts_response(), any()}
@@ -5607,7 +5569,6 @@ defmodule AWS.Inspector2 do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=inspector2%20ListFilters&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec list_filters(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_filters_response(), any()}
@@ -5649,7 +5610,6 @@ defmodule AWS.Inspector2 do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=inspector2%20ListFindingAggregations&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec list_finding_aggregations(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_finding_aggregations_response(), any()}
@@ -5691,7 +5651,6 @@ defmodule AWS.Inspector2 do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=inspector2%20ListFindings&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec list_findings(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_findings_response(), any()}
@@ -5734,7 +5693,6 @@ defmodule AWS.Inspector2 do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=inspector2%20ListMembers&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec list_members(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_members_response(), any()}
@@ -5777,8 +5735,7 @@ defmodule AWS.Inspector2 do
 
   ## Parameters:
   * `:resource_arn` (`t:string` required) The Amazon resource number (ARN) of the
-  resource to list tags of.
-  ## Keyword parameters:
+    resource to list tags of.
   """
   @spec list_tags_for_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_tags_for_resource_response(), any()}
@@ -5818,7 +5775,6 @@ defmodule AWS.Inspector2 do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=inspector2%20ListUsageTotals&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec list_usage_totals(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_usage_totals_response(), any()}
@@ -5861,7 +5817,6 @@ defmodule AWS.Inspector2 do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=inspector2%20ResetEncryptionKey&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec reset_encryption_key(AWS.Client.t(), Keyword.t()) ::
           {:ok, reset_encryption_key_response(), any()}
@@ -5903,7 +5858,6 @@ defmodule AWS.Inspector2 do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=inspector2%20SearchVulnerabilities&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec search_vulnerabilities(AWS.Client.t(), Keyword.t()) ::
           {:ok, search_vulnerabilities_response(), any()}
@@ -5948,7 +5902,6 @@ defmodule AWS.Inspector2 do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=inspector2%20SendCisSessionHealth&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec send_cis_session_health(AWS.Client.t(), Keyword.t()) ::
           {:ok, send_cis_session_health_response(), any()}
@@ -5993,7 +5946,6 @@ defmodule AWS.Inspector2 do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=inspector2%20SendCisSessionTelemetry&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec send_cis_session_telemetry(AWS.Client.t(), Keyword.t()) ::
           {:ok, send_cis_session_telemetry_response(), any()}
@@ -6038,7 +5990,6 @@ defmodule AWS.Inspector2 do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=inspector2%20StartCisSession&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec start_cis_session(AWS.Client.t(), Keyword.t()) ::
           {:ok, start_cis_session_response(), any()}
@@ -6083,7 +6034,6 @@ defmodule AWS.Inspector2 do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=inspector2%20StopCisSession&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec stop_cis_session(AWS.Client.t(), Keyword.t()) ::
           {:ok, stop_cis_session_response(), any()}
@@ -6126,8 +6076,7 @@ defmodule AWS.Inspector2 do
 
   ## Parameters:
   * `:resource_arn` (`t:string` required) The Amazon Resource Name (ARN) of the
-  resource to apply a tag to.
-  ## Keyword parameters:
+    resource to apply a tag to.
   """
   @spec tag_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, tag_resource_response(), any()}
@@ -6170,10 +6119,9 @@ defmodule AWS.Inspector2 do
 
   ## Parameters:
   * `:resource_arn` (`t:string` required) The Amazon Resource Name (ARN) for the
-  resource to remove tags from.
+    resource to remove tags from.
   * `:tag_keys` (`t:list[com.amazonaws.inspector2#TagKey]` required) The tag keys
-  to remove from the resource.
-  ## Keyword parameters:
+    to remove from the resource.
   """
   @spec untag_resource(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, untag_resource_response(), any()}
@@ -6226,7 +6174,6 @@ defmodule AWS.Inspector2 do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=inspector2%20UpdateCisScanConfiguration&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec update_cis_scan_configuration(AWS.Client.t(), Keyword.t()) ::
           {:ok, update_cis_scan_configuration_response(), any()}
@@ -6271,7 +6218,6 @@ defmodule AWS.Inspector2 do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=inspector2%20UpdateConfiguration&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec update_configuration(AWS.Client.t(), Keyword.t()) ::
           {:ok, update_configuration_response(), any()}
@@ -6314,7 +6260,6 @@ defmodule AWS.Inspector2 do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=inspector2%20UpdateEc2DeepInspectionConfiguration&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec update_ec2_deep_inspection_configuration(AWS.Client.t(), Keyword.t()) ::
           {:ok, update_ec2_deep_inspection_configuration_response(), any()}
@@ -6357,7 +6302,6 @@ defmodule AWS.Inspector2 do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=inspector2%20UpdateEncryptionKey&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec update_encryption_key(AWS.Client.t(), Keyword.t()) ::
           {:ok, update_encryption_key_response(), any()}
@@ -6400,7 +6344,6 @@ defmodule AWS.Inspector2 do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=inspector2%20UpdateFilter&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec update_filter(AWS.Client.t(), Keyword.t()) ::
           {:ok, update_filter_response(), any()}
@@ -6443,7 +6386,6 @@ defmodule AWS.Inspector2 do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=inspector2%20UpdateOrgEc2DeepInspectionConfiguration&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec update_org_ec2_deep_inspection_configuration(AWS.Client.t(), Keyword.t()) ::
           {:ok, update_org_ec2_deep_inspection_configuration_response(), any()}
@@ -6485,7 +6427,6 @@ defmodule AWS.Inspector2 do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=inspector2%20UpdateOrganizationConfiguration&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec update_organization_configuration(AWS.Client.t(), Keyword.t()) ::
           {:ok, update_organization_configuration_response(), any()}

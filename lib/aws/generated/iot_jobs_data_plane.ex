@@ -293,15 +293,16 @@ defmodule AWS.IoTJobsDataPlane do
 
   ## Parameters:
   * `:job_id` (`t:string` required) The unique identifier assigned to this job
-  when it was created.
+    when it was created.
   * `:thing_name` (`t:string` required) The thing name associated with the device
-  the job execution is running on.
+    the job execution is running on.
+
   ## Keyword parameters:
   * `:execution_number` (`t:long`) Optional. A number that identifies a particular
-  job execution on a particular device. If not specified, the latest job
-  execution is returned.
+    job execution on a particular device. If not specified, the latest job
+    execution is returned.
   * `:include_job_document` (`t:boolean`) Optional. When set to true, the response
-  contains the job document. The default is false.
+    contains the job document. The default is false.
   """
   @spec describe_job_execution(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, describe_job_execution_response(), any()}
@@ -360,8 +361,7 @@ defmodule AWS.IoTJobsDataPlane do
 
   ## Parameters:
   * `:thing_name` (`t:string` required) The name of the thing that is executing
-  the job.
-  ## Keyword parameters:
+    the job.
   """
   @spec get_pending_job_executions(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_pending_job_executions_response(), any()}
@@ -403,8 +403,7 @@ defmodule AWS.IoTJobsDataPlane do
 
   ## Parameters:
   * `:thing_name` (`t:string` required) The name of the thing associated with the
-  device.
-  ## Keyword parameters:
+    device.
   """
   @spec start_next_pending_job_execution(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, start_next_pending_job_execution_response(), any()}
@@ -447,10 +446,9 @@ defmodule AWS.IoTJobsDataPlane do
 
   ## Parameters:
   * `:job_id` (`t:string` required) The unique identifier assigned to this job
-  when it was created.
+    when it was created.
   * `:thing_name` (`t:string` required) The name of the thing associated with the
-  device.
-  ## Keyword parameters:
+    device.
   """
   @spec update_job_execution(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, update_job_execution_response(), any()}

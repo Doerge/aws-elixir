@@ -7063,8 +7063,7 @@ defmodule AWS.Pinpoint do
 
   ## Parameters:
   * `:input` (`t:map`):
-    * `:create_application_request` (`t:structure` required)
-  ## Keyword parameters:
+    * `"CreateApplicationRequest" => t:structure` (required)
   """
   @spec create_app(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_app_response(), any()}
@@ -7108,11 +7107,10 @@ defmodule AWS.Pinpoint do
 
   ## Parameters:
   * `:application_id` (`t:string` required) The unique identifier for the
-  application. This identifier is displayed as the Project ID on the Amazon
-  Pinpoint console.
+    application. This identifier is displayed as the Project ID on the Amazon
+    Pinpoint console.
   * `:input` (`t:map`):
-    * `:write_campaign_request` (`t:structure` required)
-  ## Keyword parameters:
+    * `"WriteCampaignRequest" => t:structure` (required)
   """
   @spec create_campaign(AWS.Client.t(), String.t(), input :: map(), Keyword.t()) ::
           {:ok, create_campaign_response(), any()}
@@ -7156,12 +7154,11 @@ defmodule AWS.Pinpoint do
 
   ## Parameters:
   * `:template_name` (`t:string` required) The name of the message template. A
-  template name must start with an alphanumeric character and can contain a
-  maximum of 128 characters. The characters can be alphanumeric characters,
-  underscores (_), or hyphens (-). Template names are case sensitive.
+    template name must start with an alphanumeric character and can contain a
+    maximum of 128 characters. The characters can be alphanumeric characters,
+    underscores (_), or hyphens (-). Template names are case sensitive.
   * `:input` (`t:map`):
-    * `:email_template_request` (`t:structure` required)
-  ## Keyword parameters:
+    * `"EmailTemplateRequest" => t:structure` (required)
   """
   @spec create_email_template(AWS.Client.t(), String.t(), input :: map(), Keyword.t()) ::
           {:ok, create_email_template_response(), any()}
@@ -7205,11 +7202,10 @@ defmodule AWS.Pinpoint do
 
   ## Parameters:
   * `:application_id` (`t:string` required) The unique identifier for the
-  application. This identifier is displayed as the Project ID on the Amazon
-  Pinpoint console.
+    application. This identifier is displayed as the Project ID on the Amazon
+    Pinpoint console.
   * `:input` (`t:map`):
-    * `:export_job_request` (`t:structure` required)
-  ## Keyword parameters:
+    * `"ExportJobRequest" => t:structure` (required)
   """
   @spec create_export_job(AWS.Client.t(), String.t(), input :: map(), Keyword.t()) ::
           {:ok, create_export_job_response(), any()}
@@ -7253,11 +7249,10 @@ defmodule AWS.Pinpoint do
 
   ## Parameters:
   * `:application_id` (`t:string` required) The unique identifier for the
-  application. This identifier is displayed as the Project ID on the Amazon
-  Pinpoint console.
+    application. This identifier is displayed as the Project ID on the Amazon
+    Pinpoint console.
   * `:input` (`t:map`):
-    * `:import_job_request` (`t:structure` required)
-  ## Keyword parameters:
+    * `"ImportJobRequest" => t:structure` (required)
   """
   @spec create_import_job(AWS.Client.t(), String.t(), input :: map(), Keyword.t()) ::
           {:ok, create_import_job_response(), any()}
@@ -7301,12 +7296,11 @@ defmodule AWS.Pinpoint do
 
   ## Parameters:
   * `:template_name` (`t:string` required) The name of the message template. A
-  template name must start with an alphanumeric character and can contain a
-  maximum of 128 characters. The characters can be alphanumeric characters,
-  underscores (_), or hyphens (-). Template names are case sensitive.
+    template name must start with an alphanumeric character and can contain a
+    maximum of 128 characters. The characters can be alphanumeric characters,
+    underscores (_), or hyphens (-). Template names are case sensitive.
   * `:input` (`t:map`):
-    * `:in_app_template_request` (`t:structure` required)
-  ## Keyword parameters:
+    * `"InAppTemplateRequest" => t:structure` (required)
   """
   @spec create_in_app_template(AWS.Client.t(), String.t(), input :: map(), Keyword.t()) ::
           {:ok, create_in_app_template_response(), any()}
@@ -7350,11 +7344,10 @@ defmodule AWS.Pinpoint do
 
   ## Parameters:
   * `:application_id` (`t:string` required) The unique identifier for the
-  application. This identifier is displayed as the Project ID on the Amazon
-  Pinpoint console.
+    application. This identifier is displayed as the Project ID on the Amazon
+    Pinpoint console.
   * `:input` (`t:map`):
-    * `:write_journey_request` (`t:structure` required)
-  ## Keyword parameters:
+    * `"WriteJourneyRequest" => t:structure` (required)
   """
   @spec create_journey(AWS.Client.t(), String.t(), input :: map(), Keyword.t()) ::
           {:ok, create_journey_response(), any()}
@@ -7399,12 +7392,11 @@ defmodule AWS.Pinpoint do
 
   ## Parameters:
   * `:template_name` (`t:string` required) The name of the message template. A
-  template name must start with an alphanumeric character and can contain a
-  maximum of 128 characters. The characters can be alphanumeric characters,
-  underscores (_), or hyphens (-). Template names are case sensitive.
+    template name must start with an alphanumeric character and can contain a
+    maximum of 128 characters. The characters can be alphanumeric characters,
+    underscores (_), or hyphens (-). Template names are case sensitive.
   * `:input` (`t:map`):
-    * `:push_notification_template_request` (`t:structure` required)
-  ## Keyword parameters:
+    * `"PushNotificationTemplateRequest" => t:structure` (required)
   """
   @spec create_push_template(AWS.Client.t(), String.t(), input :: map(), Keyword.t()) ::
           {:ok, create_push_template_response(), any()}
@@ -7448,8 +7440,7 @@ defmodule AWS.Pinpoint do
 
   ## Parameters:
   * `:input` (`t:map`):
-    * `:create_recommender_configuration` (`t:structure` required)
-  ## Keyword parameters:
+    * `"CreateRecommenderConfiguration" => t:structure` (required)
   """
   @spec create_recommender_configuration(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, create_recommender_configuration_response(), any()}
@@ -7495,11 +7486,10 @@ defmodule AWS.Pinpoint do
 
   ## Parameters:
   * `:application_id` (`t:string` required) The unique identifier for the
-  application. This identifier is displayed as the Project ID on the Amazon
-  Pinpoint console.
+    application. This identifier is displayed as the Project ID on the Amazon
+    Pinpoint console.
   * `:input` (`t:map`):
-    * `:write_segment_request` (`t:structure` required)
-  ## Keyword parameters:
+    * `"WriteSegmentRequest" => t:structure` (required)
   """
   @spec create_segment(AWS.Client.t(), String.t(), input :: map(), Keyword.t()) ::
           {:ok, create_segment_response(), any()}
@@ -7543,12 +7533,11 @@ defmodule AWS.Pinpoint do
 
   ## Parameters:
   * `:template_name` (`t:string` required) The name of the message template. A
-  template name must start with an alphanumeric character and can contain a
-  maximum of 128 characters. The characters can be alphanumeric characters,
-  underscores (_), or hyphens (-). Template names are case sensitive.
+    template name must start with an alphanumeric character and can contain a
+    maximum of 128 characters. The characters can be alphanumeric characters,
+    underscores (_), or hyphens (-). Template names are case sensitive.
   * `:input` (`t:map`):
-    * `:sms_template_request` (`t:structure` required)
-  ## Keyword parameters:
+    * `"SMSTemplateRequest" => t:structure` (required)
   """
   @spec create_sms_template(AWS.Client.t(), String.t(), input :: map(), Keyword.t()) ::
           {:ok, create_sms_template_response(), any()}
@@ -7592,12 +7581,11 @@ defmodule AWS.Pinpoint do
 
   ## Parameters:
   * `:template_name` (`t:string` required) The name of the message template. A
-  template name must start with an alphanumeric character and can contain a
-  maximum of 128 characters. The characters can be alphanumeric characters,
-  underscores (_), or hyphens (-). Template names are case sensitive.
+    template name must start with an alphanumeric character and can contain a
+    maximum of 128 characters. The characters can be alphanumeric characters,
+    underscores (_), or hyphens (-). Template names are case sensitive.
   * `:input` (`t:map`):
-    * `:voice_template_request` (`t:structure` required)
-  ## Keyword parameters:
+    * `"VoiceTemplateRequest" => t:structure` (required)
   """
   @spec create_voice_template(AWS.Client.t(), String.t(), input :: map(), Keyword.t()) ::
           {:ok, create_voice_template_response(), any()}
@@ -7642,9 +7630,8 @@ defmodule AWS.Pinpoint do
 
   ## Parameters:
   * `:application_id` (`t:string` required) The unique identifier for the
-  application. This identifier is displayed as the Project ID on the Amazon
-  Pinpoint console.
-  ## Keyword parameters:
+    application. This identifier is displayed as the Project ID on the Amazon
+    Pinpoint console.
   """
   @spec delete_adm_channel(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, delete_adm_channel_response(), any()}
@@ -7698,9 +7685,8 @@ defmodule AWS.Pinpoint do
 
   ## Parameters:
   * `:application_id` (`t:string` required) The unique identifier for the
-  application. This identifier is displayed as the Project ID on the Amazon
-  Pinpoint console.
-  ## Keyword parameters:
+    application. This identifier is displayed as the Project ID on the Amazon
+    Pinpoint console.
   """
   @spec delete_apns_channel(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, delete_apns_channel_response(), any()}
@@ -7754,9 +7740,8 @@ defmodule AWS.Pinpoint do
 
   ## Parameters:
   * `:application_id` (`t:string` required) The unique identifier for the
-  application. This identifier is displayed as the Project ID on the Amazon
-  Pinpoint console.
-  ## Keyword parameters:
+    application. This identifier is displayed as the Project ID on the Amazon
+    Pinpoint console.
   """
   @spec delete_apns_sandbox_channel(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, delete_apns_sandbox_channel_response(), any()}
@@ -7810,9 +7795,8 @@ defmodule AWS.Pinpoint do
 
   ## Parameters:
   * `:application_id` (`t:string` required) The unique identifier for the
-  application. This identifier is displayed as the Project ID on the Amazon
-  Pinpoint console.
-  ## Keyword parameters:
+    application. This identifier is displayed as the Project ID on the Amazon
+    Pinpoint console.
   """
   @spec delete_apns_voip_channel(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, delete_apns_voip_channel_response(), any()}
@@ -7866,9 +7850,8 @@ defmodule AWS.Pinpoint do
 
   ## Parameters:
   * `:application_id` (`t:string` required) The unique identifier for the
-  application. This identifier is displayed as the Project ID on the Amazon
-  Pinpoint console.
-  ## Keyword parameters:
+    application. This identifier is displayed as the Project ID on the Amazon
+    Pinpoint console.
   """
   @spec delete_apns_voip_sandbox_channel(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, delete_apns_voip_sandbox_channel_response(), any()}
@@ -7921,9 +7904,8 @@ defmodule AWS.Pinpoint do
 
   ## Parameters:
   * `:application_id` (`t:string` required) The unique identifier for the
-  application. This identifier is displayed as the Project ID on the Amazon
-  Pinpoint console.
-  ## Keyword parameters:
+    application. This identifier is displayed as the Project ID on the Amazon
+    Pinpoint console.
   """
   @spec delete_app(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, delete_app_response(), any()}
@@ -7977,9 +7959,8 @@ defmodule AWS.Pinpoint do
 
   ## Parameters:
   * `:application_id` (`t:string` required) The unique identifier for the
-  application. This identifier is displayed as the Project ID on the Amazon
-  Pinpoint console.
-  ## Keyword parameters:
+    application. This identifier is displayed as the Project ID on the Amazon
+    Pinpoint console.
   """
   @spec delete_baidu_channel(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, delete_baidu_channel_response(), any()}
@@ -8032,10 +8013,9 @@ defmodule AWS.Pinpoint do
 
   ## Parameters:
   * `:application_id` (`t:string` required) The unique identifier for the
-  application. This identifier is displayed as the Project ID on the Amazon
-  Pinpoint console.
+    application. This identifier is displayed as the Project ID on the Amazon
+    Pinpoint console.
   * `:campaign_id` (`t:string` required) The unique identifier for the campaign.
-  ## Keyword parameters:
   """
   @spec delete_campaign(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, delete_campaign_response(), any()}
@@ -8090,9 +8070,8 @@ defmodule AWS.Pinpoint do
 
   ## Parameters:
   * `:application_id` (`t:string` required) The unique identifier for the
-  application. This identifier is displayed as the Project ID on the Amazon
-  Pinpoint console.
-  ## Keyword parameters:
+    application. This identifier is displayed as the Project ID on the Amazon
+    Pinpoint console.
   """
   @spec delete_email_channel(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, delete_email_channel_response(), any()}
@@ -8146,14 +8125,15 @@ defmodule AWS.Pinpoint do
 
   ## Parameters:
   * `:template_name` (`t:string` required) The name of the message template. A
-  template name must start with an alphanumeric character and can contain a
-  maximum of 128 characters. The characters can be alphanumeric characters,
-  underscores (_), or hyphens (-). Template names are case sensitive.
+    template name must start with an alphanumeric character and can contain a
+    maximum of 128 characters. The characters can be alphanumeric characters,
+    underscores (_), or hyphens (-). Template names are case sensitive.
+
   ## Keyword parameters:
   * `:version` (`t:string`) The unique identifier for the version of the message
-  template to update, retrieve information about, or delete. To retrieve
-  identifiers and other information for all the versions of a template, use
-  the Template Versions resource.
+    template to update, retrieve information about, or delete. To retrieve
+    identifiers and other information for all the versions of a template, use
+    the Template Versions resource.
   """
   @spec delete_email_template(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, delete_email_template_response(), any()}
@@ -8217,11 +8197,10 @@ defmodule AWS.Pinpoint do
 
   ## Parameters:
   * `:application_id` (`t:string` required) The unique identifier for the
-  application. This identifier is displayed as the Project ID on the Amazon
-  Pinpoint console.
+    application. This identifier is displayed as the Project ID on the Amazon
+    Pinpoint console.
   * `:endpoint_id` (`t:string` required) The case insensitive unique identifier
-  for the endpoint. The identifier can't contain $, { or }.
-  ## Keyword parameters:
+    for the endpoint. The identifier can't contain $, { or }.
   """
   @spec delete_endpoint(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, delete_endpoint_response(), any()}
@@ -8275,9 +8254,8 @@ defmodule AWS.Pinpoint do
 
   ## Parameters:
   * `:application_id` (`t:string` required) The unique identifier for the
-  application. This identifier is displayed as the Project ID on the Amazon
-  Pinpoint console.
-  ## Keyword parameters:
+    application. This identifier is displayed as the Project ID on the Amazon
+    Pinpoint console.
   """
   @spec delete_event_stream(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, delete_event_stream_response(), any()}
@@ -8331,9 +8309,8 @@ defmodule AWS.Pinpoint do
 
   ## Parameters:
   * `:application_id` (`t:string` required) The unique identifier for the
-  application. This identifier is displayed as the Project ID on the Amazon
-  Pinpoint console.
-  ## Keyword parameters:
+    application. This identifier is displayed as the Project ID on the Amazon
+    Pinpoint console.
   """
   @spec delete_gcm_channel(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, delete_gcm_channel_response(), any()}
@@ -8386,14 +8363,15 @@ defmodule AWS.Pinpoint do
 
   ## Parameters:
   * `:template_name` (`t:string` required) The name of the message template. A
-  template name must start with an alphanumeric character and can contain a
-  maximum of 128 characters. The characters can be alphanumeric characters,
-  underscores (_), or hyphens (-). Template names are case sensitive.
+    template name must start with an alphanumeric character and can contain a
+    maximum of 128 characters. The characters can be alphanumeric characters,
+    underscores (_), or hyphens (-). Template names are case sensitive.
+
   ## Keyword parameters:
   * `:version` (`t:string`) The unique identifier for the version of the message
-  template to update, retrieve information about, or delete. To retrieve
-  identifiers and other information for all the versions of a template, use
-  the Template Versions resource.
+    template to update, retrieve information about, or delete. To retrieve
+    identifiers and other information for all the versions of a template, use
+    the Template Versions resource.
   """
   @spec delete_in_app_template(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, delete_in_app_template_response(), any()}
@@ -8457,10 +8435,9 @@ defmodule AWS.Pinpoint do
 
   ## Parameters:
   * `:application_id` (`t:string` required) The unique identifier for the
-  application. This identifier is displayed as the Project ID on the Amazon
-  Pinpoint console.
+    application. This identifier is displayed as the Project ID on the Amazon
+    Pinpoint console.
   * `:journey_id` (`t:string` required) The unique identifier for the journey.
-  ## Keyword parameters:
   """
   @spec delete_journey(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, delete_journey_response(), any()}
@@ -8515,14 +8492,15 @@ defmodule AWS.Pinpoint do
 
   ## Parameters:
   * `:template_name` (`t:string` required) The name of the message template. A
-  template name must start with an alphanumeric character and can contain a
-  maximum of 128 characters. The characters can be alphanumeric characters,
-  underscores (_), or hyphens (-). Template names are case sensitive.
+    template name must start with an alphanumeric character and can contain a
+    maximum of 128 characters. The characters can be alphanumeric characters,
+    underscores (_), or hyphens (-). Template names are case sensitive.
+
   ## Keyword parameters:
   * `:version` (`t:string`) The unique identifier for the version of the message
-  template to update, retrieve information about, or delete. To retrieve
-  identifiers and other information for all the versions of a template, use
-  the Template Versions resource.
+    template to update, retrieve information about, or delete. To retrieve
+    identifiers and other information for all the versions of a template, use
+    the Template Versions resource.
   """
   @spec delete_push_template(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, delete_push_template_response(), any()}
@@ -8586,9 +8564,8 @@ defmodule AWS.Pinpoint do
 
   ## Parameters:
   * `:recommender_id` (`t:string` required) The unique identifier for the
-  recommender model configuration. This identifier is displayed as the
-  Recommender ID on the Amazon Pinpoint console.
-  ## Keyword parameters:
+    recommender model configuration. This identifier is displayed as the
+    Recommender ID on the Amazon Pinpoint console.
   """
   @spec delete_recommender_configuration(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, delete_recommender_configuration_response(), any()}
@@ -8641,10 +8618,9 @@ defmodule AWS.Pinpoint do
 
   ## Parameters:
   * `:application_id` (`t:string` required) The unique identifier for the
-  application. This identifier is displayed as the Project ID on the Amazon
-  Pinpoint console.
+    application. This identifier is displayed as the Project ID on the Amazon
+    Pinpoint console.
   * `:segment_id` (`t:string` required) The unique identifier for the segment.
-  ## Keyword parameters:
   """
   @spec delete_segment(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, delete_segment_response(), any()}
@@ -8699,9 +8675,8 @@ defmodule AWS.Pinpoint do
 
   ## Parameters:
   * `:application_id` (`t:string` required) The unique identifier for the
-  application. This identifier is displayed as the Project ID on the Amazon
-  Pinpoint console.
-  ## Keyword parameters:
+    application. This identifier is displayed as the Project ID on the Amazon
+    Pinpoint console.
   """
   @spec delete_sms_channel(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, delete_sms_channel_response(), any()}
@@ -8754,14 +8729,15 @@ defmodule AWS.Pinpoint do
 
   ## Parameters:
   * `:template_name` (`t:string` required) The name of the message template. A
-  template name must start with an alphanumeric character and can contain a
-  maximum of 128 characters. The characters can be alphanumeric characters,
-  underscores (_), or hyphens (-). Template names are case sensitive.
+    template name must start with an alphanumeric character and can contain a
+    maximum of 128 characters. The characters can be alphanumeric characters,
+    underscores (_), or hyphens (-). Template names are case sensitive.
+
   ## Keyword parameters:
   * `:version` (`t:string`) The unique identifier for the version of the message
-  template to update, retrieve information about, or delete. To retrieve
-  identifiers and other information for all the versions of a template, use
-  the Template Versions resource.
+    template to update, retrieve information about, or delete. To retrieve
+    identifiers and other information for all the versions of a template, use
+    the Template Versions resource.
   """
   @spec delete_sms_template(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, delete_sms_template_response(), any()}
@@ -8825,10 +8801,9 @@ defmodule AWS.Pinpoint do
 
   ## Parameters:
   * `:application_id` (`t:string` required) The unique identifier for the
-  application. This identifier is displayed as the Project ID on the Amazon
-  Pinpoint console.
+    application. This identifier is displayed as the Project ID on the Amazon
+    Pinpoint console.
   * `:user_id` (`t:string` required) The unique identifier for the user.
-  ## Keyword parameters:
   """
   @spec delete_user_endpoints(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, delete_user_endpoints_response(), any()}
@@ -8883,9 +8858,8 @@ defmodule AWS.Pinpoint do
 
   ## Parameters:
   * `:application_id` (`t:string` required) The unique identifier for the
-  application. This identifier is displayed as the Project ID on the Amazon
-  Pinpoint console.
-  ## Keyword parameters:
+    application. This identifier is displayed as the Project ID on the Amazon
+    Pinpoint console.
   """
   @spec delete_voice_channel(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, delete_voice_channel_response(), any()}
@@ -8939,14 +8913,15 @@ defmodule AWS.Pinpoint do
 
   ## Parameters:
   * `:template_name` (`t:string` required) The name of the message template. A
-  template name must start with an alphanumeric character and can contain a
-  maximum of 128 characters. The characters can be alphanumeric characters,
-  underscores (_), or hyphens (-). Template names are case sensitive.
+    template name must start with an alphanumeric character and can contain a
+    maximum of 128 characters. The characters can be alphanumeric characters,
+    underscores (_), or hyphens (-). Template names are case sensitive.
+
   ## Keyword parameters:
   * `:version` (`t:string`) The unique identifier for the version of the message
-  template to update, retrieve information about, or delete. To retrieve
-  identifiers and other information for all the versions of a template, use
-  the Template Versions resource.
+    template to update, retrieve information about, or delete. To retrieve
+    identifiers and other information for all the versions of a template, use
+    the Template Versions resource.
   """
   @spec delete_voice_template(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, delete_voice_template_response(), any()}
@@ -9011,9 +8986,8 @@ defmodule AWS.Pinpoint do
 
   ## Parameters:
   * `:application_id` (`t:string` required) The unique identifier for the
-  application. This identifier is displayed as the Project ID on the Amazon
-  Pinpoint console.
-  ## Keyword parameters:
+    application. This identifier is displayed as the Project ID on the Amazon
+    Pinpoint console.
   """
   @spec get_adm_channel(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_adm_channel_response(), any()}
@@ -9055,9 +9029,8 @@ defmodule AWS.Pinpoint do
 
   ## Parameters:
   * `:application_id` (`t:string` required) The unique identifier for the
-  application. This identifier is displayed as the Project ID on the Amazon
-  Pinpoint console.
-  ## Keyword parameters:
+    application. This identifier is displayed as the Project ID on the Amazon
+    Pinpoint console.
   """
   @spec get_apns_channel(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_apns_channel_response(), any()}
@@ -9099,9 +9072,8 @@ defmodule AWS.Pinpoint do
 
   ## Parameters:
   * `:application_id` (`t:string` required) The unique identifier for the
-  application. This identifier is displayed as the Project ID on the Amazon
-  Pinpoint console.
-  ## Keyword parameters:
+    application. This identifier is displayed as the Project ID on the Amazon
+    Pinpoint console.
   """
   @spec get_apns_sandbox_channel(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_apns_sandbox_channel_response(), any()}
@@ -9143,9 +9115,8 @@ defmodule AWS.Pinpoint do
 
   ## Parameters:
   * `:application_id` (`t:string` required) The unique identifier for the
-  application. This identifier is displayed as the Project ID on the Amazon
-  Pinpoint console.
-  ## Keyword parameters:
+    application. This identifier is displayed as the Project ID on the Amazon
+    Pinpoint console.
   """
   @spec get_apns_voip_channel(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_apns_voip_channel_response(), any()}
@@ -9187,9 +9158,8 @@ defmodule AWS.Pinpoint do
 
   ## Parameters:
   * `:application_id` (`t:string` required) The unique identifier for the
-  application. This identifier is displayed as the Project ID on the Amazon
-  Pinpoint console.
-  ## Keyword parameters:
+    application. This identifier is displayed as the Project ID on the Amazon
+    Pinpoint console.
   """
   @spec get_apns_voip_sandbox_channel(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_apns_voip_sandbox_channel_response(), any()}
@@ -9230,9 +9200,8 @@ defmodule AWS.Pinpoint do
 
   ## Parameters:
   * `:application_id` (`t:string` required) The unique identifier for the
-  application. This identifier is displayed as the Project ID on the Amazon
-  Pinpoint console.
-  ## Keyword parameters:
+    application. This identifier is displayed as the Project ID on the Amazon
+    Pinpoint console.
   """
   @spec get_app(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_app_response(), any()}
@@ -9274,30 +9243,31 @@ defmodule AWS.Pinpoint do
 
   ## Parameters:
   * `:application_id` (`t:string` required) The unique identifier for the
-  application. This identifier is displayed as the Project ID on the Amazon
-  Pinpoint console.
+    application. This identifier is displayed as the Project ID on the Amazon
+    Pinpoint console.
   * `:kpi_name` (`t:string` required) The name of the metric, also referred to as
-  a key performance indicator (KPI), to retrieve data for. This value
-  describes the associated metric and consists of two or more terms, which are
-  comprised of lowercase alphanumeric characters, separated by a hyphen.
-  Examples are email-open-rate and successful-delivery-rate. For a list of
-  valid values, see the Amazon Pinpoint Developer Guide.
+    a key performance indicator (KPI), to retrieve data for. This value
+    describes the associated metric and consists of two or more terms, which are
+    comprised of lowercase alphanumeric characters, separated by a hyphen.
+    Examples are email-open-rate and successful-delivery-rate. For a list of
+    valid values, see the Amazon Pinpoint Developer Guide.
+
   ## Keyword parameters:
   * `:end_time` (`t:timestamp[date-time]`) The last date and time to retrieve data
-  for, as part of an inclusive date range that filters the query results. This
-  value should be in extended ISO 8601 format and use Coordinated Universal
-  Time (UTC), for example: 2019-07-26T20:00:00Z for 8:00 PM UTC July 26, 2019.
+    for, as part of an inclusive date range that filters the query results. This
+    value should be in extended ISO 8601 format and use Coordinated Universal
+    Time (UTC), for example: 2019-07-26T20:00:00Z for 8:00 PM UTC July 26, 2019.
   * `:next_token` (`t:string`) The string that specifies which page of results to
-  return in a paginated response. This parameter is not supported for
-  application, campaign, and journey metrics.
+    return in a paginated response. This parameter is not supported for
+    application, campaign, and journey metrics.
   * `:page_size` (`t:string`) The maximum number of items to include in each page
-  of a paginated response. This parameter is not supported for application,
-  campaign, and journey metrics.
+    of a paginated response. This parameter is not supported for application,
+    campaign, and journey metrics.
   * `:start_time` (`t:timestamp[date-time]`) The first date and time to retrieve
-  data for, as part of an inclusive date range that filters the query results.
-  This value should be in extended ISO 8601 format and use Coordinated
-  Universal Time (UTC), for example: 2019-07-19T20:00:00Z for 8:00 PM UTC July
-  19, 2019. This value should also be fewer than 90 days from the current day.
+    data for, as part of an inclusive date range that filters the query results.
+    This value should be in extended ISO 8601 format and use Coordinated
+    Universal Time (UTC), for example: 2019-07-19T20:00:00Z for 8:00 PM UTC July
+    19, 2019. This value should also be fewer than 90 days from the current day.
   """
   @spec get_application_date_range_kpi(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_application_date_range_kpi_response(), any()}
@@ -9371,9 +9341,8 @@ defmodule AWS.Pinpoint do
 
   ## Parameters:
   * `:application_id` (`t:string` required) The unique identifier for the
-  application. This identifier is displayed as the Project ID on the Amazon
-  Pinpoint console.
-  ## Keyword parameters:
+    application. This identifier is displayed as the Project ID on the Amazon
+    Pinpoint console.
   """
   @spec get_application_settings(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_application_settings_response(), any()}
@@ -9414,12 +9383,13 @@ defmodule AWS.Pinpoint do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=pinpoint%20GetApps&this_doc_guide=API%2520Reference)
 
   ## Parameters:
+
   ## Keyword parameters:
   * `:page_size` (`t:string`) The maximum number of items to include in each page
-  of a paginated response. This parameter is not supported for application,
-  campaign, and journey metrics.
+    of a paginated response. This parameter is not supported for application,
+    campaign, and journey metrics.
   * `:token` (`t:string`) The NextToken string that specifies which page of
-  results to return in a paginated response.
+    results to return in a paginated response.
   """
   @spec get_apps(AWS.Client.t(), Keyword.t()) ::
           {:ok, get_apps_response(), any()}
@@ -9479,9 +9449,8 @@ defmodule AWS.Pinpoint do
 
   ## Parameters:
   * `:application_id` (`t:string` required) The unique identifier for the
-  application. This identifier is displayed as the Project ID on the Amazon
-  Pinpoint console.
-  ## Keyword parameters:
+    application. This identifier is displayed as the Project ID on the Amazon
+    Pinpoint console.
   """
   @spec get_baidu_channel(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_baidu_channel_response(), any()}
@@ -9523,10 +9492,9 @@ defmodule AWS.Pinpoint do
 
   ## Parameters:
   * `:application_id` (`t:string` required) The unique identifier for the
-  application. This identifier is displayed as the Project ID on the Amazon
-  Pinpoint console.
+    application. This identifier is displayed as the Project ID on the Amazon
+    Pinpoint console.
   * `:campaign_id` (`t:string` required) The unique identifier for the campaign.
-  ## Keyword parameters:
   """
   @spec get_campaign(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_campaign_response(), any()}
@@ -9568,15 +9536,16 @@ defmodule AWS.Pinpoint do
 
   ## Parameters:
   * `:application_id` (`t:string` required) The unique identifier for the
-  application. This identifier is displayed as the Project ID on the Amazon
-  Pinpoint console.
+    application. This identifier is displayed as the Project ID on the Amazon
+    Pinpoint console.
   * `:campaign_id` (`t:string` required) The unique identifier for the campaign.
+
   ## Keyword parameters:
   * `:page_size` (`t:string`) The maximum number of items to include in each page
-  of a paginated response. This parameter is not supported for application,
-  campaign, and journey metrics.
+    of a paginated response. This parameter is not supported for application,
+    campaign, and journey metrics.
   * `:token` (`t:string`) The NextToken string that specifies which page of
-  results to return in a paginated response.
+    results to return in a paginated response.
   """
   @spec get_campaign_activities(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_campaign_activities_response(), any()}
@@ -9637,31 +9606,32 @@ defmodule AWS.Pinpoint do
 
   ## Parameters:
   * `:application_id` (`t:string` required) The unique identifier for the
-  application. This identifier is displayed as the Project ID on the Amazon
-  Pinpoint console.
+    application. This identifier is displayed as the Project ID on the Amazon
+    Pinpoint console.
   * `:campaign_id` (`t:string` required) The unique identifier for the campaign.
   * `:kpi_name` (`t:string` required) The name of the metric, also referred to as
-  a key performance indicator (KPI), to retrieve data for. This value
-  describes the associated metric and consists of two or more terms, which are
-  comprised of lowercase alphanumeric characters, separated by a hyphen.
-  Examples are email-open-rate and successful-delivery-rate. For a list of
-  valid values, see the Amazon Pinpoint Developer Guide.
+    a key performance indicator (KPI), to retrieve data for. This value
+    describes the associated metric and consists of two or more terms, which are
+    comprised of lowercase alphanumeric characters, separated by a hyphen.
+    Examples are email-open-rate and successful-delivery-rate. For a list of
+    valid values, see the Amazon Pinpoint Developer Guide.
+
   ## Keyword parameters:
   * `:end_time` (`t:timestamp[date-time]`) The last date and time to retrieve data
-  for, as part of an inclusive date range that filters the query results. This
-  value should be in extended ISO 8601 format and use Coordinated Universal
-  Time (UTC), for example: 2019-07-26T20:00:00Z for 8:00 PM UTC July 26, 2019.
+    for, as part of an inclusive date range that filters the query results. This
+    value should be in extended ISO 8601 format and use Coordinated Universal
+    Time (UTC), for example: 2019-07-26T20:00:00Z for 8:00 PM UTC July 26, 2019.
   * `:next_token` (`t:string`) The string that specifies which page of results to
-  return in a paginated response. This parameter is not supported for
-  application, campaign, and journey metrics.
+    return in a paginated response. This parameter is not supported for
+    application, campaign, and journey metrics.
   * `:page_size` (`t:string`) The maximum number of items to include in each page
-  of a paginated response. This parameter is not supported for application,
-  campaign, and journey metrics.
+    of a paginated response. This parameter is not supported for application,
+    campaign, and journey metrics.
   * `:start_time` (`t:timestamp[date-time]`) The first date and time to retrieve
-  data for, as part of an inclusive date range that filters the query results.
-  This value should be in extended ISO 8601 format and use Coordinated
-  Universal Time (UTC), for example: 2019-07-19T20:00:00Z for 8:00 PM UTC July
-  19, 2019. This value should also be fewer than 90 days from the current day.
+    data for, as part of an inclusive date range that filters the query results.
+    This value should be in extended ISO 8601 format and use Coordinated
+    Universal Time (UTC), for example: 2019-07-19T20:00:00Z for 8:00 PM UTC July
+    19, 2019. This value should also be fewer than 90 days from the current day.
   """
   @spec get_campaign_date_range_kpi(
           AWS.Client.t(),
@@ -9748,12 +9718,11 @@ defmodule AWS.Pinpoint do
 
   ## Parameters:
   * `:application_id` (`t:string` required) The unique identifier for the
-  application. This identifier is displayed as the Project ID on the Amazon
-  Pinpoint console.
+    application. This identifier is displayed as the Project ID on the Amazon
+    Pinpoint console.
   * `:campaign_id` (`t:string` required) The unique identifier for the campaign.
   * `:version` (`t:string` required) The unique version number (Version property)
-  for the campaign version.
-  ## Keyword parameters:
+    for the campaign version.
   """
   @spec get_campaign_version(AWS.Client.t(), String.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_campaign_version_response(), any()}
@@ -9802,15 +9771,16 @@ defmodule AWS.Pinpoint do
 
   ## Parameters:
   * `:application_id` (`t:string` required) The unique identifier for the
-  application. This identifier is displayed as the Project ID on the Amazon
-  Pinpoint console.
+    application. This identifier is displayed as the Project ID on the Amazon
+    Pinpoint console.
   * `:campaign_id` (`t:string` required) The unique identifier for the campaign.
+
   ## Keyword parameters:
   * `:page_size` (`t:string`) The maximum number of items to include in each page
-  of a paginated response. This parameter is not supported for application,
-  campaign, and journey metrics.
+    of a paginated response. This parameter is not supported for application,
+    campaign, and journey metrics.
   * `:token` (`t:string`) The NextToken string that specifies which page of
-  results to return in a paginated response.
+    results to return in a paginated response.
   """
   @spec get_campaign_versions(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_campaign_versions_response(), any()}
@@ -9871,14 +9841,15 @@ defmodule AWS.Pinpoint do
 
   ## Parameters:
   * `:application_id` (`t:string` required) The unique identifier for the
-  application. This identifier is displayed as the Project ID on the Amazon
-  Pinpoint console.
+    application. This identifier is displayed as the Project ID on the Amazon
+    Pinpoint console.
+
   ## Keyword parameters:
   * `:page_size` (`t:string`) The maximum number of items to include in each page
-  of a paginated response. This parameter is not supported for application,
-  campaign, and journey metrics.
+    of a paginated response. This parameter is not supported for application,
+    campaign, and journey metrics.
   * `:token` (`t:string`) The NextToken string that specifies which page of
-  results to return in a paginated response.
+    results to return in a paginated response.
   """
   @spec get_campaigns(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_campaigns_response(), any()}
@@ -9938,9 +9909,8 @@ defmodule AWS.Pinpoint do
 
   ## Parameters:
   * `:application_id` (`t:string` required) The unique identifier for the
-  application. This identifier is displayed as the Project ID on the Amazon
-  Pinpoint console.
-  ## Keyword parameters:
+    application. This identifier is displayed as the Project ID on the Amazon
+    Pinpoint console.
   """
   @spec get_channels(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_channels_response(), any()}
@@ -9982,9 +9952,8 @@ defmodule AWS.Pinpoint do
 
   ## Parameters:
   * `:application_id` (`t:string` required) The unique identifier for the
-  application. This identifier is displayed as the Project ID on the Amazon
-  Pinpoint console.
-  ## Keyword parameters:
+    application. This identifier is displayed as the Project ID on the Amazon
+    Pinpoint console.
   """
   @spec get_email_channel(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_email_channel_response(), any()}
@@ -10026,14 +9995,15 @@ defmodule AWS.Pinpoint do
 
   ## Parameters:
   * `:template_name` (`t:string` required) The name of the message template. A
-  template name must start with an alphanumeric character and can contain a
-  maximum of 128 characters. The characters can be alphanumeric characters,
-  underscores (_), or hyphens (-). Template names are case sensitive.
+    template name must start with an alphanumeric character and can contain a
+    maximum of 128 characters. The characters can be alphanumeric characters,
+    underscores (_), or hyphens (-). Template names are case sensitive.
+
   ## Keyword parameters:
   * `:version` (`t:string`) The unique identifier for the version of the message
-  template to update, retrieve information about, or delete. To retrieve
-  identifiers and other information for all the versions of a template, use
-  the Template Versions resource.
+    template to update, retrieve information about, or delete. To retrieve
+    identifiers and other information for all the versions of a template, use
+    the Template Versions resource.
   """
   @spec get_email_template(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_email_template_response(), any()}
@@ -10086,11 +10056,10 @@ defmodule AWS.Pinpoint do
 
   ## Parameters:
   * `:application_id` (`t:string` required) The unique identifier for the
-  application. This identifier is displayed as the Project ID on the Amazon
-  Pinpoint console.
+    application. This identifier is displayed as the Project ID on the Amazon
+    Pinpoint console.
   * `:endpoint_id` (`t:string` required) The case insensitive unique identifier
-  for the endpoint. The identifier can't contain $, { or }.
-  ## Keyword parameters:
+    for the endpoint. The identifier can't contain $, { or }.
   """
   @spec get_endpoint(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_endpoint_response(), any()}
@@ -10132,9 +10101,8 @@ defmodule AWS.Pinpoint do
 
   ## Parameters:
   * `:application_id` (`t:string` required) The unique identifier for the
-  application. This identifier is displayed as the Project ID on the Amazon
-  Pinpoint console.
-  ## Keyword parameters:
+    application. This identifier is displayed as the Project ID on the Amazon
+    Pinpoint console.
   """
   @spec get_event_stream(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_event_stream_response(), any()}
@@ -10176,10 +10144,9 @@ defmodule AWS.Pinpoint do
 
   ## Parameters:
   * `:application_id` (`t:string` required) The unique identifier for the
-  application. This identifier is displayed as the Project ID on the Amazon
-  Pinpoint console.
+    application. This identifier is displayed as the Project ID on the Amazon
+    Pinpoint console.
   * `:job_id` (`t:string` required) The unique identifier for the job.
-  ## Keyword parameters:
   """
   @spec get_export_job(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_export_job_response(), any()}
@@ -10222,14 +10189,15 @@ defmodule AWS.Pinpoint do
 
   ## Parameters:
   * `:application_id` (`t:string` required) The unique identifier for the
-  application. This identifier is displayed as the Project ID on the Amazon
-  Pinpoint console.
+    application. This identifier is displayed as the Project ID on the Amazon
+    Pinpoint console.
+
   ## Keyword parameters:
   * `:page_size` (`t:string`) The maximum number of items to include in each page
-  of a paginated response. This parameter is not supported for application,
-  campaign, and journey metrics.
+    of a paginated response. This parameter is not supported for application,
+    campaign, and journey metrics.
   * `:token` (`t:string`) The NextToken string that specifies which page of
-  results to return in a paginated response.
+    results to return in a paginated response.
   """
   @spec get_export_jobs(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_export_jobs_response(), any()}
@@ -10289,9 +10257,8 @@ defmodule AWS.Pinpoint do
 
   ## Parameters:
   * `:application_id` (`t:string` required) The unique identifier for the
-  application. This identifier is displayed as the Project ID on the Amazon
-  Pinpoint console.
-  ## Keyword parameters:
+    application. This identifier is displayed as the Project ID on the Amazon
+    Pinpoint console.
   """
   @spec get_gcm_channel(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_gcm_channel_response(), any()}
@@ -10333,10 +10300,9 @@ defmodule AWS.Pinpoint do
 
   ## Parameters:
   * `:application_id` (`t:string` required) The unique identifier for the
-  application. This identifier is displayed as the Project ID on the Amazon
-  Pinpoint console.
+    application. This identifier is displayed as the Project ID on the Amazon
+    Pinpoint console.
   * `:job_id` (`t:string` required) The unique identifier for the job.
-  ## Keyword parameters:
   """
   @spec get_import_job(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_import_job_response(), any()}
@@ -10379,14 +10345,15 @@ defmodule AWS.Pinpoint do
 
   ## Parameters:
   * `:application_id` (`t:string` required) The unique identifier for the
-  application. This identifier is displayed as the Project ID on the Amazon
-  Pinpoint console.
+    application. This identifier is displayed as the Project ID on the Amazon
+    Pinpoint console.
+
   ## Keyword parameters:
   * `:page_size` (`t:string`) The maximum number of items to include in each page
-  of a paginated response. This parameter is not supported for application,
-  campaign, and journey metrics.
+    of a paginated response. This parameter is not supported for application,
+    campaign, and journey metrics.
   * `:token` (`t:string`) The NextToken string that specifies which page of
-  results to return in a paginated response.
+    results to return in a paginated response.
   """
   @spec get_import_jobs(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_import_jobs_response(), any()}
@@ -10445,10 +10412,9 @@ defmodule AWS.Pinpoint do
 
   ## Parameters:
   * `:application_id` (`t:string` required) The unique identifier for the
-  application. This identifier is displayed as the Project ID on the Amazon
-  Pinpoint console.
+    application. This identifier is displayed as the Project ID on the Amazon
+    Pinpoint console.
   * `:endpoint_id` (`t:string` required) The unique identifier for the endpoint.
-  ## Keyword parameters:
   """
   @spec get_in_app_messages(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_in_app_messages_response(), any()}
@@ -10491,14 +10457,15 @@ defmodule AWS.Pinpoint do
 
   ## Parameters:
   * `:template_name` (`t:string` required) The name of the message template. A
-  template name must start with an alphanumeric character and can contain a
-  maximum of 128 characters. The characters can be alphanumeric characters,
-  underscores (_), or hyphens (-). Template names are case sensitive.
+    template name must start with an alphanumeric character and can contain a
+    maximum of 128 characters. The characters can be alphanumeric characters,
+    underscores (_), or hyphens (-). Template names are case sensitive.
+
   ## Keyword parameters:
   * `:version` (`t:string`) The unique identifier for the version of the message
-  template to update, retrieve information about, or delete. To retrieve
-  identifiers and other information for all the versions of a template, use
-  the Template Versions resource.
+    template to update, retrieve information about, or delete. To retrieve
+    identifiers and other information for all the versions of a template, use
+    the Template Versions resource.
   """
   @spec get_in_app_template(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_in_app_template_response(), any()}
@@ -10551,10 +10518,9 @@ defmodule AWS.Pinpoint do
 
   ## Parameters:
   * `:application_id` (`t:string` required) The unique identifier for the
-  application. This identifier is displayed as the Project ID on the Amazon
-  Pinpoint console.
+    application. This identifier is displayed as the Project ID on the Amazon
+    Pinpoint console.
   * `:journey_id` (`t:string` required) The unique identifier for the journey.
-  ## Keyword parameters:
   """
   @spec get_journey(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_journey_response(), any()}
@@ -10597,31 +10563,32 @@ defmodule AWS.Pinpoint do
 
   ## Parameters:
   * `:application_id` (`t:string` required) The unique identifier for the
-  application. This identifier is displayed as the Project ID on the Amazon
-  Pinpoint console.
+    application. This identifier is displayed as the Project ID on the Amazon
+    Pinpoint console.
   * `:journey_id` (`t:string` required) The unique identifier for the journey.
   * `:kpi_name` (`t:string` required) The name of the metric, also referred to as
-  a key performance indicator (KPI), to retrieve data for. This value
-  describes the associated metric and consists of two or more terms, which are
-  comprised of lowercase alphanumeric characters, separated by a hyphen.
-  Examples are email-open-rate and successful-delivery-rate. For a list of
-  valid values, see the Amazon Pinpoint Developer Guide.
+    a key performance indicator (KPI), to retrieve data for. This value
+    describes the associated metric and consists of two or more terms, which are
+    comprised of lowercase alphanumeric characters, separated by a hyphen.
+    Examples are email-open-rate and successful-delivery-rate. For a list of
+    valid values, see the Amazon Pinpoint Developer Guide.
+
   ## Keyword parameters:
   * `:end_time` (`t:timestamp[date-time]`) The last date and time to retrieve data
-  for, as part of an inclusive date range that filters the query results. This
-  value should be in extended ISO 8601 format and use Coordinated Universal
-  Time (UTC), for example: 2019-07-26T20:00:00Z for 8:00 PM UTC July 26, 2019.
+    for, as part of an inclusive date range that filters the query results. This
+    value should be in extended ISO 8601 format and use Coordinated Universal
+    Time (UTC), for example: 2019-07-26T20:00:00Z for 8:00 PM UTC July 26, 2019.
   * `:next_token` (`t:string`) The string that specifies which page of results to
-  return in a paginated response. This parameter is not supported for
-  application, campaign, and journey metrics.
+    return in a paginated response. This parameter is not supported for
+    application, campaign, and journey metrics.
   * `:page_size` (`t:string`) The maximum number of items to include in each page
-  of a paginated response. This parameter is not supported for application,
-  campaign, and journey metrics.
+    of a paginated response. This parameter is not supported for application,
+    campaign, and journey metrics.
   * `:start_time` (`t:timestamp[date-time]`) The first date and time to retrieve
-  data for, as part of an inclusive date range that filters the query results.
-  This value should be in extended ISO 8601 format and use Coordinated
-  Universal Time (UTC), for example: 2019-07-19T20:00:00Z for 8:00 PM UTC July
-  19, 2019. This value should also be fewer than 90 days from the current day.
+    data for, as part of an inclusive date range that filters the query results.
+    This value should be in extended ISO 8601 format and use Coordinated
+    Universal Time (UTC), for example: 2019-07-19T20:00:00Z for 8:00 PM UTC July
+    19, 2019. This value should also be fewer than 90 days from the current day.
   """
   @spec get_journey_date_range_kpi(
           AWS.Client.t(),
@@ -10708,18 +10675,19 @@ defmodule AWS.Pinpoint do
 
   ## Parameters:
   * `:application_id` (`t:string` required) The unique identifier for the
-  application. This identifier is displayed as the Project ID on the Amazon
-  Pinpoint console.
+    application. This identifier is displayed as the Project ID on the Amazon
+    Pinpoint console.
   * `:journey_activity_id` (`t:string` required) The unique identifier for the
-  journey activity.
+    journey activity.
   * `:journey_id` (`t:string` required) The unique identifier for the journey.
+
   ## Keyword parameters:
   * `:next_token` (`t:string`) The string that specifies which page of results to
-  return in a paginated response. This parameter is not supported for
-  application, campaign, and journey metrics.
+    return in a paginated response. This parameter is not supported for
+    application, campaign, and journey metrics.
   * `:page_size` (`t:string`) The maximum number of items to include in each page
-  of a paginated response. This parameter is not supported for application,
-  campaign, and journey metrics.
+    of a paginated response. This parameter is not supported for application,
+    campaign, and journey metrics.
   """
   @spec get_journey_execution_activity_metrics(
           AWS.Client.t(),
@@ -10792,16 +10760,17 @@ defmodule AWS.Pinpoint do
 
   ## Parameters:
   * `:application_id` (`t:string` required) The unique identifier for the
-  application. This identifier is displayed as the Project ID on the Amazon
-  Pinpoint console.
+    application. This identifier is displayed as the Project ID on the Amazon
+    Pinpoint console.
   * `:journey_id` (`t:string` required) The unique identifier for the journey.
+
   ## Keyword parameters:
   * `:next_token` (`t:string`) The string that specifies which page of results to
-  return in a paginated response. This parameter is not supported for
-  application, campaign, and journey metrics.
+    return in a paginated response. This parameter is not supported for
+    application, campaign, and journey metrics.
   * `:page_size` (`t:string`) The maximum number of items to include in each page
-  of a paginated response. This parameter is not supported for application,
-  campaign, and journey metrics.
+    of a paginated response. This parameter is not supported for application,
+    campaign, and journey metrics.
   """
   @spec get_journey_execution_metrics(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_journey_execution_metrics_response(), any()}
@@ -10862,19 +10831,20 @@ defmodule AWS.Pinpoint do
 
   ## Parameters:
   * `:application_id` (`t:string` required) The unique identifier for the
-  application. This identifier is displayed as the Project ID on the Amazon
-  Pinpoint console.
+    application. This identifier is displayed as the Project ID on the Amazon
+    Pinpoint console.
   * `:journey_activity_id` (`t:string` required) The unique identifier for the
-  journey activity.
+    journey activity.
   * `:journey_id` (`t:string` required) The unique identifier for the journey.
   * `:run_id` (`t:string` required) The unique identifier for the journey run.
+
   ## Keyword parameters:
   * `:next_token` (`t:string`) The string that specifies which page of results to
-  return in a paginated response. This parameter is not supported for
-  application, campaign, and journey metrics.
+    return in a paginated response. This parameter is not supported for
+    application, campaign, and journey metrics.
   * `:page_size` (`t:string`) The maximum number of items to include in each page
-  of a paginated response. This parameter is not supported for application,
-  campaign, and journey metrics.
+    of a paginated response. This parameter is not supported for application,
+    campaign, and journey metrics.
   """
   @spec get_journey_run_execution_activity_metrics(
           AWS.Client.t(),
@@ -10949,17 +10919,18 @@ defmodule AWS.Pinpoint do
 
   ## Parameters:
   * `:application_id` (`t:string` required) The unique identifier for the
-  application. This identifier is displayed as the Project ID on the Amazon
-  Pinpoint console.
+    application. This identifier is displayed as the Project ID on the Amazon
+    Pinpoint console.
   * `:journey_id` (`t:string` required) The unique identifier for the journey.
   * `:run_id` (`t:string` required) The unique identifier for the journey run.
+
   ## Keyword parameters:
   * `:next_token` (`t:string`) The string that specifies which page of results to
-  return in a paginated response. This parameter is not supported for
-  application, campaign, and journey metrics.
+    return in a paginated response. This parameter is not supported for
+    application, campaign, and journey metrics.
   * `:page_size` (`t:string`) The maximum number of items to include in each page
-  of a paginated response. This parameter is not supported for application,
-  campaign, and journey metrics.
+    of a paginated response. This parameter is not supported for application,
+    campaign, and journey metrics.
   """
   @spec get_journey_run_execution_metrics(
           AWS.Client.t(),
@@ -11031,15 +11002,16 @@ defmodule AWS.Pinpoint do
 
   ## Parameters:
   * `:application_id` (`t:string` required) The unique identifier for the
-  application. This identifier is displayed as the Project ID on the Amazon
-  Pinpoint console.
+    application. This identifier is displayed as the Project ID on the Amazon
+    Pinpoint console.
   * `:journey_id` (`t:string` required) The unique identifier for the journey.
+
   ## Keyword parameters:
   * `:page_size` (`t:string`) The maximum number of items to include in each page
-  of a paginated response. This parameter is not supported for application,
-  campaign, and journey metrics.
+    of a paginated response. This parameter is not supported for application,
+    campaign, and journey metrics.
   * `:token` (`t:string`) The NextToken string that specifies which page of
-  results to return in a paginated response.
+    results to return in a paginated response.
   """
   @spec get_journey_runs(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_journey_runs_response(), any()}
@@ -11100,14 +11072,15 @@ defmodule AWS.Pinpoint do
 
   ## Parameters:
   * `:template_name` (`t:string` required) The name of the message template. A
-  template name must start with an alphanumeric character and can contain a
-  maximum of 128 characters. The characters can be alphanumeric characters,
-  underscores (_), or hyphens (-). Template names are case sensitive.
+    template name must start with an alphanumeric character and can contain a
+    maximum of 128 characters. The characters can be alphanumeric characters,
+    underscores (_), or hyphens (-). Template names are case sensitive.
+
   ## Keyword parameters:
   * `:version` (`t:string`) The unique identifier for the version of the message
-  template to update, retrieve information about, or delete. To retrieve
-  identifiers and other information for all the versions of a template, use
-  the Template Versions resource.
+    template to update, retrieve information about, or delete. To retrieve
+    identifiers and other information for all the versions of a template, use
+    the Template Versions resource.
   """
   @spec get_push_template(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_push_template_response(), any()}
@@ -11160,9 +11133,8 @@ defmodule AWS.Pinpoint do
 
   ## Parameters:
   * `:recommender_id` (`t:string` required) The unique identifier for the
-  recommender model configuration. This identifier is displayed as the
-  Recommender ID on the Amazon Pinpoint console.
-  ## Keyword parameters:
+    recommender model configuration. This identifier is displayed as the
+    Recommender ID on the Amazon Pinpoint console.
   """
   @spec get_recommender_configuration(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_recommender_configuration_response(), any()}
@@ -11203,12 +11175,13 @@ defmodule AWS.Pinpoint do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=pinpoint%20GetRecommenderConfigurations&this_doc_guide=API%2520Reference)
 
   ## Parameters:
+
   ## Keyword parameters:
   * `:page_size` (`t:string`) The maximum number of items to include in each page
-  of a paginated response. This parameter is not supported for application,
-  campaign, and journey metrics.
+    of a paginated response. This parameter is not supported for application,
+    campaign, and journey metrics.
   * `:token` (`t:string`) The NextToken string that specifies which page of
-  results to return in a paginated response.
+    results to return in a paginated response.
   """
   @spec get_recommender_configurations(AWS.Client.t(), Keyword.t()) ::
           {:ok, get_recommender_configurations_response(), any()}
@@ -11268,10 +11241,9 @@ defmodule AWS.Pinpoint do
 
   ## Parameters:
   * `:application_id` (`t:string` required) The unique identifier for the
-  application. This identifier is displayed as the Project ID on the Amazon
-  Pinpoint console.
+    application. This identifier is displayed as the Project ID on the Amazon
+    Pinpoint console.
   * `:segment_id` (`t:string` required) The unique identifier for the segment.
-  ## Keyword parameters:
   """
   @spec get_segment(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_segment_response(), any()}
@@ -11314,15 +11286,16 @@ defmodule AWS.Pinpoint do
 
   ## Parameters:
   * `:application_id` (`t:string` required) The unique identifier for the
-  application. This identifier is displayed as the Project ID on the Amazon
-  Pinpoint console.
+    application. This identifier is displayed as the Project ID on the Amazon
+    Pinpoint console.
   * `:segment_id` (`t:string` required) The unique identifier for the segment.
+
   ## Keyword parameters:
   * `:page_size` (`t:string`) The maximum number of items to include in each page
-  of a paginated response. This parameter is not supported for application,
-  campaign, and journey metrics.
+    of a paginated response. This parameter is not supported for application,
+    campaign, and journey metrics.
   * `:token` (`t:string`) The NextToken string that specifies which page of
-  results to return in a paginated response.
+    results to return in a paginated response.
   """
   @spec get_segment_export_jobs(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_segment_export_jobs_response(), any()}
@@ -11383,15 +11356,16 @@ defmodule AWS.Pinpoint do
 
   ## Parameters:
   * `:application_id` (`t:string` required) The unique identifier for the
-  application. This identifier is displayed as the Project ID on the Amazon
-  Pinpoint console.
+    application. This identifier is displayed as the Project ID on the Amazon
+    Pinpoint console.
   * `:segment_id` (`t:string` required) The unique identifier for the segment.
+
   ## Keyword parameters:
   * `:page_size` (`t:string`) The maximum number of items to include in each page
-  of a paginated response. This parameter is not supported for application,
-  campaign, and journey metrics.
+    of a paginated response. This parameter is not supported for application,
+    campaign, and journey metrics.
   * `:token` (`t:string`) The NextToken string that specifies which page of
-  results to return in a paginated response.
+    results to return in a paginated response.
   """
   @spec get_segment_import_jobs(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_segment_import_jobs_response(), any()}
@@ -11452,12 +11426,11 @@ defmodule AWS.Pinpoint do
 
   ## Parameters:
   * `:application_id` (`t:string` required) The unique identifier for the
-  application. This identifier is displayed as the Project ID on the Amazon
-  Pinpoint console.
+    application. This identifier is displayed as the Project ID on the Amazon
+    Pinpoint console.
   * `:segment_id` (`t:string` required) The unique identifier for the segment.
   * `:version` (`t:string` required) The unique version number (Version property)
-  for the campaign version.
-  ## Keyword parameters:
+    for the campaign version.
   """
   @spec get_segment_version(AWS.Client.t(), String.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_segment_version_response(), any()}
@@ -11500,15 +11473,16 @@ defmodule AWS.Pinpoint do
 
   ## Parameters:
   * `:application_id` (`t:string` required) The unique identifier for the
-  application. This identifier is displayed as the Project ID on the Amazon
-  Pinpoint console.
+    application. This identifier is displayed as the Project ID on the Amazon
+    Pinpoint console.
   * `:segment_id` (`t:string` required) The unique identifier for the segment.
+
   ## Keyword parameters:
   * `:page_size` (`t:string`) The maximum number of items to include in each page
-  of a paginated response. This parameter is not supported for application,
-  campaign, and journey metrics.
+    of a paginated response. This parameter is not supported for application,
+    campaign, and journey metrics.
   * `:token` (`t:string`) The NextToken string that specifies which page of
-  results to return in a paginated response.
+    results to return in a paginated response.
   """
   @spec get_segment_versions(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_segment_versions_response(), any()}
@@ -11569,14 +11543,15 @@ defmodule AWS.Pinpoint do
 
   ## Parameters:
   * `:application_id` (`t:string` required) The unique identifier for the
-  application. This identifier is displayed as the Project ID on the Amazon
-  Pinpoint console.
+    application. This identifier is displayed as the Project ID on the Amazon
+    Pinpoint console.
+
   ## Keyword parameters:
   * `:page_size` (`t:string`) The maximum number of items to include in each page
-  of a paginated response. This parameter is not supported for application,
-  campaign, and journey metrics.
+    of a paginated response. This parameter is not supported for application,
+    campaign, and journey metrics.
   * `:token` (`t:string`) The NextToken string that specifies which page of
-  results to return in a paginated response.
+    results to return in a paginated response.
   """
   @spec get_segments(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_segments_response(), any()}
@@ -11636,9 +11611,8 @@ defmodule AWS.Pinpoint do
 
   ## Parameters:
   * `:application_id` (`t:string` required) The unique identifier for the
-  application. This identifier is displayed as the Project ID on the Amazon
-  Pinpoint console.
-  ## Keyword parameters:
+    application. This identifier is displayed as the Project ID on the Amazon
+    Pinpoint console.
   """
   @spec get_sms_channel(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_sms_channel_response(), any()}
@@ -11680,14 +11654,15 @@ defmodule AWS.Pinpoint do
 
   ## Parameters:
   * `:template_name` (`t:string` required) The name of the message template. A
-  template name must start with an alphanumeric character and can contain a
-  maximum of 128 characters. The characters can be alphanumeric characters,
-  underscores (_), or hyphens (-). Template names are case sensitive.
+    template name must start with an alphanumeric character and can contain a
+    maximum of 128 characters. The characters can be alphanumeric characters,
+    underscores (_), or hyphens (-). Template names are case sensitive.
+
   ## Keyword parameters:
   * `:version` (`t:string`) The unique identifier for the version of the message
-  template to update, retrieve information about, or delete. To retrieve
-  identifiers and other information for all the versions of a template, use
-  the Template Versions resource.
+    template to update, retrieve information about, or delete. To retrieve
+    identifiers and other information for all the versions of a template, use
+    the Template Versions resource.
   """
   @spec get_sms_template(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_sms_template_response(), any()}
@@ -11740,10 +11715,9 @@ defmodule AWS.Pinpoint do
 
   ## Parameters:
   * `:application_id` (`t:string` required) The unique identifier for the
-  application. This identifier is displayed as the Project ID on the Amazon
-  Pinpoint console.
+    application. This identifier is displayed as the Project ID on the Amazon
+    Pinpoint console.
   * `:user_id` (`t:string` required) The unique identifier for the user.
-  ## Keyword parameters:
   """
   @spec get_user_endpoints(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_user_endpoints_response(), any()}
@@ -11786,9 +11760,8 @@ defmodule AWS.Pinpoint do
 
   ## Parameters:
   * `:application_id` (`t:string` required) The unique identifier for the
-  application. This identifier is displayed as the Project ID on the Amazon
-  Pinpoint console.
-  ## Keyword parameters:
+    application. This identifier is displayed as the Project ID on the Amazon
+    Pinpoint console.
   """
   @spec get_voice_channel(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_voice_channel_response(), any()}
@@ -11830,14 +11803,15 @@ defmodule AWS.Pinpoint do
 
   ## Parameters:
   * `:template_name` (`t:string` required) The name of the message template. A
-  template name must start with an alphanumeric character and can contain a
-  maximum of 128 characters. The characters can be alphanumeric characters,
-  underscores (_), or hyphens (-). Template names are case sensitive.
+    template name must start with an alphanumeric character and can contain a
+    maximum of 128 characters. The characters can be alphanumeric characters,
+    underscores (_), or hyphens (-). Template names are case sensitive.
+
   ## Keyword parameters:
   * `:version` (`t:string`) The unique identifier for the version of the message
-  template to update, retrieve information about, or delete. To retrieve
-  identifiers and other information for all the versions of a template, use
-  the Template Versions resource.
+    template to update, retrieve information about, or delete. To retrieve
+    identifiers and other information for all the versions of a template, use
+    the Template Versions resource.
   """
   @spec get_voice_template(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_voice_template_response(), any()}
@@ -11890,14 +11864,15 @@ defmodule AWS.Pinpoint do
 
   ## Parameters:
   * `:application_id` (`t:string` required) The unique identifier for the
-  application. This identifier is displayed as the Project ID on the Amazon
-  Pinpoint console.
+    application. This identifier is displayed as the Project ID on the Amazon
+    Pinpoint console.
+
   ## Keyword parameters:
   * `:page_size` (`t:string`) The maximum number of items to include in each page
-  of a paginated response. This parameter is not supported for application,
-  campaign, and journey metrics.
+    of a paginated response. This parameter is not supported for application,
+    campaign, and journey metrics.
   * `:token` (`t:string`) The NextToken string that specifies which page of
-  results to return in a paginated response.
+    results to return in a paginated response.
   """
   @spec list_journeys(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_journeys_response(), any()}
@@ -11957,8 +11932,7 @@ defmodule AWS.Pinpoint do
 
   ## Parameters:
   * `:resource_arn` (`t:string` required) The Amazon Resource Name (ARN) of the
-  resource.
-  ## Keyword parameters:
+    resource.
   """
   @spec list_tags_for_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_tags_for_resource_response(), any()}
@@ -11998,18 +11972,19 @@ defmodule AWS.Pinpoint do
 
   ## Parameters:
   * `:template_name` (`t:string` required) The name of the message template. A
-  template name must start with an alphanumeric character and can contain a
-  maximum of 128 characters. The characters can be alphanumeric characters,
-  underscores (_), or hyphens (-). Template names are case sensitive.
+    template name must start with an alphanumeric character and can contain a
+    maximum of 128 characters. The characters can be alphanumeric characters,
+    underscores (_), or hyphens (-). Template names are case sensitive.
   * `:template_type` (`t:string` required) The type of channel that the message
-  template is designed for. Valid values are: EMAIL, PUSH, SMS, and VOICE.
+    template is designed for. Valid values are: EMAIL, PUSH, SMS, and VOICE.
+
   ## Keyword parameters:
   * `:next_token` (`t:string`) The string that specifies which page of results to
-  return in a paginated response. This parameter is not supported for
-  application, campaign, and journey metrics.
+    return in a paginated response. This parameter is not supported for
+    application, campaign, and journey metrics.
   * `:page_size` (`t:string`) The maximum number of items to include in each page
-  of a paginated response. This parameter is not supported for application,
-  campaign, and journey metrics.
+    of a paginated response. This parameter is not supported for application,
+    campaign, and journey metrics.
   """
   @spec list_template_versions(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, list_template_versions_response(), any()}
@@ -12069,20 +12044,21 @@ defmodule AWS.Pinpoint do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=pinpoint%20ListTemplates&this_doc_guide=API%2520Reference)
 
   ## Parameters:
+
   ## Keyword parameters:
   * `:next_token` (`t:string`) The string that specifies which page of results to
-  return in a paginated response. This parameter is not supported for
-  application, campaign, and journey metrics.
+    return in a paginated response. This parameter is not supported for
+    application, campaign, and journey metrics.
   * `:page_size` (`t:string`) The maximum number of items to include in each page
-  of a paginated response. This parameter is not supported for application,
-  campaign, and journey metrics.
+    of a paginated response. This parameter is not supported for application,
+    campaign, and journey metrics.
   * `:prefix` (`t:string`) The substring to match in the names of the message
-  templates to include in the results. If you specify this value, Amazon
-  Pinpoint returns only those templates whose names begin with the value that
-  you specify.
+    templates to include in the results. If you specify this value, Amazon
+    Pinpoint returns only those templates whose names begin with the value that
+    you specify.
   * `:template_type` (`t:string`) The type of message template to include in the
-  results. Valid values are: EMAIL, PUSH, SMS, and VOICE. To include all types
-  of templates in the results, don't include this parameter in your request.
+    results. Valid values are: EMAIL, PUSH, SMS, and VOICE. To include all types
+    of templates in the results, don't include this parameter in your request.
   """
   @spec list_templates(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_templates_response(), any()}
@@ -12155,8 +12131,7 @@ defmodule AWS.Pinpoint do
 
   ## Parameters:
   * `:input` (`t:map`):
-    * `:number_validate_request` (`t:structure` required)
-  ## Keyword parameters:
+    * `"NumberValidateRequest" => t:structure` (required)
   """
   @spec phone_number_validate(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, phone_number_validate_response(), any()}
@@ -12200,11 +12175,10 @@ defmodule AWS.Pinpoint do
 
   ## Parameters:
   * `:application_id` (`t:string` required) The unique identifier for the
-  application. This identifier is displayed as the Project ID on the Amazon
-  Pinpoint console.
+    application. This identifier is displayed as the Project ID on the Amazon
+    Pinpoint console.
   * `:input` (`t:map`):
-    * `:write_event_stream` (`t:structure` required)
-  ## Keyword parameters:
+    * `"WriteEventStream" => t:structure` (required)
   """
   @spec put_event_stream(AWS.Client.t(), String.t(), input :: map(), Keyword.t()) ::
           {:ok, put_event_stream_response(), any()}
@@ -12249,11 +12223,10 @@ defmodule AWS.Pinpoint do
 
   ## Parameters:
   * `:application_id` (`t:string` required) The unique identifier for the
-  application. This identifier is displayed as the Project ID on the Amazon
-  Pinpoint console.
+    application. This identifier is displayed as the Project ID on the Amazon
+    Pinpoint console.
   * `:input` (`t:map`):
-    * `:events_request` (`t:structure` required)
-  ## Keyword parameters:
+    * `"EventsRequest" => t:structure` (required)
   """
   @spec put_events(AWS.Client.t(), String.t(), input :: map(), Keyword.t()) ::
           {:ok, put_events_response(), any()}
@@ -12298,13 +12271,12 @@ defmodule AWS.Pinpoint do
 
   ## Parameters:
   * `:application_id` (`t:string` required) The unique identifier for the
-  application. This identifier is displayed as the Project ID on the Amazon
-  Pinpoint console.
+    application. This identifier is displayed as the Project ID on the Amazon
+    Pinpoint console.
   * `:attribute_type` (`t:string` required) The type of attribute or attributes to
-  remove. Valid values are:
+    remove. Valid values are:
   * `:input` (`t:map`):
-    * `:update_attributes_request` (`t:structure` required)
-  ## Keyword parameters:
+    * `"UpdateAttributesRequest" => t:structure` (required)
   """
   @spec remove_attributes(AWS.Client.t(), String.t(), String.t(), input :: map(), Keyword.t()) ::
           {:ok, remove_attributes_response(), any()}
@@ -12349,11 +12321,10 @@ defmodule AWS.Pinpoint do
 
   ## Parameters:
   * `:application_id` (`t:string` required) The unique identifier for the
-  application. This identifier is displayed as the Project ID on the Amazon
-  Pinpoint console.
+    application. This identifier is displayed as the Project ID on the Amazon
+    Pinpoint console.
   * `:input` (`t:map`):
-    * `:message_request` (`t:structure` required)
-  ## Keyword parameters:
+    * `"MessageRequest" => t:structure` (required)
   """
   @spec send_messages(AWS.Client.t(), String.t(), input :: map(), Keyword.t()) ::
           {:ok, send_messages_response(), any()}
@@ -12397,10 +12368,9 @@ defmodule AWS.Pinpoint do
 
   ## Parameters:
   * `:application_id` (`t:string` required) The unique ID of your Amazon Pinpoint
-  application.
+    application.
   * `:input` (`t:map`):
-    * `:send_o_t_p_message_request_parameters` (`t:structure` required)
-  ## Keyword parameters:
+    * `"SendOTPMessageRequestParameters" => t:structure` (required)
   """
   @spec send_o_t_p_message(AWS.Client.t(), String.t(), input :: map(), Keyword.t()) ::
           {:ok, send_o_t_p_message_response(), any()}
@@ -12444,11 +12414,10 @@ defmodule AWS.Pinpoint do
 
   ## Parameters:
   * `:application_id` (`t:string` required) The unique identifier for the
-  application. This identifier is displayed as the Project ID on the Amazon
-  Pinpoint console.
+    application. This identifier is displayed as the Project ID on the Amazon
+    Pinpoint console.
   * `:input` (`t:map`):
-    * `:send_users_message_request` (`t:structure` required)
-  ## Keyword parameters:
+    * `"SendUsersMessageRequest" => t:structure` (required)
   """
   @spec send_users_messages(AWS.Client.t(), String.t(), input :: map(), Keyword.t()) ::
           {:ok, send_users_messages_response(), any()}
@@ -12493,10 +12462,9 @@ defmodule AWS.Pinpoint do
 
   ## Parameters:
   * `:resource_arn` (`t:string` required) The Amazon Resource Name (ARN) of the
-  resource.
+    resource.
   * `:input` (`t:map`):
-    * `:tags_model` (`t:structure` required)
-  ## Keyword parameters:
+    * `"TagsModel" => t:structure` (required)
   """
   @spec tag_resource(AWS.Client.t(), String.t(), input :: map(), Keyword.t()) ::
           {:ok, nil, any()}
@@ -12539,12 +12507,11 @@ defmodule AWS.Pinpoint do
 
   ## Parameters:
   * `:resource_arn` (`t:string` required) The Amazon Resource Name (ARN) of the
-  resource.
+    resource.
   * `:tag_keys` (`t:list[com.amazonaws.pinpoint#__string]` required) The key of
-  the tag to remove from the resource. To remove multiple tags, append the
-  tagKeys parameter and argument for each additional tag to remove, separated
-  by an ampersand (&).
-  ## Keyword parameters:
+    the tag to remove from the resource. To remove multiple tags, append the
+    tagKeys parameter and argument for each additional tag to remove, separated
+    by an ampersand (&).
   """
   @spec untag_resource(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
@@ -12598,11 +12565,10 @@ defmodule AWS.Pinpoint do
 
   ## Parameters:
   * `:application_id` (`t:string` required) The unique identifier for the
-  application. This identifier is displayed as the Project ID on the Amazon
-  Pinpoint console.
+    application. This identifier is displayed as the Project ID on the Amazon
+    Pinpoint console.
   * `:input` (`t:map`):
-    * `:ad_m_channel_request` (`t:structure` required)
-  ## Keyword parameters:
+    * `"ADMChannelRequest" => t:structure` (required)
   """
   @spec update_adm_channel(AWS.Client.t(), String.t(), input :: map(), Keyword.t()) ::
           {:ok, update_adm_channel_response(), any()}
@@ -12647,11 +12613,10 @@ defmodule AWS.Pinpoint do
 
   ## Parameters:
   * `:application_id` (`t:string` required) The unique identifier for the
-  application. This identifier is displayed as the Project ID on the Amazon
-  Pinpoint console.
+    application. This identifier is displayed as the Project ID on the Amazon
+    Pinpoint console.
   * `:input` (`t:map`):
-    * `:a_p_n_s_channel_request` (`t:structure` required)
-  ## Keyword parameters:
+    * `"APNSChannelRequest" => t:structure` (required)
   """
   @spec update_apns_channel(AWS.Client.t(), String.t(), input :: map(), Keyword.t()) ::
           {:ok, update_apns_channel_response(), any()}
@@ -12696,11 +12661,10 @@ defmodule AWS.Pinpoint do
 
   ## Parameters:
   * `:application_id` (`t:string` required) The unique identifier for the
-  application. This identifier is displayed as the Project ID on the Amazon
-  Pinpoint console.
+    application. This identifier is displayed as the Project ID on the Amazon
+    Pinpoint console.
   * `:input` (`t:map`):
-    * `:a_p_n_s_sandbox_channel_request` (`t:structure` required)
-  ## Keyword parameters:
+    * `"APNSSandboxChannelRequest" => t:structure` (required)
   """
   @spec update_apns_sandbox_channel(AWS.Client.t(), String.t(), input :: map(), Keyword.t()) ::
           {:ok, update_apns_sandbox_channel_response(), any()}
@@ -12745,11 +12709,10 @@ defmodule AWS.Pinpoint do
 
   ## Parameters:
   * `:application_id` (`t:string` required) The unique identifier for the
-  application. This identifier is displayed as the Project ID on the Amazon
-  Pinpoint console.
+    application. This identifier is displayed as the Project ID on the Amazon
+    Pinpoint console.
   * `:input` (`t:map`):
-    * `:a_p_n_s_voip_channel_request` (`t:structure` required)
-  ## Keyword parameters:
+    * `"APNSVoipChannelRequest" => t:structure` (required)
   """
   @spec update_apns_voip_channel(AWS.Client.t(), String.t(), input :: map(), Keyword.t()) ::
           {:ok, update_apns_voip_channel_response(), any()}
@@ -12794,11 +12757,10 @@ defmodule AWS.Pinpoint do
 
   ## Parameters:
   * `:application_id` (`t:string` required) The unique identifier for the
-  application. This identifier is displayed as the Project ID on the Amazon
-  Pinpoint console.
+    application. This identifier is displayed as the Project ID on the Amazon
+    Pinpoint console.
   * `:input` (`t:map`):
-    * `:a_p_n_s_voip_sandbox_channel_request` (`t:structure` required)
-  ## Keyword parameters:
+    * `"APNSVoipSandboxChannelRequest" => t:structure` (required)
   """
   @spec update_apns_voip_sandbox_channel(AWS.Client.t(), String.t(), input :: map(), Keyword.t()) ::
           {:ok, update_apns_voip_sandbox_channel_response(), any()}
@@ -12842,11 +12804,10 @@ defmodule AWS.Pinpoint do
 
   ## Parameters:
   * `:application_id` (`t:string` required) The unique identifier for the
-  application. This identifier is displayed as the Project ID on the Amazon
-  Pinpoint console.
+    application. This identifier is displayed as the Project ID on the Amazon
+    Pinpoint console.
   * `:input` (`t:map`):
-    * `:write_application_settings_request` (`t:structure` required)
-  ## Keyword parameters:
+    * `"WriteApplicationSettingsRequest" => t:structure` (required)
   """
   @spec update_application_settings(AWS.Client.t(), String.t(), input :: map(), Keyword.t()) ::
           {:ok, update_application_settings_response(), any()}
@@ -12891,11 +12852,10 @@ defmodule AWS.Pinpoint do
 
   ## Parameters:
   * `:application_id` (`t:string` required) The unique identifier for the
-  application. This identifier is displayed as the Project ID on the Amazon
-  Pinpoint console.
+    application. This identifier is displayed as the Project ID on the Amazon
+    Pinpoint console.
   * `:input` (`t:map`):
-    * `:baidu_channel_request` (`t:structure` required)
-  ## Keyword parameters:
+    * `"BaiduChannelRequest" => t:structure` (required)
   """
   @spec update_baidu_channel(AWS.Client.t(), String.t(), input :: map(), Keyword.t()) ::
           {:ok, update_baidu_channel_response(), any()}
@@ -12939,12 +12899,11 @@ defmodule AWS.Pinpoint do
 
   ## Parameters:
   * `:application_id` (`t:string` required) The unique identifier for the
-  application. This identifier is displayed as the Project ID on the Amazon
-  Pinpoint console.
+    application. This identifier is displayed as the Project ID on the Amazon
+    Pinpoint console.
   * `:campaign_id` (`t:string` required) The unique identifier for the campaign.
   * `:input` (`t:map`):
-    * `:write_campaign_request` (`t:structure` required)
-  ## Keyword parameters:
+    * `"WriteCampaignRequest" => t:structure` (required)
   """
   @spec update_campaign(AWS.Client.t(), String.t(), String.t(), input :: map(), Keyword.t()) ::
           {:ok, update_campaign_response(), any()}
@@ -12990,11 +12949,10 @@ defmodule AWS.Pinpoint do
 
   ## Parameters:
   * `:application_id` (`t:string` required) The unique identifier for the
-  application. This identifier is displayed as the Project ID on the Amazon
-  Pinpoint console.
+    application. This identifier is displayed as the Project ID on the Amazon
+    Pinpoint console.
   * `:input` (`t:map`):
-    * `:email_channel_request` (`t:structure` required)
-  ## Keyword parameters:
+    * `"EmailChannelRequest" => t:structure` (required)
   """
   @spec update_email_channel(AWS.Client.t(), String.t(), input :: map(), Keyword.t()) ::
           {:ok, update_email_channel_response(), any()}
@@ -13039,20 +12997,21 @@ defmodule AWS.Pinpoint do
 
   ## Parameters:
   * `:template_name` (`t:string` required) The name of the message template. A
-  template name must start with an alphanumeric character and can contain a
-  maximum of 128 characters. The characters can be alphanumeric characters,
-  underscores (_), or hyphens (-). Template names are case sensitive.
+    template name must start with an alphanumeric character and can contain a
+    maximum of 128 characters. The characters can be alphanumeric characters,
+    underscores (_), or hyphens (-). Template names are case sensitive.
   * `:input` (`t:map`):
-    * `:email_template_request` (`t:structure` required)
+    * `"EmailTemplateRequest" => t:structure` (required)
+
   ## Keyword parameters:
   * `:create_new_version` (`t:boolean`) Specifies whether to save the updates as a
-  new version of the message template. Valid values are: true, save the
-  updates as a new version; and, false, save the updates to (overwrite) the
-  latest existing version of the template.
+    new version of the message template. Valid values are: true, save the
+    updates as a new version; and, false, save the updates to (overwrite) the
+    latest existing version of the template.
   * `:version` (`t:string`) The unique identifier for the version of the message
-  template to update, retrieve information about, or delete. To retrieve
-  identifiers and other information for all the versions of a template, use
-  the Template Versions resource.
+    template to update, retrieve information about, or delete. To retrieve
+    identifiers and other information for all the versions of a template, use
+    the Template Versions resource.
   """
   @spec update_email_template(AWS.Client.t(), String.t(), input :: map(), Keyword.t()) ::
           {:ok, update_email_template_response(), any()}
@@ -13118,13 +13077,12 @@ defmodule AWS.Pinpoint do
 
   ## Parameters:
   * `:application_id` (`t:string` required) The unique identifier for the
-  application. This identifier is displayed as the Project ID on the Amazon
-  Pinpoint console.
+    application. This identifier is displayed as the Project ID on the Amazon
+    Pinpoint console.
   * `:endpoint_id` (`t:string` required) The case insensitive unique identifier
-  for the endpoint. The identifier can't contain $, { or }.
+    for the endpoint. The identifier can't contain $, { or }.
   * `:input` (`t:map`):
-    * `:endpoint_request` (`t:structure` required)
-  ## Keyword parameters:
+    * `"EndpointRequest" => t:structure` (required)
   """
   @spec update_endpoint(AWS.Client.t(), String.t(), String.t(), input :: map(), Keyword.t()) ::
           {:ok, update_endpoint_response(), any()}
@@ -13173,11 +13131,10 @@ defmodule AWS.Pinpoint do
 
   ## Parameters:
   * `:application_id` (`t:string` required) The unique identifier for the
-  application. This identifier is displayed as the Project ID on the Amazon
-  Pinpoint console.
+    application. This identifier is displayed as the Project ID on the Amazon
+    Pinpoint console.
   * `:input` (`t:map`):
-    * `:endpoint_batch_request` (`t:structure` required)
-  ## Keyword parameters:
+    * `"EndpointBatchRequest" => t:structure` (required)
   """
   @spec update_endpoints_batch(AWS.Client.t(), String.t(), input :: map(), Keyword.t()) ::
           {:ok, update_endpoints_batch_response(), any()}
@@ -13222,11 +13179,10 @@ defmodule AWS.Pinpoint do
 
   ## Parameters:
   * `:application_id` (`t:string` required) The unique identifier for the
-  application. This identifier is displayed as the Project ID on the Amazon
-  Pinpoint console.
+    application. This identifier is displayed as the Project ID on the Amazon
+    Pinpoint console.
   * `:input` (`t:map`):
-    * `:g_cm_channel_request` (`t:structure` required)
-  ## Keyword parameters:
+    * `"GCMChannelRequest" => t:structure` (required)
   """
   @spec update_gcm_channel(AWS.Client.t(), String.t(), input :: map(), Keyword.t()) ::
           {:ok, update_gcm_channel_response(), any()}
@@ -13271,20 +13227,21 @@ defmodule AWS.Pinpoint do
 
   ## Parameters:
   * `:template_name` (`t:string` required) The name of the message template. A
-  template name must start with an alphanumeric character and can contain a
-  maximum of 128 characters. The characters can be alphanumeric characters,
-  underscores (_), or hyphens (-). Template names are case sensitive.
+    template name must start with an alphanumeric character and can contain a
+    maximum of 128 characters. The characters can be alphanumeric characters,
+    underscores (_), or hyphens (-). Template names are case sensitive.
   * `:input` (`t:map`):
-    * `:in_app_template_request` (`t:structure` required)
+    * `"InAppTemplateRequest" => t:structure` (required)
+
   ## Keyword parameters:
   * `:create_new_version` (`t:boolean`) Specifies whether to save the updates as a
-  new version of the message template. Valid values are: true, save the
-  updates as a new version; and, false, save the updates to (overwrite) the
-  latest existing version of the template.
+    new version of the message template. Valid values are: true, save the
+    updates as a new version; and, false, save the updates to (overwrite) the
+    latest existing version of the template.
   * `:version` (`t:string`) The unique identifier for the version of the message
-  template to update, retrieve information about, or delete. To retrieve
-  identifiers and other information for all the versions of a template, use
-  the Template Versions resource.
+    template to update, retrieve information about, or delete. To retrieve
+    identifiers and other information for all the versions of a template, use
+    the Template Versions resource.
   """
   @spec update_in_app_template(AWS.Client.t(), String.t(), input :: map(), Keyword.t()) ::
           {:ok, update_in_app_template_response(), any()}
@@ -13346,12 +13303,11 @@ defmodule AWS.Pinpoint do
 
   ## Parameters:
   * `:application_id` (`t:string` required) The unique identifier for the
-  application. This identifier is displayed as the Project ID on the Amazon
-  Pinpoint console.
+    application. This identifier is displayed as the Project ID on the Amazon
+    Pinpoint console.
   * `:journey_id` (`t:string` required) The unique identifier for the journey.
   * `:input` (`t:map`):
-    * `:write_journey_request` (`t:structure` required)
-  ## Keyword parameters:
+    * `"WriteJourneyRequest" => t:structure` (required)
   """
   @spec update_journey(AWS.Client.t(), String.t(), String.t(), input :: map(), Keyword.t()) ::
           {:ok, update_journey_response(), any()}
@@ -13396,12 +13352,11 @@ defmodule AWS.Pinpoint do
 
   ## Parameters:
   * `:application_id` (`t:string` required) The unique identifier for the
-  application. This identifier is displayed as the Project ID on the Amazon
-  Pinpoint console.
+    application. This identifier is displayed as the Project ID on the Amazon
+    Pinpoint console.
   * `:journey_id` (`t:string` required) The unique identifier for the journey.
   * `:input` (`t:map`):
-    * `:journey_state_request` (`t:structure` required)
-  ## Keyword parameters:
+    * `"JourneyStateRequest" => t:structure` (required)
   """
   @spec update_journey_state(AWS.Client.t(), String.t(), String.t(), input :: map(), Keyword.t()) ::
           {:ok, update_journey_state_response(), any()}
@@ -13447,20 +13402,21 @@ defmodule AWS.Pinpoint do
 
   ## Parameters:
   * `:template_name` (`t:string` required) The name of the message template. A
-  template name must start with an alphanumeric character and can contain a
-  maximum of 128 characters. The characters can be alphanumeric characters,
-  underscores (_), or hyphens (-). Template names are case sensitive.
+    template name must start with an alphanumeric character and can contain a
+    maximum of 128 characters. The characters can be alphanumeric characters,
+    underscores (_), or hyphens (-). Template names are case sensitive.
   * `:input` (`t:map`):
-    * `:push_notification_template_request` (`t:structure` required)
+    * `"PushNotificationTemplateRequest" => t:structure` (required)
+
   ## Keyword parameters:
   * `:create_new_version` (`t:boolean`) Specifies whether to save the updates as a
-  new version of the message template. Valid values are: true, save the
-  updates as a new version; and, false, save the updates to (overwrite) the
-  latest existing version of the template.
+    new version of the message template. Valid values are: true, save the
+    updates as a new version; and, false, save the updates to (overwrite) the
+    latest existing version of the template.
   * `:version` (`t:string`) The unique identifier for the version of the message
-  template to update, retrieve information about, or delete. To retrieve
-  identifiers and other information for all the versions of a template, use
-  the Template Versions resource.
+    template to update, retrieve information about, or delete. To retrieve
+    identifiers and other information for all the versions of a template, use
+    the Template Versions resource.
   """
   @spec update_push_template(AWS.Client.t(), String.t(), input :: map(), Keyword.t()) ::
           {:ok, update_push_template_response(), any()}
@@ -13522,11 +13478,10 @@ defmodule AWS.Pinpoint do
 
   ## Parameters:
   * `:recommender_id` (`t:string` required) The unique identifier for the
-  recommender model configuration. This identifier is displayed as the
-  Recommender ID on the Amazon Pinpoint console.
+    recommender model configuration. This identifier is displayed as the
+    Recommender ID on the Amazon Pinpoint console.
   * `:input` (`t:map`):
-    * `:update_recommender_configuration` (`t:structure` required)
-  ## Keyword parameters:
+    * `"UpdateRecommenderConfiguration" => t:structure` (required)
   """
   @spec update_recommender_configuration(AWS.Client.t(), String.t(), input :: map(), Keyword.t()) ::
           {:ok, update_recommender_configuration_response(), any()}
@@ -13572,12 +13527,11 @@ defmodule AWS.Pinpoint do
 
   ## Parameters:
   * `:application_id` (`t:string` required) The unique identifier for the
-  application. This identifier is displayed as the Project ID on the Amazon
-  Pinpoint console.
+    application. This identifier is displayed as the Project ID on the Amazon
+    Pinpoint console.
   * `:segment_id` (`t:string` required) The unique identifier for the segment.
   * `:input` (`t:map`):
-    * `:write_segment_request` (`t:structure` required)
-  ## Keyword parameters:
+    * `"WriteSegmentRequest" => t:structure` (required)
   """
   @spec update_segment(AWS.Client.t(), String.t(), String.t(), input :: map(), Keyword.t()) ::
           {:ok, update_segment_response(), any()}
@@ -13623,11 +13577,10 @@ defmodule AWS.Pinpoint do
 
   ## Parameters:
   * `:application_id` (`t:string` required) The unique identifier for the
-  application. This identifier is displayed as the Project ID on the Amazon
-  Pinpoint console.
+    application. This identifier is displayed as the Project ID on the Amazon
+    Pinpoint console.
   * `:input` (`t:map`):
-    * `:sms_channel_request` (`t:structure` required)
-  ## Keyword parameters:
+    * `"SMSChannelRequest" => t:structure` (required)
   """
   @spec update_sms_channel(AWS.Client.t(), String.t(), input :: map(), Keyword.t()) ::
           {:ok, update_sms_channel_response(), any()}
@@ -13672,20 +13625,21 @@ defmodule AWS.Pinpoint do
 
   ## Parameters:
   * `:template_name` (`t:string` required) The name of the message template. A
-  template name must start with an alphanumeric character and can contain a
-  maximum of 128 characters. The characters can be alphanumeric characters,
-  underscores (_), or hyphens (-). Template names are case sensitive.
+    template name must start with an alphanumeric character and can contain a
+    maximum of 128 characters. The characters can be alphanumeric characters,
+    underscores (_), or hyphens (-). Template names are case sensitive.
   * `:input` (`t:map`):
-    * `:sms_template_request` (`t:structure` required)
+    * `"SMSTemplateRequest" => t:structure` (required)
+
   ## Keyword parameters:
   * `:create_new_version` (`t:boolean`) Specifies whether to save the updates as a
-  new version of the message template. Valid values are: true, save the
-  updates as a new version; and, false, save the updates to (overwrite) the
-  latest existing version of the template.
+    new version of the message template. Valid values are: true, save the
+    updates as a new version; and, false, save the updates to (overwrite) the
+    latest existing version of the template.
   * `:version` (`t:string`) The unique identifier for the version of the message
-  template to update, retrieve information about, or delete. To retrieve
-  identifiers and other information for all the versions of a template, use
-  the Template Versions resource.
+    template to update, retrieve information about, or delete. To retrieve
+    identifiers and other information for all the versions of a template, use
+    the Template Versions resource.
   """
   @spec update_sms_template(AWS.Client.t(), String.t(), input :: map(), Keyword.t()) ::
           {:ok, update_sms_template_response(), any()}
@@ -13747,14 +13701,13 @@ defmodule AWS.Pinpoint do
 
   ## Parameters:
   * `:template_name` (`t:string` required) The name of the message template. A
-  template name must start with an alphanumeric character and can contain a
-  maximum of 128 characters. The characters can be alphanumeric characters,
-  underscores (_), or hyphens (-). Template names are case sensitive.
+    template name must start with an alphanumeric character and can contain a
+    maximum of 128 characters. The characters can be alphanumeric characters,
+    underscores (_), or hyphens (-). Template names are case sensitive.
   * `:template_type` (`t:string` required) The type of channel that the message
-  template is designed for. Valid values are: EMAIL, PUSH, SMS, and VOICE.
+    template is designed for. Valid values are: EMAIL, PUSH, SMS, and VOICE.
   * `:input` (`t:map`):
-    * `:template_active_version_request` (`t:structure` required)
-  ## Keyword parameters:
+    * `"TemplateActiveVersionRequest" => t:structure` (required)
   """
   @spec update_template_active_version(
           AWS.Client.t(),
@@ -13812,11 +13765,10 @@ defmodule AWS.Pinpoint do
 
   ## Parameters:
   * `:application_id` (`t:string` required) The unique identifier for the
-  application. This identifier is displayed as the Project ID on the Amazon
-  Pinpoint console.
+    application. This identifier is displayed as the Project ID on the Amazon
+    Pinpoint console.
   * `:input` (`t:map`):
-    * `:voice_channel_request` (`t:structure` required)
-  ## Keyword parameters:
+    * `"VoiceChannelRequest" => t:structure` (required)
   """
   @spec update_voice_channel(AWS.Client.t(), String.t(), input :: map(), Keyword.t()) ::
           {:ok, update_voice_channel_response(), any()}
@@ -13861,20 +13813,21 @@ defmodule AWS.Pinpoint do
 
   ## Parameters:
   * `:template_name` (`t:string` required) The name of the message template. A
-  template name must start with an alphanumeric character and can contain a
-  maximum of 128 characters. The characters can be alphanumeric characters,
-  underscores (_), or hyphens (-). Template names are case sensitive.
+    template name must start with an alphanumeric character and can contain a
+    maximum of 128 characters. The characters can be alphanumeric characters,
+    underscores (_), or hyphens (-). Template names are case sensitive.
   * `:input` (`t:map`):
-    * `:voice_template_request` (`t:structure` required)
+    * `"VoiceTemplateRequest" => t:structure` (required)
+
   ## Keyword parameters:
   * `:create_new_version` (`t:boolean`) Specifies whether to save the updates as a
-  new version of the message template. Valid values are: true, save the
-  updates as a new version; and, false, save the updates to (overwrite) the
-  latest existing version of the template.
+    new version of the message template. Valid values are: true, save the
+    updates as a new version; and, false, save the updates to (overwrite) the
+    latest existing version of the template.
   * `:version` (`t:string`) The unique identifier for the version of the message
-  template to update, retrieve information about, or delete. To retrieve
-  identifiers and other information for all the versions of a template, use
-  the Template Versions resource.
+    template to update, retrieve information about, or delete. To retrieve
+    identifiers and other information for all the versions of a template, use
+    the Template Versions resource.
   """
   @spec update_voice_template(AWS.Client.t(), String.t(), input :: map(), Keyword.t()) ::
           {:ok, update_voice_template_response(), any()}
@@ -13936,10 +13889,9 @@ defmodule AWS.Pinpoint do
 
   ## Parameters:
   * `:application_id` (`t:string` required) The unique ID of your Amazon Pinpoint
-  application.
+    application.
   * `:input` (`t:map`):
-    * `:verify_o_t_p_message_request_parameters` (`t:structure` required)
-  ## Keyword parameters:
+    * `"VerifyOTPMessageRequestParameters" => t:structure` (required)
   """
   @spec verify_o_t_p_message(AWS.Client.t(), String.t(), input :: map(), Keyword.t()) ::
           {:ok, verify_o_t_p_message_response(), any()}

@@ -1474,7 +1474,6 @@ defmodule AWS.ManagedBlockchain do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=managedblockchain%20CreateAccessor&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec create_accessor(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_accessor_output(), any()}
@@ -1517,8 +1516,7 @@ defmodule AWS.ManagedBlockchain do
 
   ## Parameters:
   * `:network_id` (`t:string` required) The unique identifier of the network in
-  which the member is created.
-  ## Keyword parameters:
+    which the member is created.
   """
   @spec create_member(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, create_member_output(), any()}
@@ -1560,7 +1558,6 @@ defmodule AWS.ManagedBlockchain do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=managedblockchain%20CreateNetwork&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec create_network(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_network_output(), any()}
@@ -1603,8 +1600,7 @@ defmodule AWS.ManagedBlockchain do
 
   ## Parameters:
   * `:network_id` (`t:string` required) The unique identifier of the network for
-  the node.
-  ## Keyword parameters:
+    the node.
   """
   @spec create_node(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, create_node_output(), any()}
@@ -1649,8 +1645,7 @@ defmodule AWS.ManagedBlockchain do
 
   ## Parameters:
   * `:network_id` (`t:string` required) The unique identifier of the network for
-  which the proposal is made.
-  ## Keyword parameters:
+    which the proposal is made.
   """
   @spec create_proposal(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, create_proposal_output(), any()}
@@ -1700,7 +1695,6 @@ defmodule AWS.ManagedBlockchain do
 
   ## Parameters:
   * `:accessor_id` (`t:string` required) The unique identifier of the accessor.
-  ## Keyword parameters:
   """
   @spec delete_accessor(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, delete_accessor_output(), any()}
@@ -1759,10 +1753,9 @@ defmodule AWS.ManagedBlockchain do
 
   ## Parameters:
   * `:member_id` (`t:string` required) The unique identifier of the member to
-  remove.
+    remove.
   * `:network_id` (`t:string` required) The unique identifier of the network from
-  which the member is removed.
-  ## Keyword parameters:
+    which the member is removed.
   """
   @spec delete_member(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, delete_member_output(), any()}
@@ -1817,11 +1810,12 @@ defmodule AWS.ManagedBlockchain do
 
   ## Parameters:
   * `:network_id` (`t:string` required) The unique identifier of the network that
-  the node is on.
+    the node is on.
   * `:node_id` (`t:string` required) The unique identifier of the node.
+
   ## Keyword parameters:
   * `:member_id` (`t:string`) The unique identifier of the member that owns this
-  node.
+    node.
   """
   @spec delete_node(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, delete_node_output(), any()}
@@ -1888,7 +1882,6 @@ defmodule AWS.ManagedBlockchain do
 
   ## Parameters:
   * `:accessor_id` (`t:string` required) The unique identifier of the accessor.
-  ## Keyword parameters:
   """
   @spec get_accessor(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_accessor_output(), any()}
@@ -1930,8 +1923,7 @@ defmodule AWS.ManagedBlockchain do
   ## Parameters:
   * `:member_id` (`t:string` required) The unique identifier of the member.
   * `:network_id` (`t:string` required) The unique identifier of the network to
-  which the member belongs.
-  ## Keyword parameters:
+    which the member belongs.
   """
   @spec get_member(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_member_output(), any()}
@@ -1973,8 +1965,7 @@ defmodule AWS.ManagedBlockchain do
 
   ## Parameters:
   * `:network_id` (`t:string` required) The unique identifier of the network to
-  get information about.
-  ## Keyword parameters:
+    get information about.
   """
   @spec get_network(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_network_output(), any()}
@@ -2015,11 +2006,12 @@ defmodule AWS.ManagedBlockchain do
 
   ## Parameters:
   * `:network_id` (`t:string` required) The unique identifier of the network that
-  the node is on.
+    the node is on.
   * `:node_id` (`t:string` required) The unique identifier of the node.
+
   ## Keyword parameters:
   * `:member_id` (`t:string`) The unique identifier of the member that owns the
-  node.
+    node.
   """
   @spec get_node(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_node_output(), any()}
@@ -2072,9 +2064,8 @@ defmodule AWS.ManagedBlockchain do
 
   ## Parameters:
   * `:network_id` (`t:string` required) The unique identifier of the network for
-  which the proposal is made.
+    which the proposal is made.
   * `:proposal_id` (`t:string` required) The unique identifier of the proposal.
-  ## Keyword parameters:
   """
   @spec get_proposal(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_proposal_output(), any()}
@@ -2117,13 +2108,14 @@ defmodule AWS.ManagedBlockchain do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=managedblockchain%20ListAccessors&this_doc_guide=API%2520Reference)
 
   ## Parameters:
+
   ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of accessors to list.
   * `:network_type`
-  (`t:enum["ETHEREUM_GOERLI|ETHEREUM_MAINNET|ETHEREUM_MAINNET_AND_GOERLI|POLYGON_MAINNET|POLYGON_MUMBAI"]`)
-  The blockchain network that the Accessor token is created for.
+    (`t:enum["ETHEREUM_GOERLI|ETHEREUM_MAINNET|ETHEREUM_MAINNET_AND_GOERLI|POLYGON_MAINNET|POLYGON_MUMBAI"]`)
+    The blockchain network that the Accessor token is created for.
   * `:next_token` (`t:string`) The pagination token that indicates the next set of
-  results to retrieve.
+    results to retrieve.
   """
   @spec list_accessors(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_accessors_output(), any()}
@@ -2188,10 +2180,11 @@ defmodule AWS.ManagedBlockchain do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=managedblockchain%20ListInvitations&this_doc_guide=API%2520Reference)
 
   ## Parameters:
+
   ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of invitations to return.
   * `:next_token` (`t:string`) The pagination token that indicates the next set of
-  results to retrieve.
+    results to retrieve.
   """
   @spec list_invitations(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_invitations_output(), any()}
@@ -2251,21 +2244,22 @@ defmodule AWS.ManagedBlockchain do
 
   ## Parameters:
   * `:network_id` (`t:string` required) The unique identifier of the network for
-  which to list members.
+    which to list members.
+
   ## Keyword parameters:
   * `:is_owned` (`t:boolean`) An optional Boolean value. If provided, the request
-  is limited either to members that the current Amazon Web Services account
-  owns (true) or that other Amazon Web Services accountsn own (false). If
-  omitted, all members are listed.
+    is limited either to members that the current Amazon Web Services account
+    owns (true) or that other Amazon Web Services accountsn own (false). If
+    omitted, all members are listed.
   * `:max_results` (`t:integer`) The maximum number of members to return in the
-  request.
+    request.
   * `:name` (`t:string`) The optional name of the member to list.
   * `:next_token` (`t:string`) The pagination token that indicates the next set of
-  results to retrieve.
+    results to retrieve.
   * `:status`
-  (`t:enum["AVAILABLE|CREATE_FAILED|CREATING|DELETED|DELETING|INACCESSIBLE_ENCRYPTION_KEY|UPDATING"]`)
-  An optional status specifier. If provided, only members currently in this
-  status are listed.
+    (`t:enum["AVAILABLE|CREATE_FAILED|CREATING|DELETED|DELETING|INACCESSIBLE_ENCRYPTION_KEY|UPDATING"]`)
+    An optional status specifier. If provided, only members currently in this
+    status are listed.
   """
   @spec list_members(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_members_output(), any()}
@@ -2345,16 +2339,17 @@ defmodule AWS.ManagedBlockchain do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=managedblockchain%20ListNetworks&this_doc_guide=API%2520Reference)
 
   ## Parameters:
+
   ## Keyword parameters:
   * `:framework` (`t:enum["ETHEREUM|HYPERLEDGER_FABRIC"]`) An optional framework
-  specifier. If provided, only networks of this framework type are listed.
+    specifier. If provided, only networks of this framework type are listed.
   * `:max_results` (`t:integer`) The maximum number of networks to list.
   * `:name` (`t:string`) The name of the network.
   * `:next_token` (`t:string`) The pagination token that indicates the next set of
-  results to retrieve.
+    results to retrieve.
   * `:status` (`t:enum["AVAILABLE|CREATE_FAILED|CREATING|DELETED|DELETING"]`) An
-  optional status specifier. If provided, only networks currently in this
-  status are listed.
+    optional status specifier. If provided, only networks currently in this
+    status are listed.
   """
   @spec list_networks(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_networks_output(), any()}
@@ -2434,17 +2429,18 @@ defmodule AWS.ManagedBlockchain do
 
   ## Parameters:
   * `:network_id` (`t:string` required) The unique identifier of the network for
-  which to list nodes.
+    which to list nodes.
+
   ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of nodes to list.
   * `:member_id` (`t:string`) The unique identifier of the member who owns the
-  nodes to list.
+    nodes to list.
   * `:next_token` (`t:string`) The pagination token that indicates the next set of
-  results to retrieve.
+    results to retrieve.
   * `:status`
-  (`t:enum["AVAILABLE|CREATE_FAILED|CREATING|DELETED|DELETING|FAILED|INACCESSIBLE_ENCRYPTION_KEY|UNHEALTHY|UPDATING"]`)
-  An optional status specifier. If provided, only nodes currently in this
-  status are listed.
+    (`t:enum["AVAILABLE|CREATE_FAILED|CREATING|DELETED|DELETING|FAILED|INACCESSIBLE_ENCRYPTION_KEY|UNHEALTHY|UPDATING"]`)
+    An optional status specifier. If provided, only nodes currently in this
+    status are listed.
   """
   @spec list_nodes(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_nodes_output(), any()}
@@ -2519,10 +2515,11 @@ defmodule AWS.ManagedBlockchain do
   ## Parameters:
   * `:network_id` (`t:string` required) The unique identifier of the network.
   * `:proposal_id` (`t:string` required) The unique identifier of the proposal.
+
   ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of votes to return.
   * `:next_token` (`t:string`) The pagination token that indicates the next set of
-  results to retrieve.
+    results to retrieve.
   """
   @spec list_proposal_votes(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, list_proposal_votes_output(), any()}
@@ -2582,10 +2579,11 @@ defmodule AWS.ManagedBlockchain do
 
   ## Parameters:
   * `:network_id` (`t:string` required) The unique identifier of the network.
+
   ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of proposals to return.
   * `:next_token` (`t:string`) The pagination token that indicates the next set of
-  results to retrieve.
+    results to retrieve.
   """
   @spec list_proposals(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_proposals_output(), any()}
@@ -2645,9 +2643,8 @@ defmodule AWS.ManagedBlockchain do
 
   ## Parameters:
   * `:resource_arn` (`t:string` required) The Amazon Resource Name (ARN) of the
-  resource. For more information about ARNs and their format, see Amazon
-  Resource Names (ARNs) in the Amazon Web Services General Reference.
-  ## Keyword parameters:
+    resource. For more information about ARNs and their format, see Amazon
+    Resource Names (ARNs) in the Amazon Web Services General Reference.
   """
   @spec list_tags_for_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_tags_for_resource_response(), any()}
@@ -2690,8 +2687,7 @@ defmodule AWS.ManagedBlockchain do
 
   ## Parameters:
   * `:invitation_id` (`t:string` required) The unique identifier of the invitation
-  to reject.
-  ## Keyword parameters:
+    to reject.
   """
   @spec reject_invitation(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, reject_invitation_output(), any()}
@@ -2747,9 +2743,8 @@ defmodule AWS.ManagedBlockchain do
 
   ## Parameters:
   * `:resource_arn` (`t:string` required) The Amazon Resource Name (ARN) of the
-  resource. For more information about ARNs and their format, see Amazon
-  Resource Names (ARNs) in the Amazon Web Services General Reference.
-  ## Keyword parameters:
+    resource. For more information about ARNs and their format, see Amazon
+    Resource Names (ARNs) in the Amazon Web Services General Reference.
   """
   @spec tag_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, tag_resource_response(), any()}
@@ -2792,11 +2787,10 @@ defmodule AWS.ManagedBlockchain do
 
   ## Parameters:
   * `:resource_arn` (`t:string` required) The Amazon Resource Name (ARN) of the
-  resource. For more information about ARNs and their format, see Amazon
-  Resource Names (ARNs) in the Amazon Web Services General Reference.
+    resource. For more information about ARNs and their format, see Amazon
+    Resource Names (ARNs) in the Amazon Web Services General Reference.
   * `:tag_keys` (`t:list[com.amazonaws.managedblockchain#TagKey]` required) The
-  tag keys.
-  ## Keyword parameters:
+    tag keys.
   """
   @spec untag_resource(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, untag_resource_response(), any()}
@@ -2851,8 +2845,7 @@ defmodule AWS.ManagedBlockchain do
   ## Parameters:
   * `:member_id` (`t:string` required) The unique identifier of the member.
   * `:network_id` (`t:string` required) The unique identifier of the Managed
-  Blockchain network to which the member belongs.
-  ## Keyword parameters:
+    Blockchain network to which the member belongs.
   """
   @spec update_member(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, update_member_output(), any()}
@@ -2906,9 +2899,8 @@ defmodule AWS.ManagedBlockchain do
 
   ## Parameters:
   * `:network_id` (`t:string` required) The unique identifier of the network that
-  the node is on.
+    the node is on.
   * `:node_id` (`t:string` required) The unique identifier of the node.
-  ## Keyword parameters:
   """
   @spec update_node(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, update_node_output(), any()}
@@ -2965,7 +2957,6 @@ defmodule AWS.ManagedBlockchain do
   ## Parameters:
   * `:network_id` (`t:string` required) The unique identifier of the network.
   * `:proposal_id` (`t:string` required) The unique identifier of the proposal.
-  ## Keyword parameters:
   """
   @spec vote_on_proposal(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, vote_on_proposal_output(), any()}

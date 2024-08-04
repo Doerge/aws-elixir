@@ -248,7 +248,6 @@ defmodule AWS.SageMakerFeatureStoreRuntime do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sagemakerfeaturestoreruntime%20BatchGetRecord&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec batch_get_record(AWS.Client.t(), Keyword.t()) ::
           {:ok, batch_get_record_response(), any()}
@@ -302,21 +301,22 @@ defmodule AWS.SageMakerFeatureStoreRuntime do
 
   ## Parameters:
   * `:feature_group_name` (`t:string` required) The name or Amazon Resource Name
-  (ARN) of the feature group to delete the record from.
+    (ARN) of the feature group to delete the record from.
   * `:event_time` (`t:string` required) Timestamp indicating when the deletion
-  event occurred. EventTime can be used to query data at a certain point in
-  time.
+    event occurred. EventTime can be used to query data at a certain point in
+    time.
   * `:record_identifier_value_as_string` (`t:string` required) The value for the
-  RecordIdentifier that uniquely identifies the record, in string format.
+    RecordIdentifier that uniquely identifies the record, in string format.
+
   ## Keyword parameters:
   * `:deletion_mode` (`t:enum["HARD_DELETE|SOFT_DELETE"]`) The name of the
-  deletion mode for deleting the record. By default, the deletion mode is set
-  to SoftDelete.
+    deletion mode for deleting the record. By default, the deletion mode is set
+    to SoftDelete.
   * `:target_stores`
-  (`t:list[com.amazonaws.sagemakerfeaturestoreruntime#TargetStore]`) A list of
-  stores from which you're deleting the record. By default, Feature Store
-  deletes the record from all of the stores that you're using for the
-  FeatureGroup.
+    (`t:list[com.amazonaws.sagemakerfeaturestoreruntime#TargetStore]`) A list of
+    stores from which you're deleting the record. By default, Feature Store
+    deletes the record from all of the stores that you're using for the
+    FeatureGroup.
   """
   @spec delete_record(AWS.Client.t(), String.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
@@ -399,19 +399,20 @@ defmodule AWS.SageMakerFeatureStoreRuntime do
 
   ## Parameters:
   * `:feature_group_name` (`t:string` required) The name or Amazon Resource Name
-  (ARN) of the feature group from which you want to retrieve a record.
+    (ARN) of the feature group from which you want to retrieve a record.
   * `:record_identifier_value_as_string` (`t:string` required) The value that
-  corresponds to RecordIdentifier type and uniquely identifies the record in
-  the FeatureGroup.
+    corresponds to RecordIdentifier type and uniquely identifies the record in
+    the FeatureGroup.
+
   ## Keyword parameters:
   * `:expiration_time_response` (`t:enum["DISABLED|ENABLED"]`) Parameter to
-  request ExpiresAt in response. If Enabled, GetRecord will return the value
-  of ExpiresAt, if it is not null. If Disabled and null, GetRecord will return
-  null.
+    request ExpiresAt in response. If Enabled, GetRecord will return the value
+    of ExpiresAt, if it is not null. If Disabled and null, GetRecord will return
+    null.
   * `:feature_names`
-  (`t:list[com.amazonaws.sagemakerfeaturestoreruntime#FeatureName]`) List of
-  names of Features to be retrieved. If not specified, the latest value for
-  all the Features are returned.
+    (`t:list[com.amazonaws.sagemakerfeaturestoreruntime#FeatureName]`) List of
+    names of Features to be retrieved. If not specified, the latest value for
+    all the Features are returned.
   """
   @spec get_record(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_record_response(), any()}
@@ -479,8 +480,7 @@ defmodule AWS.SageMakerFeatureStoreRuntime do
 
   ## Parameters:
   * `:feature_group_name` (`t:string` required) The name or Amazon Resource Name
-  (ARN) of the feature group that you want to insert the record into.
-  ## Keyword parameters:
+    (ARN) of the feature group that you want to insert the record into.
   """
   @spec put_record(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}

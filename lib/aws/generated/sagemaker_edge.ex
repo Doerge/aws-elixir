@@ -214,7 +214,6 @@ defmodule AWS.SagemakerEdge do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sagemakeredge%20GetDeployments&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec get_deployments(AWS.Client.t(), Keyword.t()) ::
           {:ok, get_deployments_result(), any()}
@@ -256,7 +255,6 @@ defmodule AWS.SagemakerEdge do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sagemakeredge%20GetDeviceRegistration&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec get_device_registration(AWS.Client.t(), Keyword.t()) ::
           {:ok, get_device_registration_result(), any()}
@@ -298,7 +296,6 @@ defmodule AWS.SagemakerEdge do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=sagemakeredge%20SendHeartbeat&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec send_heartbeat(AWS.Client.t(), Keyword.t()) ::
           {:ok, nil, any()}

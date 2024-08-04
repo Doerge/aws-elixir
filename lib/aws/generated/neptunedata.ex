@@ -2522,8 +2522,7 @@ defmodule AWS.Neptunedata do
 
   ## Parameters:
   * `:query_id` (`t:string` required) The unique identifier that identifies the
-  query to be canceled.
-  ## Keyword parameters:
+    query to be canceled.
   """
   @spec cancel_gremlin_query(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, cancel_gremlin_query_output(), any()}
@@ -2583,7 +2582,6 @@ defmodule AWS.Neptunedata do
 
   ## Parameters:
   * `:load_id` (`t:string` required) The ID of the load job to be deleted.
-  ## Keyword parameters:
   """
   @spec cancel_loader_job(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, cancel_loader_job_output(), any()}
@@ -2642,13 +2640,14 @@ defmodule AWS.Neptunedata do
 
   ## Parameters:
   * `:id` (`t:string` required) The unique identifier of the data-processing job.
+
   ## Keyword parameters:
   * `:clean` (`t:string`) If set to TRUE, this flag specifies that all Neptune ML
-  S3 artifacts should be deleted when the job is stopped. The default is
-  FALSE.
+    S3 artifacts should be deleted when the job is stopped. The default is
+    FALSE.
   * `:neptune_iam_role_arn` (`t:string`) The ARN of an IAM role that provides
-  Neptune access to SageMaker and Amazon S3 resources. This must be listed in
-  your DB cluster parameter group or an error will occur.
+    Neptune access to SageMaker and Amazon S3 resources. This must be listed in
+    your DB cluster parameter group or an error will occur.
   """
   @spec cancel_ml_data_processing_job(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, cancel_ml_data_processing_job_output(), any()}
@@ -2726,13 +2725,14 @@ defmodule AWS.Neptunedata do
 
   ## Parameters:
   * `:id` (`t:string` required) The unique identifier of the model-training job to
-  be canceled.
+    be canceled.
+
   ## Keyword parameters:
   * `:clean` (`t:string`) If set to TRUE, this flag specifies that all Amazon S3
-  artifacts should be deleted when the job is stopped. The default is FALSE.
+    artifacts should be deleted when the job is stopped. The default is FALSE.
   * `:neptune_iam_role_arn` (`t:string`) The ARN of an IAM role that provides
-  Neptune access to SageMaker and Amazon S3 resources. This must be listed in
-  your DB cluster parameter group or an error will occur.
+    Neptune access to SageMaker and Amazon S3 resources. This must be listed in
+    your DB cluster parameter group or an error will occur.
   """
   @spec cancel_ml_model_training_job(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, cancel_ml_model_training_job_output(), any()}
@@ -2810,13 +2810,14 @@ defmodule AWS.Neptunedata do
 
   ## Parameters:
   * `:id` (`t:string` required) The unique ID of the model transform job to be
-  canceled.
+    canceled.
+
   ## Keyword parameters:
   * `:clean` (`t:string`) If this flag is set to TRUE, all Neptune ML S3 artifacts
-  should be deleted when the job is stopped. The default is FALSE.
+    should be deleted when the job is stopped. The default is FALSE.
   * `:neptune_iam_role_arn` (`t:string`) The ARN of an IAM role that provides
-  Neptune access to SageMaker and Amazon S3 resources. This must be listed in
-  your DB cluster parameter group or an error will occur.
+    Neptune access to SageMaker and Amazon S3 resources. This must be listed in
+    your DB cluster parameter group or an error will occur.
   """
   @spec cancel_ml_model_transform_job(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, cancel_ml_model_transform_job_output(), any()}
@@ -2893,10 +2894,11 @@ defmodule AWS.Neptunedata do
 
   ## Parameters:
   * `:query_id` (`t:string` required) The unique ID of the openCypher query to
-  cancel.
+    cancel.
+
   ## Keyword parameters:
   * `:silent` (`t:string`) If set to TRUE, causes the cancelation of the
-  openCypher query to happen silently.
+    openCypher query to happen silently.
   """
   @spec cancel_open_cypher_query(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, cancel_open_cypher_query_output(), any()}
@@ -2967,7 +2969,6 @@ defmodule AWS.Neptunedata do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=neptunedata%20CreateMLEndpoint&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec create_ml_endpoint(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_ml_endpoint_output(), any()}
@@ -3017,12 +3018,13 @@ defmodule AWS.Neptunedata do
 
   ## Parameters:
   * `:id` (`t:string` required) The unique identifier of the inference endpoint.
+
   ## Keyword parameters:
   * `:clean` (`t:string`) If this flag is set to TRUE, all Neptune ML S3 artifacts
-  should be deleted when the job is stopped. The default is FALSE.
+    should be deleted when the job is stopped. The default is FALSE.
   * `:neptune_iam_role_arn` (`t:string`) The ARN of an IAM role providing Neptune
-  access to SageMaker and Amazon S3 resources. This must be listed in your DB
-  cluster parameter group or an error will be thrown.
+    access to SageMaker and Amazon S3 resources. This must be listed in your DB
+    cluster parameter group or an error will be thrown.
   """
   @spec delete_ml_endpoint(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, delete_ml_endpoint_output(), any()}
@@ -3092,7 +3094,6 @@ defmodule AWS.Neptunedata do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=neptunedata%20DeletePropertygraphStatistics&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec delete_propertygraph_statistics(AWS.Client.t(), Keyword.t()) ::
           {:ok, delete_propertygraph_statistics_output(), any()}
@@ -3144,7 +3145,6 @@ defmodule AWS.Neptunedata do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=neptunedata%20DeleteSparqlStatistics&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec delete_sparql_statistics(AWS.Client.t(), Keyword.t()) ::
           {:ok, delete_sparql_statistics_output(), any()}
@@ -3197,7 +3197,6 @@ defmodule AWS.Neptunedata do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=neptunedata%20ExecuteFastReset&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec execute_fast_reset(AWS.Client.t(), Keyword.t()) ::
           {:ok, execute_fast_reset_output(), any()}
@@ -3244,8 +3243,7 @@ defmodule AWS.Neptunedata do
 
   ## Parameters:
   * `:input` (`t:map`):
-    * `:gremlin_query` (`t:string` required) The Gremlin explain query string.
-  ## Keyword parameters:
+    * `"gremlin" => t:string` (required) The Gremlin explain query string.
   """
   @spec execute_gremlin_explain_query(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, execute_gremlin_explain_query_output(), any()}
@@ -3297,20 +3295,19 @@ defmodule AWS.Neptunedata do
 
   ## Parameters:
   * `:input` (`t:map`):
-    * `:gremlin_query` (`t:string` required) The Gremlin query string to profile.
-    * `:chop` (`t:string`) If non-zero, causes the results string to be truncated at
-  that number of characters. If set to zero, the string contains all the
-  results.
-    * `:index_ops` (`t:string`) If this flag is set to TRUE, the results include a
-  detailed report of all index operations that took place during query
-  execution and serialization.
-    * `:results` (`t:string`) If this flag is set to TRUE, the query results are
-  gathered and displayed as part of the profile report. If FALSE, only the
-  result count is displayed.
-    * `:serializer` (`t:string`) If non-null, the gathered results are returned in a
-  serialized response message in the format specified by this parameter. See
-  Gremlin profile API in Neptune for more information.
-  ## Keyword parameters:
+    * `"gremlin" => t:string` (required) The Gremlin query string to profile.
+    * `"profile.chop" => t:string` If non-zero, causes the results string to be
+    truncated at that number of characters. If set to zero, the string contains
+    all the results.
+    * `"profile.indexOps" => t:string` If this flag is set to TRUE, the results
+    include a detailed report of all index operations that took place during
+    query execution and serialization.
+    * `"profile.results" => t:string` If this flag is set to TRUE, the query results
+    are gathered and displayed as part of the profile report. If FALSE, only the
+    result count is displayed.
+    * `"profile.serializer" => t:string` If non-null, the gathered results are
+    returned in a serialized response message in the format specified by this
+    parameter. See Gremlin profile API in Neptune for more information.
   """
   @spec execute_gremlin_profile_query(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, execute_gremlin_profile_query_output(), any()}
@@ -3364,16 +3361,17 @@ defmodule AWS.Neptunedata do
 
   ## Parameters:
   * `:input` (`t:map`):
-    * `:gremlin_query` (`t:string` required) Using this API, you can run Gremlin
-  queries in string format much as you can using the HTTP endpoint. The
-  interface is compatible with whatever Gremlin version your DB cluster is
-  using (see the Tinkerpop client section to determine which Gremlin releases
-  your engine version supports).
+    * `"gremlin" => t:string` (required) Using this API, you can run Gremlin queries
+    in string format much as you can using the HTTP endpoint. The interface is
+    compatible with whatever Gremlin version your DB cluster is using (see the
+    Tinkerpop client section to determine which Gremlin releases your engine
+    version supports).
+
   ## Keyword parameters:
   * `:serializer` (`t:string`) If non-null, the query results are returned in a
-  serialized response message in the format specified by this parameter. See
-  the GraphSON section in the TinkerPop documentation for a list of the
-  formats that are currently supported.
+    serialized response message in the format specified by this parameter. See
+    the GraphSON section in the TinkerPop documentation for a list of the
+    formats that are currently supported.
   """
   @spec execute_gremlin_query(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, execute_gremlin_query_output(), any()}
@@ -3433,10 +3431,9 @@ defmodule AWS.Neptunedata do
 
   ## Parameters:
   * `:input` (`t:map`):
-    * `:explain_mode` (`t:enum["DETAILS|DYNAMIC|STATIC"]` required) The openCypher
-  explain mode. Can be one of: static, dynamic, or details.
-    * `:open_cypher_query` (`t:string` required) The openCypher query string.
-  ## Keyword parameters:
+    * `"explain" => t:enum["DETAILS|DYNAMIC|STATIC"]` (required) The openCypher
+    explain mode. Can be one of: static, dynamic, or details.
+    * `"query" => t:string` (required) The openCypher query string.
   """
   @spec execute_open_cypher_explain_query(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, execute_open_cypher_explain_query_output(), any()}
@@ -3489,9 +3486,7 @@ defmodule AWS.Neptunedata do
 
   ## Parameters:
   * `:input` (`t:map`):
-    * `:open_cypher_query` (`t:string` required) The openCypher query string to be
-  executed.
-  ## Keyword parameters:
+    * `"query" => t:string` (required) The openCypher query string to be executed.
   """
   @spec execute_open_cypher_query(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, execute_open_cypher_query_output(), any()}
@@ -3533,7 +3528,6 @@ defmodule AWS.Neptunedata do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=neptunedata%20GetEngineStatus&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec get_engine_status(AWS.Client.t(), Keyword.t()) ::
           {:ok, get_engine_status_output(), any()}
@@ -3574,8 +3568,7 @@ defmodule AWS.Neptunedata do
 
   ## Parameters:
   * `:query_id` (`t:string` required) The unique identifier that identifies the
-  Gremlin query.
-  ## Keyword parameters:
+    Gremlin query.
   """
   @spec get_gremlin_query_status(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_gremlin_query_status_output(), any()}
@@ -3618,17 +3611,18 @@ defmodule AWS.Neptunedata do
 
   ## Parameters:
   * `:load_id` (`t:string` required) The load ID of the load job to get the status
-  of.
+    of.
+
   ## Keyword parameters:
   * `:details` (`t:string`) Flag indicating whether or not to include details
-  beyond the overall status (TRUE or FALSE; the default is FALSE).
+    beyond the overall status (TRUE or FALSE; the default is FALSE).
   * `:errors` (`t:string`) Flag indicating whether or not to include a list of
-  errors encountered (TRUE or FALSE; the default is FALSE).
+    errors encountered (TRUE or FALSE; the default is FALSE).
   * `:errors_per_page` (`t:integer`) The number of errors returned in each page (a
-  positive integer; the default is 10). Only valid when the errors parameter
-  set to TRUE.
+    positive integer; the default is 10). Only valid when the errors parameter
+    set to TRUE.
   * `:page` (`t:integer`) The error page number (a positive integer; the default
-  is 1). Only valid when the errors parameter is set to TRUE.
+    is 1). Only valid when the errors parameter is set to TRUE.
   """
   @spec get_loader_job_status(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_loader_job_status_output(), any()}
@@ -3708,11 +3702,12 @@ defmodule AWS.Neptunedata do
 
   ## Parameters:
   * `:id` (`t:string` required) The unique identifier of the data-processing job
-  to be retrieved.
+    to be retrieved.
+
   ## Keyword parameters:
   * `:neptune_iam_role_arn` (`t:string`) The ARN of an IAM role that provides
-  Neptune access to SageMaker and Amazon S3 resources. This must be listed in
-  your DB cluster parameter group or an error will occur.
+    Neptune access to SageMaker and Amazon S3 resources. This must be listed in
+    your DB cluster parameter group or an error will occur.
   """
   @spec get_ml_data_processing_job(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_ml_data_processing_job_output(), any()}
@@ -3771,10 +3766,11 @@ defmodule AWS.Neptunedata do
 
   ## Parameters:
   * `:id` (`t:string` required) The unique identifier of the inference endpoint.
+
   ## Keyword parameters:
   * `:neptune_iam_role_arn` (`t:string`) The ARN of an IAM role that provides
-  Neptune access to SageMaker and Amazon S3 resources. This must be listed in
-  your DB cluster parameter group or an error will occur.
+    Neptune access to SageMaker and Amazon S3 resources. This must be listed in
+    your DB cluster parameter group or an error will occur.
   """
   @spec get_ml_endpoint(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_ml_endpoint_output(), any()}
@@ -3833,11 +3829,12 @@ defmodule AWS.Neptunedata do
 
   ## Parameters:
   * `:id` (`t:string` required) The unique identifier of the model-training job to
-  retrieve.
+    retrieve.
+
   ## Keyword parameters:
   * `:neptune_iam_role_arn` (`t:string`) The ARN of an IAM role that provides
-  Neptune access to SageMaker and Amazon S3 resources. This must be listed in
-  your DB cluster parameter group or an error will occur.
+    Neptune access to SageMaker and Amazon S3 resources. This must be listed in
+    your DB cluster parameter group or an error will occur.
   """
   @spec get_ml_model_training_job(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_ml_model_training_job_output(), any()}
@@ -3896,11 +3893,12 @@ defmodule AWS.Neptunedata do
 
   ## Parameters:
   * `:id` (`t:string` required) The unique identifier of the model-transform job
-  to be reetrieved.
+    to be reetrieved.
+
   ## Keyword parameters:
   * `:neptune_iam_role_arn` (`t:string`) The ARN of an IAM role that provides
-  Neptune access to SageMaker and Amazon S3 resources. This must be listed in
-  your DB cluster parameter group or an error will occur.
+    Neptune access to SageMaker and Amazon S3 resources. This must be listed in
+    your DB cluster parameter group or an error will occur.
   """
   @spec get_ml_model_transform_job(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_ml_model_transform_job_output(), any()}
@@ -3952,8 +3950,7 @@ defmodule AWS.Neptunedata do
 
   ## Parameters:
   * `:query_id` (`t:string` required) The unique ID of the openCypher query for
-  which to retrieve the query status.
-  ## Keyword parameters:
+    which to retrieve the query status.
   """
   @spec get_open_cypher_query_status(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_open_cypher_query_status_output(), any()}
@@ -3993,7 +3990,6 @@ defmodule AWS.Neptunedata do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=neptunedata%20GetPropertygraphStatistics&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec get_propertygraph_statistics(AWS.Client.t(), Keyword.t()) ::
           {:ok, get_propertygraph_statistics_output(), any()}
@@ -4036,24 +4032,25 @@ defmodule AWS.Neptunedata do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=neptunedata%20GetPropertygraphStream&this_doc_guide=API%2520Reference)
 
   ## Parameters:
+
   ## Keyword parameters:
   * `:commit_num` (`t:string`) The commit number of the starting record to read
-  from the change-log stream. This parameter is required when iteratorType
-  isAT_SEQUENCE_NUMBER or AFTER_SEQUENCE_NUMBER, and ignored when iteratorType
-  is TRIM_HORIZON or LATEST.
+    from the change-log stream. This parameter is required when iteratorType
+    isAT_SEQUENCE_NUMBER or AFTER_SEQUENCE_NUMBER, and ignored when iteratorType
+    is TRIM_HORIZON or LATEST.
   * `:iterator_type`
-  (`t:enum["AFTER_SEQUENCE_NUMBER|AT_SEQUENCE_NUMBER|LATEST|TRIM_HORIZON"]`)
-  Can be one of:
+    (`t:enum["AFTER_SEQUENCE_NUMBER|AT_SEQUENCE_NUMBER|LATEST|TRIM_HORIZON"]`)
+    Can be one of:
   * `:limit` (`t:string`) Specifies the maximum number of records to return. There
-  is also a size limit of 10 MB on the response that can't be modified and
-  that takes precedence over the number of records specified in the limit
-  parameter. The response does include a threshold-breaching record if the 10
-  MB limit was reached.
+    is also a size limit of 10 MB on the response that can't be modified and
+    that takes precedence over the number of records specified in the limit
+    parameter. The response does include a threshold-breaching record if the 10
+    MB limit was reached.
   * `:op_num` (`t:string`) The operation sequence number within the specified
-  commit to start reading from in the change-log stream data. The default is
-  1.
+    commit to start reading from in the change-log stream data. The default is
+    1.
   * `:encoding` (`t:enum["GZIP"]`) If set to TRUE, Neptune compresses the response
-  using gzip encoding.
+    using gzip encoding.
   """
   @spec get_propertygraph_stream(AWS.Client.t(), Keyword.t()) ::
           {:ok, get_propertygraph_stream_output(), any()}
@@ -4137,9 +4134,10 @@ defmodule AWS.Neptunedata do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=neptunedata%20GetPropertygraphSummary&this_doc_guide=API%2520Reference)
 
   ## Parameters:
+
   ## Keyword parameters:
   * `:mode` (`t:enum["BASIC|DETAILED"]`) Mode can take one of two values: BASIC
-  (the default), and DETAILED.
+    (the default), and DETAILED.
   """
   @spec get_propertygraph_summary(AWS.Client.t(), Keyword.t()) ::
           {:ok, get_propertygraph_summary_output(), any()}
@@ -4190,9 +4188,10 @@ defmodule AWS.Neptunedata do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=neptunedata%20GetRDFGraphSummary&this_doc_guide=API%2520Reference)
 
   ## Parameters:
+
   ## Keyword parameters:
   * `:mode` (`t:enum["BASIC|DETAILED"]`) Mode can take one of two values: BASIC
-  (the default), and DETAILED.
+    (the default), and DETAILED.
   """
   @spec get_r_d_f_graph_summary(AWS.Client.t(), Keyword.t()) ::
           {:ok, get_r_d_f_graph_summary_output(), any()}
@@ -4243,7 +4242,6 @@ defmodule AWS.Neptunedata do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=neptunedata%20GetSparqlStatistics&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec get_sparql_statistics(AWS.Client.t(), Keyword.t()) ::
           {:ok, get_sparql_statistics_output(), any()}
@@ -4286,24 +4284,25 @@ defmodule AWS.Neptunedata do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=neptunedata%20GetSparqlStream&this_doc_guide=API%2520Reference)
 
   ## Parameters:
+
   ## Keyword parameters:
   * `:commit_num` (`t:string`) The commit number of the starting record to read
-  from the change-log stream. This parameter is required when iteratorType
-  isAT_SEQUENCE_NUMBER or AFTER_SEQUENCE_NUMBER, and ignored when iteratorType
-  is TRIM_HORIZON or LATEST.
+    from the change-log stream. This parameter is required when iteratorType
+    isAT_SEQUENCE_NUMBER or AFTER_SEQUENCE_NUMBER, and ignored when iteratorType
+    is TRIM_HORIZON or LATEST.
   * `:iterator_type`
-  (`t:enum["AFTER_SEQUENCE_NUMBER|AT_SEQUENCE_NUMBER|LATEST|TRIM_HORIZON"]`)
-  Can be one of:
+    (`t:enum["AFTER_SEQUENCE_NUMBER|AT_SEQUENCE_NUMBER|LATEST|TRIM_HORIZON"]`)
+    Can be one of:
   * `:limit` (`t:string`) Specifies the maximum number of records to return. There
-  is also a size limit of 10 MB on the response that can't be modified and
-  that takes precedence over the number of records specified in the limit
-  parameter. The response does include a threshold-breaching record if the 10
-  MB limit was reached.
+    is also a size limit of 10 MB on the response that can't be modified and
+    that takes precedence over the number of records specified in the limit
+    parameter. The response does include a threshold-breaching record if the 10
+    MB limit was reached.
   * `:op_num` (`t:string`) The operation sequence number within the specified
-  commit to start reading from in the change-log stream data. The default is
-  1.
+    commit to start reading from in the change-log stream data. The default is
+    1.
   * `:encoding` (`t:enum["GZIP"]`) If set to TRUE, Neptune compresses the response
-  using gzip encoding.
+    using gzip encoding.
   """
   @spec get_sparql_stream(AWS.Client.t(), Keyword.t()) ::
           {:ok, get_sparql_stream_output(), any()}
@@ -4393,9 +4392,10 @@ defmodule AWS.Neptunedata do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=neptunedata%20ListGremlinQueries&this_doc_guide=API%2520Reference)
 
   ## Parameters:
+
   ## Keyword parameters:
   * `:include_waiting` (`t:string`) If set to TRUE, the list returned includes
-  waiting queries. The default is FALSE;
+    waiting queries. The default is FALSE;
   """
   @spec list_gremlin_queries(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_gremlin_queries_output(), any()}
@@ -4446,12 +4446,13 @@ defmodule AWS.Neptunedata do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=neptunedata%20ListLoaderJobs&this_doc_guide=API%2520Reference)
 
   ## Parameters:
+
   ## Keyword parameters:
   * `:include_queued_loads` (`t:string`) An optional parameter that can be used to
-  exclude the load IDs of queued load requests when requesting a list of load
-  IDs by setting the parameter to FALSE. The default value is TRUE.
+    exclude the load IDs of queued load requests when requesting a list of load
+    IDs by setting the parameter to FALSE. The default value is TRUE.
   * `:limit` (`t:integer`) The number of load IDs to list. Must be a positive
-  integer greater than zero and not more than 100 (which is the default).
+    integer greater than zero and not more than 100 (which is the default).
   """
   @spec list_loader_jobs(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_loader_jobs_output(), any()}
@@ -4516,12 +4517,13 @@ defmodule AWS.Neptunedata do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=neptunedata%20ListMLDataProcessingJobs&this_doc_guide=API%2520Reference)
 
   ## Parameters:
+
   ## Keyword parameters:
   * `:max_items` (`t:integer`) The maximum number of items to return (from 1 to
-  1024; the default is 10).
+    1024; the default is 10).
   * `:neptune_iam_role_arn` (`t:string`) The ARN of an IAM role that provides
-  Neptune access to SageMaker and Amazon S3 resources. This must be listed in
-  your DB cluster parameter group or an error will occur.
+    Neptune access to SageMaker and Amazon S3 resources. This must be listed in
+    your DB cluster parameter group or an error will occur.
   """
   @spec list_ml_data_processing_jobs(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_ml_data_processing_jobs_output(), any()}
@@ -4586,12 +4588,13 @@ defmodule AWS.Neptunedata do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=neptunedata%20ListMLEndpoints&this_doc_guide=API%2520Reference)
 
   ## Parameters:
+
   ## Keyword parameters:
   * `:max_items` (`t:integer`) The maximum number of items to return (from 1 to
-  1024; the default is 10.
+    1024; the default is 10.
   * `:neptune_iam_role_arn` (`t:string`) The ARN of an IAM role that provides
-  Neptune access to SageMaker and Amazon S3 resources. This must be listed in
-  your DB cluster parameter group or an error will occur.
+    Neptune access to SageMaker and Amazon S3 resources. This must be listed in
+    your DB cluster parameter group or an error will occur.
   """
   @spec list_ml_endpoints(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_ml_endpoints_output(), any()}
@@ -4656,12 +4659,13 @@ defmodule AWS.Neptunedata do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=neptunedata%20ListMLModelTrainingJobs&this_doc_guide=API%2520Reference)
 
   ## Parameters:
+
   ## Keyword parameters:
   * `:max_items` (`t:integer`) The maximum number of items to return (from 1 to
-  1024; the default is 10).
+    1024; the default is 10).
   * `:neptune_iam_role_arn` (`t:string`) The ARN of an IAM role that provides
-  Neptune access to SageMaker and Amazon S3 resources. This must be listed in
-  your DB cluster parameter group or an error will occur.
+    Neptune access to SageMaker and Amazon S3 resources. This must be listed in
+    your DB cluster parameter group or an error will occur.
   """
   @spec list_ml_model_training_jobs(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_ml_model_training_jobs_output(), any()}
@@ -4726,12 +4730,13 @@ defmodule AWS.Neptunedata do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=neptunedata%20ListMLModelTransformJobs&this_doc_guide=API%2520Reference)
 
   ## Parameters:
+
   ## Keyword parameters:
   * `:max_items` (`t:integer`) The maximum number of items to return (from 1 to
-  1024; the default is 10).
+    1024; the default is 10).
   * `:neptune_iam_role_arn` (`t:string`) The ARN of an IAM role that provides
-  Neptune access to SageMaker and Amazon S3 resources. This must be listed in
-  your DB cluster parameter group or an error will occur.
+    Neptune access to SageMaker and Amazon S3 resources. This must be listed in
+    your DB cluster parameter group or an error will occur.
   """
   @spec list_ml_model_transform_jobs(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_ml_model_transform_jobs_output(), any()}
@@ -4795,10 +4800,11 @@ defmodule AWS.Neptunedata do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=neptunedata%20ListOpenCypherQueries&this_doc_guide=API%2520Reference)
 
   ## Parameters:
+
   ## Keyword parameters:
   * `:include_waiting` (`t:string`) When set to TRUE and other parameters are not
-  present, causes status information to be returned for waiting queries as
-  well as for running queries.
+    present, causes status information to be returned for waiting queries as
+    well as for running queries.
   """
   @spec list_open_cypher_queries(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_open_cypher_queries_output(), any()}
@@ -4849,7 +4855,6 @@ defmodule AWS.Neptunedata do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=neptunedata%20ManagePropertygraphStatistics&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec manage_propertygraph_statistics(AWS.Client.t(), Keyword.t()) ::
           {:ok, manage_propertygraph_statistics_output(), any()}
@@ -4891,7 +4896,6 @@ defmodule AWS.Neptunedata do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=neptunedata%20ManageSparqlStatistics&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec manage_sparql_statistics(AWS.Client.t(), Keyword.t()) ::
           {:ok, manage_sparql_statistics_output(), any()}
@@ -4941,11 +4945,10 @@ defmodule AWS.Neptunedata do
 
   ## Parameters:
   * `:input` (`t:map`):
-    * `:s3_bucket_region`
-  (`t:enum["AF_SOUTH_1|AP_EAST_1|AP_NORTHEAST_1|AP_NORTHEAST_2|AP_SOUTHEAST_1|AP_SOUTHEAST_2|AP_SOUTH_1|CA_CENTRAL_1|CN_NORTHWEST_1|CN_NORTH_1|EU_CENTRAL_1|EU_NORTH_1|EU_WEST_1|EU_WEST_2|EU_WEST_3|ME_SOUTH_1|SA_EAST_1|US_EAST_1|US_EAST_2|US_GOV_EAST_1|US_GOV_WEST_1|US_WEST_1|US_WEST_2"]`
-  required) The Amazon region of the S3 bucket. This must match the Amazon
-  Region of the DB cluster.
-  ## Keyword parameters:
+    * `"region" =>
+    t:enum["AF_SOUTH_1|AP_EAST_1|AP_NORTHEAST_1|AP_NORTHEAST_2|AP_SOUTHEAST_1|AP_SOUTHEAST_2|AP_SOUTH_1|CA_CENTRAL_1|CN_NORTHWEST_1|CN_NORTH_1|EU_CENTRAL_1|EU_NORTH_1|EU_WEST_1|EU_WEST_2|EU_WEST_3|ME_SOUTH_1|SA_EAST_1|US_EAST_1|US_EAST_2|US_GOV_EAST_1|US_GOV_WEST_1|US_WEST_1|US_WEST_2"]`
+    (required) The Amazon region of the S3 bucket. This must match the Amazon
+    Region of the DB cluster.
   """
   @spec start_loader_job(AWS.Client.t(), input :: map(), Keyword.t()) ::
           {:ok, start_loader_job_output(), any()}
@@ -4994,7 +4997,6 @@ defmodule AWS.Neptunedata do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=neptunedata%20StartMLDataProcessingJob&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec start_ml_data_processing_job(AWS.Client.t(), Keyword.t()) ::
           {:ok, start_ml_data_processing_job_output(), any()}
@@ -5043,7 +5045,6 @@ defmodule AWS.Neptunedata do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=neptunedata%20StartMLModelTrainingJob&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec start_ml_model_training_job(AWS.Client.t(), Keyword.t()) ::
           {:ok, start_ml_model_training_job_output(), any()}
@@ -5092,7 +5093,6 @@ defmodule AWS.Neptunedata do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=neptunedata%20StartMLModelTransformJob&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec start_ml_model_transform_job(AWS.Client.t(), Keyword.t()) ::
           {:ok, start_ml_model_transform_job_output(), any()}

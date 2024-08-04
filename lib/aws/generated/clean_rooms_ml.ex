@@ -1022,7 +1022,6 @@ defmodule AWS.CleanRoomsML do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cleanroomsml%20CreateAudienceModel&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec create_audience_model(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_audience_model_response(), any()}
@@ -1064,7 +1063,6 @@ defmodule AWS.CleanRoomsML do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cleanroomsml%20CreateConfiguredAudienceModel&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec create_configured_audience_model(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_configured_audience_model_response(), any()}
@@ -1108,7 +1106,6 @@ defmodule AWS.CleanRoomsML do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cleanroomsml%20CreateTrainingDataset&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec create_training_dataset(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_training_dataset_response(), any()}
@@ -1152,8 +1149,7 @@ defmodule AWS.CleanRoomsML do
 
   ## Parameters:
   * `:audience_generation_job_arn` (`t:string` required) The Amazon Resource Name
-  (ARN) of the audience generation job that you want to delete.
-  ## Keyword parameters:
+    (ARN) of the audience generation job that you want to delete.
   """
   @spec delete_audience_generation_job(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
@@ -1212,8 +1208,7 @@ defmodule AWS.CleanRoomsML do
 
   ## Parameters:
   * `:audience_model_arn` (`t:string` required) The Amazon Resource Name (ARN) of
-  the audience model that you want to delete.
-  ## Keyword parameters:
+    the audience model that you want to delete.
   """
   @spec delete_audience_model(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
@@ -1269,8 +1264,7 @@ defmodule AWS.CleanRoomsML do
 
   ## Parameters:
   * `:configured_audience_model_arn` (`t:string` required) The Amazon Resource
-  Name (ARN) of the configured audience model that you want to delete.
-  ## Keyword parameters:
+    Name (ARN) of the configured audience model that you want to delete.
   """
   @spec delete_configured_audience_model(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
@@ -1327,8 +1321,7 @@ defmodule AWS.CleanRoomsML do
 
   ## Parameters:
   * `:configured_audience_model_arn` (`t:string` required) The Amazon Resource
-  Name (ARN) of the configured audience model policy that you want to delete.
-  ## Keyword parameters:
+    Name (ARN) of the configured audience model policy that you want to delete.
   """
   @spec delete_configured_audience_model_policy(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
@@ -1390,8 +1383,7 @@ defmodule AWS.CleanRoomsML do
 
   ## Parameters:
   * `:training_dataset_arn` (`t:string` required) The Amazon Resource Name (ARN)
-  of the training dataset that you want to delete.
-  ## Keyword parameters:
+    of the training dataset that you want to delete.
   """
   @spec delete_training_dataset(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
@@ -1444,8 +1436,7 @@ defmodule AWS.CleanRoomsML do
 
   ## Parameters:
   * `:audience_generation_job_arn` (`t:string` required) The Amazon Resource Name
-  (ARN) of the audience generation job that you are interested in.
-  ## Keyword parameters:
+    (ARN) of the audience generation job that you are interested in.
   """
   @spec get_audience_generation_job(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_audience_generation_job_response(), any()}
@@ -1486,8 +1477,7 @@ defmodule AWS.CleanRoomsML do
 
   ## Parameters:
   * `:audience_model_arn` (`t:string` required) The Amazon Resource Name (ARN) of
-  the audience model that you are interested in.
-  ## Keyword parameters:
+    the audience model that you are interested in.
   """
   @spec get_audience_model(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_audience_model_response(), any()}
@@ -1528,8 +1518,7 @@ defmodule AWS.CleanRoomsML do
 
   ## Parameters:
   * `:configured_audience_model_arn` (`t:string` required) The Amazon Resource
-  Name (ARN) of the configured audience model that you are interested in.
-  ## Keyword parameters:
+    Name (ARN) of the configured audience model that you are interested in.
   """
   @spec get_configured_audience_model(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_configured_audience_model_response(), any()}
@@ -1574,8 +1563,7 @@ defmodule AWS.CleanRoomsML do
 
   ## Parameters:
   * `:configured_audience_model_arn` (`t:string` required) The Amazon Resource
-  Name (ARN) of the configured audience model that you are interested in.
-  ## Keyword parameters:
+    Name (ARN) of the configured audience model that you are interested in.
   """
   @spec get_configured_audience_model_policy(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_configured_audience_model_policy_response(), any()}
@@ -1621,8 +1609,7 @@ defmodule AWS.CleanRoomsML do
 
   ## Parameters:
   * `:training_dataset_arn` (`t:string` required) The Amazon Resource Name (ARN)
-  of the training dataset that you are interested in.
-  ## Keyword parameters:
+    of the training dataset that you are interested in.
   """
   @spec get_training_dataset(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_training_dataset_response(), any()}
@@ -1662,13 +1649,14 @@ defmodule AWS.CleanRoomsML do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cleanroomsml%20ListAudienceExportJobs&this_doc_guide=API%2520Reference)
 
   ## Parameters:
+
   ## Keyword parameters:
   * `:audience_generation_job_arn` (`t:string`) The Amazon Resource Name (ARN) of
-  the audience generation job that you are interested in.
+    the audience generation job that you are interested in.
   * `:max_results` (`t:integer`) The maximum size of the results that is returned
-  per call.
+    per call.
   * `:next_token` (`t:string`) The token value retrieved from a previous call to
-  access the next page of results.
+    access the next page of results.
   """
   @spec list_audience_export_jobs(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_audience_export_jobs_response(), any()}
@@ -1733,16 +1721,17 @@ defmodule AWS.CleanRoomsML do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cleanroomsml%20ListAudienceGenerationJobs&this_doc_guide=API%2520Reference)
 
   ## Parameters:
+
   ## Keyword parameters:
   * `:collaboration_id` (`t:string`) The identifier of the collaboration that
-  contains the audience generation jobs that you are interested in.
+    contains the audience generation jobs that you are interested in.
   * `:configured_audience_model_arn` (`t:string`) The Amazon Resource Name (ARN)
-  of the configured audience model that was used for the audience generation
-  jobs that you are interested in.
+    of the configured audience model that was used for the audience generation
+    jobs that you are interested in.
   * `:max_results` (`t:integer`) The maximum size of the results that is returned
-  per call.
+    per call.
   * `:next_token` (`t:string`) The token value retrieved from a previous call to
-  access the next page of results.
+    access the next page of results.
   """
   @spec list_audience_generation_jobs(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_audience_generation_jobs_response(), any()}
@@ -1824,11 +1813,12 @@ defmodule AWS.CleanRoomsML do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cleanroomsml%20ListAudienceModels&this_doc_guide=API%2520Reference)
 
   ## Parameters:
+
   ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum size of the results that is returned
-  per call.
+    per call.
   * `:next_token` (`t:string`) The token value retrieved from a previous call to
-  access the next page of results.
+    access the next page of results.
   """
   @spec list_audience_models(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_audience_models_response(), any()}
@@ -1886,11 +1876,12 @@ defmodule AWS.CleanRoomsML do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cleanroomsml%20ListConfiguredAudienceModels&this_doc_guide=API%2520Reference)
 
   ## Parameters:
+
   ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum size of the results that is returned
-  per call.
+    per call.
   * `:next_token` (`t:string`) The token value retrieved from a previous call to
-  access the next page of results.
+    access the next page of results.
   """
   @spec list_configured_audience_models(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_configured_audience_models_response(), any()}
@@ -1949,8 +1940,7 @@ defmodule AWS.CleanRoomsML do
 
   ## Parameters:
   * `:resource_arn` (`t:string` required) The Amazon Resource Name (ARN) of the
-  resource that you are interested in.
-  ## Keyword parameters:
+    resource that you are interested in.
   """
   @spec list_tags_for_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_tags_for_resource_response(), any()}
@@ -1990,11 +1980,12 @@ defmodule AWS.CleanRoomsML do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cleanroomsml%20ListTrainingDatasets&this_doc_guide=API%2520Reference)
 
   ## Parameters:
+
   ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum size of the results that is returned
-  per call.
+    per call.
   * `:next_token` (`t:string`) The token value retrieved from a previous call to
-  access the next page of results.
+    access the next page of results.
   """
   @spec list_training_datasets(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_training_datasets_response(), any()}
@@ -2053,9 +2044,8 @@ defmodule AWS.CleanRoomsML do
 
   ## Parameters:
   * `:configured_audience_model_arn` (`t:string` required) The Amazon Resource
-  Name (ARN) of the configured audience model that the resource policy will
-  govern.
-  ## Keyword parameters:
+    Name (ARN) of the configured audience model that the resource policy will
+    govern.
   """
   @spec put_configured_audience_model_policy(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, put_configured_audience_model_policy_response(), any()}
@@ -2102,7 +2092,6 @@ defmodule AWS.CleanRoomsML do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cleanroomsml%20StartAudienceExportJob&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec start_audience_export_job(AWS.Client.t(), Keyword.t()) ::
           {:ok, nil, any()}
@@ -2144,7 +2133,6 @@ defmodule AWS.CleanRoomsML do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=cleanroomsml%20StartAudienceGenerationJob&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec start_audience_generation_job(AWS.Client.t(), Keyword.t()) ::
           {:ok, start_audience_generation_job_response(), any()}
@@ -2187,8 +2175,7 @@ defmodule AWS.CleanRoomsML do
 
   ## Parameters:
   * `:resource_arn` (`t:string` required) The Amazon Resource Name (ARN) of the
-  resource that you want to assign tags.
-  ## Keyword parameters:
+    resource that you want to assign tags.
   """
   @spec tag_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, tag_resource_response(), any()}
@@ -2231,10 +2218,9 @@ defmodule AWS.CleanRoomsML do
 
   ## Parameters:
   * `:resource_arn` (`t:string` required) The Amazon Resource Name (ARN) of the
-  resource that you want to remove tags from.
+    resource that you want to remove tags from.
   * `:tag_keys` (`t:list[com.amazonaws.cleanroomsml#TagKey]` required) The key
-  values of tags that you want to remove.
-  ## Keyword parameters:
+    values of tags that you want to remove.
   """
   @spec untag_resource(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, untag_resource_response(), any()}
@@ -2290,8 +2276,7 @@ defmodule AWS.CleanRoomsML do
 
   ## Parameters:
   * `:configured_audience_model_arn` (`t:string` required) The Amazon Resource
-  Name (ARN) of the configured audience model that you want to update.
-  ## Keyword parameters:
+    Name (ARN) of the configured audience model that you want to update.
   """
   @spec update_configured_audience_model(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, update_configured_audience_model_response(), any()}

@@ -1170,8 +1170,7 @@ defmodule AWS.QApps do
 
   ## Parameters:
   * `:instance_id` (`t:string` required) The unique identifier for the Amazon Q
-  Business application environment instance.
-  ## Keyword parameters:
+    Business application environment instance.
   """
   @spec associate_library_item_review(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
@@ -1218,8 +1217,7 @@ defmodule AWS.QApps do
 
   ## Parameters:
   * `:instance_id` (`t:string` required) The unique identifier of the Amazon Q
-  Business application environment instance.
-  ## Keyword parameters:
+    Business application environment instance.
   """
   @spec associate_q_app_with_user(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
@@ -1264,8 +1262,7 @@ defmodule AWS.QApps do
 
   ## Parameters:
   * `:instance_id` (`t:string` required) The unique identifier of the Amazon Q
-  Business application environment instance.
-  ## Keyword parameters:
+    Business application environment instance.
   """
   @spec create_library_item(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, create_library_item_output(), any()}
@@ -1312,8 +1309,7 @@ defmodule AWS.QApps do
 
   ## Parameters:
   * `:instance_id` (`t:string` required) The unique identifier of the Amazon Q
-  Business application environment instance.
-  ## Keyword parameters:
+    Business application environment instance.
   """
   @spec create_q_app(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, create_q_app_output(), any()}
@@ -1357,8 +1353,7 @@ defmodule AWS.QApps do
 
   ## Parameters:
   * `:instance_id` (`t:string` required) The unique identifier of the Amazon Q
-  Business application environment instance.
-  ## Keyword parameters:
+    Business application environment instance.
   """
   @spec delete_library_item(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
@@ -1403,8 +1398,7 @@ defmodule AWS.QApps do
 
   ## Parameters:
   * `:instance_id` (`t:string` required) The unique identifier of the Amazon Q
-  Business application environment instance.
-  ## Keyword parameters:
+    Business application environment instance.
   """
   @spec delete_q_app(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
@@ -1447,8 +1441,7 @@ defmodule AWS.QApps do
 
   ## Parameters:
   * `:instance_id` (`t:string` required) The unique identifier of the Amazon Q
-  Business application environment instance.
-  ## Keyword parameters:
+    Business application environment instance.
   """
   @spec disassociate_library_item_review(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
@@ -1492,8 +1485,7 @@ defmodule AWS.QApps do
 
   ## Parameters:
   * `:instance_id` (`t:string` required) The unique identifier of the Amazon Q
-  Business application environment instance.
-  ## Keyword parameters:
+    Business application environment instance.
   """
   @spec disassociate_q_app_from_user(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
@@ -1538,12 +1530,13 @@ defmodule AWS.QApps do
 
   ## Parameters:
   * `:library_item_id` (`t:string` required) The unique identifier of the library
-  item to retrieve.
+    item to retrieve.
   * `:instance_id` (`t:string` required) The unique identifier of the Amazon Q
-  Business application environment instance.
+    Business application environment instance.
+
   ## Keyword parameters:
   * `:app_id` (`t:string`) The unique identifier of the Amazon Q App associated
-  with the library item.
+    with the library item.
   """
   @spec get_library_item(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_library_item_output(), any()}
@@ -1597,10 +1590,9 @@ defmodule AWS.QApps do
 
   ## Parameters:
   * `:app_id` (`t:string` required) The unique identifier of the Q App to
-  retrieve.
+    retrieve.
   * `:instance_id` (`t:string` required) The unique identifier of the Amazon Q
-  Business application environment instance.
-  ## Keyword parameters:
+    Business application environment instance.
   """
   @spec get_q_app(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_q_app_output(), any()}
@@ -1643,10 +1635,9 @@ defmodule AWS.QApps do
 
   ## Parameters:
   * `:session_id` (`t:string` required) The unique identifier of the Q App session
-  to retrieve.
+    to retrieve.
   * `:instance_id` (`t:string` required) The unique identifier of the Amazon Q
-  Business application environment instance.
-  ## Keyword parameters:
+    Business application environment instance.
   """
   @spec get_q_app_session(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_q_app_session_output(), any()}
@@ -1691,8 +1682,7 @@ defmodule AWS.QApps do
 
   ## Parameters:
   * `:instance_id` (`t:string` required) The unique identifier of the Amazon Q
-  Business application environment instance.
-  ## Keyword parameters:
+    Business application environment instance.
   """
   @spec import_document(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, import_document_output(), any()}
@@ -1737,11 +1727,12 @@ defmodule AWS.QApps do
 
   ## Parameters:
   * `:instance_id` (`t:string` required) The unique identifier of the Amazon Q
-  Business application environment instance.
+    Business application environment instance.
+
   ## Keyword parameters:
   * `:category_id` (`t:string`) Optional category to filter the library items by.
   * `:limit` (`t:integer`) The maximum number of library items to return in the
-  response.
+    response.
   * `:next_token` (`t:string`) The token to request the next page of results.
   """
   @spec list_library_items(AWS.Client.t(), String.t(), Keyword.t()) ::
@@ -1811,7 +1802,8 @@ defmodule AWS.QApps do
 
   ## Parameters:
   * `:instance_id` (`t:string` required) The unique identifier of the Amazon Q
-  Business application environment instance.
+    Business application environment instance.
+
   ## Keyword parameters:
   * `:limit` (`t:integer`) The maximum number of Q Apps to return in the response.
   * `:next_token` (`t:string`) The token to request the next page of results.
@@ -1873,8 +1865,7 @@ defmodule AWS.QApps do
 
   ## Parameters:
   * `:resource_arn` (`t:string` required) The Amazon Resource Name (ARN) of the
-  resource whose tags should be listed.
-  ## Keyword parameters:
+    resource whose tags should be listed.
   """
   @spec list_tags_for_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_tags_for_resource_response(), any()}
@@ -1917,8 +1908,7 @@ defmodule AWS.QApps do
 
   ## Parameters:
   * `:instance_id` (`t:string` required) The unique identifier of the Amazon Q
-  Business application environment instance.
-  ## Keyword parameters:
+    Business application environment instance.
   """
   @spec predict_q_app(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, predict_q_app_output(), any()}
@@ -1962,8 +1952,7 @@ defmodule AWS.QApps do
 
   ## Parameters:
   * `:instance_id` (`t:string` required) The unique identifier of the Amazon Q
-  Business application environment instance.
-  ## Keyword parameters:
+    Business application environment instance.
   """
   @spec start_q_app_session(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, start_q_app_session_output(), any()}
@@ -2009,8 +1998,7 @@ defmodule AWS.QApps do
 
   ## Parameters:
   * `:instance_id` (`t:string` required) The unique identifier of the Amazon Q
-  Business application environment instance.
-  ## Keyword parameters:
+    Business application environment instance.
   """
   @spec stop_q_app_session(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
@@ -2054,8 +2042,7 @@ defmodule AWS.QApps do
 
   ## Parameters:
   * `:resource_arn` (`t:string` required) The Amazon Resource Name (ARN) of the
-  resource to tag.
-  ## Keyword parameters:
+    resource to tag.
   """
   @spec tag_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, tag_resource_response(), any()}
@@ -2098,10 +2085,9 @@ defmodule AWS.QApps do
 
   ## Parameters:
   * `:resource_arn` (`t:string` required) The Amazon Resource Name (ARN) of the
-  resource to disassociate the tag from.
+    resource to disassociate the tag from.
   * `:tag_keys` (`t:list[com.amazonaws.qapps#TagKey]` required) The keys of the
-  tags to disassociate from the resource.
-  ## Keyword parameters:
+    tags to disassociate from the resource.
   """
   @spec untag_resource(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, untag_resource_response(), any()}
@@ -2155,8 +2141,7 @@ defmodule AWS.QApps do
 
   ## Parameters:
   * `:instance_id` (`t:string` required) The unique identifier of the Amazon Q
-  Business application environment instance.
-  ## Keyword parameters:
+    Business application environment instance.
   """
   @spec update_library_item(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, update_library_item_output(), any()}
@@ -2201,8 +2186,7 @@ defmodule AWS.QApps do
 
   ## Parameters:
   * `:instance_id` (`t:string` required) The unique identifier of the Amazon Q
-  Business application environment instance.
-  ## Keyword parameters:
+    Business application environment instance.
   """
   @spec update_q_app(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, update_q_app_output(), any()}
@@ -2249,8 +2233,7 @@ defmodule AWS.QApps do
 
   ## Parameters:
   * `:instance_id` (`t:string` required) The unique identifier of the Amazon Q
-  Business application environment instance.
-  ## Keyword parameters:
+    Business application environment instance.
   """
   @spec update_q_app_session(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, update_q_app_session_output(), any()}

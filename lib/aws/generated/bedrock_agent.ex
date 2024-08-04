@@ -3673,10 +3673,9 @@ defmodule AWS.BedrockAgent do
 
   ## Parameters:
   * `:agent_id` (`t:string` required) The unique identifier of the agent with
-  which you want to associate the knowledge base.
+    which you want to associate the knowledge base.
   * `:agent_version` (`t:string` required) The version of the agent with which you
-  want to associate the knowledge base.
-  ## Keyword parameters:
+    want to associate the knowledge base.
   """
   @spec associate_agent_knowledge_base(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, associate_agent_knowledge_base_response(), any()}
@@ -3721,7 +3720,6 @@ defmodule AWS.BedrockAgent do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=bedrockagent%20CreateAgent&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec create_agent(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_agent_response(), any()}
@@ -3769,10 +3767,9 @@ defmodule AWS.BedrockAgent do
 
   ## Parameters:
   * `:agent_id` (`t:string` required) The unique identifier of the agent for which
-  to create the action group.
+    to create the action group.
   * `:agent_version` (`t:string` required) The version of the agent for which to
-  create the action group.
-  ## Keyword parameters:
+    create the action group.
   """
   @spec create_agent_action_group(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, create_agent_action_group_response(), any()}
@@ -3816,7 +3813,6 @@ defmodule AWS.BedrockAgent do
 
   ## Parameters:
   * `:agent_id` (`t:string` required) The unique identifier of the agent.
-  ## Keyword parameters:
   """
   @spec create_agent_alias(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, create_agent_alias_response(), any()}
@@ -3859,8 +3855,7 @@ defmodule AWS.BedrockAgent do
 
   ## Parameters:
   * `:knowledge_base_id` (`t:string` required) The unique identifier of the
-  knowledge base to which to add the data source.
-  ## Keyword parameters:
+    knowledge base to which to add the data source.
   """
   @spec create_data_source(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, create_data_source_response(), any()}
@@ -3909,7 +3904,6 @@ defmodule AWS.BedrockAgent do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=bedrockagent%20CreateFlow&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec create_flow(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_flow_response(), any()}
@@ -3955,8 +3949,7 @@ defmodule AWS.BedrockAgent do
 
   ## Parameters:
   * `:flow_identifier` (`t:string` required) The unique identifier of the flow for
-  which to create an alias.
-  ## Keyword parameters:
+    which to create an alias.
   """
   @spec create_flow_alias(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, create_flow_alias_response(), any()}
@@ -4002,8 +3995,7 @@ defmodule AWS.BedrockAgent do
 
   ## Parameters:
   * `:flow_identifier` (`t:string` required) The unique identifier of the flow
-  that you want to create a version of.
-  ## Keyword parameters:
+    that you want to create a version of.
   """
   @spec create_flow_version(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, create_flow_version_response(), any()}
@@ -4053,7 +4045,6 @@ defmodule AWS.BedrockAgent do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=bedrockagent%20CreateKnowledgeBase&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec create_knowledge_base(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_knowledge_base_response(), any()}
@@ -4102,7 +4093,6 @@ defmodule AWS.BedrockAgent do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=bedrockagent%20CreatePrompt&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec create_prompt(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_prompt_response(), any()}
@@ -4148,8 +4138,7 @@ defmodule AWS.BedrockAgent do
 
   ## Parameters:
   * `:prompt_identifier` (`t:string` required) The unique identifier of the prompt
-  that you want to create a version of.
-  ## Keyword parameters:
+    that you want to create a version of.
   """
   @spec create_prompt_version(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, create_prompt_version_response(), any()}
@@ -4192,11 +4181,12 @@ defmodule AWS.BedrockAgent do
 
   ## Parameters:
   * `:agent_id` (`t:string` required) The unique identifier of the agent to
-  delete.
+    delete.
+
   ## Keyword parameters:
   * `:skip_resource_in_use_check` (`t:string`) By default, this value is false and
-  deletion is stopped if the resource is in use. If you set it to true, the
-  resource will be deleted even if the resource is in use.
+    deletion is stopped if the resource is in use. If you set it to true, the
+    resource will be deleted even if the resource is in use.
   """
   @spec delete_agent(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, delete_agent_response(), any()}
@@ -4260,15 +4250,16 @@ defmodule AWS.BedrockAgent do
 
   ## Parameters:
   * `:action_group_id` (`t:string` required) The unique identifier of the action
-  group to delete.
+    group to delete.
   * `:agent_id` (`t:string` required) The unique identifier of the agent that the
-  action group belongs to.
+    action group belongs to.
   * `:agent_version` (`t:string` required) The version of the agent that the
-  action group belongs to.
+    action group belongs to.
+
   ## Keyword parameters:
   * `:skip_resource_in_use_check` (`t:string`) By default, this value is false and
-  deletion is stopped if the resource is in use. If you set it to true, the
-  resource will be deleted even if the resource is in use.
+    deletion is stopped if the resource is in use. If you set it to true, the
+    resource will be deleted even if the resource is in use.
   """
   @spec delete_agent_action_group(AWS.Client.t(), String.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, delete_agent_action_group_response(), any()}
@@ -4339,10 +4330,9 @@ defmodule AWS.BedrockAgent do
 
   ## Parameters:
   * `:agent_alias_id` (`t:string` required) The unique identifier of the alias to
-  delete.
+    delete.
   * `:agent_id` (`t:string` required) The unique identifier of the agent that the
-  alias belongs to.
-  ## Keyword parameters:
+    alias belongs to.
   """
   @spec delete_agent_alias(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, delete_agent_alias_response(), any()}
@@ -4396,12 +4386,13 @@ defmodule AWS.BedrockAgent do
 
   ## Parameters:
   * `:agent_id` (`t:string` required) The unique identifier of the agent that the
-  version belongs to.
+    version belongs to.
   * `:agent_version` (`t:string` required) The version of the agent to delete.
+
   ## Keyword parameters:
   * `:skip_resource_in_use_check` (`t:string`) By default, this value is false and
-  deletion is stopped if the resource is in use. If you set it to true, the
-  resource will be deleted even if the resource is in use.
+    deletion is stopped if the resource is in use. If you set it to true, the
+    resource will be deleted even if the resource is in use.
   """
   @spec delete_agent_version(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, delete_agent_version_response(), any()}
@@ -4466,10 +4457,9 @@ defmodule AWS.BedrockAgent do
 
   ## Parameters:
   * `:data_source_id` (`t:string` required) The unique identifier of the data
-  source to delete.
+    source to delete.
   * `:knowledge_base_id` (`t:string` required) The unique identifier of the
-  knowledge base from which to delete the data source.
-  ## Keyword parameters:
+    knowledge base from which to delete the data source.
   """
   @spec delete_data_source(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, delete_data_source_response(), any()}
@@ -4523,10 +4513,11 @@ defmodule AWS.BedrockAgent do
 
   ## Parameters:
   * `:flow_identifier` (`t:string` required) The unique identifier of the flow.
+
   ## Keyword parameters:
   * `:skip_resource_in_use_check` (`t:string`) By default, this value is false and
-  deletion is stopped if the resource is in use. If you set it to true, the
-  resource will be deleted even if the resource is in use.
+    deletion is stopped if the resource is in use. If you set it to true, the
+    resource will be deleted even if the resource is in use.
   """
   @spec delete_flow(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, delete_flow_response(), any()}
@@ -4590,10 +4581,9 @@ defmodule AWS.BedrockAgent do
 
   ## Parameters:
   * `:alias_identifier` (`t:string` required) The unique identifier of the alias
-  to be deleted.
+    to be deleted.
   * `:flow_identifier` (`t:string` required) The unique identifier of the flow
-  that the alias belongs to.
-  ## Keyword parameters:
+    that the alias belongs to.
   """
   @spec delete_flow_alias(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, delete_flow_alias_response(), any()}
@@ -4647,13 +4637,14 @@ defmodule AWS.BedrockAgent do
 
   ## Parameters:
   * `:flow_identifier` (`t:string` required) The unique identifier of the flow
-  whose version that you want to delete
+    whose version that you want to delete
   * `:flow_version` (`t:string` required) The version of the flow that you want to
-  delete.
+    delete.
+
   ## Keyword parameters:
   * `:skip_resource_in_use_check` (`t:string`) By default, this value is false and
-  deletion is stopped if the resource is in use. If you set it to true, the
-  resource will be deleted even if the resource is in use.
+    deletion is stopped if the resource is in use. If you set it to true, the
+    resource will be deleted even if the resource is in use.
   """
   @spec delete_flow_version(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, delete_flow_version_response(), any()}
@@ -4722,8 +4713,7 @@ defmodule AWS.BedrockAgent do
 
   ## Parameters:
   * `:knowledge_base_id` (`t:string` required) The unique identifier of the
-  knowledge base to delete.
-  ## Keyword parameters:
+    knowledge base to delete.
   """
   @spec delete_knowledge_base(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, delete_knowledge_base_response(), any()}
@@ -4781,7 +4771,8 @@ defmodule AWS.BedrockAgent do
 
   ## Parameters:
   * `:prompt_identifier` (`t:string` required) The unique identifier of the
-  prompt.
+    prompt.
+
   ## Keyword parameters:
   * `:prompt_version` (`t:string`) The version of the prompt to delete.
   """
@@ -4847,12 +4838,11 @@ defmodule AWS.BedrockAgent do
 
   ## Parameters:
   * `:agent_id` (`t:string` required) The unique identifier of the agent from
-  which to disassociate the knowledge base.
+    which to disassociate the knowledge base.
   * `:agent_version` (`t:string` required) The version of the agent from which to
-  disassociate the knowledge base.
+    disassociate the knowledge base.
   * `:knowledge_base_id` (`t:string` required) The unique identifier of the
-  knowledge base to disassociate.
-  ## Keyword parameters:
+    knowledge base to disassociate.
   """
   @spec disassociate_agent_knowledge_base(
           AWS.Client.t(),
@@ -4918,7 +4908,6 @@ defmodule AWS.BedrockAgent do
 
   ## Parameters:
   * `:agent_id` (`t:string` required) The unique identifier of the agent.
-  ## Keyword parameters:
   """
   @spec get_agent(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_agent_response(), any()}
@@ -4959,12 +4948,11 @@ defmodule AWS.BedrockAgent do
 
   ## Parameters:
   * `:action_group_id` (`t:string` required) The unique identifier of the action
-  group for which to get information.
+    group for which to get information.
   * `:agent_id` (`t:string` required) The unique identifier of the agent that the
-  action group belongs to.
+    action group belongs to.
   * `:agent_version` (`t:string` required) The version of the agent that the
-  action group belongs to.
-  ## Keyword parameters:
+    action group belongs to.
   """
   @spec get_agent_action_group(AWS.Client.t(), String.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_agent_action_group_response(), any()}
@@ -5012,10 +5000,9 @@ defmodule AWS.BedrockAgent do
 
   ## Parameters:
   * `:agent_alias_id` (`t:string` required) The unique identifier of the alias for
-  which to get information.
+    which to get information.
   * `:agent_id` (`t:string` required) The unique identifier of the agent to which
-  the alias to get information belongs.
-  ## Keyword parameters:
+    the alias to get information belongs.
   """
   @spec get_agent_alias(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_agent_alias_response(), any()}
@@ -5057,12 +5044,11 @@ defmodule AWS.BedrockAgent do
 
   ## Parameters:
   * `:agent_id` (`t:string` required) The unique identifier of the agent with
-  which the knowledge base is associated.
+    which the knowledge base is associated.
   * `:agent_version` (`t:string` required) The version of the agent with which the
-  knowledge base is associated.
+    knowledge base is associated.
   * `:knowledge_base_id` (`t:string` required) The unique identifier of the
-  knowledge base associated with the agent.
-  ## Keyword parameters:
+    knowledge base associated with the agent.
   """
   @spec get_agent_knowledge_base(AWS.Client.t(), String.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_agent_knowledge_base_response(), any()}
@@ -5111,7 +5097,6 @@ defmodule AWS.BedrockAgent do
   ## Parameters:
   * `:agent_id` (`t:string` required) The unique identifier of the agent.
   * `:agent_version` (`t:string` required) The version of the agent.
-  ## Keyword parameters:
   """
   @spec get_agent_version(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_agent_version_response(), any()}
@@ -5153,10 +5138,9 @@ defmodule AWS.BedrockAgent do
 
   ## Parameters:
   * `:data_source_id` (`t:string` required) The unique identifier of the data
-  source.
+    source.
   * `:knowledge_base_id` (`t:string` required) The unique identifier of the
-  knowledge base that the data source was added to.
-  ## Keyword parameters:
+    knowledge base that the data source was added to.
   """
   @spec get_data_source(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_data_source_response(), any()}
@@ -5201,7 +5185,6 @@ defmodule AWS.BedrockAgent do
 
   ## Parameters:
   * `:flow_identifier` (`t:string` required) The unique identifier of the flow.
-  ## Keyword parameters:
   """
   @spec get_flow(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_flow_response(), any()}
@@ -5245,10 +5228,9 @@ defmodule AWS.BedrockAgent do
 
   ## Parameters:
   * `:alias_identifier` (`t:string` required) The unique identifier of the alias
-  for which to retrieve information.
+    for which to retrieve information.
   * `:flow_identifier` (`t:string` required) The unique identifier of the flow
-  that the alias belongs to.
-  ## Keyword parameters:
+    that the alias belongs to.
   """
   @spec get_flow_alias(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_flow_alias_response(), any()}
@@ -5293,10 +5275,9 @@ defmodule AWS.BedrockAgent do
 
   ## Parameters:
   * `:flow_identifier` (`t:string` required) The unique identifier of the flow for
-  which to get information.
+    which to get information.
   * `:flow_version` (`t:string` required) The version of the flow for which to get
-  information.
-  ## Keyword parameters:
+    information.
   """
   @spec get_flow_version(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_flow_version_response(), any()}
@@ -5339,12 +5320,11 @@ defmodule AWS.BedrockAgent do
 
   ## Parameters:
   * `:data_source_id` (`t:string` required) The unique identifier of the data
-  source in the ingestion job.
+    source in the ingestion job.
   * `:ingestion_job_id` (`t:string` required) The unique identifier of the
-  ingestion job.
+    ingestion job.
   * `:knowledge_base_id` (`t:string` required) The unique identifier of the
-  knowledge base for which the ingestion job applies.
-  ## Keyword parameters:
+    knowledge base for which the ingestion job applies.
   """
   @spec get_ingestion_job(AWS.Client.t(), String.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_ingestion_job_response(), any()}
@@ -5392,8 +5372,7 @@ defmodule AWS.BedrockAgent do
 
   ## Parameters:
   * `:knowledge_base_id` (`t:string` required) The unique identifier of the
-  knowledge base for which to get information.
-  ## Keyword parameters:
+    knowledge base for which to get information.
   """
   @spec get_knowledge_base(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_knowledge_base_response(), any()}
@@ -5439,10 +5418,11 @@ defmodule AWS.BedrockAgent do
 
   ## Parameters:
   * `:prompt_identifier` (`t:string` required) The unique identifier of the
-  prompt.
+    prompt.
+
   ## Keyword parameters:
   * `:prompt_version` (`t:string`) The version of the prompt about which you want
-  to retrieve information.
+    to retrieve information.
   """
   @spec get_prompt(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_prompt_response(), any()}
@@ -5495,7 +5475,6 @@ defmodule AWS.BedrockAgent do
   ## Parameters:
   * `:agent_id` (`t:string` required) The unique identifier of the agent.
   * `:agent_version` (`t:string` required) The version of the agent.
-  ## Keyword parameters:
   """
   @spec list_agent_action_groups(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, list_agent_action_groups_response(), any()}
@@ -5539,7 +5518,6 @@ defmodule AWS.BedrockAgent do
 
   ## Parameters:
   * `:agent_id` (`t:string` required) The unique identifier of the agent.
-  ## Keyword parameters:
   """
   @spec list_agent_aliases(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_agent_aliases_response(), any()}
@@ -5582,10 +5560,9 @@ defmodule AWS.BedrockAgent do
 
   ## Parameters:
   * `:agent_id` (`t:string` required) The unique identifier of the agent for which
-  to return information about knowledge bases associated with it.
+    to return information about knowledge bases associated with it.
   * `:agent_version` (`t:string` required) The version of the agent for which to
-  return information about knowledge bases associated with it.
-  ## Keyword parameters:
+    return information about knowledge bases associated with it.
   """
   @spec list_agent_knowledge_bases(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, list_agent_knowledge_bases_response(), any()}
@@ -5629,7 +5606,6 @@ defmodule AWS.BedrockAgent do
 
   ## Parameters:
   * `:agent_id` (`t:string` required) The unique identifier of the agent.
-  ## Keyword parameters:
   """
   @spec list_agent_versions(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_agent_versions_response(), any()}
@@ -5671,7 +5647,6 @@ defmodule AWS.BedrockAgent do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=bedrockagent%20ListAgents&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec list_agents(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_agents_response(), any()}
@@ -5714,8 +5689,7 @@ defmodule AWS.BedrockAgent do
 
   ## Parameters:
   * `:knowledge_base_id` (`t:string` required) The unique identifier of the
-  knowledge base for which to return a list of information.
-  ## Keyword parameters:
+    knowledge base for which to return a list of information.
   """
   @spec list_data_sources(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_data_sources_response(), any()}
@@ -5758,16 +5732,17 @@ defmodule AWS.BedrockAgent do
 
   ## Parameters:
   * `:flow_identifier` (`t:string` required) The unique identifier of the flow for
-  which aliases are being returned.
+    which aliases are being returned.
+
   ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of results to return in the
-  response. If the total number of results is greater than this value, use the
-  token returned in the response in the nextToken field when making another
-  request to return the next batch of results.
+    response. If the total number of results is greater than this value, use the
+    token returned in the response in the nextToken field when making another
+    request to return the next batch of results.
   * `:next_token` (`t:string`) If the total number of results is greater than the
-  maxResults value provided in the request, enter the token returned in the
-  nextToken field in the response in this field to return the next batch of
-  results.
+    maxResults value provided in the request, enter the token returned in the
+    nextToken field in the response in this field to return the next batch of
+    results.
   """
   @spec list_flow_aliases(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_flow_aliases_response(), any()}
@@ -5829,15 +5804,16 @@ defmodule AWS.BedrockAgent do
 
   ## Parameters:
   * `:flow_identifier` (`t:string` required) The unique identifier of the flow.
+
   ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of results to return in the
-  response. If the total number of results is greater than this value, use the
-  token returned in the response in the nextToken field when making another
-  request to return the next batch of results.
+    response. If the total number of results is greater than this value, use the
+    token returned in the response in the nextToken field when making another
+    request to return the next batch of results.
   * `:next_token` (`t:string`) If the total number of results is greater than the
-  maxResults value provided in the request, enter the token returned in the
-  nextToken field in the response in this field to return the next batch of
-  results.
+    maxResults value provided in the request, enter the token returned in the
+    nextToken field in the response in this field to return the next batch of
+    results.
   """
   @spec list_flow_versions(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_flow_versions_response(), any()}
@@ -5898,15 +5874,16 @@ defmodule AWS.BedrockAgent do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=bedrockagent%20ListFlows&this_doc_guide=API%2520Reference)
 
   ## Parameters:
+
   ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of results to return in the
-  response. If the total number of results is greater than this value, use the
-  token returned in the response in the nextToken field when making another
-  request to return the next batch of results.
+    response. If the total number of results is greater than this value, use the
+    token returned in the response in the nextToken field when making another
+    request to return the next batch of results.
   * `:next_token` (`t:string`) If the total number of results is greater than the
-  maxResults value provided in the request, enter the token returned in the
-  nextToken field in the response in this field to return the next batch of
-  results.
+    maxResults value provided in the request, enter the token returned in the
+    nextToken field in the response in this field to return the next batch of
+    results.
   """
   @spec list_flows(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_flows_response(), any()}
@@ -5965,10 +5942,9 @@ defmodule AWS.BedrockAgent do
 
   ## Parameters:
   * `:data_source_id` (`t:string` required) The unique identifier of the data
-  source for which to return ingestion jobs.
+    source for which to return ingestion jobs.
   * `:knowledge_base_id` (`t:string` required) The unique identifier of the
-  knowledge base for which to return ingestion jobs.
-  ## Keyword parameters:
+    knowledge base for which to return ingestion jobs.
   """
   @spec list_ingestion_jobs(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, list_ingestion_jobs_response(), any()}
@@ -6011,7 +5987,6 @@ defmodule AWS.BedrockAgent do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=bedrockagent%20ListKnowledgeBases&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec list_knowledge_bases(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_knowledge_bases_response(), any()}
@@ -6057,15 +6032,16 @@ defmodule AWS.BedrockAgent do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=bedrockagent%20ListPrompts&this_doc_guide=API%2520Reference)
 
   ## Parameters:
+
   ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of results to return in the
-  response. If the total number of results is greater than this value, use the
-  token returned in the response in the nextToken field when making another
-  request to return the next batch of results.
+    response. If the total number of results is greater than this value, use the
+    token returned in the response in the nextToken field when making another
+    request to return the next batch of results.
   * `:next_token` (`t:string`) If the total number of results is greater than the
-  maxResults value provided in the request, enter the token returned in the
-  nextToken field in the response in this field to return the next batch of
-  results.
+    maxResults value provided in the request, enter the token returned in the
+    nextToken field in the response in this field to return the next batch of
+    results.
   * `:prompt_identifier` (`t:string`) The unique identifier of the prompt.
   """
   @spec list_prompts(AWS.Client.t(), Keyword.t()) ::
@@ -6132,8 +6108,7 @@ defmodule AWS.BedrockAgent do
 
   ## Parameters:
   * `:resource_arn` (`t:string` required) The Amazon Resource Name (ARN) of the
-  resource for which to list tags.
-  ## Keyword parameters:
+    resource for which to list tags.
   """
   @spec list_tags_for_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_tags_for_resource_response(), any()}
@@ -6174,8 +6149,7 @@ defmodule AWS.BedrockAgent do
 
   ## Parameters:
   * `:agent_id` (`t:string` required) The unique identifier of the agent for which
-  to create a DRAFT version.
-  ## Keyword parameters:
+    to create a DRAFT version.
   """
   @spec prepare_agent(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, prepare_agent_response(), any()}
@@ -6221,7 +6195,6 @@ defmodule AWS.BedrockAgent do
 
   ## Parameters:
   * `:flow_identifier` (`t:string` required) The unique identifier of the flow.
-  ## Keyword parameters:
   """
   @spec prepare_flow(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, prepare_flow_response(), any()}
@@ -6264,10 +6237,9 @@ defmodule AWS.BedrockAgent do
 
   ## Parameters:
   * `:data_source_id` (`t:string` required) The unique identifier of the data
-  source to ingest.
+    source to ingest.
   * `:knowledge_base_id` (`t:string` required) The unique identifier of the
-  knowledge base to which to add the data source.
-  ## Keyword parameters:
+    knowledge base to which to add the data source.
   """
   @spec start_ingestion_job(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, start_ingestion_job_response(), any()}
@@ -6313,8 +6285,7 @@ defmodule AWS.BedrockAgent do
 
   ## Parameters:
   * `:resource_arn` (`t:string` required) The Amazon Resource Name (ARN) of the
-  resource to tag.
-  ## Keyword parameters:
+    resource to tag.
   """
   @spec tag_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, tag_resource_response(), any()}
@@ -6357,10 +6328,9 @@ defmodule AWS.BedrockAgent do
 
   ## Parameters:
   * `:resource_arn` (`t:string` required) The Amazon Resource Name (ARN) of the
-  resource from which to remove tags.
+    resource from which to remove tags.
   * `:tag_keys` (`t:list[com.amazonaws.bedrockagent#TagKey]` required) A list of
-  keys of the tags to remove from the resource.
-  ## Keyword parameters:
+    keys of the tags to remove from the resource.
   """
   @spec untag_resource(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, untag_resource_response(), any()}
@@ -6414,7 +6384,6 @@ defmodule AWS.BedrockAgent do
 
   ## Parameters:
   * `:agent_id` (`t:string` required) The unique identifier of the agent.
-  ## Keyword parameters:
   """
   @spec update_agent(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, update_agent_response(), any()}
@@ -6457,12 +6426,11 @@ defmodule AWS.BedrockAgent do
 
   ## Parameters:
   * `:action_group_id` (`t:string` required) The unique identifier of the action
-  group.
+    group.
   * `:agent_id` (`t:string` required) The unique identifier of the agent for which
-  to update the action group.
+    to update the action group.
   * `:agent_version` (`t:string` required) The unique identifier of the agent
-  version for which to update the action group.
-  ## Keyword parameters:
+    version for which to update the action group.
   """
   @spec update_agent_action_group(AWS.Client.t(), String.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, update_agent_action_group_response(), any()}
@@ -6513,7 +6481,6 @@ defmodule AWS.BedrockAgent do
   ## Parameters:
   * `:agent_alias_id` (`t:string` required) The unique identifier of the alias.
   * `:agent_id` (`t:string` required) The unique identifier of the agent.
-  ## Keyword parameters:
   """
   @spec update_agent_alias(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, update_agent_alias_response(), any()}
@@ -6558,12 +6525,11 @@ defmodule AWS.BedrockAgent do
 
   ## Parameters:
   * `:agent_id` (`t:string` required) The unique identifier of the agent
-  associated with the knowledge base that you want to update.
+    associated with the knowledge base that you want to update.
   * `:agent_version` (`t:string` required) The version of the agent associated
-  with the knowledge base that you want to update.
+    with the knowledge base that you want to update.
   * `:knowledge_base_id` (`t:string` required) The unique identifier of the
-  knowledge base that has been associated with an agent.
-  ## Keyword parameters:
+    knowledge base that has been associated with an agent.
   """
   @spec update_agent_knowledge_base(
           AWS.Client.t(),
@@ -6619,10 +6585,9 @@ defmodule AWS.BedrockAgent do
 
   ## Parameters:
   * `:data_source_id` (`t:string` required) The unique identifier of the data
-  source.
+    source.
   * `:knowledge_base_id` (`t:string` required) The unique identifier of the
-  knowledge base for the data source.
-  ## Keyword parameters:
+    knowledge base for the data source.
   """
   @spec update_data_source(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, update_data_source_response(), any()}
@@ -6671,7 +6636,6 @@ defmodule AWS.BedrockAgent do
 
   ## Parameters:
   * `:flow_identifier` (`t:string` required) The unique identifier of the flow.
-  ## Keyword parameters:
   """
   @spec update_flow(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, update_flow_response(), any()}
@@ -6718,7 +6682,6 @@ defmodule AWS.BedrockAgent do
   ## Parameters:
   * `:alias_identifier` (`t:string` required) The unique identifier of the alias.
   * `:flow_identifier` (`t:string` required) The unique identifier of the flow.
-  ## Keyword parameters:
   """
   @spec update_flow_alias(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, update_flow_alias_response(), any()}
@@ -6764,8 +6727,7 @@ defmodule AWS.BedrockAgent do
 
   ## Parameters:
   * `:knowledge_base_id` (`t:string` required) The unique identifier of the
-  knowledge base to update.
-  ## Keyword parameters:
+    knowledge base to update.
   """
   @spec update_knowledge_base(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, update_knowledge_base_response(), any()}
@@ -6814,8 +6776,7 @@ defmodule AWS.BedrockAgent do
 
   ## Parameters:
   * `:prompt_identifier` (`t:string` required) The unique identifier of the
-  prompt.
-  ## Keyword parameters:
+    prompt.
   """
   @spec update_prompt(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, update_prompt_response(), any()}

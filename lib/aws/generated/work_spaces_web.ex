@@ -2210,7 +2210,6 @@ defmodule AWS.WorkSpacesWeb do
   ## Parameters:
   * `:portal_arn` (`t:string` required) The ARN of the web portal.
   * `:browser_settings_arn` (`t:string` required) The ARN of the browser settings.
-  ## Keyword parameters:
   """
   @spec associate_browser_settings(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, associate_browser_settings_response(), any()}
@@ -2260,8 +2259,7 @@ defmodule AWS.WorkSpacesWeb do
   ## Parameters:
   * `:portal_arn` (`t:string` required) The ARN of the web portal.
   * `:ip_access_settings_arn` (`t:string` required) The ARN of the IP access
-  settings.
-  ## Keyword parameters:
+    settings.
   """
   @spec associate_ip_access_settings(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, associate_ip_access_settings_response(), any()}
@@ -2311,7 +2309,6 @@ defmodule AWS.WorkSpacesWeb do
   ## Parameters:
   * `:portal_arn` (`t:string` required) The ARN of the web portal.
   * `:network_settings_arn` (`t:string` required) The ARN of the network settings.
-  ## Keyword parameters:
   """
   @spec associate_network_settings(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, associate_network_settings_response(), any()}
@@ -2361,7 +2358,6 @@ defmodule AWS.WorkSpacesWeb do
   ## Parameters:
   * `:portal_arn` (`t:string` required) The ARN of the web portal.
   * `:trust_store_arn` (`t:string` required) The ARN of the trust store.
-  ## Keyword parameters:
   """
   @spec associate_trust_store(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, associate_trust_store_response(), any()}
@@ -2406,8 +2402,7 @@ defmodule AWS.WorkSpacesWeb do
   ## Parameters:
   * `:portal_arn` (`t:string` required) The ARN of the web portal.
   * `:user_access_logging_settings_arn` (`t:string` required) The ARN of the user
-  access logging settings.
-  ## Keyword parameters:
+    access logging settings.
   """
   @spec associate_user_access_logging_settings(
           AWS.Client.t(),
@@ -2463,7 +2458,6 @@ defmodule AWS.WorkSpacesWeb do
   ## Parameters:
   * `:portal_arn` (`t:string` required) The ARN of the web portal.
   * `:user_settings_arn` (`t:string` required) The ARN of the user settings.
-  ## Keyword parameters:
   """
   @spec associate_user_settings(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, associate_user_settings_response(), any()}
@@ -2508,7 +2502,6 @@ defmodule AWS.WorkSpacesWeb do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=workspacesweb%20CreateBrowserSettings&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec create_browser_settings(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_browser_settings_response(), any()}
@@ -2550,7 +2543,6 @@ defmodule AWS.WorkSpacesWeb do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=workspacesweb%20CreateIdentityProvider&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec create_identity_provider(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_identity_provider_response(), any()}
@@ -2592,7 +2584,6 @@ defmodule AWS.WorkSpacesWeb do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=workspacesweb%20CreateIpAccessSettings&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec create_ip_access_settings(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_ip_access_settings_response(), any()}
@@ -2636,7 +2627,6 @@ defmodule AWS.WorkSpacesWeb do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=workspacesweb%20CreateNetworkSettings&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec create_network_settings(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_network_settings_response(), any()}
@@ -2678,7 +2668,6 @@ defmodule AWS.WorkSpacesWeb do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=workspacesweb%20CreatePortal&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec create_portal(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_portal_response(), any()}
@@ -2725,7 +2714,6 @@ defmodule AWS.WorkSpacesWeb do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=workspacesweb%20CreateTrustStore&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec create_trust_store(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_trust_store_response(), any()}
@@ -2768,7 +2756,6 @@ defmodule AWS.WorkSpacesWeb do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=workspacesweb%20CreateUserAccessLoggingSettings&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec create_user_access_logging_settings(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_user_access_logging_settings_response(), any()}
@@ -2812,7 +2799,6 @@ defmodule AWS.WorkSpacesWeb do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=workspacesweb%20CreateUserSettings&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec create_user_settings(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_user_settings_response(), any()}
@@ -2855,7 +2841,6 @@ defmodule AWS.WorkSpacesWeb do
 
   ## Parameters:
   * `:browser_settings_arn` (`t:string` required) The ARN of the browser settings.
-  ## Keyword parameters:
   """
   @spec delete_browser_settings(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, delete_browser_settings_response(), any()}
@@ -2908,8 +2893,7 @@ defmodule AWS.WorkSpacesWeb do
 
   ## Parameters:
   * `:identity_provider_arn` (`t:string` required) The ARN of the identity
-  provider.
-  ## Keyword parameters:
+    provider.
   """
   @spec delete_identity_provider(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, delete_identity_provider_response(), any()}
@@ -2962,8 +2946,7 @@ defmodule AWS.WorkSpacesWeb do
 
   ## Parameters:
   * `:ip_access_settings_arn` (`t:string` required) The ARN of the IP access
-  settings.
-  ## Keyword parameters:
+    settings.
   """
   @spec delete_ip_access_settings(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, delete_ip_access_settings_response(), any()}
@@ -3016,7 +2999,6 @@ defmodule AWS.WorkSpacesWeb do
 
   ## Parameters:
   * `:network_settings_arn` (`t:string` required) The ARN of the network settings.
-  ## Keyword parameters:
   """
   @spec delete_network_settings(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, delete_network_settings_response(), any()}
@@ -3069,7 +3051,6 @@ defmodule AWS.WorkSpacesWeb do
 
   ## Parameters:
   * `:portal_arn` (`t:string` required) The ARN of the web portal.
-  ## Keyword parameters:
   """
   @spec delete_portal(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, delete_portal_response(), any()}
@@ -3122,7 +3103,6 @@ defmodule AWS.WorkSpacesWeb do
 
   ## Parameters:
   * `:trust_store_arn` (`t:string` required) The ARN of the trust store.
-  ## Keyword parameters:
   """
   @spec delete_trust_store(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, delete_trust_store_response(), any()}
@@ -3175,8 +3155,7 @@ defmodule AWS.WorkSpacesWeb do
 
   ## Parameters:
   * `:user_access_logging_settings_arn` (`t:string` required) The ARN of the user
-  access logging settings.
-  ## Keyword parameters:
+    access logging settings.
   """
   @spec delete_user_access_logging_settings(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, delete_user_access_logging_settings_response(), any()}
@@ -3234,7 +3213,6 @@ defmodule AWS.WorkSpacesWeb do
 
   ## Parameters:
   * `:user_settings_arn` (`t:string` required) The ARN of the user settings.
-  ## Keyword parameters:
   """
   @spec delete_user_settings(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, delete_user_settings_response(), any()}
@@ -3287,7 +3265,6 @@ defmodule AWS.WorkSpacesWeb do
 
   ## Parameters:
   * `:portal_arn` (`t:string` required) The ARN of the web portal.
-  ## Keyword parameters:
   """
   @spec disassociate_browser_settings(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, disassociate_browser_settings_response(), any()}
@@ -3340,7 +3317,6 @@ defmodule AWS.WorkSpacesWeb do
 
   ## Parameters:
   * `:portal_arn` (`t:string` required) The ARN of the web portal.
-  ## Keyword parameters:
   """
   @spec disassociate_ip_access_settings(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, disassociate_ip_access_settings_response(), any()}
@@ -3393,7 +3369,6 @@ defmodule AWS.WorkSpacesWeb do
 
   ## Parameters:
   * `:portal_arn` (`t:string` required) The ARN of the web portal.
-  ## Keyword parameters:
   """
   @spec disassociate_network_settings(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, disassociate_network_settings_response(), any()}
@@ -3446,7 +3421,6 @@ defmodule AWS.WorkSpacesWeb do
 
   ## Parameters:
   * `:portal_arn` (`t:string` required) The ARN of the web portal.
-  ## Keyword parameters:
   """
   @spec disassociate_trust_store(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, disassociate_trust_store_response(), any()}
@@ -3499,7 +3473,6 @@ defmodule AWS.WorkSpacesWeb do
 
   ## Parameters:
   * `:portal_arn` (`t:string` required) The ARN of the web portal.
-  ## Keyword parameters:
   """
   @spec disassociate_user_access_logging_settings(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, disassociate_user_access_logging_settings_response(), any()}
@@ -3553,7 +3526,6 @@ defmodule AWS.WorkSpacesWeb do
 
   ## Parameters:
   * `:portal_arn` (`t:string` required) The ARN of the web portal.
-  ## Keyword parameters:
   """
   @spec disassociate_user_settings(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, disassociate_user_settings_response(), any()}
@@ -3606,7 +3578,6 @@ defmodule AWS.WorkSpacesWeb do
 
   ## Parameters:
   * `:browser_settings_arn` (`t:string` required) The ARN of the browser settings.
-  ## Keyword parameters:
   """
   @spec get_browser_settings(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_browser_settings_response(), any()}
@@ -3647,8 +3618,7 @@ defmodule AWS.WorkSpacesWeb do
 
   ## Parameters:
   * `:identity_provider_arn` (`t:string` required) The ARN of the identity
-  provider.
-  ## Keyword parameters:
+    provider.
   """
   @spec get_identity_provider(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_identity_provider_response(), any()}
@@ -3689,8 +3659,7 @@ defmodule AWS.WorkSpacesWeb do
 
   ## Parameters:
   * `:ip_access_settings_arn` (`t:string` required) The ARN of the IP access
-  settings.
-  ## Keyword parameters:
+    settings.
   """
   @spec get_ip_access_settings(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_ip_access_settings_response(), any()}
@@ -3731,7 +3700,6 @@ defmodule AWS.WorkSpacesWeb do
 
   ## Parameters:
   * `:network_settings_arn` (`t:string` required) The ARN of the network settings.
-  ## Keyword parameters:
   """
   @spec get_network_settings(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_network_settings_response(), any()}
@@ -3772,7 +3740,6 @@ defmodule AWS.WorkSpacesWeb do
 
   ## Parameters:
   * `:portal_arn` (`t:string` required) The ARN of the web portal.
-  ## Keyword parameters:
   """
   @spec get_portal(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_portal_response(), any()}
@@ -3813,7 +3780,6 @@ defmodule AWS.WorkSpacesWeb do
 
   ## Parameters:
   * `:portal_arn` (`t:string` required) The ARN of the web portal.
-  ## Keyword parameters:
   """
   @spec get_portal_service_provider_metadata(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_portal_service_provider_metadata_response(), any()}
@@ -3854,7 +3820,6 @@ defmodule AWS.WorkSpacesWeb do
 
   ## Parameters:
   * `:trust_store_arn` (`t:string` required) The ARN of the trust store.
-  ## Keyword parameters:
   """
   @spec get_trust_store(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_trust_store_response(), any()}
@@ -3895,10 +3860,9 @@ defmodule AWS.WorkSpacesWeb do
 
   ## Parameters:
   * `:trust_store_arn` (`t:string` required) The ARN of the trust store
-  certificate.
+    certificate.
   * `:thumbprint` (`t:string` required) The thumbprint of the trust store
-  certificate.
-  ## Keyword parameters:
+    certificate.
   """
   @spec get_trust_store_certificate(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, get_trust_store_certificate_response(), any()}
@@ -3940,8 +3904,7 @@ defmodule AWS.WorkSpacesWeb do
 
   ## Parameters:
   * `:user_access_logging_settings_arn` (`t:string` required) The ARN of the user
-  access logging settings.
-  ## Keyword parameters:
+    access logging settings.
   """
   @spec get_user_access_logging_settings(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_user_access_logging_settings_response(), any()}
@@ -3987,7 +3950,6 @@ defmodule AWS.WorkSpacesWeb do
 
   ## Parameters:
   * `:user_settings_arn` (`t:string` required) The ARN of the user settings.
-  ## Keyword parameters:
   """
   @spec get_user_settings(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_user_settings_response(), any()}
@@ -4027,11 +3989,12 @@ defmodule AWS.WorkSpacesWeb do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=workspacesweb%20ListBrowserSettings&this_doc_guide=API%2520Reference)
 
   ## Parameters:
+
   ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of results to be included in
-  the next page.
+    the next page.
   * `:next_token` (`t:string`) The pagination token used to retrieve the next page
-  of results for this operation.
+    of results for this operation.
   """
   @spec list_browser_settings(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_browser_settings_response(), any()}
@@ -4090,11 +4053,12 @@ defmodule AWS.WorkSpacesWeb do
 
   ## Parameters:
   * `:portal_arn` (`t:string` required) The ARN of the web portal.
+
   ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of results to be included in
-  the next page.
+    the next page.
   * `:next_token` (`t:string`) The pagination token used to retrieve the next page
-  of results for this operation.
+    of results for this operation.
   """
   @spec list_identity_providers(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_identity_providers_response(), any()}
@@ -4152,11 +4116,12 @@ defmodule AWS.WorkSpacesWeb do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=workspacesweb%20ListIpAccessSettings&this_doc_guide=API%2520Reference)
 
   ## Parameters:
+
   ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of results to be included in
-  the next page.
+    the next page.
   * `:next_token` (`t:string`) The pagination token used to retrieve the next page
-  of results for this operation.
+    of results for this operation.
   """
   @spec list_ip_access_settings(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_ip_access_settings_response(), any()}
@@ -4214,11 +4179,12 @@ defmodule AWS.WorkSpacesWeb do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=workspacesweb%20ListNetworkSettings&this_doc_guide=API%2520Reference)
 
   ## Parameters:
+
   ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of results to be included in
-  the next page.
+    the next page.
   * `:next_token` (`t:string`) The pagination token used to retrieve the next page
-  of results for this operation.
+    of results for this operation.
   """
   @spec list_network_settings(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_network_settings_response(), any()}
@@ -4276,11 +4242,12 @@ defmodule AWS.WorkSpacesWeb do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=workspacesweb%20ListPortals&this_doc_guide=API%2520Reference)
 
   ## Parameters:
+
   ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of results to be included in
-  the next page.
+    the next page.
   * `:next_token` (`t:string`) The pagination token used to retrieve the next page
-  of results for this operation.
+    of results for this operation.
   """
   @spec list_portals(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_portals_response(), any()}
@@ -4339,7 +4306,6 @@ defmodule AWS.WorkSpacesWeb do
 
   ## Parameters:
   * `:resource_arn` (`t:string` required) The ARN of the resource.
-  ## Keyword parameters:
   """
   @spec list_tags_for_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_tags_for_resource_response(), any()}
@@ -4380,11 +4346,12 @@ defmodule AWS.WorkSpacesWeb do
 
   ## Parameters:
   * `:trust_store_arn` (`t:string` required) The ARN of the trust store
+
   ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of results to be included in
-  the next page.
+    the next page.
   * `:next_token` (`t:string`) The pagination token used to retrieve the next page
-  of results for this operation.
+    of results for this operation.
   """
   @spec list_trust_store_certificates(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_trust_store_certificates_response(), any()}
@@ -4442,11 +4409,12 @@ defmodule AWS.WorkSpacesWeb do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=workspacesweb%20ListTrustStores&this_doc_guide=API%2520Reference)
 
   ## Parameters:
+
   ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of results to be included in
-  the next page.
+    the next page.
   * `:next_token` (`t:string`) The pagination token used to retrieve the next page
-  of results for this operation.
+    of results for this operation.
   """
   @spec list_trust_stores(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_trust_stores_response(), any()}
@@ -4504,11 +4472,12 @@ defmodule AWS.WorkSpacesWeb do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=workspacesweb%20ListUserAccessLoggingSettings&this_doc_guide=API%2520Reference)
 
   ## Parameters:
+
   ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of results to be included in
-  the next page.
+    the next page.
   * `:next_token` (`t:string`) The pagination token used to retrieve the next page
-  of results for this operation.
+    of results for this operation.
   """
   @spec list_user_access_logging_settings(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_user_access_logging_settings_response(), any()}
@@ -4566,11 +4535,12 @@ defmodule AWS.WorkSpacesWeb do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=workspacesweb%20ListUserSettings&this_doc_guide=API%2520Reference)
 
   ## Parameters:
+
   ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of results to be included in
-  the next page.
+    the next page.
   * `:next_token` (`t:string`) The pagination token used to retrieve the next page
-  of results for this operation.
+    of results for this operation.
   """
   @spec list_user_settings(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_user_settings_response(), any()}
@@ -4629,7 +4599,6 @@ defmodule AWS.WorkSpacesWeb do
 
   ## Parameters:
   * `:resource_arn` (`t:string` required) The ARN of the resource.
-  ## Keyword parameters:
   """
   @spec tag_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, tag_resource_response(), any()}
@@ -4673,8 +4642,7 @@ defmodule AWS.WorkSpacesWeb do
   ## Parameters:
   * `:resource_arn` (`t:string` required) The ARN of the resource.
   * `:tag_keys` (`t:list[com.amazonaws.workspacesweb#TagKey]` required) The list
-  of tag keys to remove from the resource.
-  ## Keyword parameters:
+    of tag keys to remove from the resource.
   """
   @spec untag_resource(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, untag_resource_response(), any()}
@@ -4728,7 +4696,6 @@ defmodule AWS.WorkSpacesWeb do
 
   ## Parameters:
   * `:browser_settings_arn` (`t:string` required) The ARN of the browser settings.
-  ## Keyword parameters:
   """
   @spec update_browser_settings(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, update_browser_settings_response(), any()}
@@ -4781,8 +4748,7 @@ defmodule AWS.WorkSpacesWeb do
 
   ## Parameters:
   * `:identity_provider_arn` (`t:string` required) The ARN of the identity
-  provider.
-  ## Keyword parameters:
+    provider.
   """
   @spec update_identity_provider(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, update_identity_provider_response(), any()}
@@ -4835,8 +4801,7 @@ defmodule AWS.WorkSpacesWeb do
 
   ## Parameters:
   * `:ip_access_settings_arn` (`t:string` required) The ARN of the IP access
-  settings.
-  ## Keyword parameters:
+    settings.
   """
   @spec update_ip_access_settings(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, update_ip_access_settings_response(), any()}
@@ -4889,7 +4854,6 @@ defmodule AWS.WorkSpacesWeb do
 
   ## Parameters:
   * `:network_settings_arn` (`t:string` required) The ARN of the network settings.
-  ## Keyword parameters:
   """
   @spec update_network_settings(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, update_network_settings_response(), any()}
@@ -4942,7 +4906,6 @@ defmodule AWS.WorkSpacesWeb do
 
   ## Parameters:
   * `:portal_arn` (`t:string` required) The ARN of the web portal.
-  ## Keyword parameters:
   """
   @spec update_portal(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, update_portal_response(), any()}
@@ -4985,7 +4948,6 @@ defmodule AWS.WorkSpacesWeb do
 
   ## Parameters:
   * `:trust_store_arn` (`t:string` required) The ARN of the trust store.
-  ## Keyword parameters:
   """
   @spec update_trust_store(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, update_trust_store_response(), any()}
@@ -5038,8 +5000,7 @@ defmodule AWS.WorkSpacesWeb do
 
   ## Parameters:
   * `:user_access_logging_settings_arn` (`t:string` required) The ARN of the user
-  access logging settings.
-  ## Keyword parameters:
+    access logging settings.
   """
   @spec update_user_access_logging_settings(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, update_user_access_logging_settings_response(), any()}
@@ -5097,7 +5058,6 @@ defmodule AWS.WorkSpacesWeb do
 
   ## Parameters:
   * `:user_settings_arn` (`t:string` required) The ARN of the user settings.
-  ## Keyword parameters:
   """
   @spec update_user_settings(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, update_user_settings_response(), any()}

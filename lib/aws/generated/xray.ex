@@ -1740,7 +1740,6 @@ defmodule AWS.XRay do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=xray%20BatchGetTraces&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec batch_get_traces(AWS.Client.t(), Keyword.t()) ::
           {:ok, batch_get_traces_result(), any()}
@@ -1782,7 +1781,6 @@ defmodule AWS.XRay do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=xray%20CreateGroup&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec create_group(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_group_result(), any()}
@@ -1832,7 +1830,6 @@ defmodule AWS.XRay do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=xray%20CreateSamplingRule&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec create_sampling_rule(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_sampling_rule_result(), any()}
@@ -1874,7 +1871,6 @@ defmodule AWS.XRay do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=xray%20DeleteGroup&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec delete_group(AWS.Client.t(), Keyword.t()) ::
           {:ok, delete_group_result(), any()}
@@ -1916,7 +1912,6 @@ defmodule AWS.XRay do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=xray%20DeleteResourcePolicy&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec delete_resource_policy(AWS.Client.t(), Keyword.t()) ::
           {:ok, delete_resource_policy_result(), any()}
@@ -1958,7 +1953,6 @@ defmodule AWS.XRay do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=xray%20DeleteSamplingRule&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec delete_sampling_rule(AWS.Client.t(), Keyword.t()) ::
           {:ok, delete_sampling_rule_result(), any()}
@@ -2000,7 +1994,6 @@ defmodule AWS.XRay do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=xray%20GetEncryptionConfig&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec get_encryption_config(AWS.Client.t(), Keyword.t()) ::
           {:ok, get_encryption_config_result(), any()}
@@ -2042,7 +2035,6 @@ defmodule AWS.XRay do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=xray%20GetGroup&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec get_group(AWS.Client.t(), Keyword.t()) ::
           {:ok, get_group_result(), any()}
@@ -2084,7 +2076,6 @@ defmodule AWS.XRay do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=xray%20GetGroups&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec get_groups(AWS.Client.t(), Keyword.t()) ::
           {:ok, get_groups_result(), any()}
@@ -2128,7 +2119,6 @@ defmodule AWS.XRay do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=xray%20GetInsight&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec get_insight(AWS.Client.t(), Keyword.t()) ::
           {:ok, get_insight_result(), any()}
@@ -2172,7 +2162,6 @@ defmodule AWS.XRay do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=xray%20GetInsightEvents&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec get_insight_events(AWS.Client.t(), Keyword.t()) ::
           {:ok, get_insight_events_result(), any()}
@@ -2216,7 +2205,6 @@ defmodule AWS.XRay do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=xray%20GetInsightImpactGraph&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec get_insight_impact_graph(AWS.Client.t(), Keyword.t()) ::
           {:ok, get_insight_impact_graph_result(), any()}
@@ -2259,7 +2247,6 @@ defmodule AWS.XRay do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=xray%20GetInsightSummaries&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec get_insight_summaries(AWS.Client.t(), Keyword.t()) ::
           {:ok, get_insight_summaries_result(), any()}
@@ -2301,7 +2288,6 @@ defmodule AWS.XRay do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=xray%20GetSamplingRules&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec get_sampling_rules(AWS.Client.t(), Keyword.t()) ::
           {:ok, get_sampling_rules_result(), any()}
@@ -2343,7 +2329,6 @@ defmodule AWS.XRay do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=xray%20GetSamplingStatisticSummaries&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec get_sampling_statistic_summaries(AWS.Client.t(), Keyword.t()) ::
           {:ok, get_sampling_statistic_summaries_result(), any()}
@@ -2386,7 +2371,6 @@ defmodule AWS.XRay do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=xray%20GetSamplingTargets&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec get_sampling_targets(AWS.Client.t(), Keyword.t()) ::
           {:ok, get_sampling_targets_result(), any()}
@@ -2434,7 +2418,6 @@ defmodule AWS.XRay do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=xray%20GetServiceGraph&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec get_service_graph(AWS.Client.t(), Keyword.t()) ::
           {:ok, get_service_graph_result(), any()}
@@ -2476,7 +2459,6 @@ defmodule AWS.XRay do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=xray%20GetTimeSeriesServiceStatistics&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec get_time_series_service_statistics(AWS.Client.t(), Keyword.t()) ::
           {:ok, get_time_series_service_statistics_result(), any()}
@@ -2518,7 +2500,6 @@ defmodule AWS.XRay do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=xray%20GetTraceGraph&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec get_trace_graph(AWS.Client.t(), Keyword.t()) ::
           {:ok, get_trace_graph_result(), any()}
@@ -2565,7 +2546,6 @@ defmodule AWS.XRay do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=xray%20GetTraceSummaries&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec get_trace_summaries(AWS.Client.t(), Keyword.t()) ::
           {:ok, get_trace_summaries_result(), any()}
@@ -2607,7 +2587,6 @@ defmodule AWS.XRay do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=xray%20ListResourcePolicies&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec list_resource_policies(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_resource_policies_result(), any()}
@@ -2650,7 +2629,6 @@ defmodule AWS.XRay do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=xray%20ListTagsForResource&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec list_tags_for_resource(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_tags_for_resource_response(), any()}
@@ -2692,7 +2670,6 @@ defmodule AWS.XRay do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=xray%20PutEncryptionConfig&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec put_encryption_config(AWS.Client.t(), Keyword.t()) ::
           {:ok, put_encryption_config_result(), any()}
@@ -2738,7 +2715,6 @@ defmodule AWS.XRay do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=xray%20PutResourcePolicy&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec put_resource_policy(AWS.Client.t(), Keyword.t()) ::
           {:ok, put_resource_policy_result(), any()}
@@ -2780,7 +2756,6 @@ defmodule AWS.XRay do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=xray%20PutTelemetryRecords&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec put_telemetry_records(AWS.Client.t(), Keyword.t()) ::
           {:ok, put_telemetry_records_result(), any()}
@@ -2830,7 +2805,6 @@ defmodule AWS.XRay do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=xray%20PutTraceSegments&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec put_trace_segments(AWS.Client.t(), Keyword.t()) ::
           {:ok, put_trace_segments_result(), any()}
@@ -2872,7 +2846,6 @@ defmodule AWS.XRay do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=xray%20TagResource&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec tag_resource(AWS.Client.t(), Keyword.t()) ::
           {:ok, tag_resource_response(), any()}
@@ -2915,7 +2888,6 @@ defmodule AWS.XRay do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=xray%20UntagResource&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec untag_resource(AWS.Client.t(), Keyword.t()) ::
           {:ok, untag_resource_response(), any()}
@@ -2957,7 +2929,6 @@ defmodule AWS.XRay do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=xray%20UpdateGroup&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec update_group(AWS.Client.t(), Keyword.t()) ::
           {:ok, update_group_result(), any()}
@@ -2999,7 +2970,6 @@ defmodule AWS.XRay do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=xray%20UpdateSamplingRule&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec update_sampling_rule(AWS.Client.t(), Keyword.t()) ::
           {:ok, update_sampling_rule_result(), any()}

@@ -3915,9 +3915,8 @@ defmodule AWS.CloudDirectory do
 
   ## Parameters:
   * `:directory_arn` (`t:string` required) The Amazon Resource Name (ARN) that is
-  associated with the Directory where the object resides. For more
-  information, see arns.
-  ## Keyword parameters:
+    associated with the Directory where the object resides. For more
+    information, see arns.
   """
   @spec add_facet_to_object(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, add_facet_to_object_response(), any()}
@@ -3962,9 +3961,8 @@ defmodule AWS.CloudDirectory do
 
   ## Parameters:
   * `:directory_arn` (`t:string` required) The Amazon Resource Name (ARN) that is
-  associated with the Directory into which the schema is copied. For more
-  information, see arns.
-  ## Keyword parameters:
+    associated with the Directory into which the schema is copied. For more
+    information, see arns.
   """
   @spec apply_schema(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, apply_schema_response(), any()}
@@ -4009,9 +4007,8 @@ defmodule AWS.CloudDirectory do
 
   ## Parameters:
   * `:directory_arn` (`t:string` required) Amazon Resource Name (ARN) that is
-  associated with the Directory where both objects reside. For more
-  information, see arns.
-  ## Keyword parameters:
+    associated with the Directory where both objects reside. For more
+    information, see arns.
   """
   @spec attach_object(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, attach_object_response(), any()}
@@ -4056,9 +4053,8 @@ defmodule AWS.CloudDirectory do
 
   ## Parameters:
   * `:directory_arn` (`t:string` required) The Amazon Resource Name (ARN) that is
-  associated with the Directory where both objects reside. For more
-  information, see arns.
-  ## Keyword parameters:
+    associated with the Directory where both objects reside. For more
+    information, see arns.
   """
   @spec attach_policy(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, attach_policy_response(), any()}
@@ -4102,8 +4098,7 @@ defmodule AWS.CloudDirectory do
 
   ## Parameters:
   * `:directory_arn` (`t:string` required) The Amazon Resource Name (ARN) of the
-  directory where the object and index exist.
-  ## Keyword parameters:
+    directory where the object and index exist.
   """
   @spec attach_to_index(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, attach_to_index_response(), any()}
@@ -4149,8 +4144,7 @@ defmodule AWS.CloudDirectory do
 
   ## Parameters:
   * `:directory_arn` (`t:string` required) The Amazon Resource Name (ARN) of the
-  directory where you want to attach the typed link.
-  ## Keyword parameters:
+    directory where you want to attach the typed link.
   """
   @spec attach_typed_link(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, attach_typed_link_response(), any()}
@@ -4194,11 +4188,12 @@ defmodule AWS.CloudDirectory do
 
   ## Parameters:
   * `:directory_arn` (`t:string` required) The Amazon Resource Name (ARN) that is
-  associated with the Directory. For more information, see arns.
+    associated with the Directory. For more information, see arns.
+
   ## Keyword parameters:
   * `:consistency_level` (`t:enum["EVENTUAL|SERIALIZABLE"]`) Represents the manner
-  and timing in which the successful write or update of an object is reflected
-  in a subsequent read operation of that same object.
+    and timing in which the successful write or update of an object is reflected
+    in a subsequent read operation of that same object.
   """
   @spec batch_read(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, batch_read_response(), any()}
@@ -4254,8 +4249,7 @@ defmodule AWS.CloudDirectory do
 
   ## Parameters:
   * `:directory_arn` (`t:string` required) The Amazon Resource Name (ARN) that is
-  associated with the Directory. For more information, see arns.
-  ## Keyword parameters:
+    associated with the Directory. For more information, see arns.
   """
   @spec batch_write(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, batch_write_response(), any()}
@@ -4300,9 +4294,8 @@ defmodule AWS.CloudDirectory do
 
   ## Parameters:
   * `:schema_arn` (`t:string` required) The Amazon Resource Name (ARN) of the
-  published schema that will be copied into the data Directory. For more
-  information, see arns.
-  ## Keyword parameters:
+    published schema that will be copied into the data Directory. For more
+    information, see arns.
   """
   @spec create_directory(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, create_directory_response(), any()}
@@ -4347,8 +4340,7 @@ defmodule AWS.CloudDirectory do
 
   ## Parameters:
   * `:schema_arn` (`t:string` required) The schema ARN in which the new Facet will
-  be created. For more information, see arns.
-  ## Keyword parameters:
+    be created. For more information, see arns.
   """
   @spec create_facet(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, create_facet_response(), any()}
@@ -4393,8 +4385,7 @@ defmodule AWS.CloudDirectory do
 
   ## Parameters:
   * `:directory_arn` (`t:string` required) The ARN of the directory where the
-  index should be created.
-  ## Keyword parameters:
+    index should be created.
   """
   @spec create_index(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, create_index_response(), any()}
@@ -4442,9 +4433,8 @@ defmodule AWS.CloudDirectory do
 
   ## Parameters:
   * `:directory_arn` (`t:string` required) The Amazon Resource Name (ARN) that is
-  associated with the Directory in which the object will be created. For more
-  information, see arns.
-  ## Keyword parameters:
+    associated with the Directory in which the object will be created. For more
+    information, see arns.
   """
   @spec create_object(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, create_object_response(), any()}
@@ -4487,7 +4477,6 @@ defmodule AWS.CloudDirectory do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=clouddirectory%20CreateSchema&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec create_schema(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_schema_response(), any()}
@@ -4531,8 +4520,7 @@ defmodule AWS.CloudDirectory do
 
   ## Parameters:
   * `:schema_arn` (`t:string` required) The Amazon Resource Name (ARN) that is
-  associated with the schema. For more information, see arns.
-  ## Keyword parameters:
+    associated with the schema. For more information, see arns.
   """
   @spec create_typed_link_facet(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, create_typed_link_facet_response(), any()}
@@ -4578,7 +4566,6 @@ defmodule AWS.CloudDirectory do
 
   ## Parameters:
   * `:directory_arn` (`t:string` required) The ARN of the directory to delete.
-  ## Keyword parameters:
   """
   @spec delete_directory(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, delete_directory_response(), any()}
@@ -4623,8 +4610,7 @@ defmodule AWS.CloudDirectory do
 
   ## Parameters:
   * `:schema_arn` (`t:string` required) The Amazon Resource Name (ARN) that is
-  associated with the Facet. For more information, see arns.
-  ## Keyword parameters:
+    associated with the Facet. For more information, see arns.
   """
   @spec delete_facet(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, delete_facet_response(), any()}
@@ -4671,9 +4657,8 @@ defmodule AWS.CloudDirectory do
 
   ## Parameters:
   * `:directory_arn` (`t:string` required) The Amazon Resource Name (ARN) that is
-  associated with the Directory where the object resides. For more
-  information, see arns.
-  ## Keyword parameters:
+    associated with the Directory where the object resides. For more
+    information, see arns.
   """
   @spec delete_object(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, delete_object_response(), any()}
@@ -4718,8 +4703,7 @@ defmodule AWS.CloudDirectory do
 
   ## Parameters:
   * `:schema_arn` (`t:string` required) The Amazon Resource Name (ARN) of the
-  development schema. For more information, see arns.
-  ## Keyword parameters:
+    development schema. For more information, see arns.
   """
   @spec delete_schema(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, delete_schema_response(), any()}
@@ -4763,8 +4747,7 @@ defmodule AWS.CloudDirectory do
 
   ## Parameters:
   * `:schema_arn` (`t:string` required) The Amazon Resource Name (ARN) that is
-  associated with the schema. For more information, see arns.
-  ## Keyword parameters:
+    associated with the schema. For more information, see arns.
   """
   @spec delete_typed_link_facet(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, delete_typed_link_facet_response(), any()}
@@ -4808,8 +4791,7 @@ defmodule AWS.CloudDirectory do
 
   ## Parameters:
   * `:directory_arn` (`t:string` required) The Amazon Resource Name (ARN) of the
-  directory the index and object exist in.
-  ## Keyword parameters:
+    directory the index and object exist in.
   """
   @spec detach_from_index(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, detach_from_index_response(), any()}
@@ -4854,9 +4836,8 @@ defmodule AWS.CloudDirectory do
 
   ## Parameters:
   * `:directory_arn` (`t:string` required) The Amazon Resource Name (ARN) that is
-  associated with the Directory where objects reside. For more information,
-  see arns.
-  ## Keyword parameters:
+    associated with the Directory where objects reside. For more information,
+    see arns.
   """
   @spec detach_object(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, detach_object_response(), any()}
@@ -4900,9 +4881,8 @@ defmodule AWS.CloudDirectory do
 
   ## Parameters:
   * `:directory_arn` (`t:string` required) The Amazon Resource Name (ARN) that is
-  associated with the Directory where both objects reside. For more
-  information, see arns.
-  ## Keyword parameters:
+    associated with the Directory where both objects reside. For more
+    information, see arns.
   """
   @spec detach_policy(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, detach_policy_response(), any()}
@@ -4948,8 +4928,7 @@ defmodule AWS.CloudDirectory do
 
   ## Parameters:
   * `:directory_arn` (`t:string` required) The Amazon Resource Name (ARN) of the
-  directory where you want to detach the typed link.
-  ## Keyword parameters:
+    directory where you want to detach the typed link.
   """
   @spec detach_typed_link(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
@@ -4995,7 +4974,6 @@ defmodule AWS.CloudDirectory do
 
   ## Parameters:
   * `:directory_arn` (`t:string` required) The ARN of the directory to disable.
-  ## Keyword parameters:
   """
   @spec disable_directory(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, disable_directory_response(), any()}
@@ -5040,7 +5018,6 @@ defmodule AWS.CloudDirectory do
 
   ## Parameters:
   * `:directory_arn` (`t:string` required) The ARN of the directory to enable.
-  ## Keyword parameters:
   """
   @spec enable_directory(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, enable_directory_response(), any()}
@@ -5083,7 +5060,6 @@ defmodule AWS.CloudDirectory do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=clouddirectory%20GetAppliedSchemaVersion&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec get_applied_schema_version(AWS.Client.t(), Keyword.t()) ::
           {:ok, get_applied_schema_version_response(), any()}
@@ -5126,7 +5102,6 @@ defmodule AWS.CloudDirectory do
 
   ## Parameters:
   * `:directory_arn` (`t:string` required) The ARN of the directory.
-  ## Keyword parameters:
   """
   @spec get_directory(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_directory_response(), any()}
@@ -5172,8 +5147,7 @@ defmodule AWS.CloudDirectory do
 
   ## Parameters:
   * `:schema_arn` (`t:string` required) The Amazon Resource Name (ARN) that is
-  associated with the Facet. For more information, see arns.
-  ## Keyword parameters:
+    associated with the Facet. For more information, see arns.
   """
   @spec get_facet(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_facet_response(), any()}
@@ -5216,9 +5190,8 @@ defmodule AWS.CloudDirectory do
 
   ## Parameters:
   * `:directory_arn` (`t:string` required) The Amazon Resource Name (ARN) that is
-  associated with the Directory where the typed link resides. For more
-  information, see arns or Typed Links.
-  ## Keyword parameters:
+    associated with the Directory where the typed link resides. For more
+    information, see arns or Typed Links.
   """
   @spec get_link_attributes(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_link_attributes_response(), any()}
@@ -5262,10 +5235,11 @@ defmodule AWS.CloudDirectory do
 
   ## Parameters:
   * `:directory_arn` (`t:string` required) The Amazon Resource Name (ARN) that is
-  associated with the Directory where the object resides.
+    associated with the Directory where the object resides.
+
   ## Keyword parameters:
   * `:consistency_level` (`t:enum["EVENTUAL|SERIALIZABLE"]`) The consistency level
-  at which to retrieve the attributes on an object.
+    at which to retrieve the attributes on an object.
   """
   @spec get_object_attributes(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_object_attributes_response(), any()}
@@ -5320,10 +5294,11 @@ defmodule AWS.CloudDirectory do
 
   ## Parameters:
   * `:directory_arn` (`t:string` required) The ARN of the directory being
-  retrieved.
+    retrieved.
+
   ## Keyword parameters:
   * `:consistency_level` (`t:enum["EVENTUAL|SERIALIZABLE"]`) The consistency level
-  at which to retrieve the object information.
+    at which to retrieve the object information.
   """
   @spec get_object_information(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_object_information_response(), any()}
@@ -5380,7 +5355,6 @@ defmodule AWS.CloudDirectory do
 
   ## Parameters:
   * `:schema_arn` (`t:string` required) The ARN of the schema to retrieve.
-  ## Keyword parameters:
   """
   @spec get_schema_as_json(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_schema_as_json_response(), any()}
@@ -5426,8 +5400,7 @@ defmodule AWS.CloudDirectory do
 
   ## Parameters:
   * `:schema_arn` (`t:string` required) The Amazon Resource Name (ARN) that is
-  associated with the schema. For more information, see arns.
-  ## Keyword parameters:
+    associated with the schema. For more information, see arns.
   """
   @spec get_typed_link_facet_information(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_typed_link_facet_information_response(), any()}
@@ -5471,7 +5444,6 @@ defmodule AWS.CloudDirectory do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=clouddirectory%20ListAppliedSchemaArns&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec list_applied_schema_arns(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_applied_schema_arns_response(), any()}
@@ -5514,9 +5486,10 @@ defmodule AWS.CloudDirectory do
 
   ## Parameters:
   * `:directory_arn` (`t:string` required) The ARN of the directory.
+
   ## Keyword parameters:
   * `:consistency_level` (`t:enum["EVENTUAL|SERIALIZABLE"]`) The consistency level
-  to use for this operation.
+    to use for this operation.
   """
   @spec list_attached_indices(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_attached_indices_response(), any()}
@@ -5570,7 +5543,6 @@ defmodule AWS.CloudDirectory do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=clouddirectory%20ListDevelopmentSchemaArns&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec list_development_schema_arns(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_development_schema_arns_response(), any()}
@@ -5612,7 +5584,6 @@ defmodule AWS.CloudDirectory do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=clouddirectory%20ListDirectories&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec list_directories(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_directories_response(), any()}
@@ -5655,8 +5626,7 @@ defmodule AWS.CloudDirectory do
 
   ## Parameters:
   * `:schema_arn` (`t:string` required) The ARN of the schema where the facet
-  resides.
-  ## Keyword parameters:
+    resides.
   """
   @spec list_facet_attributes(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_facet_attributes_response(), any()}
@@ -5700,8 +5670,7 @@ defmodule AWS.CloudDirectory do
 
   ## Parameters:
   * `:schema_arn` (`t:string` required) The Amazon Resource Name (ARN) to retrieve
-  facet names from.
-  ## Keyword parameters:
+    facet names from.
   """
   @spec list_facet_names(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_facet_names_response(), any()}
@@ -5748,8 +5717,7 @@ defmodule AWS.CloudDirectory do
 
   ## Parameters:
   * `:directory_arn` (`t:string` required) The Amazon Resource Name (ARN) of the
-  directory where you want to list the typed links.
-  ## Keyword parameters:
+    directory where you want to list the typed links.
   """
   @spec list_incoming_typed_links(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_incoming_typed_links_response(), any()}
@@ -5793,10 +5761,11 @@ defmodule AWS.CloudDirectory do
 
   ## Parameters:
   * `:directory_arn` (`t:string` required) The ARN of the directory that the index
-  exists in.
+    exists in.
+
   ## Keyword parameters:
   * `:consistency_level` (`t:enum["EVENTUAL|SERIALIZABLE"]`) The consistency level
-  to execute the request at.
+    to execute the request at.
   """
   @spec list_index(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_index_response(), any()}
@@ -5852,7 +5821,6 @@ defmodule AWS.CloudDirectory do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=clouddirectory%20ListManagedSchemaArns&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec list_managed_schema_arns(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_managed_schema_arns_response(), any()}
@@ -5895,12 +5863,13 @@ defmodule AWS.CloudDirectory do
 
   ## Parameters:
   * `:directory_arn` (`t:string` required) The Amazon Resource Name (ARN) that is
-  associated with the Directory where the object resides. For more
-  information, see arns.
+    associated with the Directory where the object resides. For more
+    information, see arns.
+
   ## Keyword parameters:
   * `:consistency_level` (`t:enum["EVENTUAL|SERIALIZABLE"]`) Represents the manner
-  and timing in which the successful write or update of an object is reflected
-  in a subsequent read operation of that same object.
+    and timing in which the successful write or update of an object is reflected
+    in a subsequent read operation of that same object.
   """
   @spec list_object_attributes(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_object_attributes_response(), any()}
@@ -5956,12 +5925,13 @@ defmodule AWS.CloudDirectory do
 
   ## Parameters:
   * `:directory_arn` (`t:string` required) The Amazon Resource Name (ARN) that is
-  associated with the Directory where the object resides. For more
-  information, see arns.
+    associated with the Directory where the object resides. For more
+    information, see arns.
+
   ## Keyword parameters:
   * `:consistency_level` (`t:enum["EVENTUAL|SERIALIZABLE"]`) Represents the manner
-  and timing in which the successful write or update of an object is reflected
-  in a subsequent read operation of that same object.
+    and timing in which the successful write or update of an object is reflected
+    in a subsequent read operation of that same object.
   """
   @spec list_object_children(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_object_children_response(), any()}
@@ -6019,8 +5989,7 @@ defmodule AWS.CloudDirectory do
 
   ## Parameters:
   * `:directory_arn` (`t:string` required) The ARN of the directory to which the
-  parent path applies.
-  ## Keyword parameters:
+    parent path applies.
   """
   @spec list_object_parent_paths(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_object_parent_paths_response(), any()}
@@ -6065,12 +6034,13 @@ defmodule AWS.CloudDirectory do
 
   ## Parameters:
   * `:directory_arn` (`t:string` required) The Amazon Resource Name (ARN) that is
-  associated with the Directory where the object resides. For more
-  information, see arns.
+    associated with the Directory where the object resides. For more
+    information, see arns.
+
   ## Keyword parameters:
   * `:consistency_level` (`t:enum["EVENTUAL|SERIALIZABLE"]`) Represents the manner
-  and timing in which the successful write or update of an object is reflected
-  in a subsequent read operation of that same object.
+    and timing in which the successful write or update of an object is reflected
+    in a subsequent read operation of that same object.
   """
   @spec list_object_parents(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_object_parents_response(), any()}
@@ -6125,12 +6095,13 @@ defmodule AWS.CloudDirectory do
 
   ## Parameters:
   * `:directory_arn` (`t:string` required) The Amazon Resource Name (ARN) that is
-  associated with the Directory where objects reside. For more information,
-  see arns.
+    associated with the Directory where objects reside. For more information,
+    see arns.
+
   ## Keyword parameters:
   * `:consistency_level` (`t:enum["EVENTUAL|SERIALIZABLE"]`) Represents the manner
-  and timing in which the successful write or update of an object is reflected
-  in a subsequent read operation of that same object.
+    and timing in which the successful write or update of an object is reflected
+    in a subsequent read operation of that same object.
   """
   @spec list_object_policies(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_object_policies_response(), any()}
@@ -6188,8 +6159,7 @@ defmodule AWS.CloudDirectory do
 
   ## Parameters:
   * `:directory_arn` (`t:string` required) The Amazon Resource Name (ARN) of the
-  directory where you want to list the typed links.
-  ## Keyword parameters:
+    directory where you want to list the typed links.
   """
   @spec list_outgoing_typed_links(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_outgoing_typed_links_response(), any()}
@@ -6233,12 +6203,13 @@ defmodule AWS.CloudDirectory do
 
   ## Parameters:
   * `:directory_arn` (`t:string` required) The Amazon Resource Name (ARN) that is
-  associated with the Directory where objects reside. For more information,
-  see arns.
+    associated with the Directory where objects reside. For more information,
+    see arns.
+
   ## Keyword parameters:
   * `:consistency_level` (`t:enum["EVENTUAL|SERIALIZABLE"]`) Represents the manner
-  and timing in which the successful write or update of an object is reflected
-  in a subsequent read operation of that same object.
+    and timing in which the successful write or update of an object is reflected
+    in a subsequent read operation of that same object.
   """
   @spec list_policy_attachments(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_policy_attachments_response(), any()}
@@ -6294,7 +6265,6 @@ defmodule AWS.CloudDirectory do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=clouddirectory%20ListPublishedSchemaArns&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec list_published_schema_arns(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_published_schema_arns_response(), any()}
@@ -6338,7 +6308,6 @@ defmodule AWS.CloudDirectory do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=clouddirectory%20ListTagsForResource&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec list_tags_for_resource(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_tags_for_resource_response(), any()}
@@ -6383,8 +6352,7 @@ defmodule AWS.CloudDirectory do
 
   ## Parameters:
   * `:schema_arn` (`t:string` required) The Amazon Resource Name (ARN) that is
-  associated with the schema. For more information, see arns.
-  ## Keyword parameters:
+    associated with the schema. For more information, see arns.
   """
   @spec list_typed_link_facet_attributes(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_typed_link_facet_attributes_response(), any()}
@@ -6430,8 +6398,7 @@ defmodule AWS.CloudDirectory do
 
   ## Parameters:
   * `:schema_arn` (`t:string` required) The Amazon Resource Name (ARN) that is
-  associated with the schema. For more information, see arns.
-  ## Keyword parameters:
+    associated with the schema. For more information, see arns.
   """
   @spec list_typed_link_facet_names(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_typed_link_facet_names_response(), any()}
@@ -6481,8 +6448,7 @@ defmodule AWS.CloudDirectory do
 
   ## Parameters:
   * `:directory_arn` (`t:string` required) The Amazon Resource Name (ARN) that is
-  associated with the Directory. For more information, see arns.
-  ## Keyword parameters:
+    associated with the Directory. For more information, see arns.
   """
   @spec lookup_policy(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, lookup_policy_response(), any()}
@@ -6527,9 +6493,8 @@ defmodule AWS.CloudDirectory do
 
   ## Parameters:
   * `:development_schema_arn` (`t:string` required) The Amazon Resource Name (ARN)
-  that is associated with the development schema. For more information, see
-  arns.
-  ## Keyword parameters:
+    that is associated with the development schema. For more information, see
+    arns.
   """
   @spec publish_schema(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, publish_schema_response(), any()}
@@ -6576,7 +6541,6 @@ defmodule AWS.CloudDirectory do
 
   ## Parameters:
   * `:schema_arn` (`t:string` required) The ARN of the schema to update.
-  ## Keyword parameters:
   """
   @spec put_schema_from_json(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, put_schema_from_json_response(), any()}
@@ -6620,8 +6584,7 @@ defmodule AWS.CloudDirectory do
 
   ## Parameters:
   * `:directory_arn` (`t:string` required) The ARN of the directory in which the
-  object resides.
-  ## Keyword parameters:
+    object resides.
   """
   @spec remove_facet_from_object(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, remove_facet_from_object_response(), any()}
@@ -6664,7 +6627,6 @@ defmodule AWS.CloudDirectory do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=clouddirectory%20TagResource&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec tag_resource(AWS.Client.t(), Keyword.t()) ::
           {:ok, tag_resource_response(), any()}
@@ -6706,7 +6668,6 @@ defmodule AWS.CloudDirectory do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=clouddirectory%20UntagResource&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec untag_resource(AWS.Client.t(), Keyword.t()) ::
           {:ok, untag_resource_response(), any()}
@@ -6749,8 +6710,7 @@ defmodule AWS.CloudDirectory do
 
   ## Parameters:
   * `:schema_arn` (`t:string` required) The Amazon Resource Name (ARN) that is
-  associated with the Facet. For more information, see arns.
-  ## Keyword parameters:
+    associated with the Facet. For more information, see arns.
   """
   @spec update_facet(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, update_facet_response(), any()}
@@ -6795,9 +6755,8 @@ defmodule AWS.CloudDirectory do
 
   ## Parameters:
   * `:directory_arn` (`t:string` required) The Amazon Resource Name (ARN) that is
-  associated with the Directory where the updated typed link resides. For more
-  information, see arns or Typed Links.
-  ## Keyword parameters:
+    associated with the Directory where the updated typed link resides. For more
+    information, see arns or Typed Links.
   """
   @spec update_link_attributes(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, update_link_attributes_response(), any()}
@@ -6841,9 +6800,8 @@ defmodule AWS.CloudDirectory do
 
   ## Parameters:
   * `:directory_arn` (`t:string` required) The Amazon Resource Name (ARN) that is
-  associated with the Directory where the object resides. For more
-  information, see arns.
-  ## Keyword parameters:
+    associated with the Directory where the object resides. For more
+    information, see arns.
   """
   @spec update_object_attributes(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, update_object_attributes_response(), any()}
@@ -6888,8 +6846,7 @@ defmodule AWS.CloudDirectory do
 
   ## Parameters:
   * `:schema_arn` (`t:string` required) The Amazon Resource Name (ARN) of the
-  development schema. For more information, see arns.
-  ## Keyword parameters:
+    development schema. For more information, see arns.
   """
   @spec update_schema(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, update_schema_response(), any()}
@@ -6933,8 +6890,7 @@ defmodule AWS.CloudDirectory do
 
   ## Parameters:
   * `:schema_arn` (`t:string` required) The Amazon Resource Name (ARN) that is
-  associated with the schema. For more information, see arns.
-  ## Keyword parameters:
+    associated with the schema. For more information, see arns.
   """
   @spec update_typed_link_facet(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, update_typed_link_facet_response(), any()}
@@ -6982,7 +6938,6 @@ defmodule AWS.CloudDirectory do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=clouddirectory%20UpgradeAppliedSchema&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec upgrade_applied_schema(AWS.Client.t(), Keyword.t()) ::
           {:ok, upgrade_applied_schema_response(), any()}
@@ -7025,7 +6980,6 @@ defmodule AWS.CloudDirectory do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=clouddirectory%20UpgradePublishedSchema&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec upgrade_published_schema(AWS.Client.t(), Keyword.t()) ::
           {:ok, upgrade_published_schema_response(), any()}

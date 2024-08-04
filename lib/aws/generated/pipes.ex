@@ -1391,7 +1391,6 @@ defmodule AWS.Pipes do
 
   ## Parameters:
   * `:name` (`t:string` required) The name of the pipe.
-  ## Keyword parameters:
   """
   @spec create_pipe(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, create_pipe_response(), any()}
@@ -1437,7 +1436,6 @@ defmodule AWS.Pipes do
 
   ## Parameters:
   * `:name` (`t:string` required) The name of the pipe.
-  ## Keyword parameters:
   """
   @spec delete_pipe(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, delete_pipe_response(), any()}
@@ -1493,7 +1491,6 @@ defmodule AWS.Pipes do
 
   ## Parameters:
   * `:name` (`t:string` required) The name of the pipe.
-  ## Keyword parameters:
   """
   @spec describe_pipe(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, describe_pipe_response(), any()}
@@ -1536,19 +1533,20 @@ defmodule AWS.Pipes do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=pipes%20ListPipes&this_doc_guide=API%2520Reference)
 
   ## Parameters:
+
   ## Keyword parameters:
   * `:current_state` (`t:string`) The state the pipe is in.
   * `:desired_state` (`t:string`) The state the pipe should be in.
   * `:limit` (`t:integer`) The maximum number of pipes to include in the response.
   * `:name_prefix` (`t:string`) A value that will return a subset of the pipes
-  associated with this account. For example, "NamePrefix": "ABC" will return
-  all endpoints with "ABC" in the name.
+    associated with this account. For example, "NamePrefix": "ABC" will return
+    all endpoints with "ABC" in the name.
   * `:next_token` (`t:string`) If nextToken is returned, there are more results
-  available. The value of nextToken is a unique pagination token for each
-  page. Make the call again using the returned token to retrieve the next
-  page. Keep all other arguments unchanged. Each pagination token expires
-  after 24 hours. Using an expired pagination token will return an HTTP 400
-  InvalidToken error.
+    available. The value of nextToken is a unique pagination token for each
+    page. Make the call again using the returned token to retrieve the next
+    page. Keep all other arguments unchanged. Each pagination token expires
+    after 24 hours. Using an expired pagination token will return an HTTP 400
+    InvalidToken error.
   * `:source_prefix` (`t:string`) The prefix matching the pipe source.
   * `:target_prefix` (`t:string`) The prefix matching the pipe target.
   """
@@ -1660,8 +1658,7 @@ defmodule AWS.Pipes do
 
   ## Parameters:
   * `:resource_arn` (`t:string` required) The ARN of the pipe for which you want
-  to view tags.
-  ## Keyword parameters:
+    to view tags.
   """
   @spec list_tags_for_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_tags_for_resource_response(), any()}
@@ -1702,7 +1699,6 @@ defmodule AWS.Pipes do
 
   ## Parameters:
   * `:name` (`t:string` required) The name of the pipe.
-  ## Keyword parameters:
   """
   @spec start_pipe(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, start_pipe_response(), any()}
@@ -1745,7 +1741,6 @@ defmodule AWS.Pipes do
 
   ## Parameters:
   * `:name` (`t:string` required) The name of the pipe.
-  ## Keyword parameters:
   """
   @spec stop_pipe(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, stop_pipe_response(), any()}
@@ -1792,7 +1787,6 @@ defmodule AWS.Pipes do
 
   ## Parameters:
   * `:resource_arn` (`t:string` required) The ARN of the pipe.
-  ## Keyword parameters:
   """
   @spec tag_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, tag_resource_response(), any()}
@@ -1836,8 +1830,7 @@ defmodule AWS.Pipes do
   ## Parameters:
   * `:resource_arn` (`t:string` required) The ARN of the pipe.
   * `:tag_keys` (`t:list[com.amazonaws.pipes#TagKey]` required) The list of tag
-  keys to remove from the pipe.
-  ## Keyword parameters:
+    keys to remove from the pipe.
   """
   @spec untag_resource(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, untag_resource_response(), any()}
@@ -1900,7 +1893,6 @@ defmodule AWS.Pipes do
 
   ## Parameters:
   * `:name` (`t:string` required) The name of the pipe.
-  ## Keyword parameters:
   """
   @spec update_pipe(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, update_pipe_response(), any()}

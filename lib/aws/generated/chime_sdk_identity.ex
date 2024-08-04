@@ -1287,7 +1287,6 @@ defmodule AWS.ChimeSDKIdentity do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chimesdkidentity%20CreateAppInstance&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec create_app_instance(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_app_instance_response(), any()}
@@ -1331,7 +1330,6 @@ defmodule AWS.ChimeSDKIdentity do
 
   ## Parameters:
   * `:app_instance_arn` (`t:string` required) The ARN of the AppInstance.
-  ## Keyword parameters:
   """
   @spec create_app_instance_admin(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, create_app_instance_admin_response(), any()}
@@ -1374,7 +1372,6 @@ defmodule AWS.ChimeSDKIdentity do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chimesdkidentity%20CreateAppInstanceBot&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec create_app_instance_bot(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_app_instance_bot_response(), any()}
@@ -1417,7 +1414,6 @@ defmodule AWS.ChimeSDKIdentity do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chimesdkidentity%20CreateAppInstanceUser&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec create_app_instance_user(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_app_instance_user_response(), any()}
@@ -1460,7 +1456,6 @@ defmodule AWS.ChimeSDKIdentity do
 
   ## Parameters:
   * `:app_instance_arn` (`t:string` required) The ARN of the AppInstance.
-  ## Keyword parameters:
   """
   @spec delete_app_instance(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
@@ -1514,9 +1509,8 @@ defmodule AWS.ChimeSDKIdentity do
 
   ## Parameters:
   * `:app_instance_admin_arn` (`t:string` required) The ARN of the AppInstance's
-  administrator.
+    administrator.
   * `:app_instance_arn` (`t:string` required) The ARN of the AppInstance.
-  ## Keyword parameters:
   """
   @spec delete_app_instance_admin(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
@@ -1575,8 +1569,7 @@ defmodule AWS.ChimeSDKIdentity do
 
   ## Parameters:
   * `:app_instance_bot_arn` (`t:string` required) The ARN of the AppInstanceBot
-  being deleted.
-  ## Keyword parameters:
+    being deleted.
   """
   @spec delete_app_instance_bot(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
@@ -1629,8 +1622,7 @@ defmodule AWS.ChimeSDKIdentity do
 
   ## Parameters:
   * `:app_instance_user_arn` (`t:string` required) The ARN of the user request
-  being deleted.
-  ## Keyword parameters:
+    being deleted.
   """
   @spec delete_app_instance_user(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
@@ -1684,8 +1676,7 @@ defmodule AWS.ChimeSDKIdentity do
   ## Parameters:
   * `:app_instance_user_arn` (`t:string` required) The ARN of the AppInstanceUser.
   * `:endpoint_id` (`t:string` required) The unique identifier of the
-  AppInstanceUserEndpoint.
-  ## Keyword parameters:
+    AppInstanceUserEndpoint.
   """
   @spec deregister_app_instance_user_endpoint(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, nil, any()}
@@ -1744,7 +1735,6 @@ defmodule AWS.ChimeSDKIdentity do
 
   ## Parameters:
   * `:app_instance_arn` (`t:string` required) The ARN of the AppInstance.
-  ## Keyword parameters:
   """
   @spec describe_app_instance(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, describe_app_instance_response(), any()}
@@ -1785,9 +1775,8 @@ defmodule AWS.ChimeSDKIdentity do
 
   ## Parameters:
   * `:app_instance_admin_arn` (`t:string` required) The ARN of the
-  AppInstanceAdmin.
+    AppInstanceAdmin.
   * `:app_instance_arn` (`t:string` required) The ARN of the AppInstance.
-  ## Keyword parameters:
   """
   @spec describe_app_instance_admin(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, describe_app_instance_admin_response(), any()}
@@ -1834,7 +1823,6 @@ defmodule AWS.ChimeSDKIdentity do
 
   ## Parameters:
   * `:app_instance_bot_arn` (`t:string` required) The ARN of the AppInstanceBot.
-  ## Keyword parameters:
   """
   @spec describe_app_instance_bot(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, describe_app_instance_bot_response(), any()}
@@ -1875,7 +1863,6 @@ defmodule AWS.ChimeSDKIdentity do
 
   ## Parameters:
   * `:app_instance_user_arn` (`t:string` required) The ARN of the AppInstanceUser.
-  ## Keyword parameters:
   """
   @spec describe_app_instance_user(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, describe_app_instance_user_response(), any()}
@@ -1917,8 +1904,7 @@ defmodule AWS.ChimeSDKIdentity do
   ## Parameters:
   * `:app_instance_user_arn` (`t:string` required) The ARN of the AppInstanceUser.
   * `:endpoint_id` (`t:string` required) The unique identifier of the
-  AppInstanceUserEndpoint.
-  ## Keyword parameters:
+    AppInstanceUserEndpoint.
   """
   @spec describe_app_instance_user_endpoint(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, describe_app_instance_user_endpoint_response(), any()}
@@ -1965,7 +1951,6 @@ defmodule AWS.ChimeSDKIdentity do
 
   ## Parameters:
   * `:app_instance_arn` (`t:string` required) The ARN of the AppInstance.
-  ## Keyword parameters:
   """
   @spec get_app_instance_retention_settings(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_app_instance_retention_settings_response(), any()}
@@ -2006,11 +1991,12 @@ defmodule AWS.ChimeSDKIdentity do
 
   ## Parameters:
   * `:app_instance_arn` (`t:string` required) The ARN of the AppInstance.
+
   ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of administrators that you
-  want to return.
+    want to return.
   * `:next_token` (`t:string`) The token returned from previous API requests until
-  the number of administrators is reached.
+    the number of administrators is reached.
   """
   @spec list_app_instance_admins(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_app_instance_admins_response(), any()}
@@ -2069,10 +2055,11 @@ defmodule AWS.ChimeSDKIdentity do
 
   ## Parameters:
   * `:app_instance_arn` (`t:string` required) The ARN of the AppInstance.
+
   ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of requests to return.
   * `:next_token` (`t:string`) The token passed by previous API calls until all
-  requested bots are returned.
+    requested bots are returned.
   """
   @spec list_app_instance_bots(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_app_instance_bots_response(), any()}
@@ -2133,11 +2120,12 @@ defmodule AWS.ChimeSDKIdentity do
 
   ## Parameters:
   * `:app_instance_user_arn` (`t:string` required) The ARN of the AppInstanceUser.
+
   ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of endpoints that you want to
-  return.
+    return.
   * `:next_token` (`t:string`) The token passed by previous API calls until all
-  requested endpoints are returned.
+    requested endpoints are returned.
   """
   @spec list_app_instance_user_endpoints(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_app_instance_user_endpoints_response(), any()}
@@ -2196,11 +2184,12 @@ defmodule AWS.ChimeSDKIdentity do
 
   ## Parameters:
   * `:app_instance_arn` (`t:string` required) The ARN of the AppInstance.
+
   ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of requests that you want
-  returned.
+    returned.
   * `:next_token` (`t:string`) The token passed by previous API calls until all
-  requested users are returned.
+    requested users are returned.
   """
   @spec list_app_instance_users(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_app_instance_users_response(), any()}
@@ -2259,11 +2248,12 @@ defmodule AWS.ChimeSDKIdentity do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chimesdkidentity%20ListAppInstances&this_doc_guide=API%2520Reference)
 
   ## Parameters:
+
   ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of AppInstances that you want
-  to return.
+    to return.
   * `:next_token` (`t:string`) The token passed by previous API requests until you
-  reach the maximum number of AppInstances.
+    reach the maximum number of AppInstances.
   """
   @spec list_app_instances(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_app_instances_response(), any()}
@@ -2322,7 +2312,6 @@ defmodule AWS.ChimeSDKIdentity do
 
   ## Parameters:
   * `:resource_arn` (`t:string` required) The ARN of the resource.
-  ## Keyword parameters:
   """
   @spec list_tags_for_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_tags_for_resource_response(), any()}
@@ -2364,7 +2353,6 @@ defmodule AWS.ChimeSDKIdentity do
 
   ## Parameters:
   * `:app_instance_arn` (`t:string` required) The ARN of the AppInstance.
-  ## Keyword parameters:
   """
   @spec put_app_instance_retention_settings(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, put_app_instance_retention_settings_response(), any()}
@@ -2407,7 +2395,6 @@ defmodule AWS.ChimeSDKIdentity do
 
   ## Parameters:
   * `:app_instance_user_arn` (`t:string` required) The ARN of the AppInstanceUser.
-  ## Keyword parameters:
   """
   @spec put_app_instance_user_expiration_settings(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, put_app_instance_user_expiration_settings_response(), any()}
@@ -2457,7 +2444,6 @@ defmodule AWS.ChimeSDKIdentity do
 
   ## Parameters:
   * `:app_instance_user_arn` (`t:string` required) The ARN of the AppInstanceUser.
-  ## Keyword parameters:
   """
   @spec register_app_instance_user_endpoint(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, register_app_instance_user_endpoint_response(), any()}
@@ -2503,7 +2489,6 @@ defmodule AWS.ChimeSDKIdentity do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chimesdkidentity%20TagResource&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec tag_resource(AWS.Client.t(), Keyword.t()) ::
           {:ok, nil, any()}
@@ -2546,7 +2531,6 @@ defmodule AWS.ChimeSDKIdentity do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=chimesdkidentity%20UntagResource&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec untag_resource(AWS.Client.t(), Keyword.t()) ::
           {:ok, nil, any()}
@@ -2589,7 +2573,6 @@ defmodule AWS.ChimeSDKIdentity do
 
   ## Parameters:
   * `:app_instance_arn` (`t:string` required) The ARN of the AppInstance.
-  ## Keyword parameters:
   """
   @spec update_app_instance(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, update_app_instance_response(), any()}
@@ -2632,7 +2615,6 @@ defmodule AWS.ChimeSDKIdentity do
 
   ## Parameters:
   * `:app_instance_bot_arn` (`t:string` required) The ARN of the AppInstanceBot.
-  ## Keyword parameters:
   """
   @spec update_app_instance_bot(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, update_app_instance_bot_response(), any()}
@@ -2675,7 +2657,6 @@ defmodule AWS.ChimeSDKIdentity do
 
   ## Parameters:
   * `:app_instance_user_arn` (`t:string` required) The ARN of the AppInstanceUser.
-  ## Keyword parameters:
   """
   @spec update_app_instance_user(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, update_app_instance_user_response(), any()}
@@ -2720,8 +2701,7 @@ defmodule AWS.ChimeSDKIdentity do
   ## Parameters:
   * `:app_instance_user_arn` (`t:string` required) The ARN of the AppInstanceUser.
   * `:endpoint_id` (`t:string` required) The unique identifier of the
-  AppInstanceUserEndpoint.
-  ## Keyword parameters:
+    AppInstanceUserEndpoint.
   """
   @spec update_app_instance_user_endpoint(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, update_app_instance_user_endpoint_response(), any()}

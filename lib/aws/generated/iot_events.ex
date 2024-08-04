@@ -1742,7 +1742,6 @@ defmodule AWS.IoTEvents do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotevents%20CreateAlarmModel&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec create_alarm_model(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_alarm_model_response(), any()}
@@ -1784,7 +1783,6 @@ defmodule AWS.IoTEvents do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotevents%20CreateDetectorModel&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec create_detector_model(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_detector_model_response(), any()}
@@ -1826,7 +1824,6 @@ defmodule AWS.IoTEvents do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotevents%20CreateInput&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec create_input(AWS.Client.t(), Keyword.t()) ::
           {:ok, create_input_response(), any()}
@@ -1870,7 +1867,6 @@ defmodule AWS.IoTEvents do
 
   ## Parameters:
   * `:alarm_model_name` (`t:string` required) The name of the alarm model.
-  ## Keyword parameters:
   """
   @spec delete_alarm_model(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, delete_alarm_model_response(), any()}
@@ -1924,8 +1920,7 @@ defmodule AWS.IoTEvents do
 
   ## Parameters:
   * `:detector_model_name` (`t:string` required) The name of the detector model to
-  be deleted.
-  ## Keyword parameters:
+    be deleted.
   """
   @spec delete_detector_model(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, delete_detector_model_response(), any()}
@@ -1978,7 +1973,6 @@ defmodule AWS.IoTEvents do
 
   ## Parameters:
   * `:input_name` (`t:string` required) The name of the input to delete.
-  ## Keyword parameters:
   """
   @spec delete_input(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, delete_input_response(), any()}
@@ -2032,6 +2026,7 @@ defmodule AWS.IoTEvents do
 
   ## Parameters:
   * `:alarm_model_name` (`t:string` required) The name of the alarm model.
+
   ## Keyword parameters:
   * `:alarm_model_version` (`t:string`) The version of the alarm model.
   """
@@ -2086,6 +2081,7 @@ defmodule AWS.IoTEvents do
 
   ## Parameters:
   * `:detector_model_name` (`t:string` required) The name of the detector model.
+
   ## Keyword parameters:
   * `:detector_model_version` (`t:string`) The version of the detector model.
   """
@@ -2139,8 +2135,7 @@ defmodule AWS.IoTEvents do
 
   ## Parameters:
   * `:analysis_id` (`t:string` required) The ID of the analysis result that you
-  want to retrieve.
-  ## Keyword parameters:
+    want to retrieve.
   """
   @spec describe_detector_model_analysis(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, describe_detector_model_analysis_response(), any()}
@@ -2181,7 +2176,6 @@ defmodule AWS.IoTEvents do
 
   ## Parameters:
   * `:input_name` (`t:string` required) The name of the input.
-  ## Keyword parameters:
   """
   @spec describe_input(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, describe_input_response(), any()}
@@ -2221,7 +2215,6 @@ defmodule AWS.IoTEvents do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotevents%20DescribeLoggingOptions&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec describe_logging_options(AWS.Client.t(), Keyword.t()) ::
           {:ok, describe_logging_options_response(), any()}
@@ -2262,12 +2255,13 @@ defmodule AWS.IoTEvents do
 
   ## Parameters:
   * `:analysis_id` (`t:string` required) The ID of the analysis result that you
-  want to retrieve.
+    want to retrieve.
+
   ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of results to be returned per
-  request.
+    request.
   * `:next_token` (`t:string`) The token that you can use to return the next set
-  of results.
+    of results.
   """
   @spec get_detector_model_analysis_results(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, get_detector_model_analysis_results_response(), any()}
@@ -2327,11 +2321,12 @@ defmodule AWS.IoTEvents do
 
   ## Parameters:
   * `:alarm_model_name` (`t:string` required) The name of the alarm model.
+
   ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of results to be returned per
-  request.
+    request.
   * `:next_token` (`t:string`) The token that you can use to return the next set
-  of results.
+    of results.
   """
   @spec list_alarm_model_versions(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_alarm_model_versions_response(), any()}
@@ -2390,11 +2385,12 @@ defmodule AWS.IoTEvents do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotevents%20ListAlarmModels&this_doc_guide=API%2520Reference)
 
   ## Parameters:
+
   ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of results to be returned per
-  request.
+    request.
   * `:next_token` (`t:string`) The token that you can use to return the next set
-  of results.
+    of results.
   """
   @spec list_alarm_models(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_alarm_models_response(), any()}
@@ -2454,12 +2450,13 @@ defmodule AWS.IoTEvents do
 
   ## Parameters:
   * `:detector_model_name` (`t:string` required) The name of the detector model
-  whose versions are returned.
+    whose versions are returned.
+
   ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of results to be returned per
-  request.
+    request.
   * `:next_token` (`t:string`) The token that you can use to return the next set
-  of results.
+    of results.
   """
   @spec list_detector_model_versions(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_detector_model_versions_response(), any()}
@@ -2518,11 +2515,12 @@ defmodule AWS.IoTEvents do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotevents%20ListDetectorModels&this_doc_guide=API%2520Reference)
 
   ## Parameters:
+
   ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of results to be returned per
-  request.
+    request.
   * `:next_token` (`t:string`) The token that you can use to return the next set
-  of results.
+    of results.
   """
   @spec list_detector_models(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_detector_models_response(), any()}
@@ -2580,7 +2578,6 @@ defmodule AWS.IoTEvents do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotevents%20ListInputRoutings&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec list_input_routings(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_input_routings_response(), any()}
@@ -2622,11 +2619,12 @@ defmodule AWS.IoTEvents do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotevents%20ListInputs&this_doc_guide=API%2520Reference)
 
   ## Parameters:
+
   ## Keyword parameters:
   * `:max_results` (`t:integer`) The maximum number of results to be returned per
-  request.
+    request.
   * `:next_token` (`t:string`) The token that you can use to return the next set
-  of results.
+    of results.
   """
   @spec list_inputs(AWS.Client.t(), Keyword.t()) ::
           {:ok, list_inputs_response(), any()}
@@ -2685,7 +2683,6 @@ defmodule AWS.IoTEvents do
 
   ## Parameters:
   * `:resource_arn` (`t:string` required) The ARN of the resource.
-  ## Keyword parameters:
   """
   @spec list_tags_for_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, list_tags_for_resource_response(), any()}
@@ -2726,7 +2723,6 @@ defmodule AWS.IoTEvents do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotevents%20PutLoggingOptions&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec put_logging_options(AWS.Client.t(), Keyword.t()) ::
           {:ok, nil, any()}
@@ -2771,7 +2767,6 @@ defmodule AWS.IoTEvents do
   [API Reference](https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=iotevents%20StartDetectorModelAnalysis&this_doc_guide=API%2520Reference)
 
   ## Parameters:
-  ## Keyword parameters:
   """
   @spec start_detector_model_analysis(AWS.Client.t(), Keyword.t()) ::
           {:ok, start_detector_model_analysis_response(), any()}
@@ -2815,7 +2810,6 @@ defmodule AWS.IoTEvents do
 
   ## Parameters:
   * `:resource_arn` (`t:string` required) The ARN of the resource.
-  ## Keyword parameters:
   """
   @spec tag_resource(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, tag_resource_response(), any()}
@@ -2860,8 +2854,7 @@ defmodule AWS.IoTEvents do
   ## Parameters:
   * `:resource_arn` (`t:string` required) The ARN of the resource.
   * `:tag_keys` (`t:list[com.amazonaws.iotevents#TagKey]` required) A list of the
-  keys of the tags to be removed from the resource.
-  ## Keyword parameters:
+    keys of the tags to be removed from the resource.
   """
   @spec untag_resource(AWS.Client.t(), String.t(), String.t(), Keyword.t()) ::
           {:ok, untag_resource_response(), any()}
@@ -2916,7 +2909,6 @@ defmodule AWS.IoTEvents do
 
   ## Parameters:
   * `:alarm_model_name` (`t:string` required) The name of the alarm model.
-  ## Keyword parameters:
   """
   @spec update_alarm_model(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, update_alarm_model_response(), any()}
@@ -2960,8 +2952,7 @@ defmodule AWS.IoTEvents do
 
   ## Parameters:
   * `:detector_model_name` (`t:string` required) The name of the detector model
-  that is updated.
-  ## Keyword parameters:
+    that is updated.
   """
   @spec update_detector_model(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, update_detector_model_response(), any()}
@@ -3004,7 +2995,6 @@ defmodule AWS.IoTEvents do
 
   ## Parameters:
   * `:input_name` (`t:string` required) The name of the input you want to update.
-  ## Keyword parameters:
   """
   @spec update_input(AWS.Client.t(), String.t(), Keyword.t()) ::
           {:ok, update_input_response(), any()}
